@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Esqueleto estrutural. A fidelidade visual vem do restauro nas semanas 1–2,
+// a partir dos templates reais. O que está fixado aqui é a ORDEM das seções,
+// que o restauro fiel preserva, e a faixa institucional aprovada (D10).
+const indicadores = [
+  { valor: null,  rotulo: 'km de linhas de transmissão' },       // Alupar fornece
+  { valor: '4',   rotulo: 'países: Brasil, Colômbia, Peru e Chile' },
+  { valor: null,  rotulo: 'MW de capacidade instalada' },        // Alupar fornece
+  { valor: 'AAA', rotulo: 'rating em escala nacional, Fitch' },
+];
+---
+<Base
+  titulo="Alupar — Institucional"
+  descricao="A Alupar atua em transmissão e geração de energia no Brasil, na Colômbia, no Peru e no Chile."
+>
+  <header class="topo">
+    <div class="container">
+      <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto
+           chega ao leitor de tela. Aqui o h1 tem texto real, oculto
+           visualmente, e o logotipo é imagem com alt. -->
+      <h1><span class="sr-only">Alupar</span></h1>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- 1. Rotativo de banners — sem autoplay sem controle, com altura
+         reservada e recorte próprio por breakpoint. -->
+    <section aria-label="Destaques"><!-- TODO S2 --></section>
+
+    <!-- 2. Faixa institucional (D10) — única adição de estrutura. -->
+    <section class="faixa" aria-label="A Alupar em números">
+      <div class="container">
+        <ul>
+          {indicadores.map((i) => (
+            <li>
+              <span class="valor" data-pendente={i.valor === null}>
+                {i.valor ?? '—'}
+              </span>
+              <span class="rotulo">{i.rotulo}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Notícias — feed do RI (D5), 24 meses na listagem (D9). -->
+    <section aria-labelledby="h-noticias">
+      <h2 id="h-noticias">Notícias</h2>
+      <!-- TODO S3 -->
+    </section>
+
+    <!-- 4. Vídeo institucional --><section aria-label="Vídeo institucional"></section>
+    <!-- 5. Sustentabilidade  --><section aria-label="Sustentabilidade"></section>
+  </main>
+</Base>
+
+<style>
+  .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
+  .faixa ul {
+    list-style: none; margin: 0; padding: var(--e5) 0;
+    display: grid; gap: var(--e4);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .faixa li { display: flex; flex-direction: column; gap: var(--e1); }
+  .valor { font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--verde-texto); }
+  .valor[data-pendente='true'] { color: var(--cinza); }
+  .rotulo { font-size: .875rem; color: var(--preto); }
+</style>
