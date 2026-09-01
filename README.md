@@ -46,8 +46,13 @@ os banners.
 
 ## Documentos
 
-- [`docs/decisoes.md`](docs/decisoes.md) — as 11 decisões e seus motivos
+- [`docs/prd.md`](docs/prd.md) — o que o site precisa ser e por quê; começa aqui
+- [`docs/decisoes.md`](docs/decisoes.md) — as doze decisões e seus motivos
 - [`docs/marco-0-runbook.md`](docs/marco-0-runbook.md) — as sete ações emergenciais, com verificação
+
+O PRD tem duas seções deliberadamente incompletas (público e métricas de
+produto) e uma lista de perguntas em aberto no fim. Preenchê-las é o próximo
+passo do documento.
 
 ## Estrutura
 
