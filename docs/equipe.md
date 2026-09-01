@@ -117,6 +117,39 @@ executa, não verba. O segundo dev é o único acréscimo real.
 
 ---
 
+## Quem ainda falta nomear
+
+As três lacunas acima são de competência — falta quem faça. Estas são de
+**identidade**: o papel existe, alguém provavelmente já o exerce, mas ninguém
+sabe quem é. São mais baratas de resolver e mais caras de ignorar, porque
+travam antes de começar.
+
+### Na ness.
+
+| Papel | Situação |
+|---|---|
+| **Boss** | Decide as três lacunas — contratar, pedir à Alupar ou absorver — e assina o risco do ponto único de falha em Lucas. É a única decisão que não pode ser delegada |
+| **Gabi** | Escalonamento executivo quando as áreas da Alupar divergirem entre si. Sem alocação horária |
+
+### Na Alupar — e é aqui que o projeto trava
+
+| Papel | Por que falta | O que trava |
+|---|---|---|
+| **Dono do conteúdo, com nome** | A decisão D6 nomeou "Comunicação Alupar", que é área, não pessoa. Foi exatamente uma área sem pessoa nomeada que deixou o site parar em 02/03/2023 | O go-live. É condição de aceite, não recomendação |
+| **Quem administra a zona Cloudflare** | O runbook do Marco 0 diz "quem administra a zona" porque não sabemos quem é | As ações 0.1 e 0.7 — ou seja, a correção do domínio fora do ar |
+| **Interlocutor da equipe do RI** | Cinco itens de fronteira a combinar e nenhum nome do outro lado | A decisão D5: o feed de notícias, que está no caminho crítico |
+| **Interlocutor da MZ** | Três ações do Marco 0 têm "MZ" como responsável, sem contato nomeado. A saída da plataforma também é conversa contratual | As ações 0.2, 0.4 e 0.5, e o prazo de desligamento |
+| **Aprovador de marca no Marketing** | O manual de 2018 nomeia André Schneider Prietsch e Jacqueline Araujo. São nomes de oito anos atrás — podem não estar mais lá | O portão do M2 e a decisão D12 |
+| **Padrinho executivo** | Quando Comunicação, Marketing, RI e TI divergirem, alguém decide | Qualquer impasse de fronteira |
+
+**Cinco nomes.** Nenhum custa hora de projeto e todos podem ser levantados numa
+conversa. Sem eles, o Marco 0 não roda — e o Marco 0 é o que tira do ar a tela
+de erro que qualquer pessoa vê hoje ao digitar `alupar.com.br`.
+
+É trabalho da Camila, na Descoberta, e deveria ser o primeiro dia da Semana 1.
+
+---
+
 ## Competências necessárias
 
 Por papel, o que a pessoa precisa efetivamente saber fazer:
