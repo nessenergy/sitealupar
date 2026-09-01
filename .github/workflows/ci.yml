@@ -41,5 +41,9 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
+      # Confere os links internos do build. As URLs absolutas para
+      # www.alupar.com.br são canonical e hreflang — metadados que apontam para
+      # onde o site vai estar, não links navegáveis a validar antes do go-live.
+      # Depois da virada, trocar este skip por uma verificação do mapa de 301.
       - name: Verificador de links
-        run: npx --yes linkinator dist --recurse --silent --skip "^https?://(www\.)?(alupar\.us6\.quickconnect\.to|alupar\.gupy\.io)"
+        run: npx --yes linkinator dist --recurse --silent --skip "^https?://(www\.)?(alupar\.com\.br|alupar\.us6\.quickconnect\.to|alupar\.gupy\.io)"
