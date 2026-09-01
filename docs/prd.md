@@ -1,6 +1,6 @@
 # PRD — Site institucional da Alupar
 
-**Status:** rascunho em construção · **Base:** diagnóstico de 01/09/2026 · **Repositório:** `nessenergy/sitealupar`
+**Status:** rascunho em construção · **Base:** diagnóstico de 01/09/2026 · **Repositório:** `nessenergy/sitealupar` · **Execução:** Bekaa
 
 Este documento é o registro de produto da replataforma do `alupar.com.br`. Ele
 convive com dois outros: [`decisoes.md`](decisoes.md) guarda as decisões e seus
@@ -270,7 +270,7 @@ Ordenadas por quanto mudam o documento.
 - [ ] **P5 — Qual o valor do contrato atual com a MZ e o custo do servidor
       `34.230.121.250`?** Sem os dois não dá para calcular em quanto tempo o
       investimento se paga
-- [ ] **P6 — Existe modelo de PRD da ness. a seguir?** Se sim, este documento se
+- [ ] **P6 — Existe modelo de PRD da Bekaa a seguir?** Se sim, este documento se
       adapta à estrutura dele
 - [ ] **P7 — O público deste documento é a diretoria da Alupar, a equipe de
       implementação, ou os dois?** Muda a profundidade técnica das seções 4 e 5

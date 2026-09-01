@@ -1,5 +1,6 @@
 # Equipe
 
+Projeto executado pela **Bekaa**, parceira da ness., que responde pela entrega.
 Dimensionamento derivado dos pacotes de trabalho do plano — 500 h em 6 a 7
 semanas, a R$ 120/hora. Não é estimativa por analogia: cada hora abaixo sai de
 um pacote nomeado.
@@ -18,11 +19,11 @@ só nem justifica seis em tempo integral.
 | **Marcela** | Coordenação e governança | 52 | 19% | Coordenação (32), homologação e evidências (20) |
 | **Camila** | Estratégia e interface com a Alupar | 32 | 11% | Descoberta e arquitetura de informação (32) |
 | **Juliana** | Conteúdo em português | 28 | 10% | Revisão e redação PT (28) |
-| — | **Design** | 52 | 19% | Captura de identidade (16), Design (36) |
+| **🎨 Helena** | Design de interface e sistema visual | 52 | 19% | Captura de identidade (16), Design (36) |
 | — | **Acessibilidade** | 32 | 11% | Auditoria e correção WCAG 2.2 AA (32) |
 | — | **Tradução EN/ES** | 20 | 7% | Paridade de idiomas (20) |
 
-**104 h — 21% do projeto, R$ 12.480 — não têm dono na equipe atual.**
+**52 h — 10% do projeto, R$ 6.240 — seguem sem dono:** acessibilidade e tradução.
 
 ### Por que cada encaixe
 
@@ -39,6 +40,9 @@ só nem justifica seis em tempo integral.
   seções em aberto do PRD (público e métricas).
 - **Juliana** escreve o conteúdo em português. Tradução para inglês e espanhol é
   outra competência e está separada de propósito.
+- **Helena** entra para o design. O trabalho dela aqui é **restauro, não
+  criação** — e essa distinção é a condição de entrada, não um detalhe de
+  briefing. A skill `restauro-fiel` existe para isso.
 - **Clarice** revisa a política de privacidade, as condições de uso e o
   consentimento LGPD do formulário. Não entra nas 500 h porque é parecer, não
   execução — mas **é bloqueante do M4** e precisa receber os textos na Semana 4,
@@ -50,21 +54,21 @@ só nem justifica seis em tempo integral.
 
 ## As três lacunas
 
-### 1. Design — 52 h · sem dono
+### 1. Design — Helena · 52 h
 
-Ninguém na equipe tem função de design. As 52 h já são o número **reduzido** pelo
-restauro fiel: não há concepção de layout, só adaptação responsiva dos seis
-templates existentes, direção de arte dos banners por breakpoint e estados de
-foco. Um redesenho custaria 116 h.
+Coberta. Vale registrar o que **não** é o trabalho: as 52 h são o número
+reduzido pelo restauro fiel — não há concepção de layout, só adaptação
+responsiva dos seis templates existentes, direção de arte dos banners por
+breakpoint e estados de foco. Um redesenho custaria 116 h.
 
-Saídas, em ordem de preferência:
+**Designer que queira redesenhar é risco, não ajuda.** A condição de entrada é
+operar dentro de um sistema que já existe, e a skill `restauro-fiel` codifica
+exatamente onde ficam os limites: a pergunta que autoriza uma mudança, o que
+pode mudar e por qual problema medido, o que não muda, e a conferência lado a
+lado contra o site atual e contra o portal de RI.
 
-1. Freelancer de UI por 52 h (R$ 6.240). Precisa entender que o trabalho é
-   restauro, não criação — designer que queira redesenhar é risco, não ajuda.
-2. Designer do Marketing da Alupar. Como o Marketing é a instância que aprova
-   qualquer uso da marca, ter alguém de lá dentro do time encurta o M2.
-3. Lucas absorve com apoio do guia de estilo. **Não recomendado**: leva a carga
-   dele a 92% e concentra ainda mais risco numa pessoa só.
+Leitura obrigatória antes da primeira tela: `.claude/skills/restauro-fiel/SKILL.md`,
+`docs/decisoes.md` e `src/styles/tokens.css`.
 
 ### 2. Acessibilidade — 32 h · sem dono
 
@@ -106,13 +110,12 @@ A segunda é legítima se o custo pesar. A que não é legítima é não decidir
 
 | Item | Horas | Custo |
 |---|---:|---:|
-| Design | 52 | R$ 6.240 |
 | Acessibilidade | 32 | R$ 3.840 |
 | Tradução EN/ES | 20 | R$ 2.400 |
-| **Subtotal — dentro das 500 h já orçadas** | **104** | **R$ 12.480** |
+| **Subtotal — dentro das 500 h já orçadas** | **52** | **R$ 6.240** |
 | Segundo dev (opcional, mitigação de risco) | 84 | R$ 10.080 |
 
-As 104 h **já estão dentro do orçamento de R$ 60.000** — o que falta é quem as
+As 52 h **já estão dentro do orçamento de R$ 60.000** — o que falta é quem as
 executa, não verba. O segundo dev é o único acréscimo real.
 
 ---
@@ -124,12 +127,11 @@ As três lacunas acima são de competência — falta quem faça. Estas são de
 sabe quem é. São mais baratas de resolver e mais caras de ignorar, porque
 travam antes de começar.
 
-### Na ness.
+### Na Bekaa
 
-| Papel | Situação |
-|---|---|
-| **Boss** | Decide as três lacunas — contratar, pedir à Alupar ou absorver — e assina o risco do ponto único de falha em Lucas. É a única decisão que não pode ser delegada |
-| **Gabi** | Escalonamento executivo quando as áreas da Alupar divergirem entre si. Sem alocação horária |
+Um só papel, e sem alocação horária: **Gabi** faz o escalonamento executivo
+quando as áreas da Alupar divergirem entre si — o que, num projeto com quatro
+interlocutores do lado do cliente, não é hipótese remota.
 
 ### Na Alupar — e é aqui que o projeto trava
 
@@ -159,7 +161,7 @@ Por papel, o que a pessoa precisa efetivamente saber fazer:
 | Dev front-end | Astro ou outro gerador estático; CSS moderno com custom properties, flex e grid, **sem framework de UI**; otimização de imagem responsiva; Core Web Vitals na prática, não na teoria |
 | Dev infraestrutura | Cloudflare — Pages, DNS, Redirect Rules, Workers, Turnstile; cabeçalhos de segurança e o que cada um faz; GitHub Actions com Lighthouse CI |
 | Modelagem de conteúdo | Sanity e GROQ; internacionalização por documento; migração por script com preservação de URL e data; JSON-LD e dados estruturados |
-| Design | Trabalhar **dentro** de um sistema existente; direção de arte responsiva por breakpoint; estados de foco e contraste como parte do desenho, não como correção posterior |
+| Design — Helena | Trabalhar **dentro** de um sistema existente, sem reflexo de redesenhar; direção de arte responsiva por breakpoint; contraste e estados de foco como parte do desenho, não como correção posterior; ler contraste em número, não a olho. Skill obrigatória: `restauro-fiel` |
 | Acessibilidade | WCAG 2.2 AA; teste real com leitor de tela e teclado; formulários acessíveis; saber o que a ferramenta automática **não** pega |
 | Conteúdo | Redação institucional; revisão de paridade entre três idiomas; disciplina de texto alternativo |
 | Coordenação | Governança de marcos e evidências; interface com duas equipes externas (RI e MZ) e três áreas da Alupar |
@@ -168,15 +170,17 @@ Por papel, o que a pessoa precisa efetivamente saber fazer:
 
 ## Skills de repositório a criar
 
-A ness. já opera com skills versionadas no repositório do AlupData. As
-equivalentes aqui, em ordem de retorno:
+O repositório do AlupData, do lado da ness., já opera com skills versionadas —
+o modelo funciona e vale aqui. As equivalentes deste projeto, em ordem de
+retorno:
 
 | Skill | O que codifica |
 |---|---|
-| `restauro-fiel` | A regra do D2 aplicada template a template: o que pode mudar, o que não pode, e a conferência lado a lado contra o site atual e o portal de RI |
+| `restauro-fiel` | ✅ **Escrita** — a regra do D2 aplicada template a template: a pergunta que autoriza uma mudança, o que pode e não pode mudar, e a conferência lado a lado contra o site atual e o portal de RI. Dona: Helena |
 | `marca-alupar` | MIV 2018, tokens, as duas correções documentadas (`#00A0E3` e o verde de texto), versões do logotipo e o que exige aprovação do Marketing |
 | `cloudflare-alupar` | Convenções de `_headers` e `_redirects`, Redirect Rules, e as armadilhas — HSTS com `includeSubDomains` atinge o portal de RI, que é de outra equipe |
 | `sanity-alupar` | Modelo de conteúdo, i18n por documento, migração com preservação de URL, webhook de build |
 | `a11y-gate` | O checklist WCAG que o CI cobra, com o que a ferramenta automática não pega |
 
-As três primeiras pagam o custo já na Semana 2. As duas últimas, na Semana 3.
+A `restauro-fiel` já está no repositório, porque é a que a Helena precisa antes
+da primeira tela. As demais pagam o custo entre as semanas 2 e 3.
