@@ -1,6 +1,6 @@
 # PRD — Site institucional da Alupar
 
-**Status:** rascunho em construção · **Base:** diagnóstico de 01/09/2026 · **Repositório:** `nessenergy/sitealupar` · **Execução:** Bekaa
+**Status:** rascunho em construção · **Base:** diagnóstico de 01/09/2026 · **Repositório:** `nessenergy/sitealupar` · **Contrato:** ness. · **Execução:** Bekaa
 
 Este documento é o registro de produto da replataforma do `alupar.com.br`. Ele
 convive com dois outros: [`decisoes.md`](decisoes.md) guarda as decisões e seus

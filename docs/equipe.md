@@ -1,6 +1,10 @@
 # Equipe
 
-Projeto executado pela **Bekaa**, parceira da ness., que responde pela entrega.
+O contrato com a Alupar é da **ness.**; a execução é da **Bekaa**, empresa
+parceira. Na prática: a Bekaa entrega, a ness. responde perante o cliente — e o
+acesso às áreas da Alupar passa por esse canal, o que importa para a lista de
+nomes a levantar mais abaixo.
+
 Dimensionamento derivado dos pacotes de trabalho do plano — 500 h em 6 a 7
 semanas, a R$ 120/hora. Não é estimativa por analogia: cada hora abaixo sai de
 um pacote nomeado.
@@ -145,7 +149,8 @@ interlocutores do lado do cliente, não é hipótese remota.
 | **Padrinho executivo** | Quando Comunicação, Marketing, RI e TI divergirem, alguém decide | Qualquer impasse de fronteira |
 
 **Cinco nomes.** Nenhum custa hora de projeto e todos podem ser levantados numa
-conversa. Sem eles, o Marco 0 não roda — e o Marco 0 é o que tira do ar a tela
+conversa — que provavelmente começa pela ness., que é quem tem o contrato e o
+canal aberto com a Alupar. Sem eles, o Marco 0 não roda — e o Marco 0 é o que tira do ar a tela
 de erro que qualquer pessoa vê hoje ao digitar `alupar.com.br`.
 
 É trabalho da Camila, na Descoberta, e deveria ser o primeiro dia da Semana 1.
