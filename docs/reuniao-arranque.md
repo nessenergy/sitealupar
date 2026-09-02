@@ -25,7 +25,7 @@ execute, não verba. Só o B4 é acréscimo.
 
 | # | Papel | O que trava |
 |---|---|---|
-| A1 | Quem administra a zona Cloudflare | #3 e #9 — a correção do domínio fora do ar |
+| A1 | Quem administra a zona Cloudflare | #3 e #9 — a correção do domínio em HTTPS |
 | A2 | Interlocutor da equipe do RI | #5 e o feed de notícias, no caminho crítico |
 | A3 | Interlocutor da MZ | #4, #6, #7 e o prazo de desligamento |
 | A4 | Aprovador de marca no Marketing | O portão do M2. O manual de 2018 nomeia pessoas que podem não estar mais lá |
@@ -84,7 +84,7 @@ serve para alguma coisa:
 - TI ou quem administra o domínio (A1)
 - Alguém com poder de decidir quando as áreas divergirem (A6)
 
-Se faltar TI, a reunião não resolve o domínio fora do ar. Se faltar Marketing,
+Se faltar TI, a reunião não resolve o domínio quebrado em HTTPS. Se faltar Marketing,
 não resolve o M2.
 
 **Enviar 48 h antes:** o diagnóstico e o plano, com o pedido explícito de que
@@ -93,7 +93,7 @@ sobre ele.
 
 | Tempo | Assunto | Objetivo |
 |---|---|---|
-| 0–10 | **O estado atual, com evidência.** O domínio sem `www` fora do ar há quatro meses; a última notícia com 1.280 dias; 2,19 MB de home | Alinhar que o problema é real e medido, não opinião |
+| 0–10 | **O estado atual, com evidência.** O domínio sem `www` quebrado em HTTPS há quatro meses; a última notícia com 1.280 dias; 2,19 MB de home | Alinhar que o problema é real e medido, não opinião |
 | 10–20 | **O que já existe.** Repositório, plano de 500 h, custo, cronograma de 6–7 semanas, decisões fechadas | Mostrar que a conversa é sobre executar, não sobre estudar |
 | 20–35 | **Os seis nomes (A1–A6).** Sair da reunião com pessoa, não com área | O ponto mais importante da pauta |
 | 35–50 | **Os dados (D1–D5)** e o alerta do GA4: a linha de base precisa ser extraída antes da virada, e isso não volta | Prazos com responsável |
@@ -163,7 +163,7 @@ uma segunda rodada e o cronograma escorrega.
 > contrato que não vimos.
 >
 > Um aviso técnico que não pode esperar pelo projeto: `alupar.com.br` sem
-> `www` está fora do ar desde 05/05, servindo certificado vencido. A correção
+> `www` quebra em HTTPS desde 05/05, servindo certificado vencido. A correção
 > é de minutos e depende só de quem administra o domínio.
 
 ---

@@ -27,7 +27,7 @@ Três das sete ações tinham a MZ como responsável. Elas não vão acontecer.
 
 | Ação | Situação nova |
 |---|---|
-| 0.1 apex fora do ar | **Inalterada.** É borda, é nossa. Segue como a mais urgente |
+| 0.1 apex quebrado em HTTPS | **Inalterada.** É borda, é nossa. Segue como a mais urgente |
 | 0.2 banners obsoletos | **Não vai acontecer.** Depende de editar o WordPress deles |
 | 0.4 CSS 404, links `http://`, `lang` errado | **Não vai acontecer** pela origem |
 | 0.5 cabeçalhos de segurança | **Vira nossa.** Com o proxy ligado, aplicam-se por Transform Rules na Cloudflare, sem tocar na origem |
