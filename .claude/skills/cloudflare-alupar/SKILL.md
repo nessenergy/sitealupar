@@ -15,7 +15,7 @@ CN  ri               sites-clients-03.mziq.com.  → 52.204.44.81  (MZ, outra eq
 MX  alupar.com.br    Google Workspace
 ```
 
-**A zona já está na Cloudflare, usada só como DNS.** Nenhum host tem proxy
+**A zona está na Cloudflare, administrada pela ness., usada só como DNS.** Nenhum host tem proxy
 ligado — não há `cf-ray` em resposta alguma. Toda a camada de borda está
 disponível e desligada.
 
