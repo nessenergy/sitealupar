@@ -89,7 +89,18 @@ da Alupar/ness — o domínio é nosso, a origem é dela. Consequências prátic
   (`scripts/extrair-acervo.mjs`). **160 arquivos de mídia, 247,6 MB, dos quais
   120 vivem na infraestrutura da MZ** — copiar antes da virada não é opcional
 
-## Duas armadilhas que já custaram tempo
+## Três armadilhas que já custaram tempo
+
+**O apex não está "fora do ar" — ele quebra em HTTPS.** O redirecionamento para
+`www` funciona na porta 80 (`http://alupar.com.br` → 301 → `https://www` → 200);
+só `https://alupar.com.br` falha, por certificado vencido. Como o navegador
+tenta HTTPS, desiste e volta para HTTP sozinho, a maior parte dos acessos chega
+ao site sem que ninguém veja erro. Quem vê: quem tem HSTS gravado, quem usa
+modo "somente HTTPS", todo link escrito como `https://alupar.com.br`, e
+qualquer ferramenta sem *fallback*. Escrever "o site está fora do ar" é
+falsificável em cinco segundos por qualquer pessoa com um navegador — e já foi
+contestado. Teste sempre os dois esquemas antes de afirmar qualquer coisa sobre
+o apex.
 
 **O apex é outro servidor.** `alupar.com.br` é um registro `A` para
 `34.230.121.250`, uma segunda instância WordPress que só redireciona para

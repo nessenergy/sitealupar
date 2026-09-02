@@ -8,10 +8,30 @@ Estado de partida medido em 01/09/2026.
 
 ---
 
-## 0.1 — Domínio raiz fora do ar
+## 0.1 — Domínio raiz quebrado em HTTPS
 
 **Problema.** `https://alupar.com.br` serve certificado vencido em 05/05/2026.
-Quem digita o domínio sem `www` vê tela de erro de segurança, não o site.
+O redirecionamento para `www` **existe, mas só na porta 80**:
+
+```
+http://alupar.com.br/   → 301 → http://www  → 301 → https://www  → 200
+https://alupar.com.br/  → certificado expirado
+```
+
+Na maioria dos casos o visitante não percebe: o navegador tenta HTTPS, falha e
+volta para HTTP sozinho, e o 301 o leva ao site. O erro aparece de fato para:
+
+- quem tem HSTS gravado do `www` — o navegador **proíbe** o retorno a HTTP;
+- quem usa modo "somente HTTPS" no Chrome ou Firefox;
+- todo link escrito como `https://alupar.com.br` — e-mail, PDF, assinatura,
+  material impresso, QR code;
+- ferramentas sem *fallback*: `curl`, robôs de busca, verificadores de link,
+  scanners de segurança e de conformidade.
+
+**Não descreva isto como "o site está fora do ar".** É verificável em segundos
+que não está, e a afirmação errada custa credibilidade na primeira contestação.
+A formulação correta é: *o endereço sem `www` quebra em HTTPS, e o navegador
+mascara a falha na maior parte dos acessos.*
 
 **Causa.** O apex não é o mesmo servidor do resto:
 

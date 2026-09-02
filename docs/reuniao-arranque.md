@@ -95,7 +95,7 @@ sobre ele.
 
 | Tempo | Assunto | Objetivo |
 |---|---|---|
-| 0–10 | **O estado atual, com evidência.** O domínio sem `www` fora do ar há quatro meses; a última notícia com 1.280 dias; 2,19 MB de home | Alinhar que o problema é real e medido, não opinião |
+| 0–10 | **O estado atual, com evidência.** O domínio sem `www` quebrado em HTTPS há quatro meses; a última notícia com 1.280 dias; 2,19 MB de home | Alinhar que o problema é real e medido, não opinião |
 | 10–20 | **O que já existe.** Repositório, plano de 500 h, custo, cronograma de 6–7 semanas, decisões fechadas | Mostrar que a conversa é sobre executar, não sobre estudar |
 | 20–35 | **Os cinco nomes (A2–A6).** Sair com pessoa, não com área | O ponto mais importante da pauta |
 | 35–50 | **Os dados (D1–D5)** e o alerta do GA4: a linha de base precisa ser extraída antes da virada, e isso não volta | Prazos com responsável |
@@ -165,7 +165,7 @@ como item a aprovar seria adiar por uma semana o que já pode ser feito hoje.
 > contrato que não vimos.
 >
 > Um aviso técnico que não pode esperar pelo projeto: `alupar.com.br` sem
-> `www` está fora do ar desde 05/05, servindo certificado vencido. A correção
+> `www` quebra em HTTPS desde 05/05, servindo certificado vencido. A correção
 > é de minutos e depende só de quem administra o domínio.
 
 ---

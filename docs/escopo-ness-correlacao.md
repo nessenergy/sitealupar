@@ -72,9 +72,11 @@ mesmo pacote.
 
 Nenhum destes aparece no documento da ness., e todos estão medidos no diagnóstico:
 
-- **O apex fora do ar há 120 dias.** `https://alupar.com.br` (sem `www`) responde com
-  certificado expirado desde 05/05/2026. É o único problema que está no ar agora, e a
-  correção depende só da ness., que administra a zona.
+- **O apex quebrado em HTTPS há 120 dias.** `https://alupar.com.br` (sem `www`) responde
+  com certificado expirado desde 05/05/2026. Em `http://` o redirecionamento funciona, e o
+  navegador mascara a falha ao voltar sozinho para HTTP — ver a armadilha no `AGENTS.md`.
+  É o único problema que está no ar agora, e a correção depende só da ness., que administra
+  a zona.
 - **Acessibilidade.** Nenhuma imagem da home tem descrição; o formulário tem cinco campos e
   um rótulo. WCAG 2.2 AA não é citado no escopo nem nos critérios de aceite.
 - **Desempenho.** 2,19 MB na home, 84% em imagens. Não há orçamento de peso no § 14.

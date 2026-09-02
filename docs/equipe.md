@@ -142,7 +142,7 @@ interlocutores do lado do cliente, não é hipótese remota.
 | Papel | Por que falta | O que trava |
 |---|---|---|
 | **Dono do conteúdo, com nome** | A decisão D6 nomeou "Comunicação Alupar", que é área, não pessoa. Foi exatamente uma área sem pessoa nomeada que deixou o site parar em 02/03/2023 | O go-live. É condição de aceite, não recomendação |
-| **Quem administra a zona Cloudflare** | O runbook do Marco 0 diz "quem administra a zona" porque não sabemos quem é | As ações 0.1 e 0.7 — ou seja, a correção do domínio fora do ar |
+| **Quem administra a zona Cloudflare** | O runbook do Marco 0 diz "quem administra a zona" porque não sabemos quem é | As ações 0.1 e 0.7 — ou seja, a correção do domínio em HTTPS |
 | **Interlocutor da equipe do RI** | Cinco itens de fronteira a combinar e nenhum nome do outro lado | A decisão D5: o feed de notícias, que está no caminho crítico |
 | **Interlocutor da MZ** | Três ações do Marco 0 têm "MZ" como responsável, sem contato nomeado. A saída da plataforma também é conversa contratual | As ações 0.2, 0.4 e 0.5, e o prazo de desligamento |
 | **Aprovador de marca no Marketing** | O manual de 2018 nomeia André Schneider Prietsch e Jacqueline Araujo. São nomes de oito anos atrás — podem não estar mais lá | O portão do M2 e a decisão D12 |

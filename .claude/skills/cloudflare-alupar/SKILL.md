@@ -67,7 +67,7 @@ Clarice, que precisa recebê-lo na Semana 4.
 ## Monitoramento
 
 Verificação sintética diária de `alupar.com.br` **com e sem `www`** — o caso
-sem `www` é o que ninguém testava, e é onde o site ficou fora do ar por quatro
+sem `www` é o que ninguém testava, e é onde o site ficou quebrado por quatro
 meses. Mais a galeria no NAS, que está fora do site e dentro da experiência.
 
 Alerta de expiração de certificado em 30/14/7 dias.
