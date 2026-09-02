@@ -7,3 +7,8 @@ dist/
 .DS_Store
 npm-debug.log*
 .lighthouseci/
+
+# Extração do acervo: os inventários são versionados, os arquivos não.
+acervo-completo/
+acervo/html/
+acervo/midia/

@@ -35,7 +35,7 @@ só nem justifica seis em tempo integral.
   sites, que é exatamente a combinação deste projeto: Cloudflare, DNS e Pages de
   um lado, Astro e CSS do outro.
 - **Sofia** cuida de grafo de conhecimento, e é disso que se trata modelar cinco
-  tipos no Sanity, migrar 225 notícias com metadados coerentes e estruturar o
+  tipos no Sanity, migrar 99 notícias com metadados coerentes e estruturar o
   JSON-LD. É a pessoa certa para a parte que normalmente vira improviso.
 - **Marcela** assume a coordenação e as evidências de homologação; **Gabi** entra
   como escalonamento executivo, não como alocação horária.

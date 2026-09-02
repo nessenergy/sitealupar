@@ -50,7 +50,7 @@ política.
 ## Redirecionamentos
 
 `public/_redirects` é o mapa de 301 do acervo. **Nenhuma URL antiga pode
-responder 404** — são 20 páginas e 225 notícias indexadas desde 2017.
+responder 404** — são 20 páginas e 99 notícias indexadas desde 2017.
 
 O redirecionamento de `/fotos` para o NAS (`alupar.us6.quickconnect.to`) sai do
 WordPress e vira regra de borda: a instância que o faz hoje vai ser desligada.

@@ -1,0 +1,987 @@
+[
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon180.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 26755,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon144.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 18192,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon96.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 10817,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon48.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 3952,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon32.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 2450,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/favicon/favicon16.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 843,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/06/Banner-site-holding-Relatorio-de-Sustentabilidade-2025-PT-scaled.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 190568,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/tela-01.jpg",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 69197,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/tela-02.jpg",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 635701,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/12/banner_site_alupar_certificado-FIA-2021-v3-1-scaled.jpg",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 182313,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/tela-03.jpg",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 651526,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/banner_site_alupar_COVID19_v2-final-scaled.jpg",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 107368,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/icones/img-meio-ambiente.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 3388,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/icones/img-agua.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 3549,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/themes/mziq_alupar_inst/img/icones/img-fauna-e-flora.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 3876,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mzprodassets/wordpress/powered-mz.png",
+    "origem": "https://www.alupar.com.br/",
+    "bytes": 1468,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/09/Banner_site_lugares_ESPANHOL_incriveis_trabalhar_2022.png",
+    "origem": "https://www.alupar.com.br/?lang=es",
+    "bytes": 1661984,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/09/banner_site_alupar_certificado-FIA-2021_FINAL_espanhol-scaled.jpg",
+    "origem": "https://www.alupar.com.br/?lang=es",
+    "bytes": 183018,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/12/Banner-lugares-incriveis-para-trabalhar-2024-ingles-2.png",
+    "origem": "https://www.alupar.com.br/?lang=en",
+    "bytes": 2383524,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/06/Sustainability-report-banner-site-ingles.png",
+    "origem": "https://www.alupar.com.br/?lang=en",
+    "bytes": 2293299,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/09/banner_site_alupar_certificado-FIA-2021_FINAL-ingles-scaled.jpg",
+    "origem": "https://www.alupar.com.br/?lang=en",
+    "bytes": 180647,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2026/04/Banner-site-holding-Relatorio-de-Sustentabilidade-2025-ING-scaled.png",
+    "origem": "https://www.alupar.com.br/?lang=en",
+    "bytes": 189048,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/08/img-investimento-programa-p-e-d-768x685-300x268.jpg",
+    "origem": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/",
+    "bytes": 6902,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/08/img-investimento-programa-p-e-d_eng-768x579.jpg",
+    "origem": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/?lang=en",
+    "bytes": 24634,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/1_total-investimentos.png",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "bytes": 280723,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/2_lancamento-programa-voluntariado.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "bytes": 91110,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/download.jpeg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "bytes": 41476,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/4_casa-costura-quilombola.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "bytes": 22082,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/5_doacao-cestas.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "bytes": 127046,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/1_home-office-1-1.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+    "bytes": 26628,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/2_educa_AEo-_-dist_ncia-1.png",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+    "bytes": 55181,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/3_ambiente-de-trabalho-1.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+    "bytes": 49303,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/4_entrega-kits-1.png",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+    "bytes": 127828,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/5_comunica_AEo-interna-1.jpg",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+    "bytes": 102474,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/08/img-investimento-programa-p-e-d_esp-768x579.jpg",
+    "origem": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/?lang=es",
+    "bytes": 24634,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/03/Politica_de_Recursos_Humanos-12.08.2020.pdf",
+    "origem": "https://www.alupar.com.br/sustentabilidade-2/",
+    "bytes": 388347,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/03/Politica_de_Seguran%C3%A7a_do_Trabalho_e_Sa%C3%BAde_Ocupacional-12.08.2020.pdf",
+    "origem": "https://www.alupar.com.br/sustentabilidade-2/",
+    "bytes": 380492,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2020/03/Aves-de-S%C3%A3o-Francisco-Xavier-2019_compressed.pdf",
+    "origem": "https://www.alupar.com.br/sustentabilidade-2/",
+    "bytes": 35008502,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/",
+    "bytes": 123694,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_PT-270x300.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/",
+    "bytes": 40815,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/03/mapa_site_PT_03-2024.png",
+    "origem": "https://www.alupar.com.br/a-companhia/",
+    "bytes": 158920,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/03/MISSAO-VALORES_SITE_PT-300x243.jpg",
+    "origem": "https://www.alupar.com.br/a-companhia/",
+    "bytes": 17898,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/mapa_transmissao_unidade_numeradas_2021_EN-998x1024.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/?lang=en",
+    "bytes": 193676,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_EN-270x300.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/?lang=en",
+    "bytes": 41055,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/04/mapa_site_ENG_03-2024-2.png",
+    "origem": "https://www.alupar.com.br/a-companhia/?lang=en",
+    "bytes": 159525,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2024/03/MISSAO-VALORES_SITE_US-300x244.jpg",
+    "origem": "https://www.alupar.com.br/a-companhia/?lang=en",
+    "bytes": 18238,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2022/01/mapa_site_ESP_01-2022-296x300.png",
+    "origem": "https://www.alupar.com.br/a-companhia/?lang=es",
+    "bytes": 46625,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/inicativaum-1.png",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/",
+    "bytes": 93817,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/08/acoesdois-1.png",
+    "origem": "https://www.alupar.com.br/alupar-e-a-covid-19/",
+    "bytes": 72267,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo-1.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 142053,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/2_mapas_ri_transmissao-de-energia_ECTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 132490,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/3_mapas_ri_transmissao-de-energia_ETSE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 130688,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/4_mapas_ri_transmissao-de-energia_ETEP-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 137445,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/5_mapas_ri_transmissao-de-energia_ESDE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 136745,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/6_mapas_ri_transmissao-de-energia_EATE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 151430,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/7_mapas_ri_transmissao-de-energia_ERTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 142136,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/8_mapas_ri_transmissao-de-energia_ENTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 144835,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/9_mapas_ri_transmissao-de-energia_EBTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 142569,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/10_mapas_ri_transmissao-de-energia_STN-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 144649,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/11_mapas_ri_transmissao-de-energia_Transleste-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 139558,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/12_mapas_ri_transmissao-de-energia_Transirape-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 139382,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/13_mapas_ri_transmissao-de-energia_Transudeste-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 141327,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/14_mapas_ri_transmissao-de-energia_STC-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 137217,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/15_mapas_ri_transmissao-de-energia_Lumitrans-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 142727,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/16_mapas_ri_transmissao-de-energia_ETES-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 128918,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/17_mapas_ri_transmissao-de-energia_TME-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 135520,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/18_mapas_ri_transmissao-de-energia_ETVG-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 136371,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2019/09/19_mapas_ri_transmissao-de-energia_TNE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 138641,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/20_mapas_ri_transmissao-de-energia_ELTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 144399,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/21_mapas_ri_transmissao-de-energia_ETAP-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 134121,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/22_mapas_ri_transmissao-de-energia_ETC-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 125238,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/23_mapas_ri_transmissao-de-energia_TPE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 149275,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/24_mapas_ri_transmissao-de-energia_TCC-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 141935,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/26_mapas_ri_transmissao-de-energia_ESTE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 140420,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2019/09/25_mapas_ri_transmissao-de-energia_TCE-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 131501,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/27_mapas_ri_transmissao-de-energia_TSM-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 137081,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/28_mapas_ri_transmissao-de-energia_ETB.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 138066,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/29_mapas_ri_transmissao-de-energia_EDTE.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 128762,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-300x211.png",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 29479,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-ijui.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 12999,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-foz-rio-claro.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 18464,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-ferreira-gomes.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 17741,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-la-virgen.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 15557,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-queluz.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 13956,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-lavrinhas.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 15329,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-risaralda.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 16256,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-verde-8.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 14961,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-agua-limpa.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 20451,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_rima_RAZ00_menor.pdf",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 9120371,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt01.pdf",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 30047088,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt02.pdf",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 34119673,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt03.pdf",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 45871729,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/img-empresas-energia-dos-ventos.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 19271,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/img-empresas-eolica-agreste-potiguar-1.jpg",
+    "origem": "https://www.alupar.com.br/empresas/",
+    "bytes": 4323,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/mapa_transmissao_unidade_numeradas_2021_ESP-998x1024.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/?lang=es",
+    "bytes": 193733,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_ESP-270x300.png",
+    "origem": "https://www.alupar.com.br/area-de-atuacao/?lang=es",
+    "bytes": 40789,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo-300x220.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 36270,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/2_mapas_ri_transmissao-de-energia_ECTE-novo-300x213.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 31130,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/3_mapas_ri_transmissao-de-energia_ETSE-novo-300x220.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 32486,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/4_mapas_ri_transmissao-de-energia_ETEP-novo-300x219.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 35423,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/5_mapas_ri_transmissao-de-energia_ESDE-novo-300x218.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 35410,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/6_mapas_ri_transmissao-de-energia_EATE-novo-300x208.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34526,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/7_mapas_ri_transmissao-de-energia_ERTE-novo-300x206.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33077,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/8_mapas_ri_transmissao-de-energia_ENTE-novo-300x211.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33416,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/9_mapas_ri_transmissao-de-energia_EBTE-novo-300x219.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 32370,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/10_mapas_ri_transmissao-de-energia_STN-novo-300x219.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 35787,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/11_mapas_ri_transmissao-de-energia_Transleste-novo-300x213.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33845,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/12_mapas_ri_transmissao-de-energia_Transirape-novo-300x213.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33709,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/13_mapas_ri_transmissao-de-energia_Transudeste-novo-300x213.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33970,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/14_mapas_ri_transmissao-de-energia_STC-novo-300x233.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 36996,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/15_mapas_ri_transmissao-de-energia_Lumitrans-novo-300x214.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 35147,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/16_mapas_ri_transmissao-de-energia_ETES-novo-300x229.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33554,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/17_mapas_ri_transmissao-de-energia_TME-novo-300x221.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34402,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/18_mapas_ri_transmissao-de-energia_ETVG-novo-300x218.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34197,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/20_mapas_ri_transmissao-de-energia_ELTE-novo-300x207.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 31603,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/21_mapas_ri_transmissao-de-energia_ETAP-novo-300x223.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34032,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/22_mapas_ri_transmissao-de-energia_ETC-novo-300x233.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 33191,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/23_mapas_ri_transmissao-de-energia_TPE-novo-300x221.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 39342,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/24_mapas_ri_transmissao-de-energia_TCC-novo-300x220.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34927,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/26_mapas_ri_transmissao-de-energia_ESTE-novo-300x212.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 34366,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/27_mapas_ri_transmissao-de-energia_TSM-novo-300x208.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 30762,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-1-300x211.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=es",
+    "bytes": 29479,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo.png",
+    "origem": "https://www.alupar.com.br/empresas/?lang=en",
+    "bytes": 142053,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/Alupar_Release-2T17.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/",
+    "bytes": 1972655,
+    "status": 200
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/ITR-Alupar-30062017-CVM.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/",
+    "bytes": 2118426,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.mziq.com/wp-content/uploads/sites/4/2017/08/ViewImage.png",
+    "origem": "https://www.alupar.com.br/noticia/licenca-ambiental-previa-da-pch-agua-limpa/",
+    "bytes": null,
+    "status": 0,
+    "erro": "fetch failed"
+  },
+  {
+    "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/7/2017/08/ENG-Alupar_Release-2Q17-ENG.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/?lang=es",
+    "bytes": null,
+    "status": 404
+  },
+  {
+    "url": "http://www.aneel.gov.br/cedoc/reh20141756ti.pdf",
+    "origem": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
+    "bytes": null,
+    "status": 403
+  },
+  {
+    "url": "http://www.aneel.gov.br/cedoc/areh20141756_2.pdf",
+    "origem": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
+    "bytes": null,
+    "status": 403
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2017/11/ALUP11_ER_3T17_port.pdf",
+    "origem": "https://www.alupar.com.br/noticia/3q17-earnings-release-solo-ingles-y-portugues/?lang=es",
+    "bytes": 2350446,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2017/11/ITR-Alupar-30092017-CVM-V.2.pdf",
+    "origem": "https://www.alupar.com.br/noticia/3q17-earnings-release-solo-ingles-y-portugues/?lang=es",
+    "bytes": 2798838,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2017/11/ALUP11_ER_3T17_eng.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-3t17/?lang=en",
+    "bytes": 2100650,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/03/Alupar_Release_4T17_PORT.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t17/",
+    "bytes": 2759733,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/03/ALUP11_DFP_2017_PORT.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t17/",
+    "bytes": 2616725,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/05/Alupar_Release-1T18.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t18/",
+    "bytes": 2798997,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/05/ITR-Alupar-1T18.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t18/",
+    "bytes": 2691067,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/03/Alupar_Release_4T17_EN.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t17/?lang=en",
+    "bytes": 2233434,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/08/Alupar_Release-2T18_novo.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t18/",
+    "bytes": 3998618,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/08/ALUP11_ITR_2T18_.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t18/",
+    "bytes": 2491673,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/05/Alupar_Release_-_1Q18_eng.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t18/?lang=en",
+    "bytes": 2086279,
+    "status": 200
+  },
+  {
+    "url": "http://ri.alupar.com.br/wp-content/uploads/sites/4/2018/08/ENG_Alupar_Release_-_2T18_MZT_eng-Final_novo.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t18/?lang=en",
+    "bytes": 2324235,
+    "status": 200
+  },
+  {
+    "url": "https://mz-prod-cvm.s3.amazonaws.com/21490/IPE/2019/b7931ef6-5105-4c54-9770-73f30c2b74d5/20190330092111968150_676130.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t18/",
+    "bytes": 2670877,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/89b5a248-8c7b-4714-a0da-767c1dfd8a0d_DFP%202018%20Alupar.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t18/",
+    "bytes": 2568988,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/42729607-fae5-49f3-8229-3cc8f2e41cc3_eng.%20Alupar_Release%20-%204T18.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t18/?lang=en",
+    "bytes": 1442569,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/ce519017-fbbe-4e38-b65e-055c100edf75_Alupar_Release%20-%202T19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/",
+    "bytes": 2876932,
+    "status": 200
+  },
+  {
+    "url": "https://mz-prod-cvm.s3.amazonaws.com/21490/IPE/2019/4325f6a4-66ac-4390-8663-787821984523/20190813203020961151_21490_705794.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/",
+    "bytes": 1659843,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/c561e61a-02b4-40f0-9281-13882038531c_RI_convite-divulgacao-resultados_PT_2T19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/",
+    "bytes": 1125398,
+    "status": 200
+  },
+  {
+    "url": "https://mz-prod-cvm.s3.amazonaws.com/21490/IPE/2019/469b5941-c671-45ee-b522-b758eeb762f6/20190516031723553740_21490_691025.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t19/",
+    "bytes": 1291257,
+    "status": 200
+  },
+  {
+    "url": "https://mz-prod-cvm.s3.amazonaws.com/21490/IPE/2019/a258cb06-8cd3-4e24-b638-3de81f824073/20190516032343318740_21490_691026.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t19/",
+    "bytes": 4636444,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/2b8893e7-c1c2-499e-9280-cd08bf6685e5_ENG%20Alupar_Release%20-%201T19%20Final.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t19/?lang=en",
+    "bytes": 1165227,
+    "status": 200
+  },
+  {
+    "url": "https://mz-prod-cvm.s3.amazonaws.com/21490/IPE/2019/d2a32770-67e7-4c67-9b51-8b173343f01a/20191113231232979056_21490_721478.pdf.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/",
+    "bytes": 2720795,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/486192db-b7d9-427f-ac0b-22eb0508d19a_Alupar%203ITR2019.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/",
+    "bytes": 2844690,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/1352792c-8fe8-499a-8f3d-8dbe57434665_RI_convite-divulgacao-resultados_PT_3T19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/",
+    "bytes": 2406120,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/4e59800c-232f-41b4-8676-b503d6ee9b57_Alupar_Release_-_2T19_final_eng.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/?lang=es",
+    "bytes": 1409680,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/3db4d0fc-ab49-4974-afbf-d992a39ea4d9_RI_convite-divulgacao-resultados_ENG_2Q19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/?lang=es",
+    "bytes": 1123124,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/5c105c2a-67f6-4751-a702-6052882af932_ENG_Alupar_Release_-_3T19_eng_final.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/?lang=es",
+    "bytes": 1974625,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/3f6b58fc-8b99-4539-934b-bfb5af3ea76b_RI_convite-divulgacao-resultados_ENG_3Q19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/?lang=es",
+    "bytes": 2404128,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/a11a60d1-eb84-42f4-a612-b5538df7d52b_alupar_release%20-%201q20_final.pdf",
+    "origem": "https://www.alupar.com.br/noticia/1q20-earnings-release-solo-ingles-y-portugues/?lang=es",
+    "bytes": 1670272,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/c12053cd-8dce-406f-8003-d0a64ceee399_Alupar_Release%20-%204T19.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t19/",
+    "bytes": 2597279,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/b58478a0-5e68-443e-86c3-b26db0817d2d_DF%20Alupar.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t19/",
+    "bytes": 4194304,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/66dcb024-5deb-4aa8-af63-3a7e9998015d_Alupar_Release_4T19_ENG%20-%20pfinal.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t19/?lang=es",
+    "bytes": 2508542,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/18acbf95-cda3-41ee-898d-434ba2445794_alupar_release%20-%201t20%20v2.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t20/",
+    "bytes": 2017482,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/fda38eee-49df-4594-8ede-3c36a859d1a9_itr%20-%201t20.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t20/",
+    "bytes": 4194304,
+    "status": 200
+  },
+  {
+    "url": "https://s3.amazonaws.com/mz-filemanager/7055e766-fc6d-42b3-9911-c19f8e89875a/107be074-3666-41b4-9e2a-b68726f86708_alupar_release%20-%201q20_final.pdf",
+    "origem": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t20/?lang=es",
+    "bytes": 1671938,
+    "status": 200
+  }
+]

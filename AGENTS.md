@@ -27,7 +27,7 @@ Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
    por um link no topo. Divergência visual entre eles é defeito. Nada neste
    repositório pode alterar o comportamento daquele host, e isso inclui
    cabeçalhos que se propagam por subdomínio.
-3. **Nenhuma URL do acervo pode responder 404.** São 20 páginas e 225 notícias
+3. **Nenhuma URL do acervo pode responder 404.** São 20 páginas e 99 notícias
    indexadas desde 2017. O corte editorial de notícias é um campo, não uma
    exclusão. Toda remoção vira 301 em `public/_redirects`.
 4. **Número não se inventa.** Onde faltar dado da Alupar — km de linhas, MW
@@ -75,6 +75,19 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 | `cloudflare-alupar` | Borda, DNS, cabeçalhos, redirecionamentos, deploy |
 | `sanity-alupar` | Modelo de conteúdo, i18n, migração do acervo |
 | `a11y-gate` | Marcação, formulário, contraste, foco, leitor de tela |
+
+## O fornecedor atual não colabora
+
+A MZ Group está sendo substituída e não entrega o conteúdo. A gestão de DNS é
+da Alupar/ness — o domínio é nosso, a origem é dela. Consequências práticas em
+[`docs/fornecedor-e-acervo.md`](docs/fornecedor-e-acervo.md); em resumo:
+
+- Nada que dependa de editar o WordPress atual vai acontecer. O caminho curto
+  para corrigir o que está errado é **entregar o site novo mais cedo**
+- O que dá para corrigir na borda, corrige-se na borda — cabeçalhos, redirecionamentos
+- O acervo foi recuperado por extração dos sitemaps públicos
+  (`scripts/extrair-acervo.mjs`). **160 arquivos de mídia, 247,6 MB, dos quais
+  120 vivem na infraestrutura da MZ** — copiar antes da virada não é opcional
 
 ## Duas armadilhas que já custaram tempo
 
