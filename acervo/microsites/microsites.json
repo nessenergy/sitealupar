@@ -1,0 +1,19 @@
+{
+  "extraidoEm": "2026-09-02T19:58:46.328Z",
+  "ambientes": [
+    {
+      "host": "pdi",
+      "url": "https://pdi.alupar.com.br",
+      "pages": 2,
+      "posts": 0,
+      "media": 99,
+      "bytesDeclarados": 29846892,
+      "download": {
+        "baixados": 9,
+        "pulados": 90,
+        "bytes": 1396441,
+        "falhas": []
+      }
+    }
+  ]
+}
