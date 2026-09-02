@@ -121,19 +121,23 @@ qualquer integração automatizada com o site.
 
 ## 5. Duas decisões a revisitar
 
-### D5 — o feed de notícias vindo do portal de RI
+### D5 — o feed de notícias vindo do portal de RI · mantida
 
-O portal de RI é da Alupar, **mas roda na plataforma da MZ**. Consumir dele um
-feed que alimenta o site novo é criar dependência de tempo de execução na
-infraestrutura de um fornecedor que está sendo substituído e não colabora.
+**O portal de RI também troca de fornecedor e seguirá funcionando.** A
+dependência que parecia frágil não é: o feed não fica preso à plataforma que
+está saindo.
 
-**Recomendação: reverter.** O institucional passa a ter base própria de
-notícias no Sanity, alimentada pela extração e mantida pela Comunicação. O
-custo é a Comunicação publicar em dois lugares; o benefício é o site novo não
-depender de quem saiu.
+Fica só um cuidado de implementação, que não muda a decisão:
 
-Se a dupla publicação for inaceitável, a alternativa é sincronizar por cópia
-periódica, não por consumo ao vivo — se a fonte cair, o site continua.
+- **Combinar o formato, não acoplar à plataforma.** A integração deve consumir
+  um contrato acordado — campos, formato de data, idioma, URL canônica — e não
+  o que a plataforma atual expõe. Se for acoplada, é reescrita quando o RI
+  migrar
+- **Perguntar quando o RI migra.** Se a troca deles cair dentro das nossas 6–7
+  semanas, a integração precisa ser construída contra o fornecedor novo, não
+  contra o antigo. É pergunta para o interlocutor do RI, na Descoberta
+- **Guardar cópia local do que for consumido.** Se a fonte cair num dia de
+  publicação, o site continua com o que já tinha
 
 ### GA4 — de quem é a propriedade?
 
