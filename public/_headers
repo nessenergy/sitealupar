@@ -1,0 +1,18 @@
+# Cabeçalhos de borda — Cloudflare Pages.
+# O institucional hoje não envia CSP, Referrer-Policy nem Permissions-Policy;
+# o portal de RI já envia. Isto equipara os dois.
+
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-src https://www.youtube-nocookie.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  # HSTS SEM includeSubDomains e SEM preload, deliberadamente: o domínio é
+  # compartilhado com ri.alupar.com.br, que é de outra equipe. Estender a
+  # política aos subdomínios é decisão conjunta, não nossa. Rever com eles.
+  Strict-Transport-Security: max-age=31536000
+
+# Assets versionados pelo build podem ser imutáveis.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

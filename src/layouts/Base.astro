@@ -1,0 +1,62 @@
+---
+import '../styles/tokens.css';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  lang?: string;
+}
+const { titulo, descricao, lang = 'pt-BR' } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{titulo}</title>
+    <!-- A home atual não tem meta description. -->
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={url} />
+
+    <!-- hreflang por rota, não por ?lang= -->
+    <link rel="alternate" hreflang="pt-br" href={new URL('/', Astro.site).href} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site).href} />
+    <link rel="alternate" hreflang="es" href={new URL('/es/', Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={url} />
+
+    <!-- JSON-LD no HTML servido, não injetado por JavaScript como hoje. -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Alupar',
+      url: 'https://www.alupar.com.br',
+      logo: 'https://www.alupar.com.br/logo-alupar.svg',
+    })} />
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <slot />
+    <style>
+      .pular {
+        position: absolute;
+        left: -9999px;
+        background: var(--azul);
+        color: var(--branco);
+        padding: var(--e2) var(--e3);
+        z-index: 100;
+      }
+      .pular:focus {
+        left: var(--e3);
+        top: var(--e3);
+        color: var(--branco);
+      }
+    </style>
+  </body>
+</html>

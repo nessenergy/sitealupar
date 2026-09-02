@@ -1,0 +1,21 @@
+# Mapa de 301 — nenhuma URL do acervo pode responder 404 depois do go-live.
+# Origem: sitemap de 01/09/2026 (20 páginas + 225 notícias).
+
+# Duplicatas e restos de edição, hoje indexáveis
+/trabalhe-conosco-2/                              /   301
+/faq-new/                                          /   301
+/sustentabilidade-2/                               /sustentabilidade/   301
+/politica-de-privacidade/condicoes-de-uso-pagina-antiga/  /politica-de-privacidade/condicoes-de-uso/   301
+
+# Consolidação de P&D (duas páginas para o mesmo assunto)
+/pesquisa-e-desenvolvimento/                       /inovacao-pesquisa-e-desenvolvimento/   301
+
+# Acervo de 2021 arquivado
+/alupar-e-a-covid-19/*                             /sustentabilidade/   301
+
+# Trabalhe Conosco vai direto para o Gupy, como já faz o menu
+/trabalhe-conosco/                                 https://alupar.gupy.io/   301
+
+# Galeria de fotos permanece no NAS (D4). O redirecionamento sai do WordPress
+# que será desligado e passa a ser regra de borda.
+/fotos                                             https://alupar.us6.quickconnect.to/fotos/   301
