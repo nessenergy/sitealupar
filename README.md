@@ -44,6 +44,8 @@ Estado de partida, medido em 01/09/2026: home com **2,19 MB** (84% imagens),
 **zero** imagens com `lazy`, `srcset` ou formato moderno, `alt` vazio em todos
 os banners.
 
+Contexto para quem (ou o que) for trabalhar no repositório: [`AGENTS.md`](AGENTS.md).
+
 ## Documentos
 
 - [`docs/prd.md`](docs/prd.md) — o que o site precisa ser e por quê; começa aqui

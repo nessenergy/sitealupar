@@ -1,0 +1,89 @@
+# sitealupar — contexto para agentes
+
+Arquivo canônico de contexto deste repositório. Vale para qualquer agente;
+`CLAUDE.md` só aponta para cá. Se você é humano, comece pelo `README.md` e por
+[`docs/prd.md`](docs/prd.md).
+
+## O projeto em cinco linhas
+
+Replataforma do site institucional da Alupar (`alupar.com.br`), hoje um
+WordPress hospedado pela MZ Group. Sai um site estático em Astro publicado no
+Cloudflare Pages, com CMS Sanity. **Restauro fiel:** a linguagem visual atual é
+preservada; muda o que resolve um problema medido. 500 h em 6–7 semanas.
+
+Contrato com a Alupar é da **ness.**; execução é da **Bekaa**, empresa parceira.
+
+Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
+
+## As seis regras que não se negociam
+
+1. **A linguagem visual é imutável; a composição melhora só onde há problema
+   medido.** A pergunta que autoriza qualquer mudança visual: *qual problema
+   medido isto resolve?* Se a resposta não citar um número, uma norma ou uma
+   linha do diagnóstico, não entra. Detalhe em
+   `.claude/skills/restauro-fiel/SKILL.md`.
+2. **O portal de RI não é nosso.** `ri.alupar.com.br` está a cargo de outra
+   equipe e vai conviver com o site novo — o visitante alterna entre os dois
+   por um link no topo. Divergência visual entre eles é defeito. Nada neste
+   repositório pode alterar o comportamento daquele host, e isso inclui
+   cabeçalhos que se propagam por subdomínio.
+3. **Nenhuma URL do acervo pode responder 404.** São 20 páginas e 225 notícias
+   indexadas desde 2017. O corte editorial de notícias é um campo, não uma
+   exclusão. Toda remoção vira 301 em `public/_redirects`.
+4. **Número não se inventa.** Onde faltar dado da Alupar — km de linhas, MW
+   instalados, valor de contrato — o lugar fica marcado como pendente. Um valor
+   plausível é pior que um espaço vazio, porque ninguém o corrige depois.
+5. **Os critérios de aceite são condição de merge, não boa vontade.** O CI
+   reprova orçamento de peso, acessibilidade, SEO e links quebrados. Nunca
+   relaxe um limite para fazer o CI passar: ou o código melhora, ou o problema
+   é real e vira conversa.
+6. **Nada de atribuição a IA no que fica registrado.** Sem trailer
+   `Co-Authored-By` de ferramenta, sem assinatura do tipo "Generated with", sem
+   branch `claude/*`, sem menção a IA em commit, corpo de PR ou documento
+   entregue. Mesma convenção do repositório AlupData, pelo mesmo motivo:
+   titularidade. Nomeie branches pelo assunto (`feat/…`, `docs/…`, `fix/…`).
+
+## Comandos
+
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # gera dist/ — rode antes de todo PR
+```
+
+O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
+
+## Onde as coisas estão
+
+| Caminho | O que é |
+|---|---|
+| `docs/prd.md` | O que o site precisa ser e por quê. Começa aqui |
+| `docs/decisoes.md` | As doze decisões e seus motivos |
+| `docs/marco-0-runbook.md` | Sete ações emergenciais, com verificação |
+| `docs/equipe.md` | Dimensionamento, alocação e lacunas |
+| `src/styles/tokens.css` | Tokens de marca, com as correções documentadas |
+| `public/_headers` | CSP, HSTS, Referrer-Policy, Permissions-Policy |
+| `public/_redirects` | Mapa de 301 do acervo |
+| `.claude/skills/` | Regras operacionais por área |
+
+## Skills deste repositório
+
+| Skill | Quando carrega |
+|---|---|
+| `restauro-fiel` | Qualquer decisão visual, e todo pedido de "melhoria" |
+| `marca-alupar` | Cor, tipografia, logotipo, aprovação de marca |
+| `cloudflare-alupar` | Borda, DNS, cabeçalhos, redirecionamentos, deploy |
+| `sanity-alupar` | Modelo de conteúdo, i18n, migração do acervo |
+| `a11y-gate` | Marcação, formulário, contraste, foco, leitor de tela |
+
+## Duas armadilhas que já custaram tempo
+
+**O apex é outro servidor.** `alupar.com.br` é um registro `A` para
+`34.230.121.250`, uma segunda instância WordPress que só redireciona para
+`www` — e é ela que serve o certificado vencido. `www` e `ri` são `CNAME` para
+o host da MZ. Diagnosticar o apex olhando o `www` leva à conclusão errada.
+
+**O PDF do manual converte o mesmo Pantone em RGB diferentes.** A arte do
+logotipo na p.6 usa `#174891`; o swatch da página de padrões cromáticos usa
+`#004F9D`. O HEX impresso no manual (`#00A0E3`) é erro de digitação e
+contradiz o Pantone, o CMYK e o RGB da própria linha. Adotamos `#004F9D`.
