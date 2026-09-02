@@ -23,8 +23,8 @@ ri.alupar.com.br.    CNAME  sites-clients-03.mziq.com.  → 52.204.44.81
 
 É uma segunda instância WordPress cuja única função é responder 301 para `www`.
 
-**Ação.** A zona já está na Cloudflare (`carol`/`jaime.ns.cloudflare.com`) e
-nenhum host tem proxy ligado. Portanto:
+**Ação.** A zona está na Cloudflare e é **administrada pela ness.** Nenhum host
+tem proxy ligado. Portanto — e sem depender de terceiros:
 
 1. Ligar o proxy (nuvem laranja) no registro do apex.
 2. Criar uma *Redirect Rule*: `alupar.com.br/*` → `https://www.alupar.com.br/$1`,
@@ -45,7 +45,7 @@ curl -sS -o /dev/null -w "%{http_code}\n" https://alupar.com.br/a-companhia/
 # esperado: 200 após seguir o redirecionamento
 ```
 
-**Responsável.** Quem administra a zona Cloudflare.
+**Responsável.** ness. — administra a zona. **Nada externo bloqueia esta ação.**
 
 ---
 

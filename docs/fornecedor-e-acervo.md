@@ -10,8 +10,8 @@ registra o que muda e o que já foi feito a respeito.
 
 ## 1. A posição é boa, e é preciso entender por quê
 
-**O domínio é nosso.** A zona `alupar.com.br` está na Cloudflare, administrada
-pela Alupar/ness, e nenhum host tem o proxy ligado. Isso significa que:
+**O domínio é nosso.** A zona `alupar.com.br` está na Cloudflare, **administrada
+pela ness.**, e nenhum host tem o proxy ligado. Isso significa que:
 
 - A virada do site é uma decisão nossa, não uma negociação. Apontamos o DNS
   para o Cloudflare Pages quando estivermos prontos
