@@ -12,3 +12,6 @@ npm-debug.log*
 acervo-completo/
 acervo/html/
 acervo/midia/
+
+# mídia extraída dos microsites — 94,7 MB de binários, fora do git
+acervo/microsites/*/midia/
