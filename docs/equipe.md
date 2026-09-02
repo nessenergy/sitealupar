@@ -182,10 +182,11 @@ retorno:
 | Skill | O que codifica |
 |---|---|
 | `restauro-fiel` | ✅ **Escrita** — a regra do D2 aplicada template a template: a pergunta que autoriza uma mudança, o que pode e não pode mudar, e a conferência lado a lado contra o site atual e o portal de RI. Dona: Helena |
-| `marca-alupar` | MIV 2018, tokens, as duas correções documentadas (`#00A0E3` e o verde de texto), versões do logotipo e o que exige aprovação do Marketing |
-| `cloudflare-alupar` | Convenções de `_headers` e `_redirects`, Redirect Rules, e as armadilhas — HSTS com `includeSubDomains` atinge o portal de RI, que é de outra equipe |
-| `sanity-alupar` | Modelo de conteúdo, i18n por documento, migração com preservação de URL, webhook de build |
-| `a11y-gate` | O checklist WCAG que o CI cobra, com o que a ferramenta automática não pega |
+| `marca-alupar` | ✅ **Escrita** — MIV 2018, tokens, as duas correções documentadas (`#00A0E3` e o verde de texto), versões do logotipo e o que exige aprovação do Marketing |
+| `cloudflare-alupar` | ✅ **Escrita** — Convenções de `_headers` e `_redirects`, Redirect Rules, e as armadilhas — HSTS com `includeSubDomains` atinge o portal de RI, que é de outra equipe |
+| `sanity-alupar` | ✅ **Escrita** — Modelo de conteúdo, i18n por documento, migração com preservação de URL, webhook de build |
+| `a11y-gate` | ✅ **Escrita** — O checklist WCAG que o CI cobra, com o que a ferramenta automática não pega |
 
-A `restauro-fiel` já está no repositório, porque é a que a Helena precisa antes
-da primeira tela. As demais pagam o custo entre as semanas 2 e 3.
+As cinco estão no repositório, junto com o `AGENTS.md` que dá o contexto geral.
+Cada uma carrega as decisões e as armadilhas da sua área — quem entrar no
+projeto não precisa reconstruir o raciocínio a partir do zero.
