@@ -23,9 +23,11 @@ execute, não verba. Só o B4 é acréscimo.
 
 ### Nomes que a Alupar precisa dar — nenhum custa hora
 
+Eram seis; A1 saiu porque a ness. administra o domínio.
+
 | # | Papel | O que trava |
 |---|---|---|
-| A1 | Quem administra a zona Cloudflare | #3 e #9 — a correção do domínio em HTTPS |
+| ~~A1~~ | ~~Quem administra a zona Cloudflare~~ | **Resolvido: é a ness.** A correção do domínio não depende de mais ninguém |
 | A2 | Interlocutor da equipe do RI | #5 e o feed de notícias, no caminho crítico |
 | A3 | Interlocutor da MZ | #4, #6, #7 e o prazo de desligamento |
 | A4 | Aprovador de marca no Marketing | O portão do M2. O manual de 2018 nomeia pessoas que podem não estar mais lá |
@@ -48,7 +50,7 @@ execute, não verba. Só o B4 é acréscimo.
 |---|---|---|
 | Z1 | Executar o Marco 0 esta semana | R$ 1.920–2.880. Corrige um problema que está no ar agora |
 | Z2 | Criar a conta do Sanity **em nome da Alupar** | É o que torna a saída de qualquer fornecedor futuro indolor |
-| Z3 | Acesso de administrador à zona Cloudflare | Depende de A1 |
+| ~~Z3~~ | ~~Acesso de administrador à zona Cloudflare~~ | **Já temos.** A ness. administra a zona |
 
 ---
 
@@ -81,11 +83,11 @@ serve para alguma coisa:
 
 - Comunicação (dono do conteúdo — A5)
 - Marketing (aprovação de marca — A4)
-- TI ou quem administra o domínio (A1)
+- TI, se houver decisão de infraestrutura do lado deles
 - Alguém com poder de decidir quando as áreas divergirem (A6)
 
-Se faltar TI, a reunião não resolve o domínio quebrado em HTTPS. Se faltar Marketing,
-não resolve o M2.
+Se faltar Marketing, a reunião não resolve o portão do M2. Se faltar
+Comunicação, não resolve o dono do conteúdo — que é o item mais importante.
 
 **Enviar 48 h antes:** o diagnóstico e o plano, com o pedido explícito de que
 cheguem lidos. A reunião não é para apresentar o diagnóstico — é para decidir
@@ -95,12 +97,16 @@ sobre ele.
 |---|---|---|
 | 0–10 | **O estado atual, com evidência.** O domínio sem `www` quebrado em HTTPS há quatro meses; a última notícia com 1.280 dias; 2,19 MB de home | Alinhar que o problema é real e medido, não opinião |
 | 10–20 | **O que já existe.** Repositório, plano de 500 h, custo, cronograma de 6–7 semanas, decisões fechadas | Mostrar que a conversa é sobre executar, não sobre estudar |
-| 20–35 | **Os seis nomes (A1–A6).** Sair da reunião com pessoa, não com área | O ponto mais importante da pauta |
+| 20–35 | **Os cinco nomes (A2–A6).** Sair com pessoa, não com área | O ponto mais importante da pauta |
 | 35–50 | **Os dados (D1–D5)** e o alerta do GA4: a linha de base precisa ser extraída antes da virada, e isso não volta | Prazos com responsável |
 | 50–60 | **Marco 0 (Z1).** Autorização para executar esta semana, com o custo declarado | Uma decisão, tomada na reunião |
 
-**Saída mínima aceitável:** A1, A5 e Z1. Sem esses três, a reunião precisa de
-uma segunda rodada e o cronograma escorrega.
+**Saída mínima aceitável:** A5 (dono do conteúdo) e Z1 (autorização do Marco 0).
+Sem esses dois, a reunião precisa de uma segunda rodada e o cronograma escorrega.
+
+**A correção do domínio não é pauta de decisão.** A zona é administrada pela
+ness., então a ação 0.1 pode — e deve — ser executada antes da reunião. Levá-la
+como item a aprovar seria adiar por uma semana o que já pode ser feito hoje.
 
 ---
 
@@ -108,28 +114,24 @@ uma segunda rodada e o cronograma escorrega.
 
 ### Para a ness. — os nomes
 
-> Assunto: Site institucional da Alupar — seis interlocutores que precisamos identificar
+> Assunto: Site institucional da Alupar — cinco interlocutores que precisamos identificar
 >
 > Estamos com o diagnóstico e o plano do site institucional fechados, e o
 > repositório já preparado para começar. Antes de arrancar, precisamos de seis
 > interlocutores do lado da Alupar. Nenhum consome hora do projeto, e todos
 > travam alguma coisa:
 >
-> 1. **Quem administra a zona DNS/Cloudflare de `alupar.com.br`** — é o mais
->    urgente. O domínio sem `www` está servindo certificado vencido desde
->    05/05, e quem digita o endereço vê tela de erro em vez do site. A correção
->    leva minutos, mas precisa de quem tem acesso.
-> 2. **Interlocutor da equipe do portal de RI** — o feed de notícias do
+> 1. **Interlocutor da equipe do portal de RI** — o feed de notícias do
 >    institucional passará a vir de lá, e há mais quatro pontos de fronteira a
 >    combinar.
-> 3. **Interlocutor da MZ Group** — três das ações emergenciais dependem deles,
+> 2. **Interlocutor da MZ Group** — três das ações emergenciais dependem deles,
 >    e a saída da plataforma é também conversa contratual.
-> 4. **Quem aprova uso de marca no Marketing** — o manual de identidade nomeia
+> 3. **Quem aprova uso de marca no Marketing** — o manual de identidade nomeia
 >    duas pessoas, mas ele é de 2018.
-> 5. **Dono do conteúdo institucional, com nome próprio.** O site tem a última
+> 4. **Dono do conteúdo institucional, com nome próprio.** O site tem a última
 >    notícia de março de 2023; o portal de RI está em dia. A diferença entre os
 >    dois não é técnica: é que um tem dono e o outro não.
-> 6. **Um padrinho executivo** para quando Comunicação, Marketing, RI e TI
+> 5. **Um padrinho executivo** para quando Comunicação, Marketing, RI e TI
 >    divergirem entre si.
 >
 > Podemos tratar tudo numa reunião de uma hora, desde que Comunicação,
