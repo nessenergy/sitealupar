@@ -15,7 +15,7 @@ Visual de 2018.
 | D5 | Feed de notícias | **Vem do RI** | Uma fonte só, mantida por quem já a alimenta. Elimina o feed que parou sozinho por 3,5 anos |
 | D6 | Dono do conteúdo | **Comunicação Alupar** | Área sem responsável nomeado foi o que deixou o site parar em 2023 |
 | D8 | Identidade | **MIV 2018** | Fixa paleta, tipografia, versões, campo de proteção e proibições |
-| D9 | Corte das notícias | **24 meses na listagem** | Arquivo indexável mantém as 225 URLs vivas; corte é editorial, não técnico |
+| D9 | Corte das notícias | **24 meses na listagem** | Arquivo indexável mantém as 183 URLs vivas; corte é editorial, não técnico |
 | D10 | Faixa institucional | **Entra** (+16 h) | Única adição de estrutura: a home não diz em lugar nenhum o que a Alupar é |
 | D11 | CMS | **Sanity** | Editor maduro, i18n nativo, conta em nome da Alupar. O site estático sobrevive à queda do CMS |
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |

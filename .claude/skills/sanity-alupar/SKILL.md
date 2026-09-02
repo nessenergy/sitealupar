@@ -1,6 +1,6 @@
 ---
 name: sanity-alupar
-description: Modelo de conteúdo, internacionalização e migração do acervo no Sanity para o sitealupar — cinco tipos, tradução por documento, e as regras de preservação de URL do acervo de 225 notícias. Use ao modelar ou alterar tipo de conteúdo, escrever consulta GROQ, migrar conteúdo, configurar idioma ou webhook de publicação. Trigger em Sanity, GROQ, schema, tipo de conteúdo, migração, notícia, banner, i18n, tradução, webhook, Studio.
+description: Modelo de conteúdo, internacionalização e migração do acervo no Sanity para o sitealupar — cinco tipos, tradução por documento, e as regras de preservação de URL do acervo de 99 notícias. Use ao modelar ou alterar tipo de conteúdo, escrever consulta GROQ, migrar conteúdo, configurar idioma ou webhook de publicação. Trigger em Sanity, GROQ, schema, tipo de conteúdo, migração, notícia, banner, i18n, tradução, webhook, Studio.
 ---
 
 # Sanity — sitealupar
@@ -14,7 +14,7 @@ qualquer fornecedor futuro indolor — inclusive a nossa. Studio em
 | Tipo | O que guarda |
 |---|---|
 | `pagina` | As sete páginas institucionais |
-| `noticia` | Acervo de 225 registros — ver a regra de corte abaixo |
+| `noticia` | Acervo de 99 registros — ver a regra de corte abaixo |
 | `banner` | Rotativo da home |
 | `video` | Três registros |
 | `empresa` | As 42 fichas de `/empresas/`, hoje HTML mantido à mão |
@@ -36,11 +36,11 @@ No site, as rotas são `/`, `/en/` e `/es/` — nunca `?lang=`.
 
 ## Migração do acervo
 
-**225 notícias e 3 vídeos, por script pela API.** Não à mão.
+**99 notícias e 3 vídeos, por script pela API.** Não à mão.
 
 Regras que não se negociam:
 
-- **URL, data e idioma preservados.** Nenhuma das 225 URLs pode responder 404;
+- **URL, data e idioma preservados.** Nenhuma das 183 URLs pode responder 404;
   são conteúdo indexado desde 2017
 - **O corte de 24 meses é um campo, não uma exclusão.** As recentes vão para a
   listagem principal; as demais para `/noticias/arquivo/`, paginado e

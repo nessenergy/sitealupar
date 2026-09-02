@@ -89,7 +89,7 @@ aposta feita sem esse dado, e é deliberadamente pequena e reversível.
 
 - As 7 páginas ativas: home, A Companhia, Área de Atuação, Empresas, Inovação e
   P&D, Contato, Política de Privacidade
-- Acervo de notícias (225 registros) e vídeos (3), com corte editorial de 24
+- Acervo de notícias (99 registros) e vídeos (3), com corte editorial de 24
   meses na listagem e arquivo indexável
 - Três idiomas: PT-BR, EN, ES — com paridade de conteúdo verificada no build
 - Faixa de indicadores institucionais na home
@@ -149,7 +149,7 @@ publicados pelo próprio RI. Os outros dois — **km de linhas de transmissão**
 
 | # | Requisito |
 |---|---|
-| N1 | As 225 URLs continuam vivas. O corte é editorial, não técnico |
+| N1 | As 183 URLs continuam vivas. O corte é editorial, não técnico |
 | N2 | Listagem principal com os últimos 24 meses |
 | N3 | Arquivo em `/noticias/arquivo/`, paginado e indexável, fora da navegação de destaque |
 
@@ -178,7 +178,7 @@ Um PR que os viole não entra.
 | Acessibilidade | WCAG 2.2 AA sem violação crítica; 100% das imagens com `alt`; formulário navegável só por teclado | reprova |
 | Idiomas | Paridade 100% PT/EN/ES | reprova |
 | SEO | Título e descrição únicos; um `<h1>`; JSON-LD no HTML servido | reprova |
-| Continuidade | Zero 404 nas 20 URLs antigas e nas 225 notícias | — |
+| Continuidade | Zero 404 nas 20 URLs antigas e nas 99 notícias | — |
 | Segurança | CSP, HSTS, Referrer-Policy, Permissions-Policy; certificado com renovação automatizada | reprova |
 | Operação | A Comunicação publica notícia e troca banner sem chamado a fornecedor | não |
 

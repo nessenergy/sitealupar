@@ -38,7 +38,7 @@ Aplicados pelo CI, não pela boa vontade de quem publica:
 - Acessibilidade 100 no Lighthouse, WCAG 2.2 AA sem violação crítica
 - 100% das imagens de conteúdo com `alt`
 - Paridade PT/EN/ES com `lang` e `hreflang` corretos por rota
-- Zero 404 nas 20 URLs antigas e nas 225 notícias
+- Zero 404 nas 20 URLs antigas e nas 99 notícias
 
 Estado de partida, medido em 01/09/2026: home com **2,19 MB** (84% imagens),
 **zero** imagens com `lazy`, `srcset` ou formato moderno, `alt` vazio em todos
@@ -52,6 +52,8 @@ Contexto para quem (ou o que) for trabalhar no repositório: [`AGENTS.md`](AGENT
 - [`docs/decisoes.md`](docs/decisoes.md) — as doze decisões e seus motivos
 - [`docs/marco-0-runbook.md`](docs/marco-0-runbook.md) — as sete ações emergenciais, com verificação
 - [`docs/equipe.md`](docs/equipe.md) — dimensionamento, alocação e as lacunas de competência
+- [`docs/reuniao-arranque.md`](docs/reuniao-arranque.md) — o que falta, a pauta das duas reuniões e as mensagens prontas
+- [`docs/fornecedor-e-acervo.md`](docs/fornecedor-e-acervo.md) — o fornecedor atual não colabora: o que muda e como o acervo foi recuperado
 
 O PRD tem duas seções deliberadamente incompletas (público e métricas de
 produto) e uma lista de perguntas em aberto no fim. Preenchê-las é o próximo
