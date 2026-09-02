@@ -52,6 +52,7 @@ Contexto para quem (ou o que) for trabalhar no repositório: [`AGENTS.md`](AGENT
 - [`docs/decisoes.md`](docs/decisoes.md) — as doze decisões e seus motivos
 - [`docs/marco-0-runbook.md`](docs/marco-0-runbook.md) — as sete ações emergenciais, com verificação
 - [`docs/equipe.md`](docs/equipe.md) — dimensionamento, alocação e as lacunas de competência
+- [`docs/reuniao-arranque.md`](docs/reuniao-arranque.md) — o que falta, a pauta das duas reuniões e as mensagens prontas
 
 O PRD tem duas seções deliberadamente incompletas (público e métricas de
 produto) e uma lista de perguntas em aberto no fim. Preenchê-las é o próximo
