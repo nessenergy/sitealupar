@@ -15,7 +15,7 @@ Contrato com a Alupar é da **ness.**; execução é da **Bekaa**, empresa parce
 
 Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
 
-## As seis regras que não se negociam
+## As sete regras que não se negociam
 
 1. **A linguagem visual é imutável; a composição melhora só onde há problema
    medido.** A pergunta que autoriza qualquer mudança visual: *qual problema
@@ -42,6 +42,11 @@ Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
    branch `claude/*`, sem menção a IA em commit, corpo de PR ou documento
    entregue. Mesma convenção do repositório AlupData, pelo mesmo motivo:
    titularidade. Nomeie branches pelo assunto (`feat/…`, `docs/…`, `fix/…`).
+7. **PR verde é PR mergeado.** Passou no CI, sem conflito e sem revisão
+   pendente? Sai de rascunho e vai para `main`, na hora — não fica esperando
+   uma segunda opinião que ninguém pediu. O portão de qualidade da regra 5 é
+   quem decide se o trabalho entra; se ele aprovou, a decisão está tomada.
+   Rascunho é para trabalho inacabado, não para trabalho pronto.
 
 ## Comandos
 
