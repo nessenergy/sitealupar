@@ -6,6 +6,13 @@
  * script busca é público e é da Alupar — ele apenas percorre os sitemaps do
  * próprio site e guarda o que já está no ar, antes que o acesso mude.
  *
+ * Percorre o índice do Yoast inteiro, não uma lista fixa de tipos: o site tem
+ * cinco tipos de conteúdo personalizados e três deles estão fora do menu.
+ *
+ * A API REST não é opção aqui — o iThemes Security removeu as rotas `wp/v2`
+ * deste host e as coleções respondem 403. Para rs, pdi e ma, onde a API está
+ * aberta, use `extrair-microsites.mjs`, que é fiel e muito mais barato.
+ *
  * Uso:
  *   node scripts/extrair-acervo.mjs                # HTML + manifesto de mídia
  *   node scripts/extrair-acervo.mjs --midia        # baixa também as imagens
@@ -112,9 +119,25 @@ async function guardarMidia(item) {
   }
 }
 
-const SITEMAPS = ['page-sitemap.xml', 'noticia-sitemap.xml', 'video-sitemap.xml'];
+/**
+ * Lê o índice do Yoast em vez de uma lista fixa. O site tem cinco tipos de
+ * conteúdo personalizados — `noticia`, `faq`, `video`, `group` e
+ * `banner_rotativo` — e três deles não aparecem no menu. Uma lista escrita à
+ * mão deixa de fora justamente o que ninguém lembra que existe: os 76 itens de
+ * `faq`, os 17 de `group` e os 18 banners do rotativo, onde está o banner de
+ * COVID-19 de 2021 apontado no diagnóstico.
+ */
+async function sitemapsDoIndice() {
+  const filhos = await urlsDoSitemap('sitemap_index.xml');
+  if (filhos.length) return filhos.map((u) => new URL(u).pathname.replace(/^\//, ''));
+  // Sem índice, cai para os tipos conhecidos em 02/09/2026.
+  return ['post', 'page', 'attachment', 'banner_rotativo', 'noticia', 'video',
+          'faq', 'category', 'group'].map((t) => `${t}-sitemap.xml`);
+}
 
-console.error('Lendo sitemaps...');
+console.error('Lendo o índice de sitemaps...');
+const SITEMAPS = await sitemapsDoIndice();
+console.error(`${SITEMAPS.length} sitemaps: ${SITEMAPS.join(', ')}`);
 const base = [...new Set((await Promise.all(SITEMAPS.map(urlsDoSitemap))).flat())];
 const alvos = base.flatMap((u) => IDIOMAS.map((l) => u + l));
 console.error(`${base.length} URLs × ${IDIOMAS.length} idiomas = ${alvos.length} páginas\n`);
