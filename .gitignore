@@ -15,3 +15,7 @@ acervo/midia/
 
 # mídia extraída dos microsites — 94,7 MB de binários, fora do git
 acervo/microsites/*/midia/
+
+# acervo do institucional — 283 MB de HTML e binários, fora do git
+acervo/html/
+acervo/midia/

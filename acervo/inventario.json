@@ -2,7 +2,7 @@
   {
     "url": "https://www.alupar.com.br/",
     "status": 200,
-    "bytes": 48715,
+    "bytes": 48716,
     "titulo": "Alupar - Institucional -",
     "publicado": "02/03/2023"
   },
@@ -16,63 +16,84 @@
   {
     "url": "https://www.alupar.com.br/?lang=es",
     "status": 200,
-    "bytes": 48293,
+    "bytes": 48294,
     "titulo": "Alupar - Institucional -",
     "publicado": "03/02/2023"
   },
   {
+    "url": "https://www.alupar.com.br/2017/08/24/hello-world/",
+    "status": 200,
+    "bytes": 44085,
+    "titulo": "Hello world! - Alupar - Institucional",
+    "publicado": "2017-08-24T21:38:12+00:00"
+  },
+  {
+    "url": "https://www.alupar.com.br/2017/08/24/hello-world/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/2017/08/24/hello-world/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
     "url": "https://www.alupar.com.br/videos/",
     "status": 200,
-    "bytes": 42499,
+    "bytes": 42498,
     "titulo": "Vídeos - Alupar - Institucional",
     "publicado": "12/12/2025"
   },
   {
     "url": "https://www.alupar.com.br/videos/?lang=en",
     "status": 200,
-    "bytes": 42323,
+    "bytes": 42324,
     "titulo": "Vídeos - Alupar - Institutional",
     "publicado": "05/12/2015"
   },
   {
     "url": "https://www.alupar.com.br/videos/?lang=es",
     "status": 200,
-    "bytes": 42391,
+    "bytes": 42392,
     "titulo": "Vídeos - Alupar - Institucional",
     "publicado": "05/12/2015"
   },
   {
     "url": "https://www.alupar.com.br/noticias/",
     "status": 200,
-    "bytes": 43757,
+    "bytes": 43756,
     "titulo": "Notícias - Alupar - Institucional",
     "publicado": "02/03/2023"
   },
   {
     "url": "https://www.alupar.com.br/noticias/?lang=en",
     "status": 200,
-    "bytes": 43297,
+    "bytes": 43295,
     "titulo": "News - Alupar - Institutional",
     "publicado": "03/02/2023"
   },
   {
     "url": "https://www.alupar.com.br/noticias/?lang=es",
     "status": 200,
-    "bytes": 44068,
+    "bytes": 44067,
     "titulo": "Las Noticias - Alupar - Institucional",
     "publicado": "03/02/2023"
   },
   {
     "url": "https://www.alupar.com.br/compliance/",
     "status": 200,
-    "bytes": 42605,
+    "bytes": 42606,
     "titulo": "Compliance - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/compliance/?lang=en",
     "status": 200,
-    "bytes": 42489,
+    "bytes": 42488,
     "titulo": "Compliance - Alupar - Institutional",
     "publicado": null
   },
@@ -93,35 +114,35 @@
   {
     "url": "https://www.alupar.com.br/politica-de-privacidade/?lang=en",
     "status": 200,
-    "bytes": 47099,
+    "bytes": 47100,
     "titulo": "Privacy Policy - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/politica-de-privacidade/?lang=es",
     "status": 200,
-    "bytes": 46558,
+    "bytes": 46557,
     "titulo": "Política de Privacidad - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/contato/",
     "status": 200,
-    "bytes": 47825,
+    "bytes": 47881,
     "titulo": "Contato - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/contato/?lang=en",
     "status": 200,
-    "bytes": 47713,
+    "bytes": 47712,
     "titulo": "Contact Us - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/contato/?lang=es",
     "status": 200,
-    "bytes": 47737,
+    "bytes": 47738,
     "titulo": "Contacto - Alupar - Institucional",
     "publicado": null
   },
@@ -142,14 +163,14 @@
   {
     "url": "https://www.alupar.com.br/trabalhe-conosco/?lang=es",
     "status": 200,
-    "bytes": 43658,
+    "bytes": 43659,
     "titulo": "Su carrera tiene que pasar por aquí - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/trabalhe-conosco-2/",
     "status": 200,
-    "bytes": 42082,
+    "bytes": 42081,
     "titulo": "TRABALHE CONOSCO - Alupar - Institucional",
     "publicado": null
   },
@@ -170,7 +191,7 @@
   {
     "url": "https://www.alupar.com.br/faq-new/",
     "status": 200,
-    "bytes": 42987,
+    "bytes": 42986,
     "titulo": "FAQ NEW - Alupar - Institucional",
     "publicado": null
   },
@@ -198,14 +219,14 @@
   {
     "url": "https://www.alupar.com.br/politica-de-privacidade/condicoes-de-uso-pagina-antiga/?lang=en",
     "status": 200,
-    "bytes": 49006,
+    "bytes": 49007,
     "titulo": "Conditions of Use - pagina - antiga - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/politica-de-privacidade/condicoes-de-uso-pagina-antiga/?lang=es",
     "status": 200,
-    "bytes": 48447,
+    "bytes": 48448,
     "titulo": "Condiciones de Uso - pagina - antiga - Alupar - Institucional",
     "publicado": null
   },
@@ -233,14 +254,14 @@
   {
     "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/",
     "status": 200,
-    "bytes": 58257,
+    "bytes": 58256,
     "titulo": "Pesquisa e Desenvolvimento - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/?lang=en",
     "status": 200,
-    "bytes": 56982,
+    "bytes": 56983,
     "titulo": "Research &amp; Development - Alupar - Institutional",
     "publicado": null
   },
@@ -317,7 +338,7 @@
   {
     "url": "https://www.alupar.com.br/a-companhia/",
     "status": 200,
-    "bytes": 46952,
+    "bytes": 46999,
     "titulo": "A Companhia - Alupar - Institucional",
     "publicado": null
   },
@@ -331,14 +352,14 @@
   {
     "url": "https://www.alupar.com.br/a-companhia/?lang=es",
     "status": 200,
-    "bytes": 47019,
+    "bytes": 47020,
     "titulo": "Compañía - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/area-de-atuacao/",
     "status": 200,
-    "bytes": 55427,
+    "bytes": 55425,
     "titulo": "Área de atuação - Alupar - Institucional",
     "publicado": null
   },
@@ -352,21 +373,21 @@
   {
     "url": "https://www.alupar.com.br/area-de-atuacao/?lang=es",
     "status": 200,
-    "bytes": 49428,
+    "bytes": 49427,
     "titulo": "Segmento de Negocio - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/empresas/",
     "status": 200,
-    "bytes": 86315,
+    "bytes": 86377,
     "titulo": "Empresas - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/empresas/?lang=en",
     "status": 200,
-    "bytes": 83838,
+    "bytes": 83837,
     "titulo": "Companies - Alupar - Institutional",
     "publicado": null
   },
@@ -380,7 +401,7 @@
   {
     "url": "https://www.alupar.com.br/alupar-e-a-covid-19/",
     "status": 200,
-    "bytes": 44698,
+    "bytes": 44697,
     "titulo": "Alupar e a COVID-19 - Alupar - Institucional",
     "publicado": null
   },
@@ -401,7 +422,7 @@
   {
     "url": "https://www.alupar.com.br/inovacao-pesquisa-e-desenvolvimento/",
     "status": 200,
-    "bytes": 51901,
+    "bytes": 51900,
     "titulo": "Programa de Pesquisa, Desenvolvimento e Inovação Regulado - Alupar - Institucional",
     "publicado": null
   },
@@ -420,16 +441,2536 @@
     "publicado": null
   },
   {
+    "url": "https://www.alupar.com.br/a-companhia/img-a-companhia/",
+    "status": 200,
+    "bytes": 44471,
+    "titulo": "img-a-companhia - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/img-a-companhia/?lang=en",
+    "status": 200,
+    "bytes": 44282,
+    "titulo": "img-a-companhia - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/img-a-companhia/?lang=es",
+    "status": 200,
+    "bytes": 44354,
+    "titulo": "img-a-companhia - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d/",
+    "status": 200,
+    "bytes": 45283,
+    "titulo": "img-investimento-programa-p-e-d - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/formulario_cadastral_ped_atualizada/",
+    "status": 200,
+    "bytes": 44111,
+    "titulo": "Formulario_cadastral_PeD_atualizada - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/formulario_cadastral_ped_atualizada/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/formulario_cadastral_ped_atualizada/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=133",
+    "status": 200,
+    "bytes": 44272,
+    "titulo": "img-investimento-programa-p-e-d_eng - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=133?lang=en",
+    "status": 200,
+    "bytes": 44291,
+    "titulo": "img-investimento-programa-p-e-d_eng - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=133?lang=es",
+    "status": 200,
+    "bytes": 44291,
+    "titulo": "img-investimento-programa-p-e-d_eng - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=134",
+    "status": 200,
+    "bytes": 43186,
+    "titulo": "Formulario_cadastral_PeD_atualizadaENG-final - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=134?lang=en",
+    "status": 200,
+    "bytes": 43206,
+    "titulo": "Formulario_cadastral_PeD_atualizadaENG-final - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=134?lang=es",
+    "status": 200,
+    "bytes": 43206,
+    "titulo": "Formulario_cadastral_PeD_atualizadaENG-final - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=143",
+    "status": 200,
+    "bytes": 44273,
+    "titulo": "img-investimento-programa-p-e-d_esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=143?lang=en",
+    "status": 200,
+    "bytes": 44294,
+    "titulo": "img-investimento-programa-p-e-d_esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=143?lang=es",
+    "status": 200,
+    "bytes": 44294,
+    "titulo": "img-investimento-programa-p-e-d_esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucional/",
+    "status": 200,
+    "bytes": 47924,
+    "titulo": "institucional - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucional/?lang=en",
+    "status": 200,
+    "bytes": 47204,
+    "titulo": "institucional - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucional/?lang=es",
+    "status": 200,
+    "bytes": 47523,
+    "titulo": "institucional - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucionalalupar-1/",
+    "status": 200,
+    "bytes": 44507,
+    "titulo": "institucionalalupar (1) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucionalalupar-1/?lang=en",
+    "status": 200,
+    "bytes": 43737,
+    "titulo": "institucionalalupar (1) - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/institucionalalupar-1/?lang=es",
+    "status": 200,
+    "bytes": 43804,
+    "titulo": "institucionalalupar (1) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/company/img-a-companhia-eng/",
+    "status": 200,
+    "bytes": 44277,
+    "titulo": "img-a-companhia-eng - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/company/img-a-companhia-eng/?lang=en",
+    "status": 200,
+    "bytes": 43802,
+    "titulo": "img-a-companhia-eng - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/company/img-a-companhia-eng/?lang=es",
+    "status": 200,
+    "bytes": 43868,
+    "titulo": "img-a-companhia-eng - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/compania/img-a-companhia-esp/",
+    "status": 200,
+    "bytes": 44197,
+    "titulo": "img-a-companhia-esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/compania/img-a-companhia-esp/?lang=en",
+    "status": 200,
+    "bytes": 43702,
+    "titulo": "img-a-companhia-esp - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/compania/img-a-companhia-esp/?lang=es",
+    "status": 200,
+    "bytes": 43769,
+    "titulo": "img-a-companhia-esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/tela-01/",
+    "status": 200,
+    "bytes": 44201,
+    "titulo": "tela-01 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/tela-01/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/tela-01/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/tela-02/",
+    "status": 200,
+    "bytes": 44491,
+    "titulo": "tela-02 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/tela-02/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/tela-02/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/tela-03/",
+    "status": 200,
+    "bytes": 44395,
+    "titulo": "tela-03 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/tela-03/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/tela-03/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/alupar_release-2t17/",
+    "status": 200,
+    "bytes": 43605,
+    "titulo": "Alupar_Release-2T17 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/alupar_release-2t17/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/alupar_release-2t17/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/itr-alupar-30062017-cvm/",
+    "status": 200,
+    "bytes": 43709,
+    "titulo": "ITR-Alupar-30062017-CVM - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/itr-alupar-30062017-cvm/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/itr-alupar-30062017-cvm/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/mapa-as-transmissoras-da-alupar/",
+    "status": 200,
+    "bytes": 45118,
+    "titulo": "mapa-as-transmissoras-da-Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/mapa-as-transmissoras-da-alupar/?lang=en",
+    "status": 200,
+    "bytes": 44167,
+    "titulo": "mapa-as-transmissoras-da-Alupar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/mapa-as-transmissoras-da-alupar/?lang=es",
+    "status": 200,
+    "bytes": 44236,
+    "titulo": "mapa-as-transmissoras-da-Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas/",
+    "status": 200,
+    "bytes": 46464,
+    "titulo": "siteinstitucional_mapas_ri_transmissão de energia_unidades_numeradas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas/?lang=en",
+    "status": 200,
+    "bytes": 44954,
+    "titulo": "siteinstitucional_mapas_ri_transmissão de energia_unidades_numeradas - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas/?lang=es",
+    "status": 200,
+    "bytes": 45020,
+    "titulo": "siteinstitucional_mapas_ri_transmissão de energia_unidades_numeradas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_11-2017/",
+    "status": 200,
+    "bytes": 44706,
+    "titulo": "mapa_site_ESP_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_11-2017/?lang=en",
+    "status": 200,
+    "bytes": 44462,
+    "titulo": "mapa_site_ESP_11-2017 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_11-2017/?lang=es",
+    "status": 200,
+    "bytes": 44532,
+    "titulo": "mapa_site_ESP_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_11-2017/",
+    "status": 200,
+    "bytes": 44555,
+    "titulo": "mapa_site_PT_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_11-2017/?lang=en",
+    "status": 200,
+    "bytes": 44320,
+    "titulo": "mapa_site_PT_11-2017 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_11-2017/?lang=es",
+    "status": 200,
+    "bytes": 44391,
+    "titulo": "mapa_site_PT_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_en_11-2017/",
+    "status": 200,
+    "bytes": 44554,
+    "titulo": "mapa_site_EN_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_en_11-2017/?lang=en",
+    "status": 200,
+    "bytes": 44320,
+    "titulo": "mapa_site_EN_11-2017 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_en_11-2017/?lang=es",
+    "status": 200,
+    "bytes": 44389,
+    "titulo": "mapa_site_EN_11-2017 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/alupar_mapa_transmissao_unidades_numerada_20171219/",
+    "status": 200,
+    "bytes": 45870,
+    "titulo": "Alupar_mapa_transmissao_unidades_numerada_20171219 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/alupar_mapa_transmissao_unidades_numerada_20171219/?lang=en",
+    "status": 200,
+    "bytes": 44630,
+    "titulo": "Alupar_mapa_transmissao_unidades_numerada_20171219 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/alupar_mapa_transmissao_unidades_numerada_20171219/?lang=es",
+    "status": 200,
+    "bytes": 44696,
+    "titulo": "Alupar_mapa_transmissao_unidades_numerada_20171219 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_20180122/",
+    "status": 200,
+    "bytes": 46762,
+    "titulo": "siteinstitucional_mapas_ri_transmissao de energia_unidades_numeradas_20180122 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_20180122/?lang=en",
+    "status": 200,
+    "bytes": 45116,
+    "titulo": "siteinstitucional_mapas_ri_transmissao de energia_unidades_numeradas_20180122 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_20180122/?lang=es",
+    "status": 200,
+    "bytes": 45183,
+    "titulo": "siteinstitucional_mapas_ri_transmissao de energia_unidades_numeradas_20180122 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit/",
+    "status": 200,
+    "bytes": 48392,
+    "titulo": "ALUPAR INSTITUCIONAL 2017_edit - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit/?lang=en",
+    "status": 200,
+    "bytes": 47456,
+    "titulo": "ALUPAR INSTITUCIONAL 2017_edit - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit-3/",
+    "status": 200,
+    "bytes": 48430,
+    "titulo": "ALUPAR INSTITUCIONAL 2017_edit - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit-3/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/video/video-institucional/alupar-institucional-2017_edit-3/?lang=es",
+    "status": 200,
+    "bytes": 47775,
+    "titulo": "ALUPAR INSTITUCIONAL 2017_edit - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019/",
+    "status": 200,
+    "bytes": 44600,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019/?lang=en",
+    "status": 200,
+    "bytes": 44347,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019/?lang=es",
+    "status": 200,
+    "bytes": 44419,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_07-2019/",
+    "status": 200,
+    "bytes": 44563,
+    "titulo": "mapa_site_PT_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_07-2019/?lang=en",
+    "status": 200,
+    "bytes": 44321,
+    "titulo": "mapa_site_PT_07-2019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_07-2019/?lang=es",
+    "status": 200,
+    "bytes": 44390,
+    "titulo": "mapa_site_PT_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_07-2019/",
+    "status": 200,
+    "bytes": 44600,
+    "titulo": "mapa_site_ENG_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_07-2019/?lang=en",
+    "status": 200,
+    "bytes": 44347,
+    "titulo": "mapa_site_ENG_07-2019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_07-2019/?lang=es",
+    "status": 200,
+    "bytes": 44419,
+    "titulo": "mapa_site_ENG_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019/",
+    "status": 200,
+    "bytes": 46696,
+    "titulo": "siteinstitucional_mapas_ri_transmissão de energia_unidades_numeradas_072019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019-3/",
+    "status": 200,
+    "bytes": 44647,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019-3/?lang=en",
+    "status": 200,
+    "bytes": 44391,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_07-2019-3/?lang=es",
+    "status": 200,
+    "bytes": 44461,
+    "titulo": "mapa_site_ESP_07-2019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/baixa_whatsapp-2/",
+    "status": 200,
+    "bytes": 48123,
+    "titulo": "Baixa_Whatsapp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/baixa_whatsapp-2/?lang=en",
+    "status": 200,
+    "bytes": 47145,
+    "titulo": "Baixa_Whatsapp - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/baixa_whatsapp-2/?lang=es",
+    "status": 200,
+    "bytes": 47466,
+    "titulo": "Baixa_Whatsapp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/video-ana-editado_480-2/",
+    "status": 200,
+    "bytes": 48335,
+    "titulo": "Video-Ana-Editado_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/video-ana-editado_480-2/?lang=en",
+    "status": 200,
+    "bytes": 47368,
+    "titulo": "Video Ana Editado_480 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/video-ana-editado_480-2/?lang=es",
+    "status": 200,
+    "bytes": 47689,
+    "titulo": "Video Ana Editado_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/aqualuz_baixa2/",
+    "status": 200,
+    "bytes": 48695,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/aqualuz_baixa2/?lang=en",
+    "status": 200,
+    "bytes": 47266,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/aqualuz_baixa2/?lang=es",
+    "status": 200,
+    "bytes": 47613,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/aqualuz_baixa2/",
+    "status": 200,
+    "bytes": 47549,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/aqualuz_baixa2/?lang=en",
+    "status": 200,
+    "bytes": 47417,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/aqualuz_baixa2/?lang=es",
+    "status": 200,
+    "bytes": 47761,
+    "titulo": "Aqualuz_baixa2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa/",
+    "status": 200,
+    "bytes": 48279,
+    "titulo": "MUNDOTECA-2019_baixa - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa/?lang=en",
+    "status": 200,
+    "bytes": 47351,
+    "titulo": "MUNDOTECA-2019_baixa - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa/?lang=es",
+    "status": 200,
+    "bytes": 47696,
+    "titulo": "MUNDOTECA-2019_baixa - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa-2/",
+    "status": 200,
+    "bytes": 48425,
+    "titulo": "MUNDOTECA 2019_baixa - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa-2/?lang=en",
+    "status": 200,
+    "bytes": 47471,
+    "titulo": "MUNDOTECA 2019_baixa - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/mundoteca-2019_baixa-2/?lang=es",
+    "status": 200,
+    "bytes": 47816,
+    "titulo": "MUNDOTECA 2019_baixa - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480-2/",
+    "status": 200,
+    "bytes": 48240,
+    "titulo": "Video-TCE_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480-2/?lang=en",
+    "status": 200,
+    "bytes": 47114,
+    "titulo": "Video TCE_480 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480-2/?lang=es",
+    "status": 200,
+    "bytes": 47434,
+    "titulo": "Video TCE_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480/",
+    "status": 200,
+    "bytes": 48780,
+    "titulo": "Video-TCE_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480/?lang=en",
+    "status": 200,
+    "bytes": 47274,
+    "titulo": "Video-TCE_480 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/video-tce_480/?lang=es",
+    "status": 200,
+    "bytes": 47605,
+    "titulo": "Video-TCE_480 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-2/",
+    "status": 200,
+    "bytes": 46780,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-2/?lang=en",
+    "status": 200,
+    "bytes": 45985,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-2/?lang=es",
+    "status": 200,
+    "bytes": 46066,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/img-area-de-atuacao-geracao-2/",
+    "status": 200,
+    "bytes": 44888,
+    "titulo": "img-area-de-atuacao-geracao - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/img-area-de-atuacao-geracao-2/?lang=en",
+    "status": 200,
+    "bytes": 44527,
+    "titulo": "img-area-de-atuacao-geracao - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/img-area-de-atuacao-geracao-2/?lang=es",
+    "status": 200,
+    "bytes": 44606,
+    "titulo": "img-area-de-atuacao-geracao - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/",
+    "status": 200,
+    "bytes": 45558,
+    "titulo": "img-investimento-programa-p-e-d-768x685 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/?lang=en",
+    "status": 200,
+    "bytes": 45030,
+    "titulo": "img-investimento-programa-p-e-d-768x685 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/?lang=es",
+    "status": 200,
+    "bytes": 45086,
+    "titulo": "img-investimento-programa-p-e-d-768x685 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/",
+    "status": 200,
+    "bytes": 45733,
+    "titulo": "img-investimento-programa-p-e-d_eng-768x579 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/?lang=en",
+    "status": 200,
+    "bytes": 45165,
+    "titulo": "img-investimento-programa-p-e-d_eng-768x579 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/?lang=es",
+    "status": 200,
+    "bytes": 45219,
+    "titulo": "img-investimento-programa-p-e-d_eng-768x579 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/",
+    "status": 200,
+    "bytes": 45733,
+    "titulo": "img-investimento-programa-p-e-d_esp-768x579 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/?lang=en",
+    "status": 200,
+    "bytes": 45165,
+    "titulo": "img-investimento-programa-p-e-d_esp-768x579 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/?lang=es",
+    "status": 200,
+    "bytes": 45220,
+    "titulo": "img-investimento-programa-p-e-d_esp-768x579 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_recursos_humanos-12-08-2020/",
+    "status": 200,
+    "bytes": 44099,
+    "titulo": "Politica_de_Recursos_Humanos - 12.08.2020 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_recursos_humanos-12-08-2020/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_recursos_humanos-12-08-2020/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_seguranca_do_trabalho_e_saude_ocupacional-12-08-2020/",
+    "status": 200,
+    "bytes": 44748,
+    "titulo": "Politica_de_Segurança_do_Trabalho_e_Saúde_Ocupacional - 12.08.2020 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_seguranca_do_trabalho_e_saude_ocupacional-12-08-2020/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_seguranca_do_trabalho_e_saude_ocupacional-12-08-2020/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_meio_ambiente-12-08-2020/",
+    "status": 200,
+    "bytes": 43979,
+    "titulo": "Politica_de_Meio_Ambiente-12.08.2020 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_meio_ambiente-12-08-2020/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/politica_de_meio_ambiente-12-08-2020/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2542",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2542?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2542?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2545",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2545?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2545?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2549",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2549?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2549?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2552",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2552?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2552?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_lugares-incriveis-trabalhar2020-certificado-fia_final_v4-copia-1/",
+    "status": 200,
+    "bytes": 47761,
+    "titulo": "banner_site_alupar_lugares-incriveis-trabalhar2020-certificado-FIA_final_v4-Copia-1 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_lugares-incriveis-trabalhar2020-certificado-fia_final_v4-copia-1/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_lugares-incriveis-trabalhar2020-certificado-fia_final_v4-copia-1/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2564",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2564?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=2564?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021/",
+    "status": 200,
+    "bytes": 44867,
+    "titulo": "Mapa_Icone_Eolico_RN_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021/?lang=en",
+    "status": 200,
+    "bytes": 44580,
+    "titulo": "Mapa_Icone_Eolico_RN_2021 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021/?lang=es",
+    "status": 200,
+    "bytes": 44649,
+    "titulo": "Mapa_Icone_Eolico_RN_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_en-2/",
+    "status": 200,
+    "bytes": 45013,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_en-2/?lang=en",
+    "status": 200,
+    "bytes": 44692,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_EN - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_en-2/?lang=es",
+    "status": 200,
+    "bytes": 44762,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_esp-2/",
+    "status": 200,
+    "bytes": 45051,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_esp-2/?lang=en",
+    "status": 200,
+    "bytes": 44722,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_ESP - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_icone_eolico_rn_2021_esp-2/?lang=es",
+    "status": 200,
+    "bytes": 44792,
+    "titulo": "Mapa_Icone_Eolico_RN_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021/",
+    "status": 200,
+    "bytes": 45157,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021/?lang=en",
+    "status": 200,
+    "bytes": 44794,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021/?lang=es",
+    "status": 200,
+    "bytes": 44874,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-3/",
+    "status": 200,
+    "bytes": 46778,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-3/?lang=en",
+    "status": 200,
+    "bytes": 45986,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/siteinstitucional_mapas_ri_transmissao-de-energia_unidades_numeradas_072019-3/?lang=es",
+    "status": 200,
+    "bytes": 46066,
+    "titulo": "siteinstitucional_mapas_ri_transmissão-de-energia_unidades_numeradas_072019 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_en-2/",
+    "status": 200,
+    "bytes": 45948,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_en-2/?lang=en",
+    "status": 200,
+    "bytes": 45464,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_EN - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_en-2/?lang=es",
+    "status": 200,
+    "bytes": 45544,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_esp-2/",
+    "status": 200,
+    "bytes": 45988,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_esp-2/?lang=en",
+    "status": 200,
+    "bytes": 45494,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_ESP - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_transmissao_unidade_numeradas_2021_esp-2/?lang=es",
+    "status": 200,
+    "bytes": 45575,
+    "titulo": "mapa_transmissao_unidade_numeradas_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021-2/",
+    "status": 200,
+    "bytes": 45462,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021-2/?lang=en",
+    "status": 200,
+    "bytes": 45083,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021-2/?lang=es",
+    "status": 200,
+    "bytes": 45163,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_esp-2/",
+    "status": 200,
+    "bytes": 45588,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_esp-2/?lang=en",
+    "status": 200,
+    "bytes": 45185,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_ESP - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_esp-2/?lang=es",
+    "status": 200,
+    "bytes": 45264,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_en-2/",
+    "status": 200,
+    "bytes": 45549,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_en-2/?lang=en",
+    "status": 200,
+    "bytes": 45154,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_EN - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_icone_eolico_rn_n11_2021_en-2/?lang=es",
+    "status": 200,
+    "bytes": 45234,
+    "titulo": "Mapa_Icone_Eolico_RN_n11_2021_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-2/",
+    "status": 200,
+    "bytes": 43852,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-2/?lang=en",
+    "status": 200,
+    "bytes": 43780,
+    "titulo": "AETE - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-2/?lang=es",
+    "status": 200,
+    "bytes": 43839,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete/",
+    "status": 200,
+    "bytes": 43839,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete/?lang=en",
+    "status": 200,
+    "bytes": 43768,
+    "titulo": "AETE - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete/?lang=es",
+    "status": 200,
+    "bytes": 43828,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-4/",
+    "status": 200,
+    "bytes": 43865,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-4/?lang=en",
+    "status": 200,
+    "bytes": 43793,
+    "titulo": "AETE - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/aete-4/?lang=es",
+    "status": 200,
+    "bytes": 43852,
+    "titulo": "AETE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar/",
+    "status": 200,
+    "bytes": 44650,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar/?lang=en",
+    "status": 200,
+    "bytes": 44298,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar/?lang=es",
+    "status": 200,
+    "bytes": 44357,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar-2/",
+    "status": 200,
+    "bytes": 44690,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar-2/?lang=en",
+    "status": 200,
+    "bytes": 44326,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/img-empresas-eolica-agreste-potiguar-2/?lang=es",
+    "status": 200,
+    "bytes": 44386,
+    "titulo": "img-empresas-eolica-agreste-potiguar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002/",
+    "status": 200,
+    "bytes": 45257,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002/?lang=en",
+    "status": 200,
+    "bytes": 44834,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002/?lang=es",
+    "status": 200,
+    "bytes": 44895,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002-3/",
+    "status": 200,
+    "bytes": 45283,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002-3/?lang=en",
+    "status": 200,
+    "bytes": 44861,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/empresas/30_mapas_ri_transmissao-de-energia_aete-002-3/?lang=es",
+    "status": 200,
+    "bytes": 44920,
+    "titulo": "30_mapas_ri_transmissao-de-energia_AETE (002) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar-2/",
+    "status": 200,
+    "bytes": 45672,
+    "titulo": "alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar-2/?lang=en",
+    "status": 200,
+    "bytes": 44495,
+    "titulo": "alupar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar-2/?lang=es",
+    "status": 200,
+    "bytes": 44561,
+    "titulo": "alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar2/",
+    "status": 200,
+    "bytes": 45542,
+    "titulo": "alupar2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar2/?lang=en",
+    "status": 200,
+    "bytes": 44489,
+    "titulo": "alupar2 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar2/?lang=es",
+    "status": 200,
+    "bytes": 44557,
+    "titulo": "alupar2 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar3/",
+    "status": 200,
+    "bytes": 45542,
+    "titulo": "alupar3 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar3/?lang=en",
+    "status": 200,
+    "bytes": 44490,
+    "titulo": "alupar3 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/alupar3/?lang=es",
+    "status": 200,
+    "bytes": 44555,
+    "titulo": "alupar3 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemalupar/",
+    "status": 200,
+    "bytes": 45844,
+    "titulo": "imagemalupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemalupar/?lang=en",
+    "status": 200,
+    "bytes": 44655,
+    "titulo": "imagemalupar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemalupar/?lang=es",
+    "status": 200,
+    "bytes": 44722,
+    "titulo": "imagemalupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemaluparcamila/",
+    "status": 200,
+    "bytes": 46060,
+    "titulo": "imagemaluparcamila - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemaluparcamila/?lang=en",
+    "status": 200,
+    "bytes": 44853,
+    "titulo": "imagemaluparcamila - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/imagemaluparcamila/?lang=es",
+    "status": 200,
+    "bytes": 44920,
+    "titulo": "imagemaluparcamila - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjennifer/",
+    "status": 200,
+    "bytes": 45792,
+    "titulo": "aluparjennifer - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjennifer/?lang=en",
+    "status": 200,
+    "bytes": 44720,
+    "titulo": "aluparjennifer - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjennifer/?lang=es",
+    "status": 200,
+    "bytes": 44788,
+    "titulo": "aluparjennifer - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparerivaldo/",
+    "status": 200,
+    "bytes": 45793,
+    "titulo": "aluparerivaldo - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparerivaldo/?lang=en",
+    "status": 200,
+    "bytes": 44719,
+    "titulo": "aluparerivaldo - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparerivaldo/?lang=es",
+    "status": 200,
+    "bytes": 44788,
+    "titulo": "aluparerivaldo - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjoao/",
+    "status": 200,
+    "bytes": 45748,
+    "titulo": "aluparjoao - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjoao/?lang=en",
+    "status": 200,
+    "bytes": 44685,
+    "titulo": "aluparjoao - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/aluparjoao/?lang=es",
+    "status": 200,
+    "bytes": 44754,
+    "titulo": "aluparjoao - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/banner_site_alupar_covid19_v2-final/",
+    "status": 200,
+    "bytes": 46462,
+    "titulo": "banner_site_alupar_COVID19_v2-final - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/banner_site_alupar_covid19_v2-final/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/banner_site_alupar_covid19_v2-final/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3019",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3019?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3019?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021-v3-1/",
+    "status": 200,
+    "bytes": 46784,
+    "titulo": "banner_site_alupar_certificado-FIA-2021-v3 (1) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021-v3-1/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021-v3-1/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3029",
+    "status": 200,
+    "bytes": 45127,
+    "titulo": "2_banner_site_alupar_premio-lugares-incriveis-2021-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3029?lang=en",
+    "status": 200,
+    "bytes": 45147,
+    "titulo": "2_banner_site_alupar_premio-lugares-incriveis-2021-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3029?lang=es",
+    "status": 200,
+    "bytes": 45148,
+    "titulo": "2_banner_site_alupar_premio-lugares-incriveis-2021-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-ingles-2/",
+    "status": 200,
+    "bytes": 46945,
+    "titulo": "1_banner_site_alupar_certificado-FIA-2021-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-ingles-2/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-ingles-2/?lang=es",
+    "status": 200,
+    "bytes": 45099,
+    "titulo": "1_banner_site_alupar_certificado-FIA-2021-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3037",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3037?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3037?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final-ingles-2/",
+    "status": 200,
+    "bytes": 47085,
+    "titulo": "banner_site_alupar_certificado-FIA-2021_FINAL-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final-ingles-2/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final-ingles-2/?lang=es",
+    "status": 200,
+    "bytes": 45179,
+    "titulo": "banner_site_alupar_certificado-FIA-2021_FINAL-ingles - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/2_banner_site_alupar_premio-lugares-incriveis-2021-espanhol-2/",
+    "status": 200,
+    "bytes": 47331,
+    "titulo": "2_banner_site_alupar_premio-lugares-incriveis-2021-espanhol - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/2_banner_site_alupar_premio-lugares-incriveis-2021-espanhol-2/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/2_banner_site_alupar_premio-lugares-incriveis-2021-espanhol-2/?lang=es",
+    "status": 200,
+    "bytes": 45012,
+    "titulo": "2_banner_site_alupar_premio-lugares-incriveis-2021-espanhol - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3050",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3050?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3050?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-espanhol-2/",
+    "status": 200,
+    "bytes": 47016,
+    "titulo": "1_banner_site_alupar_certificado-FIA-2021-espanhol - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-espanhol-2/?lang=en",
+    "status": 200,
+    "bytes": 45079,
+    "titulo": "1_banner_site_alupar_certificado-FIA-2021-espanhol - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/1_banner_site_alupar_certificado-fia-2021-espanhol-2/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final_espanhol-2/",
+    "status": 200,
+    "bytes": 47156,
+    "titulo": "banner_site_alupar_certificado-FIA-2021_FINAL_espanhol - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final_espanhol-2/?lang=en",
+    "status": 200,
+    "bytes": 45157,
+    "titulo": "banner_site_alupar_certificado-FIA-2021_FINAL_espanhol - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/banner_site_alupar_certificado-fia-2021_final_espanhol-2/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3061",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3061?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3061?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_01-2022/",
+    "status": 200,
+    "bytes": 44562,
+    "titulo": "mapa_site_PT_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_01-2022/?lang=en",
+    "status": 200,
+    "bytes": 44319,
+    "titulo": "mapa_site_PT_01-2022 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_01-2022/?lang=es",
+    "status": 200,
+    "bytes": 44391,
+    "titulo": "mapa_site_PT_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_01-2022-2/",
+    "status": 200,
+    "bytes": 44631,
+    "titulo": "mapa_site_ENG_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_01-2022-2/?lang=en",
+    "status": 200,
+    "bytes": 44374,
+    "titulo": "mapa_site_ENG_01-2022 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_01-2022-2/?lang=es",
+    "status": 200,
+    "bytes": 44444,
+    "titulo": "mapa_site_ENG_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_01-2022-2/",
+    "status": 200,
+    "bytes": 44632,
+    "titulo": "mapa_site_ESP_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_01-2022-2/?lang=en",
+    "status": 200,
+    "bytes": 44375,
+    "titulo": "mapa_site_ESP_01-2022 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_esp_01-2022-2/?lang=es",
+    "status": 200,
+    "bytes": 44444,
+    "titulo": "mapa_site_ESP_01-2022 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_pt/",
+    "status": 200,
+    "bytes": 45181,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_pt/?lang=en",
+    "status": 200,
+    "bytes": 44784,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_PT - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_pt/?lang=es",
+    "status": 200,
+    "bytes": 44863,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_en-2/",
+    "status": 200,
+    "bytes": 45214,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_en-2/?lang=en",
+    "status": 200,
+    "bytes": 44809,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_EN - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_en-2/?lang=es",
+    "status": 200,
+    "bytes": 44889,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_EN - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_esp-2/",
+    "status": 200,
+    "bytes": 45251,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_esp-2/?lang=en",
+    "status": 200,
+    "bytes": 44837,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_ESP - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/area-de-atuacao/mapa_geradoras_enumeradas_2022_esp-2/?lang=es",
+    "status": 200,
+    "bytes": 44917,
+    "titulo": "Mapa_Geradoras_Enumeradas_2022_ESP - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3236",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3236?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3236?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3240",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3240?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3240?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3244",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3244?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3244?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/valores_-site_-pt/",
+    "status": 200,
+    "bytes": 44689,
+    "titulo": "VALORES_ SITE_ PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/valores_-site_-pt/?lang=en",
+    "status": 200,
+    "bytes": 44474,
+    "titulo": "VALORES_ SITE_ PT - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/valores_-site_-pt/?lang=es",
+    "status": 200,
+    "bytes": 44543,
+    "titulo": "VALORES_ SITE_ PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_pt/",
+    "status": 200,
+    "bytes": 44646,
+    "titulo": "MISSÃO, VALORES_SITE_PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_pt/?lang=en",
+    "status": 200,
+    "bytes": 44386,
+    "titulo": "MISSÃO, VALORES_SITE_PT - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_pt/?lang=es",
+    "status": 200,
+    "bytes": 44455,
+    "titulo": "MISSÃO, VALORES_SITE_PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_us-2/",
+    "status": 200,
+    "bytes": 44678,
+    "titulo": "MISSÃO, VALORES_SITE_US - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_us-2/?lang=en",
+    "status": 200,
+    "bytes": 44412,
+    "titulo": "MISSÃO, VALORES_SITE_US - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/missao-valores_site_us-2/?lang=es",
+    "status": 200,
+    "bytes": 44482,
+    "titulo": "MISSÃO, VALORES_SITE_US - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_03-2024/",
+    "status": 200,
+    "bytes": 44563,
+    "titulo": "mapa_site_PT_03-2024 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_03-2024/?lang=en",
+    "status": 200,
+    "bytes": 44320,
+    "titulo": "mapa_site_PT_03-2024 - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_pt_03-2024/?lang=es",
+    "status": 200,
+    "bytes": 44390,
+    "titulo": "mapa_site_PT_03-2024 - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_03-2024-2-2/",
+    "status": 200,
+    "bytes": 44720,
+    "titulo": "mapa_site_ENG_03-2024 (2) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_03-2024-2-2/?lang=en",
+    "status": 200,
+    "bytes": 44445,
+    "titulo": "mapa_site_ENG_03-2024 (2) - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/a-companhia/mapa_site_eng_03-2024-2-2/?lang=es",
+    "status": 200,
+    "bytes": 44514,
+    "titulo": "mapa_site_ENG_03-2024 (2) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3359",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3359?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3359?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3364",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3364?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3364?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3366",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3366?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3366?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3370",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3370?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?attachment_id=3370?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site_portugues-1-1/",
+    "status": 200,
+    "bytes": 46811,
+    "titulo": "relatorio-sustentabilidade-banner-site_portugues-1 (1) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site_portugues-1-1/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site_portugues-1-1/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site-1/",
+    "status": 200,
+    "bytes": 46347,
+    "titulo": "relatorio-sustentabilidade-banner-site (1) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site-1/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/relatorio-sustentabilidade-banner-site-1/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/sustainability-report-banner-site-ingles-2/",
+    "status": 200,
+    "bytes": 45225,
+    "titulo": "Sustainability-report-banner-site-inglês - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/sustainability-report-banner-site-ingles-2/?lang=en",
+    "status": 200,
+    "bytes": 44660,
+    "titulo": "Sustainability-report-banner-site-inglês - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/sustainability-report-banner-site-ingles-2/?lang=es",
+    "status": 200,
+    "bytes": 45160,
+    "titulo": "Sustainability-report-banner-site-inglês - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2024-portugues/",
+    "status": 200,
+    "bytes": 47261,
+    "titulo": "Banner-site-holding-Relatório-de-Sustentabilidade-2024-PORTUGUÊS - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2024-portugues/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2024-portugues/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2025-pt/",
+    "status": 200,
+    "bytes": 47024,
+    "titulo": "Banner-site-holding-Relatório-de-Sustentabilidade-2025-PT - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2025-pt/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/banner-site-holding-relatorio-de-sustentabilidade-2025-pt/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner-site-holding-relatorio-de-sustentabilidade-2025-ing-2/",
+    "status": 200,
+    "bytes": 45924,
+    "titulo": "Banner-site-holding-Relatório-de-Sustentabilidade-2025-ING - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner-site-holding-relatorio-de-sustentabilidade-2025-ing-2/?lang=en",
+    "status": 200,
+    "bytes": 44949,
+    "titulo": "Banner-site-holding-Relatório-de-Sustentabilidade-2025-ING - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner-site-holding-relatorio-de-sustentabilidade-2025-ing-2/?lang=es",
+    "status": 200,
+    "bytes": 45858,
+    "titulo": "Banner-site-holding-Relatório-de-Sustentabilidade-2025-ING - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/",
+    "status": 200,
+    "bytes": 42838,
+    "titulo": "Energia que move vidas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/?lang=en",
+    "status": 200,
+    "bytes": 42796,
+    "titulo": "Energy that powers life - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/energia-que-move-vidas/?lang=es",
+    "status": 200,
+    "bytes": 42936,
+    "titulo": "Energía que impulsa la vida - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/",
+    "status": 200,
+    "bytes": 42695,
+    "titulo": "Mais Energia - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/mais-energia/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/",
+    "status": 200,
+    "bytes": 43042,
+    "titulo": "Respeito pelo meio ambiente - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/respeito-pelo-meio-ambiente/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+    "status": 200,
+    "bytes": 43058,
+    "titulo": "Ações sociais em prol de comunidades vulneráveis - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/acoes-sociais-em-prol-de-comunidades-vulneraveis/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/",
+    "status": 200,
+    "bytes": 43456,
+    "titulo": "#SomosCertificadosAtmosferaFIA - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/selo-qualidade-do-ambiente-do-trabalho-atmosfera-fia/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/?post_type=banner_rotativo&amp;p=2541",
+    "status": 200,
+    "bytes": 48831,
+    "titulo": "Alupar - Institucional -",
+    "publicado": "02/03/2023"
+  },
+  {
+    "url": "https://www.alupar.com.br/?post_type=banner_rotativo&amp;p=2541?lang=en",
+    "status": 200,
+    "bytes": 48851,
+    "titulo": "Alupar - Institucional -",
+    "publicado": "02/03/2023"
+  },
+  {
+    "url": "https://www.alupar.com.br/?post_type=banner_rotativo&amp;p=2541?lang=es",
+    "status": 200,
+    "bytes": 48851,
+    "titulo": "Alupar - Institucional -",
+    "publicado": "02/03/2023"
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/sustainability/?lang=en",
+    "status": 200,
+    "bytes": 42183,
+    "titulo": "#SUSTAINABILITY - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/sustainability/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/sustainability/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/",
+    "status": 200,
+    "bytes": 42890,
+    "titulo": "#SUSTENTABILIDADE - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/banner_rotativo/relatorio-de-sustentabilidade-2023/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/",
     "status": 200,
-    "bytes": 44276,
+    "bytes": 44277,
     "titulo": "Divulgação de Resultados do 2T17 - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t17/?lang=en",
     "status": 200,
-    "bytes": 43964,
+    "bytes": 43965,
     "titulo": "2Q17 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -485,7 +3026,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only/?lang=en",
     "status": 200,
-    "bytes": 43789,
+    "bytes": 43788,
     "titulo": "Registro de companhia aberta é concedido à Alupar (Portuguese Only) - Alupar - Institutional",
     "publicado": null
   },
@@ -506,7 +3047,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-vence-leilao-do-lote-d-da-aneel/?lang=en",
     "status": 200,
-    "bytes": 44698,
+    "bytes": 44697,
     "titulo": "Alupar vence leilão do lote D da Aneel - Alupar - Institutional",
     "publicado": null
   },
@@ -548,7 +3089,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/projetos-devem-atingir-730-megawatts/?lang=en",
     "status": 200,
-    "bytes": 44083,
+    "bytes": 44084,
     "titulo": "Projetos devem atingir 730 megawatts - Alupar - Institutional",
     "publicado": null
   },
@@ -569,7 +3110,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/projetos-devem-atingir-730-megawatts-portuguese-only/?lang=en",
     "status": 200,
-    "bytes": 44418,
+    "bytes": 44417,
     "titulo": "Projetos devem atingir 730 megawatts (Portuguese Only) - Alupar - Institutional",
     "publicado": null
   },
@@ -590,7 +3131,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fitch-rating-afirma-o-rating-da-alupar/",
     "status": 200,
-    "bytes": 43758,
+    "bytes": 43757,
     "titulo": "Fitch Rating afirma o rating da Alupar - Alupar - Institucional",
     "publicado": null
   },
@@ -653,7 +3194,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/?lang=en",
     "status": 200,
-    "bytes": 43862,
+    "bytes": 43863,
     "titulo": "Moody´s assigns Ba2/Aa3.br to Alupar´s Debentures - Alupar - Institutional",
     "publicado": null
   },
@@ -695,7 +3236,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only/?lang=en",
     "status": 200,
-    "bytes": 44440,
+    "bytes": 44442,
     "titulo": "Alupar conquista lote D no leilão da Aneel (Portuguese Only) - Alupar - Institutional",
     "publicado": null
   },
@@ -716,7 +3257,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/?lang=en",
     "status": 200,
-    "bytes": 45714,
+    "bytes": 45713,
     "titulo": "Licença Ambiental Prévia da PCH Água Limpa (Portuguese Only) - Alupar - Institutional",
     "publicado": null
   },
@@ -800,7 +3341,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only/?lang=en",
     "status": 200,
-    "bytes": 45047,
+    "bytes": 45048,
     "titulo": "Alupar vence leilão da Aneel para construir subestação em MT (Portuguese Only) - Alupar - Institutional",
     "publicado": null
   },
@@ -821,7 +3362,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/lancada-pedra-fundamental-da-uhe-ferreira-gomes/",
     "status": 200,
-    "bytes": 44707,
+    "bytes": 44709,
     "titulo": "Lançada pedra fundamental da UHE Ferreira Gomes - Alupar - Institucional",
     "publicado": null
   },
@@ -842,7 +3383,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/groundbreaking-for-uhe-ferreira-gomes-is-celebrated/?lang=en",
     "status": 200,
-    "bytes": 44533,
+    "bytes": 44534,
     "titulo": "Groundbreaking for UHE Ferreira Gomes is celebrated - Alupar - Institutional",
     "publicado": null
   },
@@ -884,7 +3425,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/foz-do-rio-claro-hpp-launched-in-goias/?lang=en",
     "status": 200,
-    "bytes": 43673,
+    "bytes": 43672,
     "titulo": "Foz do Rio Claro HPP launched in Goiás - Alupar - Institutional",
     "publicado": null
   },
@@ -905,7 +3446,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/assinada-a-concessao-para-implantacao-da-uhe-de-ferreira-gomes/",
     "status": 200,
-    "bytes": 44959,
+    "bytes": 44958,
     "titulo": "Assinada a concessão para implantação da UHE de Ferreira Gomes - Alupar - Institucional",
     "publicado": null
   },
@@ -926,7 +3467,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/signed-the-concession-for-the-installation-of-ferreira-gomes-hpp/?lang=en",
     "status": 200,
-    "bytes": 44736,
+    "bytes": 44735,
     "titulo": "Signed the concession for the installation of Ferreira Gomes HPP - Alupar - Institutional",
     "publicado": null
   },
@@ -947,7 +3488,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/uhe-foz-do-rio-claro-entrada-em-operacao-2a-turbina/",
     "status": 200,
-    "bytes": 44492,
+    "bytes": 44493,
     "titulo": "UHE Foz do Rio Claro - Entrada em operação 2ª turbina - Alupar - Institucional",
     "publicado": null
   },
@@ -989,7 +3530,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/uhe-sao-jose-e-inaugurada-em-rs/",
     "status": 200,
-    "bytes": 43769,
+    "bytes": 43768,
     "titulo": "UHE São José é inaugurada em RS - Alupar - Institucional",
     "publicado": null
   },
@@ -1052,7 +3593,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/2011-fitch-ratings/?lang=en",
     "status": 200,
-    "bytes": 43171,
+    "bytes": 43172,
     "titulo": "2011 Fitch Ratings - Alupar - Institutional",
     "publicado": null
   },
@@ -1094,7 +3635,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/sao-jose-hpp-2nd-turbines-startup/?lang=en",
     "status": 200,
-    "bytes": 43664,
+    "bytes": 43665,
     "titulo": "São José HPP - 2nd turbine’s startup - Alupar - Institutional",
     "publicado": null
   },
@@ -1115,7 +3656,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/inauguracao-da-ebte/",
     "status": 200,
-    "bytes": 44278,
+    "bytes": 44279,
     "titulo": "Inauguração da EBTE - Alupar - Institucional",
     "publicado": null
   },
@@ -1157,7 +3698,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-vence-leilao-para-construcao-de-715-km-de-linha-de-transmissao-no-norte-do-pais/",
     "status": 200,
-    "bytes": 45777,
+    "bytes": 45778,
     "titulo": "Alupar vence leilão para construção de 715 Km de linha de transmissão no Norte do País - Alupar - Institucional",
     "publicado": null
   },
@@ -1241,7 +3782,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-alteracao-dri/",
     "status": 200,
-    "bytes": 44185,
+    "bytes": 44186,
     "titulo": "Comunicado ao Mercado - Alteração DRI - Alupar - Institucional",
     "publicado": null
   },
@@ -1283,7 +3824,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/entrada-em-operacao-da-tme/",
     "status": 200,
-    "bytes": 43691,
+    "bytes": 43692,
     "titulo": "Entrada em operação da TME - Alupar - Institucional",
     "publicado": null
   },
@@ -1304,7 +3845,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-launched-power-transmission-system-in-mt/?lang=en",
     "status": 200,
-    "bytes": 43862,
+    "bytes": 43861,
     "titulo": "Alupar launched power transmission system in MT - Alupar - Institutional",
     "publicado": null
   },
@@ -1325,7 +3866,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-vence-lote-d-em-leilao-de-transmissao/",
     "status": 200,
-    "bytes": 45091,
+    "bytes": 45092,
     "titulo": "Alupar vence Lote D em leilão de transmissão - Alupar - Institucional",
     "publicado": null
   },
@@ -1346,7 +3887,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-wins-lot-d-in-transmission-auction/?lang=en",
     "status": 200,
-    "bytes": 44656,
+    "bytes": 44655,
     "titulo": "Alupar wins Lot D in transmission auction - Alupar - Institutional",
     "publicado": null
   },
@@ -1388,7 +3929,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-launched-power-transmission-system-in-mt-2/?lang=en",
     "status": 200,
-    "bytes": 44407,
+    "bytes": 44406,
     "titulo": "Alupar launched power transmission system in MT - Alupar - Institutional",
     "publicado": null
   },
@@ -1409,7 +3950,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-e-furnas-vao-construir-dez-parques-eolicos-no-ceara/",
     "status": 200,
-    "bytes": 47857,
+    "bytes": 47856,
     "titulo": "Alupar e Furnas vão construir dez parques eólicos no Ceará - Alupar - Institucional",
     "publicado": null
   },
@@ -1430,7 +3971,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-and-furnas-will-build-ten-wind-farms-in-ceara/?lang=en",
     "status": 200,
-    "bytes": 47334,
+    "bytes": 47332,
     "titulo": "Alupar and Furnas will build ten wind farms in Ceará - Alupar - Institutional",
     "publicado": null
   },
@@ -1451,7 +3992,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/entrada-em-operacao-comercial-de-reforco-autorizado-da-erte/",
     "status": 200,
-    "bytes": 44266,
+    "bytes": 44267,
     "titulo": "Entrada em Operação Comercial de Reforço Autorizado da ERTE - Alupar - Institucional",
     "publicado": null
   },
@@ -1493,7 +4034,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/elevacao-de-rating-corporativo/",
     "status": 200,
-    "bytes": 44371,
+    "bytes": 44372,
     "titulo": "Elevação de Rating Corporativo - Alupar - Institucional",
     "publicado": null
   },
@@ -1598,7 +4139,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/modification-of-shp-morro-azul-environmental-license/?lang=en",
     "status": 200,
-    "bytes": 44043,
+    "bytes": 44042,
     "titulo": "Modification of SHP Morro Azul Environmental License - Alupar - Institutional",
     "publicado": null
   },
@@ -1661,7 +4202,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-pch-verde-8/",
     "status": 200,
-    "bytes": 43750,
+    "bytes": 43749,
     "titulo": "Fato Relevante – PCH Verde 8 - Alupar - Institucional",
     "publicado": null
   },
@@ -1682,7 +4223,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-pch-verde-8/?lang=en",
     "status": 200,
-    "bytes": 43485,
+    "bytes": 43484,
     "titulo": "Material Fact - PCH Verde 8 - Alupar - Institutional",
     "publicado": null
   },
@@ -1703,7 +4244,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas/",
     "status": 200,
-    "bytes": 47100,
+    "bytes": 47099,
     "titulo": "Fato Relevante - Aquisição de Ações Preferenciais PCHs Queluz e Lavrinhas - Alupar - Institucional",
     "publicado": null
   },
@@ -1724,7 +4265,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/?lang=en",
     "status": 200,
-    "bytes": 46644,
+    "bytes": 46643,
     "titulo": "Material Fact - Acquisition of SHPPs Queluz and Lavrinhas Preferred Shares - Alupar - Institutional",
     "publicado": null
   },
@@ -1745,7 +4286,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-concretizacao-de-aquisicao-eate/",
     "status": 200,
-    "bytes": 45315,
+    "bytes": 45314,
     "titulo": "Fato Relevante - Concretização de Aquisição - EATE - Alupar - Institucional",
     "publicado": null
   },
@@ -1787,7 +4328,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz/",
     "status": 200,
-    "bytes": 46285,
+    "bytes": 46286,
     "titulo": "Fato Relevante - Aquisição de Ações Preferenciais Lavrinhas e Queluz - Alupar - Institucional",
     "publicado": null
   },
@@ -1850,7 +4391,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/?lang=en",
     "status": 200,
-    "bytes": 44789,
+    "bytes": 44790,
     "titulo": "Notice to the Market - Ferreira Gomes - Diversion of the Araguari River - Alupar - Institutional",
     "publicado": null
   },
@@ -1871,7 +4412,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-contratacao-de-formador-de-mercado/",
     "status": 200,
-    "bytes": 46398,
+    "bytes": 46397,
     "titulo": "Comunicado ao Mercado - Contratação de Formador de Mercado - Alupar - Institucional",
     "publicado": null
   },
@@ -2018,7 +4559,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/?lang=en",
     "status": 200,
-    "bytes": 46745,
+    "bytes": 46746,
     "titulo": "Notice to the Market - Request for the previous analysis of the registration of public offering - Alupar - Institutional",
     "publicado": null
   },
@@ -2039,7 +4580,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-4t13/",
     "status": 200,
-    "bytes": 44067,
+    "bytes": 44068,
     "titulo": "Divulgação de Resultados do 4T13 - Alupar - Institucional",
     "publicado": null
   },
@@ -2081,7 +4622,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-aquisicao-la-virgen/",
     "status": 200,
-    "bytes": 45687,
+    "bytes": 45689,
     "titulo": "Fato Relevante - Aquisição La Virgen - Alupar - Institucional",
     "publicado": null
   },
@@ -2102,7 +4643,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-acquisition-of-la-virgen/?lang=en",
     "status": 200,
-    "bytes": 45404,
+    "bytes": 45403,
     "titulo": "Material Fact - Acquisition of La Virgen - Alupar - Institutional",
     "publicado": null
   },
@@ -2123,7 +4664,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-aquisicao-participacao-gic-private-limited/",
     "status": 200,
-    "bytes": 46126,
+    "bytes": 46125,
     "titulo": "Comunicado ao Mercado - Aquisição participação GIC Private Limited - Alupar - Institucional",
     "publicado": null
   },
@@ -2144,7 +4685,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/?lang=en",
     "status": 200,
-    "bytes": 45874,
+    "bytes": 45875,
     "titulo": "Notice to the Market - Acquisition of Interest GIC Private Limited - Alupar - Institutional",
     "publicado": null
   },
@@ -2186,7 +4727,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/?lang=en",
     "status": 200,
-    "bytes": 46810,
+    "bytes": 46811,
     "titulo": "Notice to the Market - Restatement of Management Proposal referring to the Annual and Extraordinary Shareholders’ Meeting - Alupar - Institutional",
     "publicado": null
   },
@@ -2207,7 +4748,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/agoe-edital-de-convocacao/",
     "status": 200,
-    "bytes": 44054,
+    "bytes": 44055,
     "titulo": "AGO/E - Edital de Convocação - Alupar - Institucional",
     "publicado": null
   },
@@ -2228,7 +4769,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/?lang=en",
     "status": 200,
-    "bytes": 44306,
+    "bytes": 44307,
     "titulo": "Annual and Extraordinary Shareholders Meeting – Call Notice - Alupar - Institutional",
     "publicado": null
   },
@@ -2249,7 +4790,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/",
     "status": 200,
-    "bytes": 54016,
+    "bytes": 54015,
     "titulo": "Ata da Assembleia Geral Ordinária e Extraordinária - Alupar - Institucional",
     "publicado": null
   },
@@ -2270,7 +4811,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/?lang=en",
     "status": 200,
-    "bytes": 53546,
+    "bytes": 53547,
     "titulo": "Minutes of the Annual and Extraordinary Shareholders´ Meeting - Alupar - Institutional",
     "publicado": null
   },
@@ -2354,7 +4895,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-acquisition-of-interest-funcef/?lang=en",
     "status": 200,
-    "bytes": 45754,
+    "bytes": 45755,
     "titulo": "Notice to the Market - Acquisition of Interest FUNCEF - Alupar - Institutional",
     "publicado": null
   },
@@ -2417,7 +4958,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014/",
     "status": 200,
-    "bytes": 45657,
+    "bytes": 45658,
     "titulo": "Fato Relevante - Adjudicação do lote C do leilão ANEEL 001-2014 - Alupar - Institucional",
     "publicado": null
   },
@@ -2501,7 +5042,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
     "status": 200,
-    "bytes": 46254,
+    "bytes": 46253,
     "titulo": "Comunicado ao Mercado - Reajuste da Receita Anual Permitida do Ciclo 2014/2015 - Alupar - Institucional",
     "publicado": null
   },
@@ -2543,7 +5084,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t14/",
     "status": 200,
-    "bytes": 44018,
+    "bytes": 44019,
     "titulo": "Divulgação de Resultados do 2T14 - Alupar - Institucional",
     "publicado": null
   },
@@ -2564,7 +5105,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/2q14-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43266,
+    "bytes": 43265,
     "titulo": "2Q14 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -2585,7 +5126,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-distribuicao-de-dividendos-intermediarios/",
     "status": 200,
-    "bytes": 45745,
+    "bytes": 45744,
     "titulo": "Fato Relevante - Distribuição de Dividendos Intermediários - Alupar - Institucional",
     "publicado": null
   },
@@ -2606,7 +5147,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-payment-of-interim-dividends/?lang=en",
     "status": 200,
-    "bytes": 44933,
+    "bytes": 44932,
     "titulo": "Material Fact - Payment of Interim Dividends - Alupar - Institutional",
     "publicado": null
   },
@@ -2627,7 +5168,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2/",
     "status": 200,
-    "bytes": 47215,
+    "bytes": 47216,
     "titulo": "Fato Relevante - Aquisição de ações preferenciais Lavrinhas e Queluz - Alupar - Institucional",
     "publicado": null
   },
@@ -2648,7 +5189,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares/",
     "status": 200,
-    "bytes": 47171,
+    "bytes": 47170,
     "titulo": "Material Fact - Acquisition of Lavrinhas and Queluz Preferred Shares - Alupar - Institucional",
     "publicado": null
   },
@@ -2711,7 +5252,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/?lang=en",
     "status": 200,
-    "bytes": 45334,
+    "bytes": 45335,
     "titulo": "Notice to the Market - HPP Ferreira Gomes begins operations in advance - Alupar - Institutional",
     "publicado": null
   },
@@ -2774,7 +5315,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/?lang=en",
     "status": 200,
-    "bytes": 45512,
+    "bytes": 45511,
     "titulo": "Notice to the Market - ETVG - Reinforcement works at the transmission units. - Alupar - Institutional",
     "publicado": null
   },
@@ -2879,7 +5420,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-venda-de-acoes-sinop/",
     "status": 200,
-    "bytes": 44578,
+    "bytes": 44579,
     "titulo": "Fato Relevante - Venda de ações SINOP - Alupar - Institucional",
     "publicado": null
   },
@@ -2900,7 +5441,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-sale-of-shares-sinop/?lang=en",
     "status": 200,
-    "bytes": 44346,
+    "bytes": 44345,
     "titulo": "Material Fact - Sale of shares - SINOP - Alupar - Institutional",
     "publicado": null
   },
@@ -2942,7 +5483,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia/",
     "status": 200,
-    "bytes": 46356,
+    "bytes": 46355,
     "titulo": "Fato Relevante - Aquisição de ações ordinárias Empresa Catarinense de Transmissão de Energia - Alupar - Institucional",
     "publicado": null
   },
@@ -2963,7 +5504,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/?lang=en",
     "status": 200,
-    "bytes": 45910,
+    "bytes": 45911,
     "titulo": "Material Fact - Acquisition of Empresa Catarinense de Transmissão de Energia Common Shares - Alupar - Institutional",
     "publicado": null
   },
@@ -3026,7 +5567,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-4t14/",
     "status": 200,
-    "bytes": 44046,
+    "bytes": 44047,
     "titulo": "Divulgação de Resultados do 4T14 - Alupar - Institucional",
     "publicado": null
   },
@@ -3068,7 +5609,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos/",
     "status": 200,
-    "bytes": 45366,
+    "bytes": 45367,
     "titulo": "Comunicado ao Mercado - Alteração de Calendário de Eventos Corporativos - Alupar - Institucional",
     "publicado": null
   },
@@ -3089,7 +5630,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-change-in-the-annual-calendar-of-corporate-events/",
     "status": 200,
-    "bytes": 45277,
+    "bytes": 45276,
     "titulo": "Notice to the Market - Change in the Annual Calendar of Corporate Events - Alupar - Institucional",
     "publicado": null
   },
@@ -3152,7 +5693,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-6a-emissao-de-debentures/",
     "status": 200,
-    "bytes": 45995,
+    "bytes": 45994,
     "titulo": "Fato Relevante - 6ª Emissão de Debêntures - Alupar - Institucional",
     "publicado": null
   },
@@ -3194,7 +5735,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes/",
     "status": 200,
-    "bytes": 45528,
+    "bytes": 45529,
     "titulo": "Comunicado ao Mercado - Operação Comercial UG3 Ferreira Gomes - Alupar - Institucional",
     "publicado": null
   },
@@ -3236,7 +5777,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/fato-relevante-formador-de-mercado/",
     "status": 200,
-    "bytes": 46568,
+    "bytes": 46566,
     "titulo": "Fato Relevante - Formador de Mercado - Alupar - Institucional",
     "publicado": null
   },
@@ -3257,7 +5798,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/material-fact-market-maker/?lang=en",
     "status": 200,
-    "bytes": 45731,
+    "bytes": 45732,
     "titulo": "Material Fact - Market Maker - Alupar - Institutional",
     "publicado": null
   },
@@ -3299,7 +5840,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/1q15-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43286,
+    "bytes": 43288,
     "titulo": "1Q15 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3341,7 +5882,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/?lang=en",
     "status": 200,
-    "bytes": 44975,
+    "bytes": 44976,
     "titulo": "Alupar announce the new Institutional and Investor Relations website - Alupar - Institutional",
     "publicado": null
   },
@@ -3383,7 +5924,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/?lang=en",
     "status": 200,
-    "bytes": 45312,
+    "bytes": 45313,
     "titulo": "Notice to the Market - TME reinforcement works at the transmission units. - Alupar - Institutional",
     "publicado": null
   },
@@ -3404,7 +5945,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t15/",
     "status": 200,
-    "bytes": 44266,
+    "bytes": 44267,
     "titulo": "Divulgação de Resultados do 2T15 - Alupar - Institucional",
     "publicado": null
   },
@@ -3425,7 +5966,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/2q15-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43461,
+    "bytes": 43460,
     "titulo": "2Q15 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3446,7 +5987,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-3t15/",
     "status": 200,
-    "bytes": 44272,
+    "bytes": 44273,
     "titulo": "Divulgação de Resultados do 3T15 - Alupar - Institucional",
     "publicado": null
   },
@@ -3467,7 +6008,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/3q15-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43463,
+    "bytes": 43462,
     "titulo": "3Q15 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3488,7 +6029,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-2t16/",
     "status": 200,
-    "bytes": 44266,
+    "bytes": 44267,
     "titulo": "Divulgação de Resultados do 2T16 - Alupar - Institucional",
     "publicado": null
   },
@@ -3530,7 +6071,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-3t16/",
     "status": 200,
-    "bytes": 44271,
+    "bytes": 44270,
     "titulo": "Divulgação de Resultados do 3T16 - Alupar - Institucional",
     "publicado": null
   },
@@ -3572,7 +6113,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-4t16/",
     "status": 200,
-    "bytes": 44211,
+    "bytes": 44212,
     "titulo": "Divulgação de Resultados do 4T16 - Alupar - Institucional",
     "publicado": null
   },
@@ -3593,7 +6134,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/4q16-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43652,
+    "bytes": 43653,
     "titulo": "4Q16 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3635,7 +6176,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/1q17-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 43587,
+    "bytes": 43586,
     "titulo": "1Q17 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3656,7 +6197,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/2q17-earnings-release-2-2/?lang=en",
     "status": 200,
-    "bytes": 43649,
+    "bytes": 43648,
     "titulo": "2Q17 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3677,14 +6218,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-3t17/",
     "status": 200,
-    "bytes": 45663,
+    "bytes": 45662,
     "titulo": "Divulgação de Resultados do 3T17 - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-do-3t17/?lang=en",
     "status": 200,
-    "bytes": 44807,
+    "bytes": 44809,
     "titulo": "3Q17 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3698,7 +6239,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/3q17-earnings-release-solo-ingles-y-portugues/?lang=es",
     "status": 200,
-    "bytes": 43582,
+    "bytes": 43581,
     "titulo": "3Q17 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
@@ -3726,14 +6267,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t17/?lang=en",
     "status": 200,
-    "bytes": 44765,
+    "bytes": 44764,
     "titulo": "4Q17 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t17/?lang=es",
     "status": 200,
-    "bytes": 45255,
+    "bytes": 45254,
     "titulo": "4Q17 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
@@ -3747,7 +6288,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t18/?lang=en",
     "status": 200,
-    "bytes": 44764,
+    "bytes": 44763,
     "titulo": "1Q18 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3768,7 +6309,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t18/?lang=en",
     "status": 200,
-    "bytes": 44922,
+    "bytes": 44921,
     "titulo": "2Q18 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3789,7 +6330,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t18/?lang=en",
     "status": 200,
-    "bytes": 44797,
+    "bytes": 44798,
     "titulo": "3Q18 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3817,7 +6358,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t18/?lang=es",
     "status": 200,
-    "bytes": 45567,
+    "bytes": 45568,
     "titulo": "4Q18 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
@@ -3838,14 +6379,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t19/?lang=es",
     "status": 200,
-    "bytes": 43402,
+    "bytes": 43405,
     "titulo": "1Q19 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t19/",
     "status": 200,
-    "bytes": 44089,
+    "bytes": 44088,
     "titulo": "Divulgação de Resultados 2T19 - Alupar - Institucional",
     "publicado": null
   },
@@ -3866,14 +6407,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/",
     "status": 200,
-    "bytes": 44085,
+    "bytes": 44084,
     "titulo": "Divulgação de Resultados 3T19 - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t19/?lang=en",
     "status": 200,
-    "bytes": 43578,
+    "bytes": 43577,
     "titulo": "3Q19 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3894,21 +6435,21 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t19/?lang=en",
     "status": 200,
-    "bytes": 43546,
+    "bytes": 43547,
     "titulo": "4Q19 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t19/?lang=es",
     "status": 200,
-    "bytes": 44059,
+    "bytes": 44060,
     "titulo": "4Q19 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/1q20-earnings-release-solo-ingles-y-portugues/?lang=es",
     "status": 200,
-    "bytes": 45549,
+    "bytes": 45550,
     "titulo": "1Q20 Earnings Release (Sólo Inglés y Portugués)- Alupar - Institucional",
     "publicado": null
   },
@@ -3957,7 +6498,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t20/?lang=en",
     "status": 200,
-    "bytes": 45424,
+    "bytes": 45423,
     "titulo": "1Q20 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3978,7 +6519,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t20/?lang=en",
     "status": 200,
-    "bytes": 46142,
+    "bytes": 46141,
     "titulo": "2Q20 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -3992,7 +6533,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t20/",
     "status": 200,
-    "bytes": 43792,
+    "bytes": 43791,
     "titulo": "Divulgação de Resultados 3T20 - Alupar - Institucional",
     "publicado": null
   },
@@ -4006,14 +6547,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t20/?lang=es",
     "status": 200,
-    "bytes": 43741,
+    "bytes": 43743,
     "titulo": "3T20 Earnings Release (Sólo Inglés y Portugués)- Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t20/",
     "status": 200,
-    "bytes": 43538,
+    "bytes": 43539,
     "titulo": "Divulgação de Resultados 4T20 - Alupar - Institucional",
     "publicado": null
   },
@@ -4034,7 +6575,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t21/",
     "status": 200,
-    "bytes": 43208,
+    "bytes": 43209,
     "titulo": "Divulgação de Resultados 1T21 - Alupar - Institucional",
     "publicado": null
   },
@@ -4055,7 +6596,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/1q21-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 42594,
+    "bytes": 42595,
     "titulo": "1Q21 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -4104,7 +6645,7 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-2t21/?lang=en",
     "status": 200,
-    "bytes": 43176,
+    "bytes": 43175,
     "titulo": "2Q21 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -4139,35 +6680,35 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t21/",
     "status": 200,
-    "bytes": 43425,
+    "bytes": 43426,
     "titulo": "Divulgação de Resultados 4T21 - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t21/?lang=en",
     "status": 200,
-    "bytes": 42924,
+    "bytes": 42925,
     "titulo": "4T21 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t21/?lang=es",
     "status": 200,
-    "bytes": 43438,
+    "bytes": 43439,
     "titulo": "4T21 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t22/",
     "status": 200,
-    "bytes": 43429,
+    "bytes": 43430,
     "titulo": "Divulgação de Resultados 1T22 - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-1t22/?lang=en",
     "status": 200,
-    "bytes": 42949,
+    "bytes": 42951,
     "titulo": "1Q22 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -4209,21 +6750,21 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t22/?lang=en",
     "status": 200,
-    "bytes": 43118,
+    "bytes": 43119,
     "titulo": "3Q22 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-3t22/?lang=es",
     "status": 200,
-    "bytes": 43497,
+    "bytes": 43498,
     "titulo": "3T22 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t22/",
     "status": 200,
-    "bytes": 43425,
+    "bytes": 43426,
     "titulo": "Divulgação de Resultados 4T22 - Alupar - Institucional",
     "publicado": null
   },
@@ -4237,14 +6778,14 @@
   {
     "url": "https://www.alupar.com.br/noticia/divulgacao-de-resultados-4t22/?lang=es",
     "status": 200,
-    "bytes": 43426,
+    "bytes": 43425,
     "titulo": "4T22 Earnings Release (Sólo Inglés y Portugués) - Alupar - Institucional",
     "publicado": null
   },
   {
     "url": "https://www.alupar.com.br/noticia/2q22-earnings-release/?lang=en",
     "status": 200,
-    "bytes": 42466,
+    "bytes": 42464,
     "titulo": "2Q22 Earnings Release - Alupar - Institutional",
     "publicado": null
   },
@@ -4281,6 +6822,1728 @@
     "status": 200,
     "bytes": 42933,
     "titulo": "Video Institucional - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/",
+    "status": 200,
+    "bytes": 45882,
+    "titulo": "Programa de Pesquisa e Desenvolvimento - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/programa-de-pesquisa-e-desenvolvimento/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program/?lang=en",
+    "status": 200,
+    "bytes": 45506,
+    "titulo": "Research and Development Program - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes/",
+    "status": 200,
+    "bytes": 45400,
+    "titulo": "UHEs - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas/",
+    "status": 200,
+    "bytes": 42839,
+    "titulo": "Eólicas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/hpps/?lang=en",
+    "status": 200,
+    "bytes": 45149,
+    "titulo": "HPPs - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/hpps/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/hpps/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/wind-farms/?lang=en",
+    "status": 200,
+    "bytes": 42671,
+    "titulo": "Wind Farms - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/wind-farms/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/wind-farms/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes-2/?lang=es",
+    "status": 200,
+    "bytes": 45267,
+    "titulo": "UHEs - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/uhes-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas-2/?lang=es",
+    "status": 200,
+    "bytes": 42666,
+    "titulo": "Eólicas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/eolicas-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-salud/?lang=es",
+    "status": 200,
+    "bytes": 42786,
+    "titulo": "Más salud - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-salud/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-salud/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-health/?lang=en",
+    "status": 200,
+    "bytes": 42965,
+    "titulo": "More health - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-health/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-health/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-historic-heritage/?lang=en",
+    "status": 200,
+    "bytes": 43988,
+    "titulo": "Respect for historic heritage - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-historic-heritage/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-historic-heritage/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-saude/",
+    "status": 200,
+    "bytes": 42979,
+    "titulo": "Mais saúde - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-saude/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-saude/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico/",
+    "status": 200,
+    "bytes": 43891,
+    "titulo": "Respeito pelo Patrimônio Histórico - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-e-danos/",
+    "status": 200,
+    "bytes": 45391,
+    "titulo": "Garantias, Responsabilidades e Danos - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-e-danos/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-e-danos/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidade-das-informacoes-dos-usuarios/",
+    "status": 200,
+    "bytes": 43544,
+    "titulo": "Confidencialidade das Informações dos Usuários - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidade-das-informacoes-dos-usuarios/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidade-das-informacoes-dos-usuarios/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/direitos-de-autor-e-propriedade-intelectual/",
+    "status": 200,
+    "bytes": 43268,
+    "titulo": "Direitos de Autor e Propriedade Intelectual - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/direitos-de-autor-e-propriedade-intelectual/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/direitos-de-autor-e-propriedade-intelectual/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/guarantee-responsibilities-and-damages/?lang=en",
+    "status": 200,
+    "bytes": 45178,
+    "titulo": "Guarantee, Responsibilities and Damages - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/guarantee-responsibilities-and-damages/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/guarantee-responsibilities-and-damages/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/copyright-and-intellectual-property/?lang=en",
+    "status": 200,
+    "bytes": 42959,
+    "titulo": "Copyright and Intellectual Property - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/copyright-and-intellectual-property/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/copyright-and-intellectual-property/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/international-use/?lang=en",
+    "status": 200,
+    "bytes": 42761,
+    "titulo": "International Use - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/international-use/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/international-use/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidentiality-of-users-information/?lang=en",
+    "status": 200,
+    "bytes": 43119,
+    "titulo": "Confidentiality of User’s Information - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidentiality-of-users-information/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidentiality-of-users-information/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-y-danos/?lang=es",
+    "status": 200,
+    "bytes": 45283,
+    "titulo": "Garantías, Responsabilidades y Daños - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-y-danos/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/garantias-responsabilidades-y-danos/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidad-de-las-informaciones-de-los-usuarios/?lang=es",
+    "status": 200,
+    "bytes": 43531,
+    "titulo": "Confidencialidad de las Informaciones de los Usuarios - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidad-de-las-informaciones-de-los-usuarios/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/confidencialidad-de-las-informaciones-de-los-usuarios/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/derechos-de-autor-y-propiedad-intelectual/?lang=es",
+    "status": 200,
+    "bytes": 43034,
+    "titulo": "Derechos de Autor y Propiedad Intelectual - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/derechos-de-autor-y-propiedad-intelectual/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/derechos-de-autor-y-propiedad-intelectual/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/geracao/",
+    "status": 200,
+    "bytes": 43777,
+    "titulo": "Geração - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/geracao/?lang=en",
+    "status": 200,
+    "bytes": 43617,
+    "titulo": "Generation - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/geracao/?lang=es",
+    "status": 200,
+    "bytes": 43729,
+    "titulo": "Generacion - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/los-transmisores-alupar-2/?lang=es",
+    "status": 200,
+    "bytes": 44578,
+    "titulo": "Los Transmisores Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/los-transmisores-alupar-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/los-transmisores-alupar-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/generation/?lang=en",
+    "status": 200,
+    "bytes": 44261,
+    "titulo": "The Alupar Transmission - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/generation/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/generation/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/shpps/?lang=en",
+    "status": 200,
+    "bytes": 45832,
+    "titulo": "SHPPs - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/shpps/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/shpps/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs-2/?lang=es",
+    "status": 200,
+    "bytes": 46049,
+    "titulo": "PCHs - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs/",
+    "status": 200,
+    "bytes": 46672,
+    "titulo": "PCHs - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/pchs/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustainability/?lang=en",
+    "status": 200,
+    "bytes": 42968,
+    "titulo": "Sustainability - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustainability/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustainability/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sostenibilidad/?lang=es",
+    "status": 200,
+    "bytes": 42973,
+    "titulo": "Sostenibilidad - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sostenibilidad/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sostenibilidad/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental/?lang=es",
+    "status": 200,
+    "bytes": 45267,
+    "titulo": "Responsabilidad Ambiental - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/environmental-responsibility/?lang=en",
+    "status": 200,
+    "bytes": 45160,
+    "titulo": "Environmental Responsibility - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/environmental-responsibility/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/environmental-responsibility/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental/",
+    "status": 200,
+    "bytes": 45382,
+    "titulo": "Responsabilidade Ambiental - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade/",
+    "status": 200,
+    "bytes": 44455,
+    "titulo": "Respeito com a Comunidade - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade/?lang=es",
+    "status": 200,
+    "bytes": 45888,
+    "titulo": "Respeto a la comunidad / Proyectos sociales apoyados por Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-the-local-community/?lang=en",
+    "status": 200,
+    "bytes": 44336,
+    "titulo": "Respect for the local community - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-the-local-community/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respect-for-the-local-community/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-con-la-comunidad/?lang=es",
+    "status": 200,
+    "bytes": 44269,
+    "titulo": "Respeto con la Comunidad - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-con-la-comunidad/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-con-la-comunidad/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-deporte/?lang=es",
+    "status": 200,
+    "bytes": 43601,
+    "titulo": "Más deporte - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-deporte/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-deporte/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-esporte/",
+    "status": 200,
+    "bytes": 43752,
+    "titulo": "Mais esporte - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-esporte/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-esporte/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-sports/?lang=en",
+    "status": 200,
+    "bytes": 43616,
+    "titulo": "More sports - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-sports/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-sports/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-educacao-e-cultura/",
+    "status": 200,
+    "bytes": 45340,
+    "titulo": "Mais educação e cultura - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-educacao-e-cultura/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mais-educacao-e-cultura/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-education-and-culture/?lang=en",
+    "status": 200,
+    "bytes": 45363,
+    "titulo": "More education and culture - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-education-and-culture/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/more-education-and-culture/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-educacion-y-cultura/?lang=es",
+    "status": 200,
+    "bytes": 45263,
+    "titulo": "Más educación y cultura - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-educacion-y-cultura/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/mas-educacion-y-cultura/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/",
+    "status": 200,
+    "bytes": 46859,
+    "titulo": "As Transmissoras Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/?lang=en",
+    "status": 200,
+    "bytes": 46613,
+    "titulo": "The Alupar Transmission - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/as-transmissoras-alupar/?lang=es",
+    "status": 200,
+    "bytes": 46743,
+    "titulo": "Los Transmisores Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects-2/?lang=es",
+    "status": 200,
+    "bytes": 47200,
+    "titulo": "Ongoing Research and Development Projects - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects-2/?lang=es",
+    "status": 200,
+    "bytes": 48910,
+    "titulo": "Concluded Research and Development Projects - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance-2/?lang=es",
+    "status": 200,
+    "bytes": 43869,
+    "titulo": "Research and Development Program Account Balance - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-2/?lang=es",
+    "status": 200,
+    "bytes": 45767,
+    "titulo": "Research and Development Program - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental-2/?lang=es",
+    "status": 200,
+    "bytes": 45212,
+    "titulo": "Responsabilidad Ambiental - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental-2/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidad-ambiental-2/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/",
+    "status": 200,
+    "bytes": 45484,
+    "titulo": "Responsabilidade Ambiental - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/?lang=en",
+    "status": 200,
+    "bytes": 45226,
+    "titulo": "Environmental Responsibility - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/responsabilidade-ambiental-2/?lang=es",
+    "status": 200,
+    "bytes": 45382,
+    "titulo": "Responsabilidad Ambiental - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/",
+    "status": 200,
+    "bytes": 46052,
+    "titulo": "Respeito com a Comunidade / Projetos Sociais Apoiados pela Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/?lang=en",
+    "status": 200,
+    "bytes": 45533,
+    "titulo": "Respect for the local community - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-com-a-comunidade-2/?lang=es",
+    "status": 200,
+    "bytes": 45888,
+    "titulo": "Respeto a la comunidad / Proyectos sociales apoyados por Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/",
+    "status": 200,
+    "bytes": 44083,
+    "titulo": "Respeito pelo Patrimônio Histórico - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/?lang=en",
+    "status": 200,
+    "bytes": 43562,
+    "titulo": "Respect for Historic Heritage - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeito-pelo-patrimonio-historico-2/?lang=es",
+    "status": 200,
+    "bytes": 43742,
+    "titulo": "Respeto por el Patrimonio Histórico - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/videos-dos-projetos-sociais-apoiados-pela-alupar/",
+    "status": 200,
+    "bytes": 44753,
+    "titulo": "Vídeos dos projetos Sociais apoiados pela Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/videos-dos-projetos-sociais-apoiados-pela-alupar/?lang=en",
+    "status": 200,
+    "bytes": 44550,
+    "titulo": "Videos from the Projects Supported by Alupar - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/videos-dos-projetos-sociais-apoiados-pela-alupar/?lang=es",
+    "status": 200,
+    "bytes": 44673,
+    "titulo": "Video de Proyectos sociales apoyados por Alupar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-por-el-patrimonio-historico/?lang=es",
+    "status": 200,
+    "bytes": 44350,
+    "titulo": "Respeto por el Patrimonio Histórico - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-por-el-patrimonio-historico/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/respeto-por-el-patrimonio-historico/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/saldo-da-conta-de-pd/",
+    "status": 200,
+    "bytes": 43850,
+    "titulo": "Saldo da Conta de P&amp;D - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/saldo-da-conta-de-pd/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/saldo-da-conta-de-pd/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-concluidos/",
+    "status": 200,
+    "bytes": 49125,
+    "titulo": "Projetos de P&amp;D Concluídos - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-concluidos/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-concluidos/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-em-andamento/",
+    "status": 200,
+    "bytes": 48962,
+    "titulo": "Projetos de P&amp;D em Andamento - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-em-andamento/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/projetos-de-pd-em-andamento/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance/?lang=en",
+    "status": 200,
+    "bytes": 44099,
+    "titulo": "Research and Development Program Account Balance - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/research-and-development-program-account-balance/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects/?lang=en",
+    "status": 200,
+    "bytes": 48882,
+    "titulo": "Concluded Research and Development Projects - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/concluded-research-and-development-projects/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects/?lang=en",
+    "status": 200,
+    "bytes": 48369,
+    "titulo": "Ongoing Research and Development Projects - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/ongoing-research-and-development-projects/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/bonos-verdes/?lang=es",
+    "status": 200,
+    "bytes": 43334,
+    "titulo": "Bonos Verdes - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/bonos-verdes/?lang=es?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/bonos-verdes/?lang=es?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/green-bonds/?lang=en",
+    "status": 200,
+    "bytes": 43084,
+    "titulo": "Green Bonds - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/green-bonds/?lang=en?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/green-bonds/?lang=en?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/",
+    "status": 200,
+    "bytes": 44614,
+    "titulo": "Sustentabilidade - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/?lang=en",
+    "status": 200,
+    "bytes": 44337,
+    "titulo": "Sustainability - pagina - antiga - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/sustentabilidade-2/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/debenture-verde-green-bonds/",
+    "status": 200,
+    "bytes": 44302,
+    "titulo": "Debênture Verde (Green Bonds) - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/debenture-verde-green-bonds/?lang=en",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/faq/debenture-verde-green-bonds/?lang=es",
+    "status": 404,
+    "bytes": 0,
+    "titulo": null,
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/category/nao-categorizado/",
+    "status": 200,
+    "bytes": 42171,
+    "titulo": "Arquivos Não categorizado - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/category/nao-categorizado/?lang=en",
+    "status": 200,
+    "bytes": 41634,
+    "titulo": "Arquivos Uncategorized - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/category/nao-categorizado/?lang=es",
+    "status": 200,
+    "bytes": 41725,
+    "titulo": "Arquivos Sin categorizar - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao/",
+    "status": 200,
+    "bytes": 45239,
+    "titulo": "Arquivos Área de Atuação - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao/?lang=en",
+    "status": 200,
+    "bytes": 44917,
+    "titulo": "Arquivos Área de Atuação - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao/?lang=es",
+    "status": 200,
+    "bytes": 45037,
+    "titulo": "Arquivos Área de Atuação - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao-geracao/",
+    "status": 200,
+    "bytes": 42861,
+    "titulo": "Arquivos Área de Atuação Geração - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao-geracao/?lang=en",
+    "status": 200,
+    "bytes": 42591,
+    "titulo": "Arquivos Área de Atuação Geração - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/area-de-atuacao-geracao/?lang=es",
+    "status": 200,
+    "bytes": 42673,
+    "titulo": "Arquivos Área de Atuação Geração - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/business-segment/",
+    "status": 200,
+    "bytes": 41491,
+    "titulo": "Arquivos Business Segment - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/business-segment/?lang=en",
+    "status": 200,
+    "bytes": 43121,
+    "titulo": "Arquivos Business Segment - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/business-segment/?lang=es",
+    "status": 200,
+    "bytes": 41287,
+    "titulo": "Arquivos Business Segment - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/companies/",
+    "status": 200,
+    "bytes": 41372,
+    "titulo": "Arquivos Companies - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/companies/?lang=en",
+    "status": 200,
+    "bytes": 48550,
+    "titulo": "Arquivos Companies - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/companies/?lang=es",
+    "status": 200,
+    "bytes": 41169,
+    "titulo": "Arquivos Companies - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condiciones-de-uso/",
+    "status": 200,
+    "bytes": 41529,
+    "titulo": "Arquivos Condiciones de Uso - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condiciones-de-uso/?lang=en",
+    "status": 200,
+    "bytes": 41257,
+    "titulo": "Arquivos Condiciones de Uso - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condiciones-de-uso/?lang=es",
+    "status": 200,
+    "bytes": 44820,
+    "titulo": "Arquivos Condiciones de Uso - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condicoes-de-uso/",
+    "status": 200,
+    "bytes": 44787,
+    "titulo": "Arquivos Condições de Uso - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condicoes-de-uso/?lang=en",
+    "status": 200,
+    "bytes": 41221,
+    "titulo": "Arquivos Condições de Uso - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/condicoes-de-uso/?lang=es",
+    "status": 200,
+    "bytes": 41288,
+    "titulo": "Arquivos Condições de Uso - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/conditions-of-use/",
+    "status": 200,
+    "bytes": 41510,
+    "titulo": "Arquivos Conditions of Use - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/conditions-of-use/?lang=en",
+    "status": 200,
+    "bytes": 45208,
+    "titulo": "Arquivos Conditions of Use - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/conditions-of-use/?lang=es",
+    "status": 200,
+    "bytes": 41306,
+    "titulo": "Arquivos Conditions of Use - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas/",
+    "status": 200,
+    "bytes": 49395,
+    "titulo": "Arquivos Empresas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas/?lang=en",
+    "status": 200,
+    "bytes": 41082,
+    "titulo": "Arquivos Empresas - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas/?lang=es",
+    "status": 200,
+    "bytes": 41150,
+    "titulo": "Arquivos Empresas - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas-esp/",
+    "status": 200,
+    "bytes": 41421,
+    "titulo": "Arquivos Empresas Esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas-esp/?lang=en",
+    "status": 200,
+    "bytes": 41148,
+    "titulo": "Arquivos Empresas Esp - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/empresas-esp/?lang=es",
+    "status": 200,
+    "bytes": 48846,
+    "titulo": "Arquivos Empresas Esp - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desarollo/",
+    "status": 200,
+    "bytes": 41592,
+    "titulo": "Arquivos Pesquisa &amp; Desarollo - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desarollo/?lang=en",
+    "status": 200,
+    "bytes": 41320,
+    "titulo": "Arquivos Pesquisa &amp; Desarollo - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desarollo/?lang=es",
+    "status": 200,
+    "bytes": 54213,
+    "titulo": "Arquivos Pesquisa &amp; Desarollo - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desenvolvimento/",
+    "status": 200,
+    "bytes": 56731,
+    "titulo": "Arquivos Pesquisa e Desenvolvimento - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desenvolvimento/?lang=en",
+    "status": 200,
+    "bytes": 41405,
+    "titulo": "Arquivos Pesquisa e Desenvolvimento - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/pesquisa-e-desenvolvimento/?lang=es",
+    "status": 200,
+    "bytes": 41473,
+    "titulo": "Arquivos Pesquisa e Desenvolvimento - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/research-and-evelopment/",
+    "status": 200,
+    "bytes": 41645,
+    "titulo": "Arquivos Research &amp; Development - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/research-and-evelopment/?lang=en",
+    "status": 200,
+    "bytes": 55688,
+    "titulo": "Arquivos Research &amp; Development - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/research-and-evelopment/?lang=es",
+    "status": 200,
+    "bytes": 41440,
+    "titulo": "Arquivos Research &amp; Development - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/segmento-de-negocio/",
+    "status": 200,
+    "bytes": 41547,
+    "titulo": "Arquivos Segmento de Negocio - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/segmento-de-negocio/?lang=en",
+    "status": 200,
+    "bytes": 41274,
+    "titulo": "Arquivos Segmento de Negocio - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/segmento-de-negocio/?lang=es",
+    "status": 200,
+    "bytes": 43294,
+    "titulo": "Arquivos Segmento de Negocio - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sostenibilidad/",
+    "status": 200,
+    "bytes": 41458,
+    "titulo": "Arquivos Sostenibilidad - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sostenibilidad/?lang=en",
+    "status": 200,
+    "bytes": 41187,
+    "titulo": "Arquivos Sostenibilidad - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sostenibilidad/?lang=es",
+    "status": 200,
+    "bytes": 50584,
+    "titulo": "Arquivos Sostenibilidad - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustainability/",
+    "status": 200,
+    "bytes": 41458,
+    "titulo": "Arquivos Sustainability - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustainability/?lang=en",
+    "status": 200,
+    "bytes": 52159,
+    "titulo": "Arquivos Sustainability - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustainability/?lang=es",
+    "status": 200,
+    "bytes": 41255,
+    "titulo": "Arquivos Sustainability - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade/",
+    "status": 200,
+    "bytes": 50755,
+    "titulo": "Arquivos Sustentabilidade - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade/?lang=en",
+    "status": 200,
+    "bytes": 41221,
+    "titulo": "Arquivos Sustentabilidade - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade/?lang=es",
+    "status": 200,
+    "bytes": 41289,
+    "titulo": "Arquivos Sustentabilidade - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade-nova/",
+    "status": 200,
+    "bytes": 51203,
+    "titulo": "Arquivos Sustentabilidade Nova - Alupar - Institucional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade-nova/?lang=en",
+    "status": 200,
+    "bytes": 50020,
+    "titulo": "Arquivos Sustentabilidade Nova - Alupar - Institutional",
+    "publicado": null
+  },
+  {
+    "url": "https://www.alupar.com.br/group/sustentabilidade-nova/?lang=es",
+    "status": 200,
+    "bytes": 48921,
+    "titulo": "Arquivos Sustentabilidade Nova - Alupar - Institucional",
     "publicado": null
   }
 ]
