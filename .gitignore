@@ -19,3 +19,9 @@ acervo/microsites/*/midia/
 # acervo do institucional — 283 MB de HTML e binários, fora do git
 acervo/html/
 acervo/midia/
+
+# gerados a partir de apresentacao/deck.js e dossie.html
+apresentacao/*.pptx
+apresentacao/*.pdf
+apresentacao/node_modules/
+apresentacao/package-lock.json
