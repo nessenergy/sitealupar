@@ -49,6 +49,31 @@ const PROPRIO = 'https://www.alupar.com.br';
  */
 const SCRIPT_EMBUTIDO = /<script\b[^>]*>[\s\S]*?<\/script>/gi;
 
+/*
+ * O corpo não é injetável como está. Ele vem embrulhado nos invólucros do tema
+ * de 2017 e carrega restos de marcação que só não quebram a página atual
+ * porque o navegador conserta em silêncio:
+ *
+ *   `</form>` órfã — fecha um formulário que abre fora da seção de texto;
+ *   `<h1>` dentro do corpo — a página já tem o seu, e dois reprovam o G3;
+ *   `style=` embutido — briga com o sistema visual.
+ *
+ * Os invólucros do tema (`box-home`, `list-show`, `table-responsive`) ficam.
+ * Uma primeira versão os removia por classe — e as `</div>` de fechamento não
+ * têm classe, então sobravam órfãs: 386 itens ficaram com HTML pior do que
+ * antes. Remover invólucro exige casar abertura com fechamento, o que é
+ * trabalho de parser, não de expressão regular. Como `<div>` sem estilo é
+ * semanticamente neutro, o custo de mantê-los é zero.
+ *
+ * Injetar isso num template limpo produziria HTML inválido e hierarquia de
+ * títulos quebrada, que é exatamente o que o portão de acessibilidade pega.
+ */
+const ESTRUTURA = [
+  { id: 'tag-orfa', de: /<\/(?:form|body|html|section|main)>/gi, para: '' },
+  { id: 'titulo-duplicado', de: /<(\/?)h1\b([^>]*)>/gi, para: '<$1h2$2>' },
+  { id: 'estilo-embutido', de: /\s+style="[^"]*"/gi, para: '' },
+];
+
 const REESCRITAS = [
   {
     id: 'arquivo-no-cdn',
@@ -81,7 +106,7 @@ const PENDENTES = [
 const itens = (await readFile('acervo/conteudo.jsonl', 'utf8')).trim().split('\n').map((l) => JSON.parse(l));
 
 const contagem = Object.fromEntries(
-  [{ id: 'script-embutido' }, ...REESCRITAS, ...PENDENTES].map((r) => [r.id, { itens: 0, ocorrencias: 0 }]),
+  [{ id: 'script-embutido' }, ...ESTRUTURA, ...REESCRITAS, ...PENDENTES].map((r) => [r.id, { itens: 0, ocorrencias: 0 }]),
 );
 const pendencias = [];
 const destinos = new Set();
@@ -93,6 +118,13 @@ const limpos = itens.map((i) => {
   const scripts = (corpo.match(SCRIPT_EMBUTIDO) ?? []).length;
   if (scripts) { contagem['script-embutido'].itens += 1; contagem['script-embutido'].ocorrencias += scripts; }
   corpo = corpo.replace(SCRIPT_EMBUTIDO, '');
+
+  for (const e of ESTRUTURA) {
+    const n = (corpo.match(e.de) ?? []).length;
+    if (n) { contagem[e.id].itens += 1; contagem[e.id].ocorrencias += n; }
+    corpo = corpo.replace(e.de, e.para);
+  }
+  corpo = corpo.replace(/<div\b[^>]*>\s*<\/div>/gi, '').replace(/\s{2,}/g, ' ').trim();
 
   for (const r of REESCRITAS) {
     const n = (corpo.match(r.de) ?? []).length;
@@ -123,6 +155,7 @@ await writeFile(
 
 console.log('removido:');
 console.log(`  ${String(contagem['script-embutido'].ocorrencias).padStart(4)} ocorrências · ${String(contagem['script-embutido'].itens).padStart(3)} itens · script-embutido`);
+for (const e of ESTRUTURA) console.log(`  ${String(contagem[e.id].ocorrencias).padStart(4)} ocorrências · ${String(contagem[e.id].itens).padStart(3)} itens · ${e.id}`);
 console.log('\nreescrito:');
 for (const r of REESCRITAS) console.log(`  ${String(contagem[r.id].ocorrencias).padStart(4)} ocorrências · ${String(contagem[r.id].itens).padStart(3)} itens · ${r.id}`);
 console.log('\nnão tocado, exige decisão:');

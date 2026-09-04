@@ -182,6 +182,24 @@ funcional, e essas 51 páginas precisam de decisão antes da virada.
 `workr.com.br`. Trocar para `https://` exige confirmar host a host que ele
 serve https. O script não adivinha.
 
+### Ainda não é injetável — e por quê
+
+Depois da limpeza, o corpo melhorou muito: tags de fechamento órfãs caíram de
+**387 para 7**. Mas **211 dos 387 itens ainda têm tag não fechada**.
+
+Não é defeito da limpeza. É inerente a extrair um fragmento do meio de um
+documento: o tema abre `<div>` antes da seção de texto e fecha depois dela, e o
+recorte fica com metade do par.
+
+Balancear isso exige **parser de HTML**, não expressão regular. Uma tentativa
+por regex já foi feita e piorou: removia a `<div>` de abertura pela classe, mas
+a de fechamento não tem classe, então sobravam órfãs em 386 itens. Está
+registrado no comentário do script para ninguém repetir.
+
+**Consequência prática:** gerar as páginas em Astro injetando `corpo` com
+`set:html` produziria HTML inválido em 211 páginas. A geração espera o
+balanceamento; o passo anterior — o conteúdo estruturado e limpo — está pronto.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
