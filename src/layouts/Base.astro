@@ -1,16 +1,33 @@
 ---
 import '../styles/tokens.css';
+import { IDIOMAS, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
 
 interface Props {
   titulo: string;
   descricao: string;
-  lang?: string;
+  idioma?: Idioma;
 }
-const { titulo, descricao, lang = 'pt-BR' } = Astro.props;
+const { titulo, descricao, idioma = 'pt-br' } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).href;
+
+/*
+ * `hreflang` por rota, calculado a partir da rota atual — não uma lista fixa
+ * apontando para as três homes. Numa página interna, a lista fixa diria ao
+ * Google que a versão inglesa de /a-companhia/ é a home em inglês, que é
+ * falso e pior que não declarar nada.
+ *
+ * A rota atual, sem o prefixo de idioma, é o caminho comum às três versões.
+ */
+const semPrefixo = Astro.url.pathname.replace(/^\/(en|es)(?=\/|$)/, '') || '/';
+const alternativas = IDIOMAS.map((i) => ({
+  idioma: i,
+  hreflang: codigoLang[i].toLowerCase(),
+  href: new URL(`${prefixo[i]}${semPrefixo}`, Astro.site).href,
+}));
+const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={codigoLang[idioma]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,10 +38,10 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="canonical" href={url} />
 
     <!-- hreflang por rota, não por ?lang= -->
-    <link rel="alternate" hreflang="pt-br" href={new URL('/', Astro.site).href} />
-    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site).href} />
-    <link rel="alternate" hreflang="es" href={new URL('/es/', Astro.site).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+    {alternativas.map((a) => (
+      <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={padrao.href} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={titulo} />
@@ -41,7 +58,7 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
     })} />
   </head>
   <body>
-    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <a class="pular" href="#conteudo">{textos[idioma].pularParaConteudo}</a>
     <slot />
     <style>
       .pular {
