@@ -1,0 +1,879 @@
+{
+  "geradoEm": "2026-09-04T01:42:41.644Z",
+  "total": 71,
+  "pendencias": [
+    {
+      "idioma": "en",
+      "tipo": "faq",
+      "slug": "green-bonds",
+      "caminho": "/faq/green-bonds/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "faq",
+      "slug": "sustentabilidade-2",
+      "caminho": "/faq/sustentabilidade-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8259c08c-b35d-d72a-33d6-940f2f0bd1dd?origin=2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "group",
+      "slug": "sustentabilidade-nova",
+      "caminho": "/group/sustentabilidade-nova/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8259c08c-b35d-d72a-33d6-940f2f0bd1dd?origin=2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "1q20-earnings-release-2",
+      "caminho": "/noticia/1q20-earnings-release-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=6c814aa7-a940-4f88-9915-eb11a00e0001",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6b9da3d3-c645-4acf-bb29-76b949f98f02"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "1q21-earnings-release",
+      "caminho": "/noticia/1q21-earnings-release/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c26f6c6-a8e4-1bd1-ff3e-9f30ca17760c?origin=2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t18",
+      "caminho": "/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=456ec68e-bce5-4924-bfff-18cf0034e799",
+        "https://webcastlite.mziq.com/cover.html?webcastId=729ef2cd-d3d4-4993-a013-7dc0e6474ec2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t20",
+      "caminho": "/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=6c814aa7-a940-4f88-9915-eb11a00e0001",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6b9da3d3-c645-4acf-bb29-76b949f98f02"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45",
+        "https://webcastlite.mziq.com/cover.html?webcastId=86eae1a2-52fd-4448-891c-20f769aeb8bd"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t20",
+      "caminho": "/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/153e5154-6226-73ba-aa3d-910a20e64e3a?origin=1",
+        "https://webcastlite.mziq.com/cover.html?webcastId=d66f6964-22bc-4671-ae8a-e7c68ce58135",
+        "https://webcastlite.mziq.com/cover.html?webcastId=c71e061e-98ac-4e7e-84eb-a48c4e8e4805"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t21",
+      "caminho": "/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7d3ecf0d-3c27-8d08-4363-c7b49dc3142b?origin=2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://common.engage-x.com/Downloader.ashx?accountId=Z1ZXPWR89QVMfM4MvsdDXw%3D%3D&amp;fileId=vhrlg2hZV5TP%2FwtL9VfTJw%3D%3D",
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t20",
+      "caminho": "/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b5e25f6d-134c-e565-52af-d14ba57ad70d?origin=1"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t21",
+      "caminho": "/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4910fa3d-064f-1318-60d6-9d32b8fba4af?origin=2"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t17",
+      "caminho": "/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=EkVN7IhUmQ3VK8%2FJ0hLZ1A%3D%3D",
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=GDZXBngeIFnclRluUmgAxg%3D%3D"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t18",
+      "caminho": "/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=94681916-6ae0-4677-bfe6-3854ce991bcc",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6bc572a5-4c27-4fe0-8a8d-cb1dd626cad8"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t19",
+      "caminho": "/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://apicatalog.mziq.com/filemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/73000266-b0ea-53fa-f6cd-fb9befb3cdcf?origin=1"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t20",
+      "caminho": "/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8fe4d9e0-b73e-d85f-96b0-88585f5643db?origin=1"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-do-3t17",
+      "caminho": "/noticia/divulgacao-de-resultados-do-3t17/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=WHApeZrfrzLN1IqLeAC7ng%3D%3D",
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=MqNb3lzGQ%2BF6QisfV3s4lw%3D%3D"
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only",
+      "caminho": "/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://files.workr.com.br/ViewImage.aspx?image=CQN3+4bPQHU7pmFTaKvxfg=="
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "material-fact-change-in-police-for-disclosure-of-material-act-or-fact",
+      "caminho": "/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://www.portalneo1.net/",
+        "http://www.portalneo1.net/</a>; (ii) at the Company’s Website (<a href="
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "noticia",
+      "slug": "notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014",
+      "caminho": "/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://www.aneel.gov.br/cedoc/reh20141756ti.pdf",
+        "http://www.aneel.gov.br/cedoc/reh20141756ti.pdf</a></p>\n<p class=",
+        "http://www.aneel.gov.br/cedoc/areh20141756_2.pdf",
+        "http://www.aneel.gov.br/cedoc/areh20141756_2.pdf</a></p>\n<p class="
+      ]
+    },
+    {
+      "idioma": "en",
+      "tipo": "pagina",
+      "slug": "sustentabilidade-2",
+      "caminho": "/sustentabilidade-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c201ef41-16f5-cd32-8395-c0fbb0db49fc?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/47792959-6689-b32b-1334-649c5dfb8b37?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/27f7a735-2575-d8bb-9725-66b81c3b3f86?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/53d2d714-00af-2370-fb28-8ef7aaeb3fbc?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/265eb3b4-463f-ff89-fab5-c0d73a1949dc?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9522c4e8-e960-5c06-163d-fbde0916aecd?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/3e7d2879-6b84-1ab2-ceaf-95d5f92d1eaa?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1]",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b6a6b235-b9d6-6118-85c1-319fdd48dd57?origin=2"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "faq",
+      "slug": "bonos-verdes",
+      "caminho": "/faq/bonos-verdes/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "group",
+      "slug": "sustentabilidade-nova",
+      "caminho": "/group/sustentabilidade-nova/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "1q20-earnings-release-solo-ingles-y-portugues",
+      "caminho": "/noticia/1q20-earnings-release-solo-ingles-y-portugues/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=6c814aa7-a940-4f88-9915-eb11a00e0001",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6b9da3d3-c645-4acf-bb29-76b949f98f02"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "1t21-earnings-release-solo-ingles-y-portugues",
+      "caminho": "/noticia/1t21-earnings-release-solo-ingles-y-portugues/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c26f6c6-a8e4-1bd1-ff3e-9f30ca17760c?origin=2"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t18",
+      "caminho": "/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=456ec68e-bce5-4924-bfff-18cf0034e799",
+        "https://webcastlite.mziq.com/cover.html?webcastId=729ef2cd-d3d4-4993-a013-7dc0e6474ec2"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t20",
+      "caminho": "/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=6c814aa7-a940-4f88-9915-eb11a00e0001",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6b9da3d3-c645-4acf-bb29-76b949f98f02"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45",
+        "https://webcastlite.mziq.com/cover.html?webcastId=86eae1a2-52fd-4448-891c-20f769aeb8bd"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t20",
+      "caminho": "/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/153e5154-6226-73ba-aa3d-910a20e64e3a?origin=1",
+        "https://webcastlite.mziq.com/cover.html?webcastId=d66f6964-22bc-4671-ae8a-e7c68ce58135",
+        "https://webcastlite.mziq.com/cover.html?webcastId=c71e061e-98ac-4e7e-84eb-a48c4e8e4805"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t21",
+      "caminho": "/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7d3ecf0d-3c27-8d08-4363-c7b49dc3142b?origin=2"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://common.engage-x.com/Downloader.ashx?accountId=Z1ZXPWR89QVMfM4MvsdDXw%3D%3D&amp;fileId=vhrlg2hZV5TP%2FwtL9VfTJw%3D%3D",
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t20",
+      "caminho": "/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b5e25f6d-134c-e565-52af-d14ba57ad70d?origin=1"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t21",
+      "caminho": "/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4910fa3d-064f-1318-60d6-9d32b8fba4af?origin=2"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t17",
+      "caminho": "/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=EkVN7IhUmQ3VK8%2FJ0hLZ1A%3D%3D",
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=GDZXBngeIFnclRluUmgAxg%3D%3D"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t18",
+      "caminho": "/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=94681916-6ae0-4677-bfe6-3854ce991bcc",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6bc572a5-4c27-4fe0-8a8d-cb1dd626cad8"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t19",
+      "caminho": "/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://apicatalog.mziq.com/filemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/73000266-b0ea-53fa-f6cd-fb9befb3cdcf?origin=1"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t20",
+      "caminho": "/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8fe4d9e0-b73e-d85f-96b0-88585f5643db?origin=1"
+      ]
+    },
+    {
+      "idioma": "es",
+      "tipo": "pagina",
+      "slug": "sustentabilidade-2",
+      "caminho": "/sustentabilidade-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/3e7d2879-6b84-1ab2-ceaf-95d5f92d1eaa?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1]",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b6a6b235-b9d6-6118-85c1-319fdd48dd57?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "2017",
+      "slug": "hello-world",
+      "caminho": "/2017/08/24/hello-world/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://cms-backend.mziq.com/"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "2017",
+      "slug": "hello-world",
+      "caminho": "/2017/08/24/hello-world/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://cms-backend.mziq.com/"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "category",
+      "slug": "nao-categorizado",
+      "caminho": "/category/nao-categorizado/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://cms-backend.mziq.com/"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "category",
+      "slug": "nao-categorizado",
+      "caminho": "/category/nao-categorizado/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://cms-backend.mziq.com/"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "faq",
+      "slug": "debenture-verde-green-bonds",
+      "caminho": "/faq/debenture-verde-green-bonds/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "faq",
+      "slug": "sustentabilidade-2",
+      "caminho": "/faq/sustentabilidade-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1039ffa8-d210-ccbd-13fc-0985511bf6d2?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "group",
+      "slug": "sustentabilidade-nova",
+      "caminho": "/group/sustentabilidade-nova/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1039ffa8-d210-ccbd-13fc-0985511bf6d2?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015",
+      "caminho": "/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://www.aneel.gov.br/cedoc/reh20141756ti.pdf",
+        "http://www.aneel.gov.br/cedoc/reh20141756ti.pdf</a></p>\n<p class=",
+        "http://www.aneel.gov.br/cedoc/areh20141756_2.pdf",
+        "http://www.aneel.gov.br/cedoc/areh20141756_2.pdf</a></p>\n<p class="
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t18",
+      "caminho": "/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=456ec68e-bce5-4924-bfff-18cf0034e799",
+        "https://webcastlite.mziq.com/cover.html?webcastId=729ef2cd-d3d4-4993-a013-7dc0e6474ec2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t20",
+      "caminho": "/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=6c814aa7-a940-4f88-9915-eb11a00e0001",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6b9da3d3-c645-4acf-bb29-76b949f98f02"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-1t21",
+      "caminho": "/noticia/divulgacao-de-resultados-1t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a5019f7c-a6b5-d60e-64d3-144db5bd6289?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/796c7f2e-05d0-6a3a-0c5d-24c6895995f3?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45",
+        "https://webcastlite.mziq.com/cover.html?webcastId=86eae1a2-52fd-4448-891c-20f769aeb8bd"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t18",
+      "caminho": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=a16c7737-e9bd-4797-bf42-213c2d27cf45"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t20",
+      "caminho": "/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9393698b-251d-881a-9a3f-fc79a8ce026c?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b0cdcc8f-0fc5-7888-52c9-658d90212cef?origin=1",
+        "https://webcastlite.mziq.com/cover.html?webcastId=d66f6964-22bc-4671-ae8a-e7c68ce58135",
+        "https://webcastlite.mziq.com/cover.html?webcastId=c71e061e-98ac-4e7e-84eb-a48c4e8e4805"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-2t21",
+      "caminho": "/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d3b09b87-363b-1904-f80b-abd0de5fe068?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/cf019e17-da91-acb7-876a-fb622c296c06?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t18",
+      "caminho": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://common.engage-x.com/Downloader.ashx?accountId=Z1ZXPWR89QVMfM4MvsdDXw%3D%3D&amp;fileId=ngnniUEnJNc1zJbECIwujw%3D%3D",
+        "http://common.engage-x.com/Downloader.ashx?accountId=Z1ZXPWR89QVMfM4MvsdDXw%3D%3D&amp;fileId=Mat53VdA7yuJw90tR%2FHopg%3D%3D",
+        "http://webcastlite.mziq.com/cover.html?webcastId=1102ddf9-8baf-409b-b87f-7a76a158843a",
+        "http://webcastlite.mziq.com/cover.html?webcastId=6b84efed-8357-4682-b21d-735ed6b2f7a5"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t20",
+      "caminho": "/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7543be89-b7fe-b6c7-a368-dbc7c8b76d2a?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/2486ccff-aa9b-4484-a60c-87e32e5123ba?origin=1"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-3t21",
+      "caminho": "/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7957ced7-f899-04de-74d8-7deb97eded2f?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ae845493-6fce-b870-03dc-857741658b17?origin=2"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t17",
+      "caminho": "/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=EkVN7IhUmQ3VK8%2FJ0hLZ1A%3D%3D",
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=GDZXBngeIFnclRluUmgAxg%3D%3D"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t18",
+      "caminho": "/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://webcastlite.mziq.com/cover.html?webcastId=94681916-6ae0-4677-bfe6-3854ce991bcc",
+        "https://webcastlite.mziq.com/cover.html?webcastId=6bc572a5-4c27-4fe0-8a8d-cb1dd626cad8"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t19",
+      "caminho": "/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://apicatalog.mziq.com/filemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/5b4aa59d-afb9-98b9-51ee-13d683fae282?origin=1"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-4t20",
+      "caminho": "/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d5e5253f-88b8-ee07-86f8-87393c50b022?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/f5bb120d-3dad-2a3d-bdf9-509c6c62c818?origin=1"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "divulgacao-de-resultados-do-3t17",
+      "caminho": "/noticia/divulgacao-de-resultados-do-3t17/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=WHApeZrfrzLN1IqLeAC7ng%3D%3D%20",
+        "http://webcast.engage-x.com/Cover.aspx?PlatformId=MqNb3lzGQ%2BF6QisfV3s4lw%3D%3D%20"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "noticia",
+      "slug": "fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante",
+      "caminho": "/noticia/fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://www.portalneo1.net/; (ii) na página da Companhia na rede mundial de computadores (www.alupar.com.br/ri); e (iii) no sistema de envio de informações periódicas e eventuais da CVM (Sistema IPE), conforme Instrução da CVM nº 547, de 5 de fevereiro de 2014, que altera a Instrução CVM 358.</p>\n<p class="
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "pagina",
+      "slug": "inovacao-pesquisa-e-desenvolvimento",
+      "caminho": "/inovacao-pesquisa-e-desenvolvimento/",
+      "motivo": "http-externo",
+      "porque": "host de terceiro — trocar para https exige confirmar que ele serve https",
+      "urls": [
+        "http://pdi.alupar.com.br"
+      ]
+    },
+    {
+      "idioma": "pt",
+      "tipo": "pagina",
+      "slug": "sustentabilidade-2",
+      "caminho": "/sustentabilidade-2/",
+      "motivo": "servico-do-fornecedor",
+      "porque": "funcionalidade hospedada na MZ, não arquivo — some com o contrato",
+      "urls": [
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/377511cc-11f1-9e38-f081-982271efbd7f?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/839a9196-b66e-9b65-5cf6-bc2600026d2b?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/759940ce-2e49-4a43-caea-1faf40d177aa?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c56ce8b4-80cf-3bb2-1a5c-3f473ce7a586?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/e5e33e5c-791b-f8f8-58c7-f522706e7c7d?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/eff91e8b-6da6-8fc7-a2dc-a113ca2314b0?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1447527c-7c66-648c-9e6c-26ec7a1bae2f?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0925e316-50f3-147a-3bdc-331e272d6445?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1039ffa8-d210-ccbd-13fc-0985511bf6d2?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/5d920234-7af4-f07f-fea7-5fc1383b51ff?origin=2",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1",
+        "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0e118c0e-02ef-24b7-aa2e-bc124d612cc9?origin=2"
+      ]
+    }
+  ],
+  "destinosQueNaoRespondem": [
+    {
+      "url": "https://www.alupar.com.br/wp-content/uploads/sites/7/2017/08/ENG-Alupar_Release-2Q17-ENG.pdf",
+      "status": 404,
+      "porque": "o arquivo não existe mais na origem — decidir entre remover o link ou repor o arquivo"
+    }
+  ]
+}

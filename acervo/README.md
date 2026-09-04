@@ -137,6 +137,51 @@ Os 47 que exigem revisão são os que consomem hora de gente: tabela pode ser
 dado ou pode ser layout, e só quem olha decide; texto alternativo de imagem é
 redação, não reescrita mecânica.
 
+## O que a limpeza automática resolve, e o que não
+
+`scripts/limpar-conteudo.mjs` produz `conteudo-limpo.jsonl` e
+`pendencias-fornecedor.json`.
+
+### Removido
+
+**391 blocos de `<script>`, em todas as 387 páginas.** É sempre o mesmo: compara
+`window.location.href` com `/fotos` e manda para o NAS. Um comentário no
+próprio código se explica — *"solicitado pelo ferramenta redirect WP ñ suporta
+o link por conta disso foi feita a inserção no código"*. É redirecionamento
+feito no navegador porque o plugin não dava conta; no site novo já é uma linha
+do `_redirects`, que serve antes de qualquer HTML chegar.
+
+Ele também era o que inflava a primeira contagem: as 387 ocorrências de `http://`
+no domínio próprio e as 387 de host externo eram todas dele, não do conteúdo.
+
+### Reescrito
+
+| | ocorrências | itens |
+|---|---:|---:|
+| Arquivo no CDN do fornecedor → host próprio | 608 | 96 |
+| Host morto (`inst.`/`ri.alupar.mziq.com`) → host próprio | 7 | 7 |
+| `http://` → `https://` no domínio da Alupar | 41 | 24 |
+
+**Verificado**: dos 139 destinos únicos, **138 respondem** no host próprio. O
+único que não responde é `ENG-Alupar_Release-2Q17-ENG.pdf`, que também dá 404
+no CDN — o arquivo sumiu da origem e o link já estava quebrado antes de
+encostarmos nele. Vira pendência, não 404 silencioso.
+
+### Não tocado, porque não é trabalho de script
+
+**51 itens dependem de serviços da MZ**, 128 ocorrências: `api.mziq.com`,
+`webcastlite.mziq.com`, `apicatalog.mziq.com`, `cms-backend.mziq.com`. Isso
+**não é arquivo, é funcionalidade** — player de webcast, API de catálogo. Não
+há para onde reescrever: quando o contrato com a MZ acabar, some.
+
+A primeira auditoria classificou tudo isso como "limpeza automática". Estava
+errado, e a correção importa: a dependência da MZ não é só de arquivo, é
+funcional, e essas 51 páginas precisam de decisão antes da virada.
+
+**19 itens têm `http://` para terceiros** — `engage-x.com`, `aneel.gov.br`,
+`workr.com.br`. Trocar para `https://` exige confirmar host a host que ele
+serve https. O script não adivinha.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
@@ -145,6 +190,8 @@ redação, não reescrita mecânica.
 | `midia.json` | manifesto de mídia com origem, status e tamanho |
 | `conteudo.jsonl` | os 648 itens estruturados: título, data, corpo, texto e arquivos |
 | `auditoria.json` | o que impede cada item de ser migrado como está, e a que custo |
+| `conteudo-limpo.jsonl` | o conteúdo com os caminhos reescritos e o script embutido removido |
+| `pendencias-fornecedor.json` | o que exige decisão antes da migração |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 
 O HTML e os binários **não** ficam no git — 283 MB. Para reproduzir:
@@ -154,6 +201,7 @@ node scripts/extrair-acervo.mjs --midia      # institucional
 node scripts/extrair-microsites.mjs --midia  # rs, pdi e ma
 node scripts/extrair-conteudo.mjs            # HTML → conteudo.jsonl
 node scripts/auditar-conteudo.mjs            # conteudo.jsonl → auditoria.json
+node scripts/limpar-conteudo.mjs --verificar # reescreve e confere cada destino
 ```
 
 ## Armadilha de ambiente
