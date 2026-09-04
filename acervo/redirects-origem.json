@@ -1,0 +1,351 @@
+{
+  "sondadoEm": "2026-09-04T01:09:38.654Z",
+  "base": "https://www.alupar.com.br",
+  "metodo": "GET com redirect: manual — o 301 é o dado, não o obstáculo",
+  "total": 57,
+  "redirecionam": 14,
+  "resultados": [
+    {
+      "caminho": "/a-companhia/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/area-de-atuacao/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/atuacao/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/br/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/canal-de-denuncias/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/codigo-de-conduta/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/companies/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/empresas/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/compliance/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/contact/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/contato/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/contato/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/empresas/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/en",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/noticia/entrada-em-operacao-comercial-de-reforco-autorizado-da-erte/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/en/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/noticia/entrada-em-operacao-comercial-de-reforco-autorizado-da-erte/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/es",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/es/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/etica/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/fale-conosco/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/faq-new/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/feed/",
+      "status": 500,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/fotos",
+      "status": 301,
+      "destino": "https://alupar.us6.quickconnect.to/fotos",
+      "redireciona": true
+    },
+    {
+      "caminho": "/fotos/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/galeria-de-fotos/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/galeria/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/geracao/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/faq/geracao/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/home/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/imprensa/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/index.php",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/inicio/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/inovacao-pesquisa-e-desenvolvimento/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/investidores/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/meio-ambiente/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/midia/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/news/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/noticias/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/nossas-empresas/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/noticias-2/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/noticias/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/pesquisa-e-desenvolvimento/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/politica-de-privacidade/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/privacidade/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/pt/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/quem-somos/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/relacoes-com-investidores/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/ri/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/rss/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/feed/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/sala-de-imprensa/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/sitemap.xml",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/sitemap_index.xml",
+      "redireciona": true
+    },
+    {
+      "caminho": "/sobre-a-alupar/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/sobre/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/sustainability/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/faq/sustainability/?lang=en",
+      "redireciona": true
+    },
+    {
+      "caminho": "/sustentabilidade-2/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/sustentabilidade/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/faq/sustentabilidade-2/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/termos-de-uso/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/trabalhe-conosco-2/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/transmissao/",
+      "status": 404,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/video/",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/faq/videos-dos-projetos-sociais-apoiados-pela-alupar/",
+      "redireciona": true
+    },
+    {
+      "caminho": "/videos/",
+      "status": 200,
+      "destino": null,
+      "redireciona": false
+    },
+    {
+      "caminho": "/wp-sitemap.xml",
+      "status": 301,
+      "destino": "https://www.alupar.com.br/sitemap_index.xml",
+      "redireciona": true
+    }
+  ]
+}
