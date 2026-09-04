@@ -1,0 +1,301 @@
+<title>Dossiê alupar.com.br</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Paleta do Manual de Identidade Visual 2018 da Alupar.
+     Verde de marca #079541 em superfícies; #06893C em texto (4,51:1). */
+  :root{
+    --ground:#F4F6F4; --surface:#FFFFFF; --surface-2:#EDF0EE;
+    --ink:#231F20; --ink-2:#4A524E; --ink-3:#6E7873;
+    --line:#DCE1DE; --line-strong:#C2C9C5;
+    --accent:#06893C; --accent-strong:#079541; --accent-soft:#E4F2E9;
+    --azul:#004F9D; --azul-soft:#E3ECF5;
+    --crit:#A82F27; --crit-soft:#F8E7E5;
+    --warn:#8A6410; --warn-soft:#F6EEDC;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#14171C; --surface:#1B1F26; --surface-2:#232830;
+      --ink:#E9EDEA; --ink-2:#B4BDB8; --ink-3:#8A9691;
+      --line:#2C333A; --line-strong:#3D454D;
+      --accent:#2BAC5E; --accent-strong:#079541; --accent-soft:#123322;
+      --azul:#4E9BE0; --azul-soft:#14263A;
+      --crit:#E88379; --crit-soft:#3A221F;
+      --warn:#DFB55F; --warn-soft:#332813;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#14171C; --surface:#1B1F26; --surface-2:#232830;
+    --ink:#E9EDEA; --ink-2:#B4BDB8; --ink-3:#8A9691;
+    --line:#2C333A; --line-strong:#3D454D;
+    --accent:#2BAC5E; --accent-strong:#079541; --accent-soft:#123322;
+    --azul:#4E9BE0; --azul-soft:#14263A;
+    --crit:#E88379; --crit-soft:#3A221F;
+    --warn:#DFB55F; --warn-soft:#332813;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:"Open Sans",Arial,Helvetica,sans-serif;font-size:16px;line-height:1.62;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 96px}
+  a{color:var(--accent)}
+  code,.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.87em}
+
+  header.top{border-top:5px solid var(--accent-strong);border-bottom:1px solid var(--line);background:var(--surface);padding:40px 0 30px;margin-bottom:38px}
+  header.top .wrap{padding-bottom:0}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-size:clamp(30px,5vw,44px);font-weight:700;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0 0 14px;color:var(--azul)}
+  .dek{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0 0 24px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:15px}
+  .meta b{color:var(--ink-2);font-weight:600}
+
+  section{margin:0 0 50px}
+  h2{font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 20px;padding-bottom:10px;border-bottom:2px solid var(--accent-strong)}
+  h3{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:30px 0 10px;text-wrap:balance;color:var(--azul)}
+  p{margin:0 0 15px;max-width:70ch}
+  ul{margin:0 0 15px;padding-left:20px;max-width:70ch}
+  li{margin-bottom:6px}
+
+  .alerta{background:var(--crit-soft);border:1px solid var(--line);border-left:4px solid var(--crit);padding:20px 24px;margin-bottom:30px}
+  .alerta h3{margin:0 0 8px;color:var(--crit);font-size:20px}
+  .alerta p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .alerta p + p{margin-top:10px}
+
+  .semaforo{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:22px}
+  .sf{background:var(--surface);padding:16px 18px}
+  .sf .n{font-size:27px;font-weight:700;line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .sf .n.ruim{color:var(--crit)} .sf .n.meio{color:var(--warn)}
+  .sf .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;line-height:1.35}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;background:var(--surface-2)}
+  tr:last-child td{border-bottom:0}
+  td.mono{font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+  td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:2px;font-weight:600;white-space:nowrap}
+  .tag.ok{background:var(--accent-soft);color:var(--accent)}
+  .tag.no{background:var(--crit-soft);color:var(--crit)}
+  .tag.mid{background:var(--warn-soft);color:var(--warn)}
+
+  .pedido{border:1px solid var(--line);background:var(--surface);border-left:4px solid var(--azul);padding:18px 22px;margin-bottom:12px}
+  .pedido h4{margin:0 0 6px;font-size:16.5px;font-weight:600;color:var(--azul)}
+  .pedido p{margin:0;font-size:14.5px;color:var(--ink-2)}
+  .pedido .quem{display:inline-block;margin-top:9px;font-size:12px;color:var(--ink-3);background:var(--surface-2);padding:3px 9px;border-radius:2px}
+
+  .relogio{border:1px solid var(--line-strong);background:var(--warn-soft);padding:18px 22px;margin-bottom:14px}
+  .relogio h4{margin:0 0 6px;font-size:16.5px;color:var(--warn)}
+  .relogio p{margin:0;font-size:14.5px;color:var(--ink-2)}
+
+  footer{border-top:1px solid var(--line);margin-top:54px;padding-top:20px;font-size:13px;color:var(--ink-3)}
+  footer p{max-width:72ch}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Dossiê · Site institucional</p>
+    <h1>alupar.com.br</h1>
+    <p class="dek">O estado atual do site, o que já foi feito e o que precisamos da Alupar para começar.</p>
+    <div class="meta">
+      <span>Medições de <b>01 e 02/09/2026</b></span>
+      <span>Elaborado por <b>Bekaa</b>, parceira da ness.</span>
+      <span>Método: <b>verificação técnica direta do site público</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="alerta">
+    <h3>O site está fora do ar para quem digita o endereço sem “www”</h3>
+    <p><code>alupar.com.br</code> apresenta um certificado de segurança que <b>venceu em 05/05/2026 — há 120 dias</b>. Quem digita o endereço, clica num link antigo, num QR code impresso ou numa assinatura de e-mail recebe uma <b>tela de alerta de segurança</b> do navegador, não o site.</p>
+    <p>A correção leva minutos e depende apenas de quem administra o domínio. <b>É a primeira coisa a resolver, e independe de todo o resto deste documento.</b></p>
+  </div>
+
+  <div class="semaforo">
+    <div class="sf"><div class="n ruim">120</div><div class="l">dias com o domínio principal fora do ar</div></div>
+    <div class="sf"><div class="n ruim">1.280</div><div class="l">dias desde a última notícia publicada</div></div>
+    <div class="sf"><div class="n meio">9</div><div class="l">anos das imagens que ainda giram na home</div></div>
+    <div class="sf"><div class="n meio">49</div><div class="l">dias até o próximo certificado vencer</div></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-3)">Todos os números deste dossiê foram medidos diretamente no site público, e cada um é reproduzível. Nada foi estimado.</p>
+</section>
+
+<section>
+  <h2>1 · O que um visitante encontra hoje</h2>
+
+  <h3>O conteúdo parou em março de 2023</h3>
+  <p>A última notícia do site institucional é de <b>02/03/2023</b>. No mesmo instante, o portal de Relações com Investidores exibe a divulgação do 2T26, de agosto de 2026. São dois sites da mesma empresa, na mesma infraestrutura — um está em dia, o outro parou há três anos e meio.</p>
+  <p>No rotativo da página inicial ainda giram um <b>banner de COVID-19 de 2021</b>, o selo <b>“Certificado Atmosfera FIA 2021”</b> e três imagens de <b>agosto de 2017</b>.</p>
+
+  <h3>A home não diz o que a Alupar faz</h3>
+  <p>Quem chega vê banners girando, uma lista de notícias, um vídeo e três ícones de sustentabilidade. <b>Em nenhum lugar da página inicial está escrito o que a empresa é ou onde atua.</b> O portal de RI diz isso na primeira dobra — quem entra pelo institucional nunca passa por lá.</p>
+
+  <h3>O site pesa quatro vezes o que deveria</h3>
+  <p>A página inicial transfere <b>2,19 MB</b>, dos quais 84% são imagens. Duas fotografias de 2017 sozinhas somam 1,28 MB. Nenhuma imagem do site usa formato moderno ou carregamento sob demanda — num celular, tudo é baixado de uma vez.</p>
+
+  <h3>Pessoas com deficiência não conseguem usar o site</h3>
+  <p>Não é uma questão de conformidade formal: é de uso. Um leitor de tela hoje encontra a página inicial <b>sem nenhuma descrição de imagem</b> — os seis banners e 30 das 42 imagens da página de Empresas estão sem texto alternativo. O nome da empresa no topo não chega ao leitor de tela. O formulário de contato tem <b>cinco campos e um único rótulo</b>. Não há indicação visual de foco para quem navega por teclado.</p>
+
+  <h3>As versões em inglês e espanhol são incompletas — e quebram</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Conteúdo</th><th class="num">Português</th><th class="num">Inglês</th><th class="num">Espanhol</th></tr></thead>
+      <tbody>
+        <tr><td>Páginas institucionais</td><td class="num">19</td><td class="num">13</td><td class="num">13</td></tr>
+        <tr><td>Vídeos</td><td class="num">2</td><td class="num">2</td><td class="num">2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px"><b>Seis páginas não existem em inglês nem em espanhol</b> — e quando alguém acessa uma delas nesses idiomas, o site responde com erro, em vez de mostrar a versão em português. Além disso, as páginas traduzidas se declaram tecnicamente como português, o que confunde buscadores e leitores de tela.</p>
+
+  <h3>Treze endereços que não deveriam existir estão públicos e indexáveis</h3>
+  <p>Páginas duplicadas e restos de edições antigas seguem no ar e visíveis para buscadores: <code>trabalhe-conosco-2</code>, <code>faq-new</code>, <code>sustentabilidade-2</code>, <code>condicoes-de-uso-pagina-antiga</code>, além de toda a árvore de conteúdo de COVID-19 de 2021 e duas páginas distintas sobre o mesmo tema de P&amp;D.</p>
+
+  <h3>O institucional tem menos proteção que o portal de RI</h3>
+  <p>O portal de RI já envia três cabeçalhos de segurança que o institucional não envia. Não é limitação da plataforma — a configuração existe de um lado e não chegou ao outro. Nenhum dos dois força o uso de conexão segura.</p>
+  <p>Há ainda um detalhe técnico com efeito prático: o certificado de <code>www</code> é apresentado de uma forma que <b>navegadores aceitam mas ferramentas automatizadas rejeitam</b>. Integrações e monitoramento externo falham hoje ao acessar o site.</p>
+</section>
+
+<section>
+  <h2>2 · O que já está pronto</h2>
+  <p>Nada abaixo depende de aprovação para existir — já foi feito e está registrado.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Entrega</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td>Diagnóstico técnico completo, com evidência reproduzível de cada item</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>Plano de execução: escopo, cronograma de 6 a 7 semanas, custo e critérios de aceite</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>Doze decisões de projeto fechadas e justificadas</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>Repositório com a base do site novo, publicando automaticamente e com verificação de qualidade a cada alteração</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>Identidade visual extraída do Manual de 2018 e aplicada, com duas inconsistências do próprio manual identificadas</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>Cópia de segurança do conteúdo público do site — 276 páginas e o inventário completo de 160 arquivos de mídia</td><td><span class="tag ok">concluído</span></td></tr>
+        <tr><td>23 tarefas abertas e priorizadas, com verificação objetiva de conclusão</td><td><span class="tag ok">concluído</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">A abordagem aprovada é de <b>restauro fiel</b>: a identidade visual do site é preservada, e muda apenas o que resolve um problema concreto e medido. Não é um redesenho.</p>
+</section>
+
+<section>
+  <h2>3 · O que precisamos da Alupar</h2>
+  <p>Nada aqui consome horas do projeto. Todos travam algum início.</p>
+
+  <h3>Seis interlocutores — pessoas, não áreas</h3>
+
+  <div class="pedido">
+    <h4>1. Quem administra o domínio</h4>
+    <p>É o mais urgente: sem essa pessoa, o site continua fora do ar para quem digita o endereço. A correção é uma configuração de minutos.</p>
+    <span class="quem">Trava a correção do domínio</span>
+  </div>
+  <div class="pedido">
+    <h4>2. Interlocutor da equipe do portal de RI</h4>
+    <p>As notícias do site novo virão de lá, e há mais quatro pontos de fronteira a combinar entre os dois sites — inclusive o certificado, que hoje é compartilhado.</p>
+    <span class="quem">Trava o conteúdo de notícias</span>
+  </div>
+  <div class="pedido">
+    <h4>3. Interlocutor do fornecedor atual</h4>
+    <p>Para tratar prazos de desligamento e a transição da hospedagem.</p>
+    <span class="quem">Trava o encerramento</span>
+  </div>
+  <div class="pedido">
+    <h4>4. Quem aprova uso da marca no Marketing</h4>
+    <p>O Manual de Identidade Visual determina que o Marketing aprova qualquer aplicação da marca. O manual é de 2018 e nomeia duas pessoas — precisamos saber quem responde hoje.</p>
+    <span class="quem">Trava a aprovação visual</span>
+  </div>
+  <div class="pedido">
+    <h4>5. Dono do conteúdo institucional</h4>
+    <p>O portal de RI está em dia e o institucional parou porque um tem responsável nomeado e o outro não. <b>Sem uma pessoa com nome, o site novo repete a mesma história em dois ou três anos.</b> É condição de entrega, não recomendação.</p>
+    <span class="quem">Trava a entrega final</span>
+  </div>
+  <div class="pedido">
+    <h4>6. Um padrinho executivo</h4>
+    <p>Para decidir quando Comunicação, Marketing, RI e TI divergirem entre si.</p>
+    <span class="quem">Destrava impasses</span>
+  </div>
+
+  <h3>Cinco informações</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>O quê</th><th>Para quê</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td><b>Km de linhas de transmissão</b></td><td>Faixa de indicadores na página inicial. Não vamos estimar esse número</td><td><span class="tag mid">3ª semana</span></td></tr>
+        <tr><td><b>MW de capacidade instalada</b></td><td>Idem</td><td><span class="tag mid">3ª semana</span></td></tr>
+        <tr><td><b>Acesso ao Google Analytics</b> do site</td><td>Extrair o histórico de acessos antes da virada — depois dela não há mais comparação possível</td><td><span class="tag no">antes da virada</span></td></tr>
+        <tr><td><b>Arquivos originais do logotipo</b></td><td>O manual indica que estão na Intranet. Recuperamos uma versão do próprio PDF, que precisa ser conferida</td><td><span class="tag mid">1ª semana</span></td></tr>
+        <tr><td><b>Valor do contrato de hospedagem atual</b></td><td>Calcular em quanto tempo o investimento se paga. Não vamos estimar valores de contrato que não vimos</td><td><span class="tag mid">quando houver</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Três autorizações</h3>
+  <div class="tablewrap">
+    <table>
+      <tbody>
+        <tr><td><b>Executar as correções emergenciais</b> — corrigir o domínio fora do ar e aplicar os cabeçalhos de segurança que faltam, esta semana</td></tr>
+        <tr><td><b>Guardar cópia do conteúdo público do site</b> — é conteúdo da Alupar; queremos a autorização registrada por escrito</td></tr>
+        <tr><td><b>Abrir a conta do gerenciador de conteúdo em nome da Alupar</b>, e não da agência — é o que garante que a saída de qualquer fornecedor futuro seja indolor</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>4 · Decisões que são da Alupar</h2>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Assunto</th><th>A pergunta</th></tr></thead>
+      <tbody>
+        <tr><td><b>Documentos de licenciamento ambiental</b></td><td>Quatro PDFs de EIA/RIMA de PCH somam <b>138 MB — mais da metade de todo o acervo de arquivos do site.</b> Precisam continuar publicados? Em que forma?</td></tr>
+        <tr><td><b>Página de Compliance</b></td><td>Está no ar, mas fora do menu. Volta para a navegação ou é aposentada?</td></tr>
+        <tr><td><b>Notícias antigas</b></td><td>Proposta: as dos últimos 24 meses na listagem principal, as demais num arquivo consultável. <b>Nenhum endereço deixa de funcionar</b> — o corte é editorial, não exclusão</td></tr>
+        <tr><td><b>Faixa de indicadores na home</b></td><td>Aprovada: quatro números entre os banners e as notícias, na tipografia e nas cores atuais. Depende dos dois dados acima</td></tr>
+        <tr><td><b>Dados de contato</b></td><td>A página de Contato ainda oferece <b>fax</b> como canal, e publica o celular pessoal da assessoria de imprensa. Confirmar se ambos seguem válidos</td></tr>
+        <tr><td><b>Galeria de fotos</b></td><td>Hoje o link leva para um servidor de arquivos fora do site. Decidido manter — registrando que fica fora dos critérios de qualidade do site novo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>5 · O que tem prazo próprio</h2>
+  <p>Três itens não esperam pelo cronograma do projeto.</p>
+
+  <div class="relogio">
+    <h4>O histórico de acessos, antes da virada</h4>
+    <p>Precisamos extrair a linha de base do Google Analytics <b>antes</b> de o site novo entrar no ar. Depois disso não há como comparar o antes e o depois, e o dado não se recupera.</p>
+  </div>
+  <div class="relogio">
+    <h4>A cópia dos arquivos do site</h4>
+    <p>São 160 arquivos, 247,6 MB, dos quais <b>120 estão hospedados na infraestrutura do fornecedor atual</b>. Enquanto o site está no ar eles são públicos. O inventário completo já foi levantado; a cópia dos arquivos está em andamento.</p>
+  </div>
+  <div class="relogio">
+    <h4>O próximo vencimento de certificado: 21/10/2026</h4>
+    <p>Faltam <b>49 dias</b>. É o mesmo certificado usado pelo institucional e pelo portal de RI. Sem um responsável nomeado e um alerta configurado, a situação atual se repete — foi exatamente assim que se chegou aqui.</p>
+  </div>
+</section>
+
+<section>
+  <h2>6 · O que propomos para a reunião</h2>
+  <p>Uma hora, com Comunicação, Marketing e TI presentes. Sem TI não se resolve o domínio; sem Marketing não se resolve a aprovação visual.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th style="width:88px">Tempo</th><th>Assunto</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">10 min</td><td>O estado atual, com as evidências deste dossiê</td></tr>
+        <tr><td class="mono">10 min</td><td>O que já está pronto e o que muda para quem visita o site</td></tr>
+        <tr><td class="mono">15 min</td><td>Os seis interlocutores — sair da reunião com nomes</td></tr>
+        <tr><td class="mono">15 min</td><td>As informações e as autorizações</td></tr>
+        <tr><td class="mono">10 min</td><td>Autorização para as correções emergenciais</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px"><b>O mínimo para a reunião valer:</b> o nome de quem administra o domínio, o nome do dono do conteúdo, e a autorização para corrigir o domínio esta semana.</p>
+</section>
+
+<footer>
+  <p><b>Sobre as medições.</b> Os dados deste dossiê foram obtidos em 01 e 02/09/2026 por consulta direta ao site público — cabeçalhos, certificados, mapa de conteúdo e o peso real de cada arquivo. Nenhum valor foi estimado, e cada afirmação é verificável.</p>
+  <p style="margin-top:10px"><b>O que ainda não foi medido:</b> tempo de carregamento percebido em rede móvel real e teste com leitor de tela conduzido por pessoa com deficiência. As afirmações sobre desempenho referem-se a peso transferido e composição técnica; as de acessibilidade, a defeitos objetivos de marcação. Ambos os testes estão previstos antes do encerramento.</p>
+</footer>
+
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "apresentacao-alupar",
+  "private": true,
+  "type": "commonjs",
+  "description": "Gerador do deck de apresentação. Isolado do site para não misturar a dependência de PowerPoint com a do Astro.",
+  "scripts": {
+    "build": "node deck.js",
+    "qa": "python3 qa/geometria.py && python3 qa/contencao.py"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}
