@@ -49,6 +49,27 @@ const slugsTraduzidos = vivos
 
 const porIdioma = (l) => slugsTraduzidos.filter((i) => i.idioma === l);
 
+/*
+ * O endereço responder 200 hoje não garante que ele vira página no site novo:
+ * banner e anexo respondem 200 e não têm corpo. Mandar um 301 para uma página
+ * que não será gerada é **pior que o 404** — o desvio some do verificador de
+ * links, e o erro só aparece para quem clica.
+ *
+ * Então o destino só é a tradução quando o item tem corpo no acervo. Sem
+ * corpo, o destino é a home do idioma: continua sem 404 (regra 3), e a linha
+ * fica marcada para receber destino melhor quando houver índice de seção.
+ */
+const comCorpo = new Set(
+  (await readFile('acervo/conteudo-pronto.jsonl', 'utf8'))
+    .trim()
+    .split('\n')
+    .map((l) => JSON.parse(l))
+    .filter((i) => !i.vazio)
+    .map((i) => `${i.idioma}${i.caminho}`),
+);
+const temPagina = (i) => comCorpo.has(`${i.idioma}${i.caminho}`);
+const semPagina = slugsTraduzidos.filter((i) => !temPagina(i));
+
 /* ── public/_redirects ── */
 const atual = await readFile('public/_redirects', 'utf8');
 const preservado = atual.split(MARCA)[0].trimEnd();
@@ -61,11 +82,24 @@ const linhas = [
   '# caminho não existe em português — então o destino é a versão com prefixo de',
   '# idioma. Sem estas linhas, todo link externo para uma tradução morre na virada.',
   '',
+  // O `_redirects` só aceita comentário em linha inteira — um `#` no fim da
+  // linha faria a regra ser ignorada em silêncio. Por isso os provisórios vão
+  // num bloco próprio, e não anotados linha a linha.
   ...['en', 'es'].flatMap((l) => [
-    `# ${l.toUpperCase()} — ${porIdioma(l).length} endereços`,
-    ...porIdioma(l).map((i) => `${i.caminho}  /${l}${i.caminho}  301`),
+    `# ${l.toUpperCase()} — ${porIdioma(l).filter(temPagina).length} endereços`,
+    ...porIdioma(l).filter(temPagina).map((i) => `${i.caminho}  /${l}${i.caminho}  301`),
     '',
   ]),
+  ...(semPagina.length
+    ? [
+        `# ── ${semPagina.length} traduções sem corpo no acervo ──`,
+        '# Respondem 200 hoje, mas não viram página: são banner ou anexo. O destino',
+        '# é a home do idioma, para não deixar 404 (regra 3). Quando houver índice',
+        '# de seção, é para lá que devem apontar.',
+        ...semPagina.map((i) => `${i.caminho}  /${i.idioma}/  301`),
+        '',
+      ]
+    : []),
 ];
 await writeFile('public/_redirects', `${linhas.join('\n').trimEnd()}\n`);
 

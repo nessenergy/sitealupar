@@ -215,6 +215,50 @@ regressão reprova o merge em vez de chegar às páginas.
 **Consequência prática:** o corpo agora é injetável com `set:html`. A geração
 das rotas deixou de estar bloqueada por aqui.
 
+## Do acervo para as rotas
+
+`scripts/gerar-mapa-de-rotas.mjs` decide o que vira página e prova que o mapa
+fecha com o mapa de 301. Produz `mapa-de-rotas.json`.
+
+**378 rotas** dos 387 itens com corpo — 148 em português, 154 em inglês, 76 em
+espanhol. As 9 que ficaram de fora, com o motivo registrado: 1 arquivo de data
+do WordPress (`hello-world`), 1 página de categoria, e 7 já aposentadas por 301.
+
+### A regra que manda aqui
+
+A documentação da Cloudflare é explícita: **"redirects are always followed,
+regardless of whether or not an asset matches the incoming request"**. Duas
+consequências, e as duas viraram checagem:
+
+1. **Rota que também é fonte de 301 nunca é servida.** Não é defeito — é o item
+   aposentado de propósito. Então ele não vira página, em vez de nascer
+   publicado e invisível.
+2. **301 com destino interno inexistente é 404 com desvio** — pior que o 404
+   direto, porque não aparece no verificador de links. Isso reprova o merge.
+
+### O que a checagem encontrou na primeira execução
+
+**Sete destinos quebrados**, nenhum visível antes:
+
+| destino | o que era |
+|---|---|
+| `/sustentabilidade/` (2 regras) | a página canônica **nunca havia sido criada** |
+| `/en/banner_rotativo/sustainability/` | 301 para um banner, que não tem corpo |
+| `/en/noticia/2q22-earnings-release/` | 301 para uma notícia em inglês sem corpo |
+| `/feed/`, `/sitemap-index.xml` (3 regras) | legítimos: não são rota, são gerados pelo build |
+
+O primeiro já estava previsto — em comentário no próprio `public/_redirects`:
+*"isso **exige** que a página exista com esse caminho; se ela não for criada, o
+redirecionamento acima aponta para um 404"*. Ficou como aviso e ninguém
+executou. Agora `/sustentabilidade-2/` (1.315 palavras, o mais completo dos três
+candidatos) é publicado em `/sustentabilidade/`, e a checagem impede que o aviso
+volte a ser só aviso.
+
+Os dois 301 para tradução sem corpo passaram a apontar para a home do idioma —
+sem 404, e marcados no arquivo para receber destino melhor quando houver índice
+de seção. `gerar-redirecionamentos.mjs` deixou de emitir 301 para item sem
+corpo, então o caso não se repete.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
@@ -225,6 +269,7 @@ das rotas deixou de estar bloqueada por aqui.
 | `auditoria.json` | o que impede cada item de ser migrado como está, e a que custo |
 | `conteudo-limpo.jsonl` | o conteúdo com os caminhos reescritos e o script embutido removido |
 | `conteudo-pronto.jsonl` | o mesmo conteúdo com o HTML balanceado por parser — é este que as páginas consomem |
+| `mapa-de-rotas.json` | as 378 rotas, o que ficou de fora e por quê, e a conferência contra o mapa de 301 |
 | `pendencias-fornecedor.json` | o que exige decisão antes da migração |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 

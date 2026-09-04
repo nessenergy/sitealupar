@@ -48,8 +48,7 @@
 # caminho não existe em português — então o destino é a versão com prefixo de
 # idioma. Sem estas linhas, todo link externo para uma tradução morre na virada.
 
-# EN — 102 endereços
-/banner_rotativo/sustainability/  /en/banner_rotativo/sustainability/  301
+# EN — 100 endereços
 /faq/concluded-research-and-development-projects/  /en/faq/concluded-research-and-development-projects/  301
 /faq/confidentiality-of-users-information/  /en/faq/confidentiality-of-users-information/  301
 /faq/copyright-and-intellectual-property/  /en/faq/copyright-and-intellectual-property/  301
@@ -80,7 +79,6 @@
 /noticia/2q15-earnings-release/  /en/noticia/2q15-earnings-release/  301
 /noticia/2q16-earnings-release/  /en/noticia/2q16-earnings-release/  301
 /noticia/2q17-earnings-release-2-2/  /en/noticia/2q17-earnings-release-2-2/  301
-/noticia/2q22-earnings-release/  /en/noticia/2q22-earnings-release/  301
 /noticia/3q14-earnings-release/  /en/noticia/3q14-earnings-release/  301
 /noticia/3q15-earnings-release/  /en/noticia/3q15-earnings-release/  301
 /noticia/3q16-earnings-release/  /en/noticia/3q16-earnings-release/  301
@@ -176,3 +174,10 @@
 /noticia/1q20-earnings-release-solo-ingles-y-portugues/  /es/noticia/1q20-earnings-release-solo-ingles-y-portugues/  301
 /noticia/1t21-earnings-release-solo-ingles-y-portugues/  /es/noticia/1t21-earnings-release-solo-ingles-y-portugues/  301
 /noticia/3q17-earnings-release-solo-ingles-y-portugues/  /es/noticia/3q17-earnings-release-solo-ingles-y-portugues/  301
+
+# ── 2 traduções sem corpo no acervo ──
+# Respondem 200 hoje, mas não viram página: são banner ou anexo. O destino
+# é a home do idioma, para não deixar 404 (regra 3). Quando houver índice
+# de seção, é para lá que devem apontar.
+/banner_rotativo/sustainability/  /en/  301
+/noticia/2q22-earnings-release/  /en/  301
