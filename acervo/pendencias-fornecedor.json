@@ -1,6 +1,6 @@
 {
-  "geradoEm": "2026-09-04T01:42:41.644Z",
-  "total": 71,
+  "geradoEm": "2026-09-04T02:43:18.894Z",
+  "total": 70,
   "pendencias": [
     {
       "idioma": "en",
@@ -867,13 +867,6 @@
         "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1",
         "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0e118c0e-02ef-24b7-aa2e-bc124d612cc9?origin=2"
       ]
-    }
-  ],
-  "destinosQueNaoRespondem": [
-    {
-      "url": "https://www.alupar.com.br/wp-content/uploads/sites/7/2017/08/ENG-Alupar_Release-2Q17-ENG.pdf",
-      "status": 404,
-      "porque": "o arquivo não existe mais na origem — decidir entre remover o link ou repor o arquivo"
     }
   ]
 }
