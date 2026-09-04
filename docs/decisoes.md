@@ -19,6 +19,37 @@ Visual de 2018.
 | D10 | Faixa institucional | **Entra** (+16 h) | Única adição de estrutura: a home não diz em lugar nenhum o que a Alupar é |
 | D11 | CMS | **Sanity** | Editor maduro, i18n nativo, conta em nome da Alupar. O site estático sobrevive à queda do CMS |
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |
+| D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
+| D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
+
+## Por que a plataforma deixou de ser pergunta (D13)
+
+O *Escopo Técnico Preliminar* da ness. definia WordPress, e o argumento era
+razoável: origem em WordPress, destino em WordPress, migração mais barata.
+
+A medição de 02/09/2026 derrubou o argumento. A API REST do institucional está
+bloqueada — o iThemes Security removeu as rotas `wp/v2` e as coleções respondem
+403. Não existe exportação. A recuperação é página por página, **para qualquer
+destino**. Com o custo de migração igual nos dois caminhos, o que resta é o
+custo de operação: WordPress cobra patch de núcleo, tema, plugin e PHP todo mês,
+mais backup e superfície de invasão; o site estático cobra nada disso.
+
+A causa do estado atual não é o WordPress — é a ausência de dono. Mas o
+WordPress pune essa ausência todo mês, e foi exatamente essa punição que
+produziu um site parado por 1.280 dias com o certificado vencido.
+
+## Por que o idioma sai da query (D14)
+
+Hoje o site usa `?lang=en`. Três problemas: cada página passa a ter duas URLs
+para o mesmo conteúdo, o que o diagnóstico já apontou como duplicata
+indexável; o Cloudflare Pages **não casa query string** no `_redirects`, então
+todo tratamento vira regra de borda; e o WPML ainda traduz o permalink em 125
+casos, criando um terceiro caminho para a mesma coisa.
+
+O prefixo `/en/` e `/es/` resolve os três de uma vez, e é a forma nativa de i18n
+do Astro. O mapa de compatibilidade está em `public/_redirects` e
+`infra/redirect-rules.md`, gerados de `acervo/inventario.json` — não escritos à
+mão, para que ninguém precise confiar na memória de quem os escreveu.
 
 ## A regra que separa melhoria de desvio (D2)
 

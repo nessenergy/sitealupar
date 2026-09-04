@@ -1,0 +1,149 @@
+#!/usr/bin/env node
+/**
+ * Gera o mapa de redirecionamentos a partir do acervo medido.
+ *
+ * A regra 3 do AGENTS.md diz que nenhuma URL do acervo pode responder 404
+ * depois da virada. Este script transforma essa regra em arquivo: lê o
+ * `inventario.json`, separa o que o site tem hoje e emite o destino de cada
+ * endereço no site novo.
+ *
+ * São dois artefatos, e a divisão não é estética — é imposta pela plataforma.
+ * O `_redirects` do Cloudflare Pages **não casa query string** (documentado em
+ * developers.cloudflare.com/pages/configuration/redirects/, tabela de suporte
+ * avançado). Como o site atual expressa idioma em `?lang=`, esses endereços
+ * precisam de Redirect Rules, que avaliam expressão.
+ *
+ *   public/_redirects            caminhos — inclui os slugs traduzidos do WPML
+ *   infra/redirect-rules.md      as regras de borda para `?lang=`
+ *
+ * Uso: node scripts/gerar-redirecionamentos.mjs
+ */
+
+import { readFile, writeFile } from 'node:fs/promises';
+
+const INVENTARIO = 'acervo/inventario.json';
+const MARCA = '# ─── gerado por scripts/gerar-redirecionamentos.mjs ───';
+
+const inv = JSON.parse(await readFile(INVENTARIO, 'utf8'));
+
+/** Separa caminho e idioma. Devolve null para URL que não é do site. */
+function partes(url) {
+  const m = /^https?:\/\/www\.alupar\.com\.br(\/[^?]*)(?:\?lang=(en|es))?$/.exec(url);
+  return m ? { caminho: m[1], idioma: m[2] ?? 'pt' } : null;
+}
+
+const vivos = inv.filter((i) => i.status === 200).map((i) => ({ ...partes(i.url), url: i.url }))
+  .filter((i) => i.caminho);
+
+const caminhosPt = new Set(vivos.filter((i) => i.idioma === 'pt').map((i) => i.caminho));
+
+/**
+ * O WPML traduz o permalink. Onde o slug traduzido é próprio, o caminho não
+ * existe em português — e é ele que vira `/en/…` ou `/es/…` no site novo.
+ * Onde o caminho é o mesmo do português, quem distingue é o `?lang=`, e o
+ * caso é da borda, não deste arquivo.
+ */
+const slugsTraduzidos = vivos
+  .filter((i) => i.idioma !== 'pt' && !caminhosPt.has(i.caminho))
+  .sort((a, b) => a.caminho.localeCompare(b.caminho));
+
+const porIdioma = (l) => slugsTraduzidos.filter((i) => i.idioma === l);
+
+/* ── public/_redirects ── */
+const atual = await readFile('public/_redirects', 'utf8');
+const preservado = atual.split(MARCA)[0].trimEnd();
+
+const linhas = [
+  preservado,
+  '',
+  MARCA,
+  `# ${slugsTraduzidos.length} permalinks traduzidos pelo WPML. O slug é próprio — o`,
+  '# caminho não existe em português — então o destino é a versão com prefixo de',
+  '# idioma. Sem estas linhas, todo link externo para uma tradução morre na virada.',
+  '',
+  ...['en', 'es'].flatMap((l) => [
+    `# ${l.toUpperCase()} — ${porIdioma(l).length} endereços`,
+    ...porIdioma(l).map((i) => `${i.caminho}  /${l}${i.caminho}  301`),
+    '',
+  ]),
+];
+await writeFile('public/_redirects', `${linhas.join('\n').trimEnd()}\n`);
+
+/* ── infra/redirect-rules.md ── */
+const contagem = (l) => vivos.filter((i) => i.idioma === l && caminhosPt.has(i.caminho)).length;
+
+await writeFile(
+  'infra/redirect-rules.md',
+  `# Redirect Rules — o que o \`_redirects\` não alcança
+
+Gerado por \`scripts/gerar-redirecionamentos.mjs\`. Não edite à mão.
+
+O \`_redirects\` do Cloudflare Pages **não casa query string** — está na tabela
+de suporte avançado da própria documentação. O site atual expressa idioma em
+\`?lang=\`, então esses endereços só podem ser tratados na borda.
+
+São **${contagem('en') + contagem('es')} endereços vivos** hoje (${contagem('en')} em inglês, ${contagem('es')} em espanhol) onde a
+tradução mora no mesmo caminho do português e só o parâmetro distingue. Não
+viram ${contagem('en') + contagem('es')} regras: viram **duas**, porque a transformação é a mesma para todas.
+
+## Regra 1 — inglês
+
+\`\`\`
+(http.host eq "www.alupar.com.br" and http.request.uri.query contains "lang=en")
+\`\`\`
+
+Destino, expressão dinâmica, **301 permanente**, preservando a query desligado:
+
+\`\`\`
+concat("https://www.alupar.com.br/en", http.request.uri.path)
+\`\`\`
+
+## Regra 2 — espanhol
+
+\`\`\`
+(http.host eq "www.alupar.com.br" and http.request.uri.query contains "lang=es")
+\`\`\`
+
+\`\`\`
+concat("https://www.alupar.com.br/es", http.request.uri.path)
+\`\`\`
+
+## Por que 301 e por que preservar o caminho
+
+O caminho é idêntico nos três idiomas nestes casos, então \`concat\` basta e
+nenhuma tabela precisa ser mantida. O 301 transfere o histórico de indexação
+para o endereço novo — com 302 o Google mantém o antigo, e o \`?lang=\` sobrevive
+para sempre nos resultados de busca.
+
+Desligar a preservação da query é deliberado: \`/en/a-companhia/?lang=en\` seria
+uma segunda URL para a mesma página, exatamente o tipo de duplicata que o
+diagnóstico apontou.
+
+## Ordem
+
+Estas duas regras vêm **depois** da regra do apex (\`alupar.com.br\` → \`www\`) e
+**antes** de qualquer regra de página. Uma requisição para
+\`alupar.com.br/a-companhia/?lang=en\` precisa primeiro virar \`www\`, e só então
+ganhar o prefixo de idioma.
+
+## Verificação
+
+Depois de publicar, cada linha abaixo tem de responder 301 para o destino
+indicado:
+
+\`\`\`bash
+${vivos
+  .filter((i) => i.idioma !== 'pt' && caminhosPt.has(i.caminho))
+  .slice(0, 4)
+  .map(
+    (i) =>
+      `curl -sI "https://www.alupar.com.br${i.caminho}?lang=${i.idioma}" | grep -i "^location"\n# esperado: /${i.idioma}${i.caminho}`,
+  )
+  .join('\n')}
+\`\`\`
+`,
+);
+
+console.log(`_redirects: ${slugsTraduzidos.length} slugs traduzidos ` +
+  `(${porIdioma('en').length} en, ${porIdioma('es').length} es)`);
+console.log(`redirect-rules.md: 2 regras cobrindo ${contagem('en') + contagem('es')} endereços`);
