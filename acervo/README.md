@@ -259,6 +259,50 @@ sem 404, e marcados no arquivo para receber destino melhor quando houver índice
 de seção. `gerar-redirecionamentos.mjs` deixou de emitir 301 para item sem
 corpo, então o caso não se repete.
 
+## A dívida de acessibilidade que vem dentro do conteúdo
+
+O gate do Lighthouse cobre o que o **template** faz — contraste, `lang`, ordem de
+cabeçalho da página. Não cobre o que vem no **corpo**: uma imagem sem `alt` numa
+notícia de 2018 reprova o critério igual, e a correção não é do template.
+
+`scripts/auditar-acessibilidade.mjs` separa as duas dívidas antes de as páginas
+existirem. Sem isso, o gate reprova na virada e a discussão vira "afrouxa o
+critério" em vez de "corrige estes itens".
+
+Nas **378 páginas publicadas**:
+
+| achado | ocorrências | páginas | quem corrige |
+|---|---:|---:|---|
+| `target="_blank"` sem aviso | 160 | 134 | front-end — uma mudança no template resolve todas |
+| tabela sem `<th>` | 25 | 25 | front-end |
+| link sem texto | 5 | 2 | Comunicação |
+| cabeçalho pulando nível | 2 | 2 | Comunicação |
+| imagem sem `alt` | 0 | 0 | — |
+| iframe sem `title` | 0 | 0 | — |
+
+**185 das 192 ocorrências se resolvem no template**, uma vez, para todas as
+páginas. Sobram **4 páginas** que dependem de decisão de texto.
+
+Nada é corrigido automaticamente, e é deliberado: `alt=""` num logotipo está
+certo, na foto de uma usina é apagar informação. Quem decide é quem escreve.
+
+### O cruzamento com o mapa de rotas não é detalhe
+
+A primeira leitura desta medição contou **163 itens com achado** e concluiu "12
+itens para a Comunicação". Errado: seis desses itens **não viram página** — três
+de `/alupar-e-a-covid-19/` estão arquivadas por 301, entre outras. Corrigir
+acessibilidade de página aposentada é trabalho jogado fora.
+
+Por isso o cruzamento com `mapa-de-rotas.json` mora **dentro do script**, e não
+na cabeça de quem lê o relatório. O número honesto é 4 páginas, não 12.
+
+### Um achado lateral
+
+`/politica-de-privacidade/condicoes-de-uso-pagina-antiga/` foi aposentada por
+301 em português — mas as versões em **inglês e espanhol continuam vivas**,
+porque a regra só casa o caminho sem prefixo de idioma. Uma "página antiga" que
+morreu num idioma e sobreviveu em dois. É do mapa de 301, não da Comunicação.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
@@ -270,6 +314,7 @@ corpo, então o caso não se repete.
 | `conteudo-limpo.jsonl` | o conteúdo com os caminhos reescritos e o script embutido removido |
 | `conteudo-pronto.jsonl` | o mesmo conteúdo com o HTML balanceado por parser — é este que as páginas consomem |
 | `mapa-de-rotas.json` | as 378 rotas, o que ficou de fora e por quê, e a conferência contra o mapa de 301 |
+| `acessibilidade-do-conteudo.json` | o que o conteúdo migrado deve ao WCAG, separado por quem corrige |
 | `pendencias-fornecedor.json` | o que exige decisão antes da migração |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 

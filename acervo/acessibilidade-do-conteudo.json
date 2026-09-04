@@ -1,0 +1,1752 @@
+{
+  "geradoEm": "2026-09-04T13:02:43.593Z",
+  "itensAnalisados": 387,
+  "itensComAchado": 163,
+  "itensPublicadosComAchado": 157,
+  "resumo": [
+    {
+      "id": "nova-aba-sem-aviso",
+      "criterio": "WCAG 3.2.5",
+      "quem": "front-end",
+      "porque": "target=\"_blank\" sem aviso no texto: a nova aba surpreende quem não vê a tela",
+      "ocorrencias": 160,
+      "itens": 134
+    },
+    {
+      "id": "tabela-sem-cabecalho",
+      "criterio": "WCAG 1.3.1",
+      "quem": "front-end",
+      "porque": "tabela sem <th>: o leitor de tela lê os números sem dizer de que coluna são",
+      "ocorrencias": 25,
+      "itens": 25
+    },
+    {
+      "id": "link-sem-texto",
+      "criterio": "WCAG 2.4.4",
+      "quem": "Comunicação",
+      "porque": "link sem texto, sem aria-label e sem imagem com alt: não há como saber para onde vai",
+      "ocorrencias": 5,
+      "itens": 2
+    },
+    {
+      "id": "salto-de-nivel",
+      "criterio": "WCAG 1.3.1",
+      "quem": "Comunicação",
+      "porque": "cabeçalho pula nível (h2 direto para h4): quebra a navegação por estrutura",
+      "ocorrencias": 2,
+      "itens": 2
+    },
+    {
+      "id": "imagem-sem-alt",
+      "criterio": "WCAG 1.1.1",
+      "quem": "Comunicação",
+      "porque": "imagem sem atributo alt: o leitor de tela anuncia o nome do arquivo",
+      "ocorrencias": 0,
+      "itens": 0
+    },
+    {
+      "id": "iframe-sem-titulo",
+      "criterio": "WCAG 4.1.2",
+      "quem": "front-end",
+      "porque": "iframe sem title: o conteúdo embutido não é anunciado",
+      "ocorrencias": 0,
+      "itens": 0
+    }
+  ],
+  "resumoIncluindoAposentados": [
+    {
+      "id": "nova-aba-sem-aviso",
+      "criterio": "WCAG 3.2.5",
+      "quem": "front-end",
+      "porque": "target=\"_blank\" sem aviso no texto: a nova aba surpreende quem não vê a tela",
+      "ocorrencias": 170,
+      "itens": 137
+    },
+    {
+      "id": "tabela-sem-cabecalho",
+      "criterio": "WCAG 1.3.1",
+      "quem": "front-end",
+      "porque": "tabela sem <th>: o leitor de tela lê os números sem dizer de que coluna são",
+      "ocorrencias": 28,
+      "itens": 28
+    },
+    {
+      "id": "salto-de-nivel",
+      "criterio": "WCAG 1.3.1",
+      "quem": "Comunicação",
+      "porque": "cabeçalho pula nível (h2 direto para h4): quebra a navegação por estrutura",
+      "ocorrencias": 5,
+      "itens": 5
+    },
+    {
+      "id": "link-sem-texto",
+      "criterio": "WCAG 2.4.4",
+      "quem": "Comunicação",
+      "porque": "link sem texto, sem aria-label e sem imagem com alt: não há como saber para onde vai",
+      "ocorrencias": 23,
+      "itens": 4
+    },
+    {
+      "id": "imagem-sem-alt",
+      "criterio": "WCAG 1.1.1",
+      "quem": "Comunicação",
+      "porque": "imagem sem atributo alt: o leitor de tela anuncia o nome do arquivo",
+      "ocorrencias": 12,
+      "itens": 3
+    },
+    {
+      "id": "iframe-sem-titulo",
+      "criterio": "WCAG 4.1.2",
+      "quem": "front-end",
+      "porque": "iframe sem title: o conteúdo embutido não é anunciado",
+      "ocorrencias": 0,
+      "itens": 0
+    }
+  ],
+  "achados": [
+    {
+      "rota": "/en/faq/research-and-development-program/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "faq",
+      "titulo": "Research and Development Program",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/group/research-and-evelopment/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "group",
+      "titulo": "Ongoing Research and Development Projects",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/1q14-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q14 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/1q15-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q15 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/1q17-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q17 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/en/noticia/1q20-earnings-release-2/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q20 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/2q14-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q14 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/2q15-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q15 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/2q16-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q16 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/2q17-earnings-release-2-2/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q17 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/en/noticia/3q14-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "3Q14 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/3q15-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "3Q15 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/3q16-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "3Q16 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/en/noticia/4q13-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "4Q13 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/4q14-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "4Q14 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/4q16-earnings-release/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "4Q16 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/en/noticia/agoe-edital-de-convocacao-portuguese-only/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "AGO/E – Edital de Convocação (Portuguese Only)",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Alupar announce the new Institutional and Investor Relations website",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Annual and Extraordinary Shareholders Meeting – Call Notice",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/authorization-for-the-reinforcement-of-installations/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Authorization for the reinforcement of installations",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-1t18/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q18 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-1t20/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "1Q20 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t18/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q18 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t20/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q20 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-3t18/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "3Q18 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t17/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "4Q17 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t18/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "4Q18 Earnings Release",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-do-2t17/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "2Q17 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-do-3t17/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "3Q17 Earnings Release",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Fitch Eleva Ratings da Alupar (Portuguese Only)",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-6th-debenture-issuance/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – 6th Debenture Issuance",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-finalized-eate/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition Finalized – EATE",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of Empresa Catarinense de Transmissão de Energia Common Shares",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-la-virgen/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of La Virgen",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of Queluz and Lavrinhas Preferred Shares",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of share in transmission companies by direct subsidiary",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of SHPPs Queluz and Lavrinhas Preferred Shares",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of the capital stock of each of the companies of the Aracati Complex",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-agua-limpa/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Água Limpa",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-aracati-complex-acquisition/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Aracati Complex Acquisition",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Change in Police for Disclosure of Material Act or Fact",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 3
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Concession of the Lot C of ANEEL Auction No. 001/2014",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-market-maker/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Market Maker",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-payment-of-interim-dividends/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Payment of Interim Dividends",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-pch-verde-8/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – PCH Verde 8",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/material-fact-sale-of-shares-sinop/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Sale of shares – SINOP",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Minutes of the Annual and Extraordinary Shareholders´ Meeting",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/modification-of-shp-morro-azul-environmental-license/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Modification of SHP Morro Azul Environmental License",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Moody´s assigns Ba2/Aa3.br to Alupar´s Debentures",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-funcef/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Acquisition of Interest FUNCEF",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Acquisition of Interest GIC Private Limited",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Annual Permitted Revenue (RAP) – Cycle of 2014",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 3
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Approval by CADE of the Act of Concentration No 08700.009463/2014-65",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-change-of-independent-auditor/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the market – Change of Independent Auditor",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Commercial Operation of the UG3 Ferreira Gomes",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – ETVG – Reinforcement works at the transmission units.",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Ferreira Gomes – Diversion of the Araguari River",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – HPP Ferreira Gomes begins operations in advance",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-market-maker/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Market Maker",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Request for the previous analysis of the registration of public offering",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Restatement of Management Proposal referring to the Annual and Extraordinary Shareholders’ Meeting",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – TME reinforcement works at the transmission units.",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-tne/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – TNE",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/noticia/upgrading-of-corporate-rating/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "noticia",
+      "titulo": "Upgrading of Corporate Rating",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/compliance/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "pagina",
+      "titulo": "Compliance",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/contato/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "pagina",
+      "titulo": "Contact Us",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/empresas/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "pagina",
+      "titulo": "Companies",
+      "ocorrencias": {
+        "link-sem-texto": 3
+      }
+    },
+    {
+      "rota": "/en/pesquisa-e-desenvolvimento/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "pagina",
+      "titulo": "Research & Development",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
+      "publicada": true,
+      "idioma": "en",
+      "tipo": "politica-de-privacidade",
+      "titulo": "Conditions of Use – pagina – antiga",
+      "ocorrencias": {
+        "salto-de-nivel": 1
+      }
+    },
+    {
+      "rota": "/es/faq/research-and-development-program-2/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "faq",
+      "titulo": "Research and Development Program",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/faq/videos-dos-projetos-sociais-apoiados-pela-alupar/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "faq",
+      "titulo": "Video de Proyectos sociales apoyados por Alupar",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/group/pesquisa-e-desarollo/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "group",
+      "titulo": "Ongoing Research and Development Projects",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/group/sustentabilidade-nova/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "group",
+      "titulo": "Bonos Verdes",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/1q20-earnings-release-solo-ingles-y-portugues/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "1Q20 Earnings Release (Sólo Inglés y Portugués)-",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-1t18/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "1Q18 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-1t20/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "1T20 Earnings Release (Sólo Inglés y Portugués)-",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t18/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "2Q18 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t20/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "2T20 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-3t18/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "3Q18 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t17/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "4Q17 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t18/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "4Q18 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-do-2t17/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "noticia",
+      "titulo": "2Q17 Earnings Release (Sólo Inglés y Portugués)",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/es/compliance/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "pagina",
+      "titulo": "Compliance",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/contato/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "pagina",
+      "titulo": "Contacto",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/pesquisa-e-desenvolvimento/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "pagina",
+      "titulo": "Pesquisa & Desarollo",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/sustentabilidade-2/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "pagina",
+      "titulo": "Sostenibilidad",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
+      "publicada": true,
+      "idioma": "es",
+      "tipo": "politica-de-privacidade",
+      "titulo": "Condiciones de Uso – pagina – antiga",
+      "ocorrencias": {
+        "salto-de-nivel": 1
+      }
+    },
+    {
+      "rota": "/alupar-e-a-covid-19/acoes-sociais-em-prol-de-comunidades-vulneraveis/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "alupar-e-a-covid-19",
+      "titulo": "Ações Sociais em prol de comunidades vulneráveis",
+      "ocorrencias": {
+        "imagem-sem-alt": 5,
+        "tabela-sem-cabecalho": 1,
+        "link-sem-texto": 16,
+        "nova-aba-sem-aviso": 8,
+        "salto-de-nivel": 1
+      }
+    },
+    {
+      "rota": "/alupar-e-a-covid-19/iniciativas-direcionadas-aos-nossos-colaboradores/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "alupar-e-a-covid-19",
+      "titulo": "Iniciativas direcionadas aos nossos colaboradores",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1,
+        "imagem-sem-alt": 5,
+        "salto-de-nivel": 1
+      }
+    },
+    {
+      "rota": "/faq/programa-de-pesquisa-e-desenvolvimento/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "faq",
+      "titulo": "Programa de Pesquisa e Desenvolvimento",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/group/pesquisa-e-desenvolvimento/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "group",
+      "titulo": "Projetos de P&D em Andamento",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/agoe-edital-de-convocacao/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "AGO/E – Edital de Convocação",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/agoe-edital-de-convocacao-2/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "AGO/E – Edital de Convocação",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/alupar-lanca-novos-sites-institucional-e-de-relacoes-com-investidores/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Alupar lança novos sites Institucional e de Relações com Investidores",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Ata da Assembleia Geral Ordinária e Extraordinária",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/autorizacao-para-implantacao-de-reforco-de-instalacoes/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Autorização para implantação de reforço de instalações",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-auditor-independente/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Alteração de Auditor Independente",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Alteração de Calendário de Eventos Corporativos",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aprovacao-pelo-cade-do-ato-de-concentracao-no-08700-0094632014-65/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Aprovação pelo CADE do Ato de Concentração nº 08700.009463/2014-65",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-funcef/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Aquisição participação FUNCEF",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-gic-private-limited/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Aquisição participação GIC Private Limited",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-contratacao-de-formador-de-mercado/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Contratação de Formador de Mercado",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-etvg-autorizacao-para-implantar-reforcos-em-instalacoes-de-transmissao/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – ETVG – Autorização para implantar reforços em instalações de transmissão.",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-ferreira-gomes-desvio-do-rio-araguari/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Ferreira Gomes – Desvio do Rio Araguari",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-da-uhe-ferreira-gomes/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Operação Comercial da UHE Ferreira Gomes",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug2-ferreira-gomes/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Operação Comercial UG2 Ferreira Gomes",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Operação Comercial UG3 Ferreira Gomes",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-pedido-de-analise-previa-de-oferta-publica/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Pedido de análise prévia de oferta pública",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Reajuste da Receita Anual Permitida do Ciclo 2014/2015",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 3
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-reapresentacao-da-proposta-da-administracao-para-a-agoe/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – Reapresentação da Proposta da Administração para a AGOE",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-tme-autorizacao-para-implantar-reforcos-em-instalacao-de-transmissao/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – TME autorização para implantar reforços em instalação de transmissão.",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-tne/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Comunicado ao Mercado – TNE",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t18/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 1T18",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t20/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 1T20",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t18/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 2T18",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t20/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 2T20",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-3t18/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 3T18",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t17/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 4T17",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t18/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados 4T18",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t14/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 1T14",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t15/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 1T15",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t17/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 1T17",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t14/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 2T14",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t15/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 2T15",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t16/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 2T16",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t17/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 2T17",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t14/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 3T14",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t15/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 3T15",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t16/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 3T16",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t17/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 3T17",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2,
+        "tabela-sem-cabecalho": 1
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t13/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 4T13",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t14/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 4T14",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t16/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Divulgação de Resultados do 4T16",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 2
+      }
+    },
+    {
+      "rota": "/noticia/elevacao-de-rating-corporativo/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Elevação de Rating Corporativo",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-6a-emissao-de-debentures/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – 6ª Emissão de Debêntures",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Adjudicação do lote C do leilão ANEEL 001-2014",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Alteração da Política de Divulgação de Ato ou Fato Relevante",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-ampliacao-de-participacao-em-transmissoras/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Ampliação de participação em transmissoras",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-complexo-aracati/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição Complexo Aracati",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição de ações ordinárias Empresa Catarinense de Transmissão de Energia",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição de Ações Preferenciais Lavrinhas e Queluz",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição de ações preferenciais Lavrinhas e Queluz",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição de Ações Preferenciais PCHs Queluz e Lavrinhas",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-participacoes-societarias-no-complexo-aracati/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição de participações societárias no Complexo Aracati",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-la-virgen/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Aquisição La Virgen",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-concretizacao-de-aquisicao-eate/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Concretização de Aquisição – EATE",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-distribuicao-de-dividendos-intermediarios/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Distribuição de Dividendos Intermediários",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-formador-de-mercado/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Formador de Mercado",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-pch-agua-limpa/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – PCH Água Limpa",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-pch-verde-8/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – PCH Verde 8",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fato-relevante-venda-de-acoes-sinop/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fato Relevante – Venda de ações SINOP",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/fitch-eleva-ratings-da-alupar/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Fitch Eleva Ratings da Alupar",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Material Fact – Acquisition of Lavrinhas and Queluz Preferred Shares",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/modificacao-da-licenca-ambiental-da-pch-morro-azul/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Modificação da Licença Ambiental da PCH Morro Azul",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/moodys-atribui-ratings-ba2aa3-br-para-as-debentures-da-alupar/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Moody´s atribui ratings Ba2/Aa3.br para as Debêntures da Alupar",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/noticia/notice-to-the-market-change-in-the-annual-calendar-of-corporate-events/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "noticia",
+      "titulo": "Notice to the Market – Change in the Annual Calendar of Corporate Events",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/alupar-e-a-covid-19/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Alupar e a COVID-19",
+      "ocorrencias": {
+        "tabela-sem-cabecalho": 1,
+        "link-sem-texto": 2,
+        "imagem-sem-alt": 2
+      }
+    },
+    {
+      "rota": "/compliance/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Compliance",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/contato/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Contato",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/empresas/",
+      "publicada": true,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Empresas",
+      "ocorrencias": {
+        "link-sem-texto": 2
+      }
+    },
+    {
+      "rota": "/pesquisa-e-desenvolvimento/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Pesquisa e Desenvolvimento",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/trabalhe-conosco/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "pagina",
+      "titulo": "Sua carreira precisa passar por aqui",
+      "ocorrencias": {
+        "nova-aba-sem-aviso": 1
+      }
+    },
+    {
+      "rota": "/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
+      "publicada": false,
+      "idioma": "pt",
+      "tipo": "politica-de-privacidade",
+      "titulo": "Condições de Uso – pagina – antiga",
+      "ocorrencias": {
+        "salto-de-nivel": 1
+      }
+    }
+  ]
+}
