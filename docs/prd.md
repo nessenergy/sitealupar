@@ -178,9 +178,28 @@ Um PR que os viole não entra.
 | Acessibilidade | WCAG 2.2 AA sem violação crítica; 100% das imagens com `alt`; formulário navegável só por teclado | reprova |
 | Idiomas | Paridade 100% PT/EN/ES | reprova |
 | SEO | Título e descrição únicos; um `<h1>`; JSON-LD no HTML servido | reprova |
-| Continuidade | Zero 404 nas 20 URLs antigas e nas 99 notícias | — |
+| Continuidade | Zero 404 nos 387 itens do acervo, nas 265 URLs com `?lang=` e nos 125 permalinks traduzidos; `/en/` e `/es/` respondem 200 sem redirecionamento | — |
 | Segurança | CSP, HSTS, Referrer-Policy, Permissions-Policy; certificado com renovação automatizada | reprova |
 | Operação | A Comunicação publica notícia e troca banner sem chamado a fornecedor | não |
+
+**Nota sobre continuidade.** O critério antigo dizia "20 URLs antigas e 99
+notícias", números do primeiro levantamento pelo menu. A aquisição do acervo
+mediu o que existe de fato: 387 itens de conteúdo, 265 endereços com `?lang=`
+e 125 permalinks que o WPML traduziu. O mapa está em `public/_redirects` e
+`infra/redirect-rules.md`, gerado de `acervo/inventario.json`.
+
+A checagem de `/en/` e `/es/` **não é redundante** com a paridade de idiomas.
+Hoje `https://www.alupar.com.br/en/` responde 301 para um comunicado de 2014 —
+uma regra do plugin Redirection que sobrevive à virada se ninguém a apagar. É
+um defeito que teste de página não pega, porque ninguém testa a raiz de um
+idioma: testa-se `/en/a-companhia/`, que funcionaria. Detalhe em
+`docs/redirects-da-origem.md`.
+
+```bash
+curl -sI https://www.alupar.com.br/en/ | grep -iE "^(HTTP|location)"
+curl -sI https://www.alupar.com.br/es/ | grep -iE "^(HTTP|location)"
+# esperado: HTTP/2 200, sem location
+```
 
 **Nota sobre contraste.** O verde de marca `#079541` entrega 3,90:1 sobre
 branco e reprova o critério AA para texto. Ele permanece intacto em barras,
