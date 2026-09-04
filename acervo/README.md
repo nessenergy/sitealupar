@@ -109,6 +109,34 @@ começariam com "Você está em:" e qualquer busca no acervo casaria com tudo. O
 extrator a remove; se alguém reescrever essa parte, o teste é simples — nenhum
 item deve começar com aquela frase.
 
+## Quanto custa limpar antes de migrar
+
+`auditoria.json`, de `scripts/auditar-conteudo.mjs`, mede item a item o que
+impede a migração direta. Dos 387 com conteúdo:
+
+| | itens |
+|---|---:|
+| Prontos como estão | **201** |
+| Só limpeza automática | 139 |
+| **Exigem revisão humana** | **47** |
+
+| Achado | Custo | Itens | Ocorrências |
+|---|---|---:|---:|
+| Aponta para host da MZ | automático | 139 | 513 |
+| Estilo embutido no corpo | automático | 132 | 1.099 |
+| Link em `http://` | automático | 40 | 80 |
+| Tabela no corpo | revisão | 47 | 50 |
+| Imagem sem descrição | revisão | 3 | 12 |
+
+O primeiro é o que mais importa: **139 itens carregam link para o host do
+fornecedor atual**, e dois desses hosts já não resolvem em DNS. É a dependência
+da MZ embutida no próprio conteúdo — migrar sem reescrever esses caminhos é
+trocar de plataforma levando o defeito junto.
+
+Os 47 que exigem revisão são os que consomem hora de gente: tabela pode ser
+dado ou pode ser layout, e só quem olha decide; texto alternativo de imagem é
+redação, não reescrita mecânica.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
@@ -116,6 +144,7 @@ item deve começar com aquela frase.
 | `inventario.json` | URL, status, bytes, título e data de cada uma das 1.221 tentativas |
 | `midia.json` | manifesto de mídia com origem, status e tamanho |
 | `conteudo.jsonl` | os 648 itens estruturados: título, data, corpo, texto e arquivos |
+| `auditoria.json` | o que impede cada item de ser migrado como está, e a que custo |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 
 O HTML e os binários **não** ficam no git — 283 MB. Para reproduzir:
@@ -124,6 +153,7 @@ O HTML e os binários **não** ficam no git — 283 MB. Para reproduzir:
 node scripts/extrair-acervo.mjs --midia      # institucional
 node scripts/extrair-microsites.mjs --midia  # rs, pdi e ma
 node scripts/extrair-conteudo.mjs            # HTML → conteudo.jsonl
+node scripts/auditar-conteudo.mjs            # conteudo.jsonl → auditoria.json
 ```
 
 ## Armadilha de ambiente
