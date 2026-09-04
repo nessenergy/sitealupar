@@ -18,7 +18,30 @@
 
 # Galeria de fotos permanece no NAS (D4). O redirecionamento sai do WordPress
 # que será desligado e passa a ser regra de borda.
-/fotos                                             https://alupar.us6.quickconnect.to/fotos/   301
+/fotos                                             https://alupar.us6.quickconnect.to/fotos    301
+
+# ── Regras herdadas da origem, descobertas por sondagem em 04/09/2026 ──
+# O plugin Redirection está ativo no WordPress atual e suas regras vivem no
+# banco, que não temos. Mas toda regra ativa é observável de fora: basta pedir
+# a URL sem seguir o redirecionamento. Estas catorze existem hoje e morreriam
+# na virada em silêncio. Levantadas por scripts/descobrir-redirects.mjs.
+
+/companies/                                        /empresas/   301
+/contact/                                          /contato/   301
+/news/                                             /noticias/   301
+/geracao/                                          /faq/geracao/   301
+/video/                                            /faq/videos-dos-projetos-sociais-apoiados-pela-alupar/   301
+/sustainability/                                   /en/faq/sustainability/   301
+/index.php                                         /   301
+/rss/                                              /feed/   301
+/sitemap.xml                                       /sitemap-index.xml   301
+/wp-sitemap.xml                                    /sitemap-index.xml   301
+
+# A origem manda /sustentabilidade/ para /faq/sustentabilidade-2/. No site novo
+# a página canônica passa a ser /sustentabilidade/, e é /sustentabilidade-2/
+# que redireciona — a linha correspondente está acima. Isso **exige** que a
+# página exista com esse caminho; se ela não for criada, o redirecionamento
+# acima aponta para um 404.
 
 # ─── gerado por scripts/gerar-redirecionamentos.mjs ───
 # 125 permalinks traduzidos pelo WPML. O slug é próprio — o
