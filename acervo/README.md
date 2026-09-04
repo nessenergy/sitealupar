@@ -9,7 +9,7 @@ e é da Alupar.
 | | |
 |---|---:|
 | URLs no índice de sitemaps | 407 |
-| Páginas tentadas (× 3 idiomas) | 1.221 |
+| Páginas tentadas | 971 |
 | Páginas capturadas (HTTP 200) | 666 |
 | HTML em disco | 30 MB |
 | Arquivos de mídia | 237 |
@@ -26,13 +26,21 @@ Mídia por formato: 136 PNG, 51 JPG, 49 PDF. O maior arquivo é um EIA de PCH co
 
 ## O que não veio, e por quê
 
-Os **555 endereços com HTTP 404** não são perda de acervo:
+Os **305 endereços com HTTP 404** não são perda de acervo:
 
-- **539** são variantes `?lang=en` e `?lang=es` de conteúdo que só existe em
+- **289** são variantes `?lang=en` e `?lang=es` de conteúdo que só existe em
   português. É a mesma falha de paridade de idiomas registrada no diagnóstico —
-  o site responde erro em vez de servir o português.
+  o site responde erro em vez de servir o português. Por idioma: 145 faltam em
+  inglês, 144 em espanhol.
 - **16** são permalinks `?attachment_id=NNNN` que o próprio sitemap de anexos
-  publica e que o site não resolve.
+  publica e que o site não resolve — estes sim, em português.
+
+**Nota sobre o número anterior.** A primeira execução relatou 1.221 tentativas e
+555 erros. Aquele total estava inflado por um defeito do próprio extrator, que
+anexava `?lang=` a URLs que o sitemap já publica com idioma declarado, gerando
+`?lang=en?lang=en`. Nenhum conteúdo se perdeu — a forma correta também era
+buscada — mas 250 requisições inválidas entravam no inventário como 404. O
+extrator foi corrigido e as 666 páginas capturadas são exatamente as mesmas.
 
 Três arquivos de mídia não são da Alupar e ficaram de fora: dois PDFs da ANEEL
 (HTTP 403) e um release de 2017 já removido da origem (HTTP 404).

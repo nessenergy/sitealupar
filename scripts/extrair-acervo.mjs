@@ -139,8 +139,31 @@ console.error('Lendo o índice de sitemaps...');
 const SITEMAPS = await sitemapsDoIndice();
 console.error(`${SITEMAPS.length} sitemaps: ${SITEMAPS.join(', ')}`);
 const base = [...new Set((await Promise.all(SITEMAPS.map(urlsDoSitemap))).flat())];
-const alvos = base.flatMap((u) => IDIOMAS.map((l) => u + l));
-console.error(`${base.length} URLs × ${IDIOMAS.length} idiomas = ${alvos.length} páginas\n`);
+
+/**
+ * O WPML traduz o permalink, não só o conteúdo: a versão inglesa de uma notícia
+ * tem slug próprio e o sitemap a publica já com `?lang=en`. Anexar os idiomas a
+ * *toda* URL produzia `?lang=en?lang=en`, que o WordPress responde com 404.
+ *
+ * Nenhum conteúdo se perdia por isso — a forma correta também era buscada, na
+ * variante sem sufixo — mas 250 requisições eram desperdiçadas e entravam no
+ * inventário como 404, inflando a contagem de endereços quebrados e sugerindo
+ * um buraco no acervo que não existe. Um inventário que mente sobre o próprio
+ * site é pior que um inventário menor.
+ *
+ * Portanto: URL que já declara idioma é buscada como está, porque aquela é a
+ * forma canônica dela. Só as que não declaram ganham as três variantes.
+ */
+const jaTemIdioma = (u) => /[?&]lang=/.test(u);
+const alvos = [
+  ...base.filter(jaTemIdioma),
+  ...base.filter((u) => !jaTemIdioma(u)).flatMap((u) => IDIOMAS.map((l) => u + l)),
+];
+const comIdioma = base.filter(jaTemIdioma).length;
+console.error(
+  `${base.length} URLs no sitemap: ${comIdioma} já declaram idioma, ` +
+    `${base.length - comIdioma} × ${IDIOMAS.length} idiomas = ${alvos.length} páginas\n`,
+);
 
 console.error('Guardando páginas...');
 const inventario = await emLotes(alvos, CONCORRENCIA, guardarPagina);
