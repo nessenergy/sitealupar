@@ -182,12 +182,13 @@ funcional, e essas 51 páginas precisam de decisão antes da virada.
 `workr.com.br`. Trocar para `https://` exige confirmar host a host que ele
 serve https. O script não adivinha.
 
-### Ainda não é injetável — e por quê
+### O desequilíbrio, e como foi resolvido
 
 Depois da limpeza, o corpo melhorou muito: tags de fechamento órfãs caíram de
-**387 para 7**. Mas **211 dos 387 itens ainda têm tag não fechada**.
+**387 para 7**. Mas **211 dos 387 itens ainda tinham tag não fechada** — 423
+aberturas sem par, mais 9 fechamentos órfãos.
 
-Não é defeito da limpeza. É inerente a extrair um fragmento do meio de um
+Não era defeito da limpeza. É inerente a extrair um fragmento do meio de um
 documento: o tema abre `<div>` antes da seção de texto e fecha depois dela, e o
 recorte fica com metade do par.
 
@@ -196,9 +197,23 @@ por regex já foi feita e piorou: removia a `<div>` de abertura pela classe, mas
 a de fechamento não tem classe, então sobravam órfãs em 386 itens. Está
 registrado no comentário do script para ninguém repetir.
 
-**Consequência prática:** gerar as páginas em Astro injetando `corpo` com
-`set:html` produziria HTML inválido em 211 páginas. A geração espera o
-balanceamento; o passo anterior — o conteúdo estruturado e limpo — está pronto.
+`scripts/balancear-conteudo.mjs` faz pelo caminho certo: `parseFragment` do
+**parse5** monta a árvore aplicando as regras de recuperação do HTML5 — fecha o
+que ficou aberto, descarta o que fecha sem ter aberto — e `serialize` devolve
+marcação bem formada. Produz `conteudo-pronto.jsonl`.
+
+| | órfãs | não fechadas | itens afetados |
+|---|---:|---:|---:|
+| antes | 9 | 423 | 211 |
+| **depois** | **0** | **0** | **0** |
+
+**Por que confiar:** `--verificar` compara o **texto visível** antes e depois do
+rebalanceamento, item a item. Mudou em **zero**. E confere que a serialização é
+idempotente — reprocessar não altera mais nada. O passo roda no CI, então uma
+regressão reprova o merge em vez de chegar às páginas.
+
+**Consequência prática:** o corpo agora é injetável com `set:html`. A geração
+das rotas deixou de estar bloqueada por aqui.
 
 ## Arquivos
 
@@ -209,6 +224,7 @@ balanceamento; o passo anterior — o conteúdo estruturado e limpo — está pr
 | `conteudo.jsonl` | os 648 itens estruturados: título, data, corpo, texto e arquivos |
 | `auditoria.json` | o que impede cada item de ser migrado como está, e a que custo |
 | `conteudo-limpo.jsonl` | o conteúdo com os caminhos reescritos e o script embutido removido |
+| `conteudo-pronto.jsonl` | o mesmo conteúdo com o HTML balanceado por parser — é este que as páginas consomem |
 | `pendencias-fornecedor.json` | o que exige decisão antes da migração |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 
