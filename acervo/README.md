@@ -66,12 +66,56 @@ Os arquivos em si sobreviveram: os mesmos caminhos respondem em
 e estão no acervo. **No site novo, a referência é reescrita para o host próprio**
 — manter um domínio de terceiro no HTML é o que produziu este defeito.
 
+## O que existe de fato para migrar
+
+`conteudo.jsonl` é o HTML adquirido convertido em conteúdo estruturado por
+`scripts/extrair-conteudo.mjs` — um item por linha, com idioma, tipo, slug,
+título, data, corpo, texto simples e os arquivos referenciados. São 648 dos
+651 arquivos; as três exceções são as páginas iniciais, que são rotativo e
+blocos montados, não texto corrido.
+
+O número que importa para o cronograma **não é 903 URLs**. É este:
+
+| | itens |
+|---|---:|
+| **Conteúdo real a migrar** | **387** |
+| Páginas de anexo — endereço a aposentar | 196 |
+| Sem texto e sem arquivo | 65 |
+
+Os 387 somam **91.338 palavras** e se distribuem assim: 210 notícias, 101
+perguntas frequentes, 36 páginas, 23 blocos `group`, 7 vídeos e 6 de política
+de privacidade. As datas vão de **07/07/2008 a 02/03/2023** — quinze anos de
+arquivo, e a confirmação independente de que a última publicação é de março
+de 2023.
+
+### As 196 páginas de anexo
+
+O WordPress dá URL própria a cada arquivo enviado, e o Yoast as publica no
+sitemap. São páginas cujo conteúdo é só a imagem: sem texto, com título igual
+ao nome do arquivo — `img-a-companhia`, `mapa_icone_eolico_rn_2021`. Não são
+conteúdo a migrar; são endereços a aposentar, e entram no mapa de
+redirecionamentos apontando para a página que usa o arquivo.
+
+### As 65 sem texto e sem arquivo
+
+Em maioria banners do rotativo, onde o texto é o título e a imagem vem do CSS,
+e cascas de `group` e `category` que nunca receberam conteúdo.
+
+### Uma armadilha do tema
+
+A trilha de navegação é impressa **dentro** da seção de texto, e em português
+mesmo nas páginas em inglês e espanhol. Sem removê-la, todos os 648 itens
+começariam com "Você está em:" e qualquer busca no acervo casaria com tudo. O
+extrator a remove; se alguém reescrever essa parte, o teste é simples — nenhum
+item deve começar com aquela frase.
+
 ## Arquivos
 
 | Arquivo | Conteúdo |
 |---|---|
 | `inventario.json` | URL, status, bytes, título e data de cada uma das 1.221 tentativas |
 | `midia.json` | manifesto de mídia com origem, status e tamanho |
+| `conteudo.jsonl` | os 648 itens estruturados: título, data, corpo, texto e arquivos |
 | `microsites/` | conteúdo de `rs`, `pdi` e `ma` pela API REST |
 
 O HTML e os binários **não** ficam no git — 283 MB. Para reproduzir:
@@ -79,6 +123,7 @@ O HTML e os binários **não** ficam no git — 283 MB. Para reproduzir:
 ```bash
 node scripts/extrair-acervo.mjs --midia      # institucional
 node scripts/extrair-microsites.mjs --midia  # rs, pdi e ma
+node scripts/extrair-conteudo.mjs            # HTML → conteudo.jsonl
 ```
 
 ## Armadilha de ambiente
