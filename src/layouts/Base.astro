@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import { IDIOMAS, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
+import mapa from '../../acervo/mapa-de-rotas.json';
 
 interface Props {
   titulo: string;
@@ -16,15 +17,38 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
  * Google que a versão inglesa de /a-companhia/ é a home em inglês, que é
  * falso e pior que não declarar nada.
  *
- * A rota atual, sem o prefixo de idioma, é o caminho comum às três versões.
+ * A rota atual, sem o prefixo de idioma, é o caminho comum às três versões —
+ * e só se declara a alternativa que EXISTE.
+ *
+ * A versão anterior oferecia as três sempre, assumindo que toda página tem
+ * tradução no mesmo caminho. Não tem: o WPML traduz o permalink, então a
+ * página inglesa de `/faq/geracao/` é `/en/faq/generation/`, e são 148 páginas
+ * em português contra 76 em espanhol. Enquanto o site tinha três páginas isso
+ * era invisível; com as 378 rotas geradas viraram **345 `hreflang` apontando
+ * para 404** — que o Google trata como grupo de idiomas inválido e descarta
+ * inteiro, levando junto as declarações corretas.
+ *
+ * Sem um mapa de tradução entre os slugs, o que dá para afirmar com verdade é
+ * só o que este build serve. Declarar menos e certo vale mais que declarar
+ * três e errado.
  */
 const semPrefixo = Astro.url.pathname.replace(/^\/(en|es)(?=\/|$)/, '') || '/';
-const alternativas = IDIOMAS.map((i) => ({
-  idioma: i,
-  hreflang: codigoLang[i].toLowerCase(),
-  href: new URL(`${prefixo[i]}${semPrefixo}`, Astro.site).href,
-}));
-const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
+
+const existe = new Set<string>([...mapa.rotas.map((r) => r.rota), '/', '/en/', '/es/']);
+const comBarra = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+
+const alternativas = IDIOMAS
+  .map((i) => ({ idioma: i, caminho: comBarra(`${prefixo[i]}${semPrefixo}`) }))
+  .filter((a) => existe.has(a.caminho))
+  .map((a) => ({
+    ...a,
+    hreflang: codigoLang[a.idioma].toLowerCase(),
+    href: new URL(a.caminho, Astro.site).href,
+  }));
+
+/* `x-default` só significa alguma coisa quando há mais de uma versão para
+   escolher entre. Numa página que existe num idioma só, é ruído. */
+const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === 'pt-br') : undefined;
 ---
 <!doctype html>
 <html lang={codigoLang[idioma]}>
@@ -41,7 +65,7 @@ const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
     {alternativas.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={padrao.href} />
+    {padrao && <link rel="alternate" hreflang="x-default" href={padrao.href} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={titulo} />

@@ -1,0 +1,112 @@
+---
+/**
+ * As 378 páginas de conteúdo, em uma rota.
+ *
+ * O que decide quais rotas existem é `acervo/mapa-de-rotas.json`, não este
+ * arquivo — e é de propósito: a decisão de o que vira página foi tomada,
+ * conferida contra o mapa de 301 e travada no CI (#47). Aqui só se lê.
+ */
+import Base from '../layouts/Base.astro';
+import { itens, IDIOMA_ASTRO } from '../lib/acervo';
+import { textos } from '../i18n/textos';
+
+export function getStaticPaths() {
+  return itens().map((i) => ({
+    /* O mapa guarda a rota com barra na frente e atrás; o parâmetro não leva
+       nenhuma das duas. `build.format: 'directory'` devolve a barra final. */
+    params: { rota: i.rota.replace(/^\/|\/$/g, '') },
+    props: { item: i },
+  }));
+}
+
+const { item } = Astro.props;
+const idioma = IDIOMA_ASTRO[item.idioma];
+const t = textos[idioma];
+
+/* Data só aparece onde significa alguma coisa. Numa página institucional a
+   data de publicação do WordPress é ruído: diz quando alguém salvou o registro,
+   não quando o fato aconteceu. */
+const dataVisivel = item.tipo === 'noticia' && item.data ? new Date(`${item.data}T00:00:00Z`) : null;
+
+/* `timeZone: 'UTC'` não é detalhe: a data vem sem hora, o construtor assume
+   meia-noite UTC, e formatar em qualquer fuso a oeste devolveria o dia
+   anterior. O site inteiro erraria um dia dependendo de onde o build roda. */
+const dataLegivel = dataVisivel
+  ? new Intl.DateTimeFormat(idioma, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(dataVisivel)
+  : null;
+---
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
+  <main id="conteudo" class="container pagina">
+    <article>
+      <header class="cabecalho">
+        <h1>{item.titulo}</h1>
+        {dataVisivel && <time datetime={item.data}>{dataLegivel}</time>}
+      </header>
+
+      {/* O corpo vem balanceado por parser (#46) e com as correções de
+          acessibilidade que são do template já aplicadas (src/lib/acervo.ts).
+          Sem o balanceamento, esta linha produziria HTML inválido em 211
+          páginas — foi o que travou a geração até agora. */}
+      <div class="corpo" set:html={item.corpo} />
+    </article>
+  </main>
+</Base>
+
+<style>
+  .pagina { padding-block: var(--e6) var(--e7); }
+
+  article { max-width: 72ch; }
+
+  .cabecalho {
+    padding-bottom: var(--e4);
+    margin-bottom: var(--e5);
+    border-bottom: 1px solid var(--cinza-borda);
+  }
+  .cabecalho h1 {
+    margin: 0;
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    line-height: 1.2;
+    color: var(--azul);
+    text-wrap: balance;
+  }
+  .cabecalho time {
+    display: block;
+    margin-top: var(--e2);
+    font-size: .875rem;
+    color: var(--cinza);
+  }
+
+  /* O corpo é HTML herdado do site atual: a folha precisa dar conta do que
+     vier, e não do que gostaríamos que viesse. */
+  .corpo :global(h2) {
+    margin: var(--e6) 0 var(--e3);
+    font-size: 1.375rem;
+    line-height: 1.3;
+    color: var(--azul);
+  }
+  .corpo :global(h3) { margin: var(--e5) 0 var(--e2); font-size: 1.125rem; }
+  .corpo :global(p) { margin: 0 0 var(--e3); }
+  .corpo :global(ul), .corpo :global(ol) { margin: 0 0 var(--e3); padding-left: var(--e4); }
+  .corpo :global(li) { margin-bottom: var(--e1); }
+  .corpo :global(img) { max-width: 100%; height: auto; }
+  .corpo :global(strong) { font-weight: 600; }
+
+  .corpo :global(.rolagem) {
+    overflow-x: auto;
+    margin-bottom: var(--e4);
+    border: 1px solid var(--cinza-borda);
+  }
+  .corpo :global(table) {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: .9375rem;
+  }
+  .corpo :global(th), .corpo :global(td) {
+    padding: var(--e2) var(--e3);
+    border-bottom: 1px solid var(--cinza-borda);
+    text-align: left;
+    vertical-align: top;
+  }
+  .corpo :global(th) { background: var(--cinza-fundo); font-weight: 600; }
+  .corpo :global(td) { font-variant-numeric: tabular-nums; }
+</style>

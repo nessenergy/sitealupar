@@ -41,7 +41,35 @@
 # a página canônica passa a ser /sustentabilidade/, e é /sustentabilidade-2/
 # que redireciona — a linha correspondente está acima. Isso **exige** que a
 # página exista com esse caminho; se ela não for criada, o redirecionamento
-# acima aponta para um 404.
+# acima aponta para um 404. Criada no REMAPA de gerar-mapa-de-rotas.mjs.
+
+# ── Permalinks traduzidos que só existem como LINK, nunca como página ──
+# O conteúdo aponta para /privacy-policy e /politica-de-privacidad — os slugs
+# que o WPML deu à política de privacidade em inglês e espanhol. Nenhum dos
+# dois responde hoje, então nenhum entrou no sitemap nem no acervo: só
+# apareceram ao conferir os links do build (scripts/verificar-links.mjs).
+# As páginas existem, com o caminho em português e prefixo de idioma.
+/privacy-policy                                    /en/politica-de-privacidade/   301
+/privacy-policy/                                   /en/politica-de-privacidade/   301
+/politica-de-privacidad                            /es/politica-de-privacidade/   301
+/politica-de-privacidad/                           /es/politica-de-privacidade/   301
+
+# ── A "página antiga" que só tinha morrido em português ──
+# A regra de aposentadoria acima casa apenas o caminho sem prefixo de idioma,
+# então as versões em inglês e espanhol seguiam vivas. Uma "página antiga" que
+# morreu num idioma e sobreviveu em dois.
+/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/  /en/politica-de-privacidade/condicoes-de-uso/   301
+/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/  /es/politica-de-privacidade/condicoes-de-uso/   301
+/privacy-policy/conditions-of-use/                 /en/politica-de-privacidade/condicoes-de-uso/   301
+/politica-de-privacidad/condiciones-de-uso/        /es/politica-de-privacidade/condicoes-de-uso/   301
+
+# ── Portal de RI ──
+# O conteúdo linka /ri e /ir (a sigla em inglês). O portal está fora do nosso
+# escopo — é de outro fornecedor — mas os dois atalhos não podem virar 404.
+/ri                                                https://ri.alupar.com.br/   301
+/ri/                                               https://ri.alupar.com.br/   301
+/ir                                                https://ri.alupar.com.br/   301
+/ir/                                               https://ri.alupar.com.br/   301
 
 # ─── gerado por scripts/gerar-redirecionamentos.mjs ───
 # 125 permalinks traduzidos pelo WPML. O slug é próprio — o

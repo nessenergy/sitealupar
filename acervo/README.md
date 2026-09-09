@@ -339,3 +339,82 @@ curl -sSo gdig2.pem https://certs.godaddy.com/repository/gdig2.crt.pem
 cat /root/.ccr/ca-bundle.crt gdig2.pem > alupar-ca.crt
 NODE_EXTRA_CA_CERTS=alupar-ca.crt node scripts/extrair-acervo.mjs --midia
 ```
+
+## As páginas, enfim — e os quatro defeitos que só apareceram com elas
+
+`src/pages/[...rota].astro` gera as **378 rotas** do mapa, lendo
+`conteudo-pronto.jsonl`. `src/lib/acervo.ts` aplica as correções que são **do
+template** — as que uma regra resolve para todas as páginas de uma vez.
+
+Gerar as páginas não foi o fim do trabalho: foi o instrumento que revelou o que
+estava errado. Enquanto o site tinha três páginas, nada disso era visível.
+
+### 1. As datas em inglês e espanhol estavam trocadas
+
+O WPML imprime a data no formato de cada idioma — `dd/mm` em português,
+`mm/dd` em inglês e espanhol — com o **mesmo rótulo "Postado em:"** nos três.
+Nada no HTML avisava. O extrator leu todas como `dd/mm` e transpôs dia e mês em
+**126 notícias**.
+
+Metade ficou com mês 13 ou mais e quebrou o build na hora. **A outra metade
+virou data válida e errada** — passa em qualquer validação, e só está errada
+para quem conhece o fato.
+
+A prova não é argumento, é contagem: das 17 notícias com versão nos dois
+idiomas, **16 tinham dia e mês trocados entre si**, zero em qualquer outro
+padrão. Corrigido em `extrair-conteudo.mjs` (origem) e `corrigir-datas.mjs`
+(dado já extraído, porque o HTML bruto não está versionado). Depois da
+correção, **16 de 16 pares batem** entre os itens que viram página.
+
+Sobra um: `divulgacao-de-resultados-3t22` tem 09/11/2022 em pt e es, e
+11/09/2022 em en. Resultado do 3º trimestre sai em novembro, então o dado em
+inglês está errado **na origem** — não é problema de formato. Os três itens são
+esboços de 3 palavras que não viram página.
+
+### 2. O `hreflang` apontava para 404 em 345 lugares
+
+`Base.astro` oferecia as três versões de idioma para toda página, assumindo que
+a tradução mora no mesmo caminho. Não mora: o WPML traduz o permalink, e são
+148 páginas em português contra 76 em espanhol.
+
+O Google trata grupo de idiomas inválido como descartável **inteiro** — as
+declarações corretas cairiam junto. Agora só se declara a alternativa que o
+build serve, e `x-default` só aparece quando há mais de uma versão.
+
+### 3. O verificador de links não verificava nada
+
+O passo de `linkinator` no CI rasteja a partir de `dist/index.html`. A home
+ainda não tem navegação: ele escaneava **1 link** e passava. Gate que não
+alcança o conteúdo é pior que gate nenhum — produz confiança falsa.
+
+`scripts/verificar-links.mjs` não rasteja: lê todo HTML gerado e confere cada
+link interno contra o build e contra o mapa de 301. Achou **501 links
+quebrados** na primeira execução. Externo não é verificado de propósito —
+reprovar merge porque um servidor alheio caiu é gate instável.
+
+### 4. Links que prometem e não levam a lugar nenhum
+
+Das quatro âncoras internas do acervo inteiro — todas na página Empresas, todas
+sem texto —, **três apontam para uma âncora que não existe no documento**.
+
+Duas regras no template, nenhuma inventando texto: sem destino, deixa de ser
+link (mantém o conteúdo); com destino, o nome sai do **título da própria seção
+de destino**. Isso zerou o que dependia da Comunicação em acessibilidade.
+
+### O que o gate de qualidade audita agora
+
+381 páginas × 3 execuções seria inviável. `lighthouserc.json` lista **12 URLs
+representativas** — as três homes e uma de cada tipo, nos três idiomas. As 12
+passam com acessibilidade em **1,0**, sem afrouxar nenhuma asserção.
+
+### O que continua devendo
+
+| | quantidade | de quem |
+|---|---:|---|
+| tabela sem `<th>` | 25 | front-end — cabeçalho não se adivinha sem ler |
+| `Download.aspx` morto | 101 | plataforma anterior; já morto hoje |
+| notícia em serviço da MZ | 14 | issue #43 |
+| paginação de notícias | 3 | issue #17 |
+
+Os três últimos ficam **declarados e contados** em `verificar-links.mjs`, não
+silenciados: o gate reprova qualquer link quebrado fora dessa lista.

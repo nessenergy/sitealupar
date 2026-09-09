@@ -19,6 +19,12 @@ jobs:
       # O corpo extraído do tema vem com metade de cada par de tags. Se o
       # balanceamento regredir, o `set:html` injetaria HTML inválido nas
       # páginas — então a checagem é condição de merge, não passo manual.
+      # O WPML imprime a data no formato de cada idioma com o mesmo rótulo
+      # "Postado em:". Lidas todas como dd/mm, 126 notícias em en/es ficam com
+      # dia e mês trocados — e metade delas vira data VÁLIDA e errada.
+      - name: Datas de notícia conferidas entre idiomas
+        run: node scripts/corrigir-datas.mjs --verificar
+
       - name: Corpo do acervo balanceado
         run: node scripts/balancear-conteudo.mjs --verificar
 
@@ -54,9 +60,13 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      # Confere os links internos do build. As URLs absolutas para
-      # www.alupar.com.br são canonical e hreflang — metadados que apontam para
-      # onde o site vai estar, não links navegáveis a validar antes do go-live.
-      # Depois da virada, trocar este skip por uma verificação do mapa de 301.
-      - name: Verificador de links
-        run: npx --yes linkinator dist --recurse --silent --skip "^https?://(www\.)?(alupar\.com\.br|alupar\.us6\.quickconnect\.to|alupar\.gupy\.io)"
+      # Substitui o `linkinator`, que NÃO estava verificando nada: ele rasteja a
+      # partir de dist/index.html, e a home ainda não tem navegação — escaneava
+      # 1 link e passava. Passou despercebido enquanto o site tinha 3 páginas.
+      #
+      # A verificação própria lê todo HTML gerado e confere cada link interno
+      # contra o build e contra o mapa de 301. Externo não é verificado de
+      # propósito: reprovar o merge porque um servidor de terceiro caiu é gate
+      # instável, que a equipe aprende a ignorar.
+      - name: Links internos resolvem
+        run: node scripts/verificar-links.mjs
