@@ -162,6 +162,35 @@ function ancorasInternas(corpo: string): string {
   return serialize(arvore as never);
 }
 
+/*
+ * Carregamento das imagens do corpo.
+ *
+ * O conteúdo herdado traz `<img>` cru, sem `loading` e sem `srcset`, apontando
+ * para o original em tamanho cheio no WordPress antigo. A página Empresas tem
+ * **41 imagens assim**, e o CI mediu o que isso custa: **4,3 a 4,6 MB por
+ * página**, contra um orçamento de 600 KB.
+ *
+ * `loading="lazy"` da segunda imagem em diante é a correção certa e padrão:
+ * quem abre a página baixa o que vê, não as 41. A PRIMEIRA fica `eager` de
+ * propósito — adiar a imagem que provavelmente é o maior elemento visível
+ * pioraria o LCP, que é justamente o oposto do que se quer.
+ *
+ * Isto reduz o que se baixa; **não** resolve o formato nem o dimensionamento.
+ * Servir AVIF/WebP com `srcset` exige ter os arquivos no build, e eles estão
+ * no origin antigo — é a esteira de mídia da issue #26, pré-requisito de
+ * go-live por si só, já que depois da virada esse origin some.
+ */
+function carregarImagens(corpo: string): string {
+  let primeira = true;
+  return corpo.replace(/<img\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi, (inteiro, attrs: string) => {
+    if (/\bloading=/i.test(attrs)) return inteiro;
+    const modo = primeira ? 'eager' : 'lazy';
+    primeira = false;
+    const decodificar = /\bdecoding=/i.test(attrs) ? '' : ' decoding="async"';
+    return `<img${attrs} loading="${modo}"${decodificar}>`;
+  });
+}
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -187,7 +216,7 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma),
+      corpo: carregarImagens(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma)),
     } as Item;
   });
 
