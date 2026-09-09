@@ -55,8 +55,36 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Lighthouse (performance, acessibilidade, SEO, orçamento de peso)
-        run: npx --yes @lhci/cli@0.14.x autorun
+      # `autorun` faz colheita, asserção e publicação do relatório num passo só.
+      # Quando ele reprova, o nome do passo não diz qual das três caiu — e se o
+      # GitHub perder o log do job, como aconteceu na primeira execução com as
+      # 378 páginas, não sobra nada para diagnosticar. Separado, a lista de
+      # passos já é o diagnóstico.
+      - name: Lighthouse — colher (12 URLs representativas, 3 execuções)
+        run: npx --yes @lhci/cli@0.14.x collect
+
+      # Os relatórios ficam guardados mesmo quando a asserção reprova: é o que
+      # permite ver O QUE reprovou sem depender do log do runner.
+      - name: Guardar relatórios do Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci/
+          retention-days: 5
+
+      - name: Lighthouse — asserções (performance, acessibilidade, SEO, peso)
+        run: npx --yes @lhci/cli@0.14.x assert
+
+      # A publicação do relatório é conveniência, não critério de qualidade.
+      # Depende de um serviço de terceiro (o armazenamento público do LHCI) e
+      # passou de 9 para 36 relatórios com as páginas novas. Reprovar o merge
+      # porque esse serviço recusou o envio é gate instável — o mesmo motivo
+      # pelo qual o verificador de links não checa host externo.
+      - name: Lighthouse — publicar relatório
+        if: always()
+        continue-on-error: true
+        run: npx --yes @lhci/cli@0.14.x upload
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
