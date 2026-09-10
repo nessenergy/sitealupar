@@ -20,6 +20,9 @@
 # que será desligado e passa a ser regra de borda.
 /fotos                                             https://alupar.us6.quickconnect.to/fotos    301
 
+# Mídia do WordPress antigo: mesma chave, agora no R2 (infra/arquivos.md).
+/wp-content/uploads/*                              https://arquivos.alupar.com.br/:splat   301
+
 # ── Regras herdadas da origem, descobertas por sondagem em 04/09/2026 ──
 # O plugin Redirection está ativo no WordPress atual e suas regras vivem no
 # banco, que não temos. Mas toda regra ativa é observável de fora: basta pedir

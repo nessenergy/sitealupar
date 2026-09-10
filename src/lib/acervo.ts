@@ -190,6 +190,14 @@ function carregarImagens(corpo: string): string {
   });
 }
 
+/*
+ * O que não é imagem — MP4, PDF, DOCX — sai do origin antigo para o R2
+ * (arquivos.alupar.com.br): 18 vídeos passam de 25 MiB, o limite por arquivo
+ * do Pages. As imagens já foram reescritas por `responsivas()`, antes daqui.
+ */
+const arquivosNoR2 = (corpo: string) =>
+  corpo.replaceAll('https://www.alupar.com.br/wp-content/uploads/', 'https://arquivos.alupar.com.br/');
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -215,9 +223,11 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: videosSobDemanda(
-        carregarImagens(
-          responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+      corpo: arquivosNoR2(
+        videosSobDemanda(
+          carregarImagens(
+            responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+          ),
         ),
       ),
     } as Item;
