@@ -15,6 +15,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm test
 
       # O corpo extraído do tema vem com metade de cada par de tags. Se o
       # balanceamento regredir, o `set:html` injetaria HTML inválido nas

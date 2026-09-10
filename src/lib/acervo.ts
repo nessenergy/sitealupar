@@ -14,6 +14,8 @@
 import { readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
 import mapa from '../../acervo/mapa-de-rotas.json';
+import imagens from '../../acervo/imagens.json';
+import { responsivas, type Manifesto } from './imagens';
 
 export interface Item {
   rota: string;
@@ -175,10 +177,7 @@ function ancorasInternas(corpo: string): string {
  * propósito — adiar a imagem que provavelmente é o maior elemento visível
  * pioraria o LCP, que é justamente o oposto do que se quer.
  *
- * Isto reduz o que se baixa; **não** resolve o formato nem o dimensionamento.
- * Servir AVIF/WebP com `srcset` exige ter os arquivos no build, e eles estão
- * no origin antigo — é a esteira de mídia da issue #26, pré-requisito de
- * go-live por si só, já que depois da virada esse origin some.
+ * O formato e o dimensionamento vêm de `responsivas()`, em `imagens.ts`.
  */
 function carregarImagens(corpo: string): string {
   let primeira = true;
@@ -216,7 +215,9 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: carregarImagens(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma)),
+      corpo: carregarImagens(
+        responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+      ),
     } as Item;
   });
 

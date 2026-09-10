@@ -97,6 +97,11 @@ for (const f of paginas) {
     else if (/^https?:\/\//.test(bruto)) { conta.externo += 1; continue; }
     else caminho = new URL(bruto, `https://x${base}`).pathname;
 
+    /* `pathname` sai percent-encoded (nome de arquivo com acento vira %C3%A3),
+       e o disco grava o nome com o caractere literal — decodifica antes de
+       comparar, senão toda mídia com acento no nome reprova sem estar quebrada. */
+    caminho = decodeURIComponent(caminho);
+
     if (caminho.startsWith('/wp-content/uploads/')) { conta.midia += 1; continue; }
     if (servido(caminho)) { conta.interno += 1; continue; }
     if (redirecionado(caminho)) { conta.redirecionado += 1; continue; }
