@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { responsivas, type Manifesto } from './imagens.ts';
+import { responsivas, videosSobDemanda, type Manifesto } from './imagens.ts';
 
 const U = 'https://www.alupar.com.br/wp-content/uploads/';
 const manifesto: Manifesto = {
@@ -39,4 +39,27 @@ test('imagem de terceiro passa intacta', () => {
 
 test('imagem do acervo sem versão otimizada reprova o build', () => {
   assert.throws(() => responsivas(`<img src="${U}sites/7/nada.png" alt="">`, manifesto), /sem versão otimizada: sites\/7\/nada\.png/);
+});
+
+test('vídeo com preload="metadata" vira preload="none"', () => {
+  const saida = videosSobDemanda(
+    '<video class="wp-video-shortcode" id="video-1349-2" width="1280" height="720" preload="metadata" controls="controls"><source type="video/mp4" src="x.mp4"></video>',
+  );
+  assert.match(saida, /preload="none"/);
+  assert.doesNotMatch(saida, /preload="metadata"/);
+  assert.match(saida, /id="video-1349-2"/);
+  assert.match(saida, /width="1280" height="720"/);
+  assert.match(saida, /controls="controls"/);
+  assert.match(saida, /<source type="video\/mp4" src="x\.mp4">/);
+  assert.match(saida, /<\/video>/);
+});
+
+test('vídeo sem preload ganha preload="none"', () => {
+  const saida = videosSobDemanda('<video id="v1" controls><source src="y.mp4"></video>');
+  assert.match(saida, /<video id="v1" controls preload="none">/);
+});
+
+test('conteúdo sem vídeo passa intacto', () => {
+  const html = '<p>sem vídeo aqui</p>';
+  assert.equal(videosSobDemanda(html), html);
 });

@@ -35,3 +35,19 @@ export function responsivas(corpo: string, manifesto: Manifesto): string {
     return `<img${resto} src="${url(chave, maior)}" srcset="${srcset}" sizes="${sizes}"${dimensoes}>`;
   });
 }
+
+/*
+ * `<video>` do corpo — mesmo princípio do vídeo da home (H4 do PRD): não
+ * baixa mídia antes de quem visita apertar o play. O vídeo institucional
+ * chega a 1,4 MB com `preload="metadata"`, sozinho quase 2,3× o orçamento de
+ * 614.400 B da página — e o WordPress antigo grava esse atributo em quase
+ * todo vídeo do acervo.
+ */
+export function videosSobDemanda(corpo: string): string {
+  return corpo.replace(/<video\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi, (inteiro, attrs: string) => {
+    const resto = /\spreload="[^"]*"/i.test(attrs)
+      ? attrs.replace(/\spreload="[^"]*"/i, ' preload="none"')
+      : `${attrs} preload="none"`;
+    return `<video${resto}>`;
+  });
+}

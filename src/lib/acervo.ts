@@ -15,7 +15,7 @@ import { readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
 import mapa from '../../acervo/mapa-de-rotas.json';
 import imagens from '../../acervo/imagens.json';
-import { responsivas, type Manifesto } from './imagens';
+import { responsivas, videosSobDemanda, type Manifesto } from './imagens';
 
 export interface Item {
   rota: string;
@@ -215,8 +215,10 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: carregarImagens(
-        responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+      corpo: videosSobDemanda(
+        carregarImagens(
+          responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+        ),
       ),
     } as Item;
   });
