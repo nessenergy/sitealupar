@@ -68,6 +68,12 @@ O documento acerta ao blindar o prazo do institucional (§ 1, diretriz central).
 é dizer que os demais ambientes são **acréscimo de escopo e de valor**, não diluição do
 mesmo pacote.
 
+**Decidido em 10/09/2026: só o institucional.** A Comunicação da Alupar confirmou que `rs`,
+`pdi` e `ma` — assim como os sites das transmissoras e geradoras — ficam na ness., e que a
+migração deles entra na proposta de portal prevista para o orçamento de 2027. A linha
+opcional de 96 h / R$ 9.600 sai da proposta. Na mesma data, a proposta do institucional
+foi reformulada como mensalidade — ver D15 em `decisoes.md`.
+
 ### 2.3 O que o escopo preliminar não menciona
 
 Nenhum destes aparece no documento da ness., e todos estão medidos no diagnóstico:
@@ -161,7 +167,7 @@ getent hosts www.alupar.com.br rs.alupar.com.br
 | `www.alupar.com.br` | 52.202.5.191 / 52.204.44.81 | `sites-clients-03.mziq.com` — MZ |
 | `ri.alupar.com.br` | 52.204.44.81 | **mesma máquina do institucional** — MZ |
 | `alupar.com.br` (apex) | 34.230.121.250 | servidor isolado, só redireciona, certificado vencido |
-| `rs` · `pdi` · `ma` | 185.162.55.134 | rede europeia (RIPE), **fora da MZ** |
+| `rs` · `pdi` · `ma` | 185.162.55.134 | Hostinger, conta da **ness.** — fora da MZ |
 
 Duas consequências práticas:
 
@@ -169,10 +175,10 @@ Duas consequências práticas:
    aquele ambiente, isso mexe na hospedagem do institucional. Vale coordenar as duas
    viradas, ainda que os projetos sejam separados — é um risco que nenhum dos dois
    documentos registrava.
-2. **Os três ambientes secundários estão com outro provedor.** A premissa do § 12
-   ("indisponibilidade de acesso administrativo") pode não valer para eles. Vale perguntar
-   à Alupar quem administra `185.162.55.134` antes de assumir que também é reconstrução às
-   cegas.
+2. **Os três ambientes secundários estão com a ness.** Confirmado em 10/09/2026: são
+   WordPress hospedados na Hostinger, na conta da ness., com acesso administrativo. A
+   premissa do § 12 ("indisponibilidade de acesso administrativo") não vale para eles — a
+   migração, quando vier, parte do painel e do banco, não de reconstrução às cegas.
 
 ### 4.4 A API do institucional está fechada — a dos outros, aberta
 
@@ -188,9 +194,9 @@ Nos três ambientes secundários a API está **aberta e íntegra**. O conteúdo 
 podem ser extraídos hoje, programaticamente, com fidelidade total — sem depender de
 fornecedor, de senha ou de reunião.
 
-**Isto é perecível.** Basta uma troca de provedor ou o fechamento da API para virar
-*crawling* de HTML como o institucional. Recomenda-se estender a issue #26 aos três
-ambientes e executar agora.
+**Deixou de ser perecível.** A extração foi feita em 02/09/2026 (`acervo/microsites/`), e
+com os três hosts na conta da ness. (§ 4.3) não há troca de provedor que feche o acesso.
+A issue #26 continua valendo só para o institucional.
 
 ### 4.5 O que os plugins da origem revelam
 
@@ -215,7 +221,7 @@ conteúdo, que é a saída mínima da reunião de arranque.
 
 1. **Plataforma.** WordPress ou estático. Enquanto não houver resposta, este repositório
    está construído sobre uma premissa que o escopo comercial contradiz.
-2. **Escopo contratado.** Um ambiente ou quatro, e com que valor para os três adicionais.
+2. **Escopo contratado — decidido em 10/09/2026:** só o institucional, R$ 49.800 (§ 2.2).
 3. **Marco 0.** Entra no escopo formal ou segue como ação separada da ness.?
 4. **Critérios de aceite.** Os do § 14 são qualitativos. Os do diagnóstico são numéricos.
    Prevalece qual?
@@ -226,6 +232,7 @@ conteúdo, que é a saída mínima da reunião de arranque.
 ## 6. Ações que não dependem de nenhuma dessas decisões
 
 - Corrigir o apex (issue #3). Depende só da ness.
-- Extrair `rs`, `pdi` e `ma` pela API, enquanto ela está aberta.
+- Extrair `rs`, `pdi` e `ma` pela API — **feito** em 02/09/2026 (`acervo/microsites/`); sem
+  urgência desde que se confirmou que estão com a ness. (§ 4.3).
 - Inventariar as regras do plugin Redirection na origem, antes de perder o acesso.
 - Extrair a linha de base do Google Analytics (issue #11).

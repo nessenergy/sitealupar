@@ -25,8 +25,13 @@ páginas.
 Estes três expõem `wp-json`; o institucional não — lá o iThemes Security
 removeu as rotas `wp/v2`, e sobra o crawling de HTML. Enquanto a API responde,
 a cópia é fiel. Os três resolvem para `185.162.55.134`, que **não** é a
-infraestrutura do fornecedor atual: uma troca de provedor, ou alguém fechando a
-API, transforma horas de trabalho em semanas.
+infraestrutura do fornecedor atual — é a Hostinger, na conta da ness.
+(confirmado em 10/09/2026).
+
+Isso tirou a urgência que motivou a extração: com o host sob controle da ness.,
+não há troca de provedor que feche o acesso. Os três também saíram do escopo
+deste projeto — ficam na ness. até a proposta de portal de 2027 (ver
+`docs/escopo-ness-correlacao.md` § 2.2). A cópia fica como referência.
 
 ## O que está versionado
 

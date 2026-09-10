@@ -13,13 +13,13 @@ avisar: em duas semanas ninguém sabe se o `.pptx` da pasta corresponde ao
 ```bash
 cd apresentacao
 npm install
-npm run build      # gera apresentacao-alupar.pptx, 26 slides
+npm run build      # gera apresentacao-alupar.pptx, 22 slides
 npm run qa         # confere geometria e contenção
 ```
 
 ## O deck
 
-`deck.js` desenha os 26 slides em código, com um sistema visual explícito no
+`deck.js` desenha os 22 slides em código, com um sistema visual explícito no
 topo do arquivo: paleta, grade de 12 colunas, cabeçalho padrão, cartão com
 barra de acento, tabela sem grade, divisor de ato. Alterar a paleta ali muda o
 deck inteiro — é para isso que as constantes existem.
