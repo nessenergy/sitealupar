@@ -16,3 +16,7 @@
 # Assets versionados pelo build podem ser imutáveis.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# sitealupar.pages.dev é endereço técnico: não pode concorrer com o domínio.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
