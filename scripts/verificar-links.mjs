@@ -20,8 +20,9 @@
  *
  *   node scripts/verificar-links.mjs
  */
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { lerRegras, regraPara, servido as servidoEm } from './lib/redirects.mjs';
 
 const DIST = 'dist';
 const PROPRIO = /^https?:\/\/www\.alupar\.com\.br/;
@@ -35,25 +36,9 @@ function html(dir, saida = []) {
   return saida;
 }
 
-const normal = (p) => p.replace(/\/+$/, '') || '/';
-
-const regras = readFileSync('public/_redirects', 'utf8')
-  .split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'))
-  .map((l) => {
-    const origem = l.split(/\s+/)[0];
-    return origem.endsWith('*') ? { prefixo: normal(origem.slice(0, -1)) } : { exato: normal(origem) };
-  });
-
-const redirecionado = (caminho) => {
-  const n = normal(caminho);
-  return regras.some((r) => (r.prefixo ? n === r.prefixo || n.startsWith(`${r.prefixo}/`) : r.exato === n));
-};
-
-/** O build serve `x/` como `x/index.html`, e arquivos soltos como estão. */
-const servido = (caminho) => {
-  const p = caminho.replace(/^\//, '');
-  return existsSync(join(DIST, p, 'index.html')) || existsSync(join(DIST, p)) || p === '';
-};
+const regras = lerRegras(readFileSync('public/_redirects', 'utf8'));
+const redirecionado = (caminho) => Boolean(regraPara(regras, caminho));
+const servido = (caminho) => servidoEm(DIST, caminho);
 
 /*
  * Links mortos herdados do conteúdo, declarados um a um.
@@ -97,11 +82,10 @@ for (const f of paginas) {
     else if (/^https?:\/\//.test(bruto)) { conta.externo += 1; continue; }
     else caminho = new URL(bruto, `https://x${base}`).pathname;
 
-    /* `pathname` sai percent-encoded (nome de arquivo com acento vira %C3%A3),
-       e o disco grava o nome com o caractere literal — decodifica antes de
-       comparar, senão toda mídia com acento no nome reprova sem estar quebrada. */
-    caminho = decodeURIComponent(caminho);
-
+    /* `pathname` sai percent-encoded (nome de arquivo com acento vira %C3%A3).
+       `servido`, da lib, já decodifica antes de olhar o disco — decodificar
+       aqui de novo estouraria em nome com `%` literal. Os outros dois testes
+       são ASCII (slug de página, regra de _redirects), então não precisam. */
     if (caminho.startsWith('/wp-content/uploads/')) { conta.midia += 1; continue; }
     if (servido(caminho)) { conta.interno += 1; continue; }
     if (redirecionado(caminho)) { conta.redirecionado += 1; continue; }

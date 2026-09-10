@@ -1,0 +1,21 @@
+---
+/**
+ * `/videos/` responde 200 no site atual e é o destino do "Veja mais vídeos"
+ * da home — sem esta página, viraria 404 na virada (regra 3).
+ */
+import Base from '../layouts/Base.astro';
+import { itens } from '../lib/acervo';
+import { textos, type Idioma } from '../i18n/textos';
+
+interface Props { idioma: Idioma }
+const { idioma } = Astro.props;
+const t = textos[idioma];
+const codigo = { 'pt-br': 'pt', en: 'en', es: 'es' }[idioma];
+const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === codigo);
+---
+<Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
+  <main id="conteudo" class="container pagina">
+    <h1>{t.videos}</h1>
+    <ul>{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
+  </main>
+</Base>

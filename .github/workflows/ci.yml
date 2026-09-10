@@ -41,6 +41,12 @@ jobs:
         run: node scripts/gerar-mapa-de-rotas.mjs --verificar
 
       - run: npm run build
+
+      # Regra 3 de ponta a ponta: cada endereço que responde 200 no site atual
+      # tem de resolver no build novo, por página ou por 301.
+      - name: Continuidade do acervo
+        run: node scripts/fechar-continuidade.mjs --verificar
+
       - uses: actions/upload-artifact@v4
         with:
           name: dist
