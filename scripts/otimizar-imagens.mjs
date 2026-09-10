@@ -18,7 +18,13 @@ import sharp from 'sharp';
 const ORIGEM = 'acervo/midia';
 const DESTINO = 'public/midia';
 const MANIFESTO = 'acervo/imagens.json';
-const LARGURAS = [480, 960, 1440];
+/*
+ * 640 cobre a coluna de texto do corpo (525–600px de largura exibida, medido
+ * no Lighthouse das páginas Empresas): sem ele, o degrau ia de 480 — menor
+ * que a coluna — direto para 960, quase o dobro do necessário, e
+ * `uses-responsive-images` reprovava com 60-70% de desperdício.
+ */
+const LARGURAS = [480, 640, 960, 1440];
 const TETO = 1920;
 const IMAGEM = /\.(png|jpe?g|gif)$/i;
 
