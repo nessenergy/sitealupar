@@ -28,6 +28,11 @@ jobs:
       - name: Corpo do acervo balanceado
         run: node scripts/balancear-conteudo.mjs --verificar
 
+      # As imagens do corpo são servidas das variantes WebP versionadas em
+      # public/midia/. Variante faltando = <img> quebrada em produção.
+      - name: Imagens otimizadas presentes
+        run: node scripts/otimizar-imagens.mjs --verificar
+
       # `_redirects` é sempre seguido, mesmo quando existe asset (doc da
       # Cloudflare). Um 301 para rota que não existe vira 404 com desvio —
       # pior que o 404 direto, porque some do verificador de links.
