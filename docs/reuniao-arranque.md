@@ -42,7 +42,7 @@ Eram seis; A1 saiu porque a ness. administra o domínio.
 | D2 | MW de capacidade instalada | M2 | Faixa institucional |
 | D3 | Acesso ao GA4 `G-HH1N2K084G` | **Antes do go-live** | Irreversível: sem a linha de base, não há com o que comparar depois |
 | D4 | Arquivos vetoriais oficiais do logotipo | S1 | Temos um extraído do manual, pendente de conferência |
-| D5 | Valor do contrato com a MZ e custo do servidor `34.230.121.250` | Quando houver | Sem eles não dá para calcular o retorno |
+| D5 | ~~Valor do contrato com a MZ~~ e custo do servidor `34.230.121.250` | Quando houver | **Contrato resolvido em 10/09/2026:** R$ 1.500/mês, só o institucional. Falta o custo do servidor e o aviso prévio |
 
 ### Autorizações
 

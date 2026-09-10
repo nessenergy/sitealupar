@@ -7,9 +7,9 @@
  * crawling de HTML. Enquanto a API responde, a cópia é fiel e barata: texto,
  * metadados e a URL de cada arquivo, sem adivinhar nada a partir do HTML.
  *
- * É uma janela que se fecha sozinha. Os três resolvem para 185.162.55.134, que
- * não é a infraestrutura do fornecedor atual — uma troca de provedor, ou
- * simplesmente alguém fechando a API, transforma horas de trabalho em semanas.
+ * Os três resolvem para 185.162.55.134 — Hostinger, na conta da ness.
+ * (confirmado em 10/09/2026). Com o acesso administrativo ali, a API deixou de
+ * ser a única porta; o script fica como forma barata de atualizar a referência.
  *
  * Tudo o que este script busca é público e é da Alupar.
  *

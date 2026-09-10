@@ -21,6 +21,7 @@ Visual de 2018.
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |
 | D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
 | D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
+| D15 | Modelo comercial | **Mensalidade, sem entrada — R$ 1.500 × 48 meses** | A Alupar não tem verba de projeto e já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha a partir da virada: custo adicional zero para ela |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
@@ -50,6 +51,24 @@ O prefixo `/en/` e `/es/` resolve os três de uma vez, e é a forma nativa de i1
 do Astro. O mapa de compatibilidade está em `public/_redirects` e
 `infra/redirect-rules.md`, gerados de `acervo/inventario.json` — não escritos à
 mão, para que ninguém precise confiar na memória de quem os escreveu.
+
+## Por que mensalidade (D15)
+
+Decidido em 10/09/2026. A Alupar não tem verba de projeto, e já paga R$ 1.500
+por mês à MZ — só pelo institucional. A proposta deixa de ser projeto fechado
+(R$ 49.800) com mensalidade opcional e passa a ser uma mensalidade única, que
+substitui essa linha a partir da virada.
+
+- **R$ 1.500 × 48 meses**, sem entrada, cobrança a partir da virada, IPCA anual
+- Cobre implantação, hospedagem, monitoramento, atualizações e um banco de
+  48 h/ano de evolução; o excedente sai a R$ 120/h
+- **Rescisão antes de 36 meses** quita o saldo da implantação: R$ 49.800,
+  reduzido em 1/36 a cada mensalidade paga
+- Escopo: só o institucional. `rs`, `pdi` e `ma` seguem na ness. e, como os
+  demais sites, entram depois por acréscimo na mensalidade — é a saída do
+  WordPress em etapas, sem verba de projeto
+
+A proposta não apresenta equipe nem horas: vende o que está coberto.
 
 ## A regra que separa melhoria de desvio (D2)
 

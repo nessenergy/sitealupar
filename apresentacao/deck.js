@@ -1,7 +1,7 @@
 const pptxgen = require('pptxgenjs');
 const p = new pptxgen();
 p.layout = 'LAYOUT_WIDE';                      // 13.33 x 7.5
-p.author = 'Bekaa'; p.company = 'Bekaa'; p.title = 'Site institucional Alupar';
+p.author = 'ness.'; p.company = 'ness.'; p.title = 'Site institucional Alupar';
 
 /* ───────────────────────── sistema visual ───────────────────────── */
 const AZUL='004F9D', AZUL_ESC='002E5F', AZUL_MED='003872',
@@ -36,10 +36,17 @@ function cabec(s,kicker,txt,sub){
 }
 const TOPO = 2.08;   // primeira linha de conteúdo quando há subtítulo
 
+/* ── marca ness.: caixa baixa, Montserrat Medium, sem negrito nem itálico, ponto sempre BlueDot ── */
+const BLUEDOT='00ADE8';
+const ness=(escuroBg)=>{const b={fontFace:'Montserrat Medium',bold:false,italic:false};
+  return [{text:'ness',options:Object.assign({color:escuroBg?BRANCO:'000000'},b)},
+          {text:'.',options:Object.assign({color:BLUEDOT},b)}];};
+
 let _pag=0;
-function rodape(s){
+function rodape(s,escuroBg){
   _pag++;
-  s.addText('Site institucional Alupar  ·  Bekaa',_({x:M,y:6.98,w:7,h:0.28,fontSize:8.5,color:CINZA_CLR,charSpacing:0.4,margin:0}));
+  s.addText([{text:'Site institucional Alupar  ·  ',options:{color:CINZA_CLR,charSpacing:0.4}},...ness(escuroBg)],
+    _({x:M,y:6.98,w:7,h:0.28,fontSize:8.5,margin:0}));
   s.addText(String(_pag),_({x:W-M-0.7,y:6.98,w:0.7,h:0.28,fontSize:8.5,bold:true,color:CINZA_CLR,align:'right',margin:0}));
 }
 
@@ -80,7 +87,7 @@ function divisor(n,tit,linha){
   s.addShape(p.ShapeType.rect,{x:M,y:3.05,w:1.5,h:0.10,fill:{color:VERDE}});
   s.addText(tit,_({x:M,y:3.32,w:7.6,h:0.85,fontSize:40,bold:true,color:BRANCO,margin:0}));
   s.addText(linha,_({x:M,y:4.30,w:7.4,h:0.9,fontSize:15,color:AZUL_LUZ,margin:0}));
-  rodape(s);
+  rodape(s,true);
 }
 
 /* ═════════════════════════ 1 · capa ═════════════════════════ */
@@ -88,11 +95,11 @@ function divisor(n,tit,linha){
  s.addText('ALUPAR',_({x:W-4.6,y:0,w:4.6,h:H,fontSize:120,bold:true,color:AZUL,align:'center',valign:'middle',charSpacing:6,margin:0}));
  s.addShape(p.ShapeType.rect,{x:M,y:2.20,w:2.3,h:0.13,fill:{color:VERDE}});
  s.addText('Site institucional',_({x:M,y:2.50,w:7.6,h:0.9,fontSize:46,bold:true,color:BRANCO,margin:0}));
- s.addText('Diagnóstico, plano de execução\ne responsabilidades',_({x:M,y:3.48,w:7.6,h:1.0,fontSize:19,color:AZUL_LUZ,lineSpacingMultiple:1.2,margin:0}));
+ s.addText('Diagnóstico, plano\ne proposta',_({x:M,y:3.48,w:7.6,h:1.0,fontSize:19,color:AZUL_LUZ,lineSpacingMultiple:1.2,margin:0}));
  s.addText('alupar.com.br',_({x:M,y:4.62,w:6,h:0.4,fontSize:15,color:VERDE_CLR,bold:true,charSpacing:0.8,margin:0}));
  s.addShape(p.ShapeType.rect,{x:M,y:6.28,w:7.8,h:0.012,fill:{color:AZUL}});
- s.addText([{text:'Apresentado por Bekaa',options:{bold:true,color:BRANCO}},
-            {text:', parceira da ness.   ·   Setembro de 2026',options:{color:'8FB4DA'}}],
+ s.addText([{text:'Apresentado pela ',options:{color:BRANCO}},...ness(true),
+            {text:'   ·   Setembro de 2026',options:{color:'8FB4DA'}}],
    _({x:M,y:6.46,w:8,h:0.35,fontSize:12,margin:0}));
  s.addNotes('Abertura. O objetivo é sair com decisões, não com informação: cinco nomes, cinco dados e a autorização do Marco 0.');}
 
@@ -155,11 +162,11 @@ divisor('01','O diagnóstico','O que foi medido no site público, em 01 e 02 de 
 
 /* 4c — os quatro ambientes */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Diagnóstico · ambientes','Quatro ambientes, um único portal','Os outros três são páginas únicas — e não estão com o fornecedor atual');
+ cabec(s,'Diagnóstico · ambientes','Quatro ambientes, um único portal','Os outros três são páginas únicas, hospedadas pela ness.');
  const linhas=[['www','Portal completo: 45 páginas e cinco tipos de conteúdo','261','fornecedor atual'],
-  ['rs','Uma página, mais uma “em breve…” esquecida de 2025','185','outro provedor'],
-  ['pdi','Uma página, mais uma “em construção” de 2024','99','outro provedor'],
-  ['ma','Uma página única','161','outro provedor']];
+  ['rs','Uma página, mais uma “em breve…” esquecida de 2025','185','ness.'],
+  ['pdi','Uma página, mais uma “em construção” de 2024','99','ness.'],
+  ['ma','Uma página única','161','ness.']];
  const rows=[[th('Ambiente'),th('O que é de fato'),th('Mídia','right'),th('Onde está')],
   ...linhas.map((l,i)=>{const f={color:i%2?PAPEL:BRANCO};
    return [{text:l[0],options:{bold:true,color:AZUL,fill:f}},
@@ -167,8 +174,8 @@ divisor('01','O diagnóstico','O que foi medido no site público, em 01 e 02 de 
            {text:l[2],options:{align:'right',bold:true,fill:f}},
            {text:l[3],options:{fill:f}}];})];
  tabela(s,rows,{y:TOPO,colW:[1.35,6.30,1.25,2.87],rowH:0.50,fontSize:11.5});
- faixa(s,4.32,1.24,VERDE_TIN,VERDE,'Uma janela que se fecha sozinha',
-  'Os três ambientes menores ainda permitem cópia automática do conteúdo. O portal principal não — ali o acesso programático está bloqueado, e a recuperação é página por página. Copiar os três agora custa horas; depois de uma troca de provedor, custa semanas.',VERDE);
+ faixa(s,4.32,1.24,VERDE_TIN,VERDE,'Nesta proposta, só o institucional',
+  'rs, pdi e ma seguem na ness. Quando a Alupar decidir trazê-los, entram na mesma base do institucional, por acréscimo à mensalidade — sem projeto novo e sem verba à parte. É a saída do WordPress em etapas.',VERDE);
  faixa(s,5.76,0.86,AMBAR_TIN,AMBAR,null,
   'O portal de RI está fora do escopo, mas divide a mesma máquina do institucional. A virada do RI mexe na hospedagem daqui — as duas precisam ser coordenadas.',AMBAR);
  rodape(s);}
@@ -203,7 +210,7 @@ divisor('02','O plano','Restauro fiel da identidade, sete semanas de execução,
  bloco(M+cw+GAP,'O que não muda',AZUL,AZUL_TIN,['A paleta da marca','A tipografia','Cabeçalho, menu, rodapé e grade','A ordem das seções','O vocabulário visual do site']);
  faixa(s,5.42,1.20,PAPEL,AZUL,null,
   'Toda tela é conferida lado a lado contra a página atual e contra o portal de RI. Se alguém que conhece o site notar a mudança sem ser avisado, passou do ponto.',AZUL);
- rodape(s); s.addNotes('Não é redesenho. É o que separa um projeto de 500 horas de um de 900.');}
+ rodape(s); s.addNotes('Não é redesenho — e é isso que permite que o site novo caiba na mensalidade que a Alupar já paga.');}
 
 /* 7b — por que não WordPress */
 {const s=p.addSlide(); claro(s);
@@ -251,7 +258,7 @@ divisor('02','O plano','Restauro fiel da identidade, sete semanas de execução,
    {text:'WordPress, o tema de 2017, 21 arquivos de JavaScript, três bibliotecas de carrossel simultâneas e o suporte a Internet Explorer 8.',options:{color:GRAFITE}}],
    _({x:M,y:5.22,w:LARG,h:0.42,fontSize:13,margin:0}));
  faixa(s,5.76,0.86,VERDE_TIN,VERDE,null,
-  'Custo mensal de infraestrutura depois da entrega: entre zero e R$ 150. Sem licença, sem servidor, sem contrato de hospedagem.',VERDE);
+  'Sem licença e sem servidor para manter. É o que permite que hospedagem, certificados, monitoramento e evolução caibam numa única mensalidade.',VERDE);
  rodape(s);}
 
 /* 9 — cronograma */
@@ -294,59 +301,28 @@ divisor('02','O plano','Restauro fiel da identidade, sete semanas de execução,
  tabela(s,corpo,{y:TOPO,colW:[1.15,1.25,5.05,4.32],rowH:0.56,fontSize:11.5,valign:'top'});
  rodape(s);}
 
-/* 11 — a equipe */
+/* 11 — aprovações */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Plano · equipe','Quem executa','A equipe alocada, com a função de cada um no projeto');
- const eq=[['Camila','Líder de conta e estrategista','Descoberta, arquitetura de informação e interface com a Alupar','32 h'],
-  ['Marcela','PMO e governança de projetos','Coordenação, marcos, evidências e homologação','52 h'],
-  ['Lucas','Desenvolvimento e infraestrutura','Site, publicação, formulário, borda e monitoramento','204 h'],
-  ['Sofia','Arquitetura de conteúdo e dados','Modelo de conteúdo, migração do acervo, SEO e GEO','80 h'],
-  ['Helena','Design de interface','Captura de identidade, templates e direção de arte','52 h'],
-  ['Juliana','Redação e assessoria','Texto em português, revisão e textos alternativos','28 h'],
-  ['Especialista','Acessibilidade digital','Auditoria WCAG, teste com leitor de tela e correções','32 h'],
-  ['Tradução','Inglês e espanhol','Paridade de conteúdo nos três idiomas','20 h'],
-  ['Clarice','Jurídico e proteção de dados','Políticas de privacidade e consentimento LGPD','sob demanda'],
-  ['Gabi','Direção executiva','Escalonamento quando as áreas divergirem','sob demanda']];
- const rows=[[th('Pessoa'),th('Cargo'),th('No projeto'),th('Alocação','right')],
-  ...eq.map((r,i)=>{const f={color:i%2?PAPEL:BRANCO};
-   return [{text:r[0],options:{bold:true,color:AZUL,fill:f}},
-           {text:r[1],options:{fill:f}},{text:r[2],options:{fill:f}},
-           {text:r[3],options:{align:'right',bold:true,fill:f}}];})];
- tabela(s,rows,{y:TOPO,colW:[1.55,3.15,5.22,1.85],rowH:0.435,fontSize:11});
- s.addText('Média de 1,8 pessoa em tempo integral ao longo das sete semanas, com pico na Semana 4.',
-   _({x:M,y:6.62,w:LARG,h:0.3,fontSize:11,italic:true,color:CINZA,margin:0}));
- rodape(s);}
-
-/* 12 e 13 — RACI */
-function raci(n,sub,linhas){
- const s=p.addSlide(); claro(s);
- cabec(s,'Plano · responsabilidades','Quem faz o quê'+(n===2?' (continuação)':''),sub);
- const rows=[[th('Frente de trabalho'),th('Executa (R)'),th('Aprova (A)'),th('Consultado (C)'),th('Informado (I)')],
+ cabec(s,'Plano · responsabilidades','Quem aprova o quê','A execução é da contratada. A coluna de aprovação precisa de pessoa, não de área');
+ const linhas=[['Correção do domínio em https','ness.','TI Alupar','Comunicação'],
+  ['Descoberta e inventário','Contratada','Comunicação, TI','Marketing'],
+  ['Identidade e design dos templates','Marketing Alupar · marca','Comunicação','—'],
+  ['Conteúdo e revisão em português','Comunicação Alupar','Marketing','—'],
+  ['Traduções inglês e espanhol','Comunicação Alupar','—','Marketing'],
+  ['Integração do feed de notícias','Contratada','Equipe de RI','Comunicação'],
+  ['Políticas de privacidade e LGPD','Jurídico Alupar','—','Comunicação'],
+  ['Infraestrutura e publicação','ness.','TI Alupar','Marketing'],
+  ['Homologação e virada','Comunicação Alupar','Todos','Diretoria'],
+  ['Operação depois da entrega','Comunicação Alupar','Contratada','Marketing']];
+ const rows=[[th('Frente de trabalho'),th('Aprova (A)'),th('Consultado (C)'),th('Informado (I)')],
   ...linhas.map((r,i)=>{const f={color:i%2?PAPEL:BRANCO};
-   return r.map((c,k)=>({text:c,options:Object.assign({fill:f},k===0?{bold:true,color:AZUL}:{},k===2?{color:TINTA,bold:true}:{})}));})];
- tabela(s,rows,{y:TOPO,colW:[3.05,2.55,2.55,2.42,1.20],rowH:0.52,fontSize:10,valign:'top'});
- rodape(s); return s;
-}
-raci(1,'R executa · A decide e responde · C é ouvido antes · I é avisado depois',[
- ['Correção do domínio em https','ness. · Infraestrutura','ness. · Infraestrutura','TI Alupar','Comunicação'],
- ['Descoberta e inventário','Camila · Líder de conta','Marcela · Gestão do projeto','Comunicação, TI','Marketing'],
- ['Captura de identidade e guia de estilo','Helena · Design','Marketing Alupar · marca','Comunicação','Bekaa'],
- ['Design dos templates','Helena · Design','Marketing Alupar · marca','Camila · Líder de conta','Comunicação'],
- ['Desenvolvimento do site','Lucas · Desenvolvimento','Marcela · Gestão do projeto','Helena · Design','Alupar'],
- ['Modelo de conteúdo e migração','Sofia · Arquitetura de conteúdo','Marcela · Gestão do projeto','Comunicação','Equipe de RI'],
- ['Integração do feed de notícias','Sofia · Arquitetura de conteúdo','Marcela · Gestão do projeto','Equipe de RI','Comunicação']]);
-raci(2,'A coluna que mais importa é a de aprovação: ela precisa de pessoa, não de área',[
- ['Conteúdo e revisão em português','Juliana · Redação','Comunicação Alupar','Marketing','Bekaa'],
- ['Traduções inglês e espanhol','Tradução · EN/ES','Comunicação Alupar','Juliana · Redação','Marketing'],
- ['Acessibilidade','Especialista · Acessibilidade','Marcela · Gestão do projeto','Lucas · Desenvolvimento','Alupar'],
- ['Políticas de privacidade e LGPD','Clarice · Jurídico','Jurídico Alupar','Lucas · Desenvolvimento','Comunicação'],
- ['Infraestrutura e publicação','Lucas · Desenvolvimento','ness.','TI Alupar','Marketing'],
- ['Homologação e virada','Marcela · Gestão do projeto','Comunicação Alupar','Todos','Diretoria'],
- ['Operação depois da entrega','Comunicação Alupar','Comunicação Alupar','Bekaa','Marketing']]);
+   return r.map((c,k)=>({text:c,options:Object.assign({fill:f},k===0?{bold:true,color:AZUL}:{},k===1?{color:TINTA,bold:true}:{})}));})];
+ tabela(s,rows,{y:TOPO,colW:[4.05,2.95,2.60,2.17],rowH:0.40,fontSize:10.5});
+ rodape(s);}
 
 /* 14 — o que precisamos */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Plano · dependências','O que precisamos da Alupar','Nada consome horas do projeto. Todos travam algum início');
+ cabec(s,'Plano · dependências','O que precisamos da Alupar','Nenhum destes tem custo. Todos travam algum início');
  const cw=(LARG-GAP)/2;
  const bloco=(x,num,tit,linhas)=>{
    cartao(s,x,TOPO,cw,2.90,PAPEL,AZUL);
@@ -354,7 +330,7 @@ raci(2,'A coluna que mais importa é a de aprovação: ela precisa de pessoa, n�
    s.addText(tit,_({x:x+1.00,y:TOPO+0.28,w:cw-1.35,h:0.38,fontSize:17,bold:true,color:AZUL,margin:0}));
    lista(s,x+0.36,TOPO+0.92,cw-0.72,linhas,AZUL,12.5,0.40);};
  bloco(M,'5','Pessoas',['Interlocutor da equipe do portal de RI','Interlocutor do fornecedor atual','Quem aprova uso da marca no Marketing','Dono do conteúdo institucional','Um padrinho executivo para impasses']);
- bloco(M+cw+GAP,'5','Informações',['Km de linhas de transmissão','MW de capacidade instalada','Acesso ao Google Analytics do site','Arquivos originais do logotipo','Valor do contrato de hospedagem atual']);
+ bloco(M+cw+GAP,'5','Informações',['Km de linhas de transmissão','MW de capacidade instalada','Acesso ao Google Analytics do site','Arquivos originais do logotipo','Aviso prévio do contrato de hospedagem atual']);
  cartao(s,M,5.28,LARG,1.34,VERDE_TIN,VERDE);
  s.addText('3',_({x:M+0.36,y:5.46,w:0.58,h:0.5,fontSize:30,bold:true,color:VERDE,margin:0}));
  s.addText('Autorizações',_({x:M+1.00,y:5.56,w:3.0,h:0.36,fontSize:17,bold:true,color:VERDE,margin:0}));
@@ -366,8 +342,8 @@ raci(2,'A coluna que mais importa é a de aprovação: ela precisa de pessoa, n�
 {const s=p.addSlide(); claro(s);
  cabec(s,'Plano · relógios','Três coisas com prazo próprio','Não esperam pelo cronograma do projeto');
  const c=[['Antes da virada','Histórico do Google Analytics','Precisamos extrair a linha de base antes de o site novo entrar no ar. Depois disso não há como comparar o antes e o depois, e o dado não se recupera.'],
-   ['Em andamento','Cópia dos arquivos do site','São 160 arquivos e 247,6 MB, dos quais 120 estão hospedados na infraestrutura do fornecedor atual. O inventário já foi levantado.'],
-   ['21/10/2026','Próximo vencimento de certificado','Faltam 49 dias, e é o mesmo certificado do institucional e do portal de RI. Sem responsável nomeado e alerta configurado, a situação atual se repete.']];
+   ['Concluída','Cópia dos arquivos do site','Dos 118 arquivos que as páginas publicadas usam, 117 foram copiados em 10/09/2026. O que falta já não existia na origem: o release do 2T17 em inglês.'],
+   ['21/10/2026','Próximo vencimento de certificado','É o mesmo certificado do institucional e do portal de RI. Sem responsável nomeado e alerta configurado, a situação atual se repete.']];
  c.forEach((k,i)=>{const y=TOPO+0.04+i*1.52;
   cartao(s,M,y,LARG,1.36,AMBAR_TIN,AMBAR);
   s.addText(k[0],_({x:M+0.36,y:y+0.20,w:2.5,h:0.32,fontSize:13,bold:true,color:AMBAR,charSpacing:0.4,margin:0}));
@@ -377,139 +353,83 @@ raci(2,'A coluna que mais importa é a de aprovação: ela precisa de pessoa, n�
  rodape(s);}
 
 /* ═════════════════════════ ato 3 · proposta ═════════════════════════ */
-divisor('03','A proposta','O escopo abaixo já contempla toda a infraestrutura, a publicação, a acessibilidade e a encontrabilidade — SEO e GEO. Não há linha adicional depois.');
+divisor('03','A proposta','Uma mensalidade, sem entrada, no lugar da que a Alupar já paga hoje. A implantação, a operação e a evolução do site cabem dentro dela.');
 
 /* 17 — a proposta, resumo */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · resumo','A proposta','Duas formas de contratar. A decisão de hoje não é se — é como');
- const d=[['R$ 49.800','projeto fechado, tudo incluído',AZUL],
-          ['500 h','em oito frentes de trabalho',AZUL],
-          ['6 a 7','semanas até o site no ar',AZUL],
-          ['R$ 0–150','de infraestrutura por mês, depois',VERDE]];
+ cabec(s,'Proposta · resumo','A proposta','Uma mensalidade no lugar da que a Alupar já paga — sem entrada e sem projeto a aprovar');
+ const d=[['R$ 1.500','por mês — o mesmo que a Alupar paga hoje',AZUL],
+          ['R$ 0','de entrada',AZUL],
+          ['48','meses de contrato',AZUL],
+          ['6 a 7','semanas até o site no ar',VERDE]];
  const cw=(LARG-3*GAP)/4;
  d.forEach((c,i)=>{const x=M+i*(cw+GAP);
   cartao(s,x,TOPO,cw,1.62,PAPEL,c[2]);
   s.addText(c[0],_({x:x+0.30,y:TOPO+0.20,w:cw-0.5,h:0.62,fontSize:29,bold:true,color:c[2],margin:0}));
   s.addText(c[1],_({x:x+0.30,y:TOPO+0.86,w:cw-0.5,h:0.6,fontSize:12,color:GRAFITE,margin:0}));});
  faixa(s,3.92,1.06,VERDE_TIN,VERDE,null,
-  'As correções emergenciais custam R$ 1.600 a 2.400 e começam esta semana — antes mesmo de decidir o resto. Elas são independentes, e ninguém precisa esperar por elas.',VERDE);
- s.addText('Repare no que este valor já dispensa',_({x:M,y:5.22,w:LARG,h:0.32,fontSize:15,bold:true,color:TINTA,margin:0}));
+  'A cobrança começa na virada, quando o contrato com o fornecedor atual é encerrado. A Alupar nunca paga os dois ao mesmo tempo: o custo adicional é zero.',VERDE);
+ s.addText('O que a mesma linha de orçamento passa a pagar',_({x:M,y:5.22,w:LARG,h:0.32,fontSize:15,bold:true,color:TINTA,margin:0}));
  lista(s,M,5.66,LARG,[
-  'A mensalidade de hospedagem que a Alupar paga hoje ao fornecedor atual deixa de existir',
-  'A Comunicação publica sozinha, em três idiomas, sem abrir chamado e sem esperar por ninguém',
-  'A verificação automática de qualidade impede que os problemas de hoje voltem a aparecer'],VERDE,12.5,0.40);
+  'Um site novo, em três idiomas, no lugar do WordPress de 2017',
+  'A Comunicação publica sozinha, sem abrir chamado e sem esperar por ninguém',
+  'Manutenção, segurança e evolução do site durante todo o contrato'],VERDE,12.5,0.40);
  rodape(s);}
 
-/* 18 — escopo e valores */
+/* 18 — o que está coberto */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · projeto fechado','Escopo e valores','500 horas em oito frentes — infraestrutura, SEO e GEO já dentro do valor');
- const linhas=[['Descoberta e arquitetura de informação','32 h','R$ 3.200'],
-  ['Identidade visual e design','52 h','R$ 5.200'],
-  ['Desenvolvimento do site','128 h','R$ 12.700'],
-  ['Conteúdo, migração e traduções','104 h','R$ 10.300'],
-  ['Acessibilidade, SEO técnico e GEO','56 h','R$ 5.600'],
-  ['Formulário, LGPD e infraestrutura','56 h','R$ 5.600'],
-  ['Homologação e virada','40 h','R$ 4.000'],
-  ['Coordenação e governança','32 h','R$ 3.200']];
- const rows=[[th('Frente de trabalho'),th('Horas','right'),th('Valor','right')],
-  ...linhas.map((l,i)=>{const f={color:i%2?PAPEL:BRANCO};
-   return [{text:l[0],options:{fill:f}},{text:l[1],options:{align:'right',fill:f}},{text:l[2],options:{align:'right',fill:f}}];}),
-  [{text:'Total',options:{bold:true,color:BRANCO,fill:{color:AZUL}}},
-   {text:'500 h',options:{bold:true,align:'right',color:BRANCO,fill:{color:AZUL}}},
-   {text:'R$ 49.800',options:{bold:true,align:'right',color:BRANCO,fill:{color:AZUL}}}]];
- const tw=7.95;
- tabela(s,rows,{y:TOPO,w:tw,colW:[4.65,1.55,1.75],rowH:0.415,fontSize:11.5});
- const xl=M+tw+GAP+0.08, wl=LARG-tw-GAP-0.08;
- const lateral=(dy,tit,val,txt,cor,tint)=>{
-   cartao(s,xl,TOPO+dy,wl,1.45,tint,cor);
-   s.addText(tit,_({x:xl+0.30,y:TOPO+dy+0.15,w:wl-0.58,h:0.30,fontSize:12.5,bold:true,color:cor,margin:0}));
-   s.addText(val,_({x:xl+0.30,y:TOPO+dy+0.46,w:wl-0.58,h:0.38,fontSize:19,bold:true,color:cor,margin:0}));
-   s.addText(txt,_({x:xl+0.30,y:TOPO+dy+0.86,w:wl-0.58,h:0.52,fontSize:11,color:GRAFITE,margin:0}));};
- lateral(0,'Correções emergenciais','R$ 1.600 a 2.400','16 a 24 horas, executadas em 48 a 72 horas. Independem da decisão sobre o restante.',AMBAR,AMBAR_TIN);
- lateral(1.60,'Ambientes rs, pdi e ma','96 h  ·  R$ 9.600','Três páginas únicas e 445 arquivos de mídia. Opcional, e sem impacto no prazo do institucional.',AZUL,AZUL_TIN);
- lateral(3.20,'Depois da entrega','R$ 0 a 150 / mês','Sem licença, sem servidor, sem contrato de hospedagem.',VERDE,VERDE_TIN);
- s.addShape(p.ShapeType.rect,{x:M,y:6.34,w:tw,h:0.012,fill:{color:BORDA}});
- s.addText([{text:'A banda de planejamento do projeto era de R$ 45.000 a 55.000. ',options:{color:CINZA}},
-   {text:'O valor acima fica no piso dessa banda',options:{bold:true,color:TINTA}},
-   {text:' — e já inclui hospedagem, certificados, publicação, monitoramento, SEO técnico e GEO. As horas partem do inventário já medido: 45 páginas, 99 notícias, 84 traduções e cinco tipos de conteúdo.',options:{color:CINZA}}],
-   _({x:M,y:6.46,w:tw,h:0.50,fontSize:10.5,italic:true,margin:0}));
- rodape(s);}
-
-/* 19 — o que já está dentro do valor */
-{const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · o que está incluído','Já está tudo dentro do valor','Não existe linha adicional de infraestrutura, de publicação, de SEO ou de GEO');
+ cabec(s,'Proposta · cobertura','O que a mensalidade cobre','Da implantação à evolução — nada nesta página é cobrado à parte');
  const cols=[
-  ['Infraestrutura e publicação',VERDE,VERDE_TIN,
-   ['Hospedagem em rede global de distribuição','Domínio, DNS e certificados com renovação automática','Ambientes de homologação e de produção','Monitoramento com alerta, com e sem “www”','Cópia de segurança do conteúdo','Formulário de contato, antispam e entrega de e-mail']],
-  ['Encontrabilidade — SEO e GEO',AZUL,AZUL_TIN,
-   ['Estrutura técnica, sitemap e velocidade de carregamento','Redirecionamento de todos os endereços antigos','Dados estruturados que os motores de IA leem para citar a Alupar','Textos alternativos, semântica e hierarquia de títulos','Google Analytics e Search Console configurados','Linha de base medida antes e depois da virada']],
-  ['Conteúdo, norma e time',AMBAR,AMBAR_TIN,
-   ['Migração do acervo nos três idiomas','Traduções para inglês e espanhol','Acessibilidade WCAG 2.2 AA verificada a cada publicação','LGPD, cookies e política de privacidade','Treinamento da equipe de Comunicação','Documentação e transferência de conhecimento']]];
+  ['Na implantação',VERDE,VERDE_TIN,
+   ['Site novo em três idiomas, com a identidade visual atual','Migração de páginas, notícias, traduções e arquivos','Redirecionamento de todos os endereços antigos','Acessibilidade WCAG 2.2 AA, SEO técnico e GEO','Formulário de contato com antispam e LGPD','Correções emergenciais, treinamento e documentação']],
+  ['Todo mês',AZUL,AZUL_TIN,
+   ['Hospedagem em rede global de distribuição','Domínio, DNS e certificados com renovação automática','Monitoramento com alerta, com e sem “www”','Cópia de segurança do conteúdo','Atualizações de segurança e de versão da plataforma','Verificação automática de qualidade a cada publicação']],
+  ['Ao longo do ano',AMBAR,AMBAR_TIN,
+   ['48 horas por ano para evolução e ajustes','Novas páginas e seções sob demanda','Ajustes de conteúdo e de layout','Publicação assistida sempre que precisar','Relatório semestral de desempenho']]];
  const cw=(LARG-2*GAP)/3;
  cols.forEach((c,i)=>{const x=M+i*(cw+GAP);
   cartao(s,x,TOPO,cw,3.72,c[2],c[1]);
   s.addText(c[0],_({x:x+0.34,y:TOPO+0.20,w:cw-0.66,h:0.62,fontSize:15,bold:true,color:c[1],margin:0}));
   lista(s,x+0.34,TOPO+0.94,cw-0.68,c[3],c[1],11.5,0.44);});
  faixa(s,6.02,0.78,PAPEL,AZUL,null,
-  'Nada nesta lista é cobrado à parte. O que hoje é um custo mensal recorrente com o fornecedor atual passa a fazer parte do que já está contratado.',AZUL);
+  'A implantação não tem entrada: está dentro da mensalidade. Código, conteúdo e contas ficam em nome da Alupar desde o primeiro dia.',AZUL);
  rodape(s);}
 
-/* 20 — site como serviço */
+/* 19 — mesma mensalidade, outro site */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · site como serviço','A alternativa: a Bekaa entrega e opera','O dono técnico deixa de ser uma promessa e passa a existir por contrato');
- const cw=(LARG-2*GAP)/3;
- const val=[['R$ 19.900','entrada, na assinatura',AZUL],['R$ 2.400','por mês, a partir da virada',AZUL],['24','meses de compromisso',VERDE]];
- val.forEach((v,i)=>{const x=M+i*(cw+GAP);
-  cartao(s,x,TOPO,cw,1.30,PAPEL,v[2]);
-  s.addText(v[0],_({x:x+0.30,y:TOPO+0.16,w:cw-0.55,h:0.55,fontSize:27,bold:true,color:v[2],margin:0}));
-  s.addText(v[1],_({x:x+0.30,y:TOPO+0.74,w:cw-0.55,h:0.4,fontSize:12,color:GRAFITE,margin:0}));});
- const gr=[['Está no ar',['Hospedagem, domínio e certificados','Renovação automática, sem vencimento surpresa','Monitoramento diário, com e sem “www”','Cópia de segurança do conteúdo']],
-   ['Continua vivo',['Até 12 horas por mês para evolução e ajustes','Publicação assistida sempre que precisar','Novas páginas e seções sob demanda','Ajustes de conteúdo e de layout']],
-   ['Continua correto',['Correções de segurança e acessibilidade','Verificação automática a cada publicação','Relatório trimestral de desempenho','Revisão de conteúdo obsoleto']]];
- gr.forEach((c,i)=>{const x=M+i*(cw+GAP), y=3.62;
-  s.addText(c[0],_({x,y,w:cw,h:0.34,fontSize:15,bold:true,color:VERDE,margin:0}));
-  s.addShape(p.ShapeType.rect,{x,y:y+0.36,w:cw,h:0.012,fill:{color:BORDA}});
-  lista(s,x,y+0.52,cw-0.2,c[1],VERDE,11.5,0.42);});
- faixa(s,5.92,0.90,VERDE_TIN,VERDE,null,
-  'Em novembro de 2028, ao fim do contrato, o site e todo o conteúdo saem com a Alupar — código, dados e contas em nome dela. Sem retenção, sem dependência. Foi exatamente isso que faltou da última vez.',VERDE);
- rodape(s);
- s.addNotes('Argumento central: a garantia de não repetir a história é contratual, não uma promessa.');}
-
-/* 21 — as duas formas */
-{const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · comparação','As duas formas de contratar','Mesmo site, mesmo escopo de implantação — muda quem responde depois');
+ cabec(s,'Proposta · comparação','Mesma mensalidade, outro site','O que os mesmos R$ 1.500 pagam hoje, e o que passam a pagar');
+ const VERDE_TXT='06893C';   // verde de texto AA (4,51:1), ver src/styles/tokens.css
  const L=(a,b,c)=>[a,b,c];
  const dados=[
-  L('Entrada','R$ 49.800','R$ 19.900'),
-  L('Mensalidade','—','R$ 2.400'),
-  L('Prazo de implantação','6 a 7 semanas','6 a 7 semanas'),
-  L('Compromisso','—','24 meses'),
-  L('Hospedagem, certificados e monitoramento','incluídos na implantação','incluídos, e operados pela Bekaa'),
-  L('SEO técnico e GEO','incluídos na implantação','incluídos, e revisados a cada trimestre'),
-  L('Evolução e ajustes','contratados à parte','até 12 h por mês'),
-  L('Plantão e relatório trimestral','—','incluídos'),
-  L('Quem responde pelo site','a Alupar','a Bekaa, por contrato')];
- const rows=[[th(''),th('Projeto fechado','center'),th('Site como serviço','center')],
+  L('Mensalidade','R$ 1.500','R$ 1.500'),
+  L('Plataforma','WordPress com tema de 2017','site estático, sem servidor para manter'),
+  L('Publicação de conteúdo','última notícia em março de 2023','a Comunicação publica sozinha'),
+  L('Domínio sem “www” em https','certificado vencido desde 05/05/2026','renovação automática'),
+  L('Peso da página inicial','2,19 MB','até 600 KB, verificado a cada publicação'),
+  L('Inglês e espanhol','seis páginas respondem com erro','paridade verificada a cada publicação'),
+  L('Acessibilidade','imagens sem descrição, formulário sem rótulo','WCAG 2.2 AA'),
+  L('Na saída do contrato','sem exportação do conteúdo','código, conteúdo e contas em nome da Alupar')];
+ const rows=[[th(''),th('Hoje','center'),th('Com a proposta','center')],
   ...dados.map((r,i)=>{const f={color:i%2?PAPEL:BRANCO};
    return [{text:r[0],options:{bold:true,color:AZUL,fill:f}},
            {text:r[1],options:{align:'center',fill:f}},
-           {text:r[2],options:{align:'center',fill:f,color:TINTA}}];})];
- tabela(s,rows,{y:TOPO,colW:[4.55,3.61,3.61],rowH:0.435,fontSize:11.5});
- faixa(s,6.02,0.80,AZUL_TIN,AZUL,null,
-  'O projeto fechado devolve o site à Alupar em sete semanas. O site como serviço devolve o site funcionando, todo dia, pelos dois anos seguintes. As duas formas entregam o mesmo site — escolha pela pergunta “quem cuida disso na segunda-feira seguinte”.',AZUL);
+           {text:r[2],options:{align:'center',bold:true,color:VERDE_TXT,fill:f}}];})];
+ tabela(s,rows,{y:TOPO,colW:[3.40,4.05,4.32],rowH:0.435,fontSize:11.5});
+ faixa(s,6.10,0.74,AZUL_TIN,AZUL,null,
+  'A linha de orçamento é a mesma. O que muda é o que ela paga.',AZUL);
  rodape(s);}
 
-/* 22 — condições */
+/* 20 — condições */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · condições','Condições e premissas','Valem para as duas formas de contratar  ·  Proposta válida por 30 dias');
+ cabec(s,'Proposta · condições','Condições e premissas','Proposta válida por 30 dias');
  const cw=(LARG-GAP)/2;
  const bloco=(x,y,tit,cor,tint,h,linhas,fs,passo)=>{
    cartao(s,x,y,cw,h,tint,cor);
    s.addText(tit,_({x:x+0.34,y:y+0.18,w:cw-0.66,h:0.32,fontSize:15,bold:true,color:cor,margin:0}));
    lista(s,x+0.34,y+(passo&&passo<0.34?0.58:0.68),cw-0.68,linhas,cor,fs||12,passo||0.40);};
- bloco(M,TOPO,'Incluído',VERDE,VERDE_TIN,3.02,['Design, desenvolvimento e testes','Migração do acervo e dos três idiomas','Traduções para inglês e espanhol','Acessibilidade, SEO técnico e GEO','Infraestrutura, publicação e monitoramento','Treinamento e transferência de conhecimento']);
- bloco(M+cw+GAP,TOPO,'Não incluído',AZUL,AZUL_TIN,3.02,['Redesenho da identidade visual','Produção de fotografia ou vídeo','Redação de conteúdo novo','O portal de Relações com Investidores','Manutenção evolutiva após a entrega, salvo no formato como serviço']);
- bloco(M,TOPO+3.16,'Pagamento sugerido',AZUL,PAPEL,1.72,['Projeto fechado: 20% na assinatura, 30% no M2, 30% no M4, 20% no M5','Site como serviço: entrada na assinatura, mensalidade a partir da virada','Correções emergenciais faturadas à parte, na conclusão'],11,0.28);
+ bloco(M,TOPO,'Preço e prazo',VERDE,VERDE_TIN,3.02,['R$ 1.500 por mês, por 48 meses','Sem entrada','Cobrança a partir da virada do site','Reajuste anual pelo IPCA','Horas além do banco anual: R$ 120 por hora']);
+ bloco(M+cw+GAP,TOPO,'Não coberto',AZUL,AZUL_TIN,3.02,['O portal de Relações com Investidores','Os sites rs, pdi e ma, até entrarem por acréscimo','Redesenho da identidade visual','Produção de fotografia ou vídeo','Redação e tradução de conteúdo novo, fora do banco']);
+ bloco(M,TOPO+3.16,'Rescisão e saída',AZUL,PAPEL,1.72,['Antes de 36 meses, quita-se o saldo da implantação','Saldo inicial de R$ 49.800, que cai 1/36 por mensalidade','Na saída, código, conteúdo e contas ficam com a Alupar','Novos sites entram por acréscimo na mensalidade'],11,0.28);
  bloco(M+cw+GAP,TOPO+3.16,'Premissas de prazo',AMBAR,AMBAR_TIN,1.72,['Aprovações em até 3 dias úteis','Dados e acessos entregues até o Marco 2','Um interlocutor por frente, nomeado','Texto em português congelado no Marco 2'],11,0.28);
  rodape(s);}
 
@@ -520,8 +440,8 @@ divisor('03','A proposta','O escopo abaixo já contempla toda a infraestrutura, 
  s.addText('Próximos passos',_({x:M,y:1.10,w:8,h:0.75,fontSize:36,bold:true,color:BRANCO,margin:0}));
  const passos=[['Esta semana','Corrigir o endereço sem “www” em https — já podemos executar'],
    ['Nesta reunião','Os cinco nomes e as três autorizações'],
-   ['Até a Semana 2','Os dois números institucionais e o acesso ao Analytics'],
-   ['Semana 1','Início da Descoberta, com a equipe formada']];
+   ['Na assinatura','Início da implantação — a mensalidade só começa na virada'],
+   ['Até a Semana 2','Os dois números institucionais e o acesso ao Analytics']];
  passos.forEach((k,i)=>{const y=2.32+i*0.98;
   s.addShape(p.ShapeType.rect,{x:M,y,w:7.9,h:0.80,fill:{color:i===0?VERDE:AZUL_MED}});
   s.addShape(p.ShapeType.rect,{x:M,y,w:0.055,h:0.80,fill:{color:i===0?BRANCO:VERDE}});
@@ -530,7 +450,7 @@ divisor('03','A proposta','O escopo abaixo já contempla toda a infraestrutura, 
  s.addShape(p.ShapeType.rect,{x:M,y:6.42,w:7.9,h:0.012,fill:{color:AZUL}});
  s.addText('O mínimo para hoje: o dono do conteúdo e a autorização das correções emergenciais.',
    _({x:M,y:6.58,w:7.9,h:0.4,fontSize:12.5,italic:true,color:AZUL_LUZ,margin:0}));
- rodape(s);
+ rodape(s,true);
  s.addNotes('Fechar pedindo as duas coisas que não podem sair da reunião em aberto.');}
 
 p.writeFile({fileName:'apresentacao-alupar.pptx'}).then(f=>console.log('gerado:',f));
