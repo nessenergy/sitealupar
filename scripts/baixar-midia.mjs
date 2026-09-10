@@ -43,13 +43,45 @@ for (const i of itens) {
   }
 }
 
-const alvos = [...urls].sort().map((url) => ({
-  url,
-  caminho: join(DESTINO, decodeURIComponent(url.slice(RAIZ.length))),
-  imagem: IMAGEM.test(url),
-}));
+/*
+ * O mesmo arquivo aparece duas vezes quando o conteúdo o referencia uma vez com
+ * o caminho percentualmente codificado e outra sem — `Aves-de-S%C3%A3o…` e
+ * `Aves-de-São…`. São endereços diferentes e **o mesmo arquivo**, então contar
+ * por URL inflava o total: 118 endereços, 116 arquivos.
+ *
+ * A chave passa a ser o caminho em disco, já decodificado. Não é cosmético —
+ * era ele que fazia o relatório prometer mais do que existe.
+ */
+const porCaminho = new Map();
+for (const url of [...urls].sort()) {
+  const caminho = join(DESTINO, decodeURIComponent(url.slice(RAIZ.length)));
+  if (!porCaminho.has(caminho)) porCaminho.set(caminho, { url, caminho, imagem: IMAGEM.test(url) });
+}
+const alvos = [...porCaminho.values()];
+
+/*
+ * Arquivo que a origem já não tem.
+ *
+ * Não é falha do download nem regressão da migração: o link **já está quebrado
+ * no site de hoje**, e isso ficou registrado na verificação do #42. Sem
+ * declarar, `--verificar` reprovaria para sempre por algo que nenhuma
+ * reexecução resolve — e gate que não pode passar é gate que se aprende a
+ * ignorar.
+ */
+const AUSENTES = [
+  {
+    url: `${RAIZ}sites/7/2017/08/ENG-Alupar_Release-2Q17-ENG.pdf`,
+    porque: 'HTTP 404 na origem e no CDN, sem captura no Wayback',
+    onde: '/noticia/divulgacao-de-resultados-do-2t17/ em inglês e espanhol',
+    decisao: 'pedir o arquivo ao RI, ou remover o link — pendência de conteúdo, não de migração',
+  },
+];
+const ausente = (url) => AUSENTES.find((a) => a.url === url);
 
 const existe = async (p) => { try { return (await stat(p)).size; } catch { return 0; } };
+
+const MB = (b) => `${(b / 1024 / 1024).toFixed(1)} MB`;
+const tipoDe = (p) => (p.match(/\.([a-z0-9]+)$/i)?.[1] ?? '?').toLowerCase();
 
 if (process.argv.includes('--listar')) {
   for (const a of alvos) console.log(`${a.imagem ? 'imagem  ' : 'arquivo '} ${a.url}`);
@@ -59,14 +91,44 @@ if (process.argv.includes('--listar')) {
 
 if (process.argv.includes('--verificar')) {
   const faltando = [];
-  for (const a of alvos) if (!(await existe(a.caminho))) faltando.push(a.url);
-  console.log(`referenciados: ${alvos.length} · presentes: ${alvos.length - faltando.length} · faltando: ${faltando.length}`);
+  const declarados = [];
+  const porTipo = {};
+
+  for (const a of alvos) {
+    const tam = await existe(a.caminho);
+    if (!tam) { (ausente(a.url) ? declarados : faltando).push(a.url); continue; }
+    const t = tipoDe(a.caminho);
+    porTipo[t] ??= { n: 0, bytes: 0 };
+    porTipo[t].n += 1;
+    porTipo[t].bytes += tam;
+  }
+
+  const total = Object.values(porTipo).reduce((s, x) => s + x.bytes, 0);
+  const presentes = Object.values(porTipo).reduce((s, x) => s + x.n, 0);
+
+  console.log(`referenciados: ${alvos.length} · presentes: ${presentes} · declarados ausentes: ${declarados.length} · faltando: ${faltando.length}`);
+  console.log(`\npeso no acervo — é o que decide onde cada tipo vai morar no build:`);
+  for (const [t, x] of Object.entries(porTipo).sort((a, b) => b[1].bytes - a[1].bytes)) {
+    console.log(`  ${String(x.n).padStart(3)} × .${t.padEnd(4)} ${MB(x.bytes).padStart(9)}`);
+  }
+  console.log(`  ${String(presentes).padStart(3)} × total  ${MB(total).padStart(9)}`);
+
+  if (declarados.length) {
+    console.log(`\nausentes na origem, declarados e não reprovados:`);
+    for (const a of AUSENTES.filter((x) => declarados.includes(x.url))) {
+      console.log(`  ${a.url.slice(RAIZ.length)}`);
+      console.log(`    ${a.porque}`);
+      console.log(`    em ${a.onde}`);
+      console.log(`    ${a.decisao}`);
+    }
+  }
+
   if (faltando.length) {
     console.error(`\nreprovado: ${faltando.length} arquivos ainda não foram baixados`);
     for (const u of faltando.slice(0, 10)) console.error(`  ${u}`);
     process.exit(1);
   }
-  console.log('\naprovado: toda a mídia referenciada está no acervo.');
+  console.log('\naprovado: toda a mídia que a origem ainda serve está no acervo.');
   process.exit(0);
 }
 
