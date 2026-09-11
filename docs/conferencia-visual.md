@@ -12,6 +12,7 @@ Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 | Vídeo da home com capa local; o player só carrega no clique | Decisão P8 |
 | Hover e página atual do menu no verde de texto `#079541`; cinzas mais escuros | Contraste AA — ver o comentário de `src/components/Cabecalho.astro` |
 | Links de idioma com área clicável de 24×24 px | WCAG 2.5.8 |
+| No celular, "Relações com Investidores" sai da barra, como no site atual, e entra no fim do menu | O site atual esconde o link no celular (`li.hidden-xs`) e não o oferece em outro lugar; o RI não pode ficar inalcançável — comentário de `src/components/Cabecalho.astro` |
 | Logotipo em negativo sobre o box azul | O tema faz o mesmo (`img/logo-alupar.png`) — Tarefa 1 |
 | Sem banner de cookies | Decisão P9 |
 | Listagem de notícias e arquivo paginado | Decisão P2 |

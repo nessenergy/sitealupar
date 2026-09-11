@@ -18,6 +18,9 @@
  *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
  *   WCAG 2.2) no gate do Lighthouse (0,96 de acessibilidade, achado no
  *   Passo 9). Sem fundo nem borda — a aparência não muda.
+ * - no celular o link do RI sai da barra, como no tema (li.hidden-xs), mas
+ *   entra no fim do menu: o tema não o oferece em outro lugar no celular, e
+ *   o link não pode ficar inalcançável
  */
 import { textos, IDIOMAS, HOME, SIGLA, lang, type Idioma } from '../i18n/textos';
 
@@ -29,7 +32,7 @@ const atual = Astro.url.pathname;
 <header class="cabecalho-site" id="topo">
   <div class="barra">
     <div class="container barra-itens">
-      <a href="https://ri.alupar.com.br/">{t.ri}</a>
+      <a class="ri" href="https://ri.alupar.com.br/">{t.ri}</a>
       <ul class="idiomas" aria-label={t.idioma}>
         {IDIOMAS.map((i) => (
           <li>
@@ -53,6 +56,7 @@ const atual = Astro.url.pathname;
         {t.menu.itens.map((m) => (
           <li><a href={m.href} aria-current={atual.startsWith(m.href) ? 'page' : undefined}>{m.rotulo}</a></li>
         ))}
+        <li class="ri-menu"><a href="https://ri.alupar.com.br/">{t.ri}</a></li>
       </ul>
     </nav>
   </div>
@@ -86,6 +90,13 @@ const atual = Astro.url.pathname;
   nav a:hover, nav a[aria-current] { color: var(--verde-texto); }
 
   @media (max-width: 767px) {
+    /* Barra do celular: só os idiomas, à esquerda (.menu-topo sem float;
+       -5px da .list-inline + 6px do li + 10px do link = 11px), 28 px de altura
+       (5px de padding-top + 18px + 5px de margin-bottom). */
+    .barra-itens { justify-content: flex-start; min-height: 28px; }
+    .barra .ri { display: none; }
+    .idiomas { margin-left: 11px; }
+
     .principal { flex-wrap: wrap; min-height: 83px; }
     .alternar {
       margin-top: 20px; background: none; border: 0; padding: var(--e2);
@@ -105,6 +116,8 @@ const atual = Astro.url.pathname;
     /* O botão só existe no celular; no desktop o menu fica sempre à vista,
        como no tema. */
     .alternar { display: none; }
+    /* No desktop o RI está na barra. */
+    .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
     .logo { width: 293px; height: 200px; }
