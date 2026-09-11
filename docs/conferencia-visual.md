@@ -28,6 +28,8 @@ Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 | Caixas da home sem a sobreposição de ~50 px sobre a base do banner | Entre o banner e as caixas está a faixa institucional (D10), acréscimo deliberado — o tema não tem nada ali |
 | Seta da sanfona das condições de uso é um chevron de texto (⌄ e ⌃) | O tema pede os glifos `f106`/`f107` do Font Awesome com `font-family: "Open Sans"`, que não os tem: o que o site atual exibe ali é o quadrado de caractere ausente. Restauro é da linguagem visual, não de um defeito de fonte |
 | Campos do formulário de contato sem o `text-transform: uppercase` do `.form-control` | A regra do tema põe em caixa alta o que a pessoa digita, inclusive na hora em que ela revê o que vai enviar. O que se digita é dado, não desenho |
+| `h4` do corpo em 20 px e cinza, e a 404 na mesma caixa branca das internas | Entraram junto com as linhas 24 a 33 e 12/23/25 por serem a mesma folha: o `h4` é `.txt-show h4` do tema, e com o fundo da página no cinza a 404 seria a única com texto solto sobre o cinza |
+| Coluna de texto das internas na largura da caixa (~1070 px em 1280) | É o tema, e é a linha 25. Passa dos 80 caracteres por linha que a WCAG 1.4.8 recomenda — critério AAA, fora do gate AA que o CI cobra |
 | Sem a linha "Powered by MZ" no rodapé | Comentário de `src/components/Rodape.astro` — o fornecedor sai com o contrato |
 
 ## Divergências
