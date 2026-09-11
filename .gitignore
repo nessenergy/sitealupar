@@ -28,3 +28,7 @@ apresentacao/package-lock.json
 
 # capturas da conferência visual (scripts/capturar-telas.mjs) — binário, fora do git
 capturas/
+
+# cache do `wrangler pages dev`, usado para conferir o build local antes do
+# deploy — é gerado, não versionado
+.wrangler/
