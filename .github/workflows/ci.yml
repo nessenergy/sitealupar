@@ -5,6 +5,13 @@ on:
     branches: [main]
   pull_request:
 
+# Na main, as execuções entram em fila em vez de correr juntas: uma execução
+# mais velha nunca publica depois de uma mais nova. No PR, um push novo cancela
+# a execução anterior, que já não interessa a ninguém.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,12 +22,24 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm test
 
       # O corpo extraído do tema vem com metade de cada par de tags. Se o
       # balanceamento regredir, o `set:html` injetaria HTML inválido nas
       # páginas — então a checagem é condição de merge, não passo manual.
+      # O WPML imprime a data no formato de cada idioma com o mesmo rótulo
+      # "Postado em:". Lidas todas como dd/mm, 126 notícias em en/es ficam com
+      # dia e mês trocados — e metade delas vira data VÁLIDA e errada.
+      - name: Datas de notícia conferidas entre idiomas
+        run: node scripts/corrigir-datas.mjs --verificar
+
       - name: Corpo do acervo balanceado
         run: node scripts/balancear-conteudo.mjs --verificar
+
+      # As imagens do corpo são servidas das variantes WebP versionadas em
+      # public/midia/. Variante faltando = <img> quebrada em produção.
+      - name: Imagens otimizadas presentes
+        run: node scripts/otimizar-imagens.mjs --verificar
 
       # `_redirects` é sempre seguido, mesmo quando existe asset (doc da
       # Cloudflare). Um 301 para rota que não existe vira 404 com desvio —
@@ -29,6 +48,19 @@ jobs:
         run: node scripts/gerar-mapa-de-rotas.mjs --verificar
 
       - run: npm run build
+        env:
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+
+      # Regra 3 de ponta a ponta: cada endereço que responde 200 no site atual
+      # tem de resolver no build novo, por página ou por 301.
+      - name: Continuidade do acervo
+        run: node scripts/fechar-continuidade.mjs --verificar
+
+      # O Lighthouse roda num servidor estático que ignora public/_headers: um
+      # recurso bloqueado pela CSP passaria por todos os gates e só quebraria no ar.
+      - name: CSP permite todo recurso do build
+        run: node scripts/verificar-csp.mjs
+
       - uses: actions/upload-artifact@v4
         with:
           name: dist
@@ -48,15 +80,108 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
 
-      - name: Lighthouse (performance, acessibilidade, SEO, orçamento de peso)
-        run: npx --yes @lhci/cli@0.14.x autorun
+      # `autorun` faz colheita, asserção e publicação do relatório num passo só.
+      # Quando ele reprova, o nome do passo não diz qual das três caiu — e se o
+      # GitHub perder o log do job, como aconteceu na primeira execução com as
+      # 378 páginas, não sobra nada para diagnosticar. Separado, a lista de
+      # passos já é o diagnóstico.
+      - name: Lighthouse — colher (12 URLs representativas, 3 execuções)
+        run: npx --yes @lhci/cli@0.14.x collect
+
+      # Os relatórios ficam guardados mesmo quando a asserção reprova: é o que
+      # permite ver O QUE reprovou sem depender do log do runner.
+      - name: Guardar relatórios do Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci/
+          retention-days: 5
+
+      - name: Lighthouse — asserções (performance, acessibilidade, SEO, peso)
+        run: npx --yes @lhci/cli@0.14.x assert
+
+      # A publicação do relatório é conveniência, não critério de qualidade.
+      # Depende de um serviço de terceiro (o armazenamento público do LHCI) e
+      # passou de 9 para 36 relatórios com as páginas novas. Reprovar o merge
+      # porque esse serviço recusou o envio é gate instável — o mesmo motivo
+      # pelo qual o verificador de links não checa host externo.
+      - name: Lighthouse — publicar relatório
+        if: always()
+        continue-on-error: true
+        run: npx --yes @lhci/cli@0.14.x upload
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      # Confere os links internos do build. As URLs absolutas para
-      # www.alupar.com.br são canonical e hreflang — metadados que apontam para
-      # onde o site vai estar, não links navegáveis a validar antes do go-live.
-      # Depois da virada, trocar este skip por uma verificação do mapa de 301.
-      - name: Verificador de links
-        run: npx --yes linkinator dist --recurse --silent --skip "^https?://(www\.)?(alupar\.com\.br|alupar\.us6\.quickconnect\.to|alupar\.gupy\.io)"
+      # Substitui o `linkinator`, que NÃO estava verificando nada: ele rasteja a
+      # partir de dist/index.html, e a home ainda não tem navegação — escaneava
+      # 1 link e passava. Passou despercebido enquanto o site tinha 3 páginas.
+      #
+      # A verificação própria lê todo HTML gerado e confere cada link interno
+      # contra o build e contra o mapa de 301. Externo não é verificado de
+      # propósito: reprovar o merge porque um servidor de terceiro caiu é gate
+      # instável, que a equipe aprende a ignorar.
+      - name: Links internos resolvem
+        run: node scripts/verificar-links.mjs
+
+  # Produção só publica com o gate de qualidade verde. Preview de PR publica mesmo
+  # com ele vermelho, para diagnóstico. www.alupar.com.br só aponta para cá na virada
+  # (Tarefa 12).
+  publicar:
+    runs-on: ubuntu-latest
+    needs: [build, qualidade]
+    if: ${{ !cancelled() && needs.build.result == 'success' && ((github.event_name == 'push' && needs.qualidade.result == 'success') || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      # Sem a variável, o build usa a chave de TESTE do Turnstile. O segredo de
+      # produção recusa token de teste: toda mensagem do formulário de contato
+      # voltaria "não enviado" e ninguém da Alupar saberia. Só no push para a
+      # main — o preview de PR pode usar a chave de teste.
+      # Uma reexecução só do job que falhou reaproveita o artefato do build anterior,
+      # que pode trazer a chave de teste. Por isso confere também o dist, não só a variável.
+      - name: Chave de produção do Turnstile definida
+        if: github.event_name == 'push'
+        shell: bash
+        env:
+          TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
+        run: |
+          if [ -z "$TURNSTILE_SITE_KEY" ]; then
+            echo "::error::vars.TURNSTILE_SITE_KEY vazia — a produção sairia com a chave de teste do Turnstile e todo contato seria recusado"
+            exit 1
+          fi
+          if grep -rqF 1x00000000000000000000AA dist; then
+            echo "::error::o dist traz a chave de teste do Turnstile — defina TURNSTILE_SITE_KEY e rode o workflow inteiro de novo (Re-run all jobs), não só o job que falhou"
+            exit 1
+          fi
+      # O projeto do Pages nasce do próprio CI: sem ele o wrangler recusa o
+      # deploy ("The Pages project … does not exist"). Idempotente — se o
+      # projeto já existe (criado aqui ou pelo painel), só confirma.
+      - name: Projeto do Pages existe
+        shell: bash
+        run: |
+          if npx --yes wrangler@4 pages project list 2>/dev/null | grep -qw sitealupar; then
+            echo "projeto sitealupar já existe"
+          else
+            npx --yes wrangler@4 pages project create sitealupar --production-branch main
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Sem `shell: bash` o passo roda sem pipefail e o `| tee` esconde a falha do wrangler.
+      # O nome do ramo entra por `env`, nunca interpolado no `run`: é texto de
+      # quem abriu o PR, e interpolado viraria comando no shell.
+      - name: Publicar no Cloudflare Pages
+        run: npx --yes wrangler@4 pages deploy dist --project-name sitealupar --branch "$RAMO" | tee -a "$GITHUB_STEP_SUMMARY"
+        shell: bash
+        env:
+          RAMO: ${{ github.head_ref || github.ref_name }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,36 @@
+---
+/**
+ * Página 404 — e o que desliga o modo SPA do Pages. Sem um 404.html na raiz
+ * do build, o Pages serve a home com status 200 para qualquer endereço
+ * (developers.cloudflare.com/pages/configuration/serving-pages, "Not Found
+ * behavior"): link quebrado ficaria invisível, o Google indexaria "soft 404"
+ * e o verificar-no-ar.mjs nunca reprovaria.
+ *
+ * Uma página só, nos três idiomas: o Pages procura o 404.html mais próximo
+ * subindo a árvore, e o Astro só gera 404.html para src/pages/404.astro.
+ */
+import Base from '../layouts/Base.astro';
+import { textos, lang, IDIOMAS, HOME } from '../i18n/textos';
+
+const pt = textos['pt-br'].naoEncontrada;
+---
+<Base titulo={`${pt.titulo} — Alupar`} descricao={textos['pt-br'].descricao} noindex>
+  <main id="conteudo" class="container pagina">
+    {IDIOMAS.map((idioma, n) => {
+      const t = textos[idioma].naoEncontrada;
+      return (
+        <section lang={lang[idioma]}>
+          {n === 0 ? <h1>{t.titulo}</h1> : <h2>{t.titulo}</h2>}
+          <p>{t.texto}</p>
+          <p><a href={HOME[idioma]}>{t.voltar}</a></p>
+        </section>
+      );
+    })}
+  </main>
+</Base>
+
+<style>
+  .pagina { padding-block: var(--e6) var(--e7); }
+  h1, h2 { color: var(--azul); }
+  section + section { margin-top: var(--e5); }
+</style>

@@ -1,13 +1,23 @@
 ---
+import { Picture } from 'astro:assets';
 import '../styles/tokens.css';
-import { IDIOMAS, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
+import { IDIOMAS, HOME, CODIGO, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
+import mapa from '../../acervo/mapa-de-rotas.json';
+import { ROTAS_PROPRIAS } from '../lib/rotas-proprias.mjs';
+import { paginasDoArquivo } from '../lib/acervo';
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+import faixaInterna from '../assets/tema/bg-interna-01.jpg';
 
 interface Props {
   titulo: string;
   descricao: string;
   idioma?: Idioma;
+  interna?: boolean;
+  /** Página que não deve ser indexada (404, avisos do contato): sem canonical. */
+  noindex?: boolean;
 }
-const { titulo, descricao, idioma = 'pt-br' } = Astro.props;
+const { titulo, descricao, idioma = 'pt-br', interna = true, noindex = false } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).href;
 
 /*
@@ -16,15 +26,47 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
  * Google que a versão inglesa de /a-companhia/ é a home em inglês, que é
  * falso e pior que não declarar nada.
  *
- * A rota atual, sem o prefixo de idioma, é o caminho comum às três versões.
+ * A rota atual, sem o prefixo de idioma, é o caminho comum às três versões —
+ * e só se declara a alternativa que EXISTE.
+ *
+ * A versão anterior oferecia as três sempre, assumindo que toda página tem
+ * tradução no mesmo caminho. Não tem: o WPML traduz o permalink, então a
+ * página inglesa de `/faq/geracao/` é `/en/faq/generation/`, e são 148 páginas
+ * em português contra 76 em espanhol. Enquanto o site tinha três páginas isso
+ * era invisível; com as 378 rotas geradas viraram **345 `hreflang` apontando
+ * para 404** — que o Google trata como grupo de idiomas inválido e descarta
+ * inteiro, levando junto as declarações corretas.
+ *
+ * Sem um mapa de tradução entre os slugs, o que dá para afirmar com verdade é
+ * só o que este build serve. Declarar menos e certo vale mais que declarar
+ * três e errado.
  */
 const semPrefixo = Astro.url.pathname.replace(/^\/(en|es)(?=\/|$)/, '') || '/';
-const alternativas = IDIOMAS.map((i) => ({
-  idioma: i,
-  hreflang: codigoLang[i].toLowerCase(),
-  href: new URL(`${prefixo[i]}${semPrefixo}`, Astro.site).href,
-}));
-const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
+
+/* O que existe: o mapa de rotas, as três homes, as páginas que src/pages/
+   gera por conta própria (vídeos, avisos do contato) e as páginas numeradas
+   do arquivo de notícias. Sem as duas últimas, o seletor mandava para a home
+   páginas que têm irmã no outro idioma. A 404 fica fora de propósito. */
+const existe = new Set<string>([
+  ...mapa.rotas.map((r) => r.rota),
+  ...Object.values(HOME),
+  ...ROTAS_PROPRIAS,
+  ...IDIOMAS.flatMap((i) => paginasDoArquivo(CODIGO[i])),
+]);
+const comBarra = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+
+const alternativas = IDIOMAS
+  .map((i) => ({ idioma: i, caminho: comBarra(`${prefixo[i]}${semPrefixo}`) }))
+  .filter((a) => existe.has(a.caminho))
+  .map((a) => ({
+    ...a,
+    hreflang: codigoLang[a.idioma].toLowerCase(),
+    href: new URL(a.caminho, Astro.site).href,
+  }));
+
+/* `x-default` só significa alguma coisa quando há mais de uma versão para
+   escolher entre. Numa página que existe num idioma só, é ruído. */
+const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === 'pt-br') : undefined;
 ---
 <!doctype html>
 <html lang={codigoLang[idioma]}>
@@ -35,13 +77,15 @@ const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
     <title>{titulo}</title>
     <!-- A home atual não tem meta description. -->
     <meta name="description" content={descricao} />
-    <link rel="canonical" href={url} />
+    {/* Canonical diz "indexe esta"; noindex diz o contrário. Os dois juntos
+        são sinal contraditório — sai o canonical. */}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={url} />}
 
     <!-- hreflang por rota, não por ?lang= -->
     {alternativas.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={padrao.href} />
+    {padrao && <link rel="alternate" hreflang="x-default" href={padrao.href} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={titulo} />
@@ -59,7 +103,15 @@ const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
   </head>
   <body>
     <a class="pular" href="#conteudo">{textos[idioma].pularParaConteudo}</a>
+    <Cabecalho idioma={idioma} alternativas={alternativas} />
+    {interna && (
+      /* A faixa de foto das páginas internas do tema (.img-materia): 85/135/185 px. */
+      <Picture src={faixaInterna} alt="" formats={['avif', 'webp']} widths={[768, 1280, 1920]}
+        sizes="100vw" loading="eager" class="faixa-interna" />
+    )}
     <slot />
+    <Rodape idioma={idioma} />
+    <script is:inline src="/js/site.js" defer></script>
     <style>
       .pular {
         position: absolute;
@@ -74,6 +126,9 @@ const padrao = alternativas.find((a) => a.idioma === 'pt-br')!;
         top: var(--e3);
         color: var(--branco);
       }
+      .faixa-interna { display: block; width: 100%; height: 85px; object-fit: cover; }
+      @media (min-width: 768px) { .faixa-interna { height: 135px; } }
+      @media (min-width: 1200px) { .faixa-interna { height: 185px; } }
     </style>
   </body>
 </html>

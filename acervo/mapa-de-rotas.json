@@ -1,9 +1,9 @@
 {
-  "geradoEm": "2026-09-04T12:55:03.623Z",
-  "total": 378,
+  "geradoEm": "2026-09-09T03:38:23.161Z",
+  "total": 376,
   "porIdioma": {
-    "en": 154,
-    "es": 76,
+    "en": 153,
+    "es": 75,
     "pt": 148
   },
   "porTipo": {
@@ -11,7 +11,7 @@
     "group": 23,
     "noticia": 210,
     "pagina": 32,
-    "politica-de-privacidade": 5,
+    "politica-de-privacidade": 3,
     "video": 7
   },
   "colisoes": [],
@@ -24,6 +24,16 @@
     }
   ],
   "descartados": [
+    {
+      "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/ → /en/politica-de-privacidade/condicoes-de-uso/"
+    },
+    {
+      "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/ → /es/politica-de-privacidade/condicoes-de-uso/"
+    },
     {
       "rota": "/2017/08/24/hello-world/",
       "motivo": "arquivo-por-data",
@@ -455,7 +465,7 @@
       "tipo": "noticia",
       "slug": "1q14-earnings-release",
       "titulo": "1Q14 Earnings Release",
-      "data": "2014-09-05",
+      "data": "2014-05-09",
       "palavras": 43
     },
     {
@@ -464,7 +474,7 @@
       "tipo": "noticia",
       "slug": "1q15-earnings-release",
       "titulo": "1Q15 Earnings Release",
-      "data": "2015-15-05",
+      "data": "2015-05-15",
       "palavras": 43
     },
     {
@@ -473,7 +483,7 @@
       "tipo": "noticia",
       "slug": "1q17-earnings-release",
       "titulo": "1Q17 Earnings Release",
-      "data": "2017-15-05",
+      "data": "2017-05-15",
       "palavras": 42
     },
     {
@@ -482,7 +492,7 @@
       "tipo": "noticia",
       "slug": "1q20-earnings-release-2",
       "titulo": "1Q20 Earnings Release",
-      "data": "2020-01-06",
+      "data": "2020-06-01",
       "palavras": 62
     },
     {
@@ -491,7 +501,7 @@
       "tipo": "noticia",
       "slug": "1q21-earnings-release",
       "titulo": "1Q21 Earnings Release",
-      "data": "2021-10-05",
+      "data": "2021-05-10",
       "palavras": 13
     },
     {
@@ -500,7 +510,7 @@
       "tipo": "noticia",
       "slug": "2011-fitch-ratings",
       "titulo": "2011 Fitch Ratings",
-      "data": "2011-05-04",
+      "data": "2011-04-05",
       "palavras": 64
     },
     {
@@ -509,7 +519,7 @@
       "tipo": "noticia",
       "slug": "2q14-earnings-release",
       "titulo": "2Q14 Earnings Release",
-      "data": "2014-07-08",
+      "data": "2014-08-07",
       "palavras": 43
     },
     {
@@ -518,7 +528,7 @@
       "tipo": "noticia",
       "slug": "2q15-earnings-release",
       "titulo": "2Q15 Earnings Release",
-      "data": "2015-12-08",
+      "data": "2015-08-12",
       "palavras": 40
     },
     {
@@ -527,7 +537,7 @@
       "tipo": "noticia",
       "slug": "2q16-earnings-release",
       "titulo": "2Q16 Earnings Release",
-      "data": "2016-11-08",
+      "data": "2016-08-11",
       "palavras": 40
     },
     {
@@ -536,7 +546,7 @@
       "tipo": "noticia",
       "slug": "2q17-earnings-release-2-2",
       "titulo": "2Q17 Earnings Release",
-      "data": "2017-14-08",
+      "data": "2017-08-14",
       "palavras": 42
     },
     {
@@ -554,7 +564,7 @@
       "tipo": "noticia",
       "slug": "3q15-earnings-release",
       "titulo": "3Q15 Earnings Release",
-      "data": "2015-12-11",
+      "data": "2015-11-12",
       "palavras": 40
     },
     {
@@ -572,7 +582,7 @@
       "tipo": "noticia",
       "slug": "4q13-earnings-release",
       "titulo": "4Q13 Earnings Release",
-      "data": "2014-27-02",
+      "data": "2014-02-27",
       "palavras": 43
     },
     {
@@ -581,7 +591,7 @@
       "tipo": "noticia",
       "slug": "4q14-earnings-release",
       "titulo": "4Q14 Earnings Release",
-      "data": "2015-05-03",
+      "data": "2015-03-05",
       "palavras": 43
     },
     {
@@ -590,7 +600,7 @@
       "tipo": "noticia",
       "slug": "4q16-earnings-release",
       "titulo": "4Q16 Earnings Release",
-      "data": "2017-10-03",
+      "data": "2017-03-10",
       "palavras": 42
     },
     {
@@ -599,7 +609,7 @@
       "tipo": "noticia",
       "slug": "agoe-edital-de-convocacao-portuguese-only",
       "titulo": "AGO/E – Edital de Convocação (Portuguese Only)",
-      "data": "2015-16-03",
+      "data": "2015-03-16",
       "palavras": 207
     },
     {
@@ -608,7 +618,7 @@
       "tipo": "noticia",
       "slug": "alupar-and-furnas-will-build-ten-wind-farms-in-ceara",
       "titulo": "Alupar and Furnas will build ten wind farms in Ceará",
-      "data": "2011-20-12",
+      "data": "2011-12-20",
       "palavras": 626
     },
     {
@@ -617,7 +627,7 @@
       "tipo": "noticia",
       "slug": "alupar-announce-the-new-institutional-and-investor-relations-website",
       "titulo": "Alupar announce the new Institutional and Investor Relations website",
-      "data": "2015-29-05",
+      "data": "2015-05-29",
       "palavras": 112
     },
     {
@@ -626,7 +636,7 @@
       "tipo": "noticia",
       "slug": "alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only",
       "titulo": "Alupar conquista lote D no leilão da Aneel (Portuguese Only)",
-      "data": "2009-27-11",
+      "data": "2009-11-27",
       "palavras": 140
     },
     {
@@ -635,7 +645,7 @@
       "tipo": "noticia",
       "slug": "alupar-launched-power-transmission-system-in-mt",
       "titulo": "Alupar launched power transmission system in MT",
-      "data": "2011-23-11",
+      "data": "2011-11-23",
       "palavras": 77
     },
     {
@@ -644,7 +654,7 @@
       "tipo": "noticia",
       "slug": "alupar-launched-power-transmission-system-in-mt-2",
       "titulo": "Alupar launched power transmission system in MT",
-      "data": "2011-16-12",
+      "data": "2011-12-16",
       "palavras": 162
     },
     {
@@ -653,7 +663,7 @@
       "tipo": "noticia",
       "slug": "alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only",
       "titulo": "Alupar vence leilão da Aneel para construir subestação em MT (Portuguese Only)",
-      "data": "2010-11-06",
+      "data": "2010-06-11",
       "palavras": 168
     },
     {
@@ -662,7 +672,7 @@
       "tipo": "noticia",
       "slug": "alupar-vence-leilao-do-lote-d-da-aneel",
       "titulo": "Alupar vence leilão do lote D da Aneel",
-      "data": "2008-27-06",
+      "data": "2008-06-27",
       "palavras": 237
     },
     {
@@ -671,7 +681,7 @@
       "tipo": "noticia",
       "slug": "alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only",
       "titulo": "Alupar vence leilão do lote D da Aneel (Portuguese Only)",
-      "data": "2008-27-06",
+      "data": "2008-06-27",
       "palavras": 237
     },
     {
@@ -680,7 +690,7 @@
       "tipo": "noticia",
       "slug": "alupar-will-invest-in-power-generation-in-colombia",
       "titulo": "Alupar will invest in power generation in Colombia",
-      "data": "2011-14-10",
+      "data": "2011-10-14",
       "palavras": 165
     },
     {
@@ -689,7 +699,7 @@
       "tipo": "noticia",
       "slug": "alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil",
       "titulo": "Alupar wins auction to build a 715 km transmission line in the North of Brazil",
-      "data": "2011-02-09",
+      "data": "2011-09-02",
       "palavras": 178
     },
     {
@@ -698,7 +708,7 @@
       "tipo": "noticia",
       "slug": "alupar-wins-lot-d-in-transmission-auction",
       "titulo": "Alupar wins Lot D in transmission auction",
-      "data": "2011-16-12",
+      "data": "2011-12-16",
       "palavras": 229
     },
     {
@@ -707,7 +717,7 @@
       "tipo": "noticia",
       "slug": "annual-and-extraordinary-shareholders-meeting-call-notice",
       "titulo": "Annual and Extraordinary Shareholders Meeting – Call Notice",
-      "data": "2014-31-03",
+      "data": "2014-03-31",
       "palavras": 83
     },
     {
@@ -716,7 +726,7 @@
       "tipo": "noticia",
       "slug": "authorization-for-the-reinforcement-of-installations",
       "titulo": "Authorization for the reinforcement of installations",
-      "data": "2013-09-05",
+      "data": "2013-05-09",
       "palavras": 106
     },
     {
@@ -725,7 +735,7 @@
       "tipo": "noticia",
       "slug": "commercial-operation-of-authorized-enhancement-of-erte",
       "titulo": "Commercial Operation of Authorized Enhancement of ERTE",
-      "data": "2012-25-06",
+      "data": "2012-06-25",
       "palavras": 71
     },
     {
@@ -734,7 +744,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t18",
       "titulo": "1Q18 Earnings Release",
-      "data": "2018-10-05",
+      "data": "2018-05-10",
       "palavras": 111
     },
     {
@@ -743,7 +753,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t19",
       "titulo": "1Q19 Earnings Release",
-      "data": "2019-15-05",
+      "data": "2019-05-15",
       "palavras": 7
     },
     {
@@ -752,7 +762,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t20",
       "titulo": "1Q20 Earnings Release",
-      "data": "2020-01-06",
+      "data": "2020-06-01",
       "palavras": 62
     },
     {
@@ -761,7 +771,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t18",
       "titulo": "2Q18 Earnings Release",
-      "data": "2018-13-08",
+      "data": "2018-08-13",
       "palavras": 111
     },
     {
@@ -770,7 +780,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t19",
       "titulo": "2Q19 Earnings Release",
-      "data": "2019-13-08",
+      "data": "2019-08-13",
       "palavras": 16
     },
     {
@@ -779,7 +789,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t20",
       "titulo": "2Q20 Earnings Release",
-      "data": "2020-12-08",
+      "data": "2020-08-12",
       "palavras": 89
     },
     {
@@ -788,7 +798,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t21",
       "titulo": "2Q21 Earnings Release",
-      "data": "2021-09-08",
+      "data": "2021-08-09",
       "palavras": 13
     },
     {
@@ -797,7 +807,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t18",
       "titulo": "3Q18 Earnings Release",
-      "data": "2018-08-11",
+      "data": "2018-11-08",
       "palavras": 111
     },
     {
@@ -806,7 +816,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t19",
       "titulo": "3Q19 Earnings Release",
-      "data": "2019-13-11",
+      "data": "2019-11-13",
       "palavras": 16
     },
     {
@@ -824,7 +834,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t21",
       "titulo": "3Q21 Earnings Release",
-      "data": "2021-09-11",
+      "data": "2021-11-09",
       "palavras": 13
     },
     {
@@ -833,7 +843,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t17",
       "titulo": "4Q17 Earnings Release",
-      "data": "2018-08-03",
+      "data": "2018-03-08",
       "palavras": 111
     },
     {
@@ -842,7 +852,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t18",
       "titulo": "4Q18 Earnings Release",
-      "data": "2019-29-03",
+      "data": "2019-03-29",
       "palavras": 111
     },
     {
@@ -851,7 +861,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t19",
       "titulo": "4Q19 Earnings Release",
-      "data": "2020-11-03",
+      "data": "2020-03-11",
       "palavras": 16
     },
     {
@@ -860,7 +870,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t20",
       "titulo": "4Q20 Earnings Release",
-      "data": "2021-22-03",
+      "data": "2021-03-22",
       "palavras": 13
     },
     {
@@ -869,7 +879,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-do-2t17",
       "titulo": "2Q17 Earnings Release",
-      "data": "2017-14-08",
+      "data": "2017-08-14",
       "palavras": 42
     },
     {
@@ -878,7 +888,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-do-3t17",
       "titulo": "3Q17 Earnings Release",
-      "data": "2017-09-11",
+      "data": "2017-11-09",
       "palavras": 115
     },
     {
@@ -887,7 +897,7 @@
       "tipo": "noticia",
       "slug": "ebte-opening",
       "titulo": "EBTE Opening",
-      "data": "2011-13-06",
+      "data": "2011-06-13",
       "palavras": 154
     },
     {
@@ -896,7 +906,7 @@
       "tipo": "noticia",
       "slug": "fitch-eleva-ratings-da-alupar-portuguese-only",
       "titulo": "Fitch Eleva Ratings da Alupar (Portuguese Only)",
-      "data": "2010-09-04",
+      "data": "2010-04-09",
       "palavras": 69
     },
     {
@@ -905,7 +915,7 @@
       "tipo": "noticia",
       "slug": "fitch-rating-affirms-the-rating-of-alupar",
       "titulo": "Fitch rating affirms the rating of Alupar",
-      "data": "2009-02-03",
+      "data": "2009-03-02",
       "palavras": 66
     },
     {
@@ -914,7 +924,7 @@
       "tipo": "noticia",
       "slug": "foz-do-rio-claro-hpp-2nd-turbines-startup",
       "titulo": "Foz do Rio Claro HPP – 2nd turbine’s startup",
-      "data": "2010-12-03",
+      "data": "2010-03-12",
       "palavras": 106
     },
     {
@@ -923,7 +933,7 @@
       "tipo": "noticia",
       "slug": "foz-do-rio-claro-hpp-launched-in-goias",
       "titulo": "Foz do Rio Claro HPP launched in Goiás",
-      "data": "2010-20-10",
+      "data": "2010-10-20",
       "palavras": 97
     },
     {
@@ -932,7 +942,7 @@
       "tipo": "noticia",
       "slug": "groundbreaking-for-uhe-ferreira-gomes-is-celebrated",
       "titulo": "Groundbreaking for UHE Ferreira Gomes is celebrated",
-      "data": "2010-05-10",
+      "data": "2010-10-05",
       "palavras": 154
     },
     {
@@ -941,7 +951,7 @@
       "tipo": "noticia",
       "slug": "licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only",
       "titulo": "Licença Ambiental Prévia da PCH Água Limpa (Portuguese Only)",
-      "data": "2010-08-02",
+      "data": "2010-02-08",
       "palavras": 147
     },
     {
@@ -950,7 +960,7 @@
       "tipo": "noticia",
       "slug": "material-fact-6th-debenture-issuance",
       "titulo": "Material Fact – 6th Debenture Issuance",
-      "data": "2015-02-04",
+      "data": "2015-04-02",
       "palavras": 280
     },
     {
@@ -959,7 +969,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-finalized-eate",
       "titulo": "Material Fact – Acquisition Finalized – EATE",
-      "data": "2013-17-10",
+      "data": "2013-10-17",
       "palavras": 173
     },
     {
@@ -968,7 +978,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares",
       "titulo": "Material Fact – Acquisition of Empresa Catarinense de Transmissão de Energia Common Shares",
-      "data": "2015-26-01",
+      "data": "2015-01-26",
       "palavras": 201
     },
     {
@@ -977,7 +987,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-of-la-virgen",
       "titulo": "Material Fact – Acquisition of La Virgen",
-      "data": "2014-07-03",
+      "data": "2014-03-07",
       "palavras": 289
     },
     {
@@ -986,7 +996,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares",
       "titulo": "Material Fact – Acquisition of Queluz and Lavrinhas Preferred Shares",
-      "data": "2013-28-10",
+      "data": "2013-10-28",
       "palavras": 266
     },
     {
@@ -1004,7 +1014,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares",
       "titulo": "Material Fact – Acquisition of SHPPs Queluz and Lavrinhas Preferred Shares",
-      "data": "2013-01-10",
+      "data": "2013-10-01",
       "palavras": 363
     },
     {
@@ -1013,7 +1023,7 @@
       "tipo": "noticia",
       "slug": "material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex",
       "titulo": "Material Fact – Acquisition of the capital stock of each of the companies of the Aracati Complex",
-      "data": "2015-02-03",
+      "data": "2015-03-02",
       "palavras": 270
     },
     {
@@ -1022,7 +1032,7 @@
       "tipo": "noticia",
       "slug": "material-fact-agua-limpa",
       "titulo": "Material Fact – Água Limpa",
-      "data": "2013-13-12",
+      "data": "2013-12-13",
       "palavras": 140
     },
     {
@@ -1049,7 +1059,7 @@
       "tipo": "noticia",
       "slug": "material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014",
       "titulo": "Material Fact – Concession of the Lot C of ANEEL Auction No. 001/2014",
-      "data": "2014-09-05",
+      "data": "2014-05-09",
       "palavras": 189
     },
     {
@@ -1058,7 +1068,7 @@
       "tipo": "noticia",
       "slug": "material-fact-market-maker",
       "titulo": "Material Fact – Market Maker",
-      "data": "2015-14-05",
+      "data": "2015-05-14",
       "palavras": 338
     },
     {
@@ -1067,7 +1077,7 @@
       "tipo": "noticia",
       "slug": "material-fact-payment-of-interim-dividends",
       "titulo": "Material Fact – Payment of Interim Dividends",
-      "data": "2014-15-09",
+      "data": "2014-09-15",
       "palavras": 186
     },
     {
@@ -1076,7 +1086,7 @@
       "tipo": "noticia",
       "slug": "material-fact-pch-verde-8",
       "titulo": "Material Fact – PCH Verde 8",
-      "data": "2013-04-09",
+      "data": "2013-09-04",
       "palavras": 81
     },
     {
@@ -1085,7 +1095,7 @@
       "tipo": "noticia",
       "slug": "material-fact-sale-of-shares-sinop",
       "titulo": "Material Fact – Sale of shares – SINOP",
-      "data": "2014-11-12",
+      "data": "2014-12-11",
       "palavras": 127
     },
     {
@@ -1094,7 +1104,7 @@
       "tipo": "noticia",
       "slug": "minutes-of-the-annual-and-extraordinary-shareholders-meeting",
       "titulo": "Minutes of the Annual and Extraordinary Shareholders´ Meeting",
-      "data": "2014-16-04",
+      "data": "2014-04-16",
       "palavras": 1336
     },
     {
@@ -1103,7 +1113,7 @@
       "tipo": "noticia",
       "slug": "modification-of-shp-morro-azul-environmental-license",
       "titulo": "Modification of SHP Morro Azul Environmental License",
-      "data": "2013-09-05",
+      "data": "2013-05-09",
       "palavras": 75
     },
     {
@@ -1112,7 +1122,7 @@
       "tipo": "noticia",
       "slug": "moodys-assigns-ba2aa3-br-to-alupars-debentures",
       "titulo": "Moody´s assigns Ba2/Aa3.br to Alupar´s Debentures",
-      "data": "2009-23-11",
+      "data": "2009-11-23",
       "palavras": 51
     },
     {
@@ -1121,7 +1131,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-acquisition-of-interest-funcef",
       "titulo": "Notice to the Market – Acquisition of Interest FUNCEF",
-      "data": "2014-17-04",
+      "data": "2014-04-17",
       "palavras": 281
     },
     {
@@ -1130,7 +1140,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-acquisition-of-interest-gic-private-limited",
       "titulo": "Notice to the Market – Acquisition of Interest GIC Private Limited",
-      "data": "2014-10-03",
+      "data": "2014-03-10",
       "palavras": 279
     },
     {
@@ -1139,7 +1149,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014",
       "titulo": "Notice to the Market – Annual Permitted Revenue (RAP) – Cycle of 2014",
-      "data": "2014-01-07",
+      "data": "2014-07-01",
       "palavras": 187
     },
     {
@@ -1148,7 +1158,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65",
       "titulo": "Notice to the Market – Approval by CADE of the Act of Concentration No 08700.009463/2014-65",
-      "data": "2014-28-11",
+      "data": "2014-11-28",
       "palavras": 188
     },
     {
@@ -1157,7 +1167,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-change-of-independent-auditor",
       "titulo": "Notice to the market – Change of Independent Auditor",
-      "data": "2014-17-04",
+      "data": "2014-04-17",
       "palavras": 195
     },
     {
@@ -1166,7 +1176,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes",
       "titulo": "Notice to the Market – Commercial Operation of the UG3 Ferreira Gomes",
-      "data": "2015-30-04",
+      "data": "2015-04-30",
       "palavras": 177
     },
     {
@@ -1175,7 +1185,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units",
       "titulo": "Notice to the Market – ETVG – Reinforcement works at the transmission units.",
-      "data": "2014-07-11",
+      "data": "2014-11-07",
       "palavras": 168
     },
     {
@@ -1184,7 +1194,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river",
       "titulo": "Notice to the Market – Ferreira Gomes – Diversion of the Araguari River",
-      "data": "2013-04-11",
+      "data": "2013-11-04",
       "palavras": 114
     },
     {
@@ -1193,7 +1203,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance",
       "titulo": "Notice to the Market – HPP Ferreira Gomes begins operations in advance",
-      "data": "2014-04-11",
+      "data": "2014-11-04",
       "palavras": 170
     },
     {
@@ -1202,7 +1212,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-investor-relations-officer-election",
       "titulo": "Notice to the Market – Investor Relations Officer Election",
-      "data": "2011-11-07",
+      "data": "2011-07-11",
       "palavras": 104
     },
     {
@@ -1211,7 +1221,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-market-maker",
       "titulo": "Notice to the Market – Market Maker",
-      "data": "2013-06-12",
+      "data": "2013-12-06",
       "palavras": 348
     },
     {
@@ -1220,7 +1230,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering",
       "titulo": "Notice to the Market – Request for the previous analysis of the registration of public offering",
-      "data": "2014-12-02",
+      "data": "2014-02-12",
       "palavras": 309
     },
     {
@@ -1229,7 +1239,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting",
       "titulo": "Notice to the Market – Restatement of Management Proposal referring to the Annual and Extraordinary Shareholders’ Meeting",
-      "data": "2014-27-03",
+      "data": "2014-03-27",
       "palavras": 209
     },
     {
@@ -1238,7 +1248,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-tme-reinforcement-works-at-the-transmission-units",
       "titulo": "Notice to the Market – TME reinforcement works at the transmission units.",
-      "data": "2015-02-06",
+      "data": "2015-06-02",
       "palavras": 155
     },
     {
@@ -1247,7 +1257,7 @@
       "tipo": "noticia",
       "slug": "notice-to-the-market-tne",
       "titulo": "Notice to the Market – TNE",
-      "data": "2013-18-12",
+      "data": "2013-12-18",
       "palavras": 220
     },
     {
@@ -1274,7 +1284,7 @@
       "tipo": "noticia",
       "slug": "registro-de-companhia-aberta-e-concedido-a-alupar",
       "titulo": "Registro de companhia aberta é concedido à Alupar",
-      "data": "2008-18-06",
+      "data": "2008-06-18",
       "palavras": 40
     },
     {
@@ -1283,7 +1293,7 @@
       "tipo": "noticia",
       "slug": "registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only",
       "titulo": "Registro de companhia aberta é concedido à Alupar (Portuguese Only)",
-      "data": "2008-18-06",
+      "data": "2008-06-18",
       "palavras": 40
     },
     {
@@ -1292,7 +1302,7 @@
       "tipo": "noticia",
       "slug": "sao-jose-hpp-2nd-turbines-startup",
       "titulo": "São José HPP – 2nd turbine’s startup",
-      "data": "2011-07-06",
+      "data": "2011-06-07",
       "palavras": 95
     },
     {
@@ -1301,7 +1311,7 @@
       "tipo": "noticia",
       "slug": "signed-the-concession-for-the-installation-of-ferreira-gomes-hpp",
       "titulo": "Signed the concession for the installation of Ferreira Gomes HPP",
-      "data": "2010-12-11",
+      "data": "2010-11-12",
       "palavras": 151
     },
     {
@@ -1310,7 +1320,7 @@
       "tipo": "noticia",
       "slug": "uhe-sao-jose-e-inaugurada-em-rs-portuguese-only",
       "titulo": "UHE São José é inaugurada em RS (Portuguese Only)",
-      "data": "2011-29-03",
+      "data": "2011-03-29",
       "palavras": 95
     },
     {
@@ -1319,7 +1329,7 @@
       "tipo": "noticia",
       "slug": "upgrading-of-corporate-rating",
       "titulo": "Upgrading of Corporate Rating",
-      "data": "2013-28-03",
+      "data": "2013-03-28",
       "palavras": 95
     },
     {
@@ -1429,15 +1439,6 @@
       "titulo": "Conditions of Use",
       "data": null,
       "palavras": 564
-    },
-    {
-      "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
-      "idioma": "en",
-      "tipo": "politica-de-privacidade",
-      "slug": "condicoes-de-uso-pagina-antiga",
-      "titulo": "Conditions of Use – pagina – antiga",
-      "data": null,
-      "palavras": 570
     },
     {
       "rota": "/en/video/video-institucional/alupar-institucional-2017_edit/",
@@ -1841,7 +1842,7 @@
       "tipo": "noticia",
       "slug": "1q20-earnings-release-solo-ingles-y-portugues",
       "titulo": "1Q20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2020-01-06",
+      "data": "2020-06-01",
       "palavras": 62
     },
     {
@@ -1850,7 +1851,7 @@
       "tipo": "noticia",
       "slug": "1t21-earnings-release-solo-ingles-y-portugues",
       "titulo": "1T21 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2021-10-05",
+      "data": "2021-05-10",
       "palavras": 13
     },
     {
@@ -1859,7 +1860,7 @@
       "tipo": "noticia",
       "slug": "3q17-earnings-release-solo-ingles-y-portugues",
       "titulo": "3Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2017-09-11",
+      "data": "2017-11-09",
       "palavras": 39
     },
     {
@@ -1868,7 +1869,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t18",
       "titulo": "1Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-10-05",
+      "data": "2018-05-10",
       "palavras": 111
     },
     {
@@ -1877,7 +1878,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t19",
       "titulo": "1Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-15-05",
+      "data": "2019-05-15",
       "palavras": 7
     },
     {
@@ -1886,7 +1887,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-1t20",
       "titulo": "1T20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2020-01-06",
+      "data": "2020-06-01",
       "palavras": 62
     },
     {
@@ -1895,7 +1896,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t18",
       "titulo": "2Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-13-08",
+      "data": "2018-08-13",
       "palavras": 111
     },
     {
@@ -1904,7 +1905,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t19",
       "titulo": "2Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-13-08",
+      "data": "2019-08-13",
       "palavras": 16
     },
     {
@@ -1913,7 +1914,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t20",
       "titulo": "2T20 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2020-12-08",
+      "data": "2020-08-12",
       "palavras": 89
     },
     {
@@ -1922,7 +1923,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-2t21",
       "titulo": "2T21 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2021-09-08",
+      "data": "2021-08-09",
       "palavras": 13
     },
     {
@@ -1931,7 +1932,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t18",
       "titulo": "3Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-08-11",
+      "data": "2018-11-08",
       "palavras": 111
     },
     {
@@ -1940,7 +1941,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t19",
       "titulo": "3Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-13-11",
+      "data": "2019-11-13",
       "palavras": 16
     },
     {
@@ -1958,7 +1959,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-3t21",
       "titulo": "3T21 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2021-09-11",
+      "data": "2021-11-09",
       "palavras": 13
     },
     {
@@ -1967,7 +1968,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t17",
       "titulo": "4Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-08-03",
+      "data": "2018-03-08",
       "palavras": 111
     },
     {
@@ -1976,7 +1977,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t18",
       "titulo": "4Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-29-03",
+      "data": "2019-03-29",
       "palavras": 111
     },
     {
@@ -1985,7 +1986,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t19",
       "titulo": "4Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2020-11-03",
+      "data": "2020-03-11",
       "palavras": 16
     },
     {
@@ -1994,7 +1995,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-4t20",
       "titulo": "4T20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2021-22-03",
+      "data": "2021-03-22",
       "palavras": 13
     },
     {
@@ -2003,7 +2004,7 @@
       "tipo": "noticia",
       "slug": "divulgacao-de-resultados-do-2t17",
       "titulo": "2Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2017-14-08",
+      "data": "2017-08-14",
       "palavras": 42
     },
     {
@@ -2113,15 +2114,6 @@
       "titulo": "Condiciones de Uso",
       "data": null,
       "palavras": 461
-    },
-    {
-      "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
-      "idioma": "es",
-      "tipo": "politica-de-privacidade",
-      "slug": "condicoes-de-uso-pagina-antiga",
-      "titulo": "Condiciones de Uso – pagina – antiga",
-      "data": null,
-      "palavras": 467
     },
     {
       "rota": "/es/video/video-institucional/alupar-institucional-2017_edit-3/",

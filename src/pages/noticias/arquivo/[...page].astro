@@ -1,0 +1,9 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ListaNoticias from '../../../components/ListaNoticias.astro';
+import { noticiasDe, POR_PAGINA } from '../../../lib/acervo';
+
+export const getStaticPaths = (({ paginate }) => paginate(noticiasDe('pt'), { pageSize: POR_PAGINA })) satisfies GetStaticPaths;
+const { page } = Astro.props;
+---
+<ListaNoticias idioma="pt-br" lista={page.data} pagina={page} />

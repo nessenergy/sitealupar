@@ -1,0 +1,6 @@
+---
+import ListaNoticias from '../../../components/ListaNoticias.astro';
+import { noticiasDe } from '../../../lib/acervo';
+import { recentes } from '../../../lib/noticias';
+---
+<ListaNoticias idioma="es" lista={recentes(noticiasDe('es'), new Date())} />

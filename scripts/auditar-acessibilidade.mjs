@@ -116,10 +116,27 @@ await writeFile('acervo/acessibilidade-do-conteudo.json',
     achados,
   }, null, 2)}\n`);
 
-const pendentes = publicados.filter((a) => TODAS.some((r) => r.quem === 'Comunicação' && a.ocorrencias[r.id]));
+/*
+ * Este relatório mede o conteúdo COMO ELE ESTÁ NO ACERVO. Parte dele já não
+ * chega ao usuário: `src/lib/acervo.ts` corrige no template, a cada build, o
+ * que uma regra única resolve para todas as páginas. Sem esta distinção o
+ * relatório vira lista de tarefas que já foram feitas.
+ */
+const RESOLVIDO_NO_TEMPLATE = {
+  'nova-aba-sem-aviso': 'aviso `.sr-only` e `rel="noopener"` injetados no build',
+  'link-sem-texto': 'âncora interna sem destino é desembrulhada; com destino, recebe o nome da seção',
+};
+
+const pendentes = publicados.filter((a) =>
+  TODAS.some((r) => r.quem === 'Comunicação' && !(r.id in RESOLVIDO_NO_TEMPLATE) && a.ocorrencias[r.id]));
 
 console.log(`itens analisados: ${itens.length} · com achado: ${achados.length} · que viram página: ${publicados.length}`);
 console.log('\nnas páginas publicadas (o que de fato precisa de correção):');
-for (const r of resumo) console.log(`  ${String(r.ocorrencias).padStart(4)} ocorrências · ${String(r.itens).padStart(3)} itens · ${r.id} (${r.criterio}, ${r.quem})`);
+for (const r of resumo) {
+  const nota = RESOLVIDO_NO_TEMPLATE[r.id] ? '  ← já corrigido no build' : '';
+  console.log(`  ${String(r.ocorrencias).padStart(4)} ocorrências · ${String(r.itens).padStart(3)} itens · ${r.id} (${r.criterio}, ${r.quem})${nota}`);
+}
+console.log('\ncorrigido no template, a cada build (src/lib/acervo.ts):');
+for (const [id, como] of Object.entries(RESOLVIDO_NO_TEMPLATE)) console.log(`  ${id}: ${como}`);
 console.log(`\ndependem da Comunicação: ${pendentes.length} páginas`);
 for (const p of pendentes) console.log(`  ${p.rota}`);

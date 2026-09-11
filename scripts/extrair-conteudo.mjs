@@ -53,12 +53,27 @@ const semTags = (s) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-/** Data de publicação: o tema a esconde num parágrafo com "Postado em:". */
-function dataDe(html) {
+/**
+ * Data de publicação: o tema a esconde num parágrafo com "Postado em:".
+ *
+ * **A ordem dos números muda com o idioma.** O WPML aplica o formato de data
+ * configurado por idioma: em português sai `dd/mm/aaaa`, em inglês e espanhol
+ * sai `mm/dd/aaaa`. O rótulo segue "Postado em:" nos três — a etiqueta não foi
+ * traduzida — então nada no HTML avisa que a ordem virou.
+ *
+ * Ler os três como `dd/mm` transpõe dia e mês em 126 notícias. Metade dá mês 13
+ * ou mais e quebra na hora; a outra metade vira uma data **válida e errada**,
+ * que ninguém percebe. Foi o que aconteceu na primeira extração: 16 dos 17
+ * pares pt/en do acervo ficaram com dia e mês trocados entre si.
+ */
+const DIA_PRIMEIRO = { pt: true, en: false, es: false };
+
+function dataDe(html, idioma) {
   const m = /Postado em:\s*<\/strong>\s*([\d]{2}\/[\d]{2}\/[\d]{4})/.exec(html)
     ?? /Postado em:[\s\S]{0,80}?([\d]{2}\/[\d]{2}\/[\d]{4})/.exec(html);
   if (!m) return null;
-  const [d, mes, a] = m[1].split('/');
+  const [x, y, a] = m[1].split('/');
+  const [d, mes] = (DIA_PRIMEIRO[idioma] ?? true) ? [x, y] : [y, x];
   return `${a}-${mes}-${d}`;
 }
 
@@ -122,7 +137,7 @@ for (const f of lidos) {
     slug,
     caminho: `/${rel.replace(/\.html$/, '/').replace(/^[a-z]{2}\//, '')}`,
     titulo,
-    data: dataDe(secao),
+    data: dataDe(secao, idioma),
     palavras: texto ? texto.split(' ').length : 0,
     vazio: texto.length < 40,
     anexo,

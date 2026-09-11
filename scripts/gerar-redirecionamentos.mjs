@@ -23,6 +23,10 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 const INVENTARIO = 'acervo/inventario.json';
 const MARCA = '# ─── gerado por scripts/gerar-redirecionamentos.mjs ───';
+// As duas regras com splat ficam num bloco fixo no fim do arquivo (limite de
+// dinâmicas do Pages, ver scripts/lib/redirects.mjs). Este script reescreve
+// tudo que vem depois de MARCA — sem isto, apagaria esse bloco a cada geração.
+const MARCA_CAUDA = '# ─── dinâmicas: sempre por último — limite do Pages (100 dinâmicas; a primeira dinâmica desliga as estáticas) ───';
 
 const inv = JSON.parse(await readFile(INVENTARIO, 'utf8'));
 
@@ -73,6 +77,13 @@ const semPagina = slugsTraduzidos.filter((i) => !temPagina(i));
 /* ── public/_redirects ── */
 const atual = await readFile('public/_redirects', 'utf8');
 const preservado = atual.split(MARCA)[0].trimEnd();
+const indiceCauda = atual.indexOf(MARCA_CAUDA);
+if (indiceCauda === -1) {
+  throw new Error(
+    'marca do bloco de regras dinâmicas não encontrada no _redirects — o gerador não reescreve o arquivo para não perder as regras dinâmicas',
+  );
+}
+const cauda = atual.slice(indiceCauda).trimEnd();
 
 const linhas = [
   preservado,
@@ -101,7 +112,8 @@ const linhas = [
       ]
     : []),
 ];
-await writeFile('public/_redirects', `${linhas.join('\n').trimEnd()}\n`);
+const corpo = linhas.join('\n').trimEnd();
+await writeFile('public/_redirects', cauda ? `${corpo}\n\n${cauda}\n` : `${corpo}\n`);
 
 /* ── infra/redirect-rules.md ── */
 const contagem = (l) => vivos.filter((i) => i.idioma === l && caminhosPt.has(i.caminho)).length;

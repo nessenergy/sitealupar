@@ -1,8 +1,8 @@
 {
-  "geradoEm": "2026-09-04T13:02:43.593Z",
+  "geradoEm": "2026-09-09T03:39:45.244Z",
   "itensAnalisados": 387,
   "itensComAchado": 163,
-  "itensPublicadosComAchado": 157,
+  "itensPublicadosComAchado": 155,
   "resumo": [
     {
       "id": "nova-aba-sem-aviso",
@@ -29,14 +29,6 @@
       "itens": 2
     },
     {
-      "id": "salto-de-nivel",
-      "criterio": "WCAG 1.3.1",
-      "quem": "Comunicação",
-      "porque": "cabeçalho pula nível (h2 direto para h4): quebra a navegação por estrutura",
-      "ocorrencias": 2,
-      "itens": 2
-    },
-    {
       "id": "imagem-sem-alt",
       "criterio": "WCAG 1.1.1",
       "quem": "Comunicação",
@@ -49,6 +41,14 @@
       "criterio": "WCAG 4.1.2",
       "quem": "front-end",
       "porque": "iframe sem title: o conteúdo embutido não é anunciado",
+      "ocorrencias": 0,
+      "itens": 0
+    },
+    {
+      "id": "salto-de-nivel",
+      "criterio": "WCAG 1.3.1",
+      "quem": "Comunicação",
+      "porque": "cabeçalho pula nível (h2 direto para h4): quebra a navegação por estrutura",
       "ocorrencias": 0,
       "itens": 0
     }
@@ -787,7 +787,7 @@
     },
     {
       "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "politica-de-privacidade",
       "titulo": "Conditions of Use – pagina – antiga",
@@ -967,7 +967,7 @@
     },
     {
       "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "politica-de-privacidade",
       "titulo": "Condiciones de Uso – pagina – antiga",
