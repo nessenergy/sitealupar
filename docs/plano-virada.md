@@ -2340,7 +2340,7 @@ voltar atrás é trocar um registro de DNS.
 - [ ] `main` verde, com as Tarefas 2 a 11 mergeadas
 - [ ] P1 a P9 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
 - [ ] Sem P5: remover o `<form>` e o `<script>` do Turnstile de `src/components/Contato.astro` num PR próprio
-- [ ] P9 no padrão: ligar o Web Analytics no projeto `sitealupar` do Pages e abrir a CSP para ele (`static.cloudflareinsights.com` no `script-src`, `cloudflareinsights.com` num `connect-src`), num PR próprio — o gate de CSP reprova sem isso
+- [ ] P9 no padrão: Cloudflare → Web Analytics → Add a site → `www.alupar.com.br`, **sem** ligar a injeção automática no projeto do Pages; copiar o token do snippet; `gh variable set CF_BEACON_TOKEN --body <token>`; marcar o PR `feat/medicao-web-analytics` como pronto e mergear. Se a P9 for pelo GA4, fechar esse PR sem merge
 - [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo, 120 objetos. Conferir de novo com `node scripts/publicar-arquivos.mjs --verificar`
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista

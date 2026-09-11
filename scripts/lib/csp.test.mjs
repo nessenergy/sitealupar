@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { lerCsp, diretivas, fontesPara, permitido, candidatos, recursos } from './csp.mjs';
 
 const HEADERS = `# comentário
@@ -100,4 +101,12 @@ test('recursos do HTML mapeados para a diretiva de cada um', () => {
     { diretiva: 'frame-src', url: 'https://www.youtube-nocookie.com/embed/x' },
     { diretiva: 'form-action', url: '/api/contato' },
   ]);
+});
+
+test('o _headers do site libera o beacon do Web Analytics (P9)', () => {
+  const d = diretivas(lerCsp(readFileSync('public/_headers', 'utf8')));
+  const opcoes = { origem: 'https://www.alupar.com.br' };
+  assert.equal(permitido('https://static.cloudflareinsights.com/beacon.min.js', fontesPara(d, 'script-src'), opcoes), true);
+  assert.equal(permitido('https://cloudflareinsights.com/cdn-cgi/rum', fontesPara(d, 'connect-src'), opcoes), true);
+  assert.equal(permitido('https://www.alupar.com.br/api/contato', fontesPara(d, 'connect-src'), opcoes), true);
 });
