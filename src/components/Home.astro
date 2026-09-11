@@ -55,7 +55,7 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
              ≥0,9). Ajuste de build, invisível — não muda nada que se veja. -->
         <Picture src={BANNER[idioma]} alt={t.banner.alt} formats={['avif', 'webp']}
           widths={[640, 1350, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
-        <span class="legenda">{t.banner.legenda}</span>
+        <span class="legenda"><strong>{t.banner.legenda}</strong></span>
       </Destaque>
     </section>
 
@@ -129,6 +129,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     background: rgba(255, 255, 255, .6);
     color: var(--azul); font-size: 18px; font-weight: 400;
   }
+  /* O tema zera o negrito (`strong { font-weight: normal }` do style.css), e a
+     legenda dele é justamente um <strong>: peso normal, tamanho da caixa. */
+  .legenda strong { font-weight: inherit; font-size: inherit; }
   .legenda::after {
     content: ''; position: absolute; right: 0; bottom: 0;
     width: 45%; height: 4px; background: var(--verde);
