@@ -2353,7 +2353,7 @@ voltar atrás é trocar um registro de DNS.
 
 - [ ] DNS → CNAME `www` → TTL de 60 s
 - [ ] Rules → Redirect Rules → criar as duas regras de `?lang=` exatamente como em `infra/redirect-rules.md` (depois da regra do apex). Ficam inertes enquanto `www` não tem proxy. Pela API, **acrescentar** (`POST …/rulesets/{id}/rules`); um `PUT` no entrypoint da fase substitui a lista e apaga a regra do apex
-- [ ] SSL/TLS → Edge Certificates → HSTS → **desligar o HSTS da zona**. Lido em 11/09/2026: ligado com `max-age=0; includeSubDomains; preload`. Com proxy no `www`, esse cabeçalho de zona cobre o `Strict-Transport-Security` do `_headers`, e o `includeSubDomains` na zona é justamente o que não pode existir por causa do `ri.alupar.com.br`. O HSTS do site fica só no `_headers`, por host
+- [x] SSL/TLS → Edge Certificates → HSTS → **desligar o HSTS da zona** — feito em 11/09/2026, adiantado da véspera; conferido: apex e `arquivos` sem `Strict-Transport-Security`, `ri` inalterado, `nosniff` mantido. Antes estava ligado com `max-age=0; includeSubDomains; preload`. Com proxy no `www`, esse cabeçalho de zona cobre o `Strict-Transport-Security` do `_headers`, e o `includeSubDomains` na zona é justamente o que não pode existir por causa do `ri.alupar.com.br`. O HSTS do site fica só no `_headers`, por host
 - [ ] Opcional: SSL/TLS → Edge Certificates → Minimum TLS → 1.2 (hoje 1.0). Vale só para os hosts com proxy (apex, `www` e `arquivos`); o `ri` está sem proxy e não muda
 
 **No dia:**
