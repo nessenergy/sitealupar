@@ -10,6 +10,7 @@
 import Base from '../layouts/Base.astro';
 import { itens, semFormulario } from '../lib/acervo';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
+import { ACAO_CONTATO } from '../lib/contato';
 
 interface Props { idioma: Idioma; aviso?: 'obrigado' | 'nao-enviado' }
 const { idioma, aviso } = Astro.props;
@@ -41,7 +42,7 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
           <input id="consentimento" name="consentimento" type="checkbox" value="sim" required />
           <label for="consentimento">{f.consentimento} <a href={t.rodape.privacidadeHref}>{t.rodape.privacidade}</a>. *</label>
         </div>
-        <div class="cf-turnstile" data-sitekey={CHAVE} data-language={idioma}></div>
+        <div class="cf-turnstile" data-sitekey={CHAVE} data-language={idioma} data-action={ACAO_CONTATO}></div>
         <button type="submit">{f.enviar}</button>
       </form>
     )}

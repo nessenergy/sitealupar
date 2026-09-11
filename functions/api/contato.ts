@@ -3,13 +3,14 @@
  * e-mail. Segredos só no ambiente do Pages — nunca no repositório.
  * Responde sempre com 303 para uma página estática: funciona sem JavaScript.
  */
-import { validar } from '../../src/lib/contato';
+import { validar, tokenValido, hostnamesAutorizados, turnstileAprovado, ACAO_CONTATO, type RespostaTurnstile } from '../../src/lib/contato';
 
 interface Env {
   TURNSTILE_SECRET: string;
   RESEND_API_KEY: string;
   CONTATO_DESTINO: string;
   CONTATO_REMETENTE: string;
+  TURNSTILE_HOSTNAMES?: string;
 }
 
 export async function onRequestPost({ request, env }: { request: Request; env: Env }): Promise<Response> {
@@ -29,18 +30,25 @@ export async function onRequestPost({ request, env }: { request: Request; env: E
 
   if (validar(d).length) return volta('nao-enviado');
 
-  // Siteverify fora do ar ou respondendo algo que não é JSON: não confirmado.
+  const token = d['cf-turnstile-response'];
+  if (!tokenValido(token)) return volta('nao-enviado');
+
+  // Siteverify fora do ar, lenta ou respondendo algo que não é JSON: não confirmado.
   let confirmado = false;
   try {
     const verificacao = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
       body: new URLSearchParams({
         secret: env.TURNSTILE_SECRET,
-        response: d['cf-turnstile-response'] ?? '',
+        response: token,
         remoteip: request.headers.get('CF-Connecting-IP') ?? '',
       }),
+      signal: AbortSignal.timeout(10_000),
     });
-    confirmado = ((await verificacao.json()) as { success?: boolean }).success === true;
+    if (!verificacao.ok) throw new Error('siteverify ' + verificacao.status);
+    const resultado = (await verificacao.json()) as RespostaTurnstile;
+    const hostnames = hostnamesAutorizados(env.TURNSTILE_HOSTNAMES, new URL(request.url).hostname);
+    confirmado = turnstileAprovado(resultado, ACAO_CONTATO, hostnames);
   } catch {
     // segue como não confirmado
   }
