@@ -21,6 +21,10 @@
  * - no celular o link do RI sai da barra, como no tema (li.hidden-xs), mas
  *   entra no fim do menu: o tema não o oferece em outro lugar no celular, e
  *   o link não pode ficar inalcançável
+ * - botão de menu branco também aberto: o tema passa barras e texto a
+ *   #079541, que dá 2,07:1 sobre o azul da faixa (#004F9D) — AA pede 4,5:1
+ *   no texto de 8 px e 3:1 no ícone; branco dá 8,06:1
+ * - foco em branco sobre a faixa azul do celular, onde o azul sumiria
  */
 import { textos, IDIOMAS, HOME, SIGLA, lang, type Idioma } from '../i18n/textos';
 
@@ -97,12 +101,28 @@ const atual = Astro.url.pathname;
     .barra .ri { display: none; }
     .idiomas { margin-left: 11px; }
 
-    .principal { flex-wrap: wrap; min-height: 83px; }
-    .alternar {
-      margin-top: 20px; background: none; border: 0; padding: var(--e2);
-      font: inherit; font-size: 11px; text-transform: uppercase; color: var(--preto);
+    /* Faixa azul na largura toda, 83 px (h1.logo com width: 100% e
+       bg-logo-mobile.png centralizado); logotipo de 112 px a 20 px do topo e
+       30 px da esquerda; botão a 20 px do topo e 15 px da direita. */
+    .principal {
+      flex-wrap: wrap; align-items: flex-start; min-height: 0; padding-inline: 0;
+      background: url('/img/tema/bg-logo-mobile.png') no-repeat center top;
     }
-    nav { width: 100%; }
+    .logo { position: static; display: block; width: auto; height: 83px; padding: 20px 0 0 30px; background: none; }
+    .logo img { display: block; }
+    .alternar {
+      margin: 20px 15px 0 auto; padding: 0; border: 0; background: none; min-width: 24px;
+      font: inherit; font-size: 8px; line-height: 11px; text-transform: uppercase; color: var(--branco);
+    }
+    /* As três barras do .navbar-toggle: 24 × 5 px, 4 px entre elas. */
+    .alternar::before {
+      content: ''; display: block; width: 24px; height: 23px; margin: 0 auto 4px;
+      background: linear-gradient(var(--branco) 0 5px, transparent 5px 9px, var(--branco) 9px 14px, transparent 14px 18px, var(--branco) 18px);
+    }
+    /* Sobre o azul, o contorno de foco azul sumiria. */
+    .logo:focus-visible, .alternar:focus-visible { outline-color: var(--branco); }
+    .logo:focus-visible { outline-offset: -3px; }
+    nav { width: 100%; padding-inline: 15px; }
     nav ul { flex-direction: column; }
     nav a { border-bottom: 1px solid var(--cinza-borda); margin: 0; }
     /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
