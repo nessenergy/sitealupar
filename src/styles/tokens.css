@@ -109,5 +109,33 @@ a:hover { color: var(--azul); }
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
+/* Caixa de conteúdo do tema (.box-interna.box-home): branca, com sombra, sobre
+   o fundo cinza da página e colada à base da faixa de foto. Nas páginas do
+   acervo a <div> já vem no próprio corpo; nas páginas próprias — contato,
+   notícias, vídeos e a 404 — a marcação é nossa, e a caixa é esta. */
+.pagina { padding-block: 0 var(--e7); }
+
+.caixa {
+  background: var(--branco);
+  padding: 10px 35px 40px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
+}
+
+@media (max-width: 767px) {
+  .pagina { padding-inline: 0; }
+  .caixa { padding: 10px 20px 40px; }
+}
+
+/* Título das páginas próprias, como `.txt-show h1` do tema: verde, peso
+   normal, 26 px — 48 px a partir de 992 px. */
+.caixa > h1 {
+  margin: 0 0 30px;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--verde-texto);
+}
+
+@media (min-width: 992px) { .caixa > h1 { font-size: 48px; } }
+
 body { min-height: 100vh; display: flex; flex-direction: column; }
 body > main { flex: 1; }

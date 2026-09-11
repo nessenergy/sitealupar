@@ -32,18 +32,9 @@ const pt = textos['pt-br'].naoEncontrada;
 </Base>
 
 <style>
-  /* A mesma caixa branca das internas: com o fundo da página no cinza do tema,
-     texto solto sobre o cinza ficaria fora do padrão de todas as outras. */
-  .pagina { padding-block: 0 var(--e7); }
-  .caixa {
-    background: var(--branco);
-    padding: 10px 35px 40px;
-    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
-  }
-  @media (max-width: 767px) {
-    .pagina { padding-inline: 0; }
-    .caixa { padding: 10px 20px 40px; }
-  }
-  h1, h2 { color: var(--azul); }
+  /* A caixa branca e o título vêm de tokens.css, como nas outras páginas
+     próprias: com o fundo da página no cinza do tema, texto solto sobre o
+     cinza seria a única página fora do padrão. */
+  h2 { color: var(--verde-texto); font-weight: 400; }
   section + section { margin-top: var(--e5); }
 </style>
