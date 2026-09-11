@@ -55,6 +55,7 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | P6 | 51 páginas que dependem de serviços da MZ (#43) | Comunicação | Vão como estão; o player/API da MZ some com o contrato e o texto fica | Tarefa 12 |
 | P7 | Menu EN/ES traz "Trabalhe Conosco" em português | Comunicação | "Careers" / "Trabaje con nosotros" | Tarefa 7 |
 | P8 | Vídeo da home: incorporado já no carregamento pesa ~1 MB de YouTube | — | Capa local; o player só carrega no clique | Tarefa 8 |
+| P9 | Medição e cookies: o site atual carrega o GA4 `G-HH1N2K084G` (propriedade compartilhada com o RI) e o banner do CookieScript; o novo não tem nenhum dos dois. Saber também de quem é a conta do CookieScript | Marketing + jurídico | Cloudflare Web Analytics, sem cookie e sem banner. O GA4 volta, com banner de consentimento, se a Alupar pedir — sem isso, os relatórios dela perdem o institucional na data da virada | Tarefa 12 |
 
 ## Mapa de arquivos
 
@@ -2337,8 +2338,11 @@ voltar atrás é trocar um registro de DNS.
 **Pré-condições — todas, antes de marcar a data:**
 
 - [ ] `main` verde, com as Tarefas 2 a 11 mergeadas
-- [ ] P1 a P8 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
+- [ ] P1 a P9 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
 - [ ] Sem P5: remover o `<form>` e o `<script>` do Turnstile de `src/components/Contato.astro` num PR próprio
+- [ ] P9 no padrão: ligar o Web Analytics no projeto `sitealupar` do Pages e abrir a CSP para ele (`static.cloudflareinsights.com` no `script-src`, `cloudflareinsights.com` num `connect-src`), num PR próprio — o gate de CSP reprova sem isso
+- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo, 120 objetos. Conferir de novo com `node scripts/publicar-arquivos.mjs --verificar`
+- [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista
 - [ ] **Linha de base do GA4 extraída** (páginas mais vistas, origem de tráfego, últimos 12 meses). Depois da virada ela não se recupera
 - [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225. Se mudou, rodar a esteira do `acervo/README.md` antes
@@ -2348,7 +2352,9 @@ voltar atrás é trocar um registro de DNS.
 **Na véspera:**
 
 - [ ] DNS → CNAME `www` → TTL de 60 s
-- [ ] Rules → Redirect Rules → criar as duas regras de `?lang=` exatamente como em `infra/redirect-rules.md` (depois da regra do apex). Ficam inertes enquanto `www` não tem proxy
+- [ ] Rules → Redirect Rules → criar as duas regras de `?lang=` exatamente como em `infra/redirect-rules.md` (depois da regra do apex). Ficam inertes enquanto `www` não tem proxy. Pela API, **acrescentar** (`POST …/rulesets/{id}/rules`); um `PUT` no entrypoint da fase substitui a lista e apaga a regra do apex
+- [ ] SSL/TLS → Edge Certificates → HSTS → **desligar o HSTS da zona**. Lido em 11/09/2026: ligado com `max-age=0; includeSubDomains; preload`. Com proxy no `www`, esse cabeçalho de zona cobre o `Strict-Transport-Security` do `_headers`, e o `includeSubDomains` na zona é justamente o que não pode existir por causa do `ri.alupar.com.br`. O HSTS do site fica só no `_headers`, por host
+- [ ] Opcional: SSL/TLS → Edge Certificates → Minimum TLS → 1.2 (hoje 1.0). Vale só para os hosts com proxy (apex, `www` e `arquivos`); o `ri` está sem proxy e não muda
 
 **No dia:**
 

@@ -1,10 +1,10 @@
 # Arquivos — bucket R2 para mídia pesada e documentos da MZ
 
-**Status: pendente de execução.** As duas fases de infraestrutura abaixo (Passo 2
-da Tarefa 5) ainda não foram executadas — exigem a conta Cloudflare da ness. e
-não foram rodadas neste worktree. Rodar antes do merge que publica o site (o
-CI do PR já passa sem o bucket; o site no ar não), ou o corpo publicado aponta
-para um domínio que ainda não resolve.
+**Status: executado em 11/09/2026.** Bucket criado na região ENAM, domínio
+`arquivos.alupar.com.br` ativo (CNAME com proxy para `public.r2.dev`, TLS
+mínimo 1.2) e 120 objetos enviados (740 MB). O `r2.dev` público continua
+desligado: o único acesso é pelo domínio, que passa pelo cache da Cloudflare
+(`cf-cache-status: HIT` a partir da segunda requisição).
 
 ## O que é
 
@@ -35,9 +35,9 @@ que permite o redirecionamento 301 com `:splat` em `public/_redirects`
 Os cinco documentos da MZ entram como `acervo/midia/documentos/*.pdf` e ficam
 publicados em `https://arquivos.alupar.com.br/documentos/<nome>.pdf`.
 
-## Comandos de criação — a executar antes do merge que publica o site
+## Comandos de criação — como foi feito
 
-O CI do PR já passa sem o bucket; o site no ar não.
+Idempotentes: servem para refazer o bucket em outra conta, se precisar.
 
 ```bash
 npx --yes wrangler@4 r2 bucket create alupar-arquivos
