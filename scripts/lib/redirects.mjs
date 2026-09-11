@@ -35,6 +35,11 @@ export function regraPara(regras, caminho) {
 export function servido(dist, caminho) {
   const p = decodeURIComponent(caminho).replace(/^\//, '');
   if (p === '' || existsSync(join(dist, p, 'index.html'))) return true;
+  /* O Astro sempre grava a página de erro em `404.html`, plano, mesmo com
+     `build.format: 'directory'` — é o único arquivo que foge da convenção
+     `rota/index.html`. `/404` e `/404/` (o `Astro.url.pathname` que o
+     próprio canonical da página usa) apontam para ele. */
+  if (p === '404' || p === '404/') return existsSync(join(dist, '404.html'));
   const arquivo = join(dist, p);
   return existsSync(arquivo) && statSync(arquivo).isFile();
 }

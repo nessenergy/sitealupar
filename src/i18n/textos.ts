@@ -65,6 +65,7 @@ interface Textos {
     assunto: string; mensagem: string; consentimento: string; enviar: string;
     obrigado: string; naoEnviado: string;
   };
+  naoEncontrada: { titulo: string; texto: string; voltar: string };
 }
 
 export const textos: Record<Idioma, Textos> = {
@@ -133,6 +134,7 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Mensagem enviada. Obrigado pelo contato.', // novo
       naoEnviado: 'Não foi possível enviar a mensagem. Confira os campos e tente de novo.', // novo
     },
+    naoEncontrada: { titulo: 'Página não encontrada', texto: 'O endereço que você procurou não existe ou mudou de lugar.', voltar: 'Ir para a página inicial' }, // novo
   },
   en: {
     titulo: 'Alupar — Institutional',
@@ -198,6 +200,7 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Message sent. Thank you for getting in touch.',
       naoEnviado: 'The message could not be sent. Please check the fields and try again.',
     },
+    naoEncontrada: { titulo: 'Page not found', texto: 'The address you are looking for does not exist or has moved.', voltar: 'Go to the home page' }, // novo
   },
   es: {
     titulo: 'Alupar — Institucional',
@@ -259,5 +262,6 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Mensaje enviado. Gracias por contactarnos.',
       naoEnviado: 'No fue posible enviar el mensaje. Revise los campos e intente de nuevo.',
     },
+    naoEncontrada: { titulo: 'Página no encontrada', texto: 'La dirección que busca no existe o cambió de lugar.', voltar: 'Ir a la página de inicio' }, // novo
   },
 };

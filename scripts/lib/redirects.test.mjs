@@ -37,3 +37,10 @@ test('arquivo solto (sem index.html) conta como servido', () => {
   writeFileSync(join(dist, 'robots.txt'), '');
   assert.equal(servido(dist, '/robots.txt'), true);
 });
+
+test('/404/ é servido por 404.html, que o Astro grava plano', () => {
+  const dist = mkdtempSync(join(tmpdir(), 'dist-'));
+  writeFileSync(join(dist, '404.html'), '');
+  assert.equal(servido(dist, '/404/'), true);
+  assert.equal(servido(dist, '/404'), true);
+});
