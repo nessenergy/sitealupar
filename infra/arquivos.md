@@ -2,8 +2,9 @@
 
 **Status: pendente de execução.** As duas fases de infraestrutura abaixo (Passo 2
 da Tarefa 5) ainda não foram executadas — exigem a conta Cloudflare da ness. e
-não foram rodadas neste worktree. Rodar antes do primeiro `git push` desta
-branch, ou o corpo publicado aponta para um domínio que ainda não resolve.
+não foram rodadas neste worktree. Rodar antes do merge que publica o site (o
+CI do PR já passa sem o bucket; o site no ar não), ou o corpo publicado aponta
+para um domínio que ainda não resolve.
 
 ## O que é
 
@@ -34,7 +35,9 @@ que permite o redirecionamento 301 com `:splat` em `public/_redirects`
 Os cinco documentos da MZ entram como `acervo/midia/documentos/*.pdf` e ficam
 publicados em `https://arquivos.alupar.com.br/documentos/<nome>.pdf`.
 
-## Comandos de criação — a executar antes do primeiro push
+## Comandos de criação — a executar antes do merge que publica o site
+
+O CI do PR já passa sem o bucket; o site no ar não.
 
 ```bash
 npx --yes wrangler@4 r2 bucket create alupar-arquivos

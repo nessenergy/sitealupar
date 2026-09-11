@@ -2380,6 +2380,56 @@ node scripts/verificar-no-ar.mjs
 - [ ] Avisar o RI (A2) de que o certificado curinga `*.alupar.com.br`, que vence em **21/10/2026**, passa a servir só a eles (Marco 0.6)
 - [ ] Após sete dias verdes: desligar `34.230.121.250` (a instância que só redirecionava o apex) e fechar as issues #2, #4, #5, #6, #7, #8 e #38
 
+## Tarefas acrescentadas na execução
+
+Duas tarefas que o plano não previa. As duas apareceram ao rodar o Passo 2 da
+Tarefa 11 contra o Pages, e nenhuma aparecia no build local: são
+comportamentos da borda. Ficam registradas aqui para que o plano continue a
+ser o retrato do que foi feito.
+
+### Tarefa 11b: página 404 — o que desliga o modo SPA do Pages
+
+Sem um `404.html` na raiz do build, o Pages trata o site como SPA e serve a
+home **com status 200** para qualquer endereço ("Not Found behavior",
+developers.cloudflare.com/pages/configuration/serving-pages). Link quebrado
+fica invisível, o Google indexa *soft 404* — e o `verificar-no-ar.mjs` nunca
+reprova: o teste negativo do Passo 2 da Tarefa 11 passava por isso.
+
+**Files:**
+- Create: `src/pages/404.astro` — uma página só, com o texto nos três idiomas: o Astro só gera `404.html` para `src/pages/404.astro`, e o Pages sobe a árvore até o `404.html` mais próximo
+- Modify: `src/i18n/textos.ts` (`naoEncontrada`, marcado `// novo`), `scripts/lib/redirects.mjs` (`servido()` reconhece o `404.html` plano, com teste)
+
+```bash
+npx --yes wrangler@4 pages dev dist
+# esperado: /inexistente, /en/inexistente e /es/inexistente → 404; / → 200
+node scripts/verificar-no-ar.mjs http://localhost:8788/inexistente; echo "saída: $?"
+# esperado: reprovado e saída 1
+```
+
+### Tarefa 11c: regras dinâmicas do `_redirects` por último
+
+Com o modo SPA desligado, o verificador no ar mostrou 31 endereços do acervo
+em 404, e o wrangler dizia por quê: *"Maximum number of dynamic rules
+supported is 100. Skipping remaining 318 lines of file"*. O parser dele — o
+mesmo do Pages — conta como dinâmica toda regra com `*` ou `:nome` na origem
+**e toda linha depois da primeira dinâmica**, mesmo sem curinga. As duas
+regras com curinga (`/alupar-e-a-covid-19/*` e `/wp-content/uploads/*`)
+estavam no meio do arquivo e arrastavam o resto para o limite de 100.
+
+**Files:**
+- Modify: `public/_redirects` — bloco final "dinâmicas: sempre por último"
+- Modify: `scripts/gerar-redirecionamentos.mjs` — preserva o bloco em vez de reescrever tudo abaixo da marca
+- Modify: `scripts/lib/redirects.mjs` — `limitesDoPages()` reproduz a contagem do wrangler (2.000 estáticas, 100 dinâmicas), com teste
+- Modify: `scripts/fechar-continuidade.mjs` — `--verificar` reprova quando o arquivo estoura
+
+Semântica preservada: nenhuma regra estática divide prefixo com os curingas,
+então a ordem nova não muda o destino de endereço nenhum.
+
+```bash
+node scripts/fechar-continuidade.mjs --verificar
+# esperado: "aprovado: … (N estáticas, 2 dinâmicas)"
+```
+
 ---
 
 ## Manutenção — as primeiras entregas da mensalidade
