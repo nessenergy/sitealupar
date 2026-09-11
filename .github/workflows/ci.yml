@@ -56,6 +56,11 @@ jobs:
       - name: Continuidade do acervo
         run: node scripts/fechar-continuidade.mjs --verificar
 
+      # O Lighthouse roda num servidor estático que ignora public/_headers: um
+      # recurso bloqueado pela CSP passaria por todos os gates e só quebraria no ar.
+      - name: CSP permite todo recurso do build
+        run: node scripts/verificar-csp.mjs
+
       - uses: actions/upload-artifact@v4
         with:
           name: dist
