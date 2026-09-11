@@ -115,8 +115,12 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 </Base>
 
 <style>
-  .banner { position: relative; display: block; }
-  .banner :global(img) { display: block; width: 100%; height: auto; }
+  /* #home > .banner .item do tema (css/fullwidth/skin.css): faixa de 447 px em
+     qualquer largura, com a imagem recortada para preencher (object-fit: cover).
+     Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
+     em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
+  .banner { position: relative; display: block; height: 447px; }
+  .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
   .legenda {
     position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%);
     color: var(--branco); font-size: clamp(1rem, 0.6rem + 1.6vw, 1.75rem); font-weight: 700;
