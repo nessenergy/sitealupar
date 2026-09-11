@@ -24,6 +24,41 @@ export function regraPara(regras, caminho) {
   return regras.find((r) => (r.prefixo ? n === r.prefixo || n.startsWith(`${r.prefixo}/`) : normal(r.origem) === n));
 }
 
+/* Limite documentado do `_redirects` do Pages: 2.000 regras estáticas e 100
+   dinâmicas, processadas em ordem (developers.cloudflare.com/pages/
+   configuration/redirects/). O parser do wrangler (wrangler-dist/cli.js)
+   classifica cada linha pela SOURCE: tem splat (`*`) ou placeholder (`:nome`)
+   → dinâmica. E a partir da PRIMEIRA dinâmica, toda linha seguinte — mesmo
+   sem splat/placeholder — também conta como dinâmica; é por isso que regra
+   dinâmica no meio do arquivo pode estourar o limite e descartar o resto. */
+const SPLAT = /\*/;
+const PLACEHOLDER = /:[A-Za-z0-9_]+/;
+export const MAX_ESTATICAS = 2000;
+export const MAX_DINAMICAS = 100;
+
+export function limitesDoPages(texto) {
+  let estaticas = 0;
+  let dinamicas = 0;
+  let primeiraDinamica = null;
+  let podeSerEstatica = true;
+  let indice = 0;
+  for (const linha of texto.split('\n')) {
+    const l = linha.trim();
+    if (!l || l.startsWith('#')) continue;
+    indice += 1;
+    const [origem] = l.split(/\s+/);
+    const ehDinamica = !podeSerEstatica || SPLAT.test(origem) || PLACEHOLDER.test(origem);
+    if (ehDinamica) {
+      dinamicas += 1;
+      podeSerEstatica = false;
+      if (primeiraDinamica === null) primeiraDinamica = indice;
+    } else {
+      estaticas += 1;
+    }
+  }
+  return { estaticas, dinamicas, primeiraDinamica, estouro: estaticas > MAX_ESTATICAS || dinamicas > MAX_DINAMICAS };
+}
+
 /**
  * O build serve `x/` como `x/index.html`, e arquivos soltos como estão.
  *

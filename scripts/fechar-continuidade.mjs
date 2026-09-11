@@ -16,7 +16,7 @@
  *   node scripts/fechar-continuidade.mjs --verificar         # CI, depois do build
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { lerRegras, regraPara, servido } from './lib/redirects.mjs';
+import { lerRegras, regraPara, servido, limitesDoPages } from './lib/redirects.mjs';
 import { destino } from './lib/continuidade.mjs';
 
 const INICIO = '# ─── continuidade: gerado por scripts/fechar-continuidade.mjs ───';
@@ -45,14 +45,28 @@ for (const { url, status } of JSON.parse(readFileSync('acervo/inventario.json', 
   if (!resolve(caminho)) faltam.set(caminho, tipos.get(caminho));
 }
 
+const limites = limitesDoPages(atual);
+
 if (verificar) {
+  if (limites.estouro) {
+    console.error(
+      `reprovado: _redirects estoura o limite do Pages ` +
+        `(${limites.estaticas} estáticas, ${limites.dinamicas} dinâmicas; ` +
+        `primeira dinâmica na regra ${limites.primeiraDinamica})`,
+    );
+    console.error('dica: regras dinâmicas vão no bloco final do _redirects');
+    process.exit(1);
+  }
   if (faltam.size) {
     console.error(`reprovado: ${faltam.size} endereços vivos hoje deixariam de responder`);
     for (const c of [...faltam.keys()].slice(0, 20)) console.error(`  ${c}`);
     console.error('\ncorrige com: npm run build && node scripts/fechar-continuidade.mjs');
     process.exit(1);
   }
-  console.log('aprovado: todo endereço vivo do acervo resolve, por página ou por 301.');
+  console.log(
+    `aprovado: todo endereço vivo do acervo resolve, por página ou por 301 ` +
+      `(${limites.estaticas} estáticas, ${limites.dinamicas} dinâmicas).`,
+  );
   process.exit(0);
 }
 
@@ -72,5 +86,8 @@ const bloco = [
 
 const [antes, depois] = semBloco.split(MARCA);
 if (depois === undefined) throw new Error('marca do gerar-redirecionamentos.mjs não encontrada no _redirects');
-writeFileSync('public/_redirects', `${antes.trimEnd()}\n\n${bloco}\n\n${MARCA}${depois}`);
+const final = `${antes.trimEnd()}\n\n${bloco}\n\n${MARCA}${depois}`;
+writeFileSync('public/_redirects', final);
+const limitesFinais = limitesDoPages(final);
 console.log(`escrito: ${linhas.length} regras de continuidade`);
+console.log(`_redirects: ${limitesFinais.estaticas} estáticas, ${limitesFinais.dinamicas} dinâmicas.`);

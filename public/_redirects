@@ -10,18 +10,12 @@
 # Consolidação de P&D (duas páginas para o mesmo assunto)
 /pesquisa-e-desenvolvimento/                       /inovacao-pesquisa-e-desenvolvimento/   301
 
-# Acervo de 2021 arquivado
-/alupar-e-a-covid-19/*                             /sustentabilidade/   301
-
 # Trabalhe Conosco vai direto para o Gupy, como já faz o menu
 /trabalhe-conosco/                                 https://alupar.gupy.io/   301
 
 # Galeria de fotos permanece no NAS (D4). O redirecionamento sai do WordPress
 # que será desligado e passa a ser regra de borda.
 /fotos                                             https://alupar.us6.quickconnect.to/fotos    301
-
-# Mídia do WordPress antigo: mesma chave, agora no R2 (infra/arquivos.md).
-/wp-content/uploads/*                              https://arquivos.alupar.com.br/:splat   301
 
 # ── Regras herdadas da origem, descobertas por sondagem em 04/09/2026 ──
 # O plugin Redirection está ativo no WordPress atual e suas regras vivem no
@@ -468,3 +462,11 @@
 # de seção, é para lá que devem apontar.
 /banner_rotativo/sustainability/  /en/  301
 /noticia/2q22-earnings-release/  /en/  301
+
+# ─── dinâmicas: sempre por último — limite do Pages (100 dinâmicas; a primeira dinâmica desliga as estáticas) ───
+
+# Acervo de 2021 arquivado
+/alupar-e-a-covid-19/*                             /sustentabilidade/   301
+
+# Mídia do WordPress antigo: mesma chave, agora no R2 (infra/arquivos.md).
+/wp-content/uploads/*                              https://arquivos.alupar.com.br/:splat   301
