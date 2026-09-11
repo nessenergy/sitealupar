@@ -36,14 +36,14 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 
 | # | Página | Largura | Zona | Site atual | Site novo | Tipo | Destino |
 |---|---|---|---|---|---|---|---|
-| 1 | todas | 390 | barra superior | só as bandeiras, à esquerda; sem o link do RI | "RELAÇÕES COM INVESTIDORES" e as siglas, à direita | D | Tarefa 4 |
+| 1 | todas | 390 | barra superior | só as bandeiras, à esquerda; sem o link do RI | "RELAÇÕES COM INVESTIDORES" e as siglas, à direita | D | corrigida — c3ffdc9 |
 | 2 | home-es | todas | barra superior | "RELACION CON INVERSORES", sem acento | "RELACIÓN CON INVERSORES" | C | pauta |
-| 3 | todas | 390 | cabeçalho e menu | faixa azul do logotipo na largura toda da tela, com 83 px de altura (`h1.logo` com `width: 100%` e `bg-logo-mobile.png` centralizado); logotipo (~112 px) à esquerda e botão de menu à direita, os dois brancos sobre o azul | box azul só atrás do logotipo (~150 × 83 px, à esquerda); o resto da faixa é branco | D | Tarefa 4 |
-| 4 | todas | 390 | cabeçalho e menu | botão de menu com três barras brancas e "MENU" em ~8 px embaixo | só a palavra "MENU" (~11 px), escura, sem as barras | D | Tarefa 4 |
-| 5 | todas | 768 | cabeçalho e menu | box do logotipo (~150 × 130 px) a partir do topo da página, sobre a barra cinza; menu numa linha abaixo do box, numa faixa branca que avança sobre o banner | box começa abaixo da barra cinza; menu à direita do box, na altura do logotipo | D | Tarefa 4 |
-| 6 | home, home-es e internas | 768 | cabeçalho e menu | os seis itens do menu visíveis | o primeiro item fica atrás do box azul: "A COMPANHIA" some (em home-es sobra "MPAÑÍA"); em home-en o menu cabe | D | Tarefa 4 |
-| 7 | todas | 1280 | cabeçalho e menu | box do logotipo (293 × 200 px) a partir do topo, sobre a barra cinza; faixa branca do menu com ~117 px (y 33–150), menu em y ≈ 88 | box começa abaixo da barra (y 33–233); faixa branca com ~61 px (y 33–94), menu em y ≈ 68; o banner começa ~56 px mais acima | D | Tarefa 4 |
-| 8 | todas | 1280 | cabeçalho e menu | cabeçalho entre x ≈ 70 e 1210 (box do logotipo em x 70) | entre x ≈ 86 e 1194 (box em x 86; menu termina em x ≈ 1182) | D | Tarefa 4 |
+| 3 | todas | 390 | cabeçalho e menu | faixa azul do logotipo na largura toda da tela, com 83 px de altura (`h1.logo` com `width: 100%` e `bg-logo-mobile.png` centralizado); logotipo (~112 px) à esquerda e botão de menu à direita, os dois brancos sobre o azul | box azul só atrás do logotipo (~150 × 83 px, à esquerda); o resto da faixa é branco | D | corrigida — 806a6ca |
+| 4 | todas | 390 | cabeçalho e menu | botão de menu com três barras brancas e "MENU" em ~8 px embaixo | só a palavra "MENU" (~11 px), escura, sem as barras | D | corrigida com ajuste de acessibilidade — 806a6ca |
+| 5 | todas | 768 | cabeçalho e menu | box do logotipo (~150 × 130 px) a partir do topo da página, sobre a barra cinza; menu numa linha abaixo do box, numa faixa branca que avança sobre o banner | box começa abaixo da barra cinza; menu à direita do box, na altura do logotipo | D | corrigida — c0443d8 |
+| 6 | home, home-es e internas | 768 | cabeçalho e menu | os seis itens do menu visíveis | o primeiro item fica atrás do box azul: "A COMPANHIA" some (em home-es sobra "MPAÑÍA"); em home-en o menu cabe | D | corrigida — c0443d8 |
+| 7 | todas | 1280 | cabeçalho e menu | box do logotipo (293 × 200 px) a partir do topo, sobre a barra cinza; faixa branca do menu com ~117 px (y 33–150), menu em y ≈ 88 | box começa abaixo da barra (y 33–233); faixa branca com ~61 px (y 33–94), menu em y ≈ 68; o banner começa ~56 px mais acima | D | corrigida — c0443d8 |
+| 8 | todas | 1280 | cabeçalho e menu | cabeçalho entre x ≈ 70 e 1210 (box do logotipo em x 70) | entre x ≈ 86 e 1194 (box em x 86; menu termina em x ≈ 1182) | D | corrigida — c0443d8 |
 | 9 | home-en, home-es | todas | cabeçalho e menu | item "TRABALHE CONOSCO" em português nas versões EN e ES | "CAREERS" e "TRABAJE CON NOSOTROS" | C | pauta |
 | 10 | home, home-en, home-es | todas | faixa ou banner | altura fixa de 447 px, imagem recortada para preencher a largura | altura da proporção da imagem, sem recorte: no PT, ~213 px em 1280, ~128 px em 768 e ~65 px em 390 (a arte do relatório fica pequena, centrada em fundo cinza) | D | Tarefa 4 |
 | 11 | home, home-en, home-es | todas | faixa ou banner | legenda ("#SUSTENTABILIDADE", "Mais Energia"…) numa caixa branca translúcida com fio verde embaixo, no alto à esquerda | legenda em texto branco, negrito, sobre a base da imagem, sem caixa | D | Tarefa 4 |
@@ -75,7 +75,7 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 37 | noticias | todas | corpo | uma linha por notícia (data + título), linhas alternadas em cinza-claro, na largura da caixa | data por extenso acima do título, título em negrito sublinhado, fio entre os itens; em 1280 a lista fica numa coluna de ~226 px no meio da página | D | Tarefa 4 |
 | 38 | videos | todas | corpo | `/video/video-institucional/`: título "Vídeo Institucional" e o corpo em branco (o vídeo não aparece na captura) | `/videos/`: título "Vídeos" e três links, dois com o mesmo nome "ALUPAR INSTITUCIONAL 2017_edit" e um "institucional" | C | pauta |
 | 39 | videos | todas | corpo | título em verde, peso regular | título em preto, negrito (as outras internas usam azul) | D | Tarefa 4 |
-| 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | Tarefa 4 |
+| 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida — 8106a3c |
 
 Na página empresas, abaixo de ~16.384 px (altura máxima de captura do Chrome) a captura repete o topo da página, nos dois lados: essa parte foi conferida pela estrutura do HTML (mesmas seções, 30 mapas), não visualmente.
 
