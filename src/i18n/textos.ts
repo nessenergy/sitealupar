@@ -60,6 +60,11 @@ interface Textos {
   arquivo: string;
   anterior: string;
   proxima: string;
+  formulario: {
+    obrigatorios: string; nome: string; email: string; empresa: string; telefone: string;
+    assunto: string; mensagem: string; consentimento: string; enviar: string;
+    obrigado: string; naoEnviado: string;
+  };
 }
 
 export const textos: Record<Idioma, Textos> = {
@@ -120,6 +125,14 @@ export const textos: Record<Idioma, Textos> = {
     arquivo: 'Arquivo de notícias', // novo
     anterior: 'Página anterior', // novo
     proxima: 'Próxima página', // novo
+    formulario: {
+      obrigatorios: '* Campos obrigatórios', // novo
+      nome: 'Nome', email: 'E-mail', empresa: 'Empresa', telefone: 'Telefone', assunto: 'Assunto', mensagem: 'Mensagem',
+      consentimento: 'Concordo com o uso dos meus dados para a resposta a este contato, conforme a', // provisório — P5
+      enviar: 'Enviar mensagem',
+      obrigado: 'Mensagem enviada. Obrigado pelo contato.', // novo
+      naoEnviado: 'Não foi possível enviar a mensagem. Confira os campos e tente de novo.', // novo
+    },
   },
   en: {
     titulo: 'Alupar — Institutional',
@@ -177,6 +190,14 @@ export const textos: Record<Idioma, Textos> = {
     arquivo: 'News archive', // novo
     anterior: 'Previous page', // novo
     proxima: 'Next page', // novo
+    formulario: {
+      obrigatorios: '* Required fields',
+      nome: 'Name', email: 'Email', empresa: 'Company', telefone: 'Phone', assunto: 'Subject', mensagem: 'Message',
+      consentimento: 'I agree to the use of my data to answer this message, as described in the', // provisório — P5
+      enviar: 'Send message',
+      obrigado: 'Message sent. Thank you for getting in touch.',
+      naoEnviado: 'The message could not be sent. Please check the fields and try again.',
+    },
   },
   es: {
     titulo: 'Alupar — Institucional',
@@ -230,5 +251,13 @@ export const textos: Record<Idioma, Textos> = {
     arquivo: 'Archivo de noticias', // novo
     anterior: 'Página anterior', // novo
     proxima: 'Página siguiente', // novo
+    formulario: {
+      obrigatorios: '* Campos obligatorios',
+      nome: 'Nombre', email: 'Correo electrónico', empresa: 'Empresa', telefone: 'Teléfono', assunto: 'Asunto', mensagem: 'Mensaje',
+      consentimento: 'Acepto el uso de mis datos para responder a este contacto, conforme la', // provisório — P5
+      enviar: 'Enviar mensaje',
+      obrigado: 'Mensaje enviado. Gracias por contactarnos.',
+      naoEnviado: 'No fue posible enviar el mensaje. Revise los campos e intente de nuevo.',
+    },
   },
 };

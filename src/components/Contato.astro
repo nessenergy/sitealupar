@@ -1,0 +1,66 @@
+---
+/**
+ * Contato: os dados publicados hoje, vindos do acervo sem o formulário antigo,
+ * e o formulário novo — rótulo visível em cada campo (C1), a única mudança
+ * realmente perceptível do projeto, já prevista em restauro-fiel.
+ *
+ * Sem `PUBLIC_TURNSTILE_SITE_KEY` no build (máquina local), usa a chave de
+ * teste da Cloudflare, que sempre aprova. Em produção a chave vem do CI.
+ */
+import Base from '../layouts/Base.astro';
+import { itens, semFormulario } from '../lib/acervo';
+import { textos, prefixo, type Idioma } from '../i18n/textos';
+
+interface Props { idioma: Idioma; aviso?: 'obrigado' | 'nao-enviado' }
+const { idioma, aviso } = Astro.props;
+const t = textos[idioma];
+const f = t.formulario;
+const pre = prefixo[idioma];
+const item = itens().find((i) => i.rota === `${pre}/contato/`);
+if (!item) throw new Error(`acervo sem ${pre}/contato/`);
+// `||`, não `??`: variável de repositório ausente chega ao build como string vazia.
+const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
+---
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
+  <main id="conteudo" class="container pagina">
+    <h1>{item.titulo}</h1>
+    {aviso && <p class="aviso" role="status">{aviso === 'obrigado' ? f.obrigado : f.naoEnviado}</p>}
+    <div class="dados" set:html={semFormulario(item.corpo)} />
+
+    {aviso !== 'obrigado' && (
+      <form method="post" action="/api/contato" aria-describedby="obrigatorios">
+        <input type="hidden" name="prefixo" value={`${pre}/`} />
+        <p id="obrigatorios">{f.obrigatorios}</p>
+        <div class="campo"><label for="nome">{f.nome} *</label><input id="nome" name="nome" required autocomplete="name" /></div>
+        <div class="campo"><label for="email">{f.email} *</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+        <div class="campo"><label for="empresa">{f.empresa}</label><input id="empresa" name="empresa" autocomplete="organization" /></div>
+        <div class="campo"><label for="telefone">{f.telefone}</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" /></div>
+        <div class="campo"><label for="assunto">{f.assunto} *</label><input id="assunto" name="assunto" required /></div>
+        <div class="campo largo"><label for="mensagem">{f.mensagem}</label><textarea id="mensagem" name="mensagem" rows="8" maxlength="5000"></textarea></div>
+        <div class="consentimento">
+          <input id="consentimento" name="consentimento" type="checkbox" value="sim" required />
+          <label for="consentimento">{f.consentimento} <a href={t.rodape.privacidadeHref}>{t.rodape.privacidade}</a>. *</label>
+        </div>
+        <div class="cf-turnstile" data-sitekey={CHAVE} data-language={idioma}></div>
+        <button type="submit">{f.enviar}</button>
+      </form>
+    )}
+  </main>
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</Base>
+
+<style>
+  .pagina { padding-block: var(--e6) var(--e7); }
+  h1 { color: var(--azul); }
+  .aviso { padding: var(--e3); border-left: 4px solid var(--verde); background: var(--cinza-fundo); }
+  form { display: grid; gap: var(--e3); max-width: 760px; margin-top: var(--e5); }
+  @media (min-width: 768px) { form { grid-template-columns: 1fr 1fr; } .largo, .consentimento, #obrigatorios, .cf-turnstile, button { grid-column: 1 / -1; } }
+  .campo { display: flex; flex-direction: column; gap: var(--e1); }
+  label { font-weight: 600; }
+  input:not([type='checkbox']), textarea { font: inherit; padding: var(--e2); border: 1px solid var(--cinza); }
+  .consentimento { display: flex; gap: var(--e2); align-items: flex-start; }
+  button {
+    justify-self: start; font: inherit; text-transform: uppercase; cursor: pointer;
+    padding: var(--e2) var(--e4); border: 0; background: var(--azul); color: var(--branco);
+  }
+</style>

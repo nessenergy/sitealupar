@@ -14,7 +14,8 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
 
-  integrations: [sitemap()],
+  // As páginas de aviso do formulário (obrigado / não enviado) não entram no sitemap.
+  integrations: [sitemap({ filter: (pagina) => !/\/contato\/(obrigado|nao-enviado)\/$/.test(pagina) })],
   build: { format: 'directory' },
 
   image: {

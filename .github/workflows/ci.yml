@@ -41,6 +41,8 @@ jobs:
         run: node scripts/gerar-mapa-de-rotas.mjs --verificar
 
       - run: npm run build
+        env:
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
 
       # Regra 3 de ponta a ponta: cada endereço que responde 200 no site atual
       # tem de resolver no build novo, por página ou por 301.
@@ -66,6 +68,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
 
       # `autorun` faz colheita, asserção e publicação do relatório num passo só.
       # Quando ele reprova, o nome do passo não diz qual das três caiu — e se o

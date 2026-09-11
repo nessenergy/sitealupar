@@ -248,4 +248,11 @@ export function noticiasDe(idioma: Item['idioma']): Item[] {
  * são geradas por `[...rota].astro` — senão as duas disputariam o caminho.
  * O mapa de rotas continua listando-as: o endereço existe, só muda quem o gera.
  */
-export const SUBSTITUIDAS = new Set(['/noticias/', '/en/noticias/', '/es/noticias/']);
+export const SUBSTITUIDAS = new Set([
+  '/noticias/', '/en/noticias/', '/es/noticias/',
+  '/contato/', '/en/contato/', '/es/contato/',
+]);
+
+/** O contato do acervo traz o formulário antigo, que postava para a MZ: sai, ficam os dados. */
+export const semFormulario = (corpo: string) =>
+  serialize(parseFragment(corpo.split('<div id="formFaleComRi"')[0]) as never);
