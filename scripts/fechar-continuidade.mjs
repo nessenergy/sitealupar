@@ -45,9 +45,8 @@ for (const { url, status } of JSON.parse(readFileSync('acervo/inventario.json', 
   if (!resolve(caminho)) faltam.set(caminho, tipos.get(caminho));
 }
 
-const limites = limitesDoPages(atual);
-
 if (verificar) {
+  const limites = limitesDoPages(atual);
   if (limites.estouro) {
     console.error(
       `reprovado: _redirects estoura o limite do Pages ` +

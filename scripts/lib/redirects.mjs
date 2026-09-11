@@ -41,21 +41,16 @@ export function limitesDoPages(texto) {
   let dinamicas = 0;
   let primeiraDinamica = null;
   let podeSerEstatica = true;
-  let indice = 0;
-  for (const linha of texto.split('\n')) {
-    const l = linha.trim();
-    if (!l || l.startsWith('#')) continue;
-    indice += 1;
-    const [origem] = l.split(/\s+/);
+  lerRegras(texto).forEach(({ origem }, i) => {
     const ehDinamica = !podeSerEstatica || SPLAT.test(origem) || PLACEHOLDER.test(origem);
     if (ehDinamica) {
       dinamicas += 1;
       podeSerEstatica = false;
-      if (primeiraDinamica === null) primeiraDinamica = indice;
+      if (primeiraDinamica === null) primeiraDinamica = i + 1;
     } else {
       estaticas += 1;
     }
-  }
+  });
   return { estaticas, dinamicas, primeiraDinamica, estouro: estaticas > MAX_ESTATICAS || dinamicas > MAX_DINAMICAS };
 }
 

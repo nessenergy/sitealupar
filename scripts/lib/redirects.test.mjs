@@ -84,3 +84,8 @@ test('curingas só no fim: apenas eles contam como dinâmica', () => {
   assert.equal(r.primeiraDinamica, 401);
   assert.equal(r.estouro, false);
 });
+
+test('limite de estáticas: 2000 não estoura, 2001 estoura', () => {
+  assert.equal(limitesDoPages(linhas(2000)).estouro, false);
+  assert.equal(limitesDoPages(linhas(2001)).estouro, true);
+});

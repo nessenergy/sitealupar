@@ -78,7 +78,12 @@ const semPagina = slugsTraduzidos.filter((i) => !temPagina(i));
 const atual = await readFile('public/_redirects', 'utf8');
 const preservado = atual.split(MARCA)[0].trimEnd();
 const indiceCauda = atual.indexOf(MARCA_CAUDA);
-const cauda = indiceCauda === -1 ? '' : atual.slice(indiceCauda).trimEnd();
+if (indiceCauda === -1) {
+  throw new Error(
+    'marca do bloco de regras dinâmicas não encontrada no _redirects — o gerador não reescreve o arquivo para não perder as regras dinâmicas',
+  );
+}
+const cauda = atual.slice(indiceCauda).trimEnd();
 
 const linhas = [
   preservado,
