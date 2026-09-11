@@ -67,7 +67,7 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 19 | home, home-en, home-es | todas | corpo | itens de sustentabilidade ("Meio Ambiente", "Água", "Fauna e Flora") em peso regular, sem sublinhado | em negrito e sublinhados | D | corrigida — bb29712 |
 | 20 | home | 768 | corpo | a caixa de notícias passa da área e "VEJA MAIS NOTÍCIAS" fica cortado pelo rodapé | caixa inteira, link visível | A | nenhum — o novo não repete o corte |
 | 21 | todas | todas | todas | texto em Open Sans, carregada do Google Fonts | nenhuma fonte de web carregada (sem `@font-face` nem link de fonte): o texto cai para Segoe UI no Windows da captura e para Arial/Helvetica nos outros sistemas, com letras mais estreitas | D | corrigida — 794dd01 |
-| 22 | internas | todas | corpo | breadcrumb "Você está em: > …" em azul acima do título | sem breadcrumb | D | Tarefa 4 |
+| 22 | internas | todas | corpo | breadcrumb "Você está em: > …" em azul acima do título | sem breadcrumb | D | corrigida — fa3795f |
 | 23 | internas | 768, 1280 | corpo | conteúdo numa caixa branca com sombra, sobre fundo cinza-claro, colada à base do banner | página branca, sem caixa nem sombra | D | corrigida — 03ad6bf |
 | 24 | internas, menos videos (ver 39) | todas | corpo | título da página em verde, peso regular (~48 px em 1280, ~26 px em 390) | em azul, negrito (~36 px em 1280), com fio cinza embaixo | D | corrigida — a525253 |
 | 25 | internas | 1280 | corpo | coluna de texto na largura da caixa (~1070 px, x 105–1175) | coluna de ~620 px (x 330–950), centrada | D | corrigida — 03ad6bf |
