@@ -30,6 +30,8 @@ Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 | Campos do formulário de contato sem o `text-transform: uppercase` do `.form-control` | A regra do tema põe em caixa alta o que a pessoa digita, inclusive na hora em que ela revê o que vai enviar. O que se digita é dado, não desenho |
 | `h4` do corpo em 20 px e cinza, e a 404 na mesma caixa branca das internas | Entraram junto com as linhas 24 a 33 e 12/23/25 por serem a mesma folha: o `h4` é `.txt-show h4` do tema, e com o fundo da página no cinza a 404 seria a única com texto solto sobre o cinza |
 | Coluna de texto das internas na largura da caixa (~1070 px em 1280) | É o tema, e é a linha 25. Passa dos 80 caracteres por linha que a WCAG 1.4.8 recomenda — critério AAA, fora do gate AA que o CI cobra |
+| Rótulo da trilha de navegação traduzido nos três idiomas | O site atual imprime "Você está em:" também nas versões EN e ES: é o mesmo defeito de conteúdo do "Trabalhe Conosco" da linha 9, e a decisão P7 mandou traduzir. Aprovação da Comunicação pendente, como em todo texto marcado `// novo` |
+| Trilha de navegação some abaixo de 768 px | É o `hidden-xs` do tema: o site atual também não a mostra no celular |
 | Sem a linha "Powered by MZ" no rodapé | Comentário de `src/components/Rodape.astro` — o fornecedor sai com o contrato |
 
 ## Divergências
@@ -60,9 +62,9 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 14 | home, home-en, home-es | todas | corpo | notícias com marcador (bolinha), data em peso regular e título em azul, sem sublinhado | sem marcador; data em negrito; título em cinza-escuro, sublinhado; mais espaço entre os itens | D | corrigida — f5572e6 |
 | 15 | home, home-en, home-es, noticias | todas | corpo | lista começa em 02/03/2023 (4T22) e traz as notícias de 2022; no bloco da home, os títulos terminam em hífen ("4T22-") | lista começa em 09/11/2021 (3T21): as notícias de 2022 e 2023 não aparecem; no bloco da home, títulos sem o hífen | C | pauta — o feed vem do RI (D5), acesso pendente |
 | 16 | home-es | todas | corpo | datas das notícias em mês/dia ("02/24/2022") | em dia/mês ("09/11/2021") | C | pauta |
-| 17 | home, home-en, home-es | 768, 1280 | corpo | vídeo numa caixa 4:3 (~320 × 240 px em 1280; ~180 × 135 px em 768) | capa mais alta que larga (~310 × 400 px em 1280; ~184 × 330 px em 768) | D | Tarefa 4 |
+| 17 | home, home-en, home-es | 768, 1280 | corpo | vídeo numa caixa 4:3 (~320 × 240 px em 1280; ~180 × 135 px em 768) | capa mais alta que larga (~310 × 400 px em 1280; ~184 × 330 px em 768) | D | corrigida — bb29712 |
 | 18 | home-en | todas | corpo | vídeo em player próprio, com capa do logotipo (1:55) | capa do vídeo em português ("INVESTIREMOS R$ 9 BILHÕES") | C | pauta |
-| 19 | home, home-en, home-es | todas | corpo | itens de sustentabilidade ("Meio Ambiente", "Água", "Fauna e Flora") em peso regular, sem sublinhado | em negrito e sublinhados | D | Tarefa 4 |
+| 19 | home, home-en, home-es | todas | corpo | itens de sustentabilidade ("Meio Ambiente", "Água", "Fauna e Flora") em peso regular, sem sublinhado | em negrito e sublinhados | D | corrigida — bb29712 |
 | 20 | home | 768 | corpo | a caixa de notícias passa da área e "VEJA MAIS NOTÍCIAS" fica cortado pelo rodapé | caixa inteira, link visível | A | nenhum — o novo não repete o corte |
 | 21 | todas | todas | todas | texto em Open Sans, carregada do Google Fonts | nenhuma fonte de web carregada (sem `@font-face` nem link de fonte): o texto cai para Segoe UI no Windows da captura e para Arial/Helvetica nos outros sistemas, com letras mais estreitas | D | corrigida — 794dd01 |
 | 22 | internas | todas | corpo | breadcrumb "Você está em: > …" em azul acima do título | sem breadcrumb | D | Tarefa 4 |
@@ -77,12 +79,12 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 31 | noticia | todas | corpo | sem data abaixo do título | data "16 de abril de 2014" abaixo do título | C | pauta |
 | 32 | pesquisa | todas | corpo | "FORMULÁRIO CADASTRAL" como botão azul, texto branco em caixa alta | link verde sublinhado "formulário cadastral" | D | corrigida — a525253 |
 | 33 | pesquisa | todas | corpo | "Segundo arcabouço…" e "Os interessados…" com recuo de ~10 px à esquerda | sem recuo | D | corrigida — a525253 |
-| 34 | condicoes-de-uso | todas | corpo | três seções em sanfona, fechadas, títulos em verde com ícone quadrado | seções abertas, título em texto comum, o texto inteiro à mostra | D | Tarefa 4 |
-| 35 | contato | 768, 1280 | corpo | endereço à esquerda e "Assessoria de Imprensa" (título em verde) à direita, em duas colunas | endereço e assessoria em uma coluna, título comum | D | Tarefa 4 |
-| 36 | contato | todas | corpo | campos com fundo cinza em degradê, sem borda; "Assunto" na largura toda; botão "Enviar" centralizado | campos brancos com borda; "Assunto" em meia largura; botão alinhado à esquerda, azul mais escuro | D | Tarefa 4 |
-| 37 | noticias | todas | corpo | uma linha por notícia (data + título), linhas alternadas em cinza-claro, na largura da caixa | data por extenso acima do título, título em negrito sublinhado, fio entre os itens; em 1280 a lista fica numa coluna de ~226 px no meio da página | D | Tarefa 4 |
+| 34 | condicoes-de-uso | todas | corpo | três seções em sanfona, fechadas, títulos em verde com ícone quadrado | seções abertas, título em texto comum, o texto inteiro à mostra | D | corrigida — 90c1c74 |
+| 35 | contato | 768, 1280 | corpo | endereço à esquerda e "Assessoria de Imprensa" (título em verde) à direita, em duas colunas | endereço e assessoria em uma coluna, título comum | D | corrigida — db7fe7c |
+| 36 | contato | todas | corpo | campos com fundo cinza em degradê, sem borda; "Assunto" na largura toda; botão "Enviar" centralizado | campos brancos com borda; "Assunto" em meia largura; botão alinhado à esquerda, azul mais escuro | D | corrigida — db7fe7c |
+| 37 | noticias | todas | corpo | uma linha por notícia (data + título), linhas alternadas em cinza-claro, na largura da caixa | data por extenso acima do título, título em negrito sublinhado, fio entre os itens; em 1280 a lista fica numa coluna de ~226 px no meio da página | D | corrigida — 39fe5df |
 | 38 | videos | todas | corpo | `/video/video-institucional/`: título "Vídeo Institucional" e o corpo em branco (o vídeo não aparece na captura) | `/videos/`: título "Vídeos" e três links, dois com o mesmo nome "ALUPAR INSTITUCIONAL 2017_edit" e um "institucional" | C | pauta |
-| 39 | videos | todas | corpo | título em verde, peso regular | título em preto, negrito (as outras internas usam azul) | D | Tarefa 4 |
+| 39 | videos | todas | corpo | título em verde, peso regular | título em preto, negrito (as outras internas usam azul) | D | corrigida — a60529d |
 | 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida com ajuste de acessibilidade — 8106a3c, e4c7b06 |
 
 Na página empresas, abaixo de ~16.384 px (altura máxima de captura do Chrome) a captura repete o topo da página, nos dois lados: essa parte foi conferida pela estrutura do HTML (mesmas seções, 30 mapas), não visualmente.
