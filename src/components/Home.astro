@@ -181,7 +181,12 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 
   /* o iframe é criado pelo site.js no clique e não recebe o atributo de
      escopo do Astro — por isso :global dentro de .caixa. */
-  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; flex: 1; }
+  /* .embed-responsive-4by3 do tema: a caixa do vídeo é 4:3 e só isso — não
+     estica. Com `flex: 1` ela crescia até o pé da caixa e virava um retrato de
+     ~310 × 400 px em 1280, contra os ~320 × 240 px do site atual. É a margem
+     automática do link "veja mais" que passa a empurrá-lo para a base. */
+  .caixa .mais { margin-top: auto; }
+  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; }
   .caixa :global(.video) :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .caixa :global(.video)::after {
     content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
@@ -192,8 +197,13 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
   .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
   .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
   .eixos li:last-child { border-bottom: none; }
-  .eixos h3 { font-size: 1rem; margin: 0 0 var(--e1); }
-  .eixos h3 a { color: var(--preto); }
+  /* .list-sustentabilidade .media do tema: o título de cada eixo é um
+     h5.media-heading — 14 px, peso normal (o tema zera o negrito de h1 a h6),
+     5 px embaixo — e o link é cinza-escuro sem sublinhado, com sublinhado no
+     hover e no foco. Estava em negrito e sublinhado. */
+  .eixos h3 { font-size: 14px; font-weight: 400; margin: 0 0 5px; }
+  .eixos h3 a { color: var(--preto); text-decoration: none; }
+  .eixos h3 a:hover, .eixos h3 a:focus-visible { text-decoration: underline; }
   .eixos p { margin: 0; line-height: 24px; }
 
   /* a.btn-link-mais do tema: caixa alta 12px, sublinhado verde de 4px */
