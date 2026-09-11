@@ -5,13 +5,12 @@
  */
 import Base from '../layouts/Base.astro';
 import { itens } from '../lib/acervo';
-import { textos, type Idioma } from '../i18n/textos';
+import { textos, CODIGO, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
-const codigo = { 'pt-br': 'pt', en: 'en', es: 'es' }[idioma];
-const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === codigo);
+const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[idioma]);
 ---
 <Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">

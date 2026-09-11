@@ -10,24 +10,19 @@
  * subindo a árvore, e o Astro só gera 404.html para src/pages/404.astro.
  */
 import Base from '../layouts/Base.astro';
-import { textos, lang } from '../i18n/textos';
+import { textos, lang, IDIOMAS, HOME } from '../i18n/textos';
 
-const IDIOMAS = [
-  { idioma: 'pt-br', home: '/' },
-  { idioma: 'en', home: '/en/' },
-  { idioma: 'es', home: '/es/' },
-] as const;
 const pt = textos['pt-br'].naoEncontrada;
 ---
 <Base titulo={`${pt.titulo} — Alupar`} descricao={textos['pt-br'].descricao}>
   <main id="conteudo" class="container pagina">
-    {IDIOMAS.map(({ idioma, home }, n) => {
+    {IDIOMAS.map((idioma, n) => {
       const t = textos[idioma].naoEncontrada;
       return (
         <section lang={lang[idioma]}>
           {n === 0 ? <h1>{t.titulo}</h1> : <h2>{t.titulo}</h2>}
           <p>{t.texto}</p>
-          <p><a href={home}>{t.voltar}</a></p>
+          <p><a href={HOME[idioma]}>{t.voltar}</a></p>
         </section>
       );
     })}

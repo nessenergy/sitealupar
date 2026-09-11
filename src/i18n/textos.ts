@@ -30,6 +30,15 @@ export const lang: Record<Idioma, string> = {
   es: 'es',
 };
 
+/** Home de cada idioma. */
+export const HOME = { 'pt-br': '/', en: '/en/', es: '/es/' } as const satisfies Record<Idioma, string>;
+
+/** Sigla do seletor de idioma (decisão P4). */
+export const SIGLA = { 'pt-br': 'PT', en: 'EN', es: 'ES' } as const satisfies Record<Idioma, string>;
+
+/** Idioma como o acervo grava (`pt`, não `pt-br`) — o que `noticiasDe()` e `Item.idioma` esperam. */
+export const CODIGO = { 'pt-br': 'pt', en: 'en', es: 'es' } as const satisfies Record<Idioma, string>;
+
 interface Textos {
   titulo: string;
   descricao: string;

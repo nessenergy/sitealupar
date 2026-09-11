@@ -15,14 +15,11 @@
  *   WCAG 2.2) no gate do Lighthouse (0,96 de acessibilidade, achado no
  *   Passo 9). Sem fundo nem borda — a aparência não muda.
  */
-import { textos, type Idioma } from '../i18n/textos';
+import { textos, IDIOMAS, HOME, SIGLA, lang, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma; alternativas: { idioma: Idioma; caminho: string }[] }
 const { idioma, alternativas } = Astro.props;
 const t = textos[idioma];
-const HOME = { 'pt-br': '/', en: '/en/', es: '/es/' } as const;
-const SIGLA = { 'pt-br': 'PT', en: 'EN', es: 'ES' } as const;
-const LANG = { 'pt-br': 'pt-BR', en: 'en', es: 'es' } as const;
 const atual = Astro.url.pathname;
 ---
 <header class="cabecalho-site" id="topo">
@@ -30,11 +27,11 @@ const atual = Astro.url.pathname;
     <div class="container barra-itens">
       <a href="https://ri.alupar.com.br/">{t.ri}</a>
       <ul class="idiomas" aria-label={t.idioma}>
-        {(Object.keys(HOME) as Idioma[]).map((i) => (
+        {IDIOMAS.map((i) => (
           <li>
             <a
               href={alternativas.find((a) => a.idioma === i)?.caminho ?? HOME[i]}
-              lang={LANG[i]} hreflang={LANG[i]}
+              lang={lang[i]} hreflang={lang[i]}
               aria-current={i === idioma ? 'true' : undefined}
             >{SIGLA[i]}</a>
           </li>

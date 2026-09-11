@@ -21,6 +21,7 @@
  *   node scripts/gerar-mapa-de-rotas.mjs --verificar
  */
 import { readFile, writeFile } from 'node:fs/promises';
+import { ROTAS_PROPRIAS } from '../src/lib/rotas-proprias.mjs';
 
 const ENTRADA = 'acervo/conteudo-pronto.jsonl';
 const SAIDA = 'acervo/mapa-de-rotas.json';
@@ -109,12 +110,12 @@ for (const r of rotas) porRota.set(r.rota, [...(porRota.get(r.rota) ?? []), r]);
 const colisoes = [...porRota].filter(([, v]) => v.length > 1).map(([rota, v]) => ({ rota, itens: v.map((r) => `${r.idioma}:${r.slug}`) }));
 
 /* 301 interno cujo destino não existe: 404 com desvio, que some do relatório. */
-/* As três homes e as listagens existem em `src/pages/`, fora do mapa — mas são destino válido. */
-const PAGINAS_PROPRIAS = ['/videos', '/en/videos', '/es/videos'];
+/* As três homes e as páginas de `src/pages/` existem fora do mapa — mas são
+   destino válido. A lista é a mesma que o Base.astro usa para o hreflang. */
 const existe = new Set([
   ...[...porRota.keys()].map(normal),
   ...Object.values(PREFIXO).map((p) => normal(p || '/')),
-  ...PAGINAS_PROPRIAS,
+  ...ROTAS_PROPRIAS.map(normal),
 ]);
 const destinosQuebrados = regras
   .filter((r) => r.destino.startsWith('/'))

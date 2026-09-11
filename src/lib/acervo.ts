@@ -243,6 +243,20 @@ export function noticiasDe(idioma: Item['idioma']): Item[] {
     .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''));
 }
 
+/** Notícias por página no arquivo paginado (N3). */
+export const POR_PAGINA = 20;
+
+/**
+ * Caminhos do arquivo de notícias de um idioma: `/noticias/arquivo/`,
+ * `/noticias/arquivo/2/`… — a mesma conta do `paginate()` do Astro, que gera
+ * a primeira página mesmo sem notícia nenhuma.
+ */
+export function paginasDoArquivo(idioma: Item['idioma']): string[] {
+  const total = Math.max(1, Math.ceil(noticiasDe(idioma).length / POR_PAGINA));
+  const base = `${PREFIXO[idioma]}/noticias/arquivo/`;
+  return Array.from({ length: total }, (_, n) => (n === 0 ? base : `${base}${n + 1}/`));
+}
+
 /**
  * Rotas do acervo que ganham página própria em `src/pages/` e por isso não
  * são geradas por `[...rota].astro` — senão as duas disputariam o caminho.
