@@ -151,12 +151,15 @@ const noticias = itens()
   .noticias time { display: block; font-weight: 700; }
   .noticias a { color: var(--preto); }
 
-  .video { position: relative; display: block; aspect-ratio: 4 / 3; flex: 1; }
-  .video :global(img) { width: 100%; height: 100%; object-fit: cover; }
-  .video::after {
+  /* o iframe é criado pelo site.js no clique e não recebe o atributo de
+     escopo do Astro — por isso :global dentro de .caixa. */
+  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; flex: 1; }
+  .caixa :global(.video) :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .caixa :global(.video)::after {
     content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
     font-size: 3rem; color: var(--branco);
   }
+  .caixa :global(iframe.video) { width: 100%; height: auto; border: 0; }
 
   .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
   .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
