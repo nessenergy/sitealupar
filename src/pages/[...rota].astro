@@ -7,6 +7,7 @@
  * conferida contra o mapa de 301 e travada no CI (#47). Aqui só se lê.
  */
 import Base from '../layouts/Base.astro';
+import Trilha from '../components/Trilha.astro';
 import { itens, IDIOMA_ASTRO, SUBSTITUIDAS } from '../lib/acervo';
 import { textos } from '../i18n/textos';
 
@@ -38,6 +39,7 @@ const dataLegivel = dataVisivel
 <Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
     <article>
+      <Trilha idioma={idioma} titulo={item.titulo} />
       <header class="cabecalho">
         <h1>{item.titulo}</h1>
         {dataVisivel && <time datetime={item.data}>{dataLegivel}</time>}
@@ -159,6 +161,11 @@ const dataLegivel = dataVisivel
     display: inline-block; padding: 10px 20px;
     background: var(--azul-hover); color: var(--branco);
     text-transform: uppercase; text-decoration: none;
+    /* O tema zera o raio de propósito (`border-radius: 0px`), porque o .btn do
+       bootstrap põe 4 px — e o acervo traz `class="btn btn-azul"`. Aqui o
+       bootstrap não é carregado, mas a regra fica explícita: o canto vivo é
+       decisão do tema, não ausência de folha. */
+    border-radius: 0;
   }
   .corpo :global(.btn-azul:hover), .corpo :global(.btn-azul:focus) {
     background: var(--azul); color: var(--branco);

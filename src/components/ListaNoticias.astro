@@ -5,6 +5,7 @@
  */
 import type { Page } from 'astro';
 import Base from '../layouts/Base.astro';
+import Trilha from './Trilha.astro';
 import type { Item } from '../lib/acervo';
 import { textos, prefixo, lang, type Idioma } from '../i18n/textos';
 
@@ -21,6 +22,7 @@ const comBarra = (u: string) => (u.endsWith('/') ? u : `${u}/`);
 <Base titulo={`${titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
     <div class="caixa">
+    <Trilha idioma={idioma} titulo={titulo} />
     <h1>{titulo}</h1>
     <ul class="lista">
       {lista.map((n) => (

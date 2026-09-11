@@ -1,0 +1,62 @@
+---
+/**
+ * Trilha de navegação das páginas internas — o breadcrumb do site atual.
+ *
+ * No tema ela mora DENTRO da caixa branca, como primeiro elemento, acima do
+ * título, e não aparece abaixo de 768 px (`hidden-xs`). Por isso é componente
+ * usado por cada página, e não algo que o Base.astro imprima sozinho.
+ *
+ * O nível intermediário só entra quando existe mesmo: das 344 rotas de dois
+ * níveis ou mais do acervo, só 26 têm página-mãe publicada — `/faq/` não é
+ * página, por exemplo. É o que o site atual faz hoje, e é o oposto de montar a
+ * trilha a partir dos pedaços do endereço, que inventaria níveis mortos.
+ */
+import mapa from '../../acervo/mapa-de-rotas.json';
+import { textos, prefixo, HOME, type Idioma } from '../i18n/textos';
+
+interface Props {
+  idioma: Idioma;
+  /** Título da página atual, o último degrau da trilha. */
+  titulo: string;
+}
+const { idioma, titulo } = Astro.props;
+const t = textos[idioma];
+const pre = prefixo[idioma];
+
+const titulos = new Map(mapa.rotas.map((r) => [r.rota, r.titulo]));
+const segmentos = Astro.url.pathname.slice(pre.length).split('/').filter(Boolean);
+
+const maes = segmentos
+  .slice(0, -1)
+  .map((_, n) => `${pre}/${segmentos.slice(0, n + 1).join('/')}/`)
+  .filter((rota) => titulos.has(rota))
+  .map((rota) => ({ rota, titulo: titulos.get(rota) as string }));
+---
+<nav class="trilha" aria-label={t.trilha}>
+  <ol>
+    <li><a href={HOME[idioma]}>{t.trilha}</a></li>
+    {maes.map((m) => <li><a href={m.rota}>{m.titulo}</a></li>)}
+    <li><strong aria-current="page">{titulo}</strong></li>
+  </ol>
+</nav>
+
+<style>
+  /* `.breadcrumb` do tema: 12 px, azul #115EA9 (6,9:1 sobre branco), sem fundo,
+     8 px acima e abaixo, 20 px sob a trilha, e o separador ">" com 5 px de cada
+     lado. O `hidden-xs` do tema some com ela abaixo de 768 px. */
+  .trilha { display: none; }
+  @media (min-width: 768px) { .trilha { display: block; } }
+
+  ol {
+    margin: 0 0 20px;
+    padding: 8px 0;
+    list-style: none;
+    font-size: 12px;
+    color: #115EA9;
+  }
+  li { display: inline-block; }
+  li + li::before { content: '>\00a0'; padding: 0 5px; color: #115EA9; }
+  a { color: #115EA9; }
+  /* O tema põe o degrau atual num <strong>, e zera o negrito no style.css. */
+  strong { font-weight: 400; }
+</style>

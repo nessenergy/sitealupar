@@ -8,6 +8,7 @@
  * teste da Cloudflare, que sempre aprova. Em produção a chave vem do CI.
  */
 import Base from '../layouts/Base.astro';
+import Trilha from './Trilha.astro';
 import { itens, semFormulario } from '../lib/acervo';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
 import { ACAO_CONTATO } from '../lib/contato';
@@ -25,6 +26,7 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
 <Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={Boolean(aviso)}>
   <main id="conteudo" class="container pagina">
     <div class="caixa">
+    <Trilha idioma={idioma} titulo={item.titulo} />
     <h1>{item.titulo}</h1>
     {aviso && <p class="aviso" role="status">{aviso === 'obrigado' ? f.obrigado : f.naoEnviado}</p>}
     <div class="dados" set:html={semFormulario(item.corpo)} />
