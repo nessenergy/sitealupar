@@ -13,6 +13,9 @@
         "http://localhost/en/empresas/index.html",
         "http://localhost/es/empresas/index.html",
 
+        "http://localhost/noticias/index.html",
+        "http://localhost/noticias/arquivo/index.html",
+
         "http://localhost/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/index.html",
         "http://localhost/en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/index.html",
 

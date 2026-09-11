@@ -7,11 +7,11 @@
  * conferida contra o mapa de 301 e travada no CI (#47). Aqui só se lê.
  */
 import Base from '../layouts/Base.astro';
-import { itens, IDIOMA_ASTRO } from '../lib/acervo';
+import { itens, IDIOMA_ASTRO, SUBSTITUIDAS } from '../lib/acervo';
 import { textos } from '../i18n/textos';
 
 export function getStaticPaths() {
-  return itens().map((i) => ({
+  return itens().filter((i) => !SUBSTITUIDAS.has(i.rota)).map((i) => ({
     /* O mapa guarda a rota com barra na frente e atrás; o parâmetro não leva
        nenhuma das duas. `build.format: 'directory'` devolve a barra final. */
     params: { rota: i.rota.replace(/^\/|\/$/g, '') },

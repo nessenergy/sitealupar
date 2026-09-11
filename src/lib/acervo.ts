@@ -235,3 +235,17 @@ export function itens(): Item[] {
 
   return cache;
 }
+
+/** Notícias de um idioma, da mais recente para a mais antiga. */
+export function noticiasDe(idioma: Item['idioma']): Item[] {
+  return itens()
+    .filter((i) => i.tipo === 'noticia' && i.idioma === idioma && i.data)
+    .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''));
+}
+
+/**
+ * Rotas do acervo que ganham página própria em `src/pages/` e por isso não
+ * são geradas por `[...rota].astro` — senão as duas disputariam o caminho.
+ * O mapa de rotas continua listando-as: o endereço existe, só muda quem o gera.
+ */
+export const SUBSTITUIDAS = new Set(['/noticias/', '/en/noticias/', '/es/noticias/']);

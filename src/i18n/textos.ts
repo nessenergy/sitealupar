@@ -57,6 +57,9 @@ interface Textos {
   verMaisVideos: string;
   saibaMais: string;
   assistirVideo: string;
+  arquivo: string;
+  anterior: string;
+  proxima: string;
 }
 
 export const textos: Record<Idioma, Textos> = {
@@ -114,6 +117,9 @@ export const textos: Record<Idioma, Textos> = {
     verMaisVideos: 'Veja mais vídeos',
     saibaMais: 'Saiba mais do programa',
     assistirVideo: 'Assistir ao vídeo institucional no YouTube', // novo
+    arquivo: 'Arquivo de notícias', // novo
+    anterior: 'Página anterior', // novo
+    proxima: 'Próxima página', // novo
   },
   en: {
     titulo: 'Alupar — Institutional',
@@ -168,6 +174,9 @@ export const textos: Record<Idioma, Textos> = {
     verMaisVideos: 'See more videos',
     saibaMais: 'Learn more about the program',
     assistirVideo: 'Watch the institutional video on YouTube', // novo
+    arquivo: 'News archive', // novo
+    anterior: 'Previous page', // novo
+    proxima: 'Next page', // novo
   },
   es: {
     titulo: 'Alupar — Institucional',
@@ -218,5 +227,8 @@ export const textos: Record<Idioma, Textos> = {
     verMaisVideos: 'Más vídeos',
     saibaMais: 'Más información del programa',
     assistirVideo: 'Ver el video institucional en YouTube', // novo
+    arquivo: 'Archivo de noticias', // novo
+    anterior: 'Página anterior', // novo
+    proxima: 'Página siguiente', // novo
   },
 };

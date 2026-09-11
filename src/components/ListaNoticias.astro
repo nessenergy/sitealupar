@@ -1,0 +1,49 @@
+---
+/**
+ * Listagem de notícias (N2) e arquivo paginado (N3), nos três idiomas.
+ * Com `pagina`, é o arquivo; sem, é a listagem, que aponta para o arquivo.
+ */
+import type { Page } from 'astro';
+import Base from '../layouts/Base.astro';
+import type { Item } from '../lib/acervo';
+import { textos, prefixo, lang, type Idioma } from '../i18n/textos';
+
+interface Props { idioma: Idioma; lista: Item[]; pagina?: Page<Item> }
+const { idioma, lista, pagina } = Astro.props;
+const t = textos[idioma];
+const formato = new Intl.DateTimeFormat(lang[idioma], { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const titulo = pagina
+  ? `${t.arquivo}${pagina.currentPage > 1 ? ` — ${pagina.currentPage}` : ''}`
+  : t.noticias;
+---
+<Base titulo={`${titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
+  <main id="conteudo" class="container pagina">
+    <h1>{titulo}</h1>
+    <ul class="lista">
+      {lista.map((n) => (
+        <li>
+          <time datetime={n.data}>{formato.format(new Date(`${n.data}T00:00:00Z`))}</time>
+          <a href={n.rota}>{n.titulo}</a>
+        </li>
+      ))}
+    </ul>
+    {pagina ? (
+      <nav class="paginas" aria-label={t.arquivo}>
+        {pagina.url.prev && <a href={pagina.url.prev} rel="prev">{t.anterior}</a>}
+        {pagina.url.next && <a href={pagina.url.next} rel="next">{t.proxima}</a>}
+      </nav>
+    ) : (
+      <p><a href={`${prefixo[idioma]}/noticias/arquivo/`}>{t.arquivo}</a></p>
+    )}
+  </main>
+</Base>
+
+<style>
+  .pagina { padding-block: var(--e6) var(--e7); }
+  h1 { color: var(--azul); }
+  .lista { list-style: none; margin: 0 0 var(--e5); padding: 0; }
+  .lista li { padding-block: var(--e3); border-bottom: 1px solid var(--cinza-borda); }
+  .lista time { display: block; font-size: .875rem; color: var(--cinza); }
+  .lista a { color: var(--preto); font-weight: 600; }
+  .paginas { display: flex; justify-content: space-between; gap: var(--e4); }
+</style>

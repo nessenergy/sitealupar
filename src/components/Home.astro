@@ -12,7 +12,7 @@
  */
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { itens } from '../lib/acervo';
+import { noticiasDe } from '../lib/acervo';
 import { textos, prefixo, lang, type Idioma } from '../i18n/textos';
 import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
 import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
@@ -38,10 +38,7 @@ const indicadores = [
 
 const codigo = { 'pt-br': 'pt', en: 'en', es: 'es' }[idioma];
 const formato = new Intl.DateTimeFormat(lang[idioma], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
-const noticias = itens()
-  .filter((i) => i.tipo === 'noticia' && i.idioma === codigo && i.data)
-  .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''))
-  .slice(0, 6);
+const noticias = noticiasDe(codigo).slice(0, 6);
 ---
 <Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
