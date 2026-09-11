@@ -20,10 +20,12 @@ const urls = JSON.parse(readFileSync('acervo/inventario.json', 'utf8'))
   .filter((u) => u.host === 'www.alupar.com.br' && (comBorda || !u.searchParams.has('lang')))
   .map((u) => `${base}${u.pathname}${u.search}`);
 
+// 20 s por pedido: servidor que aceita a conexão e não responde vira falha
+// reportada, em vez de pendurar o laço (e o job da sentinela) indefinidamente.
 async function status(url) {
-  const r = await fetch(url, { method: 'HEAD', redirect: 'follow' });
+  const r = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: AbortSignal.timeout(20_000) });
   if (r.status !== 405 && r.status !== 403) return r;
-  const g = await fetch(url, { redirect: 'follow' }); // servidor que não aceita HEAD
+  const g = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(20_000) }); // servidor que não aceita HEAD
   await g.body?.cancel();
   return g;
 }
