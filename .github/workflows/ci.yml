@@ -111,12 +111,13 @@ jobs:
       - name: Links internos resolvem
         run: node scripts/verificar-links.mjs
 
-  # Todo PR ganha um endereço de preview; a main publica em sitealupar.pages.dev.
-  # www.alupar.com.br só aponta para cá na virada (Tarefa 12).
+  # Produção só publica com o gate de qualidade verde. Preview de PR publica mesmo
+  # com ele vermelho, para diagnóstico. www.alupar.com.br só aponta para cá na virada
+  # (Tarefa 12).
   publicar:
     runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    needs: [build, qualidade]
+    if: always() && needs.build.result == 'success' && ((github.event_name == 'push' && needs.qualidade.result == 'success') || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository))
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
