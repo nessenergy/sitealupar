@@ -2340,7 +2340,12 @@ voltar atrás é trocar um registro de DNS.
 - [ ] `main` verde, com as Tarefas 2 a 11 mergeadas
 - [ ] P1 a P9 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
 - [ ] Sem P5: remover o `<form>` e o `<script>` do Turnstile de `src/components/Contato.astro` num PR próprio
-- [ ] P9 no padrão: ligar o Web Analytics no projeto `sitealupar` do Pages e abrir a CSP para ele (`static.cloudflareinsights.com` no `script-src`, `cloudflareinsights.com` num `connect-src`), num PR próprio — o gate de CSP reprova sem isso
+- [ ] P9 no padrão, num PR próprio e **nesta ordem** — o CI é que precisa ver a variável, e ele só a vê numa execução iniciada depois dela:
+  1. Cloudflare → Web Analytics → Add a site → `www.alupar.com.br`, **sem** a injeção automática no projeto do Pages; copiar o token do snippet
+  2. `gh variable set CF_BEACON_TOKEN --body <token>`, e abrir a CSP para ele (`static.cloudflareinsights.com` no `script-src`, `cloudflareinsights.com` num `connect-src`) — o gate de CSP reprova sem isso
+  3. marcar o PR `feat/medicao-web-analytics` como pronto (*Ready for review*), o que **reexecuta o CI**: `ready_for_review` está na lista `types:` de `.github/workflows/ci.yml`
+  4. conferir o verde **dessa execução nova**. O verde que já estava no PR é de um build feito sem a variável — o site sairia sem medição nenhuma, e nada acusaria
+  5. só então mergear. Se a P9 for pelo GA4, fechar o PR sem merge
 - [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo, 120 objetos. Conferir de novo com `node scripts/publicar-arquivos.mjs --verificar`
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista

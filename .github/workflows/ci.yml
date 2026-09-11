@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   pull_request:
+    # O padrão de `pull_request` é [opened, synchronize, reopened] — sem
+    # `ready_for_review`. Marcar um PR em rascunho como pronto não dispararia
+    # nada, e o verde exibido na hora do merge seria o da última execução, de
+    # um build feito ANTES da variável existir. É exatamente o caso do PR da
+    # medição (P9, Tarefa 12 do plano de virada), que espera CF_BEACON_TOKEN.
+    types: [opened, synchronize, reopened, ready_for_review]
 
 # Na main, as execuções entram em fila em vez de correr juntas: uma execução
 # mais velha nunca publica depois de uma mais nova. No PR, um push novo cancela
