@@ -10,6 +10,25 @@ São **265 endereços vivos** hoje (132 em inglês, 133 em espanhol) onde a
 tradução mora no mesmo caminho do português e só o parâmetro distingue. Não
 viram 265 regras: viram **duas**, porque a transformação é a mesma para todas.
 
+## Regra 0 — apex (aplicada em 11/09/2026)
+
+Nome "apex para www", primeira regra da fase `http_request_dynamic_redirect`
+da zona. O registro `A alupar.com.br 34.230.121.250` está com proxy ligado, então
+o TLS do apex é da Cloudflare e o 301 sai da borda, sem chegar ao servidor antigo.
+
+```
+(http.host eq "alupar.com.br")
+```
+
+Destino, expressão dinâmica, **301 permanente**, preservando a query **ligado**
+(aqui a query ainda vai ser lida pelas regras 1 e 2, já no `www`):
+
+```
+concat("https://www.alupar.com.br", http.request.uri.path)
+```
+
+O servidor `34.230.121.250` só pode ser desligado depois da virada.
+
 ## Regra 1 — inglês
 
 ```
