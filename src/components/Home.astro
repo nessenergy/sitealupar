@@ -168,10 +168,16 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     text-transform: uppercase; margin: 20px 0;
   }
 
-  .noticias { list-style: none; margin: 0; padding: 0; flex: 1; }
-  .noticias li { margin-bottom: var(--e3); }
-  .noticias time { display: block; font-weight: 700; }
-  .noticias a { color: var(--preto); }
+  /* No tema a lista da caixa é um <ul> comum, sem folha que a redefina: vem o
+     marcador de disco do navegador. A data está num <strong> com o negrito
+     zerado pelo style.css, e o título é link azul sem sublinhado — sublinhado
+     só no hover e no foco, como em todo link do tema. Numa lista de links
+     (não de texto corrido), a ausência de sublinhado não fere a WCAG 1.4.1. */
+  .noticias { list-style: disc; margin: 0; padding-left: 20px; flex: 1; }
+  .noticias li { margin-bottom: 10px; }
+  .noticias time { display: block; font-weight: 400; }
+  .noticias a { color: var(--azul); text-decoration: none; }
+  .noticias a:hover, .noticias a:focus-visible { text-decoration: underline; }
 
   /* o iframe é criado pelo site.js no clique e não recebe o atributo de
      escopo do Astro — por isso :global dentro de .caixa. */
