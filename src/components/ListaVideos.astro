@@ -14,11 +14,22 @@ const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[i
 ---
 <Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
-    <h1>{t.videos}</h1>
-    <ul>{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
+    <div class="caixa">
+      <h1>{t.videos}</h1>
+      <ul class="lista">{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
+    </div>
   </main>
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
+  /* A caixa branca e o título verde em peso normal vêm de tokens.css, como em
+     toda página própria: o título estava preto e em negrito, enquanto as
+     internas do tema trazem `.txt-show h1` em verde. */
+  .lista { list-style: none; margin: 0; padding: 0; }
+  .lista li { position: relative; padding: 0 0 var(--e2) 17px; }
+  .lista li::before {
+    content: '\2022'; position: absolute; left: 0; top: -2px;
+    font-size: 1.5em; color: var(--verde);
+  }
+  .lista a { color: var(--azul); }
 </style>
