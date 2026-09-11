@@ -15,6 +15,8 @@ const formato = new Intl.DateTimeFormat(lang[idioma], { day: 'numeric', month: '
 const titulo = pagina
   ? `${t.arquivo}${pagina.currentPage > 1 ? ` — ${pagina.currentPage}` : ''}`
   : t.noticias;
+// O paginate() devolve a URL sem a barra final; o Pages responde 308 até a com barra.
+const comBarra = (u: string) => (u.endsWith('/') ? u : `${u}/`);
 ---
 <Base titulo={`${titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
@@ -32,8 +34,8 @@ const titulo = pagina
     {pagina ? (
       (pagina.url.prev || pagina.url.next) && (
         <nav class="paginas" aria-label={t.arquivo}>
-          {pagina.url.prev && <a href={pagina.url.prev} rel="prev">{t.anterior}</a>}
-          {pagina.url.next && <a href={pagina.url.next} rel="next">{t.proxima}</a>}
+          {pagina.url.prev && <a href={comBarra(pagina.url.prev)} rel="prev">{t.anterior}</a>}
+          {pagina.url.next && <a href={comBarra(pagina.url.next)} rel="next">{t.proxima}</a>}
         </nav>
       )
     ) : (
