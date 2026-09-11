@@ -1,0 +1,49 @@
+---
+/**
+ * Rodapé do tema: fundo #231F20, caixa alta 11px, links separados por "|".
+ * Sai o "Powered by MZ". Os códigos de conduta passam a vir do R2 — hoje
+ * moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ *
+ * O círculo de "voltar ao topo" usa --rodape-texto e não o #535252 do tema:
+ * 2,2:1 sobre o fundo reprova o 3:1 de componente de interface (WCAG 1.4.11).
+ */
+import { textos, type Idioma } from '../i18n/textos';
+
+interface Props { idioma: Idioma }
+const t = textos[Astro.props.idioma];
+const r = t.rodape;
+const externos = [
+  { rotulo: r.conduta, href: r.condutaHref },
+  { rotulo: r.terceiros, href: 'https://arquivos.alupar.com.br/documentos/codigo-de-conduta-de-terceiros.pdf' },
+  { rotulo: r.denuncias, href: 'https://contatoseguro.com.br/pt/alupar/' },
+];
+---
+<footer class="rodape">
+  <div class="container">
+    <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
+    <ul>
+      <li>© {new Date().getFullYear()} ALUPAR - {r.direitos} ::</li>
+      <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
+      {externos.map((e) => (
+        <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
+      ))}
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .rodape { background: var(--rodape-fundo); padding-top: 10px; text-align: center; }
+  .topo {
+    display: inline-grid; place-items: center; width: 23px; height: 23px;
+    border: 2px solid var(--rodape-texto); border-radius: 50%;
+    color: var(--rodape-texto); text-decoration: none; line-height: 1;
+  }
+  ul {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0 6px;
+    list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
+    border-bottom: 1px solid #2E2A2B;
+    font-size: 11px; text-transform: uppercase; color: var(--rodape-texto);
+  }
+  li:nth-child(n + 3)::before { content: '|' / ''; margin-right: 6px; }
+  a { color: var(--rodape-texto); }
+</style>

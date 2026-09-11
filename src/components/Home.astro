@@ -27,17 +27,14 @@ const indicadores = [
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
 ---
-<Base titulo={t.titulo} descricao={t.descricao} idioma={idioma}>
-  <header class="topo">
-    <div class="container">
-      <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto
-           chega ao leitor de tela. Aqui o h1 tem texto real, oculto
-           visualmente, e o logotipo é imagem com alt. -->
-      <h1><span class="sr-only">Alupar</span></h1>
-    </div>
-  </header>
-
+<Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
+    <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto
+         chega ao leitor de tela. Aqui o h1 tem texto real, oculto
+         visualmente, e o logotipo (no Cabecalho, agora vindo do Base) é
+         imagem com alt. -->
+    <h1 class="sr-only">Alupar</h1>
+
     <!-- 1. Rotativo de banners — sem autoplay sem controle, com altura
          reservada e recorte próprio por breakpoint. -->
     <section aria-label={t.destaques}><!-- TODO S2 --></section>

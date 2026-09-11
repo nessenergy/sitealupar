@@ -33,6 +33,10 @@
   --cinza-fundo:     #F8F8F8;
   --branco:          #FFFFFF;
 
+  /* Rodapé do tema atual — não estão no MIV, estão no site */
+  --rodape-fundo:    #231F20;
+  --rodape-texto:    #B0AFAF;   /* 7,4:1 sobre o fundo */
+
   /* Tipografia — MIV determina Segoe UI, que não se licencia para web.
      Open Sans é a fonte oficial de web (decisão D12), com Arial como
      alternativa, exatamente como o manual já prevê para o desktop. */
@@ -87,3 +91,6 @@ a:hover { color: var(--azul); }
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
+
+body { min-height: 100vh; display: flex; flex-direction: column; }
+body > main { flex: 1; }

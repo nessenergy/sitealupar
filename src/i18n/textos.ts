@@ -41,6 +41,15 @@ interface Textos {
   videos: string;
   sustentabilidade: string;
   indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
+  idioma: string;
+  logo: string;
+  menu: { rotulo: string; itens: { rotulo: string; href: string }[] };
+  ri: string;
+  novaAba: string;
+  rodape: {
+    direitos: string; privacidade: string; privacidadeHref: string;
+    conduta: string; condutaHref: string; terceiros: string; denuncias: string; topo: string;
+  };
 }
 
 export const textos: Record<Idioma, Textos> = {
@@ -61,6 +70,28 @@ export const textos: Record<Idioma, Textos> = {
       capacidade: 'MW de capacidade instalada',
       rating: 'rating em escala nacional, Fitch',
     },
+    idioma: 'Idioma',
+    logo: 'Alupar — página inicial', // novo
+    menu: {
+      rotulo: 'Menu',
+      itens: [
+        { rotulo: 'A Companhia', href: '/a-companhia/' },
+        { rotulo: 'Área de atuação', href: '/area-de-atuacao/' },
+        { rotulo: 'Empresas', href: '/empresas/' },
+        { rotulo: 'Inovação e P&D', href: '/inovacao-pesquisa-e-desenvolvimento/' },
+        { rotulo: 'Trabalhe Conosco', href: 'https://alupar.gupy.io/' },
+        { rotulo: 'Contato', href: '/contato/' },
+      ],
+    },
+    ri: 'Relações com Investidores',
+    novaAba: 'abre em nova aba',
+    rodape: {
+      direitos: 'Todos os direitos reservados',
+      privacidade: 'Política de Privacidade', privacidadeHref: '/politica-de-privacidade/',
+      conduta: 'Código de Conduta', condutaHref: 'https://arquivos.alupar.com.br/documentos/codigo-de-conduta.pdf',
+      terceiros: 'Código de Conduta de Terceiros', denuncias: 'Canal de Denúncias',
+      topo: 'Voltar ao topo', // novo
+    },
   },
   en: {
     titulo: 'Alupar — Institutional',
@@ -79,6 +110,27 @@ export const textos: Record<Idioma, Textos> = {
       capacidade: 'MW of installed capacity',
       rating: 'national scale rating, Fitch',
     },
+    idioma: 'Language',
+    logo: 'Alupar — home', // novo
+    menu: {
+      rotulo: 'Menu',
+      itens: [
+        { rotulo: 'Company', href: '/en/a-companhia/' },
+        { rotulo: 'Business Segment', href: '/en/area-de-atuacao/' },
+        { rotulo: 'Companies', href: '/en/empresas/' },
+        { rotulo: 'Careers', href: 'https://alupar.gupy.io/' }, // novo — decisão P7
+        { rotulo: 'Contact Us', href: '/en/contato/' },
+      ],
+    },
+    ri: 'Investor Relations',
+    novaAba: 'opens in a new tab',
+    rodape: {
+      direitos: 'All rights reserved',
+      privacidade: 'Privacy Policy', privacidadeHref: '/en/politica-de-privacidade/',
+      conduta: 'Code of Ethics', condutaHref: 'https://arquivos.alupar.com.br/documentos/code-of-ethics.pdf',
+      terceiros: 'Third Parties Code of Conduct', denuncias: 'Reporting Channel',
+      topo: 'Back to top', // novo
+    },
   },
   es: {
     titulo: 'Alupar — Institucional',
@@ -96,6 +148,27 @@ export const textos: Record<Idioma, Textos> = {
       paises: 'países: Brasil, Colombia, Perú y Chile',
       capacidade: 'MW de capacidad instalada',
       rating: 'calificación en escala nacional, Fitch',
+    },
+    idioma: 'Idioma',
+    logo: 'Alupar — inicio', // novo
+    menu: {
+      rotulo: 'Menú',
+      itens: [
+        { rotulo: 'Compañía', href: '/es/a-companhia/' },
+        { rotulo: 'Segmento de Negocio', href: '/es/area-de-atuacao/' },
+        { rotulo: 'Empresas', href: '/es/empresas/' },
+        { rotulo: 'Trabaje con nosotros', href: 'https://alupar.gupy.io/' }, // novo — decisão P7
+        { rotulo: 'Contacto', href: '/es/contato/' },
+      ],
+    },
+    ri: 'Relación con Inversores',
+    novaAba: 'abre en una pestaña nueva',
+    rodape: {
+      direitos: 'Todos los derechos reservados',
+      privacidade: 'Política de privacidad', privacidadeHref: '/es/politica-de-privacidade/',
+      conduta: 'Código de conducta', condutaHref: 'https://arquivos.alupar.com.br/documentos/code-of-ethics.pdf',
+      terceiros: 'Código de Conducta de Terceros', denuncias: 'Canal de Denuncias',
+      topo: 'Volver arriba', // novo
     },
   },
 };

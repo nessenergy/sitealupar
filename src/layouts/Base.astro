@@ -1,14 +1,19 @@
 ---
+import { Picture } from 'astro:assets';
 import '../styles/tokens.css';
 import { IDIOMAS, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
 import mapa from '../../acervo/mapa-de-rotas.json';
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+import faixaInterna from '../assets/tema/bg-interna-01.jpg';
 
 interface Props {
   titulo: string;
   descricao: string;
   idioma?: Idioma;
+  interna?: boolean;
 }
-const { titulo, descricao, idioma = 'pt-br' } = Astro.props;
+const { titulo, descricao, idioma = 'pt-br', interna = true } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).href;
 
 /*
@@ -83,7 +88,15 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
   </head>
   <body>
     <a class="pular" href="#conteudo">{textos[idioma].pularParaConteudo}</a>
+    <Cabecalho idioma={idioma} alternativas={alternativas} />
+    {interna && (
+      /* A faixa de foto das páginas internas do tema (.img-materia): 85/135/185 px. */
+      <Picture src={faixaInterna} alt="" formats={['avif', 'webp']} widths={[768, 1280, 1920]}
+        sizes="100vw" loading="eager" class="faixa-interna" />
+    )}
     <slot />
+    <Rodape idioma={idioma} />
+    <script is:inline src="/js/site.js" defer></script>
     <style>
       .pular {
         position: absolute;
@@ -98,6 +111,9 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
         top: var(--e3);
         color: var(--branco);
       }
+      .faixa-interna { display: block; width: 100%; height: 85px; object-fit: cover; }
+      @media (min-width: 768px) { .faixa-interna { height: 135px; } }
+      @media (min-width: 1200px) { .faixa-interna { height: 185px; } }
     </style>
   </body>
 </html>

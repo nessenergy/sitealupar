@@ -1,0 +1,109 @@
+---
+/**
+ * Cabeçalho restaurado do tema atual (mziq_alupar_inst): barra cinza com o
+ * link do RI e os idiomas, logotipo sobre o box branco (bg-logo.png — o box
+ * que o manual exige sobre foto; não é sobra), menu em caixa alta à direita.
+ *
+ * O que muda, e o problema que autoriza:
+ * - texto da barra em branco, não #E2E2E2: 3,74:1 sobre #6F7273 reprova AA;
+ *   branco dá 4,85:1
+ * - hover e página atual em --verde-texto: #079541 entrega 3,90:1
+ * - logotipo é <img> com alt; o <h1> da home é outro elemento
+ * - idiomas em sigla (decisão P4) e sem busca (decisão P3)
+ * - links PT/EN/ES com área clicável mínima de 24×24 px: o texto de 10px
+ *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
+ *   WCAG 2.2) no gate do Lighthouse (0,96 de acessibilidade, achado no
+ *   Passo 9). Sem fundo nem borda — a aparência não muda.
+ */
+import { textos, type Idioma } from '../i18n/textos';
+
+interface Props { idioma: Idioma; alternativas: { idioma: Idioma; caminho: string }[] }
+const { idioma, alternativas } = Astro.props;
+const t = textos[idioma];
+const HOME = { 'pt-br': '/', en: '/en/', es: '/es/' } as const;
+const SIGLA = { 'pt-br': 'PT', en: 'EN', es: 'ES' } as const;
+const LANG = { 'pt-br': 'pt-BR', en: 'en', es: 'es' } as const;
+const atual = Astro.url.pathname;
+---
+<header class="cabecalho-site" id="topo">
+  <div class="barra">
+    <div class="container barra-itens">
+      <a href="https://ri.alupar.com.br/">{t.ri}</a>
+      <ul class="idiomas" aria-label={t.idioma}>
+        {(Object.keys(HOME) as Idioma[]).map((i) => (
+          <li>
+            <a
+              href={alternativas.find((a) => a.idioma === i)?.caminho ?? HOME[i]}
+              lang={LANG[i]} hreflang={LANG[i]}
+              aria-current={i === idioma ? 'true' : undefined}
+            >{SIGLA[i]}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div class="container principal">
+    <a class="logo" href={HOME[idioma]}>
+      <img src="/logo-alupar.svg" alt={t.logo} width="175" height="57" />
+    </a>
+    <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
+    <nav id="menu-principal" aria-label={t.menu.rotulo}>
+      <ul>
+        {t.menu.itens.map((m) => (
+          <li><a href={m.href} aria-current={atual.startsWith(m.href) ? 'page' : undefined}>{m.rotulo}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Valores do style.css do tema, medidos em 10/09/2026 */
+  .barra { background: var(--cinza); }
+  .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
+  .barra a { color: var(--branco); font-size: 10px; text-transform: uppercase; text-decoration: none; }
+  .idiomas { display: flex; gap: var(--e2); list-style: none; margin: 0; padding: 0; }
+  .idiomas a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 24px; min-height: 24px;
+  }
+  .idiomas a[aria-current] { font-weight: 700; text-decoration: underline; }
+
+  .principal { position: relative; display: flex; justify-content: flex-end; align-items: center; min-height: 60px; }
+  .logo {
+    position: absolute; left: var(--e3); top: 0; z-index: 10;
+    display: grid; place-items: center; width: 150px; height: 83px;
+    background: url('/img/tema/bg-logo-mobile.png') no-repeat center / contain;
+  }
+  .logo img { width: 112px; height: auto; }
+
+  nav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+  nav a {
+    display: block; padding: 15px 4px; margin-inline: var(--e2);
+    font-size: 13px; text-transform: uppercase; color: var(--preto); text-decoration: none;
+  }
+  nav a:hover, nav a[aria-current] { color: var(--verde-texto); }
+
+  @media (max-width: 767px) {
+    .principal { flex-wrap: wrap; min-height: 83px; }
+    .alternar {
+      margin-top: 20px; background: none; border: 0; padding: var(--e2);
+      font: inherit; font-size: 11px; text-transform: uppercase; color: var(--preto);
+    }
+    nav { width: 100%; }
+    nav ul { flex-direction: column; }
+    nav a { border-bottom: 1px solid var(--cinza-borda); margin: 0; }
+    /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
+    nav[data-recolhivel] { display: none; }
+    .alternar[aria-expanded='true'] + nav { display: block; }
+  }
+  @media (min-width: 768px) {
+    .logo { width: 150px; height: 130px; background-image: url('/img/tema/bg-logo.png'); }
+    .logo img { width: 120px; }
+    nav { margin-top: 10px; }
+  }
+  @media (min-width: 992px) {
+    .logo { width: 293px; height: 200px; }
+    .logo img { width: 175px; }
+  }
+</style>
