@@ -22,6 +22,7 @@ Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 | Um banner só na home, sem rotativo nem pontos de navegação | Regra 0.2 do Marco 0 — `docs/marco-0-runbook.md` |
 | Faixa "A Alupar em números" entre o banner e as caixas da home; km de linhas e MW instalados aparecem como "—": valores pendentes da Alupar, marcados no site | Decisão D10 — `docs/decisoes.md` |
 | Círculo de "voltar ao topo" com contorno claro e a seta "︿" dentro | Comentário de `src/components/Rodape.astro` (WCAG 1.4.11) |
+| Links do rodapé com linha de 24 px: onde a lista quebra (390 e 768), as linhas ficam a 24 px uma da outra, não a ~16 px | Com 16 px entre as linhas, o espaço livre em volta de cada link mede 15,8 px; target-size (WCAG 2.5.8) pede 24 px — comentário de `src/components/Rodape.astro` |
 | Sem a linha "Powered by MZ" no rodapé | Comentário de `src/components/Rodape.astro` — o fornecedor sai com o contrato |
 
 ## Divergências

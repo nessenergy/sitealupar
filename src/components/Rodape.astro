@@ -49,7 +49,10 @@ const externos = [
      com o item da esquerda, para não abrir a linha de baixo na quebra. */
   li { padding-inline: 5px; }
   li:not(:first-child, :last-child)::after { content: '|' / ''; margin-left: 13px; }
-  a { color: var(--rodape-texto); text-decoration: none; }
+  /* Linha de 24 px nos links, não os ~16 px do tema: quando a lista quebra,
+     com 16 px entre as linhas o espaço livre em volta de cada link mede
+     15,8 px e reprova target-size (WCAG 2.5.8 pede 24 px). */
+  a { display: inline-block; line-height: 24px; color: var(--rodape-texto); text-decoration: none; }
   /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
   a:hover, a:focus { color: var(--rodape-texto); text-decoration: underline; }
   @media (max-width: 767px) {
