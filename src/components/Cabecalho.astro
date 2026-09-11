@@ -67,7 +67,13 @@ const atual = Astro.url.pathname;
 </header>
 
 <style>
-  /* Valores do style.css do tema, medidos em 10/09/2026 */
+  /* Valores do style.css e do bootstrap.css do tema, medidos em 11/09/2026 */
+
+  /* .container do bootstrap: 15 px de cada lado e largura fixa de 750, 970
+     e 1170 px a partir de 768, 992 e 1200 px — em 1280 o cabeçalho vai de
+     x 70 a 1210, como no tema. */
+  .container { max-width: none; padding-inline: 15px; }
+
   .barra { background: var(--cinza); }
   .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
   .barra a { color: var(--branco); font-size: 10px; text-transform: uppercase; text-decoration: none; }
@@ -78,18 +84,13 @@ const atual = Astro.url.pathname;
   }
   .idiomas a[aria-current] { font-weight: 700; text-decoration: underline; }
 
-  .principal { position: relative; display: flex; justify-content: flex-end; align-items: center; min-height: 60px; }
-  .logo {
-    position: absolute; left: var(--e3); top: 0; z-index: 10;
-    display: grid; place-items: center; width: 150px; height: 83px;
-    background: url('/img/tema/bg-logo-mobile.png') no-repeat center / cover;
-  }
-  .logo img { width: 112px; height: auto; }
+  /* img/logo-alupar-mobile.png do tema: 112 px até 991 px de largura. */
+  .logo img { display: block; width: 112px; height: auto; }
 
-  nav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+  nav ul { list-style: none; margin: 0; padding: 0; }
   nav a {
-    display: block; padding: 15px 4px; margin-inline: var(--e2);
-    font-size: 13px; text-transform: uppercase; color: var(--preto); text-decoration: none;
+    display: block; padding: 15px 4px;
+    font-size: 13px; line-height: 20px; text-transform: uppercase; color: var(--preto); text-decoration: none;
   }
   nav a:hover, nav a[aria-current] { color: var(--verde-texto); }
 
@@ -105,11 +106,10 @@ const atual = Astro.url.pathname;
        bg-logo-mobile.png centralizado); logotipo de 112 px a 20 px do topo e
        30 px da esquerda; botão a 20 px do topo e 15 px da direita. */
     .principal {
-      flex-wrap: wrap; align-items: flex-start; min-height: 0; padding-inline: 0;
+      display: flex; flex-wrap: wrap; align-items: flex-start; padding-inline: 0;
       background: url('/img/tema/bg-logo-mobile.png') no-repeat center top;
     }
-    .logo { position: static; display: block; width: auto; height: 83px; padding: 20px 0 0 30px; background: none; }
-    .logo img { display: block; }
+    .logo { display: block; height: 83px; padding: 20px 0 0 30px; }
     .alternar {
       margin: 20px 15px 0 auto; padding: 0; border: 0; background: none; min-width: 24px;
       font: inherit; font-size: 8px; line-height: 11px; text-transform: uppercase; color: var(--branco);
@@ -123,16 +123,25 @@ const atual = Astro.url.pathname;
     .logo:focus-visible, .alternar:focus-visible { outline-color: var(--branco); }
     .logo:focus-visible { outline-offset: -3px; }
     nav { width: 100%; padding-inline: 15px; }
-    nav ul { flex-direction: column; }
-    nav a { border-bottom: 1px solid var(--cinza-borda); margin: 0; }
+    nav a { border-bottom: 1px solid var(--cinza-borda); }
     /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
     nav[data-recolhivel] { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
   }
   @media (min-width: 768px) {
-    .logo { width: 150px; height: 130px; background-image: url('/img/tema/bg-logo.png'); }
-    .logo img { width: 120px; }
-    nav { margin-top: 10px; }
+    .container { width: 750px; }
+    /* O box do logotipo começa no topo da página, sobre a barra de 33 px
+       (h1.logo flutua dentro dela), e a faixa branca do menu desce até a
+       base do box. O menu flutua à direita: se não cabe ao lado do box, desce
+       para baixo dele, como no tema (em 768 px, em português). */
+    .principal { display: flow-root; }
+    .logo {
+      float: left; position: relative; z-index: 1; margin-top: -33px;
+      display: grid; place-items: center; width: 150px; height: 130px;
+      background: url('/img/tema/bg-logo.png') no-repeat center;
+    }
+    nav { float: right; margin-top: 10px; }
+    nav ul { display: flex; flex-wrap: wrap; }
     /* O botão só existe no celular; no desktop o menu fica sempre à vista,
        como no tema. */
     .alternar { display: none; }
@@ -140,7 +149,13 @@ const atual = Astro.url.pathname;
     .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
+    .container { width: 970px; }
     .logo { width: 293px; height: 200px; }
     .logo img { width: 175px; }
+    nav { margin-top: 30px; }
+    nav a { padding-inline: 7px; }
+  }
+  @media (min-width: 1200px) {
+    .container { width: 1170px; }
   }
 </style>
