@@ -101,6 +101,9 @@ const atual = Astro.url.pathname;
     .logo { width: 150px; height: 130px; background-image: url('/img/tema/bg-logo.png'); }
     .logo img { width: 120px; }
     nav { margin-top: 10px; }
+    /* O botão só existe no celular; no desktop o menu fica sempre à vista,
+       como no tema. */
+    .alternar { display: none; }
   }
   @media (min-width: 992px) {
     .logo { width: 293px; height: 200px; }
