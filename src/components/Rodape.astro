@@ -1,8 +1,8 @@
 ---
 /**
- * Rodapé do tema: fundo #231F20, caixa alta 11px, links separados por "|".
- * Sai o "Powered by MZ". Os códigos de conduta passam a vir do R2 — hoje
- * moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ * Rodapé do tema: fundo #231F20, caixa alta 11px, links sem sublinhado
+ * separados por "|". Sai o "Powered by MZ". Os códigos de conduta passam a
+ * vir do R2 — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
  *
  * O círculo de "voltar ao topo" usa --rodape-texto e não o #535252 do tema:
  * 2,2:1 sobre o fundo reprova o 3:1 de componente de interface (WCAG 1.4.11).
@@ -39,11 +39,20 @@ const externos = [
     color: var(--rodape-texto); text-decoration: none; line-height: 1;
   }
   ul {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0 6px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3px;
     list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
     border-bottom: 1px solid #2E2A2B;
     font-size: 11px; text-transform: uppercase; color: var(--rodape-texto);
   }
-  li:nth-child(n + 3)::before { content: '|' / ''; margin-right: 6px; }
-  a { color: var(--rodape-texto); }
+  /* .list-inline > li do bootstrap: 5 px de cada lado; o espaço entre os li
+     inline-block dá os outros 3 px — ~13 px entre o texto e o "|". O "|" vai
+     com o item da esquerda, para não abrir a linha de baixo na quebra. */
+  li { padding-inline: 5px; }
+  li:not(:first-child, :last-child)::after { content: '|' / ''; margin-left: 13px; }
+  a { color: var(--rodape-texto); text-decoration: none; }
+  /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
+  a:hover, a:focus { color: var(--rodape-texto); text-decoration: underline; }
+  @media (max-width: 767px) {
+    li:first-child { margin-bottom: 10px; }
+  }
 </style>
