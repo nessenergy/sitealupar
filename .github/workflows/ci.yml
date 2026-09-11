@@ -160,6 +160,21 @@ jobs:
             echo "::error::o dist traz a chave de teste do Turnstile — defina TURNSTILE_SITE_KEY e rode o workflow inteiro de novo (Re-run all jobs), não só o job que falhou"
             exit 1
           fi
+      # O projeto do Pages nasce do próprio CI: sem ele o wrangler recusa o
+      # deploy ("The Pages project … does not exist"). Idempotente — se o
+      # projeto já existe (criado aqui ou pelo painel), só confirma.
+      - name: Projeto do Pages existe
+        shell: bash
+        run: |
+          if npx --yes wrangler@4 pages project list 2>/dev/null | grep -qw sitealupar; then
+            echo "projeto sitealupar já existe"
+          else
+            npx --yes wrangler@4 pages project create sitealupar --production-branch main
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
       # Sem `shell: bash` o passo roda sem pipefail e o `| tee` esconde a falha do wrangler.
       # O nome do ramo entra por `env`, nunca interpolado no `run`: é texto de
       # quem abriu o PR, e interpolado viraria comando no shell.
