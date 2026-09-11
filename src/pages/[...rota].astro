@@ -72,18 +72,20 @@ const dataLegivel = dataVisivel
     article { padding: 10px 20px 40px; }
   }
 
-  .cabecalho {
-    padding-bottom: var(--e4);
-    margin-bottom: var(--e5);
-    border-bottom: 1px solid var(--cinza-borda);
-  }
+  /* `.txt-show h1` do tema: verde, peso normal, 26 px — 48 px a partir de
+     992 px, com 30 px embaixo e sem fio nenhum. Estava azul, em negrito, com
+     um fio cinza que o tema não tem. O verde é --verde-texto (4,51:1); o de
+     marca dá 3,90:1 e reprova AA. */
+  .cabecalho { margin-bottom: var(--e4); }
   .cabecalho h1 {
-    margin: 0;
-    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    margin: 0 0 30px;
+    font-size: 26px;
+    font-weight: 400;
     line-height: 1.2;
-    color: var(--azul);
+    color: var(--verde-texto);
     text-wrap: balance;
   }
+  @media (min-width: 992px) { .cabecalho h1 { font-size: 48px; } }
   .cabecalho time {
     display: block;
     margin-top: var(--e2);
@@ -92,19 +94,75 @@ const dataLegivel = dataVisivel
   }
 
   /* O corpo é HTML herdado do site atual: a folha precisa dar conta do que
-     vier, e não do que gostaríamos que viesse. */
+     vier, e não do que gostaríamos que viesse. As classes do tema chegam
+     inteiras no corpo do acervo (txt-show, list-show, text-justify, btn-azul,
+     panel-body), então o valor de cada regra é o do style.css do tema. */
+  .corpo { line-height: 26px; }
+
+  /* .txt-show h2/h3/h4: grandes e em peso normal. O h3 é verde pelo mesmo
+     seletor solto que pinta o título das caixas da home. */
   .corpo :global(h2) {
     margin: var(--e6) 0 var(--e3);
-    font-size: 1.375rem;
+    font-size: 32px;
+    font-weight: 400;
     line-height: 1.3;
     color: var(--azul);
   }
-  .corpo :global(h3) { margin: var(--e5) 0 var(--e2); font-size: 1.125rem; }
+  .corpo :global(h3) {
+    margin: var(--e5) 0 var(--e2);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--verde-texto);
+  }
+  .corpo :global(h4) { margin: var(--e5) 0 var(--e2); font-size: 20px; font-weight: 400; color: var(--cinza); }
   .corpo :global(p) { margin: 0 0 var(--e3); }
   .corpo :global(ul), .corpo :global(ol) { margin: 0 0 var(--e3); padding-left: var(--e4); }
   .corpo :global(li) { margin-bottom: var(--e1); }
   .corpo :global(img) { max-width: 100%; height: auto; }
-  .corpo :global(strong) { font-weight: 600; }
+
+  /* O tema zera o negrito do conteúdo (`strong { font-weight: normal }`): os
+     rótulos da FAQ, os nomes das empresas e a abertura da ata saem em peso
+     normal, como no site atual. */
+  .corpo :global(strong) { font-weight: 400; }
+
+  /* Link de texto em azul, como no tema. O sublinhado NÃO sai: sem ele, azul e
+     preto do texto ficam a 1,59:1 um do outro, abaixo dos 3:1 que a WCAG 1.4.1
+     exige para distinguir link por cor — fica em Mudanças deliberadas. */
+  .corpo :global(a) { color: var(--azul); }
+
+  /* Alinhamentos que o conteúdo declara e ninguém estilizava. */
+  .corpo :global(.text-justify) { text-align: justify; }
+  .corpo :global(.text-center), .corpo :global(.aligncenter) { text-align: center; }
+  .corpo :global(.alignright) { text-align: right; }
+
+  /* A limpeza do conteúdo tirou os `style` embutidos, e com eles o centro dos
+     mapas. A classe do WordPress sobreviveu: é ela que volta a centralizar —
+     numa imagem, `text-align` no próprio elemento não centraliza nada. */
+  .corpo :global(img.aligncenter) { display: block; margin-inline: auto; }
+
+  /* .list-show do tema: marcador verde desenhado, no lugar do disco do
+     navegador, com 17 px de recuo. */
+  .corpo :global(.list-show ul) { list-style: none; padding-left: 0; }
+  .corpo :global(.list-show ul li) { position: relative; padding-left: 17px; }
+  .corpo :global(.list-show ul li::before) {
+    content: '\2022';
+    position: absolute; left: 0; top: -2px;
+    font-size: 1.5em; color: var(--verde);
+  }
+
+  /* .panel-body do bootstrap, que o tema herda: é o recuo dos parágrafos do
+     Programa de P&D. */
+  .corpo :global(.panel-body) { padding: 15px; }
+
+  /* a.btn-azul do tema: botão azul de caixa alta, não link de texto. */
+  .corpo :global(.btn-azul) {
+    display: inline-block; padding: 10px 20px;
+    background: var(--azul-hover); color: var(--branco);
+    text-transform: uppercase; text-decoration: none;
+  }
+  .corpo :global(.btn-azul:hover), .corpo :global(.btn-azul:focus) {
+    background: var(--azul); color: var(--branco);
+  }
 
   .corpo :global(.rolagem) {
     overflow-x: auto;
