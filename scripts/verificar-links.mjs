@@ -54,8 +54,6 @@ const servido = (caminho) => servidoEm(DIST, caminho);
  */
 const HERDADOS = [
   { teste: /\/Download\.aspx/i, porque: 'download de plataforma anterior; já morto no site atual' },
-  { teste: /\/(news|las-noticias|noticias)\/page\/\d+\/?$/, porque: 'paginação da listagem de notícias, que ainda não existe (issue #17)' },
-  { teste: /\/noticia\/[^/]*(?:earnings-release|divulgacao-de-resultados)[^/]*\/?$/i, porque: 'notícia cujo conteúdo mora em serviço da MZ e não veio no acervo (issue #43)' },
 ];
 
 const paginas = html(DIST);

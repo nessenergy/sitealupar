@@ -18,3 +18,7 @@ const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[i
     <ul>{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
   </main>
 </Base>
+
+<style>
+  .pagina { padding-block: var(--e6) var(--e7); }
+</style>

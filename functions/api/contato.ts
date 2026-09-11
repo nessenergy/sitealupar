@@ -13,22 +13,41 @@ interface Env {
 }
 
 export async function onRequestPost({ request, env }: { request: Request; env: Env }): Promise<Response> {
-  const d = Object.fromEntries([...(await request.formData())].map(([k, v]) => [k, String(v)]));
-  const prefixo = ['/', '/en/', '/es/'].includes(d.prefixo) ? d.prefixo : '/';
+  let prefixo = '/';
   const volta = (aviso: 'obrigado' | 'nao-enviado') =>
     Response.redirect(new URL(`${prefixo}contato/${aviso}/`, request.url).toString(), 303);
 
+  // Corpo que não é formulário (POST cru, multipart truncado) volta para o
+  // aviso como qualquer outra falha, em vez de estourar em erro 500.
+  let d: Record<string, string>;
+  try {
+    d = Object.fromEntries([...(await request.formData())].map(([k, v]) => [k, String(v)]));
+  } catch {
+    return volta('nao-enviado');
+  }
+  if (['/', '/en/', '/es/'].includes(d.prefixo)) prefixo = d.prefixo;
+
   if (validar(d).length) return volta('nao-enviado');
 
-  const verificacao = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    body: new URLSearchParams({
-      secret: env.TURNSTILE_SECRET,
-      response: d['cf-turnstile-response'] ?? '',
-      remoteip: request.headers.get('CF-Connecting-IP') ?? '',
-    }),
-  });
-  if (!((await verificacao.json()) as { success: boolean }).success) return volta('nao-enviado');
+  // Siteverify fora do ar ou respondendo algo que não é JSON: não confirmado.
+  let confirmado = false;
+  try {
+    const verificacao = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: new URLSearchParams({
+        secret: env.TURNSTILE_SECRET,
+        response: d['cf-turnstile-response'] ?? '',
+        remoteip: request.headers.get('CF-Connecting-IP') ?? '',
+      }),
+    });
+    confirmado = ((await verificacao.json()) as { success?: boolean }).success === true;
+  } catch {
+    // segue como não confirmado
+  }
+  if (!confirmado) return volta('nao-enviado');
+
+  // Quebra de linha no assunto é o vetor clássico de injeção de cabeçalho de e-mail.
+  const assunto = d.assunto.replace(/[\r\n\t]+/g, ' ').trim();
 
   const envio = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -37,9 +56,9 @@ export async function onRequestPost({ request, env }: { request: Request; env: E
       from: env.CONTATO_REMETENTE,
       to: env.CONTATO_DESTINO,
       reply_to: d.email.trim(),
-      subject: `[alupar.com.br] ${d.assunto.trim()}`,
+      subject: `[alupar.com.br] ${assunto}`,
       text: ['nome', 'email', 'empresa', 'telefone', 'assunto', 'mensagem'].map((k) => `${k}: ${d[k] ?? ''}`).join('\n'),
     }),
-  });
-  return volta(envio.ok ? 'obrigado' : 'nao-enviado');
+  }).catch(() => null);
+  return volta(envio?.ok ? 'obrigado' : 'nao-enviado');
 }

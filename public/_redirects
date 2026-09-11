@@ -30,7 +30,8 @@
 /video/                                            /faq/videos-dos-projetos-sociais-apoiados-pela-alupar/   301
 /sustainability/                                   /en/faq/sustainability/   301
 /index.php                                         /   301
-/rss/                                              /feed/   301
+# /rss/ ia para /feed/, que o build não gera: vai para a listagem de notícias.
+/rss/                                              /noticias/   301
 /sitemap.xml                                       /sitemap-index.xml   301
 /wp-sitemap.xml                                    /sitemap-index.xml   301
 

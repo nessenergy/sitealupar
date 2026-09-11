@@ -61,7 +61,6 @@ const REMAPA = [
  * em vez de ser afrouxado até não pegar mais nada.
  */
 const NAO_SAO_PAGINAS = {
-  '/feed': 'feed RSS, gerado pelo build e não pelo mapa de rotas',
   '/sitemap-index.xml': 'índice de sitemap, gerado por @astrojs/sitemap',
 };
 

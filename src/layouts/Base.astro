@@ -14,8 +14,10 @@ interface Props {
   descricao: string;
   idioma?: Idioma;
   interna?: boolean;
+  /** Página que não deve ser indexada (404, avisos do contato): sem canonical. */
+  noindex?: boolean;
 }
-const { titulo, descricao, idioma = 'pt-br', interna = true } = Astro.props;
+const { titulo, descricao, idioma = 'pt-br', interna = true, noindex = false } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).href;
 
 /*
@@ -75,7 +77,9 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <title>{titulo}</title>
     <!-- A home atual não tem meta description. -->
     <meta name="description" content={descricao} />
-    <link rel="canonical" href={url} />
+    {/* Canonical diz "indexe esta"; noindex diz o contrário. Os dois juntos
+        são sinal contraditório — sai o canonical. */}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={url} />}
 
     <!-- hreflang por rota, não por ?lang= -->
     {alternativas.map((a) => (

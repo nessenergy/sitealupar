@@ -21,7 +21,7 @@ if (!item) throw new Error(`acervo sem ${pre}/contato/`);
 // `||`, não `??`: variável de repositório ausente chega ao build como string vazia.
 const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
 ---
-<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={Boolean(aviso)}>
   <main id="conteudo" class="container pagina">
     <h1>{item.titulo}</h1>
     {aviso && <p class="aviso" role="status">{aviso === 'obrigado' ? f.obrigado : f.naoEnviado}</p>}
@@ -46,7 +46,8 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
       </form>
     )}
   </main>
-  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {/* Sem formulário (aviso de "obrigado"), o Turnstile não tem o que proteger. */}
+  {aviso !== 'obrigado' && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 </Base>
 
 <style>

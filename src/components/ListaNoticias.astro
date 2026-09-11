@@ -27,11 +27,15 @@ const titulo = pagina
         </li>
       ))}
     </ul>
+    {/* Arquivo de uma página só (hoje, o ES): sem anterior nem próxima, o
+        <nav> seria um marco vazio anunciado pelo leitor de tela. */}
     {pagina ? (
-      <nav class="paginas" aria-label={t.arquivo}>
-        {pagina.url.prev && <a href={pagina.url.prev} rel="prev">{t.anterior}</a>}
-        {pagina.url.next && <a href={pagina.url.next} rel="next">{t.proxima}</a>}
-      </nav>
+      (pagina.url.prev || pagina.url.next) && (
+        <nav class="paginas" aria-label={t.arquivo}>
+          {pagina.url.prev && <a href={pagina.url.prev} rel="prev">{t.anterior}</a>}
+          {pagina.url.next && <a href={pagina.url.next} rel="next">{t.proxima}</a>}
+        </nav>
+      )
     ) : (
       <p><a href={`${prefixo[idioma]}/noticias/arquivo/`}>{t.arquivo}</a></p>
     )}

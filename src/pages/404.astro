@@ -14,7 +14,7 @@ import { textos, lang, IDIOMAS, HOME } from '../i18n/textos';
 
 const pt = textos['pt-br'].naoEncontrada;
 ---
-<Base titulo={`${pt.titulo} — Alupar`} descricao={textos['pt-br'].descricao}>
+<Base titulo={`${pt.titulo} — Alupar`} descricao={textos['pt-br'].descricao} noindex>
   <main id="conteudo" class="container pagina">
     {IDIOMAS.map((idioma, n) => {
       const t = textos[idioma].naoEncontrada;
