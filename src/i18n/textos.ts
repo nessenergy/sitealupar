@@ -50,6 +50,13 @@ interface Textos {
     direitos: string; privacidade: string; privacidadeHref: string;
     conduta: string; condutaHref: string; terceiros: string; denuncias: string; topo: string;
   };
+  banner: { legenda: string; alt: string; href: string | null };
+  eixos: { titulo: string; texto: string }[];
+  sustentabilidadeHref: string;
+  verMaisNoticias: string;
+  verMaisVideos: string;
+  saibaMais: string;
+  assistirVideo: string;
 }
 
 export const textos: Record<Idioma, Textos> = {
@@ -92,6 +99,21 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conduta de Terceiros', denuncias: 'Canal de Denúncias',
       topo: 'Voltar ao topo', // novo
     },
+    banner: {
+      legenda: '#SUSTENTABILIDADE',
+      alt: 'Relatório de Sustentabilidade 2025', // novo — o site atual tem alt=""
+      href: 'https://arquivos.alupar.com.br/documentos/relatorio-de-sustentabilidade-2025.pdf',
+    },
+    eixos: [
+      { titulo: 'Meio Ambiente', texto: 'Reposição e recuperação de vegetação florestal nativa' },
+      { titulo: 'Água', texto: 'Manutenção da qualidade da água dos corpos hídricos' },
+      { titulo: 'Fauna e Flora', texto: 'Manutenção da biodiversidade' },
+    ],
+    sustentabilidadeHref: '/sustentabilidade/',
+    verMaisNoticias: 'Veja mais notícias',
+    verMaisVideos: 'Veja mais vídeos',
+    saibaMais: 'Saiba mais do programa',
+    assistirVideo: 'Assistir ao vídeo institucional no YouTube', // novo
   },
   en: {
     titulo: 'Alupar — Institutional',
@@ -131,6 +153,21 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Third Parties Code of Conduct', denuncias: 'Reporting Channel',
       topo: 'Back to top', // novo
     },
+    banner: {
+      legenda: '#SUSTAINABILITY',
+      alt: 'Sustainability Report 2025', // novo
+      href: 'https://arquivos.alupar.com.br/documentos/sustainability-report-2025.pdf',
+    },
+    eixos: [
+      { titulo: 'Environment', texto: 'Replacement and recovery of native forests' },
+      { titulo: 'Water', texto: 'Maintenance of the quality of the water bodies' },
+      { titulo: 'Fauna and Flora', texto: 'Maintenance of biodiversity' },
+    ],
+    sustentabilidadeHref: '/en/sustentabilidade-2/',
+    verMaisNoticias: 'See more news',
+    verMaisVideos: 'See more videos',
+    saibaMais: 'Learn more about the program',
+    assistirVideo: 'Watch the institutional video on YouTube', // novo
   },
   es: {
     titulo: 'Alupar — Institucional',
@@ -170,5 +207,16 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conducta de Terceros', denuncias: 'Canal de Denuncias',
       topo: 'Volver arriba', // novo
     },
+    banner: { legenda: 'Energía que impulsa la vida', alt: 'Energía que impulsa la vida', href: null }, // decisão P1
+    eixos: [
+      { titulo: 'Medio Ambiente', texto: 'Reposición y recuperación de vegetación forestal nativa' },
+      { titulo: 'Agua', texto: 'Mantenimiento de la calidad del agua de los cuerpos hídricos' },
+      { titulo: 'Fauna y Flora', texto: 'Mantenimiento de la biodiversidad' },
+    ],
+    sustentabilidadeHref: '/es/sustentabilidade-2/',
+    verMaisNoticias: 'Más noticias',
+    verMaisVideos: 'Más vídeos',
+    saibaMais: 'Más información del programa',
+    assistirVideo: 'Ver el video institucional en YouTube', // novo
   },
 };

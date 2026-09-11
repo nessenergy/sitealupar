@@ -1,22 +1,31 @@
 ---
 /**
- * A home, uma vez, nos três idiomas.
+ * A home, uma vez, nos três idiomas. A ordem é a do site atual: rotativo,
+ * faixa institucional (D10) e as três caixas — notícias, vídeo, sustentabilidade.
  *
- * Escrever três arquivos quase iguais é como o site atual chegou a servir
- * inglês e espanhol dentro de `<html lang="pt-br">`: a divergência entra por
- * descuido, uma correção de cada vez. Aqui a estrutura é única e o que varia é
- * o idioma.
+ * Rotativo com um banner só: a regra 0.2 do Marco 0 tira o que é anterior a
+ * 2024 e sobra um por idioma. Carrossel volta a ser requisito (H1) com dois.
  *
- * A fidelidade visual vem do restauro nas semanas 1–2, a partir dos templates
- * reais. O que está fixado aqui é a ORDEM das seções, que o restauro preserva,
- * e a faixa institucional aprovada (D10).
+ * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
+ * orçamento inteiro da página — só carrega no clique (public/js/site.js).
+ * Sem JS, o link leva ao vídeo no YouTube.
  */
+import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { textos, type Idioma } from '../i18n/textos';
+import { itens } from '../lib/acervo';
+import { textos, prefixo, lang, type Idioma } from '../i18n/textos';
+import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
+import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
+import bannerEs from '../assets/banners/energia-que-impulsa-la-vida.jpg';
+import capaVideo from '../assets/video-institucional.jpg';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
+const pre = prefixo[idioma];
+const BANNER = { 'pt-br': bannerPt, en: bannerEn, es: bannerEs };
+const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
+const Destaque = t.banner.href ? 'a' : 'div';
 
 // Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
 // número plausível é pior que um espaço vazio, porque ninguém o corrige depois.
@@ -26,20 +35,34 @@ const indicadores = [
   { valor: null,  rotulo: t.indicadores.capacidade },
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
+
+const codigo = { 'pt-br': 'pt', en: 'en', es: 'es' }[idioma];
+const formato = new Intl.DateTimeFormat(lang[idioma], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+const noticias = itens()
+  .filter((i) => i.tipo === 'noticia' && i.idioma === codigo && i.data)
+  .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''))
+  .slice(0, 6);
 ---
 <Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
-    <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto
-         chega ao leitor de tela. Aqui o h1 tem texto real, oculto
-         visualmente, e o logotipo (no Cabecalho, agora vindo do Base) é
-         imagem com alt. -->
+    <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto chega
+         ao leitor de tela. Aqui é texto real, oculto visualmente. -->
     <h1 class="sr-only">Alupar</h1>
 
-    <!-- 1. Rotativo de banners — sem autoplay sem controle, com altura
-         reservada e recorte próprio por breakpoint. -->
-    <section aria-label={t.destaques}><!-- TODO S2 --></section>
+    <section aria-label={t.destaques}>
+      <Destaque href={t.banner.href ?? undefined} class="banner">
+        <!-- 1350w no lugar de 1280w: o banner é full-bleed (sem .container), e o
+             preset desktop do Lighthouse mede a caixa em 1335 px — o degrau de
+             1280w força o navegador a saltar para 1920w. Com a foto do banner ES
+             (energia-que-impulsa-la-vida.jpg), isso mediu 38 121 B de
+             sobra-de-pixel e reprovou "uses-responsive-images" (score 0, exigido
+             ≥0,9). Ajuste de build, invisível — não muda nada que se veja. -->
+        <Picture src={BANNER[idioma]} alt={t.banner.alt} formats={['avif', 'webp']}
+          widths={[640, 1350, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
+        <span class="legenda">{t.banner.legenda}</span>
+      </Destaque>
+    </section>
 
-    <!-- 2. Faixa institucional (D10) — única adição de estrutura. -->
     <section class="faixa" aria-label={t.emNumeros}>
       <div class="container">
         <ul>
@@ -53,18 +76,56 @@ const indicadores = [
       </div>
     </section>
 
-    <!-- 3. Notícias — feed do RI (D5), 24 meses na listagem (D9). -->
-    <section aria-labelledby="h-noticias">
-      <h2 id="h-noticias">{t.noticias}</h2>
-      <!-- TODO S3 -->
-    </section>
+    <div class="container caixas">
+      <section class="caixa" aria-labelledby="h-noticias">
+        <h2 id="h-noticias">{t.noticias}</h2>
+        <ul class="noticias">
+          {noticias.map((n) => (
+            <li>
+              <time datetime={n.data}>{formato.format(new Date(`${n.data}T00:00:00Z`))}</time>
+              <a href={n.rota}>{n.titulo}</a>
+            </li>
+          ))}
+        </ul>
+        <a class="mais" href={`${pre}/noticias/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisNoticias}</a>
+      </section>
 
-    <section aria-label={t.videoInstitucional}><!-- 4 --></section>
-    <section aria-label={t.sustentabilidade}><!-- 5 --></section>
+      <section class="caixa" aria-labelledby="h-video">
+        <h2 id="h-video">{t.videoInstitucional}</h2>
+        <a class="video" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4" data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
+          <Picture src={capaVideo} alt="" formats={['avif', 'webp']} widths={[360, 720]} sizes="(min-width: 768px) 360px, 100vw" />
+          <span class="sr-only">{t.assistirVideo}</span>
+        </a>
+        <a class="mais" href={`${pre}/videos/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}</a>
+      </section>
+
+      <section class="caixa" aria-labelledby="h-sustentabilidade">
+        <h2 id="h-sustentabilidade">{t.sustentabilidade}</h2>
+        <ul class="eixos">
+          {t.eixos.map((e, n) => (
+            <li>
+              <img src={ICONES[n]} alt="" width="29" height="38" />
+              <div>
+                <h3><a href={t.sustentabilidadeHref}>{e.titulo}</a></h3>
+                <p>{e.texto}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <a class="mais" href={t.sustentabilidadeHref}><span class="circulo" aria-hidden="true">+</span> {t.saibaMais}</a>
+      </section>
+    </div>
   </main>
 </Base>
 
 <style>
+  .banner { position: relative; display: block; }
+  .banner :global(img) { display: block; width: 100%; height: auto; }
+  .legenda {
+    position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%);
+    color: var(--branco); font-size: clamp(1rem, 0.6rem + 1.6vw, 1.75rem); font-weight: 700;
+  }
+
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
   .faixa ul {
     list-style: none; margin: 0; padding: var(--e5) 0;
@@ -75,4 +136,43 @@ const indicadores = [
   .valor { font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--verde-texto); }
   .valor[data-pendente='true'] { color: var(--cinza); }
   .rotulo { font-size: .875rem; color: var(--preto); }
+
+  /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
+  .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
+  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(3, 1fr); } }
+  .caixa {
+    display: flex; flex-direction: column; background: var(--branco);
+    padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
+  }
+  .caixa h2 { color: var(--azul); font-size: 20px; text-transform: uppercase; margin: 20px 0; }
+
+  .noticias { list-style: none; margin: 0; padding: 0; flex: 1; }
+  .noticias li { margin-bottom: var(--e3); }
+  .noticias time { display: block; font-weight: 700; }
+  .noticias a { color: var(--preto); }
+
+  .video { position: relative; display: block; aspect-ratio: 4 / 3; flex: 1; }
+  .video :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .video::after {
+    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
+    font-size: 3rem; color: var(--branco);
+  }
+
+  .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
+  .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
+  .eixos li:last-child { border-bottom: none; }
+  .eixos h3 { font-size: 1rem; margin: 0 0 var(--e1); }
+  .eixos h3 a { color: var(--preto); }
+  .eixos p { margin: 0; line-height: 24px; }
+
+  /* a.btn-link-mais do tema: caixa alta 12px, sublinhado verde de 4px */
+  .mais {
+    align-self: flex-end; margin: 9px -20px 0 0; padding: 0 5px 12px;
+    position: relative; color: var(--preto); font-size: 12px; text-transform: uppercase; text-decoration: none;
+  }
+  .mais::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 4px solid var(--verde); }
+  .circulo {
+    display: inline-block; width: 15px; height: 15px; margin-right: 3px;
+    border: 1px solid #5F5D5E; border-radius: 50%; line-height: 12px; text-align: center;
+  }
 </style>
