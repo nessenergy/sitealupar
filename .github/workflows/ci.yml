@@ -144,13 +144,20 @@ jobs:
       # produção recusa token de teste: toda mensagem do formulário de contato
       # voltaria "não enviado" e ninguém da Alupar saberia. Só no push para a
       # main — o preview de PR pode usar a chave de teste.
+      # Uma reexecução só do job que falhou reaproveita o artefato do build anterior,
+      # que pode trazer a chave de teste. Por isso confere também o dist, não só a variável.
       - name: Chave de produção do Turnstile definida
         if: github.event_name == 'push'
+        shell: bash
         env:
-          CHAVE: ${{ vars.TURNSTILE_SITE_KEY }}
+          TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
         run: |
-          if [ -z "$CHAVE" ]; then
-            echo "::error::vars.TURNSTILE_SITE_KEY está vazia: o build saiu com a chave de teste do Turnstile, que o segredo de produção recusa — toda mensagem de contato seria perdida em silêncio. Definir em Settings → Secrets and variables → Actions → Variables e rodar o CI de novo."
+          if [ -z "$TURNSTILE_SITE_KEY" ]; then
+            echo "::error::vars.TURNSTILE_SITE_KEY vazia — a produção sairia com a chave de teste do Turnstile e todo contato seria recusado"
+            exit 1
+          fi
+          if grep -rqF 1x00000000000000000000AA dist; then
+            echo "::error::o dist traz a chave de teste do Turnstile — defina TURNSTILE_SITE_KEY e rode o workflow inteiro de novo (Re-run all jobs), não só o job que falhou"
             exit 1
           fi
       # Sem `shell: bash` o passo roda sem pipefail e o `| tee` esconde a falha do wrangler.
