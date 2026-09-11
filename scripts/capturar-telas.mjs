@@ -55,15 +55,10 @@ if (!alvo) {
   process.exit(1);
 }
 
-const ws = new WebSocket(alvo.webSocketDebuggerUrl);
-await new Promise((ok, erro) => { ws.onopen = ok; ws.onerror = erro; });
+let ws;
 let seq = 0;
 const respostas = new Map();
 const ouvintes = new Set();
-ws.onmessage = ({ data }) => {
-  const m = JSON.parse(data);
-  if (m.id) { respostas.get(m.id)?.(m); respostas.delete(m.id); } else for (const f of ouvintes) f(m);
-};
 const cdp = (method, params = {}) => new Promise((ok, erro) => {
   const id = ++seq;
   respostas.set(id, (m) => (m.error ? erro(new Error(`${method}: ${m.error.message}`)) : ok(m.result)));
@@ -96,6 +91,16 @@ async function capturar(url, largura, arquivo) {
 }
 
 try {
+  ws = new WebSocket(alvo.webSocketDebuggerUrl);
+  await new Promise((ok, erro) => {
+    const temporizador = setTimeout(() => erro(new Error('o Chrome não aceitou a conexão de depuração em 10 s')), 10_000);
+    ws.onopen = () => { clearTimeout(temporizador); ok(); };
+    ws.onerror = (e) => { clearTimeout(temporizador); erro(e); };
+  });
+  ws.onmessage = ({ data }) => {
+    const m = JSON.parse(data);
+    if (m.id) { respostas.get(m.id)?.(m); respostas.delete(m.id); } else for (const f of ouvintes) f(m);
+  };
   await cdp('Page.enable');
   for (const p of lista) {
     for (const lado of [p.antigo, p.novo]) {
@@ -104,7 +109,7 @@ try {
     }
   }
 } finally {
-  ws.close();
+  ws?.close();
   chrome.kill();
 }
 // O relatório lista sempre todos os pares; com --pagina, só aquela foi refeita.
