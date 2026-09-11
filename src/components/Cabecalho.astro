@@ -1,7 +1,7 @@
 ---
 /**
  * Cabeçalho restaurado do tema atual (mziq_alupar_inst): barra cinza com o
- * link do RI e os idiomas, logotipo sobre o box branco (bg-logo.png — o box
+ * link do RI e os idiomas, logotipo sobre o box azul (bg-logo.png — o box
  * que o manual exige sobre foto; não é sobra), menu em caixa alta à direita.
  *
  * O que muda, e o problema que autoriza:
@@ -9,6 +9,10 @@
  *   branco dá 4,85:1
  * - hover e página atual em --verde-texto: #079541 entrega 3,90:1
  * - logotipo é <img> com alt; o <h1> da home é outro elemento
+ * - o logotipo servido é o NEGATIVO (branco), não a versão principal: o box
+ *   é #004F9D sólido e a versão principal é azul do mesmo tom — medi os dois
+ *   PNG do tema e não há um pixel claro neles. O tema atual sempre pareou o
+ *   box com img/logo-alupar.png, que é branco + verde sobre transparente.
  * - idiomas em sigla (decisão P4) e sem busca (decisão P3)
  * - links PT/EN/ES com área clicável mínima de 24×24 px: o texto de 10px
  *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
@@ -41,7 +45,7 @@ const atual = Astro.url.pathname;
   </div>
   <div class="container principal">
     <a class="logo" href={HOME[idioma]}>
-      <img src="/logo-alupar.svg" alt={t.logo} width="175" height="57" />
+      <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
     <nav id="menu-principal" aria-label={t.menu.rotulo}>
@@ -70,7 +74,7 @@ const atual = Astro.url.pathname;
   .logo {
     position: absolute; left: var(--e3); top: 0; z-index: 10;
     display: grid; place-items: center; width: 150px; height: 83px;
-    background: url('/img/tema/bg-logo-mobile.png') no-repeat center / contain;
+    background: url('/img/tema/bg-logo-mobile.png') no-repeat center / cover;
   }
   .logo img { width: 112px; height: auto; }
 
