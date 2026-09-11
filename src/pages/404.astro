@@ -16,21 +16,34 @@ const pt = textos['pt-br'].naoEncontrada;
 ---
 <Base titulo={`${pt.titulo} — Alupar`} descricao={textos['pt-br'].descricao} noindex>
   <main id="conteudo" class="container pagina">
-    {IDIOMAS.map((idioma, n) => {
-      const t = textos[idioma].naoEncontrada;
-      return (
-        <section lang={lang[idioma]}>
-          {n === 0 ? <h1>{t.titulo}</h1> : <h2>{t.titulo}</h2>}
-          <p>{t.texto}</p>
-          <p><a href={HOME[idioma]}>{t.voltar}</a></p>
-        </section>
-      );
-    })}
+    <div class="caixa">
+      {IDIOMAS.map((idioma, n) => {
+        const t = textos[idioma].naoEncontrada;
+        return (
+          <section lang={lang[idioma]}>
+            {n === 0 ? <h1>{t.titulo}</h1> : <h2>{t.titulo}</h2>}
+            <p>{t.texto}</p>
+            <p><a href={HOME[idioma]}>{t.voltar}</a></p>
+          </section>
+        );
+      })}
+    </div>
   </main>
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
+  /* A mesma caixa branca das internas: com o fundo da página no cinza do tema,
+     texto solto sobre o cinza ficaria fora do padrão de todas as outras. */
+  .pagina { padding-block: 0 var(--e7); }
+  .caixa {
+    background: var(--branco);
+    padding: 10px 35px 40px;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
+  }
+  @media (max-width: 767px) {
+    .pagina { padding-inline: 0; }
+    .caixa { padding: 10px 20px 40px; }
+  }
   h1, h2 { color: var(--azul); }
   section + section { margin-top: var(--e5); }
 </style>

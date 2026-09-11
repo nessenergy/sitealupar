@@ -49,6 +49,11 @@
   --rodape-fundo:    #231F20;
   --rodape-texto:    #B0AFAF;   /* 7,4:1 sobre o fundo */
 
+  /* Fundo da página no tema atual (`body` do style.css). O conteúdo não fica
+     direto sobre ele: mora em caixas brancas com sombra (.box-home), na home e
+     nas internas. Também não está no MIV — está no site. */
+  --pagina-fundo:    #ECECEC;
+
   /* Tipografia — MIV determina Segoe UI, que não se licencia para web.
      Open Sans é a fonte oficial de web (decisão D12), com Arial como
      alternativa, exatamente como o manual já prevê para o desktop. */
@@ -70,7 +75,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--preto);
-  background: var(--branco);
+  background: var(--pagina-fundo);
 }
 
 a { color: var(--verde-texto); }

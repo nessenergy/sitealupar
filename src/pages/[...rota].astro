@@ -53,9 +53,24 @@ const dataLegivel = dataVisivel
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
+  /* .box-interna.box-home do tema: o conteúdo das internas mora numa caixa
+     branca com sombra, colada à base da faixa de foto e sobre o fundo cinza da
+     página — daí a margem zero no topo. O recheio é o do tema (10px 35px 40px);
+     no celular a caixa sangra até a borda da tela e o recheio cai para 20 px.
+     A largura da coluna é a da caixa: com `max-width: 72ch` o texto ficava numa
+     tira de ~620 px no meio de uma caixa de 1070 px. */
+  .pagina { padding-block: 0 var(--e7); }
 
-  article { max-width: 72ch; }
+  article {
+    background: var(--branco);
+    padding: 10px 35px 40px;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
+  }
+
+  @media (max-width: 767px) {
+    .pagina { padding-inline: 0; }
+    article { padding: 10px 20px 40px; }
+  }
 
   .cabecalho {
     padding-bottom: var(--e4);
