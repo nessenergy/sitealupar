@@ -76,7 +76,7 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 37 | noticias | todas | corpo | uma linha por notícia (data + título), linhas alternadas em cinza-claro, na largura da caixa | data por extenso acima do título, título em negrito sublinhado, fio entre os itens; em 1280 a lista fica numa coluna de ~226 px no meio da página | D | Tarefa 4 |
 | 38 | videos | todas | corpo | `/video/video-institucional/`: título "Vídeo Institucional" e o corpo em branco (o vídeo não aparece na captura) | `/videos/`: título "Vídeos" e três links, dois com o mesmo nome "ALUPAR INSTITUCIONAL 2017_edit" e um "institucional" | C | pauta |
 | 39 | videos | todas | corpo | título em verde, peso regular | título em preto, negrito (as outras internas usam azul) | D | Tarefa 4 |
-| 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida — 8106a3c |
+| 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida com ajuste de acessibilidade — 8106a3c, e4c7b06 |
 
 Na página empresas, abaixo de ~16.384 px (altura máxima de captura do Chrome) a captura repete o topo da página, nos dois lados: essa parte foi conferida pela estrutura do HTML (mesmas seções, 30 mapas), não visualmente.
 
