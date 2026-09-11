@@ -25,3 +25,6 @@ apresentacao/*.pptx
 apresentacao/*.pdf
 apresentacao/node_modules/
 apresentacao/package-lock.json
+
+# capturas da conferência visual (scripts/capturar-telas.mjs) — binário, fora do git
+capturas/
