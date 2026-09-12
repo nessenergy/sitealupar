@@ -17,11 +17,15 @@
   ]
  },
  "sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo-300x220.png": {
-  "largura": 300,
-  "altura": 220,
+  "largura": 1252,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1252
+  ],
+  "original": "sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo.png"
  },
  "sites/7/2017/08/1_mapas_ri_transmissao-de-energia_ETEM-novo.png": {
   "largura": 1252,
@@ -34,11 +38,15 @@
   ]
  },
  "sites/7/2017/08/10_mapas_ri_transmissao-de-energia_STN-novo-300x219.png": {
-  "largura": 300,
-  "altura": 219,
+  "largura": 1261,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1261
+  ],
+  "original": "sites/7/2017/08/10_mapas_ri_transmissao-de-energia_STN-novo.png"
  },
  "sites/7/2017/08/10_mapas_ri_transmissao-de-energia_STN-novo.png": {
   "largura": 1261,
@@ -51,11 +59,15 @@
   ]
  },
  "sites/7/2017/08/11_mapas_ri_transmissao-de-energia_Transleste-novo-300x213.png": {
-  "largura": 300,
-  "altura": 213,
+  "largura": 1293,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1293
+  ],
+  "original": "sites/7/2017/08/11_mapas_ri_transmissao-de-energia_Transleste-novo.png"
  },
  "sites/7/2017/08/11_mapas_ri_transmissao-de-energia_Transleste-novo.png": {
   "largura": 1293,
@@ -68,11 +80,15 @@
   ]
  },
  "sites/7/2017/08/12_mapas_ri_transmissao-de-energia_Transirape-novo-300x213.png": {
-  "largura": 300,
-  "altura": 213,
+  "largura": 1294,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1294
+  ],
+  "original": "sites/7/2017/08/12_mapas_ri_transmissao-de-energia_Transirape-novo.png"
  },
  "sites/7/2017/08/12_mapas_ri_transmissao-de-energia_Transirape-novo.png": {
   "largura": 1294,
@@ -85,11 +101,15 @@
   ]
  },
  "sites/7/2017/08/13_mapas_ri_transmissao-de-energia_Transudeste-novo-300x213.png": {
-  "largura": 300,
-  "altura": 213,
+  "largura": 1295,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1295
+  ],
+  "original": "sites/7/2017/08/13_mapas_ri_transmissao-de-energia_Transudeste-novo.png"
  },
  "sites/7/2017/08/13_mapas_ri_transmissao-de-energia_Transudeste-novo.png": {
   "largura": 1295,
@@ -102,11 +122,15 @@
   ]
  },
  "sites/7/2017/08/14_mapas_ri_transmissao-de-energia_STC-novo-300x233.png": {
-  "largura": 300,
-  "altura": 233,
+  "largura": 1186,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1186
+  ],
+  "original": "sites/7/2017/08/14_mapas_ri_transmissao-de-energia_STC-novo.png"
  },
  "sites/7/2017/08/14_mapas_ri_transmissao-de-energia_STC-novo.png": {
   "largura": 1186,
@@ -119,11 +143,15 @@
   ]
  },
  "sites/7/2017/08/15_mapas_ri_transmissao-de-energia_Lumitrans-novo-300x214.png": {
-  "largura": 300,
-  "altura": 214,
+  "largura": 1291,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1291
+  ],
+  "original": "sites/7/2017/08/15_mapas_ri_transmissao-de-energia_Lumitrans-novo.png"
  },
  "sites/7/2017/08/15_mapas_ri_transmissao-de-energia_Lumitrans-novo.png": {
   "largura": 1291,
@@ -136,11 +164,15 @@
   ]
  },
  "sites/7/2017/08/16_mapas_ri_transmissao-de-energia_ETES-novo-300x229.png": {
-  "largura": 300,
-  "altura": 229,
+  "largura": 1205,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1205
+  ],
+  "original": "sites/7/2017/08/16_mapas_ri_transmissao-de-energia_ETES-novo.png"
  },
  "sites/7/2017/08/16_mapas_ri_transmissao-de-energia_ETES-novo.png": {
   "largura": 1205,
@@ -153,11 +185,15 @@
   ]
  },
  "sites/7/2017/08/17_mapas_ri_transmissao-de-energia_TME-novo-300x221.png": {
-  "largura": 300,
-  "altura": 221,
+  "largura": 1248,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1248
+  ],
+  "original": "sites/7/2017/08/17_mapas_ri_transmissao-de-energia_TME-novo.png"
  },
  "sites/7/2017/08/17_mapas_ri_transmissao-de-energia_TME-novo.png": {
   "largura": 1248,
@@ -170,11 +206,15 @@
   ]
  },
  "sites/7/2017/08/18_mapas_ri_transmissao-de-energia_ETVG-novo-300x218.png": {
-  "largura": 300,
-  "altura": 218,
+  "largura": 1265,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1265
+  ],
+  "original": "sites/7/2017/08/18_mapas_ri_transmissao-de-energia_ETVG-novo.png"
  },
  "sites/7/2017/08/18_mapas_ri_transmissao-de-energia_ETVG-novo.png": {
   "largura": 1265,
@@ -187,11 +227,15 @@
   ]
  },
  "sites/7/2017/08/2_mapas_ri_transmissao-de-energia_ECTE-novo-300x213.png": {
-  "largura": 300,
-  "altura": 213,
+  "largura": 1298,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1298
+  ],
+  "original": "sites/7/2017/08/2_mapas_ri_transmissao-de-energia_ECTE-novo.png"
  },
  "sites/7/2017/08/2_mapas_ri_transmissao-de-energia_ECTE-novo.png": {
   "largura": 1298,
@@ -204,11 +248,15 @@
   ]
  },
  "sites/7/2017/08/20_mapas_ri_transmissao-de-energia_ELTE-novo-300x207.png": {
-  "largura": 300,
-  "altura": 207,
+  "largura": 1331,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1331
+  ],
+  "original": "sites/7/2017/08/20_mapas_ri_transmissao-de-energia_ELTE-novo.png"
  },
  "sites/7/2017/08/20_mapas_ri_transmissao-de-energia_ELTE-novo.png": {
   "largura": 1331,
@@ -221,11 +269,15 @@
   ]
  },
  "sites/7/2017/08/21_mapas_ri_transmissao-de-energia_ETAP-novo-300x223.png": {
-  "largura": 300,
-  "altura": 223,
+  "largura": 1238,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1238
+  ],
+  "original": "sites/7/2017/08/21_mapas_ri_transmissao-de-energia_ETAP-novo.png"
  },
  "sites/7/2017/08/21_mapas_ri_transmissao-de-energia_ETAP-novo.png": {
   "largura": 1238,
@@ -238,11 +290,15 @@
   ]
  },
  "sites/7/2017/08/22_mapas_ri_transmissao-de-energia_ETC-novo-300x233.png": {
-  "largura": 300,
-  "altura": 233,
+  "largura": 1184,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1184
+  ],
+  "original": "sites/7/2017/08/22_mapas_ri_transmissao-de-energia_ETC-novo.png"
  },
  "sites/7/2017/08/22_mapas_ri_transmissao-de-energia_ETC-novo.png": {
   "largura": 1184,
@@ -255,11 +311,15 @@
   ]
  },
  "sites/7/2017/08/23_mapas_ri_transmissao-de-energia_TPE-novo-300x221.png": {
-  "largura": 300,
-  "altura": 221,
+  "largura": 1247,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1247
+  ],
+  "original": "sites/7/2017/08/23_mapas_ri_transmissao-de-energia_TPE-novo.png"
  },
  "sites/7/2017/08/23_mapas_ri_transmissao-de-energia_TPE-novo.png": {
   "largura": 1247,
@@ -272,11 +332,15 @@
   ]
  },
  "sites/7/2017/08/24_mapas_ri_transmissao-de-energia_TCC-novo-300x220.png": {
-  "largura": 300,
-  "altura": 220,
+  "largura": 1255,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1255
+  ],
+  "original": "sites/7/2017/08/24_mapas_ri_transmissao-de-energia_TCC-novo.png"
  },
  "sites/7/2017/08/24_mapas_ri_transmissao-de-energia_TCC-novo.png": {
   "largura": 1255,
@@ -289,11 +353,15 @@
   ]
  },
  "sites/7/2017/08/26_mapas_ri_transmissao-de-energia_ESTE-novo-300x212.png": {
-  "largura": 300,
-  "altura": 212,
+  "largura": 1299,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1299
+  ],
+  "original": "sites/7/2017/08/26_mapas_ri_transmissao-de-energia_ESTE-novo.png"
  },
  "sites/7/2017/08/26_mapas_ri_transmissao-de-energia_ESTE-novo.png": {
   "largura": 1299,
@@ -306,11 +374,15 @@
   ]
  },
  "sites/7/2017/08/27_mapas_ri_transmissao-de-energia_TSM-novo-300x208.png": {
-  "largura": 300,
-  "altura": 208,
+  "largura": 1326,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1326
+  ],
+  "original": "sites/7/2017/08/27_mapas_ri_transmissao-de-energia_TSM-novo.png"
  },
  "sites/7/2017/08/27_mapas_ri_transmissao-de-energia_TSM-novo.png": {
   "largura": 1326,
@@ -345,11 +417,15 @@
   ]
  },
  "sites/7/2017/08/3_mapas_ri_transmissao-de-energia_ETSE-novo-300x220.png": {
-  "largura": 300,
-  "altura": 220,
+  "largura": 1254,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1254
+  ],
+  "original": "sites/7/2017/08/3_mapas_ri_transmissao-de-energia_ETSE-novo.png"
  },
  "sites/7/2017/08/3_mapas_ri_transmissao-de-energia_ETSE-novo.png": {
   "largura": 1254,
@@ -362,11 +438,15 @@
   ]
  },
  "sites/7/2017/08/4_mapas_ri_transmissao-de-energia_ETEP-novo-300x219.png": {
-  "largura": 300,
-  "altura": 219,
+  "largura": 1263,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1263
+  ],
+  "original": "sites/7/2017/08/4_mapas_ri_transmissao-de-energia_ETEP-novo.png"
  },
  "sites/7/2017/08/4_mapas_ri_transmissao-de-energia_ETEP-novo.png": {
   "largura": 1263,
@@ -379,11 +459,15 @@
   ]
  },
  "sites/7/2017/08/5_mapas_ri_transmissao-de-energia_ESDE-novo-300x218.png": {
-  "largura": 300,
-  "altura": 218,
+  "largura": 1268,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1268
+  ],
+  "original": "sites/7/2017/08/5_mapas_ri_transmissao-de-energia_ESDE-novo.png"
  },
  "sites/7/2017/08/5_mapas_ri_transmissao-de-energia_ESDE-novo.png": {
   "largura": 1268,
@@ -396,11 +480,15 @@
   ]
  },
  "sites/7/2017/08/6_mapas_ri_transmissao-de-energia_EATE-novo-300x208.png": {
-  "largura": 300,
-  "altura": 208,
+  "largura": 1330,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1330
+  ],
+  "original": "sites/7/2017/08/6_mapas_ri_transmissao-de-energia_EATE-novo.png"
  },
  "sites/7/2017/08/6_mapas_ri_transmissao-de-energia_EATE-novo.png": {
   "largura": 1330,
@@ -413,11 +501,15 @@
   ]
  },
  "sites/7/2017/08/7_mapas_ri_transmissao-de-energia_ERTE-novo-300x206.png": {
-  "largura": 300,
-  "altura": 206,
+  "largura": 1341,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1341
+  ],
+  "original": "sites/7/2017/08/7_mapas_ri_transmissao-de-energia_ERTE-novo.png"
  },
  "sites/7/2017/08/7_mapas_ri_transmissao-de-energia_ERTE-novo.png": {
   "largura": 1341,
@@ -430,11 +522,15 @@
   ]
  },
  "sites/7/2017/08/8_mapas_ri_transmissao-de-energia_ENTE-novo-300x211.png": {
-  "largura": 300,
-  "altura": 211,
+  "largura": 1305,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1305
+  ],
+  "original": "sites/7/2017/08/8_mapas_ri_transmissao-de-energia_ENTE-novo.png"
  },
  "sites/7/2017/08/8_mapas_ri_transmissao-de-energia_ENTE-novo.png": {
   "largura": 1305,
@@ -447,11 +543,15 @@
   ]
  },
  "sites/7/2017/08/9_mapas_ri_transmissao-de-energia_EBTE-novo-300x219.png": {
-  "largura": 300,
-  "altura": 219,
+  "largura": 1260,
+  "altura": 920,
   "variantes": [
-   300
-  ]
+   480,
+   640,
+   960,
+   1260
+  ],
+  "original": "sites/7/2017/08/9_mapas_ri_transmissao-de-energia_EBTE-novo.png"
  },
  "sites/7/2017/08/9_mapas_ri_transmissao-de-energia_EBTE-novo.png": {
   "largura": 1260,
@@ -618,17 +718,37 @@
   ]
  },
  "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-1-300x211.png": {
-  "largura": 300,
-  "altura": 211,
+  "largura": 628,
+  "altura": 442,
   "variantes": [
-   300
+   480,
+   628
+  ],
+  "original": "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-1.png"
+ },
+ "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-1.png": {
+  "largura": 628,
+  "altura": 442,
+  "variantes": [
+   480,
+   628
   ]
  },
  "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002-300x211.png": {
-  "largura": 300,
-  "altura": 211,
+  "largura": 628,
+  "altura": 442,
   "variantes": [
-   300
+   480,
+   628
+  ],
+  "original": "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002.png"
+ },
+ "sites/7/2021/04/30_mapas_ri_transmissao-de-energia_AETE-002.png": {
+  "largura": 628,
+  "altura": 442,
+  "variantes": [
+   480,
+   628
   ]
  },
  "sites/7/2021/04/img-empresas-eolica-agreste-potiguar-1.jpg": {
@@ -668,31 +788,79 @@
   ]
  },
  "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_EN-270x300.png": {
-  "largura": 270,
-  "altura": 300,
+  "largura": 872,
+  "altura": 970,
   "variantes": [
-   270
+   480,
+   640,
+   872
+  ],
+  "original": "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_EN.png"
+ },
+ "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_EN.png": {
+  "largura": 872,
+  "altura": 970,
+  "variantes": [
+   480,
+   640,
+   872
   ]
  },
  "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_ESP-270x300.png": {
-  "largura": 270,
-  "altura": 300,
+  "largura": 872,
+  "altura": 970,
   "variantes": [
-   270
+   480,
+   640,
+   872
+  ],
+  "original": "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_ESP.png"
+ },
+ "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_ESP.png": {
+  "largura": 872,
+  "altura": 970,
+  "variantes": [
+   480,
+   640,
+   872
   ]
  },
  "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_PT-270x300.png": {
-  "largura": 270,
-  "altura": 300,
+  "largura": 872,
+  "altura": 970,
   "variantes": [
-   270
+   480,
+   640,
+   872
+  ],
+  "original": "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_PT.png"
+ },
+ "sites/7/2022/01/Mapa_Geradoras_Enumeradas_2022_PT.png": {
+  "largura": 872,
+  "altura": 970,
+  "variantes": [
+   480,
+   640,
+   872
   ]
  },
  "sites/7/2022/01/mapa_site_ESP_01-2022-296x300.png": {
-  "largura": 296,
-  "altura": 300,
+  "largura": 957,
+  "altura": 970,
   "variantes": [
-   296
+   480,
+   640,
+   957
+  ],
+  "original": "sites/7/2022/01/mapa_site_ESP_01-2022.png"
+ },
+ "sites/7/2022/01/mapa_site_ESP_01-2022.png": {
+  "largura": 957,
+  "altura": 970,
+  "variantes": [
+   480,
+   640,
+   957
   ]
  },
  "sites/7/2024/03/mapa_site_PT_03-2024.png": {
@@ -705,17 +873,43 @@
   ]
  },
  "sites/7/2024/03/MISSAO-VALORES_SITE_PT-300x243.jpg": {
-  "largura": 300,
-  "altura": 243,
+  "largura": 971,
+  "altura": 787,
   "variantes": [
-   300
+   480,
+   640,
+   960,
+   971
+  ],
+  "original": "sites/7/2024/03/MISSAO-VALORES_SITE_PT.jpg"
+ },
+ "sites/7/2024/03/MISSAO-VALORES_SITE_PT.jpg": {
+  "largura": 971,
+  "altura": 787,
+  "variantes": [
+   480,
+   640,
+   960,
+   971
   ]
  },
  "sites/7/2024/03/MISSAO-VALORES_SITE_US-300x244.jpg": {
-  "largura": 300,
-  "altura": 244,
+  "largura": 917,
+  "altura": 746,
   "variantes": [
-   300
+   480,
+   640,
+   917
+  ],
+  "original": "sites/7/2024/03/MISSAO-VALORES_SITE_US.jpg"
+ },
+ "sites/7/2024/03/MISSAO-VALORES_SITE_US.jpg": {
+  "largura": 917,
+  "altura": 746,
+  "variantes": [
+   480,
+   640,
+   917
   ]
  },
  "sites/7/2024/04/mapa_site_ENG_03-2024-2.png": {
