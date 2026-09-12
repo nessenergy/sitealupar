@@ -10,10 +10,10 @@ if (botao && menu) {
   });
 }
 
-// A sanfona das páginas de conteúdo não está mais aqui: ela nasce fechada no
-// próprio HTML, em `<details>`/`<summary>` (src/lib/acervo.ts). Fechar por
-// script, depois da pintura, deslocava a página já mostrada — CLS 0,2972 em
-// condicoes-de-uso, contra o gate de 0,1.
+// A sanfona das páginas de conteúdo não passa por aqui: o `<div>` do tema
+// vira `<details>`/`<summary>` no build (src/lib/acervo.ts), e o navegador
+// abre e fecha sozinho. Se um dia ela precisar de script, o lugar é lá —
+// fechar por script depois da pintura desloca a página já mostrada.
 
 // Vídeo sob demanda: a capa é local e o player do YouTube (~1 MB) só carrega
 // no clique. Sem JS, o link leva ao vídeo no YouTube.
