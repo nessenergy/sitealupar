@@ -79,9 +79,6 @@
      alternativa, exatamente como o manual já prevê para o desktop. */
   --fonte: "Open Sans", "Segoe UI", Arial, Helvetica, sans-serif;
 
-  /* Grade — preservada do site atual */
-  --largura-max: 1140px;
-
   /* Escala de espaçamento */
   --e1: 4px;  --e2: 8px;  --e3: 16px;
   --e4: 24px; --e5: 32px; --e6: 48px; --e7: 64px;
@@ -115,11 +112,18 @@ a:hover { color: var(--azul); }
   }
 }
 
+/* Grade do tema: o `.container` do bootstrap (bootstrap.css:1398-1418) — 15 px
+   de cada lado e largura fixa de 750, 970 e 1170 px a partir de 768, 992 e
+   1200 px. O cabeçalho já tinha voltado para ela; o corpo continuava numa
+   grade própria (1140 px com 16 px de recuo), e as duas não se encontravam:
+   em 1280 px o box do logotipo começava em x 70 e a caixa branca em x 86. */
 .container {
-  max-width: var(--largura-max);
   margin-inline: auto;
-  padding-inline: var(--e3);
+  padding-inline: 15px;
 }
+@media (min-width: 768px)  { .container { width: 750px; } }
+@media (min-width: 992px)  { .container { width: 970px; } }
+@media (min-width: 1200px) { .container { width: 1170px; } }
 
 /* Texto para leitor de tela — usado no <h1> real da home, que hoje é um
    logotipo com `font: 0/0 a` e não entrega texto algum. */
@@ -147,15 +151,20 @@ a:hover { color: var(--azul); }
 }
 
 /* Título das páginas próprias, como `.txt-show h1` do tema: verde, peso
-   normal, 26 px — 48 px a partir de 992 px. */
-.caixa > h1 {
+   normal, 26 px — 48 px a partir de 992 px.
+
+   Descendente, e não filho direto: na 404 o `<h1>` mora dentro da `<section>`
+   do primeiro idioma, e com `>` ficava preto, em negrito e no tamanho padrão
+   — a única interna fora do padrão. Contato, notícias e vídeos põem o `<h1>`
+   como filho direto da caixa, e descendente também os alcança. */
+.caixa h1 {
   margin: 0 0 30px;
   font-size: 26px;
   font-weight: 400;
   color: var(--verde-texto);
 }
 
-@media (min-width: 992px) { .caixa > h1 { font-size: 48px; } }
+@media (min-width: 992px) { .caixa h1 { font-size: 48px; } }
 
 body { min-height: 100vh; display: flex; flex-direction: column; }
 body > main { flex: 1; }

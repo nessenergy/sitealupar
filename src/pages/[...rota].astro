@@ -186,8 +186,14 @@ const dataLegivel = dataVisivel
      Awesome com `font-family: "Open Sans"`, que não os tem: o que aparece no
      site atual é o quadrado de caractere ausente, e restaurar um defeito de
      fonte não é restaurar o desenho. */
-  .corpo :global(.arconix-faq-title), .corpo :global(.arconix-faq-content) {
+  /* O fio de 1 px é só do título (style.css:1667 e 1668-1670): o conteúdo
+     também declara `border-bottom: 1px #c7c7c7 solid` (style.css:1703), mas a
+     linha seguinte (`border: 1px solid transparent`, style.css:1705) o apaga
+     inteiro — o que se vê no site atual é uma linha por seção, embaixo do
+     título. A sombra rasa vai nos dois, como no tema. */
+  .corpo :global(.arconix-faq-title) {
     border-bottom: 1px solid #C7C7C7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   }
   .corpo :global(summary.arconix-faq-title) {
     position: relative; display: block; list-style: none;
@@ -202,7 +208,12 @@ const dataLegivel = dataVisivel
     font-size: 24px; line-height: 1;
   }
   .corpo :global(details[open] > summary.arconix-faq-title::after) { content: '\2303'; }
-  .corpo :global(.arconix-faq-content) { padding: 15px 20px; }
+  .corpo :global(.arconix-faq-content) {
+    padding: 15px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
 
   .corpo :global(.rolagem) {
     overflow-x: auto;
