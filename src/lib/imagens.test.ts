@@ -24,7 +24,7 @@ test('largura declarada no conteúdo vira sizes, e o srcset antigo sai', () => {
     `<img width="292" height="300" src="${U}sites/7/2017/08/mapa.png" srcset="${U}x-150.png 150w" sizes="(max-width: 292px) 100vw, 292px" alt="">`,
     manifesto,
   );
-  assert.match(saida, /sizes="292px"/);
+  assert.match(saida, /sizes="\(max-width: 292px\) 100vw, 292px"/);
   assert.match(saida, /width="292" height="300"/);
   assert.doesNotMatch(saida, /x-150\.png/);
   assert.equal(saida.match(/\ssrcset=/g)?.length, 1);
@@ -43,7 +43,7 @@ test('miniatura com original no manifesto serve o arquivo original', () => {
   assert.match(saida, /src="\/midia\/sites\/7\/2024\/03\/missao-971\.webp"/);
   assert.match(saida, /srcset="\/midia\/sites\/7\/2024\/03\/missao-480\.webp 480w, .*missao-971\.webp 971w"/);
   assert.doesNotMatch(saida, /missao-300x243/);
-  assert.match(saida, /sizes="674px"/);
+  assert.match(saida, /sizes="\(max-width: 674px\) 100vw, 674px"/);
 });
 
 test('imagem de terceiro passa intacta', () => {

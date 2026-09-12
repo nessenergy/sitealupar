@@ -28,7 +28,20 @@ const LARGURAS = [480, 640, 960, 1440];
 const TETO = 1920;
 const IMAGEM = /\.(png|jpe?g|gif)$/i;
 
-const variantesPara = (largura) => [...LARGURAS.filter((w) => w < largura), Math.min(largura, TETO)];
+const UPLOADS = 'https://www.alupar.com.br/wp-content/uploads/';
+
+/*
+ * `extras` são as larguras que o corpo do acervo declara no `<img>`. Sem elas o
+ * degrau salta de 640 para 960 numa imagem pedida a 674, e o navegador baixa
+ * 42% mais pixels do que a página mostra — `uses-responsive-images` marcou 0,5
+ * em /a-companhia/ por 38 KB desperdiçados. Com a largura exata no degrau, o
+ * navegador pede o arquivo do tamanho em que a imagem aparece.
+ */
+const variantesPara = (largura, extras = []) => [...new Set([
+  ...LARGURAS.filter((w) => w < largura),
+  ...extras.filter((w) => w < largura),
+  Math.min(largura, TETO),
+])].sort((a, b) => a - b);
 const saidaDe = (chave, w) => join(DESTINO, `${chave.replace(/\.[^.]+$/, '')}-${w}.webp`);
 /** Miniatura do WordPress: `…-300x243.jpg` → `….jpg`. */
 const semSufixo = (chave) => chave.replace(/-\d+x\d+(\.\w+)$/, '$1');
@@ -59,12 +72,32 @@ if (process.argv.includes('--verificar')) {
   process.exit(0);
 }
 
+/*
+ * Quanto cada imagem mede na página, lido do próprio corpo. A chave vai
+ * resolvida para o arquivo que vai servi-la: quando a miniatura tem original no
+ * acervo, é o original que precisa da largura no degrau.
+ */
+const exibidas = new Map();
+for (const linha of (await readFile('acervo/conteudo-pronto.jsonl', 'utf8')).trim().split('\n')) {
+  const item = JSON.parse(linha);
+  if (item.vazio) continue;
+  for (const m of item.corpo.matchAll(/<img\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi)) {
+    const src = /\ssrc="([^"]+)"/i.exec(m[1])?.[1];
+    const largura = Number(/\swidth="(\d+)"/i.exec(m[1])?.[1] ?? 0);
+    if (!src?.startsWith(UPLOADS) || !largura) continue;
+    let chave = decodeURIComponent(src.slice(UPLOADS.length).split('?')[0]);
+    if (existsSync(join(ORIGEM, semSufixo(chave)))) chave = semSufixo(chave);
+    if (!exibidas.has(chave)) exibidas.set(chave, new Set());
+    exibidas.get(chave).add(largura);
+  }
+}
+
 const manifesto = {};
 const arquivos = new Map();
 for (const p of await imagens(ORIGEM)) {
   const chave = relative(ORIGEM, p).split(sep).join('/');
   const { width, height } = await sharp(p).metadata();
-  manifesto[chave] = { largura: width, altura: height, variantes: variantesPara(width) };
+  manifesto[chave] = { largura: width, altura: height, variantes: variantesPara(width, [...(exibidas.get(chave) ?? [])]) };
   arquivos.set(chave, p);
 }
 

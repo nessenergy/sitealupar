@@ -39,7 +39,17 @@ export function responsivas(corpo: string, manifesto: Manifesto): string {
     const resto = attrs.replace(/\s(src|srcset|sizes)="[^"]*"/gi, '');
     const maior = img.variantes[img.variantes.length - 1];
     const srcset = img.variantes.map((w) => `${url(arquivo, w)} ${w}w`).join(', ');
-    const sizes = declarada ? `${declarada}px` : LARGURA_DO_TEXTO;
+    /*
+     * `sizes` precisa dizer a verdade nas duas pontas. No desktop a imagem
+     * ocupa os `declarada` px que o conteúdo pede; num celular de 360 px ela
+     * cabe na largura da tela, porque a coluna a encolhe (`max-width: 100%`).
+     * Dizendo só `600px`, o celular multiplica pela densidade da tela e baixa
+     * a maior variante — 1263 px de mapa para um espaço de ~330, e a página
+     * Empresas voltaria aos megabytes que o #49 tirou dela. Com o degrau, o
+     * desktop não muda (a tela é sempre mais larga que `declarada`) e o
+     * celular volta a baixar 480.
+     */
+    const sizes = declarada ? `(max-width: ${declarada}px) 100vw, ${declarada}px` : LARGURA_DO_TEXTO;
     const dimensoes = /\swidth=/i.test(attrs) ? '' : ` width="${img.largura}" height="${img.altura}"`;
     return `<img${resto} src="${url(arquivo, maior)}" srcset="${srcset}" sizes="${sizes}"${dimensoes}>`;
   });
