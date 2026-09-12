@@ -161,6 +161,9 @@ async function capturar(url, largura, arquivo, de = 0) {
     clip: { x: 0, y: de, width: largura, height: recorte, scale: 1 },
   });
   writeFileSync(join(SAIDA, arquivo), Buffer.from(data, 'base64'));
+  // Quem grava é quem anuncia: fora daqui não dá para saber se o arquivo saiu,
+  // e um nome impresso à toa é o mesmo silêncio que o aviso de carga eliminou.
+  console.log(arquivo);
 }
 
 try {
@@ -182,7 +185,6 @@ try {
     for (const lado of [p.antigo, p.novo]) {
       const arquivo = DE ? lado.arquivo.replace(/\.png$/, `-de${DE}.png`) : lado.arquivo;
       await capturar(lado.url, p.largura, arquivo, DE);
-      console.log(arquivo);
     }
   }
 } finally {
