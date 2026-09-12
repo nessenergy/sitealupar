@@ -28,8 +28,25 @@ const LARGURAS = [480, 640, 960, 1440];
 const TETO = 1920;
 const IMAGEM = /\.(png|jpe?g|gif)$/i;
 
-const variantesPara = (largura) => [...LARGURAS.filter((w) => w < largura), Math.min(largura, TETO)];
+const UPLOADS = 'https://www.alupar.com.br/wp-content/uploads/';
+
+/*
+ * `extras` são as larguras que o corpo do acervo declara no `<img>`. Sem elas o
+ * degrau salta de 640 para 960 numa imagem pedida a 674, e o navegador baixa
+ * 42% mais pixels do que a página mostra — `uses-responsive-images` marcou 0,5
+ * em /a-companhia/ por 38 KB desperdiçados. Com a largura exata no degrau, o
+ * navegador pede o arquivo do tamanho em que a imagem aparece.
+ */
+const variantesPara = (largura, extras = []) => [...new Set([
+  ...LARGURAS.filter((w) => w < largura),
+  ...extras.filter((w) => w < largura),
+  Math.min(largura, TETO),
+])].sort((a, b) => a - b);
 const saidaDe = (chave, w) => join(DESTINO, `${chave.replace(/\.[^.]+$/, '')}-${w}.webp`);
+/** Miniatura do WordPress: `…-300x243.jpg` → `….jpg`. */
+const semSufixo = (chave) => chave.replace(/-\d+x\d+(\.\w+)$/, '$1');
+/** De onde saem os arquivos de uma entrada: a própria chave, ou o original. */
+const arquivoDe = (chave, e) => e.original ?? chave;
 
 async function imagens(dir) {
   const saida = [];
@@ -44,7 +61,7 @@ async function imagens(dir) {
 if (process.argv.includes('--verificar')) {
   const manifesto = JSON.parse(await readFile(MANIFESTO, 'utf8'));
   const faltando = Object.entries(manifesto)
-    .flatMap(([chave, e]) => e.variantes.map((w) => saidaDe(chave, w)))
+    .flatMap(([chave, e]) => e.variantes.map((w) => saidaDe(arquivoDe(chave, e), w)))
     .filter((p) => !existsSync(p));
   if (faltando.length) {
     console.error(`reprovado: ${faltando.length} variantes do manifesto não estão em ${DESTINO}`);
@@ -55,21 +72,66 @@ if (process.argv.includes('--verificar')) {
   process.exit(0);
 }
 
+/*
+ * Quanto cada imagem mede na página, lido do próprio corpo. A chave vai
+ * resolvida para o arquivo que vai servi-la: quando a miniatura tem original no
+ * acervo, é o original que precisa da largura no degrau.
+ */
+const exibidas = new Map();
+for (const linha of (await readFile('acervo/conteudo-pronto.jsonl', 'utf8')).trim().split('\n')) {
+  const item = JSON.parse(linha);
+  if (item.vazio) continue;
+  for (const m of item.corpo.matchAll(/<img\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi)) {
+    const src = /\ssrc="([^"]+)"/i.exec(m[1])?.[1];
+    const largura = Number(/\swidth="(\d+)"/i.exec(m[1])?.[1] ?? 0);
+    if (!src?.startsWith(UPLOADS) || !largura) continue;
+    let chave = decodeURIComponent(src.slice(UPLOADS.length).split('?')[0]);
+    if (existsSync(join(ORIGEM, semSufixo(chave)))) chave = semSufixo(chave);
+    if (!exibidas.has(chave)) exibidas.set(chave, new Set());
+    exibidas.get(chave).add(largura);
+  }
+}
+
 const manifesto = {};
-let bytes = 0;
+const arquivos = new Map();
 for (const p of await imagens(ORIGEM)) {
   const chave = relative(ORIGEM, p).split(sep).join('/');
   const { width, height } = await sharp(p).metadata();
-  const variantes = variantesPara(width);
-  for (const w of variantes) {
+  manifesto[chave] = { largura: width, altura: height, variantes: variantesPara(width, [...(exibidas.get(chave) ?? [])]) };
+  arquivos.set(chave, p);
+}
+
+/*
+ * O corpo herdado pede a miniatura (`…-300x243.jpg`) e a exibe a `width="674"`.
+ * Servir os 300 px ali é a imagem esticada 2,25× que o revisor da Alup viu como
+ * borrada. Quando o original está no acervo e é maior, a entrada da miniatura
+ * passa a ser a do original — mesma proporção, mesmas variantes, e `original`
+ * diz de qual arquivo elas saem. Assim o apelido vive no manifesto, e quem
+ * reescreve o `<img>` continua fazendo uma busca só.
+ */
+for (const chave of Object.keys(manifesto)) {
+  const original = semSufixo(chave);
+  if (original === chave || !manifesto[original]) continue;
+  if (manifesto[original].largura <= manifesto[chave].largura) continue;
+  manifesto[chave] = { ...manifesto[original], original };
+}
+
+/*
+ * Gera só o que o manifesto serve: a miniatura apelidada não tem arquivo
+ * próprio. Gerando por arquivo de origem, sobravam 33 WebP de 300 px que
+ * nenhuma página cita mais — peso versionado e publicado à toa.
+ */
+let bytes = 0;
+for (const [chave, e] of Object.entries(manifesto)) {
+  if (arquivoDe(chave, e) !== chave) continue;
+  for (const w of e.variantes) {
     const alvo = saidaDe(chave, w);
     if (!existsSync(alvo)) {
       await mkdir(dirname(alvo), { recursive: true });
-      await sharp(p).resize({ width: w }).webp({ quality: 78 }).toFile(alvo);
+      await sharp(arquivos.get(chave)).resize({ width: w }).webp({ quality: 78 }).toFile(alvo);
     }
     bytes += (await stat(alvo)).size;
   }
-  manifesto[chave] = { largura: width, altura: height, variantes };
 }
 
 const ordenado = Object.fromEntries(Object.entries(manifesto).sort(([a], [b]) => a.localeCompare(b)));

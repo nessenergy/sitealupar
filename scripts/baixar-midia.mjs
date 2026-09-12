@@ -41,6 +41,26 @@ for (const i of itens) {
   for (const m of i.corpo.matchAll(/(?:src|href)="(https:\/\/www\.alupar\.com\.br\/wp-content\/uploads\/[^"]+)"/gi)) {
     urls.add(m[1].split('?')[0]);
   }
+
+  /*
+   * O corpo herdado aponta para a **miniatura** do WordPress
+   * (`MISSAO-VALORES_SITE_PT-300x243.jpg`) e a exibe a `width="674"`: 300 px
+   * de arquivo esticados 2,25×, e é isso que o revisor da Alup viu como
+   * "borrada". O site atual disfarça porque o `srcset` dele oferece 768 e 971;
+   * o nosso só tem os 300.
+   *
+   * O original sem o sufixo ainda está na origem, e some com ela. Como o corpo
+   * não o cita, ele entra aqui derivado da própria miniatura — e só quando a
+   * exibição é maior que o arquivo, para não arrastar original de miniatura que
+   * já aparece no tamanho certo.
+   */
+  for (const m of i.corpo.matchAll(/<img\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi)) {
+    const src = /\ssrc="([^"]+)"/i.exec(m[1])?.[1]?.split('?')[0];
+    if (!src?.startsWith(RAIZ)) continue;
+    const sufixo = /-(\d+)x\d+\.(?:png|jpe?g|gif)$/i.exec(src);
+    const exibida = Number(/\swidth="(\d+)"/i.exec(m[1])?.[1] ?? 0);
+    if (sufixo && exibida > Number(sufixo[1])) urls.add(src.replace(/-\d+x\d+(\.\w+)$/, '$1'));
+  }
 }
 
 /*

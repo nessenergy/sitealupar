@@ -112,6 +112,7 @@ número do PR é a referência que permanece.
 | 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida com ajuste de acessibilidade — PR #64 |
 | 41 | internas | todas | corpo | texto corrido em 14 px, com 10 px entre parágrafos (`body` do `style.css` e `p` do bootstrap) | 16 px, com 16 px entre parágrafos (`body` de `src/styles/tokens.css`) — as páginas ficam mais altas: empresas mede 21 947 px contra 20 226 px do atual em 1280 | D | pendente — manutenção |
 | 42 | todas | 768, 1280 | cabeçalho e menu | faixa do menu branca, de ponta a ponta da tela, da base da barra cinza até a base do box do logotipo | faixa no cinza da página (#ECECEC); além da cor, o item da página atual, em verde, fica a 3,82:1 sobre esse cinza e reprova o AA nas internas | D | corrigida — PR #64 |
+| 43 | a-companhia, area-de-atuacao, empresas | todas | corpo | imagem nítida: o corpo pede a miniatura de 300 px (`MISSAO-VALORES_SITE_PT-300x243.jpg`) e a exibe a 674, mas o `srcset` do tema oferece 768 e 971 px e o navegador baixa a maior | só a variante de 300 px existia no acervo: a imagem de missão, visão e valores aparecia esticada 2,25× em PT e 2,74× em EN, e o mesmo acontecia em mais 32 — os 30 mapas de empresa a 2×, os mapas de area-de-atuacao e o mapa ES de a-companhia —, 34 no total. O original de cada uma foi baixado da origem antes da virada; nenhum faltou | D | corrigida — PR #66 |
 
 Na página empresas, a parte abaixo de 16 384 px (altura máxima de captura do
 Chrome) foi capturada à parte, com `node scripts/capturar-telas.mjs --pagina
@@ -140,6 +141,11 @@ empresas --de 16384`, e conferida visualmente nos dois lados em 11/09/2026.
 
 ## Resumo
 
-42 divergências: 34 do tipo D (33 corrigidas — 32 na Tarefa 4 e 1 na rodada de
-correções da conferência —, 1 pendente de manutenção), 7 do tipo C (na pauta),
-1 do tipo A.
+43 divergências: 35 do tipo D (34 corrigidas — 32 na Tarefa 4, 1 na rodada de
+correções da conferência e 1 na das imagens esticadas —, 1 pendente de
+manutenção), 7 do tipo C (na pauta), 1 do tipo A.
+
+A 35ª ocorrência da linha 43 está em `/pesquisa-e-desenvolvimento/` (PT), que
+o build não publica — a rota é aposentada por 301 para
+`/inovacao-pesquisa-e-desenvolvimento/`, cujo corpo não tem imagem. Ela não
+chega a quem visita e por isso não entra na contagem de divergências.
