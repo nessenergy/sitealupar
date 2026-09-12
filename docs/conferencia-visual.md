@@ -3,6 +3,18 @@
 Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 1280 px), comparadas em `capturas/index.html`, capturadas em 11/09/2026.
 
+## O que esta conferência não cobre
+
+As 11 páginas capturadas são **modelos** de página, um de cada tipo, e só em
+português — a exceção é a home, comparada nos três idiomas. Ficaram de fora da
+comparação visual: **toda página interna em EN e ES**, a **página de erro
+(404)**, o **arquivo paginado de notícias** (a listagem foi comparada só na
+primeira página), os **dois avisos do formulário de contato** (envio aceito e
+envio recusado) e **`/sustentabilidade/`**. O aceite do Marketing sobre este
+documento, portanto, cobre 11 modelos de página, não o site inteiro. O que
+está fora aqui continua coberto pelos gates automáticos do CI (links, CSP,
+continuidade, Lighthouse), que rodam sobre todas as páginas do build.
+
 ## Mudanças deliberadas — não são defeito
 
 | O que muda no site novo | Por quê |
@@ -36,7 +48,8 @@ Capturas de `node scripts/capturar-telas.mjs` (11 páginas × 390, 768 e
 
 ## Divergências
 
-Tipos: **D** defeito do restauro → Tarefa 4 · **C** conteúdo ou texto →
+Tipos: **D** defeito do restauro → Tarefa 4, ou `pendente — manutenção` quando
+a correção não cabe na Tarefa 4 · **C** conteúdo ou texto →
 Comunicação/Marketing decide, vai para a pauta · **A** aceitável (diferença
 de renderização sem efeito visível para quem usa, como suavização de fonte).
 
@@ -86,18 +99,25 @@ videos, contato). Medidas marcadas com "~" são aproximadas, lidas na captura.
 | 38 | videos | todas | corpo | `/video/video-institucional/`: título "Vídeo Institucional" e o corpo em branco (o vídeo não aparece na captura) | `/videos/`: título "Vídeos" e três links, dois com o mesmo nome "ALUPAR INSTITUCIONAL 2017_edit" e um "institucional" | C | pauta |
 | 39 | videos | todas | corpo | título em verde, peso regular | título em preto, negrito (as outras internas usam azul) | D | corrigida — a60529d |
 | 40 | todas | todas | rodapé | links sem sublinhado; separadores "\|" com ~12 px de cada lado | links sublinhados; separadores com ~6 px; na quebra, o "\|" abre a linha de baixo ("\| CANAL DE DENÚNCIAS") | D | corrigida com ajuste de acessibilidade — 8106a3c, e4c7b06 |
+| 42 | todas | 768, 1280 | cabeçalho e menu | faixa do menu branca, de ponta a ponta da tela, da base da barra cinza até a base do box do logotipo | faixa no cinza da página (#ECECEC); além da cor, o item da página atual, em verde, fica a 3,82:1 sobre esse cinza e reprova o AA nas internas | D | corrigida — 793444a |
+| 41 | internas | todas | corpo | texto corrido em 14 px, com 10 px entre parágrafos (`body` do `style.css` e `p` do bootstrap) | 16 px, com 16 px entre parágrafos (`body` de `src/styles/tokens.css`) — as páginas ficam mais altas: empresas mede 21 947 px contra 20 226 px do atual em 1280 | D | pendente — manutenção |
 
-Na página empresas, abaixo de ~16.384 px (altura máxima de captura do Chrome) a captura repete o topo da página, nos dois lados: essa parte foi conferida pela estrutura do HTML (mesmas seções, 30 mapas), não visualmente.
+Na página empresas, a parte abaixo de 16 384 px (altura máxima de captura do
+Chrome) foi capturada à parte, com `node scripts/capturar-telas.mjs --pagina
+empresas --de 16384`, e conferida visualmente nos dois lados em 11/09/2026.
 
 ## Pares com leitura limitada
 
 - **empresas (390, 768 e 1280):** a página passa de 16 384 px, o limite de
-  altura da captura do Chrome; dali para baixo a imagem repete o topo da
-  página, nos dois lados. O fim de "Transmissoras", as seções "Geradoras" e
-  "Comercialização" e o rodapé não foram conferidos nessa página — o rodapé é
-  o mesmo das outras. A maior parte dos mapas não carregou na captura (três a
-  cinco no atual, dois no novo); o HTML dos dois lados tem os mesmos 30 mapas,
-  então a falta é da captura, não do site.
+  altura da captura do Chrome. O que fica abaixo disso foi capturado à parte
+  (`--pagina empresas --de 16384`) e conferido nos dois lados em 11/09/2026: o
+  fim de "Transmissoras", as seções "Geradoras" e "Comercialização" — as duas
+  em sanfona, fechadas, com os mesmos itens (UHEs, PCHs, Eólicas, Solar; ALUP)
+  — e o rodapé conferem. Sobra uma leitura limitada só nos mapas: na captura
+  do site atual a maior parte não carregou. Medido no DOM em 1280 px, os dois
+  lados têm 30 mapas, com altura média de 429 px no atual e 433 px no novo
+  (descontados, no novo, o logotipo e a faixa de foto, que também são
+  imagens) — a falta é da captura, não do site.
 - **home, home-en, home-es (390):** no atual, a caixa do vídeo saiu em branco;
   o vídeo só foi comparado em 768 e 1280 (linha 17).
 - **videos (todas):** no atual, o corpo da página saiu em branco; não dá para
@@ -109,5 +129,6 @@ Na página empresas, abaixo de ~16.384 px (altura máxima de captura do Chrome) 
 
 ## Resumo
 
-40 divergências: 32 do tipo D (corrigidas na Tarefa 4), 7 do tipo C (na pauta),
+42 divergências: 34 do tipo D (33 corrigidas — 32 na Tarefa 4 e 1 na rodada de
+correções da conferência —, 1 pendente de manutenção), 7 do tipo C (na pauta),
 1 do tipo A.
