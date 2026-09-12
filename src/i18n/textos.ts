@@ -51,6 +51,7 @@ interface Textos {
   sustentabilidade: string;
   indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
   idioma: string;
+  trilha: string;
   logo: string;
   menu: { rotulo: string; itens: { rotulo: string; href: string }[] };
   ri: string;
@@ -96,6 +97,7 @@ export const textos: Record<Idioma, Textos> = {
       rating: 'rating em escala nacional, Fitch',
     },
     idioma: 'Idioma',
+    trilha: 'Você está em:',
     logo: 'Alupar — página inicial', // novo
     menu: {
       rotulo: 'Menu',
@@ -163,6 +165,7 @@ export const textos: Record<Idioma, Textos> = {
       rating: 'national scale rating, Fitch',
     },
     idioma: 'Language',
+    trilha: 'You are here:', // novo — o site atual imprime o rótulo em português (P7)
     logo: 'Alupar — home', // novo
     menu: {
       rotulo: 'Menu',
@@ -229,6 +232,7 @@ export const textos: Record<Idioma, Textos> = {
       rating: 'calificación en escala nacional, Fitch',
     },
     idioma: 'Idioma',
+    trilha: 'Usted está en:', // novo — o site atual imprime o rótulo em português (P7)
     logo: 'Alupar — inicio', // novo
     menu: {
       rotulo: 'Menú',

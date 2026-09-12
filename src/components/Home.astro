@@ -55,7 +55,7 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
              ≥0,9). Ajuste de build, invisível — não muda nada que se veja. -->
         <Picture src={BANNER[idioma]} alt={t.banner.alt} formats={['avif', 'webp']}
           widths={[640, 1350, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
-        <span class="legenda">{t.banner.legenda}</span>
+        <span class="legenda"><strong>{t.banner.legenda}</strong></span>
       </Destaque>
     </section>
 
@@ -115,11 +115,29 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 </Base>
 
 <style>
-  .banner { position: relative; display: block; }
-  .banner :global(img) { display: block; width: 100%; height: auto; }
+  /* #home > .banner .item do tema (css/fullwidth/skin.css): faixa de 447 px em
+     qualquer largura, com a imagem recortada para preencher (object-fit: cover).
+     Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
+     em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
+  .banner { position: relative; display: block; height: 447px; }
+  .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* .content do tema (skin.css): caixa branca translúcida no alto à esquerda,
+     texto azul em peso normal e um fio verde de 4 px na base, a 45% da largura.
+     A partir de 1200 px a caixa começa no meio da tela e o texto vai a 38 px. */
   .legenda {
-    position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%);
-    color: var(--branco); font-size: clamp(1rem, 0.6rem + 1.6vw, 1.75rem); font-weight: 700;
+    position: absolute; top: 0; left: 0; padding: 20px 30px;
+    background: rgba(255, 255, 255, .6);
+    color: var(--azul); font-size: 18px; font-weight: 400;
+  }
+  /* O tema zera o negrito (`strong { font-weight: normal }` do style.css), e a
+     legenda dele é justamente um <strong>: peso normal, tamanho da caixa. */
+  .legenda strong { font-weight: inherit; font-size: inherit; }
+  .legenda::after {
+    content: ''; position: absolute; right: 0; bottom: 0;
+    width: 45%; height: 4px; background: var(--verde);
+  }
+  @media (min-width: 1200px) {
+    .legenda { left: 50%; max-width: 628px; font-size: 38px; }
   }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
@@ -140,16 +158,35 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     display: flex; flex-direction: column; background: var(--branco);
     padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
   }
-  .caixa h2 { color: var(--azul); font-size: 20px; text-transform: uppercase; margin: 20px 0; }
+  /* O título das caixas é verde e de peso normal no site atual: o tema pede
+     azul em .box-home h3, mas um seletor solto mais abaixo no mesmo style.css
+     (`.page-id-2810 h1, h3 { color: #079541 !important }`) alcança todos os h3
+     da página, e `h1..h6 { font-weight: normal }` tira o negrito.
+     O verde de texto é --verde-texto (4,51:1); o de marca dá 3,90:1. */
+  .caixa h2 {
+    color: var(--verde-texto); font-size: 20px; font-weight: 400;
+    text-transform: uppercase; margin: 20px 0;
+  }
 
-  .noticias { list-style: none; margin: 0; padding: 0; flex: 1; }
-  .noticias li { margin-bottom: var(--e3); }
-  .noticias time { display: block; font-weight: 700; }
-  .noticias a { color: var(--preto); }
+  /* No tema a lista da caixa é um <ul> comum, sem folha que a redefina: vem o
+     marcador de disco do navegador. A data está num <strong> com o negrito
+     zerado pelo style.css, e o título é link azul sem sublinhado — sublinhado
+     só no hover e no foco, como em todo link do tema. Numa lista de links
+     (não de texto corrido), a ausência de sublinhado não fere a WCAG 1.4.1. */
+  .noticias { list-style: disc; margin: 0; padding-left: 20px; flex: 1; }
+  .noticias li { margin-bottom: 10px; }
+  .noticias time { display: block; font-weight: 400; }
+  .noticias a { color: var(--azul); text-decoration: none; }
+  .noticias a:hover, .noticias a:focus-visible { text-decoration: underline; }
 
   /* o iframe é criado pelo site.js no clique e não recebe o atributo de
      escopo do Astro — por isso :global dentro de .caixa. */
-  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; flex: 1; }
+  /* .embed-responsive-4by3 do tema: a caixa do vídeo é 4:3 e só isso — não
+     estica. Com `flex: 1` ela crescia até o pé da caixa e virava um retrato de
+     ~310 × 400 px em 1280, contra os ~320 × 240 px do site atual. É a margem
+     automática do link "veja mais" que passa a empurrá-lo para a base. */
+  .caixa .mais { margin-top: auto; }
+  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; }
   .caixa :global(.video) :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .caixa :global(.video)::after {
     content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
@@ -160,8 +197,13 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
   .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
   .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
   .eixos li:last-child { border-bottom: none; }
-  .eixos h3 { font-size: 1rem; margin: 0 0 var(--e1); }
-  .eixos h3 a { color: var(--preto); }
+  /* .list-sustentabilidade .media do tema: o título de cada eixo é um
+     h5.media-heading — 14 px, peso normal (o tema zera o negrito de h1 a h6),
+     5 px embaixo — e o link é cinza-escuro sem sublinhado, com sublinhado no
+     hover e no foco. Estava em negrito e sublinhado. */
+  .eixos h3 { font-size: 14px; font-weight: 400; margin: 0 0 5px; }
+  .eixos h3 a { color: var(--preto); text-decoration: none; }
+  .eixos h3 a:hover, .eixos h3 a:focus-visible { text-decoration: underline; }
   .eixos p { margin: 0; line-height: 24px; }
 
   /* a.btn-link-mais do tema: caixa alta 12px, sublinhado verde de 4px */

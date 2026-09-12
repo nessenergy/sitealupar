@@ -73,6 +73,7 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="/fonts/open-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <title>{titulo}</title>
     <!-- A home atual não tem meta description. -->
@@ -105,9 +106,15 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <a class="pular" href="#conteudo">{textos[idioma].pularParaConteudo}</a>
     <Cabecalho idioma={idioma} alternativas={alternativas} />
     {interna && (
-      /* A faixa de foto das páginas internas do tema (.img-materia): 85/135/185 px. */
+      /* A faixa de foto das páginas internas do tema (.img-materia): 85/135/185 px.
+         `quality` abaixo do padrão (AVIF 50, WebP 80) porque a faixa nunca é
+         vista em resolução plena: a origem tem 2600×185, a variante de 1920
+         sai com 137 px de altura e o `object-fit: cover` a estica de volta
+         para os 185 px da faixa. Num recorte lado a lado de 760 px, 40 e 50
+         não se distinguem — e a variante que o Lighthouse baixa cai de
+         38.375 para 23.249 B. */
       <Picture src={faixaInterna} alt="" formats={['avif', 'webp']} widths={[768, 1280, 1920]}
-        sizes="100vw" loading="eager" class="faixa-interna" />
+        sizes="100vw" quality={40} loading="eager" class="faixa-interna" />
     )}
     <slot />
     <Rodape idioma={idioma} />
