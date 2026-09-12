@@ -51,7 +51,12 @@ interface Textos {
   sustentabilidade: string;
   indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
   idioma: string;
+  /** Rótulo da trilha ("Você está em:"), texto solto — não é o nome de degrau nenhum. */
   trilha: string;
+  /** `aria-label` do `<nav>` da trilha: nomeia a navegação, não a frase. */
+  trilhaNav: string;
+  /** Nome do primeiro degrau, a home. */
+  inicio: string;
   logo: string;
   menu: { rotulo: string; itens: { rotulo: string; href: string }[] };
   ri: string;
@@ -73,7 +78,7 @@ interface Textos {
   formulario: {
     obrigatorios: string; nome: string; email: string; empresa: string; telefone: string;
     assunto: string; mensagem: string; consentimento: string; enviar: string;
-    obrigado: string; naoEnviado: string;
+    obrigado: string; naoEnviado: string; semJavascript: string;
   };
   naoEncontrada: { titulo: string; texto: string; voltar: string };
 }
@@ -98,6 +103,11 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Idioma',
     trilha: 'Você está em:',
+    trilhaNav: 'Trilha de navegação', // novo
+    /* O site atual chama o degrau da home de "Você está em:" — o rótulo no
+       lugar do nome. O nome existe: o JSON-LD do Yoast, na mesma página,
+       publica `{"position":1,"name":"Início"}`. É esse que volta aqui. */
+    inicio: 'Início', // novo
     logo: 'Alupar — página inicial', // novo
     menu: {
       rotulo: 'Menu',
@@ -144,6 +154,7 @@ export const textos: Record<Idioma, Textos> = {
       enviar: 'Enviar mensagem',
       obrigado: 'Mensagem enviada. Obrigado pelo contato.', // novo
       naoEnviado: 'Não foi possível enviar a mensagem. Confira os campos e tente de novo.', // novo
+      semJavascript: 'Com o JavaScript desativado, a verificação antispam não carrega e a mensagem não pode ser enviada por este formulário. Use o telefone ou o e-mail no início desta página.', // novo
     },
     naoEncontrada: { titulo: 'Página não encontrada', texto: 'O endereço que você procurou não existe ou mudou de lugar.', voltar: 'Ir para a página inicial' }, // novo
   },
@@ -166,6 +177,8 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Language',
     trilha: 'You are here:', // novo — o site atual imprime o rótulo em português (P7)
+    trilhaNav: 'Breadcrumb', // novo
+    inicio: 'Home', // novo
     logo: 'Alupar — home', // novo
     menu: {
       rotulo: 'Menu',
@@ -211,6 +224,7 @@ export const textos: Record<Idioma, Textos> = {
       enviar: 'Send message',
       obrigado: 'Message sent. Thank you for getting in touch.',
       naoEnviado: 'The message could not be sent. Please check the fields and try again.',
+      semJavascript: 'With JavaScript disabled, the anti-spam check does not load and this form cannot send your message. Please use the phone number or the e-mail address at the top of this page.', // novo
     },
     naoEncontrada: { titulo: 'Page not found', texto: 'The address you are looking for does not exist or has moved.', voltar: 'Go to the home page' }, // novo
   },
@@ -233,6 +247,8 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Idioma',
     trilha: 'Usted está en:', // novo — o site atual imprime o rótulo em português (P7)
+    trilhaNav: 'Ruta de navegación', // novo
+    inicio: 'Inicio', // novo
     logo: 'Alupar — inicio', // novo
     menu: {
       rotulo: 'Menú',
@@ -274,6 +290,7 @@ export const textos: Record<Idioma, Textos> = {
       enviar: 'Enviar mensaje',
       obrigado: 'Mensaje enviado. Gracias por contactarnos.',
       naoEnviado: 'No fue posible enviar el mensaje. Revise los campos e intente de nuevo.',
+      semJavascript: 'Con JavaScript desactivado, la verificación antispam no carga y este formulario no puede enviar su mensaje. Use el teléfono o el correo electrónico al inicio de esta página.', // novo
     },
     naoEncontrada: { titulo: 'Página no encontrada', texto: 'La dirección que busca no existe o cambió de lugar.', voltar: 'Ir a la página de inicio' }, // novo
   },

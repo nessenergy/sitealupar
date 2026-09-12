@@ -133,8 +133,12 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
         top: var(--e3);
         color: var(--branco);
       }
+      /* `.img-materia` do tema: 85 px, 135 px a partir de 992 (style.css:1499)
+         e 185 px a partir de 1200 (style.css:1535). O 135 subia aqui já em
+         768 px, e entre 768 e 991 a faixa ficava 50 px mais alta que a do
+         site atual — 768 é uma das larguras comparadas. */
       .faixa-interna { display: block; width: 100%; height: 85px; object-fit: cover; }
-      @media (min-width: 768px) { .faixa-interna { height: 135px; } }
+      @media (min-width: 992px) { .faixa-interna { height: 135px; } }
       @media (min-width: 1200px) { .faixa-interna { height: 185px; } }
     </style>
   </body>

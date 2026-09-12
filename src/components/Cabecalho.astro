@@ -69,10 +69,10 @@ const atual = Astro.url.pathname;
 <style>
   /* Valores do style.css e do bootstrap.css do tema, medidos em 11/09/2026 */
 
-  /* .container do bootstrap: 15 px de cada lado e largura fixa de 750, 970
-     e 1170 px a partir de 768, 992 e 1200 px — em 1280 o cabeçalho vai de
-     x 70 a 1210, como no tema. */
-  .container { max-width: none; padding-inline: 15px; }
+  /* A grade (`.container` do bootstrap: 15 px de cada lado e largura fixa de
+     750, 970 e 1170 px a partir de 768, 992 e 1200 px) está em tokens.css, e
+     vale para o corpo da página também — em 1280 o cabeçalho e a caixa branca
+     começam os dois em x 70. Aqui não se repete nada dela. */
 
   .barra { background: var(--cinza); }
   .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
@@ -140,7 +140,6 @@ const atual = Astro.url.pathname;
        do tema atravessa a tela inteira; a .barra pinta o cinza dela por cima.
        Abaixo de 768 px nada muda: lá a faixa é a azul do celular. */
     .cabecalho-site { background: var(--branco); }
-    .container { width: 750px; }
     /* O box do logotipo começa no topo da página, sobre a barra de 33 px
        (h1.logo flutua dentro dela), e a faixa branca do menu desce até a
        base do box. O menu flutua à direita: se não cabe ao lado do box, desce
@@ -167,13 +166,9 @@ const atual = Astro.url.pathname;
     .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
-    .container { width: 970px; }
     .logo { width: 293px; height: 200px; }
     .logo img { width: 175px; }
     nav { margin-top: 30px; }
     nav a { padding-inline: 7px; }
-  }
-  @media (min-width: 1200px) {
-    .container { width: 1170px; }
   }
 </style>
