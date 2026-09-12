@@ -18,12 +18,32 @@
 --------------------------------------------------------------------------- */
 
 /* Open Sans (decisão D12), servida pelo próprio site: um arquivo variável
-   latino cobre os pesos 300–800 que o tema usa. Sem Google Fonts: a CSP não
-   muda e o IP do visitante não vai ao Google. Licença em /fonts/OFL.txt. */
+   latino. Sem Google Fonts: a CSP não muda e o IP do visitante não vai ao
+   Google. Licença em /fonts/OFL.txt.
+
+   O eixo de peso do arquivo do Google vai de 300 a 800; o que este site pede
+   é 400, 600 e 700 — nenhuma regra usa 300 nem 800 (o `strong` e os títulos
+   caem no 700 do navegador). Os dois seletores de peso 300 do tema — `.lead`
+   do Bootstrap e `.radio-inline`/`.checkbox-inline`, do formulário antigo,
+   que não voltou — não aparecem em nenhuma das 400 páginas do build; 800 não
+   aparece em lugar nenhum. Quase metade do arquivo é a tabela `gvar`, as deltas
+   que desenham os pesos: cortar o eixo para 400–700 tirou 21.640 B (48.320 →
+   26.680) sem mudar um pixel do que a página pede. A faixa declarada aqui
+   acompanha o arquivo — pedir 300 ou 800 passaria a render 400 ou 700, e o
+   navegador precisa saber disso para não sintetizar negrito por conta.
+   Contornos, `hinting` e kerning continuam intactos; a cobertura de
+   caracteres é exatamente a mesma faixa latina do Google.
+
+   O arquivo foi gerado uma vez, com o fontTools, a partir do woff2 original
+   (memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2, v44):
+
+     python -m fontTools.varLib.instancer orig.woff2 wght=400:700 -o inst.ttf
+     python -m fontTools.subset inst.ttf --unicodes=<a faixa abaixo> \
+       --flavor=woff2 --output-file=public/fonts/open-sans-latin.woff2 */
 @font-face {
   font-family: "Open Sans";
   src: url("/fonts/open-sans-latin.woff2") format("woff2");
-  font-weight: 300 800;
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
