@@ -13,9 +13,13 @@
  */
 import { readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
-import mapa from '../../acervo/mapa-de-rotas.json';
-import imagens from '../../acervo/imagens.json';
-import { responsivas, videosSobDemanda, type Manifesto } from './imagens';
+/* `with { type: 'json' }` não é enfeite: sem o atributo, `node --test` recusa
+   o módulo e as transformações daqui ficariam sem teste. O Astro lê igual. */
+import mapa from '../../acervo/mapa-de-rotas.json' with { type: 'json' };
+import imagens from '../../acervo/imagens.json' with { type: 'json' };
+/* Com a extensão, como em `imagens.test.ts`: sem ela o `node --test` não
+   resolve o módulo. O Astro lê dos dois jeitos. */
+import { responsivas, videosSobDemanda, type Manifesto } from './imagens.ts';
 
 export interface Item {
   rota: string;
@@ -198,6 +202,46 @@ function carregarImagens(corpo: string): string {
 const arquivosNoR2 = (corpo: string) =>
   corpo.replaceAll('https://www.alupar.com.br/wp-content/uploads/', 'https://arquivos.alupar.com.br/');
 
+/*
+ * Sanfona do tema (`.arconix-faq-*`), fechada já no HTML.
+ *
+ * O tema entrega três `<div>` — embrulho, título e conteúdo — e fecha tudo
+ * por JavaScript, depois da pintura. Isso desloca a página inteira depois que
+ * ela já apareceu: o Lighthouse mediu **CLS 0,2972** em condicoes-de-uso, com
+ * o gate em 0,1, e derrubou o desempenho para 0,85.
+ *
+ * Quem já sabe fechar sozinho, sem script e sem deslocar nada, é o
+ * `<details>`: nasce fechado no próprio HTML, recebe foco e responde a Enter e
+ * Espaço por conta própria. O embrulho vira `<details>`, o título vira
+ * `<summary>` — as classes do tema ficam de pé, e com elas o desenho.
+ *
+ * Fechar aqui, e não no navegador, também é o que faz a página funcionar sem
+ * JavaScript: antes, sem script, o texto inteiro ficava à mostra.
+ */
+const temClasse = (n: No, c: string) => (atributo(n, 'class') ?? '').split(/\s+/).includes(c);
+
+function renomear(n: No, tag: string) {
+  (n as { nodeName: string; tagName?: string }).nodeName = tag;
+  (n as { nodeName: string; tagName?: string }).tagName = tag;
+}
+
+export function sanfona(corpo: string): string {
+  if (!corpo.includes('arconix-faq-wrap')) return corpo;
+
+  const arvore = parseFragment(corpo) as unknown as No;
+  for (const no of achatar(arvore)) {
+    if (no.nodeName !== 'div' || !temClasse(no, 'arconix-faq-wrap')) continue;
+    const titulo = (no.childNodes ?? []).find((c) => temClasse(c, 'arconix-faq-title'));
+    /* Sem título não há o que dobrar: `<details>` sem `<summary>` ganharia do
+       navegador um "Detalhes" que ninguém escreveu. Fica como está. */
+    if (!titulo) continue;
+    renomear(no, 'details');
+    renomear(titulo, 'summary');
+  }
+
+  return serialize(arvore as never);
+}
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -226,7 +270,7 @@ export function itens(): Item[] {
       corpo: arquivosNoR2(
         videosSobDemanda(
           carregarImagens(
-            responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+            responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
           ),
         ),
       ),

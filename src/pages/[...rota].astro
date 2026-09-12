@@ -173,9 +173,14 @@ const dataLegivel = dataVisivel
 
   /* Sanfona do tema (.arconix-faq-*): seções fechadas, título verde de 18 px
      com recheio 20px 40px 20px 20px, fio cinza embaixo e fundo que clareia no
-     hover. Quem fecha e abre é o public/js/site.js, que troca o <div> do
-     título por um <button> de verdade — o do tema não recebe foco nem responde
-     ao teclado.
+     hover. Quem fecha e abre é o próprio navegador: o embrulho é um
+     `<details>` e o título um `<summary>`, trocados no build por
+     src/lib/acervo.ts. O `<div>` do tema não recebe foco nem responde ao
+     teclado; o `<summary>` recebe e responde, sem uma linha de script — e
+     nasce fechado no HTML, sem deslocar a página depois de pintada.
+
+     `display: block` e `list-style: none` tiram o triângulo que o navegador
+     põe no `<summary>`: a seta daqui é a de baixo.
 
      A seta é um chevron de texto. O tema pede os glifos f106/f107 do Font
      Awesome com `font-family: "Open Sans"`, que não os tem: o que aparece no
@@ -184,18 +189,19 @@ const dataLegivel = dataVisivel
   .corpo :global(.arconix-faq-title), .corpo :global(.arconix-faq-content) {
     border-bottom: 1px solid #C7C7C7;
   }
-  .corpo :global(.arconix-faq-title .sanfona-botao) {
-    position: relative; display: block; width: 100%;
+  .corpo :global(summary.arconix-faq-title) {
+    position: relative; display: block; list-style: none;
     padding: 20px 40px 20px 20px;
-    border: 0; background: none; cursor: pointer;
-    font: inherit; font-size: 18px; text-align: left; color: var(--verde-texto);
+    cursor: pointer;
+    font-size: 18px; color: var(--verde-texto);
   }
-  .corpo :global(.arconix-faq-title .sanfona-botao:hover) { background: #F6F6F6; color: var(--azul); }
-  .corpo :global(.arconix-faq-title .sanfona-botao::after) {
+  .corpo :global(summary.arconix-faq-title::-webkit-details-marker) { display: none; }
+  .corpo :global(summary.arconix-faq-title:hover) { background: #F6F6F6; color: var(--azul); }
+  .corpo :global(summary.arconix-faq-title::after) {
     content: '\2304'; position: absolute; right: 8px; top: 18px;
     font-size: 24px; line-height: 1;
   }
-  .corpo :global(.arconix-faq-title .sanfona-botao[aria-expanded='true']::after) { content: '\2303'; }
+  .corpo :global(details[open] > summary.arconix-faq-title::after) { content: '\2303'; }
   .corpo :global(.arconix-faq-content) { padding: 15px 20px; }
 
   .corpo :global(.rolagem) {
