@@ -129,12 +129,30 @@ const atual = Astro.url.pathname;
     .alternar[aria-expanded='true'] + nav { display: block; }
   }
   @media (min-width: 768px) {
+    /* A faixa do menu é BRANCA no tema, de ponta a ponta — medido na captura
+       do site atual: rgb(255,255,255) de x 5 a 1275 e de y 33 (base da barra
+       cinza) até a base do box do logotipo. Aqui ela tinha ficado no cinza da
+       página (#ECECEC), e não era só aparência: o item da página atual, em
+       --verde-texto, dá 3,82:1 sobre esse cinza e reprova o AA (o Lighthouse
+       acusava `color-contrast` em toda interna no desktop; na home passava
+       por acaso, porque nenhum item do menu é a página atual ali). Sobre o
+       branco são 4,51:1. Vai no <header> e não no .container porque a faixa
+       do tema atravessa a tela inteira; a .barra pinta o cinza dela por cima.
+       Abaixo de 768 px nada muda: lá a faixa é a azul do celular. */
+    .cabecalho-site { background: var(--branco); }
     .container { width: 750px; }
     /* O box do logotipo começa no topo da página, sobre a barra de 33 px
        (h1.logo flutua dentro dela), e a faixa branca do menu desce até a
        base do box. O menu flutua à direita: se não cabe ao lado do box, desce
        para baixo dele, como no tema (em 768 px, em português). */
     .principal { display: flow-root; }
+    /* z-index 1, e não o 999 do tema (style.css:359), de propósito: o único
+       elemento posicionado que disputa este canto é o link "pular para o
+       conteúdo" (z-index 100), que o tema não tem. Medido nos dois valores,
+       em 768 e em 1280: com 999, o box do logotipo cobre o link quando ele
+       aparece no foco do teclado — elementFromPoint devolve `a.logo` no
+       centro dele; com 1, o link fica por cima. Não há mais nada empilhado
+       aqui, então 1 e 999 são indistinguíveis no resto. */
     .logo {
       float: left; position: relative; z-index: 1; margin-top: -33px;
       display: grid; place-items: center; width: 150px; height: 130px;
