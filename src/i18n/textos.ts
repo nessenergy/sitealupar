@@ -51,7 +51,12 @@ interface Textos {
   sustentabilidade: string;
   indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
   idioma: string;
+  /** Rótulo da trilha ("Você está em:"), texto solto — não é o nome de degrau nenhum. */
   trilha: string;
+  /** `aria-label` do `<nav>` da trilha: nomeia a navegação, não a frase. */
+  trilhaNav: string;
+  /** Nome do primeiro degrau, a home. */
+  inicio: string;
   logo: string;
   menu: { rotulo: string; itens: { rotulo: string; href: string }[] };
   ri: string;
@@ -98,6 +103,11 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Idioma',
     trilha: 'Você está em:',
+    trilhaNav: 'Trilha de navegação', // novo
+    /* O site atual chama o degrau da home de "Você está em:" — o rótulo no
+       lugar do nome. O nome existe: o JSON-LD do Yoast, na mesma página,
+       publica `{"position":1,"name":"Início"}`. É esse que volta aqui. */
+    inicio: 'Início', // novo
     logo: 'Alupar — página inicial', // novo
     menu: {
       rotulo: 'Menu',
@@ -166,6 +176,8 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Language',
     trilha: 'You are here:', // novo — o site atual imprime o rótulo em português (P7)
+    trilhaNav: 'Breadcrumb', // novo
+    inicio: 'Home', // novo
     logo: 'Alupar — home', // novo
     menu: {
       rotulo: 'Menu',
@@ -233,6 +245,8 @@ export const textos: Record<Idioma, Textos> = {
     },
     idioma: 'Idioma',
     trilha: 'Usted está en:', // novo — o site atual imprime o rótulo em português (P7)
+    trilhaNav: 'Ruta de navegación', // novo
+    inicio: 'Inicio', // novo
     logo: 'Alupar — inicio', // novo
     menu: {
       rotulo: 'Menú',
