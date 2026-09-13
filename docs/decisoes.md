@@ -54,10 +54,9 @@ mão, para que ninguém precise confiar na memória de quem os escreveu.
 
 ## Por que mensalidade (D15)
 
-Decidido em 10/09/2026 e revisto em 11/09/2026. A Alupar já paga R$ 1.500
-por mês à MZ — só pelo institucional. A proposta deixa de ser projeto fechado
-(R$ 49.800) com mensalidade opcional e passa a ser uma entrada única mais uma
-mensalidade, que substitui essa linha.
+Decidido em 11/09/2026. A Alupar já paga R$ 1.500 por mês à MZ — só pelo
+institucional. A proposta é uma entrada única mais uma mensalidade, que
+substitui essa linha.
 
 - **Entrada de R$ 12.500** na assinatura; **R$ 1.500 por mês** a partir da
   assinatura; vigência de **12 meses, renovável por mais 12**; IPCA anual
@@ -65,9 +64,6 @@ mensalidade, que substitui essa linha.
   48 h/ano de manutenção, não cumulativas; o excedente sai a R$ 120/h
 - Sem cláusula de rescisão. Titularidade de código, conteúdo e contas em nome
   da Alupar desde o primeiro dia
-- Na primeira versão (10/09) era R$ 1.500 × 48 meses sem entrada, com saldo
-  de implantação a quitar em rescisão antes de 36 meses; a revisão trocou o
-  contrato longo pela entrada, e "evolução" por "manutenção"
 - A carta está em `apresentacao/proposta.html`
 - Escopo: só o institucional. `rs`, `pdi` e `ma` seguem na ness. e, como os
   demais sites, entram depois por acréscimo na mensalidade — é a saída do
