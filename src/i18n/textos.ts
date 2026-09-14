@@ -70,7 +70,10 @@ interface Textos {
      com um, o componente serve um banner estático, sem script e sem controles.
      Acrescentar uma peça aqui e a imagem correspondente em Home.astro liga o
      rotativo. A ordem das duas listas é a ordem das telas. */
-  banner: { legenda: string; alt: string; href: string | null }[];
+  /* `legenda` nula quando a peça não tem tarja: as telas antigas do rotativo
+     trazem o texto dentro da própria arte, e um <span> vazio por cima seria
+     ruído para quem usa leitor de tela. */
+  banner: { legenda: string | null; alt: string; href: string | null }[];
   /* Rótulos dos controles do rotativo. Só aparecem na página quando há duas
      telas ou mais — com uma, o banner é estático e não há o que controlar. */
   rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
@@ -138,12 +141,24 @@ export const textos: Record<Idioma, Textos> = {
       topo: 'Voltar ao topo', // novo
     },
     rotativo: { anterior: 'Tela anterior', proxima: 'Próxima tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
+    /* As seis peças que a home atual gira, para o Marketing decidir olhando.
+       A de 2025 vem primeiro de propósito: é ela que o visitante vê ao abrir, e
+       manter a primeira tela igual preserva o tempo de carga medido pelo CI.
+       As cinco seguintes estão fora do ar pela regra 0.2 do Marco 0, que veta
+       peça anterior a 2024 — só voltam por decisão do Marketing.
+       Os `alt` descrevem o que a arte mostra, escritos a partir de cada imagem;
+       onde a peça traz texto, o `alt` traz o mesmo texto. Todos `// novo`. */
     banner: [
       {
         legenda: '#SUSTENTABILIDADE',
         alt: 'Relatório de Sustentabilidade 2025', // novo — o site atual tem alt=""
         href: 'https://arquivos.alupar.com.br/documentos/relatorio-de-sustentabilidade-2025.pdf',
       },
+      { legenda: null, alt: 'Torre de transmissão contra o céu, entre nuvens', href: null }, // novo · 2017, fora do ar pela regra 0.2
+      { legenda: null, alt: 'Parque eólico ao pôr do sol, com dezenas de aerogeradores sobre vegetação verde', href: null }, // novo · 2017
+      { legenda: null, alt: 'Usina hidrelétrica à beira do rio, com torres de transmissão ao fundo', href: null }, // novo · 2017
+      { legenda: null, alt: 'Programa de Voluntariado: saiba como impactamos a vida de centenas de milhares de pessoas durante a pandemia', href: null }, // novo · 2021
+      { legenda: null, alt: 'Estamos comemorando a renovação do nosso Selo de Qualidade: certificado FEEx de Clima Organizacional 2021', href: null }, // novo · 2021
     ],
     eixos: [
       { titulo: 'Meio Ambiente', texto: 'Reposição e recuperação de vegetação florestal nativa' },

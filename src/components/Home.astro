@@ -16,6 +16,14 @@ import { noticiasDe } from '../lib/acervo';
 import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
 import { telas } from '../lib/banners';
 import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
+/* As cinco peças que a regra 0.2 tirou do ar, resgatadas da infraestrutura do
+   fornecedor. Estão aqui para o Marketing decidir olhando — a decisão deles é
+   que diz se ficam. */
+import telaTorre from '../assets/banners/tela-torre-2017.jpg';
+import telaEolica from '../assets/banners/tela-eolica-2017.jpg';
+import telaHidreletrica from '../assets/banners/tela-hidreletrica-2017.jpg';
+import voluntariado from '../assets/banners/voluntariado-pandemia-2021.jpg';
+import seloFeex from '../assets/banners/selo-feex-2021.jpg';
 import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
 import bannerEs from '../assets/banners/energia-que-impulsa-la-vida.jpg';
 import capaVideo from '../assets/video-institucional.jpg';
@@ -27,7 +35,11 @@ const pre = prefixo[idioma];
 /* Uma lista por idioma, na mesma ordem dos textos em `textos.ts`. Acrescentar
    uma peça aqui e o texto dela lá liga o rotativo; com uma só, a home serve o
    banner estático de hoje, sem script e sem controles. */
-const IMAGENS = { 'pt-br': [bannerPt], en: [bannerEn], es: [bannerEs] };
+const IMAGENS = {
+  'pt-br': [bannerPt, telaTorre, telaEolica, telaHidreletrica, voluntariado, seloFeex],
+  en: [bannerEn],
+  es: [bannerEs],
+};
 const rotativo = telas(IMAGENS[idioma], t.banner, idioma);
 const gira = rotativo.length > 1;
 const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
@@ -72,7 +84,7 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
             <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
               widths={[640, 1350, 1920]} sizes="100vw"
               loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
-            <span class="legenda"><strong>{tela.legenda}</strong></span>
+            {tela.legenda && <span class="legenda"><strong>{tela.legenda}</strong></span>}
           </Destaque>
         );
       })}
