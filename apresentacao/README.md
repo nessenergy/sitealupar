@@ -1,7 +1,7 @@
-# Apresentação e dossiê
+# Apresentação, dossiê e proposta
 
-Os dois documentos que saem deste projeto para fora dele: o deck que vai à
-mesa da Alupar e o dossiê que registra o estado do site.
+Os três documentos que saem deste projeto para fora dele: o deck que vai à
+mesa da Alupar, o dossiê que registra o estado do site e a carta-proposta.
 
 ## Por que o `.pptx` e o `.pdf` não estão aqui
 
@@ -57,6 +57,16 @@ para virar PDF:
   --print-to-pdf=dossie-alupar.pdf --no-pdf-header-footer \
   apresentacao/dossie-impressao.html
 ```
+
+## A proposta
+
+`proposta.html` é a carta-proposta comercial, já na folha de impressão — o
+mesmo padrão do dossiê, em A4. Os termos são os da decisão D15 em
+`docs/decisoes.md`; mudar um termo é mudar nos dois lugares, e no ato 3 do
+deck. Para o PDF, o mesmo comando do dossiê, apontando para `proposta.html`.
+
+No Windows, o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`;
+o comando é o mesmo, com `--print-to-pdf=proposta-alupar.pdf`.
 
 ## Ao alterar números
 

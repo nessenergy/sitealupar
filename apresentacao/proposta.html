@@ -1,0 +1,222 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Proposta comercial — alupar.com.br</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@500&display=swap">
+<style>
+  /* Mesma folha do dossiê (dossie-impressao.html): paleta do Manual de
+     Identidade Visual 2018 da Alupar, azul #004F9D em títulos, verde #079541
+     na barra. O PDF é sempre claro, então não há tema escuro aqui. */
+  :root{
+    --surface:#FFFFFF; --surface-2:#F2F5F3;
+    --ink:#231F20; --ink-2:#3F4744; --ink-3:#5F6965;
+    --line:#D5DBD7; --line-strong:#B9C1BC;
+    --accent-strong:#079541; --azul:#004F9D; --azul-soft:#E3ECF5;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#FFFFFF}
+  body{color:var(--ink);font-family:"Open Sans",Arial,Helvetica,sans-serif;font-size:10.5pt;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:180mm;margin:0 auto;padding:0}
+  /* marca ness.: caixa baixa, Montserrat 500, ponto sempre #00ADE8 */
+  .ness-brand{font-family:"Montserrat",Arial,sans-serif;font-weight:500;font-style:normal;letter-spacing:-0.01em;color:#000;white-space:nowrap}
+  .ness-brand .dot{color:#00ADE8}
+
+  header.top{border-top:4pt solid var(--accent-strong);border-bottom:1px solid var(--line);padding:18pt 0 14pt;margin-bottom:20pt}
+  .eyebrow{font-size:8pt;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8pt}
+  h1{font-size:26pt;font-weight:700;line-height:1.08;letter-spacing:-.02em;margin:0 0 8pt;color:var(--azul)}
+  .dek{font-size:12pt;color:var(--ink-2);margin:0 0 14pt}
+
+  .partes{display:grid;grid-template-columns:1fr 1fr;gap:12pt;margin:0 0 6pt}
+  .parte{border:1px solid var(--line);border-left:3pt solid var(--azul);padding:9pt 12pt;font-size:9.5pt;line-height:1.45}
+  .parte .papel{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4pt}
+  .parte b{display:block;font-size:10.5pt;color:var(--ink)}
+  .meta{display:flex;flex-wrap:wrap;gap:4pt 18pt;font-size:8.5pt;color:var(--ink-3);border-top:1px solid var(--line);padding-top:9pt;margin-top:12pt}
+  .meta b{color:var(--ink-2);font-weight:600}
+
+  section{margin:0 0 20pt;break-inside:auto}
+  section:last-of-type{margin-bottom:0}
+  h2{font-size:9.5pt;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12pt;padding-bottom:5pt;border-bottom:1.5pt solid var(--accent-strong);break-after:avoid}
+  h3{font-size:12pt;font-weight:600;letter-spacing:-.01em;margin:12pt 0 5pt;color:var(--azul);break-after:avoid}
+  p{margin:0 0 8pt}
+  ul{margin:0 0 8pt;padding-left:16pt}
+  li{margin-bottom:4pt}
+
+  .cobertura{display:grid;grid-template-columns:repeat(3,1fr);gap:10pt;margin:4pt 0 8pt;break-inside:avoid}
+  .col{border:1px solid var(--line);padding:10pt 12pt;background:var(--surface)}
+  .col h3{margin:0 0 6pt;font-size:11pt}
+  .col ul{margin:0;padding-left:14pt;font-size:9.5pt}
+  .col li{margin-bottom:3pt}
+
+  .destaque{background:var(--azul-soft);border-left:3pt solid var(--azul);padding:9pt 12pt;margin:0 0 10pt;color:var(--ink-2);break-inside:avoid}
+  .destaque p{margin:0}
+
+  table{border-collapse:collapse;width:100%;font-size:9.5pt;border:1px solid var(--line);break-inside:avoid}
+  th,td{text-align:left;padding:6pt 8pt;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:8pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  tr{break-inside:avoid}
+  td.valor{font-weight:600;color:var(--azul);white-space:nowrap}
+
+  .assinaturas{display:grid;grid-template-columns:1fr 1fr;gap:18pt;margin-top:16pt;break-inside:avoid}
+  .assinatura{border-top:1px solid var(--ink);padding-top:6pt;font-size:9.5pt;line-height:1.5}
+  .assinatura b{display:block;font-size:10pt}
+  .assinatura .linha{display:block;color:var(--ink-3);margin-top:10pt}
+
+  @page { size: A4; margin: 16mm 15mm 18mm; }
+  @page :first { margin-top: 12mm; }
+  #s-condicoes{break-before:page}
+  @media screen{ body{padding:24px} }
+</style>
+</head><body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Proposta comercial · Site institucional</p>
+    <h1>alupar.com.br</h1>
+    <p class="dek">Reconstrução, operação e manutenção do site institucional, em três idiomas, com a identidade visual atual preservada.</p>
+    <div class="partes">
+      <div class="parte">
+        <p class="papel">Proponente</p>
+        <b>NESS PROCESSOS E TECNOLOGIA LTDA.</b>
+        CNPJ 72.027.097/0001-37<br>
+        Rua Conceição de Monte Alegre, 107, Bloco A, conj. 82<br>
+        Cidade Monções, São Paulo, SP, CEP 04563-060
+      </div>
+      <div class="parte">
+        <p class="papel">Destinatária</p>
+        <b>ALUPAR INVESTIMENTO S.A.</b>
+        CNPJ 08.364.948/0001-38<br>
+        Rua Gomes de Carvalho, 1.996, 16º andar, conj. 161, sala A<br>
+        Vila Olímpia, São Paulo, SP, CEP 04547-905
+      </div>
+    </div>
+    <div class="meta">
+      <span>Data: <b>11 de setembro de 2026</b></span>
+      <span>Validade: <b>30 dias</b> a contar da data acima</span>
+      <span>Elaborada pela <span class="ness-brand">ness<span class="dot">.</span></span></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <h2>1. Objeto</h2>
+  <p>Reconstrução, operação e manutenção do site institucional <b>alupar.com.br</b>, em português, inglês e espanhol, com a identidade visual atual preservada, em substituição ao ambiente mantido hoje pelo fornecedor atual.</p>
+  <p>O portal de Relações com Investidores (<b>ri.alupar.com.br</b>) não faz parte deste objeto.</p>
+</section>
+
+<section>
+  <h2>2. O modelo</h2>
+  <p>A implantação é paga em uma entrada única, na assinatura. A partir daí, uma mensalidade cobre hospedagem, operação, segurança e manutenção do site — no lugar da mensalidade que a Alupar paga hoje pelo institucional.</p>
+  <p>O que a mensalidade passa a pagar:</p>
+  <ul>
+    <li>um site novo, em três idiomas, no lugar do WordPress de 2017;</li>
+    <li>autonomia de publicação: a Comunicação publica sozinha, sem abrir chamado;</li>
+    <li>manutenção e segurança do site durante toda a vigência do contrato.</li>
+  </ul>
+  <p>Durante as semanas de implantação há sobreposição com o contrato do fornecedor atual, que só é encerrado na virada do site.</p>
+</section>
+
+<section>
+  <h2>3. O que está coberto</h2>
+  <div class="cobertura">
+    <div class="col">
+      <h3>Na implantação</h3>
+      <ul>
+        <li>site novo em três idiomas, com a identidade visual atual;</li>
+        <li>migração de páginas, notícias, traduções e arquivos;</li>
+        <li>redirecionamento de todos os endereços antigos — nenhum endereço em uso hoje deixa de responder;</li>
+        <li>acessibilidade WCAG 2.2 AA, SEO técnico e dados estruturados;</li>
+        <li>formulário de contato com antispam e tratamento de dados conforme a LGPD;</li>
+        <li>correções emergenciais, treinamento da equipe e documentação.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Todo mês</h3>
+      <ul>
+        <li>hospedagem em rede global de distribuição;</li>
+        <li>domínio, DNS e certificados com renovação automática;</li>
+        <li>monitoramento com alerta, com e sem “www”;</li>
+        <li>cópia de segurança do conteúdo;</li>
+        <li>atualizações de segurança e de versão da plataforma;</li>
+        <li>verificação automática de qualidade a cada publicação — peso da página, acessibilidade, links e paridade entre os três idiomas.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Ao longo do ano</h3>
+      <ul>
+        <li>48 horas por ano de manutenção e ajustes;</li>
+        <li>novas páginas e seções sob demanda, dentro desse banco;</li>
+        <li>ajustes de conteúdo e de layout;</li>
+        <li>publicação assistida sempre que necessário;</li>
+        <li>relatório semestral de desempenho.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4. O que não está coberto</h2>
+  <ul>
+    <li>o portal de Relações com Investidores;</li>
+    <li>os sites <b>rs</b>, <b>pdi</b> e <b>ma</b>, até que entrem por acréscimo à mensalidade;</li>
+    <li>redesenho da identidade visual;</li>
+    <li>produção de fotografia ou de vídeo;</li>
+    <li>redação e tradução de conteúdo novo, além do banco anual de horas.</li>
+  </ul>
+  <div class="destaque"><p>Quando a Alupar decidir trazer os demais sites, eles entram na mesma base do institucional, por acréscimo à mensalidade — sem projeto novo e sem verba à parte.</p></div>
+</section>
+
+<section id="s-condicoes">
+  <h2>5. Condições comerciais</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Condição</th></tr></thead>
+    <tbody>
+      <tr><td>Entrada</td><td class="valor">R$ 12.500,00, na assinatura</td></tr>
+      <tr><td>Mensalidade</td><td class="valor">R$ 1.500,00 por mês, a partir da assinatura</td></tr>
+      <tr><td>Vigência</td><td>12 meses, renovável por mais 12</td></tr>
+      <tr><td>Reajuste</td><td>Anual, pelo IPCA</td></tr>
+      <tr><td>Banco de horas de manutenção</td><td>48 horas por ano, não cumulativas</td></tr>
+      <tr><td>Horas além do banco</td><td>R$ 120,00 por hora, mediante aprovação prévia</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>6. Titularidade</h2>
+  <p>Código-fonte, conteúdo e contas de serviço ficam em nome da Alupar desde o primeiro dia. Ao fim da vigência, a Alupar mantém tudo isso sem depender da <span class="ness-brand">ness<span class="dot">.</span></span> para operar o site.</p>
+</section>
+
+<section>
+  <h2>7. Prazo de implantação</h2>
+  <p>De 6 a 7 semanas entre a assinatura e a virada do site, com homologação antes da entrada em produção.</p>
+  <p>O prazo pressupõe:</p>
+  <ul>
+    <li>aprovações em até 3 dias úteis;</li>
+    <li>dados e acessos entregues até o segundo marco do cronograma;</li>
+    <li>um interlocutor nomeado por frente — Comunicação, Marketing e TI;</li>
+    <li>texto em português congelado no segundo marco.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>8. Aceite</h2>
+  <p>Proposta válida por 30 dias a contar da data de emissão. O aceite se dá pela assinatura abaixo e dá início à implantação.</p>
+  <div class="assinaturas">
+    <div class="assinatura">
+      <b>ALUPAR INVESTIMENTO S.A.</b>
+      CNPJ 08.364.948/0001-38
+      <span class="linha">Nome: ______________________________</span>
+      <span class="linha">Cargo: _____________________________</span>
+      <span class="linha">Data: ______________________________</span>
+    </div>
+    <div class="assinatura">
+      <b>NESS PROCESSOS E TECNOLOGIA LTDA.</b>
+      CNPJ 72.027.097/0001-37
+      <span class="linha">Nome: ______________________________</span>
+      <span class="linha">Cargo: _____________________________</span>
+      <span class="linha">Data: ______________________________</span>
+    </div>
+  </div>
+</section>
+
+</div>
+</body></html>

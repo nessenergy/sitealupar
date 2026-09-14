@@ -258,7 +258,7 @@ divisor('02','O plano','Restauro fiel da identidade, sete semanas de execução,
    {text:'WordPress, o tema de 2017, 21 arquivos de JavaScript, três bibliotecas de carrossel simultâneas e o suporte a Internet Explorer 8.',options:{color:GRAFITE}}],
    _({x:M,y:5.22,w:LARG,h:0.42,fontSize:13,margin:0}));
  faixa(s,5.76,0.86,VERDE_TIN,VERDE,null,
-  'Sem licença e sem servidor para manter. É o que permite que hospedagem, certificados, monitoramento e evolução caibam numa única mensalidade.',VERDE);
+  'Sem licença e sem servidor para manter. É o que permite que hospedagem, certificados, monitoramento e manutenção caibam numa única mensalidade.',VERDE);
  rodape(s);}
 
 /* 9 — cronograma */
@@ -353,14 +353,14 @@ divisor('02','O plano','Restauro fiel da identidade, sete semanas de execução,
  rodape(s);}
 
 /* ═════════════════════════ ato 3 · proposta ═════════════════════════ */
-divisor('03','A proposta','Uma mensalidade, sem entrada, no lugar da que a Alupar já paga hoje. A implantação, a operação e a evolução do site cabem dentro dela.');
+divisor('03','A proposta','Uma entrada única na assinatura e uma mensalidade no lugar da que a Alupar já paga hoje. Operação, segurança e manutenção do site cabem dentro dela.');
 
 /* 17 — a proposta, resumo */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · resumo','A proposta','Uma mensalidade no lugar da que a Alupar já paga — sem entrada e sem projeto a aprovar');
- const d=[['R$ 1.500','por mês — o mesmo que a Alupar paga hoje',AZUL],
-          ['R$ 0','de entrada',AZUL],
-          ['48','meses de contrato',AZUL],
+ cabec(s,'Proposta · resumo','A proposta','Uma entrada única e a mesma mensalidade que a Alupar já paga hoje');
+ const d=[['R$ 12.500','de entrada, na assinatura',AZUL],
+          ['R$ 1.500','por mês — o mesmo que a Alupar paga hoje',AZUL],
+          ['12 + 12','meses de contrato, renovável',AZUL],
           ['6 a 7','semanas até o site no ar',VERDE]];
  const cw=(LARG-3*GAP)/4;
  d.forEach((c,i)=>{const x=M+i*(cw+GAP);
@@ -368,31 +368,31 @@ divisor('03','A proposta','Uma mensalidade, sem entrada, no lugar da que a Alupa
   s.addText(c[0],_({x:x+0.30,y:TOPO+0.20,w:cw-0.5,h:0.62,fontSize:29,bold:true,color:c[2],margin:0}));
   s.addText(c[1],_({x:x+0.30,y:TOPO+0.86,w:cw-0.5,h:0.6,fontSize:12,color:GRAFITE,margin:0}));});
  faixa(s,3.92,1.06,VERDE_TIN,VERDE,null,
-  'A cobrança começa na virada, quando o contrato com o fornecedor atual é encerrado. A Alupar nunca paga os dois ao mesmo tempo: o custo adicional é zero.',VERDE);
+  'A mensalidade começa na assinatura. Durante as semanas de implantação ela convive com o contrato do fornecedor atual, que só é encerrado na virada do site.',VERDE);
  s.addText('O que a mesma linha de orçamento passa a pagar',_({x:M,y:5.22,w:LARG,h:0.32,fontSize:15,bold:true,color:TINTA,margin:0}));
  lista(s,M,5.66,LARG,[
   'Um site novo, em três idiomas, no lugar do WordPress de 2017',
   'A Comunicação publica sozinha, sem abrir chamado e sem esperar por ninguém',
-  'Manutenção, segurança e evolução do site durante todo o contrato'],VERDE,12.5,0.40);
+  'Manutenção e segurança do site durante todo o contrato'],VERDE,12.5,0.40);
  rodape(s);}
 
 /* 18 — o que está coberto */
 {const s=p.addSlide(); claro(s);
- cabec(s,'Proposta · cobertura','O que a mensalidade cobre','Da implantação à evolução — nada nesta página é cobrado à parte');
+ cabec(s,'Proposta · cobertura','O que a mensalidade cobre','Da implantação à manutenção — nada nesta página é cobrado à parte');
  const cols=[
   ['Na implantação',VERDE,VERDE_TIN,
    ['Site novo em três idiomas, com a identidade visual atual','Migração de páginas, notícias, traduções e arquivos','Redirecionamento de todos os endereços antigos','Acessibilidade WCAG 2.2 AA, SEO técnico e GEO','Formulário de contato com antispam e LGPD','Correções emergenciais, treinamento e documentação']],
   ['Todo mês',AZUL,AZUL_TIN,
    ['Hospedagem em rede global de distribuição','Domínio, DNS e certificados com renovação automática','Monitoramento com alerta, com e sem “www”','Cópia de segurança do conteúdo','Atualizações de segurança e de versão da plataforma','Verificação automática de qualidade a cada publicação']],
   ['Ao longo do ano',AMBAR,AMBAR_TIN,
-   ['48 horas por ano para evolução e ajustes','Novas páginas e seções sob demanda','Ajustes de conteúdo e de layout','Publicação assistida sempre que precisar','Relatório semestral de desempenho']]];
+   ['48 horas por ano de manutenção e ajustes','Novas páginas e seções sob demanda','Ajustes de conteúdo e de layout','Publicação assistida sempre que precisar','Relatório semestral de desempenho']]];
  const cw=(LARG-2*GAP)/3;
  cols.forEach((c,i)=>{const x=M+i*(cw+GAP);
   cartao(s,x,TOPO,cw,3.72,c[2],c[1]);
   s.addText(c[0],_({x:x+0.34,y:TOPO+0.20,w:cw-0.66,h:0.62,fontSize:15,bold:true,color:c[1],margin:0}));
   lista(s,x+0.34,TOPO+0.94,cw-0.68,c[3],c[1],11.5,0.44);});
  faixa(s,6.02,0.78,PAPEL,AZUL,null,
-  'A implantação não tem entrada: está dentro da mensalidade. Código, conteúdo e contas ficam em nome da Alupar desde o primeiro dia.',AZUL);
+  'A implantação é paga na entrada, uma única vez. Código, conteúdo e contas ficam em nome da Alupar desde o primeiro dia.',AZUL);
  rodape(s);}
 
 /* 19 — mesma mensalidade, outro site */
@@ -427,9 +427,9 @@ divisor('03','A proposta','Uma mensalidade, sem entrada, no lugar da que a Alupa
    cartao(s,x,y,cw,h,tint,cor);
    s.addText(tit,_({x:x+0.34,y:y+0.18,w:cw-0.66,h:0.32,fontSize:15,bold:true,color:cor,margin:0}));
    lista(s,x+0.34,y+(passo&&passo<0.34?0.58:0.68),cw-0.68,linhas,cor,fs||12,passo||0.40);};
- bloco(M,TOPO,'Preço e prazo',VERDE,VERDE_TIN,3.02,['R$ 1.500 por mês, por 48 meses','Sem entrada','Cobrança a partir da virada do site','Reajuste anual pelo IPCA','Horas além do banco anual: R$ 120 por hora']);
+ bloco(M,TOPO,'Preço e prazo',VERDE,VERDE_TIN,3.02,['R$ 12.500 de entrada, na assinatura','R$ 1.500 por mês, a partir da assinatura','Vigência de 12 meses, renovável por mais 12','Reajuste anual pelo IPCA','Horas além do banco anual: R$ 120 por hora']);
  bloco(M+cw+GAP,TOPO,'Não coberto',AZUL,AZUL_TIN,3.02,['O portal de Relações com Investidores','Os sites rs, pdi e ma, até entrarem por acréscimo','Redesenho da identidade visual','Produção de fotografia ou vídeo','Redação e tradução de conteúdo novo, fora do banco']);
- bloco(M,TOPO+3.16,'Rescisão e saída',AZUL,PAPEL,1.72,['Antes de 36 meses, quita-se o saldo da implantação','Saldo inicial de R$ 49.800, que cai 1/36 por mensalidade','Na saída, código, conteúdo e contas ficam com a Alupar','Novos sites entram por acréscimo na mensalidade'],11,0.28);
+ bloco(M,TOPO+3.16,'Titularidade e saída',AZUL,PAPEL,1.72,['Código, conteúdo e contas em nome da Alupar desde o primeiro dia','Ao fim da vigência, a Alupar opera o site sem depender da ness.','Novos sites entram por acréscimo na mensalidade'],11,0.28);
  bloco(M+cw+GAP,TOPO+3.16,'Premissas de prazo',AMBAR,AMBAR_TIN,1.72,['Aprovações em até 3 dias úteis','Dados e acessos entregues até o Marco 2','Um interlocutor por frente, nomeado','Texto em português congelado no Marco 2'],11,0.28);
  rodape(s);}
 
@@ -440,7 +440,7 @@ divisor('03','A proposta','Uma mensalidade, sem entrada, no lugar da que a Alupa
  s.addText('Próximos passos',_({x:M,y:1.10,w:8,h:0.75,fontSize:36,bold:true,color:BRANCO,margin:0}));
  const passos=[['Esta semana','Corrigir o endereço sem “www” em https — já podemos executar'],
    ['Nesta reunião','Os cinco nomes e as três autorizações'],
-   ['Na assinatura','Início da implantação — a mensalidade só começa na virada'],
+   ['Na assinatura','Início da implantação — entrada e primeira mensalidade'],
    ['Até a Semana 2','Os dois números institucionais e o acesso ao Analytics']];
  passos.forEach((k,i)=>{const y=2.32+i*0.98;
   s.addShape(p.ShapeType.rect,{x:M,y,w:7.9,h:0.80,fill:{color:i===0?VERDE:AZUL_MED}});
