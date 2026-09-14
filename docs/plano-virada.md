@@ -2170,7 +2170,8 @@ Se o Turnstile derrubar `best-practices` de `/contato/`, o limite fica: é conve
 
 - [ ] **Passo 12:** configurar os serviços (uma vez, conta da ness.)
   - Turnstile → novo widget, hostnames `www.alupar.com.br` e `sitealupar.pages.dev`; `gh variable set TURNSTILE_SITE_KEY` com a chave pública
-  - Resend → domínio de envio `envio.alupar.com.br`, registros de DNS **só nesse subdomínio** — o MX do apex é do Google Workspace e não pode ser tocado
+  - Resend → domínio de envio `msg.alupar.com.br`, registros de DNS **só nesse subdomínio** — o MX do apex é do Google Workspace e não pode ser tocado.
+    **Não use `envio.alupar.com.br`**: conferido em 14/09/2026, ele é um `CNAME` para `smtplw.com`, o SMTP da Locaweb, com bounces em `correio.biz` e relatório de DMARC para `squad-entregabilidade.com.br`. É delegação viva, e o apex ainda traz dois endereços da Locaweb no SPF — alguma coisa da Alupar envia por ali. Perguntar o que é antes de mexer; `msg`, `contato` e `notificacoes` estão livres, `mail` é do Google
   - Segredos do Pages, um por vez (o valor é digitado, não fica em arquivo):
 
 ```bash
