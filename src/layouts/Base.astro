@@ -75,6 +75,19 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href="/fonts/open-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
+    {/* Os mesmos sete ícones do site atual, na mesma ordem e nos mesmos
+        tamanhos, recuperados do CDN do fornecedor que está saindo e servidos
+        daqui — lá eles somem com o contrato. O `.ico` fica na raiz porque o
+        navegador pede `/favicon.ico` sozinho, sem ler declaração nenhuma; na
+        origem ele é um PNG de 48 px, byte a byte igual ao favicon48. */}
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon180.png" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/favicon/favicon144.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon96.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon16.png" />
+
     <title>{titulo}</title>
     <!-- A home atual não tem meta description. -->
     <meta name="description" content={descricao} />
