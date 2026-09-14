@@ -53,10 +53,19 @@ async function arquivos(dir) {
  * com uma exceção em vez de listar os pendentes. Erro de rede conta como
  * "não servido", igual a uma resposta não-ok.
  */
+/*
+ * A zona tem verificação de integridade de navegador ligada, e o `fetch` do
+ * Node se anuncia como `node`. De uma máquina comum isso passa; do runner do
+ * CI, os 18 vídeos do acervo voltavam 403 — só eles, com PDF de 33 MB passando
+ * ao lado, então não era tamanho. Um agente bem formado, que diz quem é e onde
+ * encontrar o projeto, é o que se espera de um verificador automático.
+ */
+const AGENTE = 'Mozilla/5.0 (compatible; sitealupar-verificador/1.0; +https://github.com/nessenergy/sitealupar)';
+
 async function servido(chave, bytes) {
   let r, erroDeRede;
   try {
-    r = await fetch(`${PUBLICO}/${encodeURI(chave)}`, { method: 'HEAD' });
+    r = await fetch(`${PUBLICO}/${encodeURI(chave)}`, { method: 'HEAD', headers: { 'user-agent': AGENTE } });
   } catch (e) {
     erroDeRede = e.cause?.code ?? e.code ?? e.message;
   }
