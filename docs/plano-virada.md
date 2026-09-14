@@ -67,7 +67,7 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | `scripts/lib/continuidade.mjs` + `.test.mjs` | Destino de 301 para endereço vivo que não virou página | 4 |
 | `scripts/fechar-continuidade.mjs` | Escreve os 301 que faltam; `--verificar` no CI | 4 |
 | `src/pages/videos/…`, `en/videos/…`, `es/videos/…` | Listagem de vídeos (`/videos/` responde 200 hoje) | 4 |
-| `scripts/publicar-arquivos.mjs` | `acervo/midia/` → R2, com verificação pela URL pública | 5 |
+| `scripts/publicar-arquivos.mjs` | `acervo/midia/` → R2, com verificação pela URL pública; grava `acervo/r2.json` e o confere com `--manifesto`, sem a mídia em disco | 5 |
 | `.github/workflows/ci.yml` | Testes, verificações novas, deploy no Pages | 3–6 |
 | `src/components/Cabecalho.astro`, `Rodape.astro`, `public/js/site.js` | Casca restaurada do tema | 7 |
 | `src/components/Home.astro` | Banner, faixa, notícias, vídeo, sustentabilidade | 8 |
@@ -2347,7 +2347,7 @@ voltar atrás é trocar um registro de DNS.
   3. marcar o PR `feat/medicao-web-analytics` como pronto (*Ready for review*), o que **reexecuta o CI**: `ready_for_review` está na lista `types:` de `.github/workflows/ci.yml`
   4. conferir o verde **dessa execução nova**. O verde que já estava no PR é de um build feito sem a variável — o site sairia sem medição nenhuma, e nada acusaria
   5. só então mergear. Se a P9 for pelo GA4, fechar o PR sem merge
-- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo. Em 13/09 entraram os 8 originais resgatados no PR #66: 128 objetos, `--verificar` aprovado. Conferir de novo na véspera com `node scripts/publicar-arquivos.mjs --verificar`
+- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo. Em 13/09 entraram os 8 originais resgatados no PR #66: 128 objetos. Desde 14/09 **o CI confere isto a cada merge na main**, contra `acervo/r2.json`, e abre issue se reprovar — não é mais item de véspera. Quem publicar mídia nova commita o manifesto junto
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista
 - [ ] **Linha de base do GA4 extraída** (páginas mais vistas, origem de tráfego, últimos 12 meses). Depois da virada ela não se recupera
