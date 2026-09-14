@@ -221,11 +221,16 @@ jobs:
         env:
           SITE: https://sitealupar.pages.dev
 
+      # Contra acervo/r2.json, e não contra o disco: os 734 MB de mídia não
+      # pertencem ao git, e sem isto o CI não tinha como ver o bucket.
+      - name: Toda a mídia do manifesto está servida no R2
+        run: node scripts/publicar-arquivos.mjs --manifesto
+
       - name: Alarme
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
           ESTADO: ${{ job.status }}
           EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          TITULO: 'Verificação pós-merge: um endereço do acervo deixou de responder'
+          TITULO: 'Verificação pós-merge: um endereço do acervo ou um arquivo do R2 deixou de responder'
         run: node scripts/alarme.mjs pos-merge "$TITULO"
