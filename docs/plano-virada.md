@@ -2337,7 +2337,7 @@ voltar atrás é trocar um registro de DNS.
 
 **Pré-condições — todas, antes de marcar a data:**
 
-- [ ] `main` verde, com as Tarefas 2 a 11 mergeadas
+- [x] `main` verde, com as Tarefas 2 a 11 mergeadas (12/09/2026; homologação em `plano-homologacao.md` concluída)
 - [ ] P1 a P9 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
 - [ ] Sem P5: remover o `<form>` e o `<script>` do Turnstile de `src/components/Contato.astro` num PR próprio
 - [ ] P9 no padrão, num PR próprio e **nesta ordem** — o CI é que precisa ver a variável, e ele só a vê numa execução iniciada depois dela:
@@ -2346,12 +2346,12 @@ voltar atrás é trocar um registro de DNS.
   3. marcar o PR `feat/medicao-web-analytics` como pronto (*Ready for review*), o que **reexecuta o CI**: `ready_for_review` está na lista `types:` de `.github/workflows/ci.yml`
   4. conferir o verde **dessa execução nova**. O verde que já estava no PR é de um build feito sem a variável — o site sairia sem medição nenhuma, e nada acusaria
   5. só então mergear. Se a P9 for pelo GA4, fechar o PR sem merge
-- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo, 120 objetos. Conferir de novo com `node scripts/publicar-arquivos.mjs --verificar`
+- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo. Em 13/09 entraram os 8 originais resgatados no PR #66: 128 objetos, `--verificar` aprovado. Conferir de novo na véspera com `node scripts/publicar-arquivos.mjs --verificar`
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista
 - [ ] **Linha de base do GA4 extraída** (páginas mais vistas, origem de tráfego, últimos 12 meses). Depois da virada ela não se recupera
-- [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225. Se mudou, rodar a esteira do `acervo/README.md` antes
-- [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado
+- [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225 (conferido em 13/09: 225). Repetir na véspera; se mudou, rodar a esteira do `acervo/README.md` antes
+- [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado (13/09: 276 endereços, todos em 200; repetir na véspera)
 - [ ] Interlocutor do RI (A2) avisado da data: o RI divide a máquina da MZ com o institucional, e nada muda para `ri.alupar.com.br`
 
 **Na véspera:**

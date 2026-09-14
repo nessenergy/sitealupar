@@ -2,7 +2,8 @@
 
 **Status: executado em 11/09/2026.** Bucket criado na região ENAM, domínio
 `arquivos.alupar.com.br` ativo (CNAME com proxy para `public.r2.dev`, TLS
-mínimo 1.2) e 120 objetos enviados (740 MB). O `r2.dev` público continua
+mínimo 1.2) e 120 objetos enviados (740 MB); em 13/09/2026 entraram os 8
+originais resgatados no PR #66, e o bucket tem 128 objetos. O `r2.dev` público continua
 desligado: o único acesso é pelo domínio, que passa pelo cache da Cloudflare
 (`cf-cache-status: HIT` a partir da segunda requisição).
 
