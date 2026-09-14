@@ -14,6 +14,7 @@ import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { noticiasDe } from '../lib/acervo';
 import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
+import { telas } from '../lib/banners';
 import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
 import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
 import bannerEs from '../assets/banners/energia-que-impulsa-la-vida.jpg';
@@ -23,9 +24,13 @@ interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
 const pre = prefixo[idioma];
-const BANNER = { 'pt-br': bannerPt, en: bannerEn, es: bannerEs };
+/* Uma lista por idioma, na mesma ordem dos textos em `textos.ts`. Acrescentar
+   uma peça aqui e o texto dela lá liga o rotativo; com uma só, a home serve o
+   banner estático de hoje, sem script e sem controles. */
+const IMAGENS = { 'pt-br': [bannerPt], en: [bannerEn], es: [bannerEs] };
+const rotativo = telas(IMAGENS[idioma], t.banner, idioma);
+const gira = rotativo.length > 1;
 const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
-const Destaque = t.banner.href ? 'a' : 'div';
 
 // Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
 // número plausível é pior que um espaço vazio, porque ninguém o corrige depois.
@@ -45,18 +50,47 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
          ao leitor de tela. Aqui é texto real, oculto visualmente. -->
     <h1 class="sr-only">Alupar</h1>
 
-    <section aria-label={t.destaques}>
-      <Destaque href={t.banner.href ?? undefined} class="banner">
-        <!-- 1350w no lugar de 1280w: o banner é full-bleed (sem .container), e o
-             preset desktop do Lighthouse mede a caixa em 1335 px — o degrau de
-             1280w força o navegador a saltar para 1920w. Com a foto do banner ES
-             (energia-que-impulsa-la-vida.jpg), isso mediu 38 121 B de
-             sobra-de-pixel e reprovou "uses-responsive-images" (score 0, exigido
-             ≥0,9). Ajuste de build, invisível — não muda nada que se veja. -->
-        <Picture src={BANNER[idioma]} alt={t.banner.alt} formats={['avif', 'webp']}
-          widths={[640, 1350, 1920]} sizes="100vw" loading="eager" fetchpriority="high" />
-        <span class="legenda"><strong>{t.banner.legenda}</strong></span>
-      </Destaque>
+    {/* Com uma tela isto rende exatamente o que rendia antes: um banner, nenhum
+        controle, nenhum atributo de rotativo e nenhum script. O `data-rotativo`
+        só aparece com duas ou mais, e é ele que liga o comportamento em
+        public/js/site.js — sem ele, o script não registra nada. */}
+    <section aria-label={t.destaques} class="destaques" data-rotativo={gira ? '' : undefined}
+      aria-roledescription={gira ? 'carrossel' : undefined}>
+      {rotativo.map((tela, i) => {
+        const Destaque = tela.href ? 'a' : 'div';
+        return (
+          <Destaque href={tela.href ?? undefined} class="banner" data-tela={gira ? String(i) : undefined}
+            hidden={gira && i > 0}
+            aria-roledescription={gira ? 'tela' : undefined}
+            aria-label={gira ? `${i + 1} de ${rotativo.length}` : undefined}>
+            {/* 1350w no lugar de 1280w: o banner é full-bleed (sem .container), e o
+                preset desktop do Lighthouse mede a caixa em 1335 px — o degrau de
+                1280w força o navegador a saltar para 1920w. Com a foto do banner ES
+                (energia-que-impulsa-la-vida.jpg), isso mediu 38 121 B de
+                sobra-de-pixel e reprovou "uses-responsive-images" (score 0, exigido
+                ≥0,9). Ajuste de build, invisível — não muda nada que se veja. */}
+            <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
+              widths={[640, 1350, 1920]} sizes="100vw"
+              loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+            <span class="legenda"><strong>{tela.legenda}</strong></span>
+          </Destaque>
+        );
+      })}
+
+      {/* Controles só existem quando há o que controlar. Botões de verdade, para
+          que teclado e leitor de tela os alcancem sem nada de especial. A pausa
+          é exigência da WCAG 2.2.2 para conteúdo que se move sozinho. */}
+      {gira && (
+        <div class="controles">
+          <button type="button" data-rot="anterior" aria-label={t.rotativo.anterior}>‹</button>
+          {/* Os dois rótulos viajam na marcação: o script troca o `aria-label` ao
+              alternar, e traduzir dentro do JS serviria só para o texto sair do
+              i18n e envelhecer sozinho. */}
+          <button type="button" data-rot="pausar" aria-pressed="false"
+            aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
+          <button type="button" data-rot="proxima" aria-label={t.rotativo.proxima}>›</button>
+        </div>
+      )}
     </section>
 
     <section class="faixa" aria-label={t.emNumeros}>
@@ -120,6 +154,18 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
      Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
      em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
   .banner { position: relative; display: block; height: 447px; }
+  /* A seção reserva a mesma altura da tela: trocar de tela não pode empurrar a
+     página, e o CLS que o CI cobra é 0,1. Com uma tela só isto não muda nada,
+     porque a altura já era a do banner. */
+  .destaques[data-rotativo] { position: relative; height: 447px; }
+  .controles { position: absolute; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+  .controles button {
+    width: 44px; height: 44px;                  /* área de toque da WCAG 2.5.8 */
+    border: 1px solid rgba(255, 255, 255, .85); border-radius: 50%;
+    background: rgba(0, 0, 0, .45); color: #fff; font-size: 15px; line-height: 1;
+    cursor: pointer;
+  }
+  .controles button:hover { background: rgba(0, 0, 0, .65); }
   .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
   /* .content do tema (skin.css): caixa branca translúcida no alto à esquerda,
      texto azul em peso normal e um fio verde de 4 px na base, a 45% da largura.
