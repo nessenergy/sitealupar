@@ -8,6 +8,11 @@ on:
     - cron: '0 10 * * *'   # 07:00 em Brasília
   workflow_dispatch:
 
+# A issue de alarme é aberta e fechada pela própria execução.
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   checar:
     runs-on: ubuntu-latest
@@ -31,3 +36,14 @@ jobs:
       - name: Todo endereço vivo do acervo termina em 200
         if: vars.VIRADA == 'sim'
         run: node scripts/verificar-no-ar.mjs
+
+      # `job.status` aqui já reflete a falha dos passos acima. O passo não
+      # engole a falha: o job segue vermelho e o e-mail continua saindo.
+      - name: Alarme
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ job.status }}
+          EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITULO: 'Sentinela: endereço ou certificado precisa de atenção'
+        run: node scripts/alarme.mjs sentinela "$TITULO"
