@@ -191,3 +191,41 @@ jobs:
           RAMO: ${{ github.head_ref || github.ref_name }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # O que já se verificava uma vez por dia passa a rodar assim que a main
+  # publica. O intervalo entre o merge e a descoberta é o que custou dois dias
+  # quando oito arquivos do acervo ficaram fora do R2 sem ninguém notar.
+  verificar:
+    runs-on: ubuntu-latest
+    needs: [publicar]
+    if: github.event_name == 'push'
+    # A issue de alarme é aberta e fechada pela própria execução.
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # A repetição não é teimosia: o deploy leva alguns segundos para
+      # propagar, e um alarme que abre issue não pode ser instável.
+      - name: Todo endereço vivo do acervo responde no site publicado
+        shell: bash
+        run: |
+          node scripts/verificar-no-ar.mjs "$SITE" && exit 0
+          echo "primeira tentativa reprovou — o deploy pode não ter propagado; repetindo em 30 s"
+          sleep 30
+          node scripts/verificar-no-ar.mjs "$SITE"
+        env:
+          SITE: https://sitealupar.pages.dev
+
+      - name: Alarme
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ job.status }}
+          EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITULO: 'Verificação pós-merge: um endereço do acervo deixou de responder'
+        run: node scripts/alarme.mjs pos-merge "$TITULO"
