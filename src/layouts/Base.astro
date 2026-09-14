@@ -18,6 +18,10 @@ interface Props {
   noindex?: boolean;
 }
 const { titulo, descricao, idioma = 'pt-br', interna = true, noindex = false } = Astro.props;
+
+/* `og:locale` pede locale cheio, com região — `en` sozinho não é valor válido.
+   O site atual declara `pt_BR`; as outras duas seguem a mesma forma. */
+const OG_LOCALE: Record<Idioma, string> = { 'pt-br': 'pt_BR', en: 'en_US', es: 'es_ES' };
 const url = new URL(Astro.url.pathname, Astro.site).href;
 
 /*
@@ -93,7 +97,22 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <meta name="description" content={descricao} />
     {/* Canonical diz "indexe esta"; noindex diz o contrário. Os dois juntos
         são sinal contraditório — sai o canonical. */}
-    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={url} />}
+    {noindex ? <meta name="robots" content="noindex" /> : (
+      <>
+        <link rel="canonical" href={url} />
+        {/* As diretivas `max-*` são as do site atual. Sem elas o Google volta ao
+            padrão e encolhe a prévia de imagem nos resultados — regressão que
+            nenhum teste de página pega. */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      </>
+    )}
+
+    {/* Verificações de propriedade do site atual, carregadas na virada. A do
+        Google aqui **não é** a do registro TXT do apex: são duas propriedades
+        distintas, e só esta depende do HTML — sem ela, quem a detém perde o
+        Search Console no dia em que o site trocar. */}
+    <meta name="google-site-verification" content="07MVOK-CLwEleByx1DrFuUJGjGxxXXBlK8BMRM0SQCI" />
+    <meta name="facebook-domain-verification" content="se4l7g9gdo6d9ngex9wszipnnu7pdf" />
 
     <!-- hreflang por rota, não por ?lang= -->
     {alternativas.map((a) => (
@@ -105,6 +124,9 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descricao} />
     <meta property="og:url" content={url} />
+    <meta property="og:site_name" content={textos[idioma].titulo} />
+    <meta property="og:locale" content={OG_LOCALE[idioma]} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- JSON-LD no HTML servido, não injetado por JavaScript como hoje. -->
     <script type="application/ld+json" set:html={JSON.stringify({
