@@ -29,6 +29,7 @@ continuidade, Lighthouse), que rodam sobre todas as páginas do build.
 | Box do logotipo com `z-index: 1`, e não o 999 do tema (`style.css:359`) | Com 999, o box cobre o link "pular para o conteúdo" (z-index 100) quando ele aparece no foco do teclado — medido nos dois valores, em 768 e em 1280 px: `elementFromPoint` devolve `a.logo` no centro do link. O link é o único elemento posicionado que disputa este canto, e o tema não o tem; sem ele, 1 e 999 são indistinguíveis — comentário de `src/components/Cabecalho.astro` |
 | Logotipo em negativo sobre o box azul | O tema faz o mesmo (`img/logo-alupar.png`) — Tarefa 1 |
 | Sem banner de cookies | Decisão P9 |
+| Ícone do site igual ao atual, com o mesmo recorte | Restauro fiel. Os sete ícones do site atual são um recorte da letra "A" com a perna direita cortada pela moldura e uma barra azul na base — o mesmo desenho em todos os tamanhos. Parece acidental, mas corrigir é redesenho, e quem aprova marca é o Marketing. Os arquivos foram recuperados do CDN do fornecedor em 14/09 e passaram a ser servidos daqui; no site atual eles somem com o contrato. **Pendente de decisão do Marketing** |
 | Listagem de notícias e arquivo paginado | Decisão P2 |
 | Formulário de contato com rótulo por campo, consentimento e Turnstile | Critérios C1 a C4 do PRD |
 | Página de erro própria para endereço inexistente | Tarefa 11b de `plano-virada.md` |
