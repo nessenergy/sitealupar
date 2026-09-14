@@ -2168,7 +2168,7 @@ npx --yes @lhci/cli@0.14.x collect && npx --yes @lhci/cli@0.14.x assert
 
 Se o Turnstile derrubar `best-practices` de `/contato/`, o limite fica: é conversa sobre o provedor antiespam, não sobre o critério.
 
-- [ ] **Passo 12:** configurar os serviços (uma vez, conta da ness.)
+- [x] **Passo 12** (14/09/2026): serviços configurados e os quatro segredos gravados no ambiente de produção do Pages
   - Turnstile → novo widget, hostnames `www.alupar.com.br` e `sitealupar.pages.dev`; `gh variable set TURNSTILE_SITE_KEY` com a chave pública
   - Resend → domínio de envio `msg.alupar.com.br`, registros de DNS **só nesse subdomínio** — o MX do apex é do Google Workspace e não pode ser tocado.
     **Não use `envio.alupar.com.br`**: conferido em 14/09/2026, ele é um `CNAME` para `smtplw.com`, o SMTP da Locaweb, com bounces em `correio.biz` e relatório de DMARC para `squad-entregabilidade.com.br`. É delegação viva, e o apex ainda traz dois endereços da Locaweb no SPF — alguma coisa da Alupar envia por ali. Perguntar o que é antes de mexer; `msg`, `contato` e `notificacoes` estão livres, `mail` é do Google
@@ -2180,9 +2180,29 @@ for s in TURNSTILE_SECRET RESEND_API_KEY CONTATO_DESTINO CONTATO_REMETENTE; do
 done
 ```
 
-  `CONTATO_DESTINO`, até a Alupar responder P5: uma caixa de teste da ness.
+  **Valores provisórios em uso desde 14/09**, até a Alupar responder a P5:
+  remetente `onboarding@resend.dev`, o endereço de sandbox da Resend, que
+  dispensa domínio verificado; destino, uma caixa da ness. Ao responderem,
+  trocam-se os dois — e o remetente só sai do sandbox quando
+  `msg.alupar.com.br` estiver verificado, que é o que libera enviar para
+  qualquer destinatário.
 
-- [ ] **Passo 13:** no preview do PR: enviar o formulário preenchido e confirmar que chega a `/contato/obrigado/` e que o e-mail chega; enviar sem consentimento com o JavaScript desligado e confirmar `/contato/nao-enviado/`; fazer o percurso inteiro só com teclado e com leitor de tela (NVDA): cada campo anuncia o rótulo
+  O segredo do Turnstile foi girado pela API no mesmo dia, com o antigo
+  invalidado na hora. A chave pública não muda ao girar, então o site não
+  precisa ser reconstruído — conferido contra `vars.TURNSTILE_SITE_KEY`.
+
+- [x] **Passo 13, envio de ponta a ponta** (14/09/2026): formulário preenchido
+  e enviado no site publicado, chegando a `/contato/obrigado/`, com o e-mail
+  recebido. Prova a corrente inteira: antispam, validação, Resend e entrega.
+  Envio inválido continua caindo em `/contato/nao-enviado/`.
+
+  **Não dá para testar isto por automação, e é assim que deve ser.** O
+  antispam exige um token de navegador de verdade: quatro tentativas por
+  Chrome dirigido pelo protocolo de depuração falharam, inclusive mandando o
+  widget renderizar à mão com o agente disfarçado. Ele nunca nasce. A
+  conferência é humana, uma vez.
+
+- [ ] **Passo 13b:** ainda por fazer — percurso só com teclado e com leitor de tela (NVDA): cada campo anuncia o rótulo
 
 - [ ] **Passo 14:** commit, PR, merge quando verde
 
