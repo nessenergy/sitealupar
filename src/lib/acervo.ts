@@ -17,6 +17,7 @@ import { parseFragment, serialize } from 'parse5';
    o módulo e as transformações daqui ficariam sem teste. O Astro lê igual. */
 import mapa from '../../acervo/mapa-de-rotas.json' with { type: 'json' };
 import imagens from '../../acervo/imagens.json' with { type: 'json' };
+import documentosMz from '../../acervo/mz-arquivos.json' with { type: 'json' };
 /* Com a extensão, como em `imagens.test.ts`: sem ela o `node --test` não
    resolve o módulo. O Astro lê dos dois jeitos. */
 import { responsivas, videosSobDemanda, type Manifesto } from './imagens.ts';
@@ -203,6 +204,30 @@ const arquivosNoR2 = (corpo: string) =>
   corpo.replaceAll('https://www.alupar.com.br/wp-content/uploads/', 'https://arquivos.alupar.com.br/');
 
 /*
+ * Os documentos do gerenciador de arquivos da MZ (`api.mziq.com`), que somem
+ * com o contrato: 59 PDFs sustentando 51 páginas — releases de resultados, mas
+ * também as políticas institucionais de Sustentabilidade, Integridade, Meio
+ * Ambiente, Recursos Humanos e Segurança do Trabalho, e o parecer da debênture
+ * verde. A issue #43 supunha que fossem só conteúdo de RI, e por isso propunha
+ * apontar ao portal deles; política institucional não é, e ficaria sem casa.
+ *
+ * A URL de origem não tem caminho, só UUID, então não dá para derivar o destino
+ * dela: o par vem de `acervo/mz-arquivos.json`, gravado pelo resgate a partir
+ * do nome que a própria origem declara no cabeçalho da resposta.
+ *
+ * Link sem par no mapa fica como está, apontando para a MZ. É deliberado — vai
+ * quebrar no dia do desligamento, e é melhor que quebre visível do que virar um
+ * endereço nosso que responde 404 e parece defeito de migração. `--verificar`
+ * do resgate é quem acusa a falta.
+ */
+export function documentosDaMz(corpo: string, mapa: Record<string, { chave: string }>): string {
+  return corpo.replaceAll(/https:\/\/api\.mziq\.com\/mzfilemanager\/[^"'<>\ )]+/g, (url) => {
+    const par = mapa[url] ?? mapa[url.replaceAll('&amp;', '&')];
+    return par ? `https://arquivos.alupar.com.br/${par.chave.split('/').map(encodeURIComponent).join('/')}` : url;
+  });
+}
+
+/*
  * Sanfona do tema (`.arconix-faq-*`), fechada já no HTML.
  *
  * O tema entrega três `<div>` — embrulho, título e conteúdo — e fecha tudo
@@ -267,12 +292,15 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: arquivosNoR2(
-        videosSobDemanda(
-          carregarImagens(
-            responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
+      corpo: documentosDaMz(
+        arquivosNoR2(
+          videosSobDemanda(
+            carregarImagens(
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
+            ),
           ),
         ),
+        documentosMz as Record<string, { chave: string }>,
       ),
     } as Item;
   });

@@ -62,3 +62,52 @@ for (const a of document.querySelectorAll('a[data-video]')) {
     player.focus();
   });
 }
+
+// Rotativo da home. Só existe quando a seção traz `data-rotativo`, o que só
+// acontece com duas telas ou mais — com uma, a home serve um banner estático e
+// nada aqui roda. É o mesmo princípio do Turnstile e do vídeo acima: peso e
+// comportamento só entram quando há motivo.
+//
+// A pausa não é enfeite: a WCAG 2.2.2 exige um jeito de parar conteúdo que se
+// move sozinho por mais de cinco segundos. Quem prefere menos movimento
+// (prefers-reduced-motion) nem começa girando.
+const rotativo = document.querySelector('[data-rotativo]');
+if (rotativo) {
+  const telas = [...rotativo.querySelectorAll('[data-tela]')];
+  const botao = (nome) => rotativo.querySelector(`[data-rot="${nome}"]`);
+  const pausar = botao('pausar');
+  const INTERVALO = 7000;
+  let atual = 0;
+  let relogio = null;
+
+  const mostrar = (i) => {
+    atual = (i + telas.length) % telas.length;
+    // `hidden` e não display:none no CSS: some do leitor de tela junto, e é o
+    // mesmo estado que o HTML já entrega na primeira pintura.
+    telas.forEach((t, n) => { t.hidden = n !== atual; });
+  };
+
+  const parar = () => { clearInterval(relogio); relogio = null; };
+  const girar = () => { parar(); relogio = setInterval(() => mostrar(atual + 1), INTERVALO); };
+
+  const anunciarPausa = (parado) => {
+    pausar.setAttribute('aria-pressed', String(parado));
+    pausar.setAttribute('aria-label', parado ? pausar.dataset.retomar : pausar.dataset.pausar);
+    pausar.textContent = parado ? '▶' : '❚❚';
+  };
+
+  botao('anterior').addEventListener('click', () => { parar(); anunciarPausa(true); mostrar(atual - 1); });
+  botao('proxima').addEventListener('click', () => { parar(); anunciarPausa(true); mostrar(atual + 1); });
+  pausar.addEventListener('click', () => {
+    if (relogio) { parar(); anunciarPausa(true); } else { girar(); anunciarPausa(false); }
+  });
+
+  // Quem está lendo ou navegando com teclado não perde a tela debaixo do dedo.
+  for (const evento of ['mouseenter', 'focusin']) rotativo.addEventListener(evento, parar);
+  for (const evento of ['mouseleave', 'focusout']) {
+    rotativo.addEventListener(evento, () => { if (pausar.getAttribute('aria-pressed') === 'false') girar(); });
+  }
+
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) anunciarPausa(true);
+  else { girar(); anunciarPausa(false); }
+}
