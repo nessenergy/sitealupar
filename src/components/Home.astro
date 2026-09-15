@@ -166,6 +166,11 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
      Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
      em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
   .banner { position: relative; display: block; height: 447px; }
+  /* `display: block` de classe pesa mais que o `display: none` que o navegador
+     dá a [hidden], então sem esta linha as telas escondidas apareciam todas,
+     empilhadas abaixo da caixa do banner. O atributo é como o JS troca de tela
+     e como a primeira pintura já nasce certa — ele precisa vencer. */
+  .banner[hidden] { display: none; }
   /* A seção reserva a mesma altura da tela: trocar de tela não pode empurrar a
      página, e o CLS que o CI cobra é 0,1. Com uma tela só isto não muda nada,
      porque a altura já era a do banner. */
