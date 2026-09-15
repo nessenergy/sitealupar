@@ -74,7 +74,7 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
                 1 350. O degrau de 1350w continua na lista pelo motivo de antes: o
                 preset desktop do Lighthouse mede a caixa em 1 335 px. */}
             <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
-              widths={[640, 1350, 1920, 2560]} sizes="210vw"
+              widths={[640, 1350, 1920]} sizes="150vw"
               loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
             <span class="legenda"><strong>{tela.legenda}</strong></span>
           </Destaque>
