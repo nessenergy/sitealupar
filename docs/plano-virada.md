@@ -73,7 +73,10 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | `src/components/Home.astro` | Banner, faixa, notícias, vídeo, sustentabilidade | 8 |
 | `src/lib/noticias.ts` + `.test.ts`, `src/components/ListaNoticias.astro` | Listagem e arquivo paginado | 9 |
 | `src/lib/contato.ts` + `.test.ts`, `functions/api/contato.ts`, `src/components/Contato.astro` | Formulário acessível com Turnstile | 10 |
-| `.github/workflows/sentinela.yml` | Checagem diária de apex, `www` e certificados | 11 |
+| `.github/workflows/sentinela.yml` | Checagem diária de apex, `www`, certificados e do envio do formulário | 11 |
+| `src/lib/saude.ts` + `.test.ts`, `functions/api/saude.ts` | O caminho de envio do formulário ainda funciona — o sentinela pergunta todo dia | 10 |
+| `scripts/verificar-teclado.mjs` | Percurso de teclado do formulário (Passo 13b) | 10 |
+| `scripts/resgatar-mz.mjs` | Resgate do que só existe na infraestrutura do fornecedor | 5 |
 
 ---
 
@@ -2202,7 +2205,13 @@ done
   widget renderizar à mão com o agente disfarçado. Ele nunca nasce. A
   conferência é humana, uma vez.
 
-- [ ] **Passo 13b:** ainda por fazer — percurso só com teclado e com leitor de tela (NVDA): cada campo anuncia o rótulo
+- [x] **Passo 13b, teclado** (15/09/2026): `scripts/verificar-teclado.mjs` percorre
+  o formulário com tabulação de verdade e confere cinco coisas que o Lighthouse
+  não vê — todo campo alcançável, a ordem do foco igual à visual, nome acessível
+  em cada parada, foco visível (WCAG 2.4.7) e saída sem armadilha. Aprovado
+  contra o site publicado: 25 paradas, 7 no formulário, na ordem esperada.
+- [ ] **Passo 13c:** leitor de tela (NVDA) — se os nomes fazem sentido em voz
+  alta, máquina nenhuma responde. Continua sendo de gente.
 
 - [ ] **Passo 14:** commit, PR, merge quando verde
 
