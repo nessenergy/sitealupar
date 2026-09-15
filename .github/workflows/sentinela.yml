@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: '0 10 * * *'   # 07:00 em Brasília
   workflow_dispatch:
+    inputs:
+      site:
+        description: 'Site a verificar (para testar um preview antes de mergear)'
+        required: false
+        default: 'https://sitealupar.pages.dev'
 
 # A issue de alarme é aberta e fechada pela própria execução.
 permissions:
@@ -31,6 +36,24 @@ jobs:
         run: node scripts/verificar-hosts.mjs
         env:
           VIRADA: ${{ vars.VIRADA }}
+
+      # O caminho de envio do formulário falha em silêncio: chave revogada,
+      # domínio desverificado, cota estourada ou segredo apagado dão a mesma
+      # tela de "não foi possível enviar", e do nosso lado não acontece nada.
+      # O endereço só lê, e responde 404 sem o segredo.
+      - name: O formulário de contato ainda consegue enviar
+        shell: bash
+        env:
+          SAUDE_TOKEN: ${{ secrets.SAUDE_TOKEN }}
+          SITE: ${{ inputs.site || 'https://sitealupar.pages.dev' }}
+        run: |
+          if [ -z "$SAUDE_TOKEN" ]; then
+            echo "::warning::SAUDE_TOKEN não definido — a verificação do formulário foi pulada"
+            exit 0
+          fi
+          codigo=$(curl -sS --max-time 30 -o resposta.txt -w '%{http_code}' "$SITE/api/saude?t=$SAUDE_TOKEN") || codigo=erro
+          cat resposta.txt 2>/dev/null || true
+          [ "$codigo" = "200" ] || { echo "::error::o envio do formulário está comprometido (HTTP $codigo)"; exit 1; }
 
       # Depois da virada (variável VIRADA=sim): a continuidade inteira, todo dia.
       - name: Todo endereço vivo do acervo termina em 200
