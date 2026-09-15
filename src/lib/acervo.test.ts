@@ -78,3 +78,32 @@ test('o que não é do gerenciador não é tocado', () => {
   const original = '<a href="https://webcastlite.mziq.com/x">webcast</a><img src="https://arquivos.alupar.com.br/a.png">';
   assert.equal(documentosDaMz(original, MAPA), original);
 });
+
+/*
+ * O segundo host do fornecedor. A primeira versão só olhava `api.mziq.com` e
+ * deixou três PDFs para trás — entre eles agendas de divulgação de resultados.
+ */
+test('o gerenciador tem dois endereços, e os dois são reescritos', () => {
+  const mapa = { 'https://apicatalog.mziq.com/filemanager/v2/d/a/b?origin=1': { chave: 'documentos-mz/Agenda.pdf' } };
+  const saida = documentosDaMz('<a href="https://apicatalog.mziq.com/filemanager/v2/d/a/b?origin=1">x</a>', mapa);
+  assert.match(saida, /documentos-mz\/Agenda\.pdf/);
+});
+
+/*
+ * A armadilha que custou uma tarde: as chaves do mapa saem do texto cru do
+ * JSONL, onde a URL é seguida da barra invertida que escapa a aspa; o corpo
+ * chega aqui já desescapado. Sem normalizar os dois lados, 63 das 124 chaves
+ * nunca casavam — e o link ficava apontando para a MZ em silêncio.
+ */
+test('chave do mapa com barra invertida no fim ainda casa com a URL limpa', () => {
+  const chaveSuja = `https://api.mziq.com/mzfilemanager/v2/d/a/b?origin=2${String.fromCharCode(92)}`;
+  const mapa = { [chaveSuja]: { chave: 'documentos-mz/Release.pdf' } };
+  const saida = documentosDaMz('<a href="https://api.mziq.com/mzfilemanager/v2/d/a/b?origin=2">x</a>', mapa);
+  assert.match(saida, /documentos-mz\/Release\.pdf/);
+});
+
+test('a URL casada não arrasta a barra invertida para o destino', () => {
+  const mapa = { 'https://api.mziq.com/mzfilemanager/v2/d/c/d?origin=2': { chave: 'documentos-mz/N.pdf' } };
+  const saida = documentosDaMz('<a href="https://api.mziq.com/mzfilemanager/v2/d/c/d?origin=2">x</a>', mapa);
+  assert.ok(!saida.includes(String.fromCharCode(92)), 'o destino não deveria conter barra invertida');
+});

@@ -54,7 +54,13 @@ for (const item of inventario) {
 /* ── 2. Os documentos do gerenciador de arquivos da MZ ──────────────────── */
 const corpo = await readFile('acervo/conteudo.jsonl', 'utf8');
 const doGerenciador = new Set();
-for (const m of corpo.matchAll(/https:\/\/api\.mziq\.com\/mzfilemanager\/[^"'<>\\ )]+/g)) {
+/*
+ * Dois hosts, não um: `api.mziq.com/mzfilemanager` e `apicatalog.mziq.com/
+ * filemanager` servem o mesmo tipo de arquivo, com caminhos quase iguais. A
+ * primeira versão só olhava o primeiro e deixou três PDFs para trás — sem esta
+ * linha eles morreriam com o contrato, calados, porque nenhum portão os via.
+ */
+for (const m of corpo.matchAll(/https:\/\/(?:api\.mziq\.com\/mzfilemanager|apicatalog\.mziq\.com\/filemanager)\/[^\"'<>\ )]+/g)) {
   doGerenciador.add(m[0].replace(/&amp;/g, '&'));
 }
 

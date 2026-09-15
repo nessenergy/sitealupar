@@ -221,11 +221,24 @@ const arquivosNoR2 = (corpo: string) =>
  * do resgate é quem acusa a falta.
  */
 export function documentosDaMz(corpo: string, mapa: Record<string, { chave: string }>): string {
-  return corpo.replaceAll(/https:\/\/api\.mziq\.com\/mzfilemanager\/[^"'<>\ )]+/g, (url) => {
-    const par = mapa[url] ?? mapa[url.replaceAll('&amp;', '&')];
-    return par ? `https://arquivos.alupar.com.br/${par.chave.split('/').map(encodeURIComponent).join('/')}` : url;
-  });
+  /*
+   * As chaves do mapa vêm do texto cru do JSONL, onde a URL é seguida da barra
+   * invertida que escapa a aspa; o corpo aqui já veio desescapado. Sem
+   * normalizar os dois lados, 63 das 124 chaves nunca casariam — e o link
+   * ficaria apontando para a MZ em silêncio, que é o pior desfecho possível.
+   */
+  const limpar = (u: string) => u.replace(/\\+$/, '').replaceAll('&amp;', '&');
+  const porUrl = new Map(Object.entries(mapa).map(([u, v]) => [limpar(u), v]));
+
+  return corpo.replaceAll(
+    /https:\/\/(?:api\.mziq\.com\/mzfilemanager|apicatalog\.mziq\.com\/filemanager)\/[^"'<>\\ )]+/g,
+    (url) => {
+      const par = porUrl.get(limpar(url));
+      return par ? `https://arquivos.alupar.com.br/${par.chave.split('/').map(encodeURIComponent).join('/')}` : url;
+    },
+  );
 }
+
 
 /*
  * Sanfona do tema (`.arconix-faq-*`), fechada já no HTML.
