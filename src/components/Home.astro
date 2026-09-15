@@ -63,14 +63,18 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
             hidden={gira && i > 0}
             aria-roledescription={gira ? 'tela' : undefined}
             aria-label={gira ? `${i + 1} de ${rotativo.length}` : undefined}>
-            {/* 1350w no lugar de 1280w: o banner é full-bleed (sem .container), e o
-                preset desktop do Lighthouse mede a caixa em 1335 px — o degrau de
-                1280w força o navegador a saltar para 1920w. Com a foto do banner ES
-                (energia-que-impulsa-la-vida.jpg), isso mediu 38 121 B de
-                sobra-de-pixel e reprovou "uses-responsive-images" (score 0, exigido
-                ≥0,9). Ajuste de build, invisível — não muda nada que se veja. */}
+            {/* `sizes` não é 100vw porque a caixa não tem a proporção da imagem: a
+                arte é ~6:1 e a faixa é 2,86:1, então `object-fit: cover` amplia até
+                a altura fechar e corta as laterais. Para os 447 px de altura o
+                navegador precisa de ~2 690 px de largura — com 100vw ele escolhia a
+                variante de 1 280 e a ampliava 2,1×, e era por isso que o banner saía
+                mais mole que o do site atual, que serve o original de 2 560.
+                210vw ≈ 6,01 ÷ 2,86 é a largura que a caixa de fato consome.
+                Custo medido: a variante AVIF de 2 560 pesa 17 KB contra 8 KB da de
+                1 350. O degrau de 1350w continua na lista pelo motivo de antes: o
+                preset desktop do Lighthouse mede a caixa em 1 335 px. */}
             <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
-              widths={[640, 1350, 1920]} sizes="100vw"
+              widths={[640, 1350, 1920]} sizes="150vw"
               loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
             <span class="legenda"><strong>{tela.legenda}</strong></span>
           </Destaque>
