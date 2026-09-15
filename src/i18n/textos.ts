@@ -154,11 +154,17 @@ export const textos: Record<Idioma, Textos> = {
         alt: 'Relatório de Sustentabilidade 2025', // novo — o site atual tem alt=""
         href: 'https://arquivos.alupar.com.br/documentos/relatorio-de-sustentabilidade-2025.pdf',
       },
-      { legenda: null, alt: 'Torre de transmissão contra o céu, entre nuvens', href: null }, // novo · 2017, fora do ar pela regra 0.2
-      { legenda: null, alt: 'Parque eólico ao pôr do sol, com dezenas de aerogeradores sobre vegetação verde', href: null }, // novo · 2017
-      { legenda: null, alt: 'Usina hidrelétrica à beira do rio, com torres de transmissão ao fundo', href: null }, // novo · 2017
-      { legenda: null, alt: 'Programa de Voluntariado: saiba como impactamos a vida de centenas de milhares de pessoas durante a pandemia', href: null }, // novo · 2021
-      { legenda: null, alt: 'Estamos comemorando a renovação do nosso Selo de Qualidade: certificado FEEx de Clima Organizacional 2021', href: null }, // novo · 2021
+      /* Tarja, ordem e link extraídos da home atual em 15/09/2026 — o rotativo
+         de lá é `<img class="background">` com `<span class="content">` por
+         cima, e a tarja é esse span. Não é texto novo: é o que está no ar. */
+      { legenda: 'Mais Energia', alt: 'Torre de transmissão contra o céu, entre nuvens', href: null }, // 2017, fora do ar pela regra 0.2
+      { legenda: 'Respeito pelo meio ambiente', alt: 'Parque eólico ao pôr do sol, com dezenas de aerogeradores sobre vegetação verde', href: null }, // 2017
+      { legenda: '#SomosCertificadosAtmosferaFIA', alt: 'Estamos comemorando a renovação do nosso Selo de Qualidade: certificado FEEx de Clima Organizacional 2021', href: null }, // 2021
+      { legenda: 'Energia que move vidas', alt: 'Usina hidrelétrica à beira do rio, com torres de transmissão ao fundo', href: null }, // 2017
+      /* A origem aponta para /alupar-e-a-covid-19/acoes-sociais-…/, página
+         aposentada que redireciona para /sustentabilidade/. O link vai direto
+         ao destino, para não gastar um salto de redirecionamento por clique. */
+      { legenda: 'Ações sociais em prol de comunidades vulneráveis', alt: 'Programa de Voluntariado: saiba como impactamos a vida de centenas de milhares de pessoas durante a pandemia', href: '/sustentabilidade/' }, // 2021
     ],
     eixos: [
       { titulo: 'Meio Ambiente', texto: 'Reposição e recuperação de vegetação florestal nativa' },
