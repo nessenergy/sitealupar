@@ -29,21 +29,31 @@ function montar({ telas = 2, menosMovimento = false } = {}) {
   });
 
   const slides = Array.from({ length: telas }, (_, i) => ({ hidden: i > 0, indice: i }));
-  const botoes = {};
-  for (const nome of ['anterior', 'proxima', 'pausar']) {
-    botoes[nome] = {
-      nome,
-      atributos: { 'aria-pressed': 'false', 'aria-label': `rótulo de ${nome}` },
-      dataset: { pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' },
-      textContent: '❚❚',
-      setAttribute(k, v) { this.atributos[k] = v; },
-      getAttribute(k) { return this.atributos[k]; },
-      ...registrar(nome),
-    };
-  }
+
+  const elemento = (nome, extra = {}) => ({
+    nome,
+    atributos: { ...extra },
+    setAttribute(k, v) { this.atributos[k] = v; },
+    getAttribute(k) { return this.atributos[k] ?? null; },
+    removeAttribute(k) { delete this.atributos[k]; },
+    ...registrar(nome),
+  });
+
+  /* Um ponto por tela, como na marcação: o primeiro já nasce com `aria-current`,
+     porque o HTML entrega a primeira tela à vista. */
+  const pontos = Array.from({ length: telas }, (_, i) =>
+    elemento(`ponto-${i}`, i === 0 ? { 'aria-current': 'true' } : {}),
+  );
+
+  const pausar = elemento('pausar', { 'aria-pressed': 'false', 'aria-label': 'Pausar o rotativo' });
+  pausar.dataset = { pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' };
+  pausar.textContent = '❚❚';
+  const botoes = { pausar };
 
   const secao = {
-    querySelectorAll: () => slides,
+    // Despacha por seletor: telas e pontos são listas diferentes, e devolver a
+    // mesma para as duas escondia erro em vez de revelar.
+    querySelectorAll: (sel) => (sel.includes('data-ponto') ? pontos : slides),
     querySelector: (sel) => botoes[sel.match(/data-rot="(\w+)"/)?.[1]] ?? null,
     ...registrar('secao'),
   };
@@ -69,6 +79,8 @@ function montar({ telas = 2, menosMovimento = false } = {}) {
   return {
     slides,
     botoes,
+    pontos,
+    ativo: () => pontos.findIndex((p) => p.getAttribute('aria-current') === 'true'),
     girando: () => tique !== null,
     avancar: () => tique?.(),
     clicar: (nome) => ouvintes.filter((o) => o.alvo === nome && o.tipo === 'click').forEach((o) => o.fn()),
@@ -121,20 +133,25 @@ test('clicar de novo retoma, e o rótulo volta', () => {
   assert.equal(r.botoes.pausar.getAttribute('aria-label'), 'Pausar o rotativo');
 });
 
-/* Quem navegou à mão não quer a tela trocando debaixo do dedo três segundos
-   depois — avançar pausa, e retomar volta a ser escolha de quem lê. */
-test('navegar à mão avança e pausa', () => {
-  const r = montar();
-  r.clicar('proxima');
-  assert.equal(r.visivel(), 1);
+/* Quem escolheu uma tela no ponto não quer que ela troque debaixo do dedo três
+   segundos depois — clicar num ponto pausa, e retomar volta a ser escolha. */
+test('clicar num ponto vai àquela tela e pausa', () => {
+  const r = montar({ telas: 3 });
+  r.clicar('ponto-2');
+  assert.equal(r.visivel(), 2);
   assert.equal(r.girando(), false);
   assert.equal(r.botoes.pausar.getAttribute('aria-pressed'), 'true');
 });
 
-test('voltar à mão vai para a última, sem estourar o índice', () => {
+/* O ponto aceso e a tela à vista saem do mesmo atributo: se divergirem, o CSS
+   pinta um ponto e o leitor de tela anuncia outro. */
+test('o ponto aceso acompanha a tela, e é sempre um só', () => {
   const r = montar({ telas: 3 });
-  r.clicar('anterior');
-  assert.equal(r.visivel(), 2);
+  assert.equal(r.ativo(), 0);
+  r.avancar();
+  assert.equal(r.ativo(), 1);
+  assert.equal(r.visivel(), 1);
+  assert.equal(r.pontos.filter((p) => p.getAttribute('aria-current') === 'true').length, 1);
 });
 
 test('o ponteiro ou o foco na seção segura o giro', () => {

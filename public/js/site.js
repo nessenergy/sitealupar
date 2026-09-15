@@ -80,11 +80,19 @@ if (rotativo) {
   let atual = 0;
   let relogio = null;
 
+  const pontos = [...rotativo.querySelectorAll('[data-ponto]')];
+
   const mostrar = (i) => {
     atual = (i + telas.length) % telas.length;
     // `hidden` e não display:none no CSS: some do leitor de tela junto, e é o
     // mesmo estado que o HTML já entrega na primeira pintura.
     telas.forEach((t, n) => { t.hidden = n !== atual; });
+    // `aria-current` marca o ponto da tela à vista, e é ele que o CSS pinta de
+    // verde — o estado visual e o anunciado saem do mesmo atributo.
+    pontos.forEach((p, n) => {
+      if (n === atual) p.setAttribute('aria-current', 'true');
+      else p.removeAttribute('aria-current');
+    });
   };
 
   const parar = () => { clearInterval(relogio); relogio = null; };
@@ -96,8 +104,9 @@ if (rotativo) {
     pausar.textContent = parado ? '▶' : '❚❚';
   };
 
-  botao('anterior').addEventListener('click', () => { parar(); anunciarPausa(true); mostrar(atual - 1); });
-  botao('proxima').addEventListener('click', () => { parar(); anunciarPausa(true); mostrar(atual + 1); });
+  // Clicar num ponto vai àquela tela e pausa: quem escolheu a tela não quer
+  // que ela troque sozinha três segundos depois.
+  pontos.forEach((p, n) => p.addEventListener('click', () => { parar(); anunciarPausa(true); mostrar(n); }));
   pausar.addEventListener('click', () => {
     if (relogio) { parar(); anunciarPausa(true); } else { girar(); anunciarPausa(false); }
   });

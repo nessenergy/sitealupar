@@ -95,13 +95,19 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
           é exigência da WCAG 2.2.2 para conteúdo que se move sozinho. */}
       {gira && (
         <div class="controles">
-          <button type="button" data-rot="anterior" aria-label={t.rotativo.anterior}>‹</button>
-          {/* Os dois rótulos viajam na marcação: o script troca o `aria-label` ao
-              alternar, e traduzir dentro do JS serviria só para o texto sair do
-              i18n e envelhecer sozinho. */}
-          <button type="button" data-rot="pausar" aria-pressed="false"
+          {/* Pontinhos como na origem: centralizados na base da faixa, o ativo em
+              verde. Lá são <div> do plugin, que teclado nenhum alcança; aqui são
+              botões de verdade, com o rótulo dizendo a posição. */}
+          {rotativo.map((_, i) => (
+            <button type="button" data-ponto={String(i)} aria-label={`${t.rotativo.tela} ${i + 1}`}
+              aria-current={i === 0 ? 'true' : undefined} />
+          ))}
+          {/* A origem não tem pausa. Esta é a única adição, e tem motivo medido:
+              a WCAG 2.2.2 exige parar conteúdo que se move sozinho. Os dois
+              rótulos viajam na marcação porque o script alterna entre eles —
+              traduzir dentro do JS tiraria o texto do i18n. */}
+          <button type="button" data-rot="pausar" aria-pressed="false" class="pausa"
             aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
-          <button type="button" data-rot="proxima" aria-label={t.rotativo.proxima}>›</button>
         </div>
       )}
     </section>
@@ -176,14 +182,28 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
      página, e o CLS que o CI cobra é 0,1. Com uma tela só isto não muda nada,
      porque a altura já era a do banner. */
   .destaques[data-rotativo] { position: relative; height: 447px; }
-  .controles { position: absolute; right: 16px; bottom: 16px; display: flex; gap: 8px; }
-  .controles button {
-    width: 44px; height: 44px;                  /* área de toque da WCAG 2.5.8 */
-    border: 1px solid rgba(255, 255, 255, .85); border-radius: 50%;
-    background: rgba(0, 0, 0, .45); color: #fff; font-size: 15px; line-height: 1;
-    cursor: pointer;
+  /* Barra dos pontinhos: centralizada na base da faixa, como no tema. */
+  .controles {
+    position: absolute; left: 0; right: 0; bottom: 10px;
+    display: flex; justify-content: center; align-items: center; gap: 6px;
   }
-  .controles button:hover { background: rgba(0, 0, 0, .65); }
+  /* O ponto visível tem 12 px, mas o alvo de toque é de 24 px (WCAG 2.5.8): o
+     botão fica transparente e o círculo é desenhado por ::before, centrado. */
+  .controles button[data-ponto] {
+    width: 24px; height: 24px; padding: 0; border: 0; background: none;
+    cursor: pointer; display: grid; place-items: center;
+  }
+  .controles button[data-ponto]::before {
+    content: ''; width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(255, 255, 255, .75); box-shadow: 0 0 0 1px rgba(0, 0, 0, .18);
+  }
+  .controles button[data-ponto][aria-current]::before { background: var(--verde); }
+  .controles .pausa {
+    width: 24px; height: 24px; margin-left: 10px; padding: 0;
+    border: 0; border-radius: 50%; background: rgba(0, 0, 0, .4);
+    color: #fff; font-size: 9px; line-height: 1; cursor: pointer;
+  }
+  .controles button:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
   .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
   /* .content do tema (skin.css): caixa branca translúcida no alto à esquerda,
      texto azul em peso normal e um fio verde de 4 px na base, a 45% da largura.

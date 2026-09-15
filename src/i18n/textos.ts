@@ -76,7 +76,7 @@ interface Textos {
   banner: { legenda: string | null; alt: string; href: string | null }[];
   /* Rótulos dos controles do rotativo. Só aparecem na página quando há duas
      telas ou mais — com uma, o banner é estático e não há o que controlar. */
-  rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
+  rotativo: { tela: string; pausar: string; retomar: string };
   eixos: { titulo: string; texto: string }[];
   sustentabilidadeHref: string;
   verMaisNoticias: string;
@@ -140,7 +140,7 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conduta de Terceiros', denuncias: 'Canal de Denúncias',
       topo: 'Voltar ao topo', // novo
     },
-    rotativo: { anterior: 'Tela anterior', proxima: 'Próxima tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
+    rotativo: { tela: 'Tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
     /* As seis peças que a home atual gira, para o Marketing decidir olhando.
        A de 2025 vem primeiro de propósito: é ela que o visitante vê ao abrir, e
        manter a primeira tela igual preserva o tempo de carga medido pelo CI.
@@ -231,7 +231,7 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Third Parties Code of Conduct', denuncias: 'Reporting Channel',
       topo: 'Back to top', // novo
     },
-    rotativo: { anterior: 'Previous slide', proxima: 'Next slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
+    rotativo: { tela: 'Slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
     banner: [
       {
         legenda: '#SUSTAINABILITY',
@@ -304,7 +304,7 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conducta de Terceros', denuncias: 'Canal de Denuncias',
       topo: 'Volver arriba', // novo
     },
-    rotativo: { anterior: 'Pantalla anterior', proxima: 'Pantalla siguiente', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
+    rotativo: { tela: 'Pantalla', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
     banner: [{ legenda: 'Energía que impulsa la vida', alt: 'Energía que impulsa la vida', href: null }], // decisão P1
     eixos: [
       { titulo: 'Medio Ambiente', texto: 'Reposición y recuperación de vegetación forestal nativa' },
