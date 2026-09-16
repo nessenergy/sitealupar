@@ -1,7 +1,7 @@
 ---
 /**
- * A home, uma vez, nos três idiomas: vídeo institucional em largura total no
- * topo, faixa institucional (D10) e a caixa de sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
+ * institucional (D10) e a caixa de sustentabilidade.
  *
  * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
  * vídeo no lugar dele, como no pdi.alupar.com.br. Das três caixas de baixo
@@ -58,10 +58,9 @@ const indicadores = [
         movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
         o portão de acessibilidade deste projeto exige nota cheia.
 
-        Largura total, como o pdi.alupar.com.br faz, e 16:9 sem recorte. Cortar
-        para caber numa faixa baixa funcionaria na capa e quebraria no player,
-        que não pode ser recortado sem esconder controle. O preço é altura: uma
-        tela de 1920 px dá 1080 px de vídeo. */}
+        16:9 sem recorte, com a altura amarrada a 70% da tela. Largura total
+        pura, como o pdi.alupar.com.br faz, passava de uma tela inteira e
+        empurrava o resto da home para baixo da dobra. */}
     <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
       <a class="video-topo" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4"
         data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
@@ -119,20 +118,24 @@ const indicadores = [
 
 <style>
   /* O topo deixa de ser a faixa de 447 px do tema (#home > .banner .item em
-     css/fullwidth/skin.css): o vídeo vai de ponta a ponta, como em
-     pdi.alupar.com.br. `aspect-ratio` reserva a altura antes de a capa chegar,
-     então o CLS que o CI cobra em 0,1 continua zero. */
+     css/fullwidth/skin.css): quem manda na altura passa a ser a tela do
+     visitante, não o tema. `aspect-ratio` reserva essa altura antes de a capa
+     chegar, então o CLS que o CI cobra em 0,1 continua zero. */
   .destaque-video {
     background: var(--cinza-fundo);
     display: flex; flex-direction: column; align-items: center; gap: var(--e2);
     padding-bottom: var(--e3);
   }
-  /* Largura total, como o pdi.alupar.com.br faz. Sem altura fixa e sem recorte:
-     16:9 de ponta a ponta. Recortar para caber numa faixa baixa funcionaria na
-     capa e quebraria no player, que não pode ser cortado sem esconder controle.
-     O preço é altura — 1920 px de largura dão 1080 px de altura. */
+  /* 16:9 sem recorte, limitado pela ALTURA e não pela largura. Largura total
+     pura ocupava mais de uma tela (1920 px de largura dão 1080 px de altura) e
+     empurrava todo o resto da home para baixo da dobra. `70vh` amarra o vídeo a
+     70% da altura visível, seja qual for o monitor, e a largura sai daí pela
+     proporção; `min()` devolve a vez à largura nas telas estreitas.
+     Recortar para caber seria a outra saída, e não serve: funciona na capa e
+     quebra no player, que não pode ser cortado sem esconder controle. */
   .destaque-video :global(.video-topo) {
-    position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
+    position: relative; display: block;
+    width: min(100%, calc(70vh * 16 / 9)); aspect-ratio: 16 / 9;
   }
   .destaque-video :global(.video-topo) :global(img) {
     display: block; width: 100%; height: 100%; object-fit: cover;
@@ -145,7 +148,7 @@ const indicadores = [
   /* O player que substitui a capa no clique ocupa exatamente o mesmo retângulo,
      senão o clique empurraria a página inteira para baixo. */
   .destaque-video :global(iframe.video) {
-    width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0;
+    width: min(100%, calc(70vh * 16 / 9)); aspect-ratio: 16 / 9; height: auto; border: 0;
   }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
