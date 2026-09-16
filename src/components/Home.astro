@@ -1,7 +1,10 @@
 ---
 /**
  * A home, uma vez, nos três idiomas. A ordem é a do site atual: rotativo,
- * faixa institucional (D10) e as três caixas — notícias, vídeo, sustentabilidade.
+ * faixa institucional (D10) e as duas caixas — vídeo e sustentabilidade.
+ * Eram três caixas até 16/09/2026; a de notícias saiu com a área (D16). Duas
+ * colunas, e não três com um buraco: é a única mudança de composição que a
+ * decisão da cliente autoriza (D2).
  *
  * Rotativo com um banner só: a regra 0.2 do Marco 0 tira o que é anterior a
  * 2024 e sobra um por idioma. Carrossel volta a ser requisito (H1) com dois.
@@ -12,8 +15,7 @@
  */
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { noticiasDe } from '../lib/acervo';
-import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
+import { textos, prefixo, type Idioma } from '../i18n/textos';
 import { telas } from '../lib/banners';
 import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
 import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
@@ -40,9 +42,6 @@ const indicadores = [
   { valor: null,  rotulo: t.indicadores.capacidade },
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
-
-const formato = new Intl.DateTimeFormat(lang[idioma], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
-const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 ---
 <Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
@@ -111,19 +110,6 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     </section>
 
     <div class="container caixas">
-      <section class="caixa" aria-labelledby="h-noticias">
-        <h2 id="h-noticias">{t.noticias}</h2>
-        <ul class="noticias">
-          {noticias.map((n) => (
-            <li>
-              <time datetime={n.data}>{formato.format(new Date(`${n.data}T00:00:00Z`))}</time>
-              <a href={n.rota}>{n.titulo}</a>
-            </li>
-          ))}
-        </ul>
-        <a class="mais" href={`${pre}/noticias/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisNoticias}</a>
-      </section>
-
       <section class="caixa" aria-labelledby="h-video">
         <h2 id="h-video">{t.videoInstitucional}</h2>
         <a class="video" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4" data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
@@ -203,7 +189,7 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 
   /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
   .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(2, 1fr); } }
   .caixa {
     display: flex; flex-direction: column; background: var(--branco);
     padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
@@ -217,17 +203,6 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     color: var(--verde-texto); font-size: 20px; font-weight: 400;
     text-transform: uppercase; margin: 20px 0;
   }
-
-  /* No tema a lista da caixa é um <ul> comum, sem folha que a redefina: vem o
-     marcador de disco do navegador. A data está num <strong> com o negrito
-     zerado pelo style.css, e o título é link azul sem sublinhado — sublinhado
-     só no hover e no foco, como em todo link do tema. Numa lista de links
-     (não de texto corrido), a ausência de sublinhado não fere a WCAG 1.4.1. */
-  .noticias { list-style: disc; margin: 0; padding-left: 20px; flex: 1; }
-  .noticias li { margin-bottom: 10px; }
-  .noticias time { display: block; font-weight: 400; }
-  .noticias a { color: var(--azul); text-decoration: none; }
-  .noticias a:hover, .noticias a:focus-visible { text-decoration: underline; }
 
   /* o iframe é criado pelo site.js no clique e não recebe o atributo de
      escopo do Astro — por isso :global dentro de .caixa. */

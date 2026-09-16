@@ -1,10 +1,9 @@
 ---
 import { Picture } from 'astro:assets';
 import '../styles/tokens.css';
-import { IDIOMAS, HOME, CODIGO, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
+import { IDIOMAS, HOME, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
 import mapa from '../../acervo/mapa-de-rotas.json';
 import { ROTAS_PROPRIAS } from '../lib/rotas-proprias.mjs';
-import { paginasDoArquivo } from '../lib/acervo';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
 import faixaInterna from '../assets/tema/bg-interna-01.jpg';
@@ -47,15 +46,14 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
  */
 const semPrefixo = Astro.url.pathname.replace(/^\/(en|es)(?=\/|$)/, '') || '/';
 
-/* O que existe: o mapa de rotas, as três homes, as páginas que src/pages/
-   gera por conta própria (vídeos, avisos do contato) e as páginas numeradas
-   do arquivo de notícias. Sem as duas últimas, o seletor mandava para a home
-   páginas que têm irmã no outro idioma. A 404 fica fora de propósito. */
+/* O que existe: o mapa de rotas, as três homes e as páginas que src/pages/
+   gera por conta própria (vídeos, avisos do contato). Sem a última, o
+   seletor mandava para a home páginas que têm irmã no outro idioma. A 404
+   fica fora de propósito. */
 const existe = new Set<string>([
   ...mapa.rotas.map((r) => r.rota),
   ...Object.values(HOME),
   ...ROTAS_PROPRIAS,
-  ...IDIOMAS.flatMap((i) => paginasDoArquivo(CODIGO[i])),
 ]);
 const comBarra = (p: string) => (p.endsWith('/') ? p : `${p}/`);
 

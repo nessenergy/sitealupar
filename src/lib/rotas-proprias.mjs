@@ -7,9 +7,8 @@
  * (scripts/gerar-mapa-de-rotas.mjs). Duas listas divergiram uma vez: o
  * seletor mandava para a home páginas que tinham irmã no outro idioma.
  *
- * Fora daqui, de propósito: as páginas do arquivo de notícias, que dependem da
- * contagem do acervo (`paginasDoArquivo` em src/lib/acervo.ts), e a 404, que
- * não é versão de página nenhuma e não entra em `hreflang`.
+ * Fora daqui, de propósito: só a 404, que não é versão de página nenhuma e
+ * não entra em `hreflang`.
  *
  * `.mjs` e não `.ts`: os scripts de Node importam sem passo de build.
  */

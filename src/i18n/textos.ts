@@ -36,7 +36,7 @@ export const HOME = { 'pt-br': '/', en: '/en/', es: '/es/' } as const satisfies 
 /** Sigla do seletor de idioma (decisão P4). */
 export const SIGLA = { 'pt-br': 'PT', en: 'EN', es: 'ES' } as const satisfies Record<Idioma, string>;
 
-/** Idioma como o acervo grava (`pt`, não `pt-br`) — o que `noticiasDe()` e `Item.idioma` esperam. */
+/** Idioma como o acervo grava (`pt`, não `pt-br`) — o que `Item.idioma` espera. */
 export const CODIGO = { 'pt-br': 'pt', en: 'en', es: 'es' } as const satisfies Record<Idioma, string>;
 
 interface Textos {
@@ -45,7 +45,6 @@ interface Textos {
   pularParaConteudo: string;
   destaques: string;
   emNumeros: string;
-  noticias: string;
   videoInstitucional: string;
   videos: string;
   sustentabilidade: string;
@@ -76,13 +75,9 @@ interface Textos {
   rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
   eixos: { titulo: string; texto: string }[];
   sustentabilidadeHref: string;
-  verMaisNoticias: string;
   verMaisVideos: string;
   saibaMais: string;
   assistirVideo: string;
-  arquivo: string;
-  anterior: string;
-  proxima: string;
   formulario: {
     obrigatorios: string; nome: string; email: string; empresa: string; telefone: string;
     assunto: string; mensagem: string; consentimento: string; enviar: string;
@@ -99,7 +94,6 @@ export const textos: Record<Idioma, Textos> = {
     pularParaConteudo: 'Pular para o conteúdo',
     destaques: 'Destaques',
     emNumeros: 'A Alupar em números',
-    noticias: 'Notícias',
     videoInstitucional: 'Vídeo institucional',
     videos: 'Vídeos',
     sustentabilidade: 'Sustentabilidade',
@@ -151,13 +145,9 @@ export const textos: Record<Idioma, Textos> = {
       { titulo: 'Fauna e Flora', texto: 'Manutenção da biodiversidade' },
     ],
     sustentabilidadeHref: '/sustentabilidade/',
-    verMaisNoticias: 'Veja mais notícias',
     verMaisVideos: 'Veja mais vídeos',
     saibaMais: 'Saiba mais do programa',
     assistirVideo: 'Assistir ao vídeo institucional no YouTube', // novo
-    arquivo: 'Arquivo de notícias', // novo
-    anterior: 'Página anterior', // novo
-    proxima: 'Próxima página', // novo
     formulario: {
       obrigatorios: '* Campos obrigatórios', // novo
       nome: 'Nome', email: 'E-mail', empresa: 'Empresa', telefone: 'Telefone', assunto: 'Assunto', mensagem: 'Mensagem',
@@ -176,7 +166,6 @@ export const textos: Record<Idioma, Textos> = {
     pularParaConteudo: 'Skip to content',
     destaques: 'Highlights',
     emNumeros: 'Alupar in numbers',
-    noticias: 'News',
     videoInstitucional: 'Institutional video',
     videos: 'Videos',
     sustentabilidade: 'Sustainability',
@@ -224,13 +213,9 @@ export const textos: Record<Idioma, Textos> = {
       { titulo: 'Fauna and Flora', texto: 'Maintenance of biodiversity' },
     ],
     sustentabilidadeHref: '/en/sustentabilidade-2/',
-    verMaisNoticias: 'See more news',
     verMaisVideos: 'See more videos',
     saibaMais: 'Learn more about the program',
     assistirVideo: 'Watch the institutional video on YouTube', // novo
-    arquivo: 'News archive', // novo
-    anterior: 'Previous page', // novo
-    proxima: 'Next page', // novo
     formulario: {
       obrigatorios: '* Required fields',
       nome: 'Name', email: 'Email', empresa: 'Company', telefone: 'Phone', assunto: 'Subject', mensagem: 'Message',
@@ -249,7 +234,6 @@ export const textos: Record<Idioma, Textos> = {
     pularParaConteudo: 'Saltar al contenido',
     destaques: 'Destacados',
     emNumeros: 'Alupar en números',
-    noticias: 'Noticias',
     videoInstitucional: 'Video institucional',
     videos: 'Videos',
     sustentabilidade: 'Sostenibilidad',
@@ -291,13 +275,9 @@ export const textos: Record<Idioma, Textos> = {
       { titulo: 'Fauna y Flora', texto: 'Mantenimiento de la biodiversidad' },
     ],
     sustentabilidadeHref: '/es/sustentabilidade-2/',
-    verMaisNoticias: 'Más noticias',
     verMaisVideos: 'Más vídeos',
     saibaMais: 'Más información del programa',
     assistirVideo: 'Ver el video institucional en YouTube', // novo
-    arquivo: 'Archivo de noticias', // novo
-    anterior: 'Página anterior', // novo
-    proxima: 'Página siguiente', // novo
     formulario: {
       obrigatorios: '* Campos obligatorios',
       nome: 'Nombre', email: 'Correo electrónico', empresa: 'Empresa', telefone: 'Teléfono', assunto: 'Asunto', mensagem: 'Mensaje',
