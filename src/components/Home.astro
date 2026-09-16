@@ -168,6 +168,12 @@ const indicadores = [
   .destaque-video :global(iframe.video) {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     min-width: 100%; min-height: 100%; aspect-ratio: 16 / 9; border: 0;
+    /* O player não recebe mouse. Sem isso o YouTube mostra os controles de
+       playlist no meio da tela — anterior, pausa e próxima, grandes — porque o
+       laço é feito com `playlist=`, e `controls=0` não os desliga. Aqui o vídeo
+       é peça de fundo: quem controla é o nosso botão, que fala com o player
+       por postMessage e não depende de clique dentro do iframe. */
+    pointer-events: none;
   }
   /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
   .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
