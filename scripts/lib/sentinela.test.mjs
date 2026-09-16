@@ -106,7 +106,9 @@ test('sem caminho, a mensagem continua a do host — nada muda para quem já cha
     fim: 'Dec 31 23:59:59 2026 GMT',
     agora: new Date('2026-09-16T12:00:00Z'),
   });
-  assert.match(r.mensagem, /ok {2}alupar\.com\.br → HTTP 200/);
+  // Três espaços é o formato que já existia (2 de 'ok  ' + 1 do template);
+  // este teste existe para provar que o parâmetro `caminho` não mexeu nisso.
+  assert.match(r.mensagem, /ok {3}alupar\.com\.br → HTTP 200/);
 });
 
 test('a página do RI fora do ar reprova o dia', () => {

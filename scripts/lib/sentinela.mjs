@@ -72,7 +72,7 @@ export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = n
      não na raiz: o destino dos 301 de notícia (D16) é /noticias/ do portal de
      RI, e a raiz dele pode estar de pé com aquela página fora do ar. */
   const alvo = caminho === '/' ? host : `${host}${caminho}`;
-  const mensagem = `${ok ? 'ok ' : 'FALHA'} ${alvo} → HTTP ${codigo} · ${estado} · ${prazo}${nota}`;
+  const mensagem = `${ok ? 'ok  ' : 'FALHA'} ${alvo} → HTTP ${codigo} · ${estado} · ${prazo}${nota}`;
 
   return { ok, estado, dias, mensagem };
 }
