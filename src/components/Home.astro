@@ -1,11 +1,12 @@
 ---
 /**
- * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
- * institucional (D10) e as duas caixas — notícias e sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional em largura total no
+ * topo, faixa institucional (D10) e a caixa de sustentabilidade.
  *
  * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
- * vídeo no lugar dele. O vídeo é o mesmo que a home trazia numa caixa entre as
- * três de baixo; ela saiu junto, para a peça não aparecer duas vezes.
+ * vídeo no lugar dele, como no pdi.alupar.com.br. Das três caixas de baixo
+ * sobrou uma: a do vídeo saiu porque a peça subiu para o topo e apareceria
+ * duas vezes, e a de notícias saiu com a área inteira (D16).
  *
  * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
  * orçamento inteiro da página — só carrega no clique (public/js/site.js).
@@ -15,8 +16,7 @@
  */
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { noticiasDe } from '../lib/acervo';
-import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
+import { textos, prefixo, type Idioma } from '../i18n/textos';
 import capaVideo from '../assets/video-institucional.jpg';
 
 interface Props { idioma: Idioma }
@@ -39,8 +39,6 @@ const indicadores = [
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
 
-const formato = new Intl.DateTimeFormat(lang[idioma], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
-const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 ---
 <Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
@@ -60,15 +58,15 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
         movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
         o portão de acessibilidade deste projeto exige nota cheia.
 
-        A faixa mantém os 447 px do tema (D2). O vídeo é 16:9 e ocupa a altura
-        da faixa, centrado sobre o cinza dela, em vez de ser recortado por
-        `object-fit` numa caixa de proporção 2,86:1, que mostraria uma tira do
-        quadro. 447 px de altura pedem ~794 px de largura. */}
+        Largura total, como o pdi.alupar.com.br faz, e 16:9 sem recorte. Cortar
+        para caber numa faixa baixa funcionaria na capa e quebraria no player,
+        que não pode ser recortado sem esconder controle. O preço é altura: uma
+        tela de 1920 px dá 1080 px de vídeo. */}
     <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
       <a class="video-topo" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4"
         data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
         <Picture src={capaVideo} alt="" formats={['avif', 'webp']}
-          widths={[640, 800, 1280]} sizes="(min-width: 860px) 794px, 100vw"
+          widths={[640, 1280]} sizes="100vw"
           loading="eager" fetchpriority="high" />
         <span class="sr-only">{t.assistirVideo}</span>
       </a>
@@ -93,18 +91,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     </section>
 
     <div class="container caixas">
-      <section class="caixa" aria-labelledby="h-noticias">
-        <h2 id="h-noticias">{t.noticias}</h2>
-        <ul class="noticias">
-          {noticias.map((n) => (
-            <li>
-              <time datetime={n.data}>{formato.format(new Date(`${n.data}T00:00:00Z`))}</time>
-              <a href={n.rota}>{n.titulo}</a>
-            </li>
-          ))}
-        </ul>
-        <a class="mais" href={`${pre}/noticias/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisNoticias}</a>
-      </section>
+      {/* A caixa de notícias saiu em 16/09/2026, com a área inteira (D16). A
+          remoção completa — páginas, listagens e os 301 — está no #91; aqui só
+          o bloco da home, para esta alternativa poder ser vista inteira. */}
 
       {/* A caixa do vídeo institucional saiu daqui em 16/09/2026: a mesma peça
           subiu para o topo, no lugar do rotativo. O atalho para a listagem de
@@ -129,20 +118,21 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 </Base>
 
 <style>
-  /* A faixa guarda os 447 px que o tema dá ao banner (#home > .banner .item em
-     css/fullwidth/skin.css) e o cinza de fundo dele. O que muda dentro é só o
-     conteúdo: em vez de arte recortada de ponta a ponta, o vídeo 16:9 ocupa a
-     altura da faixa e fica centrado. Altura fixa também protege o CLS, que o
-     CI cobra em 0,1: a capa e o iframe que a substitui medem o mesmo. */
+  /* O topo deixa de ser a faixa de 447 px do tema (#home > .banner .item em
+     css/fullwidth/skin.css): o vídeo vai de ponta a ponta, como em
+     pdi.alupar.com.br. `aspect-ratio` reserva a altura antes de a capa chegar,
+     então o CLS que o CI cobra em 0,1 continua zero. */
   .destaque-video {
-    height: 447px; background: var(--cinza-fundo);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--e2);
+    background: var(--cinza-fundo);
+    display: flex; flex-direction: column; align-items: center; gap: var(--e2);
+    padding-bottom: var(--e3);
   }
-  /* 447 px de altura em 16:9 pedem ~794 px de largura. `min()` cuida das telas
-     estreitas sem media query: abaixo disso o vídeo usa a largura disponível. */
+  /* Largura total, como o pdi.alupar.com.br faz. Sem altura fixa e sem recorte:
+     16:9 de ponta a ponta. Recortar para caber numa faixa baixa funcionaria na
+     capa e quebraria no player, que não pode ser cortado sem esconder controle.
+     O preço é altura — 1920 px de largura dão 1080 px de altura. */
   .destaque-video :global(.video-topo) {
-    position: relative; display: block;
-    width: min(100% - 2 * var(--e4), 794px); aspect-ratio: 16 / 9;
+    position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
   }
   .destaque-video :global(.video-topo) :global(img) {
     display: block; width: 100%; height: 100%; object-fit: cover;
@@ -152,12 +142,10 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
     font-size: 4rem; color: var(--branco);
   }
+  /* O player que substitui a capa no clique ocupa exatamente o mesmo retângulo,
+     senão o clique empurraria a página inteira para baixo. */
   .destaque-video :global(iframe.video) {
-    width: min(100% - 2 * var(--e4), 794px); aspect-ratio: 16 / 9; height: auto; border: 0;
-  }
-  /* Abaixo de ~860 px o vídeo encolhe e os 447 px sobrariam como cinza vazio. */
-  @media (max-width: 859px) {
-    .destaque-video { height: auto; padding-block: var(--e4); }
+    width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0;
   }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
@@ -173,9 +161,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 
   /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
   .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  /* Eram três colunas; a do vídeo subiu para o topo em 16/09/2026 e sobraram
-     duas. Duas colunas, e não três com um buraco. */
-  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(2, 1fr); } }
+  /* Eram três caixas. O vídeo subiu para o topo e as notícias saíram (D16),
+     então sobrou uma. Sem media query de colunas: uma caixa só ocupa a linha,
+     e uma grade de três com dois buracos seria pior que nenhuma grade. */
   .caixa {
     display: flex; flex-direction: column; background: var(--branco);
     padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
