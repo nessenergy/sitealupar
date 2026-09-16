@@ -2396,7 +2396,7 @@ voltar atrás é trocar um registro de DNS.
 - ~~Linha de base de acessos do GA4, para comparar antes e depois~~ — **cai em 16/09/2026**: a Alupar confirmou que não existe histórico ("até a minha chegada isso não existia"). Não há linha de base a levantar, e esperar por uma seguraria a virada por um dado que ninguém tem. A medição do site novo começa na virada, pelo Cloudflare Web Analytics.
 - [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225 (conferido em 13/09: 225). Repetir na véspera; se mudou, rodar a esteira do `acervo/README.md` antes
 - [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado (13/09: 276 endereços, todos em 200; repetir na véspera)
-- [ ] Interlocutor do RI (A2) avisado da data: o RI divide a máquina da MZ com o institucional, e nada muda para `ri.alupar.com.br`
+- [ ] Interlocutor do RI (A2) avisado da data: desde a D16, o institucional manda os endereços de notícia desativados para `ri.alupar.com.br/noticias/` — **não é mais "nada muda" para o RI**, é dependência. 186 dos nossos endereços só continuam em 200 enquanto aquele portal servir `/noticias/`. Não marcar a data sem os dois itens de confirmação na véspera, abaixo
 
 **Na véspera:**
 
@@ -2404,6 +2404,20 @@ voltar atrás é trocar um registro de DNS.
 - [ ] Rules → Redirect Rules → criar as duas regras de `?lang=` exatamente como em `infra/redirect-rules.md` (depois da regra do apex). Ficam inertes enquanto `www` não tem proxy. Pela API, **acrescentar** (`POST …/rulesets/{id}/rules`); um `PUT` no entrypoint da fase substitui a lista e apaga a regra do apex
 - [x] SSL/TLS → Edge Certificates → HSTS → **desligar o HSTS da zona** — feito em 11/09/2026, adiantado da véspera; conferido: apex e `arquivos` sem `Strict-Transport-Security`, `ri` inalterado, `nosniff` mantido. Antes estava ligado com `max-age=0; includeSubDomains; preload`. Com proxy no `www`, esse cabeçalho de zona cobre o `Strict-Transport-Security` do `_headers`, e o `includeSubDomains` na zona é justamente o que não pode existir por causa do `ri.alupar.com.br`. O HSTS do site fica só no `_headers`, por host
 - [ ] Opcional: SSL/TLS → Edge Certificates → Minimum TLS → 1.2 (hoje 1.0). Vale só para os hosts com proxy (apex, `www` e `arquivos`); o `ri` está sem proxy e não muda
+- [ ] Confirmar com quem administra o certificado que o curinga `*.alupar.com.br` será renovado antes de **21/10/2026** — é o vencimento medido hoje (16/09) em `www.alupar.com.br` e em `ri.alupar.com.br`, o mesmo certificado nos dois hosts (ver nota abaixo)
+- [ ] Confirmar com o time de RI que `/noticias/` em `ri.alupar.com.br` não vai mudar de lugar — é o destino dos 186 endereços de notícia redirecionados pela D16; se sumir ou mover, esses endereços passam a quebrar
+
+Nota sobre a sentinela diária (`.github/workflows/sentinela.yml`, julgamento em
+`scripts/lib/sentinela.mjs`): `www.alupar.com.br` e `ri.alupar.com.br` servem
+hoje (16/09) o mesmo certificado — fingerprint SHA-256 idêntico,
+`CN=*.alupar.com.br`, GoDaddy G2, vencendo `Oct 21 13:06:28 2026`, a uns 35
+dias. `ALERTA_DIAS` do sentinela é 30, então a partir de ~21/09/2026 o job
+diário passa a reprovar todo dia até o certificado ser renovado — **é
+esperado**, não é regressão, e não é para abaixar `ALERTA_DIAS` para calar o
+alarme (isso seria afrouxar uma verificação, e o vencimento é o prazo duro do
+projeto). A solução é a renovação do certificado ou a migração do domínio
+para a Cloudflare — o que acontecer primeiro na virada. Como o certificado é
+o mesmo nos dois hosts, o RI cai no mesmo instante que a origem.
 
 **No dia:**
 
