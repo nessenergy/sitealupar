@@ -65,16 +65,18 @@ const indicadores = [
       <a class="video-topo" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4"
         data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
         <Picture src={capaVideo} alt="" formats={['avif', 'webp']}
-          widths={[640, 1280]} sizes="100vw"
+          widths={[640, 1280, 1920]} sizes="100vw"
           loading="eager" fetchpriority="high" />
         <span class="sr-only">{t.assistirVideo}</span>
       </a>
-      {/* O atalho para a listagem morava na caixa que saiu. Sem ele, /videos/
-          perderia o único link que a home lhe dava. */}
-      <a class="mais mais-video" href={`${pre}/videos/`}>
+    </section>
+    {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
+        dentro dela seria recortado junto com o vídeo. */}
+    <div class="container pos-video">
+      <a class="mais" href={`${pre}/videos/`}>
         <span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}
       </a>
-    </section>
+    </div>
 
     <section class="faixa" aria-label={t.emNumeros}>
       <div class="container">
@@ -121,21 +123,19 @@ const indicadores = [
      css/fullwidth/skin.css): quem manda na altura passa a ser a tela do
      visitante, não o tema. `aspect-ratio` reserva essa altura antes de a capa
      chegar, então o CLS que o CI cobra em 0,1 continua zero. */
+  /* A altura acompanha a largura e para nos 447 px do tema: 34vw chega lá por
+     volta de 1315 px e o `clamp` segura o teto acima disso. Num telefone de
+     390 px a faixa fica com 220 px, que é o piso — sem isso, 447 px fixos
+     mostrariam uma tira estreitíssima do quadro. */
   .destaque-video {
+    position: relative; overflow: hidden;
+    height: clamp(220px, 34vw, 447px);
     background: var(--cinza-fundo);
-    display: flex; flex-direction: column; align-items: center; gap: var(--e2);
-    padding-bottom: var(--e3);
   }
-  /* 16:9 sem recorte, limitado pela ALTURA e não pela largura. Largura total
-     pura ocupava mais de uma tela (1920 px de largura dão 1080 px de altura) e
-     empurrava todo o resto da home para baixo da dobra. `70vh` amarra o vídeo a
-     70% da altura visível, seja qual for o monitor, e a largura sai daí pela
-     proporção; `min()` devolve a vez à largura nas telas estreitas.
-     Recortar para caber seria a outra saída, e não serve: funciona na capa e
-     quebra no player, que não pode ser cortado sem esconder controle. */
+  /* A capa preenche a faixa inteira: `cover` mantém a proporção do quadro,
+     corta o excedente em cima e embaixo e não deixa barra nem deformação. */
   .destaque-video :global(.video-topo) {
-    position: relative; display: block;
-    width: min(100%, calc(70vh * 16 / 9)); aspect-ratio: 16 / 9;
+    position: absolute; inset: 0; display: block;
   }
   .destaque-video :global(.video-topo) :global(img) {
     display: block; width: 100%; height: 100%; object-fit: cover;
@@ -145,11 +145,18 @@ const indicadores = [
     content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
     font-size: 4rem; color: var(--branco);
   }
-  /* O player que substitui a capa no clique ocupa exatamente o mesmo retângulo,
-     senão o clique empurraria a página inteira para baixo. */
+  /* O player entra no mesmo retângulo da capa, também preenchendo: 16:9
+     centrado, com o mínimo necessário para cobrir a faixa, e o que sobra é
+     recortado pelo `overflow` da seção. É o mesmo enquadramento da capa, então
+     o clique não muda nada de lugar e o CLS continua zero.
+     O preço: a barra de controles do YouTube fica parcialmente fora do corte.
+     Quem quiser controle usa a tela cheia do próprio player. */
   .destaque-video :global(iframe.video) {
-    width: min(100%, calc(70vh * 16 / 9)); aspect-ratio: 16 / 9; height: auto; border: 0;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%; aspect-ratio: 16 / 9; border: 0;
   }
+  /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
+  .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
   .faixa ul {
