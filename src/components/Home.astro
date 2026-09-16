@@ -1,35 +1,33 @@
 ---
 /**
- * A home, uma vez, nos três idiomas. A ordem é a do site atual: rotativo,
- * faixa institucional (D10) e as três caixas — notícias, vídeo, sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
+ * institucional (D10) e as duas caixas — notícias e sustentabilidade.
  *
- * Rotativo com um banner só: a regra 0.2 do Marco 0 tira o que é anterior a
- * 2024 e sobra um por idioma. Carrossel volta a ser requisito (H1) com dois.
+ * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
+ * vídeo no lugar dele. O vídeo é o mesmo que a home trazia numa caixa entre as
+ * três de baixo; ela saiu junto, para a peça não aparecer duas vezes.
  *
  * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
  * orçamento inteiro da página — só carrega no clique (public/js/site.js).
- * Sem JS, o link leva ao vídeo no YouTube.
+ * Sem JS, o link leva ao vídeo no YouTube. Sem autoplay: vídeo que começa
+ * sozinho é conteúdo em movimento e cairia na WCAG 2.2.2, que exige controle
+ * de pausa visível, contra um portão de acessibilidade que pede nota cheia.
  */
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { noticiasDe } from '../lib/acervo';
 import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
-import { telas } from '../lib/banners';
-import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
-import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
-import bannerEs from '../assets/banners/energia-que-impulsa-la-vida.jpg';
 import capaVideo from '../assets/video-institucional.jpg';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
 const pre = prefixo[idioma];
-/* Uma lista por idioma, na mesma ordem dos textos em `textos.ts`. Acrescentar
-   uma peça aqui e o texto dela lá liga o rotativo; com uma só, a home serve o
-   banner estático de hoje, sem script e sem controles. */
-const IMAGENS = { 'pt-br': [bannerPt], en: [bannerEn], es: [bannerEs] };
-const rotativo = telas(IMAGENS[idioma], t.banner, idioma);
-const gira = rotativo.length > 1;
+/* O rotativo saiu do topo em 16/09/2026 e com ele saíram `telas()`, as imagens
+   de banner e o par `rotativo`/`gira`. As peças continuam versionadas em
+   `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
+   e em `public/js/site.js`: se a decisão voltar atrás, nada precisa ser
+   reescrito, basta o topo voltar a montar as telas. */
 const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
 
 // Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
@@ -50,51 +48,35 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
          ao leitor de tela. Aqui é texto real, oculto visualmente. -->
     <h1 class="sr-only">Alupar</h1>
 
-    {/* Com uma tela isto rende exatamente o que rendia antes: um banner, nenhum
-        controle, nenhum atributo de rotativo e nenhum script. O `data-rotativo`
-        só aparece com duas ou mais, e é ele que liga o comportamento em
-        public/js/site.js — sem ele, o script não registra nada. */}
-    <section aria-label={t.destaques} class="destaques" data-rotativo={gira ? '' : undefined}
-      aria-roledescription={gira ? 'carrossel' : undefined}>
-      {rotativo.map((tela, i) => {
-        const Destaque = tela.href ? 'a' : 'div';
-        return (
-          <Destaque href={tela.href ?? undefined} class="banner" data-tela={gira ? String(i) : undefined}
-            hidden={gira && i > 0}
-            aria-roledescription={gira ? 'tela' : undefined}
-            aria-label={gira ? `${i + 1} de ${rotativo.length}` : undefined}>
-            {/* `sizes` não é 100vw porque a caixa não tem a proporção da imagem: a
-                arte é ~6:1 e a faixa é 2,86:1, então `object-fit: cover` amplia até
-                a altura fechar e corta as laterais. Para os 447 px de altura o
-                navegador precisa de ~2 690 px de largura — com 100vw ele escolhia a
-                variante de 1 280 e a ampliava 2,1×, e era por isso que o banner saía
-                mais mole que o do site atual, que serve o original de 2 560.
-                210vw ≈ 6,01 ÷ 2,86 é a largura que a caixa de fato consome.
-                Custo medido: a variante AVIF de 2 560 pesa 17 KB contra 8 KB da de
-                1 350. O degrau de 1350w continua na lista pelo motivo de antes: o
-                preset desktop do Lighthouse mede a caixa em 1 335 px. */}
-            <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
-              widths={[640, 1350, 1920]} sizes="150vw"
-              loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
-            <span class="legenda"><strong>{tela.legenda}</strong></span>
-          </Destaque>
-        );
-      })}
+    {/* Vídeo no lugar do rotativo, a pedido da Alupar em 16/09/2026. É o mesmo
+        institucional que a home já trazia numa caixa mais abaixo — essa caixa
+        sai junto, senão a mesma peça apareceria duas vezes na mesma página.
 
-      {/* Controles só existem quando há o que controlar. Botões de verdade, para
-          que teclado e leitor de tela os alcancem sem nada de especial. A pausa
-          é exigência da WCAG 2.2.2 para conteúdo que se move sozinho. */}
-      {gira && (
-        <div class="controles">
-          <button type="button" data-rot="anterior" aria-label={t.rotativo.anterior}>‹</button>
-          {/* Os dois rótulos viajam na marcação: o script troca o `aria-label` ao
-              alternar, e traduzir dentro do JS serviria só para o texto sair do
-              i18n e envelhecer sozinho. */}
-          <button type="button" data-rot="pausar" aria-pressed="false"
-            aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
-          <button type="button" data-rot="proxima" aria-label={t.rotativo.proxima}>›</button>
-        </div>
-      )}
+        A carga é a que a decisão P8 já fixou: a capa é local e o player do
+        YouTube (~1 MB) só entra no clique. Pôr o iframe no carregamento faria
+        dele o LCP da home, que hoje é de 356 ms.
+
+        Sem autoplay, de propósito. Vídeo que começa sozinho é conteúdo em
+        movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
+        o portão de acessibilidade deste projeto exige nota cheia.
+
+        A faixa mantém os 447 px do tema (D2). O vídeo é 16:9 e ocupa a altura
+        da faixa, centrado sobre o cinza dela, em vez de ser recortado por
+        `object-fit` numa caixa de proporção 2,86:1, que mostraria uma tira do
+        quadro. 447 px de altura pedem ~794 px de largura. */}
+    <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
+      <a class="video-topo" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4"
+        data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
+        <Picture src={capaVideo} alt="" formats={['avif', 'webp']}
+          widths={[640, 800, 1280]} sizes="(min-width: 860px) 794px, 100vw"
+          loading="eager" fetchpriority="high" />
+        <span class="sr-only">{t.assistirVideo}</span>
+      </a>
+      {/* O atalho para a listagem morava na caixa que saiu. Sem ele, /videos/
+          perderia o único link que a home lhe dava. */}
+      <a class="mais mais-video" href={`${pre}/videos/`}>
+        <span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}
+      </a>
     </section>
 
     <section class="faixa" aria-label={t.emNumeros}>
@@ -124,15 +106,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
         <a class="mais" href={`${pre}/noticias/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisNoticias}</a>
       </section>
 
-      <section class="caixa" aria-labelledby="h-video">
-        <h2 id="h-video">{t.videoInstitucional}</h2>
-        <a class="video" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4" data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
-          <Picture src={capaVideo} alt="" formats={['avif', 'webp']} widths={[360, 720]} sizes="(min-width: 768px) 360px, 100vw" />
-          <span class="sr-only">{t.assistirVideo}</span>
-        </a>
-        <a class="mais" href={`${pre}/videos/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}</a>
-      </section>
-
+      {/* A caixa do vídeo institucional saiu daqui em 16/09/2026: a mesma peça
+          subiu para o topo, no lugar do rotativo. O atalho para a listagem de
+          vídeos, que morava nesta caixa, passa a viver no rodapé do topo. */}
       <section class="caixa" aria-labelledby="h-sustentabilidade">
         <h2 id="h-sustentabilidade">{t.sustentabilidade}</h2>
         <ul class="eixos">
@@ -153,41 +129,35 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 </Base>
 
 <style>
-  /* #home > .banner .item do tema (css/fullwidth/skin.css): faixa de 447 px em
-     qualquer largura, com a imagem recortada para preencher (object-fit: cover).
-     Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
-     em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
-  .banner { position: relative; display: block; height: 447px; }
-  /* A seção reserva a mesma altura da tela: trocar de tela não pode empurrar a
-     página, e o CLS que o CI cobra é 0,1. Com uma tela só isto não muda nada,
-     porque a altura já era a do banner. */
-  .destaques[data-rotativo] { position: relative; height: 447px; }
-  .controles { position: absolute; right: 16px; bottom: 16px; display: flex; gap: 8px; }
-  .controles button {
-    width: 44px; height: 44px;                  /* área de toque da WCAG 2.5.8 */
-    border: 1px solid rgba(255, 255, 255, .85); border-radius: 50%;
-    background: rgba(0, 0, 0, .45); color: #fff; font-size: 15px; line-height: 1;
-    cursor: pointer;
+  /* A faixa guarda os 447 px que o tema dá ao banner (#home > .banner .item em
+     css/fullwidth/skin.css) e o cinza de fundo dele. O que muda dentro é só o
+     conteúdo: em vez de arte recortada de ponta a ponta, o vídeo 16:9 ocupa a
+     altura da faixa e fica centrado. Altura fixa também protege o CLS, que o
+     CI cobra em 0,1: a capa e o iframe que a substitui medem o mesmo. */
+  .destaque-video {
+    height: 447px; background: var(--cinza-fundo);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--e2);
   }
-  .controles button:hover { background: rgba(0, 0, 0, .65); }
-  .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
-  /* .content do tema (skin.css): caixa branca translúcida no alto à esquerda,
-     texto azul em peso normal e um fio verde de 4 px na base, a 45% da largura.
-     A partir de 1200 px a caixa começa no meio da tela e o texto vai a 38 px. */
-  .legenda {
-    position: absolute; top: 0; left: 0; padding: 20px 30px;
-    background: rgba(255, 255, 255, .6);
-    color: var(--azul); font-size: 18px; font-weight: 400;
+  /* 447 px de altura em 16:9 pedem ~794 px de largura. `min()` cuida das telas
+     estreitas sem media query: abaixo disso o vídeo usa a largura disponível. */
+  .destaque-video :global(.video-topo) {
+    position: relative; display: block;
+    width: min(100% - 2 * var(--e4), 794px); aspect-ratio: 16 / 9;
   }
-  /* O tema zera o negrito (`strong { font-weight: normal }` do style.css), e a
-     legenda dele é justamente um <strong>: peso normal, tamanho da caixa. */
-  .legenda strong { font-weight: inherit; font-size: inherit; }
-  .legenda::after {
-    content: ''; position: absolute; right: 0; bottom: 0;
-    width: 45%; height: 4px; background: var(--verde);
+  .destaque-video :global(.video-topo) :global(img) {
+    display: block; width: 100%; height: 100%; object-fit: cover;
   }
-  @media (min-width: 1200px) {
-    .legenda { left: 50%; max-width: 628px; font-size: 38px; }
+  /* Mesmo indicador de play da caixa que saiu: sem ele a capa parece foto. */
+  .destaque-video :global(.video-topo)::after {
+    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
+    font-size: 4rem; color: var(--branco);
+  }
+  .destaque-video :global(iframe.video) {
+    width: min(100% - 2 * var(--e4), 794px); aspect-ratio: 16 / 9; height: auto; border: 0;
+  }
+  /* Abaixo de ~860 px o vídeo encolhe e os 447 px sobrariam como cinza vazio. */
+  @media (max-width: 859px) {
+    .destaque-video { height: auto; padding-block: var(--e4); }
   }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
@@ -203,7 +173,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 
   /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
   .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(3, 1fr); } }
+  /* Eram três colunas; a do vídeo subiu para o topo em 16/09/2026 e sobraram
+     duas. Duas colunas, e não três com um buraco. */
+  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(2, 1fr); } }
   .caixa {
     display: flex; flex-direction: column; background: var(--branco);
     padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
