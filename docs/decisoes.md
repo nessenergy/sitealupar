@@ -13,15 +13,17 @@ Visual de 2018.
 | D3 | Hospedagem | **Cloudflare Pages** | TLS renovado automaticamente: o incidente que originou o projeto deixa de ser possível. A zona já estava na Cloudflare |
 | D4 | Galeria `/fotos` | **Mantém no NAS** | TLS Let's Encrypt válido e com renovação automática; fora do escopo do site, dentro do monitoramento |
 | D5 | Feed de notícias | **Vem do RI** | Uma fonte só, mantida por quem já a alimenta. Elimina o feed que parou sozinho por 3,5 anos |
-| D6 | Dono do conteúdo | **Comunicação Alupar** | Área sem responsável nomeado foi o que deixou o site parar em 2023 |
+| D6 | Dono do conteúdo | **Comunicação Alupar** | Área sem responsável nomeado foi o que deixou o site parar em 2023. Pessoa nomeada na D17 |
 | D8 | Identidade | **MIV 2018** | Fixa paleta, tipografia, versões, campo de proteção e proibições |
-| D9 | Corte das notícias | **24 meses na listagem** | Arquivo indexável mantém as 183 URLs vivas; corte é editorial, não técnico |
+| D9 | Corte das notícias | **24 meses na listagem** | Arquivo indexável mantém as 183 URLs vivas; corte é editorial, não técnico. Superada pela D16 em 16/09/2026: não há mais listagem |
 | D10 | Faixa institucional | **Entra** (+16 h) | Única adição de estrutura: a home não diz em lugar nenhum o que a Alupar é |
 | D11 | CMS | **Sanity** | Editor maduro, i18n nativo, conta em nome da Alupar. O site estático sobrevive à queda do CMS |
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |
 | D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
 | D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
 | D15 | Modelo comercial | **Entrada de R$ 12.500 e mensalidade de R$ 1.500, por 12 meses renováveis por 12** | A Alupar já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha; a implantação é paga na entrada, e não diluída num contrato longo |
+| D16 | Área de notícias | **Desativada; 301 para o portal de RI** | A Alupar decidiu em 16/09/2026: "as notícias estão antigas… desativar mesmo". Fecha a D5 pelo caminho mais simples — em vez de importar um feed, o site deixa de ter a área e manda os 186 endereços vivos para quem já os mantém. Nenhum 404 (regra 3) |
+| D17 | Dono do conteúdo, com nome | **Fabiana Carneiro Pinho** | A D6 nomeou a área; faltava a pessoa. Foi a ausência de dono que deixou o site parar em 2023, e área não assina nada — pessoa assina |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
@@ -91,4 +93,6 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
 ## Pendências operacionais
 
 - Dois valores da faixa institucional (km de linhas, MW instalados) — Alupar, até o M2.
-- Acesso ao feed de notícias do RI — acordo entre as duas equipes, até a S3.
+- ~~Acesso ao feed de notícias do RI~~ — sem objeto desde a D16.
+- Prazo de guarda dos dados do formulário — a frente de LGPD está sendo redefinida com Bárbara, da ness. A Alupar respondeu as outras duas partes da P5 em 16/09/2026 e deixou esta em aberto.
+- Divulgações de resultados apontando ao portal de RI — a Comunicação pediu ao RI em 16/09/2026 e compartilhará quando houver.

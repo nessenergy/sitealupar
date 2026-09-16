@@ -147,11 +147,14 @@ publicados pelo próprio RI. Os outros dois — **km de linhas de transmissão**
 
 ### Notícias
 
+Superado pela D16 em 16/09/2026: a área de notícias foi desativada, e os
+endereços vivos redirecionam para o portal de RI. N1 a N3 não se aplicam mais.
+
 | # | Requisito |
 |---|---|
-| N1 | As 183 URLs continuam vivas. O corte é editorial, não técnico |
-| N2 | Listagem principal com os últimos 24 meses |
-| N3 | Arquivo em `/noticias/arquivo/`, paginado e indexável, fora da navegação de destaque |
+| N1 | ~~As 183 URLs continuam vivas. O corte é editorial, não técnico~~ |
+| N2 | ~~Listagem principal com os últimos 24 meses~~ |
+| N3 | ~~Arquivo em `/noticias/arquivo/`, paginado e indexável, fora da navegação de destaque~~ |
 
 ### Todas as páginas
 

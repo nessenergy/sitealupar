@@ -398,6 +398,7 @@ O mecanismo que faz o trabalho pesado já existe e não precisa de alteração: 
 - Modify: `src/i18n/textos.ts` (cinco chaves órfãs, nos três idiomas e na interface)
 - Modify: `lighthouserc.json:16-20` (quatro URLs que deixam de existir)
 - Modify: `scripts/lib/capturas.mjs:15-16` (dois alvos de conferência visual)
+- Modify: `scripts/gerar-redirecionamentos.mjs` (aprende a pular o espaço de endereço das notícias)
 - Delete: `src/pages/noticias/index.astro`, `src/pages/noticias/arquivo/[...page].astro`
 - Delete: `src/pages/en/noticias/index.astro`, `src/pages/en/noticias/arquivo/[...page].astro`
 - Delete: `src/pages/es/noticias/index.astro`, `src/pages/es/noticias/arquivo/[...page].astro`
@@ -579,9 +580,14 @@ Se `--verificar` reprovar dizendo que endereços deixariam de responder, leia qu
 
 - [ ] **Passo 12: Rodar os portões do CI, na ordem em que ele roda**
 
+`npm run check` foi retirado desta lista em 16/09/2026: o CI nunca chama esse
+script, e `@astrojs/check` não é dependência do projeto — não tem como rodar.
+
 ```bash
 npm test
-npm run check
+node scripts/corrigir-datas.mjs --verificar
+node scripts/balancear-conteudo.mjs --verificar
+node scripts/otimizar-imagens.mjs --verificar
 node scripts/gerar-mapa-de-rotas.mjs --verificar
 npm run build
 node scripts/fechar-continuidade.mjs --verificar
