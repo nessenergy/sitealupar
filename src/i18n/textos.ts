@@ -70,13 +70,10 @@ interface Textos {
      com um, o componente serve um banner estático, sem script e sem controles.
      Acrescentar uma peça aqui e a imagem correspondente em Home.astro liga o
      rotativo. A ordem das duas listas é a ordem das telas. */
-  /* `legenda` nula quando a peça não tem tarja: as telas antigas do rotativo
-     trazem o texto dentro da própria arte, e um <span> vazio por cima seria
-     ruído para quem usa leitor de tela. */
-  banner: { legenda: string | null; alt: string; href: string | null }[];
+  banner: { legenda: string; alt: string; href: string | null }[];
   /* Rótulos dos controles do rotativo. Só aparecem na página quando há duas
      telas ou mais — com uma, o banner é estático e não há o que controlar. */
-  rotativo: { tela: string; pausar: string; retomar: string };
+  rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
   eixos: { titulo: string; texto: string }[];
   sustentabilidadeHref: string;
   verMaisNoticias: string;
@@ -140,31 +137,13 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conduta de Terceiros', denuncias: 'Canal de Denúncias',
       topo: 'Voltar ao topo', // novo
     },
-    rotativo: { tela: 'Tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
-    /* As seis peças que a home atual gira, para o Marketing decidir olhando.
-       A de 2025 vem primeiro de propósito: é ela que o visitante vê ao abrir, e
-       manter a primeira tela igual preserva o tempo de carga medido pelo CI.
-       As cinco seguintes estão fora do ar pela regra 0.2 do Marco 0, que veta
-       peça anterior a 2024 — só voltam por decisão do Marketing.
-       Os `alt` descrevem o que a arte mostra, escritos a partir de cada imagem;
-       onde a peça traz texto, o `alt` traz o mesmo texto. Todos `// novo`. */
+    rotativo: { anterior: 'Tela anterior', proxima: 'Próxima tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
     banner: [
       {
         legenda: '#SUSTENTABILIDADE',
         alt: 'Relatório de Sustentabilidade 2025', // novo — o site atual tem alt=""
         href: 'https://arquivos.alupar.com.br/documentos/relatorio-de-sustentabilidade-2025.pdf',
       },
-      /* Tarja, ordem e link extraídos da home atual em 15/09/2026 — o rotativo
-         de lá é `<img class="background">` com `<span class="content">` por
-         cima, e a tarja é esse span. Não é texto novo: é o que está no ar. */
-      { legenda: 'Mais Energia', alt: 'Torre de transmissão contra o céu, entre nuvens', href: null }, // 2017, fora do ar pela regra 0.2
-      { legenda: 'Respeito pelo meio ambiente', alt: 'Parque eólico ao pôr do sol, com dezenas de aerogeradores sobre vegetação verde', href: null }, // 2017
-      { legenda: '#SomosCertificadosAtmosferaFIA', alt: 'Estamos comemorando a renovação do nosso Selo de Qualidade: certificado FEEx de Clima Organizacional 2021', href: null }, // 2021
-      { legenda: 'Energia que move vidas', alt: 'Usina hidrelétrica à beira do rio, com torres de transmissão ao fundo', href: null }, // 2017
-      /* A origem aponta para /alupar-e-a-covid-19/acoes-sociais-…/, página
-         aposentada que redireciona para /sustentabilidade/. O link vai direto
-         ao destino, para não gastar um salto de redirecionamento por clique. */
-      { legenda: 'Ações sociais em prol de comunidades vulneráveis', alt: 'Programa de Voluntariado: saiba como impactamos a vida de centenas de milhares de pessoas durante a pandemia', href: '/sustentabilidade/' }, // 2021
     ],
     eixos: [
       { titulo: 'Meio Ambiente', texto: 'Reposição e recuperação de vegetação florestal nativa' },
@@ -231,7 +210,7 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Third Parties Code of Conduct', denuncias: 'Reporting Channel',
       topo: 'Back to top', // novo
     },
-    rotativo: { tela: 'Slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
+    rotativo: { anterior: 'Previous slide', proxima: 'Next slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
     banner: [
       {
         legenda: '#SUSTAINABILITY',
@@ -304,7 +283,7 @@ export const textos: Record<Idioma, Textos> = {
       terceiros: 'Código de Conducta de Terceros', denuncias: 'Canal de Denuncias',
       topo: 'Volver arriba', // novo
     },
-    rotativo: { tela: 'Pantalla', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
+    rotativo: { anterior: 'Pantalla anterior', proxima: 'Pantalla siguiente', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
     banner: [{ legenda: 'Energía que impulsa la vida', alt: 'Energía que impulsa la vida', href: null }], // decisão P1
     eixos: [
       { titulo: 'Medio Ambiente', texto: 'Reposición y recuperación de vegetación forestal nativa' },
