@@ -129,8 +129,24 @@ const indicadores = [
      mostrariam uma tira estreitíssima do quadro. */
   .destaque-video {
     position: relative; overflow: hidden;
-    height: clamp(220px, 34vw, 447px);
+    height: clamp(220px, 34vw, 487px);
     background: var(--cinza-fundo);
+  }
+  /* O box azul do logotipo passa a descer 40 px sobre o vídeo. O box é float
+     dentro de um `flow-root` (Cabecalho.astro), então a margem negativa encolhe
+     a altura que o cabeçalho reserva para ele e o box sobra para fora, sobre o
+     que vier abaixo — sem tirá-lo do fluxo nem mexer no fundo branco do menu,
+     que continua terminando onde terminava. A faixa do vídeo ganhou os mesmos
+     40 px (447 → 487) para o que fica à vista não encolher.
+
+     `:global` porque o alvo é do Cabecalho, e o cabeçalho é de todas as
+     páginas — mas o CSS deste componente só é carregado onde ele é usado, que
+     são as três homes. Numa interna nada muda.
+
+     Só a partir de 768 px: abaixo disso o cabeçalho do tema é uma faixa azul
+     de ponta a ponta e não há box para sobrepor. */
+  @media (min-width: 768px) {
+    :global(.logo) { margin-bottom: -40px; }
   }
   /* A capa preenche a faixa inteira: `cover` mantém a proporção do quadro,
      corta o excedente em cima e embaixo e não deixa barra nem deformação. */
