@@ -101,6 +101,12 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
   formulário segue com o remetente de sandbox da Resend e a caixa provisória
   da ness (detalhe em `docs/plano-virada.md`, Tarefa 10, Passo 12). O texto de
   consentimento já foi trocado nos três idiomas, num branch separado.
-- Prazo de guarda dos dados do formulário — a frente de LGPD está sendo
-  redefinida com Bárbara, da ness. Segue em aberto.
+- ~~Prazo de guarda dos dados do formulário~~ — **respondido em 16/09/2026:
+  30 dias.** O formulário não tem banco: o caminho é navegador, Worker em
+  memória, Resend, caixa de correio. Então o prazo vale nos **dois** lugares
+  onde a mensagem de fato persiste, e é preciso valer nos dois para a promessa
+  ser verdadeira: a caixa `comunicacao@alupar.com.br`, no Google Workspace da
+  Alupar, e o histórico de mensagens enviadas no painel do Resend, que guarda
+  corpo e destinatário. Quem opera cada um dos dois é diferente, e nenhum dos
+  dois expurga sozinho — a regra de retenção precisa ser configurada em cada.
 - Divulgações de resultados apontando ao portal de RI — a Comunicação pediu ao RI em 16/09/2026 e compartilhará quando houver.
