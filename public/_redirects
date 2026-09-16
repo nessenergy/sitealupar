@@ -309,17 +309,9 @@
 # ─── continuidade: fim ───
 
 # ─── gerado por scripts/gerar-redirecionamentos.mjs ───
-# 125 permalinks traduzidos pelo WPML. O slug é próprio — o
+# 41 permalinks traduzidos pelo WPML. O slug é próprio — o
 # caminho não existe em português — então o destino é a versão com prefixo de
 # idioma. Sem estas linhas, todo link externo para uma tradução morre na virada.
-#
-# Exceção manual em 16/09/2026: as 83 traduções cuja origem e destino eram
-# /noticia/... saíram daqui. A área de notícias foi desativada (D16) e esses
-# caminhos não existem mais como página — o gerador não sabe disso, porque
-# decide por "tem corpo no acervo", não por "vira rota". Reexecutar o script
-# sem corrigir essa lacuna traria as 83 linhas de volta, apontando outra vez
-# para destino inexistente. Ficam cobertos pelo curinga /noticia/* do bloco
-# dinâmico, que já manda tudo sob /noticia/ para o RI.
 
 # EN — 20 endereços
 /faq/concluded-research-and-development-projects/  /en/faq/concluded-research-and-development-projects/  301
@@ -365,12 +357,11 @@
 /faq/sostenibilidad/  /es/faq/sostenibilidad/  301
 /faq/uhes-2/  /es/faq/uhes-2/  301
 
-# ── 2 traduções sem corpo no acervo ──
+# ── 1 traduções sem corpo no acervo ──
 # Respondem 200 hoje, mas não viram página: são banner ou anexo. O destino
 # é a home do idioma, para não deixar 404 (regra 3). Quando houver índice
 # de seção, é para lá que devem apontar.
 /banner_rotativo/sustainability/  /en/  301
-/noticia/2q22-earnings-release/  /en/  301
 
 # ─── dinâmicas: sempre por último — limite do Pages (100 dinâmicas; a primeira dinâmica desliga as estáticas) ───
 
