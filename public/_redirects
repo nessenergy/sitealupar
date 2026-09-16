@@ -375,10 +375,22 @@
 # estão antigas… desativar mesmo". O feed sempre foi para vir do RI (D5), e é
 # para lá que vão os 186 endereços vivos — 210 páginas e as seis listagens.
 # Curinga, e não uma regra por endereço: é o que faz o gerador de mapa
-# descartá-las em bloco (`coberto-por-301`), e cabe em 6 das 100 dinâmicas.
+# descartá-las em bloco (`coberto-por-301`), e cabe em 9 das 100 dinâmicas.
+#
+# As três últimas linhas existem por medição, não por precaução. No preview de
+# 16/09/2026, `/noticias` SEM barra final devolveu 404 mesmo com `/noticias/*`
+# logo acima: o Pages só normaliza para a versão com barra quando o diretório
+# existe no build, e este deixou de existir. O caminho exato resolve isso, e é
+# a forma que o nosso casador (scripts/lib/redirects.mjs) e o do Pages
+# entendem do mesmo jeito — `/noticia*`, de prefixo, só o do Pages entende.
+# Não há linha para `/noticia` sem barra: nunca foi endereço de página, ao
+# contrário de `/noticias`, que era a listagem e aparece em link de fora.
 /noticia/*                                         https://ri.alupar.com.br/noticias/   301
 /en/noticia/*                                      https://ri.alupar.com.br/noticias/   301
 /es/noticia/*                                      https://ri.alupar.com.br/noticias/   301
 /noticias/*                                        https://ri.alupar.com.br/noticias/   301
 /en/noticias/*                                     https://ri.alupar.com.br/noticias/   301
 /es/noticias/*                                     https://ri.alupar.com.br/noticias/   301
+/noticias                                          https://ri.alupar.com.br/noticias/   301
+/en/noticias                                       https://ri.alupar.com.br/noticias/   301
+/es/noticias                                       https://ri.alupar.com.br/noticias/   301

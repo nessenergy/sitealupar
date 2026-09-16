@@ -2,6 +2,16 @@
  * Casamento de caminho contra `public/_redirects`, do jeito que o Pages faz:
  * `/x/*` cobre `/x` e tudo abaixo; o resto casa exato, com ou sem barra final.
  * Query string não entra — o Pages não a casa (ver infra/redirect-rules.md).
+ *
+ * ATENÇÃO, medido no preview em 16/09/2026: a primeira frase acima é otimista
+ * demais. `/x/*` cobre `/x` AQUI, mas no Pages de verdade `/noticias` sem
+ * barra final devolveu 404 com `/noticias/*` no arquivo. O Pages normaliza
+ * `/x` para `/x/` quando `x` é diretório existente no build; quando a página
+ * foi removida e só resta a regra, não normaliza e nada casa. Ou seja, este
+ * casador é mais permissivo que o real nesse caso, e um endereço que ele diz
+ * coberto pode 404 em produção. Enquanto isso não for corrigido aqui, regra
+ * que precisa valer para o caminho sem barra ganha linha exata própria — é o
+ * que o bloco de notícias do `_redirects` faz.
  */
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
