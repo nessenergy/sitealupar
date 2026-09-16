@@ -14,10 +14,8 @@
  * sozinho é conteúdo em movimento e cairia na WCAG 2.2.2, que exige controle
  * de pausa visível, contra um portão de acessibilidade que pede nota cheia.
  */
-import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
-import capaVideo from '../assets/video-institucional.jpg';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
@@ -62,13 +60,16 @@ const indicadores = [
         pura, como o pdi.alupar.com.br faz, passava de uma tela inteira e
         empurrava o resto da home para baixo da dobra. */}
     <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
-      <a class="video-topo" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4"
-        data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
-        <Picture src={capaVideo} alt="" formats={['avif', 'webp']}
-          widths={[640, 1280, 1920]} sizes="100vw"
-          loading="eager" fetchpriority="high" />
-        <span class="sr-only">{t.assistirVideo}</span>
-      </a>
+      <iframe class="video video-topo" data-video-topo title={t.videoInstitucional}
+        src="https://www.youtube-nocookie.com/embed/oqjwsKfpYZ4?autoplay=1&mute=1&loop=1&playlist=oqjwsKfpYZ4&controls=0&playsinline=1&rel=0&enablejsapi=1"
+        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      {/* Exigência da WCAG 2.2.2: conteúdo que se move sozinho por mais de
+          cinco segundos precisa de um jeito de parar. Os controles do YouTube
+          estão desligados (`controls=0`) porque o recorte da faixa cortaria a
+          barra deles pela metade; este botão fala com o player pela API de
+          postMessage e fica sempre à vista. */}
+      <button type="button" class="pausar-video" data-pausar-video aria-pressed="false"
+        aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
     </section>
     {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
         dentro dela seria recortado junto com o vídeo. */}
@@ -148,19 +149,16 @@ const indicadores = [
   @media (min-width: 768px) {
     :global(.logo) { margin-bottom: -40px; }
   }
-  /* A capa preenche a faixa inteira: `cover` mantém a proporção do quadro,
-     corta o excedente em cima e embaixo e não deixa barra nem deformação. */
-  .destaque-video :global(.video-topo) {
-    position: absolute; inset: 0; display: block;
+  /* O botão de pausa: canto inferior direito, 44 px de área de toque (WCAG
+     2.5.8), sobre o vídeo. Contraste garantido pelo fundo escuro translúcido. */
+  .pausar-video {
+    position: absolute; right: 16px; bottom: 16px; z-index: 1;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255, 255, 255, .85); border-radius: 50%;
+    background: rgba(0, 0, 0, .55); color: var(--branco); font-size: 15px; line-height: 1;
+    cursor: pointer;
   }
-  .destaque-video :global(.video-topo) :global(img) {
-    display: block; width: 100%; height: 100%; object-fit: cover;
-  }
-  /* Mesmo indicador de play da caixa que saiu: sem ele a capa parece foto. */
-  .destaque-video :global(.video-topo)::after {
-    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
-    font-size: 4rem; color: var(--branco);
-  }
+  .pausar-video:hover { background: rgba(0, 0, 0, .75); }
   /* O player entra no mesmo retângulo da capa, também preenchendo: 16:9
      centrado, com o mínimo necessário para cobrir a faixa, e o que sobra é
      recortado pelo `overflow` da seção. É o mesmo enquadramento da capa, então
