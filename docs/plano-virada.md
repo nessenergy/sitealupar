@@ -51,7 +51,7 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | P2 | Listagem de notícias de 24 meses (D9) nasce vazia: a última notícia é de 02/03/2023 | Comunicação | Respondido em 16/09/2026: a área de notícias sai inteira (D16). A listagem de 24 meses deixou de existir | Tarefa 9 |
 | P3 | Busca do cabeçalho: site estático não tem busca do WordPress | Comunicação | Respondido em 16/09/2026: "Desativar nesta primeira versão" — confirma o padrão; a busca volta na manutenção se houver demanda | Tarefa 7 |
 | P4 | Seletor de idioma: bandeiras do tema ou siglas em texto | Marketing | Siglas `PT · EN · ES` — o sprite do tema não está no CSS público, e bandeira não é rótulo acessível | Tarefa 7 |
-| P5 | Formulário: e-mail de destino, texto LGPD (Clarice) e prazo de retenção | Alupar + jurídico | Respondido em 16/09/2026: destino comunicacao@alupar.com.br e o texto de consentimento do site atual. Prazo de guarda segue em aberto, com a frente de LGPD da ness. | Tarefa 10 |
+| P5 | Formulário: e-mail de destino, texto LGPD (Clarice) e prazo de retenção | Alupar + jurídico | Respondido em 16/09/2026, em três partes: **destino decidido, mas ainda não em vigor** — `comunicacao@alupar.com.br`, pendente de verificar `msg.alupar.com.br` no Resend, publicar o DNS e gravar o segredo `CONTATO_DESTINO` em produção; até lá seguem os valores provisórios (sandbox da Resend, caixa da ness). **Texto de consentimento já trocado**, nos três idiomas, num branch separado. **Prazo de guarda** segue em aberto, com a frente de LGPD da ness. | Tarefa 10 |
 | P6 | 51 páginas que dependem de serviços da MZ (#43) | Comunicação | Vão como estão; o player/API da MZ some com o contrato e o texto fica. A resposta 7 da Alupar — as divulgações de resultados apontando ao portal de RI — chega depois e não bloqueia a virada | Tarefa 12 |
 | P7 | Menu EN/ES traz "Trabalhe Conosco" em português | Comunicação | Respondido em 16/09/2026: "Careers" e "Trabaje con nosotros" — confirma o padrão já no ar | Tarefa 7 |
 | P8 | Vídeo da home: incorporado já no carregamento pesa ~1 MB de YouTube | — | Capa local; o player só carrega no clique | Tarefa 8 |
@@ -2194,12 +2194,15 @@ for s in TURNSTILE_SECRET RESEND_API_KEY CONTATO_DESTINO CONTATO_REMETENTE; do
 done
 ```
 
-  **Valores provisórios em uso desde 14/09**, até a Alupar responder a P5:
-  remetente `onboarding@resend.dev`, o endereço de sandbox da Resend, que
-  dispensa domínio verificado; destino, uma caixa da ness. Ao responderem,
-  trocam-se os dois — e o remetente só sai do sandbox quando
-  `msg.alupar.com.br` estiver verificado, que é o que libera enviar para
-  qualquer destinatário.
+  **Valores provisórios em uso desde 14/09**, até `msg.alupar.com.br` estar
+  verificado no Resend e o segredo `CONTATO_DESTINO` estar gravado no
+  ambiente de produção do Pages: remetente `onboarding@resend.dev`, o
+  endereço de sandbox da Resend, que dispensa domínio verificado; destino,
+  uma caixa da ness. A Alupar respondeu a P5 em 16/09/2026 — o destino
+  decidido é `comunicacao@alupar.com.br` —, mas isso sozinho não troca os
+  valores: o remetente só sai do sandbox quando `msg.alupar.com.br` estiver
+  verificado, que é o que libera enviar para qualquer destinatário, e só
+  então o segredo `CONTATO_DESTINO` é reescrito com o endereço definitivo.
 
   O segredo do Turnstile foi girado pela API no mesmo dia, com o antigo
   invalidado na hora. A chave pública não muda ao girar, então o site não

@@ -94,5 +94,13 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
 
 - Dois valores da faixa institucional (km de linhas, MW instalados) — Alupar, até o M2.
 - ~~Acesso ao feed de notícias do RI~~ — sem objeto desde a D16.
-- Prazo de guarda dos dados do formulário — a frente de LGPD está sendo redefinida com Bárbara, da ness. A Alupar respondeu as outras duas partes da P5 em 16/09/2026 e deixou esta em aberto.
+- Formulário de contato (P5) — a Alupar decidiu o destino em 16/09/2026,
+  `comunicacao@alupar.com.br`, mas a troca **ainda não está em vigor**: falta
+  verificar o domínio de envio `msg.alupar.com.br` no Resend, publicar o DNS
+  na zona da Alupar e gravar o segredo `CONTATO_DESTINO` em produção. Até lá o
+  formulário segue com o remetente de sandbox da Resend e a caixa provisória
+  da ness (detalhe em `docs/plano-virada.md`, Tarefa 10, Passo 12). O texto de
+  consentimento já foi trocado nos três idiomas, num branch separado.
+- Prazo de guarda dos dados do formulário — a frente de LGPD está sendo
+  redefinida com Bárbara, da ness. Segue em aberto.
 - Divulgações de resultados apontando ao portal de RI — a Comunicação pediu ao RI em 16/09/2026 e compartilhará quando houver.
