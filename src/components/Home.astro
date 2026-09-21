@@ -28,12 +28,12 @@ const pre = prefixo[idioma];
    reescrito, basta o topo voltar a montar as telas. */
 const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
 
-// Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
-// número plausível é pior que um espaço vazio, porque ninguém o corrige depois.
+// km e MW: texto da Área de atuação revisado pela Alupar em 21/09/2026 ("mais
+// de 10 mil km", "quase 800 MW") — a mesma fonte das duas páginas (D19).
 const indicadores = [
-  { valor: null,  rotulo: t.indicadores.linhas },
-  { valor: '4',   rotulo: t.indicadores.paises },
-  { valor: null,  rotulo: t.indicadores.capacidade },
+  { valor: idioma === 'en' ? '10,000+' : '+10 mil', rotulo: t.indicadores.linhas },
+  { valor: '4',    rotulo: t.indicadores.paises },
+  { valor: '~800', rotulo: t.indicadores.capacidade },
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
 
@@ -84,7 +84,7 @@ const indicadores = [
         <ul>
           {indicadores.map((i) => (
             <li>
-              <span class="valor" data-pendente={i.valor === null}>{i.valor ?? '—'}</span>
+              <span class="valor">{i.valor}</span>
               <span class="rotulo">{i.rotulo}</span>
             </li>
           ))}
@@ -186,7 +186,6 @@ const indicadores = [
   }
   .faixa li { display: flex; flex-direction: column; gap: var(--e1); }
   .valor { font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--verde-texto); }
-  .valor[data-pendente='true'] { color: var(--cinza); }
   .rotulo { font-size: .875rem; color: var(--preto); }
 
   /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */

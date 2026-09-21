@@ -25,6 +25,7 @@ Visual de 2018.
 | D16 | Área de notícias | **Desativada; 301 para o portal de RI** | A Alupar decidiu em 16/09/2026: "as notícias estão antigas… desativar mesmo". Fecha a D5 pelo caminho mais simples — em vez de importar um feed, o site deixa de ter a área e manda os 186 endereços vivos para quem já os mantém. Nenhum 404 (regra 3) |
 | D17 | Dono do conteúdo, com nome | **Fabiana Carneiro Pinho** | A D6 nomeou a área; faltava a pessoa. Foi a ausência de dono que deixou o site parar em 2023, e área não assina nada — pessoa assina |
 | D18 | Orçamento de peso da home | **600 KB → 3 MB**, para o vídeo do topo tocar sozinho | A Alupar pediu o institucional no lugar do rotativo, tocando ao abrir. Medido: com o player carregado o peso vai a 2,39 MB — 1,19 MB de vídeo e ~850 KB do JS do YouTube. O limite antigo reprovava por quatro vezes. **Não é afrouxar um portão para fazer passar** (regra 5): é o preço declarado de um pedido da cliente, decidido por ela em 16/09/2026 depois de ver o número. A alternativa aberta continua sendo hospedar um laço curto em MP4, que dispensa o JS do YouTube e devolveria a maior parte do orçamento — falta o arquivo de vídeo |
+| D19 | Área de atuação e números institucionais | **Texto revisado pela Alupar substitui o migrado**, em `acervo/revisado/`; mapa novo de ativos | A Alupar enviou em 21/09/2026 o texto novo da Área de atuação (`02_Conteudo_Pag_AreasDeAtuacao.docx`) e o `Mapa_Ativos.png`: 45 sistemas, mais de 10 mil km, 16 empreendimentos, quase 800 MW, Chile/Colômbia/Peru. Os mesmos números passam a valer em A Companhia e na faixa da home, que estavam em 35 sistemas / 8.805 km / 798,5 MW (o espanhol ainda em 30 sistemas / 7.964 km). As tabelas de sistemas e geradoras da página antiga saem com o texto. EN e ES traduzidos pela ness., a validar pela Comunicação no preview (resposta 3 de 16/09). Empresas não tem aba LATAM: o link do documento aponta para a página Empresas |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
@@ -93,7 +94,8 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
 
 ## Pendências operacionais
 
-- Dois valores da faixa institucional (km de linhas, MW instalados) — Alupar, até o M2.
+- ~~Dois valores da faixa institucional (km de linhas, MW instalados)~~ — respondidos em 21/09/2026 (D19).
+- Validação das traduções EN/ES da Área de atuação e de A Companhia (D19) — Comunicação, pelo preview.
 - **Revisar a D11 com a Alupar.** O motivo do CMS era a Comunicação publicar notícia e trocar banner sozinha; as duas coisas deixaram de existir. O que sobrou muda raramente e cabe no banco de manutenção. Pesa na decisão o compromisso de "autonomia de publicação" escrito na proposta comercial (`apresentacao/proposta.html`).
 - ~~Acesso ao feed de notícias do RI~~ — sem objeto desde a D16.
 - Formulário de contato (P5) — destino e remetente em vigor desde 16/09/2026:

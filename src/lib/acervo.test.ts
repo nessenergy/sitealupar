@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sanfona, documentosDaMz } from './acervo.ts';
+import { sanfona, documentosDaMz, itens, idsNosTitulos } from './acervo.ts';
 
 const WRAP = `<div class="arconix-faq-wrap">
   <div class="arconix-faq-title faq-closed">Garantias</div>
@@ -106,4 +106,27 @@ test('a URL casada não arrasta a barra invertida para o destino', () => {
   const mapa = { 'https://api.mziq.com/mzfilemanager/v2/d/c/d?origin=2': { chave: 'documentos-mz/N.pdf' } };
   const saida = documentosDaMz('<a href="https://api.mziq.com/mzfilemanager/v2/d/c/d?origin=2">x</a>', mapa);
   assert.ok(!saida.includes(String.fromCharCode(92)), 'o destino não deveria conter barra invertida');
+});
+
+/* Texto revisado pela Alupar em 21/09/2026 (02_Conteudo_Pag_AreasDeAtuacao):
+   `acervo/revisado/` vence o corpo migrado, nos três idiomas. */
+test('Área de atuação e A Companhia saem do texto revisado, com os números de 2026', () => {
+  const corpo = (rota: string) => itens().find((i) => i.rota === rota)?.corpo ?? '';
+  for (const pre of ['', '/en', '/es']) {
+    const area = corpo(`${pre}/area-de-atuacao/`);
+    assert.match(area, /45/, `${pre}/area-de-atuacao/`);
+    assert.match(area, /href="https:\/\/alup\.io\/"/);
+    assert.match(area, /\/midia\/sites\/alupar\/2026\/09\/mapa-ativos-\d+\.webp/);
+    assert.doesNotMatch(area, /\b(35|29) (empresas|electricity|empresas transmisoras)/);
+    const companhia = corpo(`${pre}/a-companhia/`);
+    assert.match(companhia, /45/, `${pre}/a-companhia/`);
+    assert.doesNotMatch(companhia, /8[.,]805|7\.964|798[,.]|821,5/);
+  }
+});
+
+test('h2 sem id ganha âncora pelo texto; repetido, vazio ou já com id fica como está', () => {
+  assert.equal(
+    idsNosTitulos('<h2>Geradoras</h2><h2>Comercialização</h2><h2>Geradoras</h2><h2></h2><h2 id="x">Y</h2>'),
+    '<h2 id="geradoras">Geradoras</h2><h2 id="comercializacao">Comercialização</h2><h2>Geradoras</h2><h2></h2><h2 id="x">Y</h2>',
+  );
 });

@@ -11,7 +11,7 @@
  * quem escreve o conteúdo, e `acervo/acessibilidade-do-conteudo.json` diz
  * exatamente quais são e quantas.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
 /* `with { type: 'json' }` não é enfeite: sem o atributo, `node --test` recusa
    o módulo e as transformações daqui ficariam sem teste. O Astro lê igual. */
@@ -116,6 +116,22 @@ function textoDe(n: No): string {
     for (const c of x.childNodes ?? []) anda(c);
   })(n);
   return partes.join(' ').replace(/\s+/g, ' ').trim();
+}
+
+/*
+ * Âncora nos títulos de seção: `<h2>Geradoras</h2>` vira `<h2 id="geradoras">`,
+ * para que outra página aponte direto para a seção (Área de atuação →
+ * Empresas#geradoras). Só `<h2>` sem atributo; texto repetido fica só na
+ * primeira ocorrência, porque id duplicado quebra o destino.
+ */
+export function idsNosTitulos(corpo: string): string {
+  const usados = new Set<string>();
+  return corpo.replace(/<h2>([^<]+)<\/h2>/g, (inteiro, texto: string) => {
+    const id = texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (!id || usados.has(id)) return inteiro;
+    usados.add(id);
+    return `<h2 id="${id}">${texto}</h2>`;
+  });
 }
 
 function ancorasInternas(corpo: string): string {
@@ -298,6 +314,17 @@ export function itens(): Item[] {
     if (origem) corpos.set(r.para, origem);
   }
 
+  /* Texto que a Alupar revisou depois da migração: `acervo/revisado/<idioma>/<rota>.html`
+     vence o corpo migrado. Passa pelas mesmas transformações abaixo que o resto
+     do acervo (aviso de nova aba, imagem responsiva…). */
+  for (const idioma of ['pt', 'en', 'es'] as const) {
+    const dir = `acervo/revisado/${idioma}`;
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((n) => n.endsWith('.html'))) {
+      corpos.set(`${PREFIXO[idioma]}/${f.slice(0, -5)}/`, { corpo: readFileSync(`${dir}/${f}`, 'utf8'), idioma });
+    }
+  }
+
   cache = mapa.rotas.map((r) => {
     const achado = corpos.get(r.rota);
     if (!achado) throw new Error(`rota sem corpo no acervo: ${r.rota}`);
@@ -309,7 +336,7 @@ export function itens(): Item[] {
         arquivosNoR2(
           videosSobDemanda(
             carregarImagens(
-              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(achado.corpo))), idioma), idioma), imagens as Manifesto),
             ),
           ),
         ),
