@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   pull_request:
+    # O padrão de `pull_request` é [opened, synchronize, reopened] — sem
+    # `ready_for_review`. Marcar um PR em rascunho como pronto não dispararia
+    # nada, e o verde exibido na hora do merge seria o da última execução, de
+    # um build feito ANTES da variável existir. É exatamente o caso do PR da
+    # medição (P9, Tarefa 12 do plano de virada), que espera CF_BEACON_TOKEN.
+    types: [opened, synchronize, reopened, ready_for_review]
 
 # Na main, as execuções entram em fila em vez de correr juntas: uma execução
 # mais velha nunca publica depois de uma mais nova. No PR, um push novo cancela
@@ -129,13 +135,16 @@ jobs:
       - name: Links internos resolvem
         run: node scripts/verificar-links.mjs
 
-  # Produção só publica com o gate de qualidade verde. Preview de PR publica mesmo
-  # com ele vermelho, para diagnóstico. www.alupar.com.br só aponta para cá na virada
-  # (Tarefa 12).
+  # Produção só publica com o gate de qualidade verde. Preview de PR publica assim
+  # que o build fecha, sem esperar o Lighthouse: o preview existe para ser olhado,
+  # e esperar dez minutos por ajuste visual custou uma rodada inteira de revisão
+  # com o Marketing. O gate não afrouxa — ele continua sendo condição de merge, e
+  # `needs` diferente por evento é a única forma de separar os dois no Actions.
+  # www.alupar.com.br só aponta para cá na virada (Tarefa 12).
   publicar:
     runs-on: ubuntu-latest
     needs: [build, qualidade]
-    if: ${{ !cancelled() && needs.build.result == 'success' && ((github.event_name == 'push' && needs.qualidade.result == 'success') || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) }}
+    if: ${{ !cancelled() && github.event_name == 'push' && needs.build.result == 'success' && needs.qualidade.result == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -144,12 +153,10 @@ jobs:
           path: dist/
       # Sem a variável, o build usa a chave de TESTE do Turnstile. O segredo de
       # produção recusa token de teste: toda mensagem do formulário de contato
-      # voltaria "não enviado" e ninguém da Alupar saberia. Só no push para a
-      # main — o preview de PR pode usar a chave de teste.
+      # voltaria "não enviado" e ninguém da Alupar saberia.
       # Uma reexecução só do job que falhou reaproveita o artefato do build anterior,
       # que pode trazer a chave de teste. Por isso confere também o dist, não só a variável.
       - name: Chave de produção do Turnstile definida
-        if: github.event_name == 'push'
         shell: bash
         env:
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
@@ -187,3 +194,83 @@ jobs:
           RAMO: ${{ github.head_ref || github.ref_name }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # Preview de PR: publica assim que o build fecha, sem esperar o Lighthouse.
+  # O gate de qualidade continua correndo em paralelo e continua sendo condição
+  # de merge — o que muda é só quando o preview fica visível. Preview vermelho é
+  # justamente o que ajuda a diagnosticar; esperar por ele para olhar a página é
+  # que não ajudava ninguém.
+  publicar-preview:
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: Projeto do Pages existe
+        shell: bash
+        run: |
+          if npx --yes wrangler@4 pages project list 2>/dev/null | grep -qw sitealupar; then
+            echo "projeto sitealupar já existe"
+          else
+            npx --yes wrangler@4 pages project create sitealupar --production-branch main
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # O nome do ramo entra por `env`, nunca interpolado no `run`: é texto de
+      # quem abriu o PR, e interpolado viraria comando no shell.
+      - name: Publicar preview no Cloudflare Pages
+        run: npx --yes wrangler@4 pages deploy dist --project-name sitealupar --branch "$RAMO" | tee -a "$GITHUB_STEP_SUMMARY"
+        shell: bash
+        env:
+          RAMO: ${{ github.head_ref }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # O que já se verificava uma vez por dia passa a rodar assim que a main
+  # publica. O intervalo entre o merge e a descoberta é o que custou dois dias
+  # quando oito arquivos do acervo ficaram fora do R2 sem ninguém notar.
+  verificar:
+    runs-on: ubuntu-latest
+    needs: [publicar]
+    if: github.event_name == 'push'
+    # A issue de alarme é aberta e fechada pela própria execução.
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # A repetição não é teimosia: o deploy leva alguns segundos para
+      # propagar, e um alarme que abre issue não pode ser instável.
+      - name: Todo endereço vivo do acervo responde no site publicado
+        shell: bash
+        run: |
+          node scripts/verificar-no-ar.mjs "$SITE" && exit 0
+          echo "primeira tentativa reprovou — o deploy pode não ter propagado; repetindo em 30 s"
+          sleep 30
+          node scripts/verificar-no-ar.mjs "$SITE"
+        env:
+          SITE: https://sitealupar.pages.dev
+
+      # Contra acervo/r2.json, e não contra o disco: os 734 MB de mídia não
+      # pertencem ao git, e sem isto o CI não tinha como ver o bucket.
+      - name: Toda a mídia do manifesto está servida no R2
+        run: node scripts/publicar-arquivos.mjs --manifesto
+
+      - name: Alarme
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ job.status }}
+          EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITULO: 'Verificação pós-merge: um endereço do acervo ou um arquivo do R2 deixou de responder'
+        run: node scripts/alarme.mjs pos-merge "$TITULO"

@@ -67,13 +67,16 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | `scripts/lib/continuidade.mjs` + `.test.mjs` | Destino de 301 para endereço vivo que não virou página | 4 |
 | `scripts/fechar-continuidade.mjs` | Escreve os 301 que faltam; `--verificar` no CI | 4 |
 | `src/pages/videos/…`, `en/videos/…`, `es/videos/…` | Listagem de vídeos (`/videos/` responde 200 hoje) | 4 |
-| `scripts/publicar-arquivos.mjs` | `acervo/midia/` → R2, com verificação pela URL pública | 5 |
+| `scripts/publicar-arquivos.mjs` | `acervo/midia/` → R2, com verificação pela URL pública; grava `acervo/r2.json` e o confere com `--manifesto`, sem a mídia em disco | 5 |
 | `.github/workflows/ci.yml` | Testes, verificações novas, deploy no Pages | 3–6 |
 | `src/components/Cabecalho.astro`, `Rodape.astro`, `public/js/site.js` | Casca restaurada do tema | 7 |
 | `src/components/Home.astro` | Banner, faixa, notícias, vídeo, sustentabilidade | 8 |
 | `src/lib/noticias.ts` + `.test.ts`, `src/components/ListaNoticias.astro` | Listagem e arquivo paginado | 9 |
 | `src/lib/contato.ts` + `.test.ts`, `functions/api/contato.ts`, `src/components/Contato.astro` | Formulário acessível com Turnstile | 10 |
-| `.github/workflows/sentinela.yml` | Checagem diária de apex, `www` e certificados | 11 |
+| `.github/workflows/sentinela.yml` | Checagem diária de apex, `www`, certificados e do envio do formulário | 11 |
+| `src/lib/saude.ts` + `.test.ts`, `functions/api/saude.ts` | O caminho de envio do formulário ainda funciona — o sentinela pergunta todo dia | 10 |
+| `scripts/verificar-teclado.mjs` | Percurso de teclado do formulário (Passo 13b) | 10 |
+| `scripts/resgatar-mz.mjs` | Resgate do que só existe na infraestrutura do fornecedor | 5 |
 
 ---
 
@@ -2168,9 +2171,10 @@ npx --yes @lhci/cli@0.14.x collect && npx --yes @lhci/cli@0.14.x assert
 
 Se o Turnstile derrubar `best-practices` de `/contato/`, o limite fica: é conversa sobre o provedor antiespam, não sobre o critério.
 
-- [ ] **Passo 12:** configurar os serviços (uma vez, conta da ness.)
+- [x] **Passo 12** (14/09/2026): serviços configurados e os quatro segredos gravados no ambiente de produção do Pages
   - Turnstile → novo widget, hostnames `www.alupar.com.br` e `sitealupar.pages.dev`; `gh variable set TURNSTILE_SITE_KEY` com a chave pública
-  - Resend → domínio de envio `envio.alupar.com.br`, registros de DNS **só nesse subdomínio** — o MX do apex é do Google Workspace e não pode ser tocado
+  - Resend → domínio de envio `msg.alupar.com.br`, registros de DNS **só nesse subdomínio** — o MX do apex é do Google Workspace e não pode ser tocado.
+    **Não use `envio.alupar.com.br`**: conferido em 14/09/2026, ele é um `CNAME` para `smtplw.com`, o SMTP da Locaweb, com bounces em `correio.biz` e relatório de DMARC para `squad-entregabilidade.com.br`. É delegação viva, e o apex ainda traz dois endereços da Locaweb no SPF — alguma coisa da Alupar envia por ali. Perguntar o que é antes de mexer; `msg`, `contato` e `notificacoes` estão livres, `mail` é do Google
   - Segredos do Pages, um por vez (o valor é digitado, não fica em arquivo):
 
 ```bash
@@ -2179,9 +2183,35 @@ for s in TURNSTILE_SECRET RESEND_API_KEY CONTATO_DESTINO CONTATO_REMETENTE; do
 done
 ```
 
-  `CONTATO_DESTINO`, até a Alupar responder P5: uma caixa de teste da ness.
+  **Valores provisórios em uso desde 14/09**, até a Alupar responder a P5:
+  remetente `onboarding@resend.dev`, o endereço de sandbox da Resend, que
+  dispensa domínio verificado; destino, uma caixa da ness. Ao responderem,
+  trocam-se os dois — e o remetente só sai do sandbox quando
+  `msg.alupar.com.br` estiver verificado, que é o que libera enviar para
+  qualquer destinatário.
 
-- [ ] **Passo 13:** no preview do PR: enviar o formulário preenchido e confirmar que chega a `/contato/obrigado/` e que o e-mail chega; enviar sem consentimento com o JavaScript desligado e confirmar `/contato/nao-enviado/`; fazer o percurso inteiro só com teclado e com leitor de tela (NVDA): cada campo anuncia o rótulo
+  O segredo do Turnstile foi girado pela API no mesmo dia, com o antigo
+  invalidado na hora. A chave pública não muda ao girar, então o site não
+  precisa ser reconstruído — conferido contra `vars.TURNSTILE_SITE_KEY`.
+
+- [x] **Passo 13, envio de ponta a ponta** (14/09/2026): formulário preenchido
+  e enviado no site publicado, chegando a `/contato/obrigado/`, com o e-mail
+  recebido. Prova a corrente inteira: antispam, validação, Resend e entrega.
+  Envio inválido continua caindo em `/contato/nao-enviado/`.
+
+  **Não dá para testar isto por automação, e é assim que deve ser.** O
+  antispam exige um token de navegador de verdade: quatro tentativas por
+  Chrome dirigido pelo protocolo de depuração falharam, inclusive mandando o
+  widget renderizar à mão com o agente disfarçado. Ele nunca nasce. A
+  conferência é humana, uma vez.
+
+- [x] **Passo 13b, teclado** (15/09/2026): `scripts/verificar-teclado.mjs` percorre
+  o formulário com tabulação de verdade e confere cinco coisas que o Lighthouse
+  não vê — todo campo alcançável, a ordem do foco igual à visual, nome acessível
+  em cada parada, foco visível (WCAG 2.4.7) e saída sem armadilha. Aprovado
+  contra o site publicado: 25 paradas, 7 no formulário, na ordem esperada.
+- [ ] **Passo 13c:** leitor de tela (NVDA) — se os nomes fazem sentido em voz
+  alta, máquina nenhuma responde. Continua sendo de gente.
 
 - [ ] **Passo 14:** commit, PR, merge quando verde
 
@@ -2337,16 +2367,21 @@ voltar atrás é trocar um registro de DNS.
 
 **Pré-condições — todas, antes de marcar a data:**
 
-- [ ] `main` verde, com as Tarefas 2 a 11 mergeadas
+- [x] `main` verde, com as Tarefas 2 a 11 mergeadas (12/09/2026; homologação em `plano-homologacao.md` concluída)
 - [ ] P1 a P9 respondidas, ou os padrões aceitos **por escrito** — registrar em `docs/decisoes.md`
 - [ ] Sem P5: remover o `<form>` e o `<script>` do Turnstile de `src/components/Contato.astro` num PR próprio
-- [ ] P9 no padrão: Cloudflare → Web Analytics → Add a site → `www.alupar.com.br`, **sem** ligar a injeção automática no projeto do Pages; copiar o token do snippet; `gh variable set CF_BEACON_TOKEN --body <token>`; marcar o PR `feat/medicao-web-analytics` como pronto e mergear. Se a P9 for pelo GA4, fechar esse PR sem merge
-- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo, 120 objetos. Conferir de novo com `node scripts/publicar-arquivos.mjs --verificar`
+- [ ] P9 no padrão, num PR próprio e **nesta ordem** — o CI é que precisa ver a variável, e ele só a vê numa execução iniciada depois dela:
+  1. Cloudflare → Web Analytics → Add a site → `www.alupar.com.br`, **sem** a injeção automática no projeto do Pages; copiar o token do snippet
+  2. `gh variable set CF_BEACON_TOKEN --body <token>`, e abrir a CSP para ele (`static.cloudflareinsights.com` no `script-src`, `cloudflareinsights.com` num `connect-src`) — o gate de CSP reprova sem isso
+  3. marcar o PR `feat/medicao-web-analytics` como pronto (*Ready for review*), o que **reexecuta o CI**: `ready_for_review` está na lista `types:` de `.github/workflows/ci.yml`
+  4. conferir o verde **dessa execução nova**. O verde que já estava no PR é de um build feito sem a variável — o site sairia sem medição nenhuma, e nada acusaria
+  5. só então mergear. Se a P9 for pelo GA4, fechar o PR sem merge
+- [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo. Em 13/09 entraram os 8 originais resgatados no PR #66: 128 objetos. Desde 14/09 **o CI confere isto a cada merge na main**, contra `acervo/r2.json`, e abre issue se reprovar — não é mais item de véspera. Quem publicar mídia nova commita o manifesto junto
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista
 - [ ] **Linha de base do GA4 extraída** (páginas mais vistas, origem de tráfego, últimos 12 meses). Depois da virada ela não se recupera
-- [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225. Se mudou, rodar a esteira do `acervo/README.md` antes
-- [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado
+- [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225 (conferido em 13/09: 225). Repetir na véspera; se mudou, rodar a esteira do `acervo/README.md` antes
+- [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado (13/09: 276 endereços, todos em 200; repetir na véspera)
 - [ ] Interlocutor do RI (A2) avisado da data: o RI divide a máquina da MZ com o institucional, e nada muda para `ri.alupar.com.br`
 
 **Na véspera:**

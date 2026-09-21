@@ -7,6 +7,16 @@ on:
   schedule:
     - cron: '0 10 * * *'   # 07:00 em Brasília
   workflow_dispatch:
+    inputs:
+      site:
+        description: 'Site a verificar (para testar um preview antes de mergear)'
+        required: false
+        default: 'https://sitealupar.pages.dev'
+
+# A issue de alarme é aberta e fechada pela própria execução.
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   checar:
@@ -14,32 +24,49 @@ jobs:
     # Um host que pendure não pode segurar o runner pelas 6 h do padrão.
     timeout-minutes: 30
     steps:
-      - name: Endereços respondem e certificados longe do vencimento (alerta a 30 dias)
-        run: |
-          # Sem certificado ou sem resposta TLS em 20 s, o host é reportado e o laço segue para os outros.
-          falhou=0
-          for h in alupar.com.br www.alupar.com.br alupar.us6.quickconnect.to; do
-            codigo=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://$h/") || codigo=erro
-            fim=$(echo | timeout 20 openssl s_client -servername "$h" -connect "$h:443" 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2) || fim=""
-            case "$codigo" in 200|301|302) ;; *) falhou=1 ;; esac
-            if [ -z "$fim" ]; then
-              echo "$h → HTTP $codigo · sem certificado"
-              falhou=1
-              continue
-            fi
-            dias=$(( ( $(date -d "$fim" +%s) - $(date +%s) ) / 86400 ))
-            echo "$h → HTTP $codigo · certificado vence em $dias dias ($fim)"
-            [ "$dias" -ge 30 ] || falhou=1
-          done
-          exit $falhou
-
-      # Depois da virada (variável VIRADA=sim): a continuidade inteira, todo dia.
       - uses: actions/checkout@v4
-        if: vars.VIRADA == 'sim'
       - uses: actions/setup-node@v4
-        if: vars.VIRADA == 'sim'
         with:
           node-version-file: .nvmrc
+
+      # O julgamento de cada host vive em scripts/lib/sentinela.mjs, com teste.
+      # Estava aqui em shell e não sabia distinguir origem fora do ar de cadeia
+      # de certificado incompleta — o que deixava o sentinela vermelho todo dia.
+      - name: Endereços respondem e certificados longe do vencimento (alerta a 30 dias)
+        run: node scripts/verificar-hosts.mjs
+        env:
+          VIRADA: ${{ vars.VIRADA }}
+
+      # O caminho de envio do formulário falha em silêncio: chave revogada,
+      # domínio desverificado, cota estourada ou segredo apagado dão a mesma
+      # tela de "não foi possível enviar", e do nosso lado não acontece nada.
+      # O endereço só lê, e responde 404 sem o segredo.
+      - name: O formulário de contato ainda consegue enviar
+        shell: bash
+        env:
+          SAUDE_TOKEN: ${{ secrets.SAUDE_TOKEN }}
+          SITE: ${{ inputs.site || 'https://sitealupar.pages.dev' }}
+        run: |
+          if [ -z "$SAUDE_TOKEN" ]; then
+            echo "::warning::SAUDE_TOKEN não definido — a verificação do formulário foi pulada"
+            exit 0
+          fi
+          codigo=$(curl -sS --max-time 30 -o resposta.txt -w '%{http_code}' "$SITE/api/saude?t=$SAUDE_TOKEN") || codigo=erro
+          cat resposta.txt 2>/dev/null || true
+          [ "$codigo" = "200" ] || { echo "::error::o envio do formulário está comprometido (HTTP $codigo)"; exit 1; }
+
+      # Depois da virada (variável VIRADA=sim): a continuidade inteira, todo dia.
       - name: Todo endereço vivo do acervo termina em 200
         if: vars.VIRADA == 'sim'
         run: node scripts/verificar-no-ar.mjs
+
+      # `job.status` aqui já reflete a falha dos passos acima. O passo não
+      # engole a falha: o job segue vermelho e o e-mail continua saindo.
+      - name: Alarme
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ job.status }}
+          EXECUCAO: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITULO: 'Sentinela: endereço ou certificado precisa de atenção'
+        run: node scripts/alarme.mjs sentinela "$TITULO"

@@ -8,6 +8,7 @@
  * teste da Cloudflare, que sempre aprova. Em produção a chave vem do CI.
  */
 import Base from '../layouts/Base.astro';
+import Trilha from './Trilha.astro';
 import { itens, semFormulario } from '../lib/acervo';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
 import { ACAO_CONTATO } from '../lib/contato';
@@ -24,6 +25,8 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
 ---
 <Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={Boolean(aviso)}>
   <main id="conteudo" class="container pagina">
+    <div class="caixa">
+    <Trilha idioma={idioma} titulo={item.titulo} />
     <h1>{item.titulo}</h1>
     {aviso && <p class="aviso" role="status">{aviso === 'obrigado' ? f.obrigado : f.naoEnviado}</p>}
     <div class="dados" set:html={semFormulario(item.corpo)} />
@@ -36,33 +39,70 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
         <div class="campo"><label for="email">{f.email} *</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
         <div class="campo"><label for="empresa">{f.empresa}</label><input id="empresa" name="empresa" autocomplete="organization" /></div>
         <div class="campo"><label for="telefone">{f.telefone}</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" /></div>
-        <div class="campo"><label for="assunto">{f.assunto} *</label><input id="assunto" name="assunto" required /></div>
+        <div class="campo largo"><label for="assunto">{f.assunto} *</label><input id="assunto" name="assunto" required /></div>
         <div class="campo largo"><label for="mensagem">{f.mensagem}</label><textarea id="mensagem" name="mensagem" rows="8" maxlength="5000"></textarea></div>
         <div class="consentimento">
           <input id="consentimento" name="consentimento" type="checkbox" value="sim" required />
           <label for="consentimento">{f.consentimento} <a href={t.rodape.privacidadeHref}>{t.rodape.privacidade}</a>. *</label>
         </div>
+        {/* O api.js da Cloudflare NÃO é carregado aqui: public/js/site.js o injeta
+            na primeira interação com o formulário. Depois de rodar, o script puxa
+            por dentro de si ~580 KB que o Lighthouse soma ao peso da página sem
+            listar entre os recursos — /contato/ mediu 629.754, 656.918 e 674.678 B
+            em três execuções da mesma revisão, contra o teto de 614.400 B do CI,
+            e desse total só ~95 KB são nossos. O contrato antispam não muda: quem
+            recusa envio sem token válido, com ação e hostname conferidos, é
+            functions/api/contato.ts. O widget continua nascendo NESTE container,
+            com a mesma chave e a mesma `data-action` — o api.js o encontra pela
+            classe .cf-turnstile ao carregar (render implícito). */}
         <div class="cf-turnstile" data-sitekey={CHAVE} data-language={idioma} data-action={ACAO_CONTATO}></div>
+        {/* Sem JavaScript não há widget nem token, e a Function recusa o envio —
+            comportamento que já era este. O aviso troca o silêncio por um caminho. */}
+        <noscript><p class="aviso">{f.semJavascript}</p></noscript>
         <button type="submit">{f.enviar}</button>
       </form>
     )}
+    </div>
   </main>
-  {/* Sem formulário (aviso de "obrigado"), o Turnstile não tem o que proteger. */}
-  {aviso !== 'obrigado' && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
-  h1 { color: var(--azul); }
+  /* A caixa branca e o título verde vêm de tokens.css. O resto é o tema:
+     endereço e assessoria de imprensa em duas colunas a partir de 768 px (o
+     corpo do acervo traz .row com dois .col-sm-6), rótulo da assessoria em
+     verde (`.txt-show address p span`), campos com a pele do .form-control —
+     fundo cinza em degradê, fio #DCDCDC, canto vivo — "Assunto" na largura
+     toda e botão centralizado, como o .col-sm-12.text-center do tema.
+
+     Duas coisas do tema não voltam, e as duas têm motivo: os rótulos visíveis
+     de cada campo (critério C1 do PRD — o tema só tem placeholder, que não é
+     rótulo) e o `text-transform: uppercase` do .form-control, que poria em
+     caixa alta o que a pessoa digita. Isso é o dado, não o desenho. */
+  .dados :global(.row) { display: grid; gap: var(--e4); }
+  @media (min-width: 768px) { .dados :global(.row) { grid-template-columns: 1fr 1fr; } }
+  .dados :global(.col-sm-6 > p > span) { color: var(--verde-texto); }
+
   .aviso { padding: var(--e3); border-left: 4px solid var(--verde); background: var(--cinza-fundo); }
-  form { display: grid; gap: var(--e3); max-width: 760px; margin-top: var(--e5); }
-  @media (min-width: 768px) { form { grid-template-columns: 1fr 1fr; } .largo, .consentimento, #obrigatorios, .cf-turnstile, button { grid-column: 1 / -1; } }
+  form { display: grid; gap: var(--e3); margin-top: var(--e5); }
+  @media (min-width: 768px) { form { grid-template-columns: 1fr 1fr; } .largo, .consentimento, #obrigatorios, .cf-turnstile, noscript, button { grid-column: 1 / -1; } }
+  /* A altura do widget fica reservada antes de ele existir: carregado só na
+     interação, o Turnstile nasceria num container de altura 0 e empurraria o
+     botão para baixo. 65 px é a altura do widget padrão — se a Cloudflare
+     mudar esse desenho, o resto do deslocamento volta. O deslocamento seria
+     depois da interação da pessoa, que o CLS não conta, mas quem está olhando
+     a tela conta. */
+  .cf-turnstile { min-height: 65px; }
   .campo { display: flex; flex-direction: column; gap: var(--e1); }
   label { font-weight: 600; }
-  input:not([type='checkbox']), textarea { font: inherit; padding: var(--e2); border: 1px solid var(--cinza); }
+  input:not([type='checkbox']), textarea {
+    font: inherit; padding: 6px 12px; color: #231F20;
+    border: 1px solid #DCDCDC; border-radius: 0;
+    background: linear-gradient(to bottom, #FFFFFF 0, #E0E0E0 100%) #EEEEEE;
+  }
   .consentimento { display: flex; gap: var(--e2); align-items: flex-start; }
   button {
-    justify-self: start; font: inherit; text-transform: uppercase; cursor: pointer;
-    padding: var(--e2) var(--e4); border: 0; background: var(--azul); color: var(--branco);
+    justify-self: center; font: inherit; text-transform: uppercase; cursor: pointer;
+    padding: 10px 20px; border: 0; background: var(--azul-hover); color: var(--branco);
   }
+  button:hover, button:focus-visible { background: var(--azul); }
 </style>

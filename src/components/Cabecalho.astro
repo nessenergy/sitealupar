@@ -1,7 +1,7 @@
 ---
 /**
  * Cabeçalho restaurado do tema atual (mziq_alupar_inst): barra cinza com o
- * link do RI e os idiomas, logotipo sobre o box branco (bg-logo.png — o box
+ * link do RI e os idiomas, logotipo sobre o box azul (bg-logo.png — o box
  * que o manual exige sobre foto; não é sobra), menu em caixa alta à direita.
  *
  * O que muda, e o problema que autoriza:
@@ -9,11 +9,22 @@
  *   branco dá 4,85:1
  * - hover e página atual em --verde-texto: #079541 entrega 3,90:1
  * - logotipo é <img> com alt; o <h1> da home é outro elemento
+ * - o logotipo servido é o NEGATIVO (branco), não a versão principal: o box
+ *   é #004F9D sólido e a versão principal é azul do mesmo tom — medi os dois
+ *   PNG do tema e não há um pixel claro neles. O tema atual sempre pareou o
+ *   box com img/logo-alupar.png, que é branco + verde sobre transparente.
  * - idiomas em sigla (decisão P4) e sem busca (decisão P3)
  * - links PT/EN/ES com área clicável mínima de 24×24 px: o texto de 10px
  *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
  *   WCAG 2.2) no gate do Lighthouse (0,96 de acessibilidade, achado no
  *   Passo 9). Sem fundo nem borda — a aparência não muda.
+ * - no celular o link do RI sai da barra, como no tema (li.hidden-xs), mas
+ *   entra no fim do menu: o tema não o oferece em outro lugar no celular, e
+ *   o link não pode ficar inalcançável
+ * - botão de menu branco também aberto: o tema passa barras e texto a
+ *   #079541, que dá 2,07:1 sobre o azul da faixa (#004F9D) — AA pede 4,5:1
+ *   no texto de 8 px e 3:1 no ícone; branco dá 8,06:1
+ * - foco em branco sobre a faixa azul do celular, onde o azul sumiria
  */
 import { textos, IDIOMAS, HOME, SIGLA, lang, type Idioma } from '../i18n/textos';
 
@@ -25,7 +36,7 @@ const atual = Astro.url.pathname;
 <header class="cabecalho-site" id="topo">
   <div class="barra">
     <div class="container barra-itens">
-      <a href="https://ri.alupar.com.br/">{t.ri}</a>
+      <a class="ri" href="https://ri.alupar.com.br/">{t.ri}</a>
       <ul class="idiomas" aria-label={t.idioma}>
         {IDIOMAS.map((i) => (
           <li>
@@ -41,7 +52,7 @@ const atual = Astro.url.pathname;
   </div>
   <div class="container principal">
     <a class="logo" href={HOME[idioma]}>
-      <img src="/logo-alupar.svg" alt={t.logo} width="175" height="57" />
+      <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
     <nav id="menu-principal" aria-label={t.menu.rotulo}>
@@ -49,13 +60,20 @@ const atual = Astro.url.pathname;
         {t.menu.itens.map((m) => (
           <li><a href={m.href} aria-current={atual.startsWith(m.href) ? 'page' : undefined}>{m.rotulo}</a></li>
         ))}
+        <li class="ri-menu"><a href="https://ri.alupar.com.br/">{t.ri}</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <style>
-  /* Valores do style.css do tema, medidos em 10/09/2026 */
+  /* Valores do style.css e do bootstrap.css do tema, medidos em 11/09/2026 */
+
+  /* A grade (`.container` do bootstrap: 15 px de cada lado e largura fixa de
+     750, 970 e 1170 px a partir de 768, 992 e 1200 px) está em tokens.css, e
+     vale para o corpo da página também — em 1280 o cabeçalho e a caixa branca
+     começam os dois em x 70. Aqui não se repete nada dela. */
+
   .barra { background: var(--cinza); }
   .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
   .barra a { color: var(--branco); font-size: 10px; text-transform: uppercase; text-decoration: none; }
@@ -66,44 +84,91 @@ const atual = Astro.url.pathname;
   }
   .idiomas a[aria-current] { font-weight: 700; text-decoration: underline; }
 
-  .principal { position: relative; display: flex; justify-content: flex-end; align-items: center; min-height: 60px; }
-  .logo {
-    position: absolute; left: var(--e3); top: 0; z-index: 10;
-    display: grid; place-items: center; width: 150px; height: 83px;
-    background: url('/img/tema/bg-logo-mobile.png') no-repeat center / contain;
-  }
-  .logo img { width: 112px; height: auto; }
+  /* img/logo-alupar-mobile.png do tema: 112 px até 991 px de largura. */
+  .logo img { display: block; width: 112px; height: auto; }
 
-  nav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+  nav ul { list-style: none; margin: 0; padding: 0; }
   nav a {
-    display: block; padding: 15px 4px; margin-inline: var(--e2);
-    font-size: 13px; text-transform: uppercase; color: var(--preto); text-decoration: none;
+    display: block; padding: 15px 4px;
+    font-size: 13px; line-height: 20px; text-transform: uppercase; color: var(--preto); text-decoration: none;
   }
   nav a:hover, nav a[aria-current] { color: var(--verde-texto); }
 
   @media (max-width: 767px) {
-    .principal { flex-wrap: wrap; min-height: 83px; }
-    .alternar {
-      margin-top: 20px; background: none; border: 0; padding: var(--e2);
-      font: inherit; font-size: 11px; text-transform: uppercase; color: var(--preto);
+    /* Barra do celular: só os idiomas, à esquerda (.menu-topo sem float;
+       -5px da .list-inline + 6px do li + 10px do link = 11px), 28 px de altura
+       (5px de padding-top + 18px + 5px de margin-bottom). */
+    .barra-itens { justify-content: flex-start; min-height: 28px; }
+    .barra .ri { display: none; }
+    .idiomas { margin-left: 11px; }
+
+    /* Faixa azul na largura toda, 83 px (h1.logo com width: 100% e
+       bg-logo-mobile.png centralizado); logotipo de 112 px a 20 px do topo e
+       30 px da esquerda; botão a 20 px do topo e 15 px da direita. */
+    .principal {
+      display: flex; flex-wrap: wrap; align-items: flex-start; padding-inline: 0;
+      background: url('/img/tema/bg-logo-mobile.png') no-repeat center top;
     }
-    nav { width: 100%; }
-    nav ul { flex-direction: column; }
-    nav a { border-bottom: 1px solid var(--cinza-borda); margin: 0; }
+    .logo { display: block; height: 83px; padding: 20px 0 0 30px; }
+    .alternar {
+      margin: 20px 15px 0 auto; padding: 0; border: 0; background: none; min-width: 24px;
+      font: inherit; font-size: 8px; line-height: 11px; text-transform: uppercase; color: var(--branco);
+    }
+    /* As três barras do .navbar-toggle: 24 × 5 px, 4 px entre elas. */
+    .alternar::before {
+      content: ''; display: block; width: 24px; height: 23px; margin: 0 auto 4px;
+      background: linear-gradient(var(--branco) 0 5px, transparent 5px 9px, var(--branco) 9px 14px, transparent 14px 18px, var(--branco) 18px);
+    }
+    /* Sobre o azul, o contorno de foco azul sumiria. */
+    .logo:focus-visible, .alternar:focus-visible { outline-color: var(--branco); }
+    .logo:focus-visible { outline-offset: -3px; }
+    nav { width: 100%; padding-inline: 15px; }
+    nav a { border-bottom: 1px solid var(--cinza-borda); }
     /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
     nav[data-recolhivel] { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
   }
   @media (min-width: 768px) {
-    .logo { width: 150px; height: 130px; background-image: url('/img/tema/bg-logo.png'); }
-    .logo img { width: 120px; }
-    nav { margin-top: 10px; }
+    /* A faixa do menu é BRANCA no tema, de ponta a ponta — medido na captura
+       do site atual: rgb(255,255,255) de x 5 a 1275 e de y 33 (base da barra
+       cinza) até a base do box do logotipo. Aqui ela tinha ficado no cinza da
+       página (#ECECEC), e não era só aparência: o item da página atual, em
+       --verde-texto, dá 3,82:1 sobre esse cinza e reprova o AA (o Lighthouse
+       acusava `color-contrast` em toda interna no desktop; na home passava
+       por acaso, porque nenhum item do menu é a página atual ali). Sobre o
+       branco são 4,51:1. Vai no <header> e não no .container porque a faixa
+       do tema atravessa a tela inteira; a .barra pinta o cinza dela por cima.
+       Abaixo de 768 px nada muda: lá a faixa é a azul do celular. */
+    .cabecalho-site { background: var(--branco); }
+    /* O box do logotipo começa no topo da página, sobre a barra de 33 px
+       (h1.logo flutua dentro dela), e a faixa branca do menu desce até a
+       base do box. O menu flutua à direita: se não cabe ao lado do box, desce
+       para baixo dele, como no tema (em 768 px, em português). */
+    .principal { display: flow-root; }
+    /* z-index 1, e não o 999 do tema (style.css:359), de propósito: o único
+       elemento posicionado que disputa este canto é o link "pular para o
+       conteúdo" (z-index 100), que o tema não tem. Medido nos dois valores,
+       em 768 e em 1280: com 999, o box do logotipo cobre o link quando ele
+       aparece no foco do teclado — elementFromPoint devolve `a.logo` no
+       centro dele; com 1, o link fica por cima. Não há mais nada empilhado
+       aqui, então 1 e 999 são indistinguíveis no resto. */
+    .logo {
+      float: left; position: relative; z-index: 1; margin-top: -33px;
+      display: grid; place-items: center; width: 150px; height: 130px;
+      background: url('/img/tema/bg-logo.png') no-repeat center;
+    }
+    nav { float: right; margin-top: 10px; }
+    nav ul { display: flex; flex-wrap: wrap; }
     /* O botão só existe no celular; no desktop o menu fica sempre à vista,
        como no tema. */
     .alternar { display: none; }
+    /* No desktop o RI está na barra. */
+    .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
     .logo { width: 293px; height: 200px; }
     .logo img { width: 175px; }
+    nav { margin-top: 30px; }
+    nav a { padding-inline: 7px; }
   }
 </style>

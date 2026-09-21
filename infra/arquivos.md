@@ -2,7 +2,8 @@
 
 **Status: executado em 11/09/2026.** Bucket criado na região ENAM, domínio
 `arquivos.alupar.com.br` ativo (CNAME com proxy para `public.r2.dev`, TLS
-mínimo 1.2) e 120 objetos enviados (740 MB). O `r2.dev` público continua
+mínimo 1.2) e 120 objetos enviados (740 MB); em 13/09/2026 entraram os 8
+originais resgatados no PR #66, e o bucket tem 128 objetos. O `r2.dev` público continua
 desligado: o único acesso é pelo domínio, que passa pelo cache da Cloudflare
 (`cf-cache-status: HIT` a partir da segunda requisição).
 
@@ -50,3 +51,26 @@ Depois de criado o bucket e o domínio, enviar o conteúdo com
 `node scripts/publicar-arquivos.mjs` (requer `acervo/midia/` presente e o
 wrangler autenticado na conta certa) e conferir com
 `node scripts/publicar-arquivos.mjs --verificar`.
+
+## O manifesto, e como o CI confere sem a mídia
+
+Publicar grava `acervo/r2.json` com a chave e o tamanho de cada objeto — 128
+hoje. **Quem publica commita o manifesto**, como já se faz com `imagens.json`
+e `mapa-de-rotas.json`: é ele que permite ao CI conferir o bucket a cada merge
+na main, por requisição de cabeçalho, sem os 734 MB que não pertencem ao git.
+
+```bash
+node scripts/publicar-arquivos.mjs --manifesto   # o que o CI roda
+```
+
+O manifesto só é gravado quando tudo está servido. Um manifesto que promete
+arquivo ausente reprovaria o CI para sempre, e a correção seria publicar o
+arquivo, não reescrever o manifesto.
+
+### A armadilha do agente
+
+A zona tem verificação de integridade de navegador ligada. O `fetch` do Node
+se anuncia como `node`, e com isso os 18 vídeos do acervo voltavam **403** do
+runner do CI — só os vídeos, com um PDF de 33 MB passando ao lado, então não
+era tamanho. O verificador manda um agente bem formado desde 14/09. Se este
+403 reaparecer, confira o agente antes de suspeitar do bucket.

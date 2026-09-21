@@ -21,7 +21,8 @@ Visual de 2018.
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |
 | D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
 | D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
-| D15 | Modelo comercial | **Mensalidade, sem entrada — R$ 1.500 × 48 meses** | A Alupar não tem verba de projeto e já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha a partir da virada: custo adicional zero para ela |
+| D15 | Modelo comercial | **Entrada de R$ 12.500 e mensalidade de R$ 1.500, por 12 meses renováveis por 12** | A Alupar já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha; a implantação é paga na entrada, e não diluída num contrato longo |
+| D18 | Orçamento de peso da home | **600 KB → 3 MB**, para o vídeo do topo tocar sozinho | A Alupar pediu o institucional no lugar do rotativo, tocando ao abrir. Medido: com o player carregado o peso vai a 2,39 MB — 1,19 MB de vídeo e ~850 KB do JS do YouTube. O limite antigo reprovava por quatro vezes. **Não é afrouxar um portão para fazer passar** (regra 5): é o preço declarado de um pedido da cliente, decidido por ela em 16/09/2026 depois de ver o número. A alternativa aberta continua sendo hospedar um laço curto em MP4, que dispensa o JS do YouTube e devolveria a maior parte do orçamento — falta o arquivo de vídeo |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
@@ -54,16 +55,17 @@ mão, para que ninguém precise confiar na memória de quem os escreveu.
 
 ## Por que mensalidade (D15)
 
-Decidido em 10/09/2026. A Alupar não tem verba de projeto, e já paga R$ 1.500
-por mês à MZ — só pelo institucional. A proposta deixa de ser projeto fechado
-(R$ 49.800) com mensalidade opcional e passa a ser uma mensalidade única, que
-substitui essa linha a partir da virada.
+Decidido em 11/09/2026. A Alupar já paga R$ 1.500 por mês à MZ — só pelo
+institucional. A proposta é uma entrada única mais uma mensalidade, que
+substitui essa linha.
 
-- **R$ 1.500 × 48 meses**, sem entrada, cobrança a partir da virada, IPCA anual
+- **Entrada de R$ 12.500** na assinatura; **R$ 1.500 por mês** a partir da
+  assinatura; vigência de **12 meses, renovável por mais 12**; IPCA anual
 - Cobre implantação, hospedagem, monitoramento, atualizações e um banco de
-  48 h/ano de evolução; o excedente sai a R$ 120/h
-- **Rescisão antes de 36 meses** quita o saldo da implantação: R$ 49.800,
-  reduzido em 1/36 a cada mensalidade paga
+  48 h/ano de manutenção, não cumulativas; o excedente sai a R$ 120/h
+- Sem cláusula de rescisão. Titularidade de código, conteúdo e contas em nome
+  da Alupar desde o primeiro dia
+- A carta está em `apresentacao/proposta.html`
 - Escopo: só o institucional. `rs`, `pdi` e `ma` seguem na ness. e, como os
   demais sites, entram depois por acréscimo na mensalidade — é a saída do
   WordPress em etapas, sem verba de projeto

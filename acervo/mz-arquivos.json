@@ -1,0 +1,622 @@
+{
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1": {
+  "chave": "documentos-mz/Parecer de Segunda Opinião da Debênture Verde da TSM.pdf",
+  "nome": "Parecer de Segunda Opinião da Debênture Verde da TSM.pdf",
+  "bytes": 750728
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2": {
+  "chave": "documentos-mz/Sustainability Policy.pdf",
+  "nome": "Sustainability Policy.pdf",
+  "bytes": 870487
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2": {
+  "chave": "documentos-mz/Relationship with the Community Policy.pdf",
+  "nome": "Relationship with the Community Policy.pdf",
+  "bytes": 770281
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2": {
+  "chave": "documentos-mz/Integrity Policy.pdf",
+  "nome": "Integrity Policy.pdf",
+  "bytes": 2008433
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2": {
+  "chave": "documentos-mz/Human Resources Policy.pdf",
+  "nome": "Human Resources Policy.pdf",
+  "bytes": 360857
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2": {
+  "chave": "documentos-mz/Work Safety and Occupational Health Policy.pdf",
+  "nome": "Work Safety and Occupational Health Policy.pdf",
+  "bytes": 358928
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8259c08c-b35d-d72a-33d6-940f2f0bd1dd?origin=2": {
+  "chave": "documentos-mz/Environmental Policy.pdf",
+  "nome": "Environmental Policy.pdf",
+  "bytes": 378466
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c26f6c6-a8e4-1bd1-ff3e-9f30ca17760c?origin=2": {
+  "chave": "documentos-mz/Earnings Release 1Q21.pdf",
+  "nome": "Earnings Release 1Q21.pdf",
+  "bytes": 1683529
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8defa031-31d3-69c1-7b45-8c744625d3b1?origin=1": {
+  "chave": "documentos-mz/Earnings Release 2Q22.pdf",
+  "nome": "Earnings Release 2Q22.pdf",
+  "bytes": 1368991
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d99dbd55-24f8-1735-9150-9db99bac5c3d?origin=1": {
+  "chave": "documentos-mz/Earnings Release 1Q22.pdf",
+  "nome": "Earnings Release 1Q22.pdf",
+  "bytes": 1839439
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/153e5154-6226-73ba-aa3d-910a20e64e3a?origin=1": {
+  "chave": "documentos-mz/Earnings Release 2Q20.pdf",
+  "nome": "Earnings Release 2Q20.pdf",
+  "bytes": 1865687
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7d3ecf0d-3c27-8d08-4363-c7b49dc3142b?origin=2": {
+  "chave": "documentos-mz/Earnings Release 2Q21.pdf",
+  "nome": "Earnings Release 2Q21.pdf",
+  "bytes": 2445644
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b5e25f6d-134c-e565-52af-d14ba57ad70d?origin=1": {
+  "chave": "documentos-mz/Earnings Release 3Q20.pdf",
+  "nome": "Earnings Release 3Q20.pdf",
+  "bytes": 1858403
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4910fa3d-064f-1318-60d6-9d32b8fba4af?origin=2": {
+  "chave": "documentos-mz/Earnings Release 3Q21.pdf",
+  "nome": "Earnings Release 3Q21.pdf",
+  "bytes": 1824220
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/082f34ed-9743-25e5-76c0-621676b7d1e4?origin=2": {
+  "chave": "documentos-mz/Earnings Release 3Q22.pdf",
+  "nome": "Earnings Release 3Q22.pdf",
+  "bytes": 1691908
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8fe4d9e0-b73e-d85f-96b0-88585f5643db?origin=1": {
+  "chave": "documentos-mz/Earnings Release 4Q20.pdf",
+  "nome": "Earnings Release 4Q20.pdf",
+  "bytes": 1921753
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4a95a4fc-8ff0-061b-5d8b-65d23a0fd287?origin=1": {
+  "chave": "documentos-mz/Earnings Release 4Q21.pdf",
+  "nome": "Earnings Release 4Q21.pdf",
+  "bytes": 1594756
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1658f61e-7177-a8c3-6cc5-e8161de121bf?origin=1": {
+  "chave": "documentos-mz/Earnings Release 4Q22.pdf",
+  "nome": "Earnings Release 4Q22.pdf",
+  "bytes": 2016474
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c201ef41-16f5-cd32-8395-c0fbb0db49fc?origin=2": {
+  "chave": "documentos-mz/2025 Sustainability Report.pdf",
+  "nome": "2025 Sustainability Report.pdf",
+  "bytes": 20926929
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/47792959-6689-b32b-1334-649c5dfb8b37?origin=2": {
+  "chave": "documentos-mz/2024 Sustainability Report.pdf",
+  "nome": "2024 Sustainability Report.pdf",
+  "bytes": 21181328
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/27f7a735-2575-d8bb-9725-66b81c3b3f86?origin=2": {
+  "chave": "documentos-mz/2023 Sustainability Report.pdf",
+  "nome": "2023 Sustainability Report.pdf",
+  "bytes": 26806722
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/53d2d714-00af-2370-fb28-8ef7aaeb3fbc?origin=2": {
+  "chave": "documentos-mz/2022 Sustainability Report.pdf",
+  "nome": "2022 Sustainability Report.pdf",
+  "bytes": 24653317
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/265eb3b4-463f-ff89-fab5-c0d73a1949dc?origin=1": {
+  "chave": "documentos-mz/2021 Sustainability Report.pdf",
+  "nome": "2021 Sustainability Report.pdf",
+  "bytes": 8008028
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9522c4e8-e960-5c06-163d-fbde0916aecd?origin=1": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade.pdf",
+  "nome": "Relatório de Sustentabilidade.pdf",
+  "bytes": 21101386
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/3e7d2879-6b84-1ab2-ceaf-95d5f92d1eaa?origin=2": {
+  "chave": "documentos-mz/Environmental Policy.pdf",
+  "nome": "Environmental Policy.pdf",
+  "bytes": 709589
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1]": {
+  "chave": "documentos-mz/Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "nome": "Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "bytes": 497541
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b6a6b235-b9d6-6118-85c1-319fdd48dd57?origin=2": {
+  "chave": "documentos-mz/Post-Issuance Report-.pdf",
+  "nome": "Post-Issuance Report-.pdf",
+  "bytes": 3452800
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1": {
+  "chave": "documentos-mz/Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "nome": "Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "bytes": 497541
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1039ffa8-d210-ccbd-13fc-0985511bf6d2?origin=2": {
+  "chave": "documentos-mz/Política de Integridade.pdf",
+  "nome": "Política de Integridade.pdf",
+  "bytes": 2008432
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a5019f7c-a6b5-d60e-64d3-144db5bd6289?origin=2": {
+  "chave": "documentos-mz/Release de Resultados do 1T21.pdf",
+  "nome": "Release de Resultados do 1T21.pdf",
+  "bytes": 1800847
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/796c7f2e-05d0-6a3a-0c5d-24c6895995f3?origin=2": {
+  "chave": "documentos-mz/ITR 1T21.pdf",
+  "nome": "ITR 1T21.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/2da43645-243e-9ca0-a10b-1c07034f6c69?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 1T22.pdf",
+  "nome": "Release de Resultados do 1T22.pdf",
+  "bytes": 1917076
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c8932bdf-5920-90f5-f420-1e3d1e66ec20?origin=1": {
+  "chave": "documentos-mz/ITR 1T22.pdf",
+  "nome": "ITR 1T22.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9393698b-251d-881a-9a3f-fc79a8ce026c?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 2T20.pdf",
+  "nome": "Release de Resultados do 2T20.pdf",
+  "bytes": 1835519
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b0cdcc8f-0fc5-7888-52c9-658d90212cef?origin=1": {
+  "chave": "documentos-mz/ITR 2T20.pdf",
+  "nome": "ITR 2T20.pdf",
+  "bytes": 3105810
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d3b09b87-363b-1904-f80b-abd0de5fe068?origin=2": {
+  "chave": "documentos-mz/Release de Resultados do 2T21.pdf",
+  "nome": "Release de Resultados do 2T21.pdf",
+  "bytes": 2407656
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/cf019e17-da91-acb7-876a-fb622c296c06?origin=2": {
+  "chave": "documentos-mz/ITR 2T21.pdf",
+  "nome": "ITR 2T21.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/fe6f6395-cfdd-92a6-8369-2dc1360bceca?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 2T22.pdf",
+  "nome": "Release de Resultados do 2T22.pdf",
+  "bytes": 1400171
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d7b9a791-c871-5396-1fcc-1eace1a865d6?origin=1": {
+  "chave": "documentos-mz/ITR 2T22.pdf",
+  "nome": "ITR 2T22.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7543be89-b7fe-b6c7-a368-dbc7c8b76d2a?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 3T20.pdf",
+  "nome": "Release de Resultados do 3T20.pdf",
+  "bytes": 2168519
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/2486ccff-aa9b-4484-a60c-87e32e5123ba?origin=1": {
+  "chave": "documentos-mz/ITR 3T20.pdf",
+  "nome": "ITR 3T20.pdf",
+  "bytes": 3149444
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7957ced7-f899-04de-74d8-7deb97eded2f?origin=2": {
+  "chave": "documentos-mz/Release de Resultados do 3T21.pdf",
+  "nome": "Release de Resultados do 3T21.pdf",
+  "bytes": 2525386
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ae845493-6fce-b870-03dc-857741658b17?origin=2": {
+  "chave": "documentos-mz/ITR 3Q21.pdf",
+  "nome": "ITR 3Q21.pdf",
+  "bytes": 1183708
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7081ba1c-c1fb-4b5d-7fbb-c176229fb683?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 3T22.pdf",
+  "nome": "Release de Resultados do 3T22.pdf",
+  "bytes": 1694699
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0bc6f990-1d2f-628a-7e02-5ea0db6608ce?origin=1": {
+  "chave": "documentos-mz/ITR 3T22.pdf",
+  "nome": "ITR 3T22.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d5e5253f-88b8-ee07-86f8-87393c50b022?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 4T20.pdf",
+  "nome": "Release de Resultados do 4T20.pdf",
+  "bytes": 2356198
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/f5bb120d-3dad-2a3d-bdf9-509c6c62c818?origin=1": {
+  "chave": "documentos-mz/Demonstrações Financeiras Padronizadas 2020.pdf",
+  "nome": "Demonstrações Financeiras Padronizadas 2020.pdf",
+  "bytes": 4002235
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d48bde25-ff90-1422-c152-3f05a0e17d35?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 4T21.pdf",
+  "nome": "Release de Resultados do 4T21.pdf",
+  "bytes": 2478915
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0047ef14-71e0-370e-dd2c-4d5411ddd449?origin=1": {
+  "chave": "documentos-mz/Demonstrações Financeiras Padronizadas 2021.pdf",
+  "nome": "Demonstrações Financeiras Padronizadas 2021.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a7e00777-62f9-ba79-346d-4238102bcb21?origin=1": {
+  "chave": "documentos-mz/Release de Resultados do 4T22.pdf",
+  "nome": "Release de Resultados do 4T22.pdf",
+  "bytes": 1940539
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/19964d7e-4b0a-51e5-f830-158a1de2fef0?origin=1": {
+  "chave": "documentos-mz/DFP 4T22.pdf",
+  "nome": "DFP 4T22.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/377511cc-11f1-9e38-f081-982271efbd7f?origin=2": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2025.pdf",
+  "nome": "Relatório de Sustentabilidade 2025.pdf",
+  "bytes": 20982919
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/839a9196-b66e-9b65-5cf6-bc2600026d2b?origin=2": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2024.pdf",
+  "nome": "Relatório de Sustentabilidade 2024.pdf",
+  "bytes": 21226402
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/759940ce-2e49-4a43-caea-1faf40d177aa?origin=2": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2023.pdf",
+  "nome": "Relatório de Sustentabilidade 2023.pdf",
+  "bytes": 26458662
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c56ce8b4-80cf-3bb2-1a5c-3f473ce7a586?origin=2": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2022.pdf",
+  "nome": "Relatório de Sustentabilidade 2022.pdf",
+  "bytes": 24715480
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/e5e33e5c-791b-f8f8-58c7-f522706e7c7d?origin=1": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2021.pdf",
+  "nome": "Relatório de Sustentabilidade 2021.pdf",
+  "bytes": 8378517
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/eff91e8b-6da6-8fc7-a2dc-a113ca2314b0?origin=1": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2020.pdf",
+  "nome": "Relatório de Sustentabilidade 2020.pdf",
+  "bytes": 20845167
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1447527c-7c66-648c-9e6c-26ec7a1bae2f?origin=2": {
+  "chave": "documentos-mz/Política de Sustentabilidade.pdf",
+  "nome": "Política de Sustentabilidade.pdf",
+  "bytes": 963861
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0925e316-50f3-147a-3bdc-331e272d6445?origin=2": {
+  "chave": "documentos-mz/Política de Relacionamento com a Comunidade.pdf",
+  "nome": "Política de Relacionamento com a Comunidade.pdf",
+  "bytes": 774695
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/5d920234-7af4-f07f-fea7-5fc1383b51ff?origin=2": {
+  "chave": "documentos-mz/Política de Meio Ambiente.pdf",
+  "nome": "Política de Meio Ambiente.pdf",
+  "bytes": 720045
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0e118c0e-02ef-24b7-aa2e-bc124d612cc9?origin=2": {
+  "chave": "documentos-mz/Relatório Pós Operação.pdf",
+  "nome": "Relatório Pós Operação.pdf",
+  "bytes": 3452800
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/bdd5d4c1-e9d0-db17-4da6-2345ab80d3c8?origin=1\\": {
+  "chave": "documentos-mz/Parecer de Segunda Opinião da Debênture Verde da TSM.pdf",
+  "nome": "Parecer de Segunda Opinião da Debênture Verde da TSM.pdf",
+  "bytes": 750728
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/10baa79a-343a-ebbb-f6ac-200c1d981eea?origin=2\\": {
+  "chave": "documentos-mz/Sustainability Policy.pdf",
+  "nome": "Sustainability Policy.pdf",
+  "bytes": 870487
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c47dd3d-2924-82ef-f28b-c8f6732892cd?origin=2\\": {
+  "chave": "documentos-mz/Relationship with the Community Policy.pdf",
+  "nome": "Relationship with the Community Policy.pdf",
+  "bytes": 770281
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a2d3fba4-2ca3-a2ff-9c9e-6a32ab39bad5?origin=2\\": {
+  "chave": "documentos-mz/Integrity Policy.pdf",
+  "nome": "Integrity Policy.pdf",
+  "bytes": 2008433
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ffd9a534-914c-bd0d-9b6a-a182a3201535?origin=2\\": {
+  "chave": "documentos-mz/Human Resources Policy.pdf",
+  "nome": "Human Resources Policy.pdf",
+  "bytes": 360857
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8eeed1dd-d777-4009-6fe7-30dabb7b5b72?origin=2\\": {
+  "chave": "documentos-mz/Work Safety and Occupational Health Policy.pdf",
+  "nome": "Work Safety and Occupational Health Policy.pdf",
+  "bytes": 358928
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8259c08c-b35d-d72a-33d6-940f2f0bd1dd?origin=2\\": {
+  "chave": "documentos-mz/Environmental Policy.pdf",
+  "nome": "Environmental Policy.pdf",
+  "bytes": 378466
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7c26f6c6-a8e4-1bd1-ff3e-9f30ca17760c?origin=2\\": {
+  "chave": "documentos-mz/Earnings Release 1Q21.pdf",
+  "nome": "Earnings Release 1Q21.pdf",
+  "bytes": 1683529
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8defa031-31d3-69c1-7b45-8c744625d3b1?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 2Q22.pdf",
+  "nome": "Earnings Release 2Q22.pdf",
+  "bytes": 1368991
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d99dbd55-24f8-1735-9150-9db99bac5c3d?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 1Q22.pdf",
+  "nome": "Earnings Release 1Q22.pdf",
+  "bytes": 1839439
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/153e5154-6226-73ba-aa3d-910a20e64e3a?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 2Q20.pdf",
+  "nome": "Earnings Release 2Q20.pdf",
+  "bytes": 1865687
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7d3ecf0d-3c27-8d08-4363-c7b49dc3142b?origin=2\\": {
+  "chave": "documentos-mz/Earnings Release 2Q21.pdf",
+  "nome": "Earnings Release 2Q21.pdf",
+  "bytes": 2445644
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b5e25f6d-134c-e565-52af-d14ba57ad70d?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 3Q20.pdf",
+  "nome": "Earnings Release 3Q20.pdf",
+  "bytes": 1858403
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4910fa3d-064f-1318-60d6-9d32b8fba4af?origin=2\\": {
+  "chave": "documentos-mz/Earnings Release 3Q21.pdf",
+  "nome": "Earnings Release 3Q21.pdf",
+  "bytes": 1824220
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/082f34ed-9743-25e5-76c0-621676b7d1e4?origin=2\\": {
+  "chave": "documentos-mz/Earnings Release 3Q22.pdf",
+  "nome": "Earnings Release 3Q22.pdf",
+  "bytes": 1691908
+ },
+ "https://apicatalog.mziq.com/filemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/73000266-b0ea-53fa-f6cd-fb9befb3cdcf?origin=1\\": {
+  "chave": "documentos-mz/4Q19 Earnings Release Schedule.pdf",
+  "nome": "4Q19 Earnings Release Schedule.pdf",
+  "bytes": 848466
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/8fe4d9e0-b73e-d85f-96b0-88585f5643db?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 4Q20.pdf",
+  "nome": "Earnings Release 4Q20.pdf",
+  "bytes": 1921753
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/4a95a4fc-8ff0-061b-5d8b-65d23a0fd287?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 4Q21.pdf",
+  "nome": "Earnings Release 4Q21.pdf",
+  "bytes": 1594756
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1658f61e-7177-a8c3-6cc5-e8161de121bf?origin=1\\": {
+  "chave": "documentos-mz/Earnings Release 4Q22.pdf",
+  "nome": "Earnings Release 4Q22.pdf",
+  "bytes": 2016474
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c201ef41-16f5-cd32-8395-c0fbb0db49fc?origin=2\\": {
+  "chave": "documentos-mz/2025 Sustainability Report.pdf",
+  "nome": "2025 Sustainability Report.pdf",
+  "bytes": 20926929
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/47792959-6689-b32b-1334-649c5dfb8b37?origin=2\\": {
+  "chave": "documentos-mz/2024 Sustainability Report.pdf",
+  "nome": "2024 Sustainability Report.pdf",
+  "bytes": 21181328
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/27f7a735-2575-d8bb-9725-66b81c3b3f86?origin=2\\": {
+  "chave": "documentos-mz/2023 Sustainability Report.pdf",
+  "nome": "2023 Sustainability Report.pdf",
+  "bytes": 26806722
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/53d2d714-00af-2370-fb28-8ef7aaeb3fbc?origin=2\\": {
+  "chave": "documentos-mz/2022 Sustainability Report.pdf",
+  "nome": "2022 Sustainability Report.pdf",
+  "bytes": 24653317
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/265eb3b4-463f-ff89-fab5-c0d73a1949dc?origin=1\\": {
+  "chave": "documentos-mz/2021 Sustainability Report.pdf",
+  "nome": "2021 Sustainability Report.pdf",
+  "bytes": 8008028
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9522c4e8-e960-5c06-163d-fbde0916aecd?origin=1\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade.pdf",
+  "nome": "Relatório de Sustentabilidade.pdf",
+  "bytes": 21101386
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/3e7d2879-6b84-1ab2-ceaf-95d5f92d1eaa?origin=2\\": {
+  "chave": "documentos-mz/Environmental Policy.pdf",
+  "nome": "Environmental Policy.pdf",
+  "bytes": 709589
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1]\\": {
+  "chave": "documentos-mz/Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "nome": "Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "bytes": 497541
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b6a6b235-b9d6-6118-85c1-319fdd48dd57?origin=2\\": {
+  "chave": "documentos-mz/Post-Issuance Report-.pdf",
+  "nome": "Post-Issuance Report-.pdf",
+  "bytes": 3452800
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a0953dea-012d-8a50-077f-786f27cecefc?origin=1\\": {
+  "chave": "documentos-mz/Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "nome": "Parecer Independente de Pós Emissão de Debenture Verde da TSM.pdf",
+  "bytes": 497541
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1039ffa8-d210-ccbd-13fc-0985511bf6d2?origin=2\\": {
+  "chave": "documentos-mz/Política de Integridade.pdf",
+  "nome": "Política de Integridade.pdf",
+  "bytes": 2008432
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a5019f7c-a6b5-d60e-64d3-144db5bd6289?origin=2\\": {
+  "chave": "documentos-mz/Release de Resultados do 1T21.pdf",
+  "nome": "Release de Resultados do 1T21.pdf",
+  "bytes": 1800847
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/796c7f2e-05d0-6a3a-0c5d-24c6895995f3?origin=2\\": {
+  "chave": "documentos-mz/ITR 1T21.pdf",
+  "nome": "ITR 1T21.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/2da43645-243e-9ca0-a10b-1c07034f6c69?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 1T22.pdf",
+  "nome": "Release de Resultados do 1T22.pdf",
+  "bytes": 1917076
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c8932bdf-5920-90f5-f420-1e3d1e66ec20?origin=1\\": {
+  "chave": "documentos-mz/ITR 1T22.pdf",
+  "nome": "ITR 1T22.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/9393698b-251d-881a-9a3f-fc79a8ce026c?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 2T20.pdf",
+  "nome": "Release de Resultados do 2T20.pdf",
+  "bytes": 1835519
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/b0cdcc8f-0fc5-7888-52c9-658d90212cef?origin=1\\": {
+  "chave": "documentos-mz/ITR 2T20.pdf",
+  "nome": "ITR 2T20.pdf",
+  "bytes": 3105810
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d3b09b87-363b-1904-f80b-abd0de5fe068?origin=2\\": {
+  "chave": "documentos-mz/Release de Resultados do 2T21.pdf",
+  "nome": "Release de Resultados do 2T21.pdf",
+  "bytes": 2407656
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/cf019e17-da91-acb7-876a-fb622c296c06?origin=2\\": {
+  "chave": "documentos-mz/ITR 2T21.pdf",
+  "nome": "ITR 2T21.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/fe6f6395-cfdd-92a6-8369-2dc1360bceca?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 2T22.pdf",
+  "nome": "Release de Resultados do 2T22.pdf",
+  "bytes": 1400171
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d7b9a791-c871-5396-1fcc-1eace1a865d6?origin=1\\": {
+  "chave": "documentos-mz/ITR 2T22.pdf",
+  "nome": "ITR 2T22.pdf",
+  "bytes": 4194304
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7543be89-b7fe-b6c7-a368-dbc7c8b76d2a?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 3T20.pdf",
+  "nome": "Release de Resultados do 3T20.pdf",
+  "bytes": 2168519
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/2486ccff-aa9b-4484-a60c-87e32e5123ba?origin=1\\": {
+  "chave": "documentos-mz/ITR 3T20.pdf",
+  "nome": "ITR 3T20.pdf",
+  "bytes": 3149444
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7957ced7-f899-04de-74d8-7deb97eded2f?origin=2\\": {
+  "chave": "documentos-mz/Release de Resultados do 3T21.pdf",
+  "nome": "Release de Resultados do 3T21.pdf",
+  "bytes": 2525386
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/ae845493-6fce-b870-03dc-857741658b17?origin=2\\": {
+  "chave": "documentos-mz/ITR 3Q21.pdf",
+  "nome": "ITR 3Q21.pdf",
+  "bytes": 1183708
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/7081ba1c-c1fb-4b5d-7fbb-c176229fb683?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 3T22.pdf",
+  "nome": "Release de Resultados do 3T22.pdf",
+  "bytes": 1694699
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0bc6f990-1d2f-628a-7e02-5ea0db6608ce?origin=1\\": {
+  "chave": "documentos-mz/ITR 3T22.pdf",
+  "nome": "ITR 3T22.pdf",
+  "bytes": 4194304
+ },
+ "https://apicatalog.mziq.com/filemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/5b4aa59d-afb9-98b9-51ee-13d683fae282?origin=1\\": {
+  "chave": "documentos-mz/Agenda de Divugação dos Resultados 4T19.pdf",
+  "nome": "Agenda de Divugação dos Resultados 4T19.pdf",
+  "bytes": 850448
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d5e5253f-88b8-ee07-86f8-87393c50b022?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 4T20.pdf",
+  "nome": "Release de Resultados do 4T20.pdf",
+  "bytes": 2356198
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/f5bb120d-3dad-2a3d-bdf9-509c6c62c818?origin=1\\": {
+  "chave": "documentos-mz/Demonstrações Financeiras Padronizadas 2020.pdf",
+  "nome": "Demonstrações Financeiras Padronizadas 2020.pdf",
+  "bytes": 4002235
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/d48bde25-ff90-1422-c152-3f05a0e17d35?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 4T21.pdf",
+  "nome": "Release de Resultados do 4T21.pdf",
+  "bytes": 2478915
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0047ef14-71e0-370e-dd2c-4d5411ddd449?origin=1\\": {
+  "chave": "documentos-mz/Demonstrações Financeiras Padronizadas 2021.pdf",
+  "nome": "Demonstrações Financeiras Padronizadas 2021.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/a7e00777-62f9-ba79-346d-4238102bcb21?origin=1\\": {
+  "chave": "documentos-mz/Release de Resultados do 4T22.pdf",
+  "nome": "Release de Resultados do 4T22.pdf",
+  "bytes": 1940539
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/19964d7e-4b0a-51e5-f830-158a1de2fef0?origin=1\\": {
+  "chave": "documentos-mz/DFP 4T22.pdf",
+  "nome": "DFP 4T22.pdf",
+  "bytes": 8388608
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/377511cc-11f1-9e38-f081-982271efbd7f?origin=2\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2025.pdf",
+  "nome": "Relatório de Sustentabilidade 2025.pdf",
+  "bytes": 20982919
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/839a9196-b66e-9b65-5cf6-bc2600026d2b?origin=2\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2024.pdf",
+  "nome": "Relatório de Sustentabilidade 2024.pdf",
+  "bytes": 21226402
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/759940ce-2e49-4a43-caea-1faf40d177aa?origin=2\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2023.pdf",
+  "nome": "Relatório de Sustentabilidade 2023.pdf",
+  "bytes": 26458662
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/c56ce8b4-80cf-3bb2-1a5c-3f473ce7a586?origin=2\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2022.pdf",
+  "nome": "Relatório de Sustentabilidade 2022.pdf",
+  "bytes": 24715480
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/e5e33e5c-791b-f8f8-58c7-f522706e7c7d?origin=1\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2021.pdf",
+  "nome": "Relatório de Sustentabilidade 2021.pdf",
+  "bytes": 8378517
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/eff91e8b-6da6-8fc7-a2dc-a113ca2314b0?origin=1\\": {
+  "chave": "documentos-mz/Relatório de Sustentabilidade 2020.pdf",
+  "nome": "Relatório de Sustentabilidade 2020.pdf",
+  "bytes": 20845167
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/1447527c-7c66-648c-9e6c-26ec7a1bae2f?origin=2\\": {
+  "chave": "documentos-mz/Política de Sustentabilidade.pdf",
+  "nome": "Política de Sustentabilidade.pdf",
+  "bytes": 963861
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0925e316-50f3-147a-3bdc-331e272d6445?origin=2\\": {
+  "chave": "documentos-mz/Política de Relacionamento com a Comunidade.pdf",
+  "nome": "Política de Relacionamento com a Comunidade.pdf",
+  "bytes": 774695
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/5d920234-7af4-f07f-fea7-5fc1383b51ff?origin=2\\": {
+  "chave": "documentos-mz/Política de Meio Ambiente.pdf",
+  "nome": "Política de Meio Ambiente.pdf",
+  "bytes": 720045
+ },
+ "https://api.mziq.com/mzfilemanager/v2/d/7055e766-fc6d-42b3-9911-c19f8e89875a/0e118c0e-02ef-24b7-aa2e-bc124d612cc9?origin=2\\": {
+  "chave": "documentos-mz/Relatório Pós Operação.pdf",
+  "nome": "Relatório Pós Operação.pdf",
+  "bytes": 3452800
+ }
+}

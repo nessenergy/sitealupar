@@ -13,9 +13,14 @@
  */
 import { readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
-import mapa from '../../acervo/mapa-de-rotas.json';
-import imagens from '../../acervo/imagens.json';
-import { responsivas, videosSobDemanda, type Manifesto } from './imagens';
+/* `with { type: 'json' }` não é enfeite: sem o atributo, `node --test` recusa
+   o módulo e as transformações daqui ficariam sem teste. O Astro lê igual. */
+import mapa from '../../acervo/mapa-de-rotas.json' with { type: 'json' };
+import imagens from '../../acervo/imagens.json' with { type: 'json' };
+import documentosMz from '../../acervo/mz-arquivos.json' with { type: 'json' };
+/* Com a extensão, como em `imagens.test.ts`: sem ela o `node --test` não
+   resolve o módulo. O Astro lê dos dois jeitos. */
+import { responsivas, videosSobDemanda, type Manifesto } from './imagens.ts';
 
 export interface Item {
   rota: string;
@@ -198,6 +203,83 @@ function carregarImagens(corpo: string): string {
 const arquivosNoR2 = (corpo: string) =>
   corpo.replaceAll('https://www.alupar.com.br/wp-content/uploads/', 'https://arquivos.alupar.com.br/');
 
+/*
+ * Os documentos do gerenciador de arquivos da MZ (`api.mziq.com`), que somem
+ * com o contrato: 59 PDFs sustentando 51 páginas — releases de resultados, mas
+ * também as políticas institucionais de Sustentabilidade, Integridade, Meio
+ * Ambiente, Recursos Humanos e Segurança do Trabalho, e o parecer da debênture
+ * verde. A issue #43 supunha que fossem só conteúdo de RI, e por isso propunha
+ * apontar ao portal deles; política institucional não é, e ficaria sem casa.
+ *
+ * A URL de origem não tem caminho, só UUID, então não dá para derivar o destino
+ * dela: o par vem de `acervo/mz-arquivos.json`, gravado pelo resgate a partir
+ * do nome que a própria origem declara no cabeçalho da resposta.
+ *
+ * Link sem par no mapa fica como está, apontando para a MZ. É deliberado — vai
+ * quebrar no dia do desligamento, e é melhor que quebre visível do que virar um
+ * endereço nosso que responde 404 e parece defeito de migração. `--verificar`
+ * do resgate é quem acusa a falta.
+ */
+export function documentosDaMz(corpo: string, mapa: Record<string, { chave: string }>): string {
+  /*
+   * As chaves do mapa vêm do texto cru do JSONL, onde a URL é seguida da barra
+   * invertida que escapa a aspa; o corpo aqui já veio desescapado. Sem
+   * normalizar os dois lados, 63 das 124 chaves nunca casariam — e o link
+   * ficaria apontando para a MZ em silêncio, que é o pior desfecho possível.
+   */
+  const limpar = (u: string) => u.replace(/\\+$/, '').replaceAll('&amp;', '&');
+  const porUrl = new Map(Object.entries(mapa).map(([u, v]) => [limpar(u), v]));
+
+  return corpo.replaceAll(
+    /https:\/\/(?:api\.mziq\.com\/mzfilemanager|apicatalog\.mziq\.com\/filemanager)\/[^"'<>\\ )]+/g,
+    (url) => {
+      const par = porUrl.get(limpar(url));
+      return par ? `https://arquivos.alupar.com.br/${par.chave.split('/').map(encodeURIComponent).join('/')}` : url;
+    },
+  );
+}
+
+
+/*
+ * Sanfona do tema (`.arconix-faq-*`), fechada já no HTML.
+ *
+ * O tema entrega três `<div>` — embrulho, título e conteúdo — e fecha tudo
+ * por JavaScript, depois da pintura. Isso desloca a página inteira depois que
+ * ela já apareceu: o Lighthouse mediu **CLS 0,2972** em condicoes-de-uso, com
+ * o gate em 0,1, e derrubou o desempenho para 0,85.
+ *
+ * Quem já sabe fechar sozinho, sem script e sem deslocar nada, é o
+ * `<details>`: nasce fechado no próprio HTML, recebe foco e responde a Enter e
+ * Espaço por conta própria. O embrulho vira `<details>`, o título vira
+ * `<summary>` — as classes do tema ficam de pé, e com elas o desenho.
+ *
+ * Fechar aqui, e não no navegador, também é o que faz a página funcionar sem
+ * JavaScript: antes, sem script, o texto inteiro ficava à mostra.
+ */
+const temClasse = (n: No, c: string) => (atributo(n, 'class') ?? '').split(/\s+/).includes(c);
+
+function renomear(n: No, tag: string) {
+  (n as { nodeName: string; tagName?: string }).nodeName = tag;
+  (n as { nodeName: string; tagName?: string }).tagName = tag;
+}
+
+export function sanfona(corpo: string): string {
+  if (!corpo.includes('arconix-faq-wrap')) return corpo;
+
+  const arvore = parseFragment(corpo) as unknown as No;
+  for (const no of achatar(arvore)) {
+    if (no.nodeName !== 'div' || !temClasse(no, 'arconix-faq-wrap')) continue;
+    const titulo = (no.childNodes ?? []).find((c) => temClasse(c, 'arconix-faq-title'));
+    /* Sem título não há o que dobrar: `<details>` sem `<summary>` ganharia do
+       navegador um "Detalhes" que ninguém escreveu. Fica como está. */
+    if (!titulo) continue;
+    renomear(no, 'details');
+    renomear(titulo, 'summary');
+  }
+
+  return serialize(arvore as never);
+}
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -223,12 +305,15 @@ export function itens(): Item[] {
     return {
       ...r,
       idioma,
-      corpo: arquivosNoR2(
-        videosSobDemanda(
-          carregarImagens(
-            responsivas(tabelaRolavel(avisarNovaAba(ancorasInternas(achado.corpo), idioma), idioma), imagens as Manifesto),
+      corpo: documentosDaMz(
+        arquivosNoR2(
+          videosSobDemanda(
+            carregarImagens(
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
+            ),
           ),
         ),
+        documentosMz as Record<string, { chave: string }>,
       ),
     } as Item;
   });

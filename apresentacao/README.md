@@ -1,7 +1,8 @@
-# Apresentação e dossiê
+# Apresentação, dossiê, proposta e pauta
 
-Os dois documentos que saem deste projeto para fora dele: o deck que vai à
-mesa da Alupar e o dossiê que registra o estado do site.
+Os quatro documentos que saem deste projeto para fora dele: o deck que vai à
+mesa da Alupar, o dossiê que registra o estado do site, a carta-proposta e a
+pauta do que depende da Comunicação.
 
 ## Por que o `.pptx` e o `.pdf` não estão aqui
 
@@ -58,11 +59,34 @@ para virar PDF:
   apresentacao/dossie-impressao.html
 ```
 
+## A proposta
+
+`proposta.html` é a carta-proposta comercial, já na folha de impressão — o
+mesmo padrão do dossiê, em A4. Os termos são os da decisão D15 em
+`docs/decisoes.md`; mudar um termo é mudar nos dois lugares, e no ato 3 do
+deck. Para o PDF, o mesmo comando do dossiê, apontando para `proposta.html`.
+
+No Windows, o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`;
+o comando é o mesmo, com `--print-to-pdf=proposta-alupar.pdf`.
+
+## A pauta da Comunicação
+
+`pauta-comunicacao.html` é o que a Comunicação da Alupar precisa responder
+para que a data da virada possa ser marcada, na mesma folha de impressão. É
+documento de leitura de fora: não cita arquivo, código nem o apelido interno
+das decisões.
+
+A lista vem das decisões pendentes P1 a P9 da Tarefa 12 em
+`docs/plano-virada.md`, das issues #10, #11 e #43, e dos textos marcados
+`// novo` em `src/i18n/textos.ts`. Cada item declara o padrão adotado se
+ninguém responder — é o que evita que uma decisão fique pendurada. Ao
+responder uma delas, registre em `docs/decisoes.md` e risque a linha aqui.
+
 ## Ao alterar números
 
-O deck e o dossiê citam medições — dias fora do ar, peso da home, contagem de
+O deck, o dossiê e a pauta citam medições — dias fora do ar, peso da home, contagem de
 notícias, itens a migrar. Elas vêm do diagnóstico e do acervo, não da memória
 de quem escreve. Ao mexer num número, confira contra `acervo/inventario.json`,
-`acervo/conteudo.jsonl` e `docs/prd.md`, e corrija nos dois documentos: eles
-são lidos por pessoas diferentes e divergir entre si custa mais que estar
+`acervo/conteudo.jsonl` e `docs/prd.md`, e corrija em todos eles: são
+lidos por pessoas diferentes, e divergir entre si custa mais que estar
 desatualizado.

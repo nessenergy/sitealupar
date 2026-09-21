@@ -7,6 +7,7 @@
  * conferida contra o mapa de 301 e travada no CI (#47). Aqui só se lê.
  */
 import Base from '../layouts/Base.astro';
+import Trilha from '../components/Trilha.astro';
 import { itens, IDIOMA_ASTRO, SUBSTITUIDAS } from '../lib/acervo';
 import { textos } from '../i18n/textos';
 
@@ -38,6 +39,7 @@ const dataLegivel = dataVisivel
 <Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
     <article>
+      <Trilha idioma={idioma} titulo={item.titulo} />
       <header class="cabecalho">
         <h1>{item.titulo}</h1>
         {dataVisivel && <time datetime={item.data}>{dataLegivel}</time>}
@@ -53,22 +55,39 @@ const dataLegivel = dataVisivel
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
+  /* .box-interna.box-home do tema: o conteúdo das internas mora numa caixa
+     branca com sombra, colada à base da faixa de foto e sobre o fundo cinza da
+     página — daí a margem zero no topo. O recheio é o do tema (10px 35px 40px);
+     no celular a caixa sangra até a borda da tela e o recheio cai para 20 px.
+     A largura da coluna é a da caixa: com `max-width: 72ch` o texto ficava numa
+     tira de ~620 px no meio de uma caixa de 1070 px. */
+  .pagina { padding-block: 0 var(--e7); }
 
-  article { max-width: 72ch; }
-
-  .cabecalho {
-    padding-bottom: var(--e4);
-    margin-bottom: var(--e5);
-    border-bottom: 1px solid var(--cinza-borda);
+  article {
+    background: var(--branco);
+    padding: 10px 35px 40px;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
   }
+
+  @media (max-width: 767px) {
+    .pagina { padding-inline: 0; }
+    article { padding: 10px 20px 40px; }
+  }
+
+  /* `.txt-show h1` do tema: verde, peso normal, 26 px — 48 px a partir de
+     992 px, com 30 px embaixo e sem fio nenhum. Estava azul, em negrito, com
+     um fio cinza que o tema não tem. O verde é --verde-texto (4,51:1); o de
+     marca dá 3,90:1 e reprova AA. */
+  .cabecalho { margin-bottom: var(--e4); }
   .cabecalho h1 {
-    margin: 0;
-    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+    margin: 0 0 30px;
+    font-size: 26px;
+    font-weight: 400;
     line-height: 1.2;
-    color: var(--azul);
+    color: var(--verde-texto);
     text-wrap: balance;
   }
+  @media (min-width: 992px) { .cabecalho h1 { font-size: 48px; } }
   .cabecalho time {
     display: block;
     margin-top: var(--e2);
@@ -77,19 +96,124 @@ const dataLegivel = dataVisivel
   }
 
   /* O corpo é HTML herdado do site atual: a folha precisa dar conta do que
-     vier, e não do que gostaríamos que viesse. */
+     vier, e não do que gostaríamos que viesse. As classes do tema chegam
+     inteiras no corpo do acervo (txt-show, list-show, text-justify, btn-azul,
+     panel-body), então o valor de cada regra é o do style.css do tema. */
+  .corpo { line-height: 26px; }
+
+  /* .txt-show h2/h3/h4: grandes e em peso normal. O h3 é verde pelo mesmo
+     seletor solto que pinta o título das caixas da home. */
   .corpo :global(h2) {
     margin: var(--e6) 0 var(--e3);
-    font-size: 1.375rem;
+    font-size: 32px;
+    font-weight: 400;
     line-height: 1.3;
     color: var(--azul);
   }
-  .corpo :global(h3) { margin: var(--e5) 0 var(--e2); font-size: 1.125rem; }
+  .corpo :global(h3) {
+    margin: var(--e5) 0 var(--e2);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--verde-texto);
+  }
+  .corpo :global(h4) { margin: var(--e5) 0 var(--e2); font-size: 20px; font-weight: 400; color: var(--cinza); }
   .corpo :global(p) { margin: 0 0 var(--e3); }
   .corpo :global(ul), .corpo :global(ol) { margin: 0 0 var(--e3); padding-left: var(--e4); }
   .corpo :global(li) { margin-bottom: var(--e1); }
   .corpo :global(img) { max-width: 100%; height: auto; }
-  .corpo :global(strong) { font-weight: 600; }
+
+  /* O tema zera o negrito do conteúdo (`strong { font-weight: normal }`): os
+     rótulos da FAQ, os nomes das empresas e a abertura da ata saem em peso
+     normal, como no site atual. */
+  .corpo :global(strong) { font-weight: 400; }
+
+  /* Link de texto em azul, como no tema. O sublinhado NÃO sai: sem ele, azul e
+     preto do texto ficam a 1,59:1 um do outro, abaixo dos 3:1 que a WCAG 1.4.1
+     exige para distinguir link por cor — fica em Mudanças deliberadas. */
+  .corpo :global(a) { color: var(--azul); }
+
+  /* Alinhamentos que o conteúdo declara e ninguém estilizava. */
+  .corpo :global(.text-justify) { text-align: justify; }
+  .corpo :global(.text-center), .corpo :global(.aligncenter) { text-align: center; }
+  .corpo :global(.alignright) { text-align: right; }
+
+  /* A limpeza do conteúdo tirou os `style` embutidos, e com eles o centro dos
+     mapas. A classe do WordPress sobreviveu: é ela que volta a centralizar —
+     numa imagem, `text-align` no próprio elemento não centraliza nada. */
+  .corpo :global(img.aligncenter) { display: block; margin-inline: auto; }
+
+  /* .list-show do tema: marcador verde desenhado, no lugar do disco do
+     navegador, com 17 px de recuo. */
+  .corpo :global(.list-show ul) { list-style: none; padding-left: 0; }
+  .corpo :global(.list-show ul li) { position: relative; padding-left: 17px; }
+  .corpo :global(.list-show ul li::before) {
+    content: '\2022';
+    position: absolute; left: 0; top: -2px;
+    font-size: 1.5em; color: var(--verde);
+  }
+
+  /* .panel-body do bootstrap, que o tema herda: é o recuo dos parágrafos do
+     Programa de P&D. */
+  .corpo :global(.panel-body) { padding: 15px; }
+
+  /* a.btn-azul do tema: botão azul de caixa alta, não link de texto. */
+  .corpo :global(.btn-azul) {
+    display: inline-block; padding: 10px 20px;
+    background: var(--azul-hover); color: var(--branco);
+    text-transform: uppercase; text-decoration: none;
+    /* O tema zera o raio de propósito (`border-radius: 0px`), porque o .btn do
+       bootstrap põe 4 px — e o acervo traz `class="btn btn-azul"`. Aqui o
+       bootstrap não é carregado, mas a regra fica explícita: o canto vivo é
+       decisão do tema, não ausência de folha. */
+    border-radius: 0;
+  }
+  .corpo :global(.btn-azul:hover), .corpo :global(.btn-azul:focus) {
+    background: var(--azul); color: var(--branco);
+  }
+
+  /* Sanfona do tema (.arconix-faq-*): seções fechadas, título verde de 18 px
+     com recheio 20px 40px 20px 20px, fio cinza embaixo e fundo que clareia no
+     hover. Quem fecha e abre é o próprio navegador: o embrulho é um
+     `<details>` e o título um `<summary>`, trocados no build por
+     src/lib/acervo.ts. O `<div>` do tema não recebe foco nem responde ao
+     teclado; o `<summary>` recebe e responde, sem uma linha de script — e
+     nasce fechado no HTML, sem deslocar a página depois de pintada.
+
+     `display: block` e `list-style: none` tiram o triângulo que o navegador
+     põe no `<summary>`: a seta daqui é a de baixo.
+
+     A seta é um chevron de texto. O tema pede os glifos f106/f107 do Font
+     Awesome com `font-family: "Open Sans"`, que não os tem: o que aparece no
+     site atual é o quadrado de caractere ausente, e restaurar um defeito de
+     fonte não é restaurar o desenho. */
+  /* O fio de 1 px é só do título (style.css:1667 e 1668-1670): o conteúdo
+     também declara `border-bottom: 1px #c7c7c7 solid` (style.css:1703), mas a
+     linha seguinte (`border: 1px solid transparent`, style.css:1705) o apaga
+     inteiro — o que se vê no site atual é uma linha por seção, embaixo do
+     título. A sombra rasa vai nos dois, como no tema. */
+  .corpo :global(.arconix-faq-title) {
+    border-bottom: 1px solid #C7C7C7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .corpo :global(summary.arconix-faq-title) {
+    position: relative; display: block; list-style: none;
+    padding: 20px 40px 20px 20px;
+    cursor: pointer;
+    font-size: 18px; color: var(--verde-texto);
+  }
+  .corpo :global(summary.arconix-faq-title::-webkit-details-marker) { display: none; }
+  .corpo :global(summary.arconix-faq-title:hover) { background: #F6F6F6; color: var(--azul); }
+  .corpo :global(summary.arconix-faq-title::after) {
+    content: '\2304'; position: absolute; right: 8px; top: 18px;
+    font-size: 24px; line-height: 1;
+  }
+  .corpo :global(details[open] > summary.arconix-faq-title::after) { content: '\2303'; }
+  .corpo :global(.arconix-faq-content) {
+    padding: 15px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
 
   .corpo :global(.rolagem) {
     overflow-x: auto;

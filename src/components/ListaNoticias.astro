@@ -5,6 +5,7 @@
  */
 import type { Page } from 'astro';
 import Base from '../layouts/Base.astro';
+import Trilha from './Trilha.astro';
 import type { Item } from '../lib/acervo';
 import { textos, prefixo, lang, type Idioma } from '../i18n/textos';
 
@@ -20,6 +21,8 @@ const comBarra = (u: string) => (u.endsWith('/') ? u : `${u}/`);
 ---
 <Base titulo={`${titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
+    <div class="caixa">
+    <Trilha idioma={idioma} titulo={titulo} />
     <h1>{titulo}</h1>
     <ul class="lista">
       {lista.map((n) => (
@@ -41,15 +44,24 @@ const comBarra = (u: string) => (u.endsWith('/') ? u : `${u}/`);
     ) : (
       <p><a href={`${prefixo[idioma]}/noticias/arquivo/`}>{t.arquivo}</a></p>
     )}
+    </div>
   </main>
 </Base>
 
 <style>
-  .pagina { padding-block: var(--e6) var(--e7); }
-  h1 { color: var(--azul); }
+  /* .list-group do tema: uma linha por notícia, data e título lado a lado, sem
+     fio entre os itens e com as linhas ímpares em #F8F8F8. O título é link em
+     peso normal, sem sublinhado — sublinhado no hover e no foco. A caixa
+     branca e o título verde vêm de tokens.css.
+
+     Antes a data ficava por extenso acima do título, o título vinha em negrito
+     sublinhado e a lista, sem a caixa, encolhia para uma coluna de ~226 px no
+     meio da página em 1280. */
   .lista { list-style: none; margin: 0 0 var(--e5); padding: 0; }
-  .lista li { padding-block: var(--e3); border-bottom: 1px solid var(--cinza-borda); }
-  .lista time { display: block; font-size: .875rem; color: var(--cinza); }
-  .lista a { color: var(--preto); font-weight: 600; }
+  .lista li { display: flex; flex-wrap: wrap; gap: 20px; padding: 15px 10px; }
+  .lista li:nth-child(odd) { background: var(--cinza-fundo); }
+  .lista time { flex: none; }
+  .lista a { color: var(--preto); text-decoration: none; }
+  .lista a:hover, .lista a:focus-visible { text-decoration: underline; }
   .paginas { display: flex; justify-content: space-between; gap: var(--e4); }
 </style>

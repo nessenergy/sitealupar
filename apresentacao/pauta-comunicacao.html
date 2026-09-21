@@ -1,0 +1,229 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>O que depende da Comunicação — site institucional</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@500&display=swap">
+<style>
+  /* Mesma folha do dossiê e da proposta: paleta do Manual de Identidade
+     Visual 2018 da Alupar. O PDF é sempre claro, então não há tema escuro. */
+  :root{
+    --surface:#FFFFFF; --surface-2:#F2F5F3;
+    --ink:#231F20; --ink-2:#3F4744; --ink-3:#5F6965;
+    --line:#D5DBD7; --line-strong:#B9C1BC;
+    --accent:#06893C; --accent-strong:#079541; --accent-soft:#E4F2E9;
+    --azul:#004F9D; --azul-soft:#E3ECF5;
+    --crit:#A82F27; --crit-soft:#F8E7E5;
+    --warn:#8A6410; --warn-soft:#F6EEDC;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#FFFFFF}
+  body{color:var(--ink);font-family:"Open Sans",Arial,Helvetica,sans-serif;font-size:10.5pt;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:180mm;margin:0 auto;padding:0}
+  a{color:var(--accent)}
+  /* marca ness.: caixa baixa, Montserrat 500, ponto sempre #00ADE8 */
+  .ness-brand{font-family:"Montserrat",Arial,sans-serif;font-weight:500;font-style:normal;letter-spacing:-0.01em;color:#000;white-space:nowrap}
+  .ness-brand .dot{color:#00ADE8}
+
+  header.top{border-top:4pt solid var(--accent-strong);border-bottom:1px solid var(--line);padding:18pt 0 14pt;margin-bottom:20pt}
+  .eyebrow{font-size:8pt;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8pt}
+  h1{font-size:26pt;font-weight:700;line-height:1.08;letter-spacing:-.02em;margin:0 0 8pt;color:var(--azul)}
+  .dek{font-size:12pt;color:var(--ink-2);margin:0 0 12pt;max-width:64ch}
+  .meta{display:flex;flex-wrap:wrap;gap:4pt 18pt;font-size:8.5pt;color:var(--ink-3);border-top:1px solid var(--line);padding-top:9pt}
+  .meta b{color:var(--ink-2);font-weight:600}
+
+  section{margin:0 0 20pt}
+  section:last-of-type{margin-bottom:0}
+  h2{font-size:9.5pt;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12pt;padding-bottom:5pt;border-bottom:1.5pt solid var(--accent-strong);break-after:avoid}
+  h3{font-size:12pt;font-weight:600;letter-spacing:-.01em;margin:0 0 5pt;color:var(--azul);break-after:avoid}
+  p{margin:0 0 8pt;max-width:72ch}
+  ul{margin:0 0 8pt;padding-left:16pt;max-width:72ch}
+  li{margin-bottom:4pt}
+
+  .preview{background:var(--azul-soft);border-left:3pt solid var(--azul);padding:10pt 14pt;margin:0 0 18pt;break-inside:avoid}
+  .preview p{margin:0;color:var(--ink-2)}
+  .preview .url{font-size:13pt;font-weight:700;color:var(--azul);display:block;margin:3pt 0 5pt;letter-spacing:-.01em}
+
+  .item{border:1px solid var(--line);border-left:3pt solid var(--azul);padding:11pt 14pt;margin-bottom:9pt;break-inside:avoid}
+  .item.trava{border-left-color:var(--crit);background:var(--crit-soft)}
+  .item.editorial{border-left-color:var(--azul)}
+  .item.depois{border-left-color:var(--ink-3)}
+  .item p{margin:0 0 5pt;font-size:10pt;color:var(--ink-2)}
+  .item p:last-child{margin-bottom:0}
+  .item .pedido{color:var(--ink);font-weight:600}
+  .item .padrao{font-size:9.5pt;color:var(--ink-3);border-top:1px solid var(--line);padding-top:5pt;margin-top:7pt}
+  .item .padrao b{color:var(--ink-2)}
+  .cab{display:flex;justify-content:space-between;align-items:baseline;gap:10pt;margin-bottom:5pt}
+  .tag{display:inline-block;font-size:8pt;padding:1.5pt 6pt;border-radius:2px;font-weight:700;white-space:nowrap;letter-spacing:.06em;text-transform:uppercase}
+  .tag.no{background:#FFFFFF;color:var(--crit);border:1px solid var(--crit)}
+  .tag.mid{background:var(--warn-soft);color:var(--warn)}
+  .tag.ok{background:var(--accent-soft);color:var(--accent)}
+
+  table{border-collapse:collapse;width:100%;font-size:9.5pt;border:1px solid var(--line);break-inside:avoid;margin-bottom:8pt}
+  th,td{text-align:left;padding:6pt 8pt;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:8pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  tr{break-inside:avoid}
+  td.quem{white-space:nowrap;color:var(--ink-2)}
+
+  #s-resumo{break-before:page}
+  #s-resumo .destaque{margin-top:14pt;margin-bottom:0}
+
+  @page { size: A4; margin: 16mm 15mm 18mm; }
+  @page :first { margin-top: 12mm; }
+  @media screen{ body{padding:24px} }
+</style>
+</head><body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Site institucional · alupar.com.br</p>
+    <h1>O que depende da Comunicação agora</h1>
+    <p class="dek">O site novo está pronto e no ar num endereço de homologação. O que falta para marcar a data da troca não é técnico: são dez respostas, e todas passam por vocês.</p>
+    <div class="meta">
+      <span>Data: <b>14 de setembro de 2026</b></span>
+      <span>Para: <b>Comunicação Alupar</b></span>
+      <span>De: <span class="ness-brand">ness<span class="dot">.</span></span></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="preview">
+  <p>O site novo, para ver e comentar:</p>
+  <span class="url">sitealupar.pages.dev</span>
+  <p>É o site inteiro, nos três idiomas, com as páginas e as notícias já migradas. Ele não substitui nada: o endereço alupar.com.br continua no ar, servido pelo fornecedor atual, até a data que vocês aprovarem.</p>
+</div>
+
+<section>
+  <h2>Como ler este documento</h2>
+  <p>Cada item abaixo tem um <b>padrão</b>: o que o site fará se ninguém responder. Nenhuma decisão fica esperando indefinidamente, porque esperar também é uma escolha, e a pior delas. Se o padrão servir, basta dizer que serve — por escrito, para que fique registrado.</p>
+  <p>O que <b>trava a data da troca</b> está em vermelho. O que é <b>decisão editorial</b> tem padrão e pode seguir sem resposta. O que <b>pode esperar</b> entra depois, já na manutenção mensal.</p>
+</section>
+
+<section>
+  <h2>1. O que trava a data</h2>
+
+  <div class="item trava">
+    <div class="cab"><h3>Um dono do conteúdo, com nome próprio</h3><span class="tag no">bloqueia</span></div>
+    <p>Hoje o responsável registrado é "Comunicação Alupar" — uma área, não uma pessoa. Foi exatamente uma área sem responsável nomeado que deixou o site parar: a última notícia publicada é de <b>02/03/2023</b>.</p>
+    <p>Essa pessoa não precisa escrever nem publicar todo dia. Ela responde por duas coisas: dizer o que entra no site e receber o treinamento da ferramenta de publicação.</p>
+    <p class="pedido">Precisamos de: um nome, um e-mail e um substituto para as férias dele.</p>
+    <p class="padrao"><b>Sem resposta:</b> não há padrão possível. Este é o único item da lista que nenhuma decisão nossa resolve, e é condição de entrega do site.</p>
+  </div>
+
+  <div class="item trava">
+    <div class="cab"><h3>Para onde vai a mensagem do formulário de contato</h3><span class="tag no">bloqueia</span></div>
+    <p>A página de contato tem um formulário pronto e protegido contra robôs. Falta saber três coisas, e duas delas passam pelo jurídico:</p>
+    <ul>
+      <li>o <b>e-mail</b> que recebe as mensagens;</li>
+      <li>o <b>texto de consentimento</b> exigido pela LGPD, na redação que o jurídico aprovar;</li>
+      <li>por <b>quanto tempo</b> a mensagem fica guardada.</li>
+    </ul>
+    <p class="pedido">Precisamos de: os três, antes da homologação.</p>
+    <p class="padrao"><b>Sem resposta:</b> a página de contato vai ao ar com telefone e endereço, e <b>sem formulário</b>. É preferível a publicar um formulário que recolhe dados pessoais sem base legal escrita.</p>
+  </div>
+
+  <div class="item trava">
+    <div class="cab"><h3>Aprovação dos textos novos, no site de homologação</h3><span class="tag no">bloqueia</span></div>
+    <p>O site novo preserva a identidade visual e o texto do site atual. Mas quinze frases <b>não existiam</b> e tiveram de ser escritas, quase todas porque a lei de acessibilidade exige que existam: a descrição do banner, o nome dos botões de página anterior e seguinte, a mensagem de erro do formulário, a página de endereço não encontrado, o "voltar ao topo".</p>
+    <p>Elas estão no site de homologação, no lugar em que vão aparecer. Ler no contexto é mais rápido que ler uma lista.</p>
+    <p class="pedido">Precisamos de: a leitura das três versões — português, inglês e espanhol — com as correções que vocês quiserem.</p>
+    <p class="padrao"><b>Sem resposta:</b> vão como estão. São textos funcionais, sem afirmação institucional, mas levam a voz da Alupar e ninguém de fora deveria ser o último a lê-los.</p>
+  </div>
+</section>
+
+<section id="s-editoriais">
+  <h2>2. Decisões editoriais — todas com padrão</h2>
+
+  <div class="item editorial">
+    <div class="cab"><h3>Quais notícias aparecem na página inicial</h3><span class="tag mid">decisão</span></div>
+    <p>A regra combinada é mostrar as notícias dos últimos 24 meses. Como a última é de março de 2023, essa regra hoje deixaria a <b>lista vazia</b>.</p>
+    <p class="pedido">Precisamos de: confirmar o preenchimento mínimo, ou dizer quantas notícias querem ver.</p>
+    <p class="padrao"><b>Padrão:</b> se sobrarem menos de seis notícias no corte de 24 meses, a lista mostra as <b>seis mais recentes</b>, sejam de quando forem. O arquivo completo continua acessível e nenhum endereço antigo deixa de responder.</p>
+  </div>
+
+  <div class="item editorial">
+    <div class="cab"><h3>As notícias de março de 2023 até hoje</h3><span class="tag mid">decisão</span></div>
+    <p>Enquanto o site institucional parou em 02/03/2023, o portal de Relações com Investidores seguiu publicando. São três anos e meio de notícias que existem na Alupar e não existem no institucional.</p>
+    <p>A decisão já tomada é que o institucional passe a se abastecer da base do RI, para não haver duas listas a alimentar. Isso depende de uma conversa entre vocês e a equipe do RI, que não é nossa para ter.</p>
+    <p class="pedido">Precisamos de: quem, do lado de vocês, fala com a equipe do RI — e o aval para que as notícias do período entrem.</p>
+    <p class="padrao"><b>Padrão:</b> o site entra no ar com o acervo que existe hoje, e o período em falta é carregado depois, já na manutenção.</p>
+  </div>
+
+  <div class="item editorial">
+    <div class="cab"><h3>Cinquenta e uma páginas que dependem do fornecedor atual</h3><span class="tag mid">decisão</span></div>
+    <p>Cinquenta e uma páginas do site atual exibem um leitor de PDF e um player de teleconferência que pertencem ao fornecedor que está saindo. Quando o contrato dele encerrar, esses trechos param de funcionar — no site atual também, não só no novo.</p>
+    <p>Trinta e oito delas são divulgações de resultados trimestrais, que são conteúdo de Relações com Investidores morando no institucional. Para essas, o caminho natural é o link para o portal de RI, que continua com outro fornecedor e segue funcionando.</p>
+    <p class="pedido">Precisamos de: o aval para apontar as divulgações de resultados ao portal de RI.</p>
+    <p class="padrao"><b>Padrão:</b> o texto de cada página vai como está, e o trecho que dependia do fornecedor deixa de aparecer. Nenhum endereço fica fora do ar.</p>
+  </div>
+
+  <div class="item editorial">
+    <div class="cab"><h3>O menu em inglês e em espanhol</h3><span class="tag mid">decisão</span></div>
+    <p>No site atual, quem navega em inglês ou em espanhol vê "Trabalhe Conosco" em português, no meio do menu traduzido.</p>
+    <p class="pedido">Precisamos de: confirmar a tradução, ou indicar a que a Alupar usa em outros materiais.</p>
+    <p class="padrao"><b>Padrão:</b> "Careers" em inglês e "Trabaje con nosotros" em espanhol.</p>
+  </div>
+
+  <div class="item editorial">
+    <div class="cab"><h3>A busca do cabeçalho</h3><span class="tag mid">decisão</span></div>
+    <p>O site atual tem um campo de busca no topo. O site novo é estático, o que é a razão de ele ser rápido, barato e seguro — e uma busca ali passa a exigir um serviço à parte.</p>
+    <p class="pedido">Precisamos de: saber se alguém usa. Se vocês têm registro de uso, ele decide isto melhor que qualquer opinião.</p>
+    <p class="padrao"><b>Padrão:</b> sai na troca e volta depois, na manutenção, se a medição de acesso mostrar procura.</p>
+  </div>
+  <div class="item editorial">
+    <div class="cab"><h3>O aviso de cookies que desaparece</h3><span class="tag mid">decisão</span></div>
+    <p>O site atual abre com uma faixa preta de aviso de cookies, com as opções de aceitar ou recusar e três categorias de escolha. Ela existe por uma razão: o site mede acessos por uma ferramenta que grava cookie no navegador de quem visita, e a lei exige consentimento para isso.</p>
+    <p>O site novo, no formato proposto, mede sem gravar cookie nenhum. Sem cookie não há o que consentir, e a faixa deixa de existir. A página abre limpa, e ninguém precisa clicar em nada para começar a ler.</p>
+    <p>O que se perde é a continuidade dos relatórios: a partir da troca, a ferramenta atual para de receber dados do institucional, e as comparações de vocês passam a sair da ferramenta nova.</p>
+    <p class="pedido">Precisamos de: a escolha entre as duas, junto com o Marketing e o jurídico. E saber de quem é a assinatura do serviço de aviso de cookies que o site usa hoje, porque alguém a paga.</p>
+    <p class="padrao"><b>Padrão:</b> medição sem cookie e sem faixa de aviso. A ferramenta atual volta, com a faixa, se a Alupar preferir manter os relatórios no mesmo lugar.</p>
+  </div>
+</section>
+
+<section>
+  <h2>3. O que corre contra o relógio, e não é decisão</h2>
+  <div class="item trava">
+    <div class="cab"><h3>O histórico de acessos precisa ser extraído antes da troca</h3><span class="tag no">irreversível</span></div>
+    <p>O site atual mede acessos por uma conta do Google Analytics compartilhada com o portal de RI. Quando o endereço passar para o site novo, a série histórica do institucional deixa de crescer — e o que não tiver sido extraído <b>antes</b> não se recupera depois.</p>
+    <p>É o único item desta lista que não tem segunda chance. Com ele em mãos, também deixamos de discutir por opinião quais páginas importam: passa a ser fato.</p>
+    <p class="pedido">Precisamos de: acesso de leitura à conta, ou a exportação dos últimos doze meses — páginas mais vistas, origem do tráfego e caminhos de saída.</p>
+    <p class="padrao"><b>Sem resposta:</b> a troca acontece assim mesmo, e a comparação entre antes e depois fica perdida para sempre.</p>
+  </div>
+</section>
+
+<section>
+  <h2>4. O que pode esperar a manutenção</h2>
+  <div class="item depois">
+    <div class="cab"><h3>Quarenta e quatro páginas com tabela no corpo</h3><span class="tag ok">depois</span></div>
+    <p>Quarenta e quatro itens do acervo usam tabela dentro do texto. Algumas são dado de verdade e continuam tabela; outras são um jeito de 2017 de alinhar conteúdo, e no celular obrigam a rolar para o lado. Separá-las exige olhar uma a uma, e nada disso impede a troca.</p>
+    <p class="pedido">Precisamos de: nada agora. Entra na manutenção, com a lista pronta.</p>
+  </div>
+  <div class="item depois">
+    <div class="cab"><h3>Revisão das versões em inglês e espanhol</h3><span class="tag ok">depois</span></div>
+    <p>As traduções que existem hoje vão para o site novo como estão. A revisão de paridade entre os três idiomas é trabalho editorial contínuo e entra na manutenção mensal.</p>
+    <p class="pedido">Precisamos de: nada agora.</p>
+  </div>
+</section>
+
+<section id="s-resumo">
+  <h2>Resumo — quem responde o quê</h2>
+  <table>
+    <thead><tr><th>O que</th><th>Quem responde</th><th>Quando</th></tr></thead>
+    <tbody>
+      <tr><td>Dono do conteúdo, com nome</td><td class="quem">Comunicação</td><td>o quanto antes</td></tr>
+      <tr><td>E-mail, texto de consentimento e prazo de guarda do formulário</td><td class="quem">Comunicação + jurídico</td><td>antes da homologação</td></tr>
+      <tr><td>Leitura dos textos novos nos três idiomas</td><td class="quem">Comunicação</td><td>antes da homologação</td></tr>
+      <tr><td>Histórico de acessos do Google Analytics</td><td class="quem">Comunicação + TI</td><td>antes da troca, sem segunda chance</td></tr>
+      <tr><td>Quantas notícias a página inicial mostra</td><td class="quem">Comunicação</td><td>tem padrão</td></tr>
+      <tr><td>Notícias de 2023 a 2026 e a conversa com o RI</td><td class="quem">Comunicação + RI</td><td>tem padrão</td></tr>
+      <tr><td>Divulgações de resultados apontando ao portal de RI</td><td class="quem">Comunicação</td><td>tem padrão</td></tr>
+      <tr><td>Menu em inglês e espanhol</td><td class="quem">Comunicação</td><td>tem padrão</td></tr>
+      <tr><td>Busca do cabeçalho</td><td class="quem">Comunicação</td><td>tem padrão</td></tr>
+      <tr><td>Aviso de cookies e forma de medir acessos</td><td class="quem">Comunicação + Marketing + jurídico</td><td>tem padrão</td></tr>
+    </tbody>
+  </table>
+  <p>Uma decisão desta etapa não é da Comunicação e segue em paralelo: a imagem do banner da página inicial em espanhol, com o Marketing.</p>
+  <div class="destaque"><p>Uma resposta por escrito a cada linha, ainda que seja "o padrão serve", é o que permite marcar a data da troca. A partir dela, a implantação leva de seis a sete semanas, e o site atual continua no ar até o último minuto: voltar atrás, se precisar, leva menos de meia hora.</p></div>
+</section>
+
+</div>
+</body></html>
