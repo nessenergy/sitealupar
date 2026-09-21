@@ -64,6 +64,7 @@
   --cinza-borda:     #D2D2D2;
   --cinza-fundo:     #F8F8F8;
   --branco:          #FFFFFF;
+  --erro:            #A61B1B;   /* 7,8:1 sobre branco; o âmbar do alerta do Design System (#B57A00) não passa dos 4,5:1 em texto pequeno */
 
   /* Rodapé do tema atual — não estão no MIV, estão no site */
   --rodape-fundo:    #231F20;
