@@ -1,4 +1,8 @@
 // src/lib/videos.ts
+
+// Vídeo institucional de 2026 no YouTube: a home e a lista de vídeos mostram o mesmo.
+export const VIDEO_INSTITUCIONAL = 'oqjwsKfpYZ4';
+
 /**
  * A listagem de vídeos sai dos itens do acervo, e o acervo traz o mesmo vídeo
  * em dois endereços (`…2017_edit` e `…2017_edit-3`, cada um com o título do

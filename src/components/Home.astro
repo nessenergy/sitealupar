@@ -19,12 +19,12 @@ import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import capa from '../assets/video-institucional.jpg';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
+import { VIDEO_INSTITUCIONAL } from '../lib/videos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
 const pre = prefixo[idioma];
-const VIDEO = 'oqjwsKfpYZ4';
 /* O rotativo saiu do topo em 16/09/2026 e com ele saíram `telas()`, as imagens
    de banner e o par `rotativo`/`gira`. As peças continuam versionadas em
    `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
@@ -57,13 +57,13 @@ const indicadores = [
         quando o player chega, nada muda de lugar. O iframe não está aqui: quem
         o cria é public/js/site.js, e só para quem não pediu economia. */}
     <section class="destaques destaque-video" aria-label={t.videoInstitucional}
-      data-video-topo={VIDEO} data-titulo={t.videoInstitucional}>
+      data-video-topo={VIDEO_INSTITUCIONAL}data-titulo={t.videoInstitucional}>
       <Picture src={capa} alt="" formats={['avif', 'webp']} widths={[640, 1280]}
         sizes="100vw" quality={60} loading="eager" fetchpriority="high" class="capa" />
       <button type="button" class="pausar-video" data-pausar-video hidden
         aria-label={t.videoTopo.pausar} data-pausar={t.videoTopo.pausar} data-retomar={t.videoTopo.retomar}>❚❚</button>
       <noscript>
-        <a class="assistir" href={`https://www.youtube.com/watch?v=${VIDEO}`}>{t.assistirVideo}</a>
+        <a class="assistir" href={`https://www.youtube.com/watch?v=${VIDEO_INSTITUCIONAL}`}>{t.assistirVideo}</a>
       </noscript>
     </section>
     {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:

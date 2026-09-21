@@ -13,13 +13,12 @@ import Base from '../layouts/Base.astro';
 import Trilha from './Trilha.astro';
 import capa from '../assets/video-institucional.jpg';
 import { itens } from '../lib/acervo';
-import { semTituloRepetido } from '../lib/videos';
+import { semTituloRepetido, VIDEO_INSTITUCIONAL } from '../lib/videos';
 import { textos, CODIGO, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
-const VIDEO = 'oqjwsKfpYZ4';
 const videos = semTituloRepetido(itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[idioma]));
 ---
 <Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
@@ -27,7 +26,7 @@ const videos = semTituloRepetido(itens().filter((i) => i.tipo === 'video' && i.i
     <div class="caixa">
       <Trilha idioma={idioma} titulo={t.videos} />
       <h1>{t.videos}</h1>
-      <a class="destaque" href={`https://www.youtube.com/watch?v=${VIDEO}`} data-video={VIDEO} data-titulo={t.videoInstitucional}>
+      <a class="destaque" href={`https://www.youtube.com/watch?v=${VIDEO_INSTITUCIONAL}`} data-video={VIDEO_INSTITUCIONAL} data-titulo={t.videoInstitucional}>
         <Picture src={capa} alt={t.assistirVideo} formats={['avif', 'webp']} widths={[480, 720]} sizes="(max-width: 767px) 100vw, 720px" quality={60} loading="eager" />
       </a>
       {videos.length > 0 && (
