@@ -96,13 +96,15 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
 - Dois valores da faixa institucional (km de linhas, MW instalados) — Alupar, até o M2.
 - **Revisar a D11 com a Alupar.** O motivo do CMS era a Comunicação publicar notícia e trocar banner sozinha; as duas coisas deixaram de existir. O que sobrou muda raramente e cabe no banco de manutenção. Pesa na decisão o compromisso de "autonomia de publicação" escrito na proposta comercial (`apresentacao/proposta.html`).
 - ~~Acesso ao feed de notícias do RI~~ — sem objeto desde a D16.
-- Formulário de contato (P5) — a Alupar decidiu o destino em 16/09/2026,
-  `comunicacao@alupar.com.br`, mas a troca **ainda não está em vigor**: falta
-  verificar o domínio de envio `msg.alupar.com.br` no Resend, publicar o DNS
-  na zona da Alupar e gravar o segredo `CONTATO_DESTINO` em produção. Até lá o
-  formulário segue com o remetente de sandbox da Resend e a caixa provisória
-  da ness (detalhe em `docs/plano-virada.md`, Tarefa 10, Passo 12). O texto de
-  consentimento já foi trocado nos três idiomas, num branch separado.
+- Formulário de contato (P5) — destino e remetente em vigor desde 16/09/2026:
+  o formulário envia de `comunicacao@alupar.com.br` para
+  `comunicacao@alupar.com.br`. O domínio verificado no Resend é a raiz
+  `alupar.com.br`, região `sa-east-1`, e não o `msg.alupar.com.br` que o plano
+  previa; DKIM e caminho de retorno (`send.alupar.com.br`) conferidos no DNS.
+  A entrega ainda não foi provada: falta a Comunicação enviar uma mensagem de
+  teste e confirmar que ela chega fora do spam — remetente igual ao
+  destinatário, por serviço externo, pode ser tratado como falsificação pelo
+  e-mail corporativo. O texto de consentimento já foi trocado nos três idiomas (#92).
 - ~~Prazo de guarda dos dados do formulário~~ — **respondido em 16/09/2026:
   30 dias.** O formulário não tem banco: o caminho é navegador, Worker em
   memória, Resend, caixa de correio. Então o prazo vale nos **dois** lugares
