@@ -999,5 +999,16 @@
    640,
    957
   ]
+ },
+ "sites/alupar/2026/09/mapa-ativos.png": {
+  "largura": 1645,
+  "altura": 2333,
+  "variantes": [
+   480,
+   640,
+   960,
+   1440,
+   1645
+  ]
  }
 }
