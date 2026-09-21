@@ -111,3 +111,23 @@ if (rotativo) {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) anunciarPausa(true);
   else { girar(); anunciarPausa(false); }
 }
+
+// Pausa do vídeo do topo da home. O player entra tocando e mudo, e conteúdo
+// que se move sozinho por mais de cinco segundos precisa de um jeito de parar
+// (WCAG 2.2.2). Os controles nativos estão desligados porque o recorte da
+// faixa cortaria a barra deles; a conversa é pela API de postMessage do
+// YouTube, que `enablejsapi=1` no src habilita.
+const videoTopo = document.querySelector('iframe[data-video-topo]');
+const pausarVideo = document.querySelector('button[data-pausar-video]');
+if (videoTopo && pausarVideo) {
+  pausarVideo.addEventListener('click', () => {
+    const vaiPausar = pausarVideo.getAttribute('aria-pressed') === 'false';
+    videoTopo.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: vaiPausar ? 'pauseVideo' : 'playVideo', args: [] }),
+      'https://www.youtube-nocookie.com',
+    );
+    pausarVideo.setAttribute('aria-pressed', String(vaiPausar));
+    pausarVideo.setAttribute('aria-label', vaiPausar ? pausarVideo.dataset.retomar : pausarVideo.dataset.pausar);
+    pausarVideo.textContent = vaiPausar ? '▶' : '❚❚';
+  });
+}

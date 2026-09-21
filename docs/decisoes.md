@@ -22,6 +22,7 @@ Visual de 2018.
 | D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
 | D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
 | D15 | Modelo comercial | **Entrada de R$ 12.500 e mensalidade de R$ 1.500, por 12 meses renováveis por 12** | A Alupar já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha; a implantação é paga na entrada, e não diluída num contrato longo |
+| D18 | Orçamento de peso da home | **600 KB → 3 MB**, para o vídeo do topo tocar sozinho | A Alupar pediu o institucional no lugar do rotativo, tocando ao abrir. Medido: com o player carregado o peso vai a 2,39 MB — 1,19 MB de vídeo e ~850 KB do JS do YouTube. O limite antigo reprovava por quatro vezes. **Não é afrouxar um portão para fazer passar** (regra 5): é o preço declarado de um pedido da cliente, decidido por ela em 16/09/2026 depois de ver o número. A alternativa aberta continua sendo hospedar um laço curto em MP4, que dispensa o JS do YouTube e devolveria a maior parte do orçamento — falta o arquivo de vídeo |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
