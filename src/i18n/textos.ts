@@ -161,7 +161,7 @@ export const textos: Record<Idioma, Textos> = {
     formulario: {
       obrigatorios: '* Campos obrigatórios', // novo
       nome: 'Nome', email: 'E-mail', empresa: 'Empresa', telefone: 'Telefone', assunto: 'Assunto', mensagem: 'Mensagem',
-      consentimento: 'Concordo com o uso dos meus dados para a resposta a este contato, conforme a', // provisório — P5
+      consentimento: 'Li e aceito a',
       enviar: 'Enviar mensagem',
       obrigado: 'Mensagem enviada. Obrigado pelo contato.', // novo
       naoEnviado: 'Não foi possível enviar a mensagem. Confira os campos e tente de novo.', // novo
@@ -234,7 +234,7 @@ export const textos: Record<Idioma, Textos> = {
     formulario: {
       obrigatorios: '* Required fields',
       nome: 'Name', email: 'Email', empresa: 'Company', telefone: 'Phone', assunto: 'Subject', mensagem: 'Message',
-      consentimento: 'I agree to the use of my data to answer this message, as described in the', // provisório — P5
+      consentimento: 'I read and agree with the',
       enviar: 'Send message',
       obrigado: 'Message sent. Thank you for getting in touch.',
       naoEnviado: 'The message could not be sent. Please check the fields and try again.',
@@ -301,7 +301,7 @@ export const textos: Record<Idioma, Textos> = {
     formulario: {
       obrigatorios: '* Campos obligatorios',
       nome: 'Nombre', email: 'Correo electrónico', empresa: 'Empresa', telefone: 'Teléfono', assunto: 'Asunto', mensagem: 'Mensaje',
-      consentimento: 'Acepto el uso de mis datos para responder a este contacto, conforme la', // provisório — P5
+      consentimento: 'Leí y acepto la',
       enviar: 'Enviar mensaje',
       obrigado: 'Mensaje enviado. Gracias por contactarnos.',
       naoEnviado: 'No fue posible enviar el mensaje. Revise los campos e intente de nuevo.',
