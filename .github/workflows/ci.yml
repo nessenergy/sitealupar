@@ -122,6 +122,26 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
+      # Perfil de celular. Roda depois de todo o desktop (colher, guardar,
+      # asserir, publicar) e num diretório limpo: `assert` lê tudo o que há em
+      # .lighthouseci/, e misturar os relatórios de desktop com o teto de
+      # celular reprovaria as duas metades pelo motivo errado.
+      - name: Lighthouse celular — colher (6 URLs, 2 execuções)
+        run: |
+          rm -rf .lighthouseci
+          npx --yes @lhci/cli@0.14.x collect --config=lighthouserc.mobile.json
+
+      - name: Guardar relatórios do Lighthouse de celular
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-celular
+          path: .lighthouseci/
+          retention-days: 5
+
+      - name: Lighthouse celular — asserções (CLS, LCP, peso, acessibilidade)
+        run: npx --yes @lhci/cli@0.14.x assert --config=lighthouserc.mobile.json
+
       # Substitui o `linkinator`, que NÃO estava verificando nada: ele rasteja a
       # partir de dist/index.html, e a home ainda não tem navegação — escaneava
       # 1 link e passava. Passou despercebido enquanto o site tinha 3 páginas.

@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./dist",
+      "numberOfRuns": 2,
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/en/index.html",
+        "http://localhost/empresas/index.html",
+        "http://localhost/contato/index.html",
+        "http://localhost/a-companhia/index.html",
+        "http://localhost/area-de-atuacao/index.html"
+      ]
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.85 }],
+        "categories:accessibility": ["error", { "minScore": 1 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 4000 }],
+        "total-byte-weight": ["error", { "maxNumericValue": 3145728 }],
+        "color-contrast": "error",
+        "image-alt": "error",
+        "label": "error",
+        "html-has-lang": "error",
+        "meta-description": "error"
+      }
+    }
+  }
+}
