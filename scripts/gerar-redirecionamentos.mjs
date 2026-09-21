@@ -46,9 +46,18 @@ const caminhosPt = new Set(vivos.filter((i) => i.idioma === 'pt').map((i) => i.c
  * existe em português — e é ele que vira `/en/…` ou `/es/…` no site novo.
  * Onde o caminho é o mesmo do português, quem distingue é o `?lang=`, e o
  * caso é da borda, não deste arquivo.
+ *
+ * `/noticia/…` fica de fora desde 16/09/2026 (D16): a área de notícias foi
+ * desativada e não tem mais página nenhuma, traduzida ou não. Sem este
+ * filtro, este script emitiria de novo as traduções e o "sem corpo quer ir
+ * para a home" para um endereço que já era `/noticia/…` na origem — os dois
+ * casos que a Task 4 reviu. As seis regras com curinga no bloco dinâmico de
+ * `public/_redirects` (`/noticia/*`, `/noticias/*`, com e sem prefixo de
+ * idioma) já cobrem esse espaço inteiro num salto só, direto para o RI —
+ * então não há o que este bloco precise gerar para ele.
  */
 const slugsTraduzidos = vivos
-  .filter((i) => i.idioma !== 'pt' && !caminhosPt.has(i.caminho))
+  .filter((i) => i.idioma !== 'pt' && !caminhosPt.has(i.caminho) && !/^\/noticias?\//.test(i.caminho))
   .sort((a, b) => a.caminho.localeCompare(b.caminho));
 
 const porIdioma = (l) => slugsTraduzidos.filter((i) => i.idioma === l);

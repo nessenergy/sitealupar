@@ -48,14 +48,14 @@ Valem para toda tarefa. Copiadas de [`AGENTS.md`](../AGENTS.md):
 | # | Decisão | De quem | Padrão | Prazo |
 |---|---|---|---|---|
 | P1 | Banner em espanhol: nenhum é de 2024 em diante | Marketing | `tela-03.jpg` ("Energía que impulsa la vida"), a peça genérica que o ES já mostra | Tarefa 8 |
-| P2 | Listagem de notícias de 24 meses (D9) nasce vazia: a última notícia é de 02/03/2023 | Comunicação | 24 meses; se sobrarem menos de 6, completa com as 6 mais recentes | Tarefa 9 |
-| P3 | Busca do cabeçalho: site estático não tem busca do WordPress | Comunicação | Sai na virada; volta na manutenção se o GA4 mostrar uso | Tarefa 7 |
+| P2 | Listagem de notícias de 24 meses (D9) nasce vazia: a última notícia é de 02/03/2023 | Comunicação | Respondido em 16/09/2026: a área de notícias sai inteira (D16). A listagem de 24 meses deixou de existir | Tarefa 9 |
+| P3 | Busca do cabeçalho: site estático não tem busca do WordPress | Comunicação | Respondido em 16/09/2026: "Desativar nesta primeira versão" — confirma o padrão; a busca volta na manutenção se houver demanda | Tarefa 7 |
 | P4 | Seletor de idioma: bandeiras do tema ou siglas em texto | Marketing | Siglas `PT · EN · ES` — o sprite do tema não está no CSS público, e bandeira não é rótulo acessível | Tarefa 7 |
-| P5 | Formulário: e-mail de destino, texto LGPD (Clarice) e prazo de retenção | Alupar + jurídico | Sem os três até a homologação, a página vai com dados de contato e sem formulário | Tarefa 10 |
-| P6 | 51 páginas que dependem de serviços da MZ (#43) | Comunicação | Vão como estão; o player/API da MZ some com o contrato e o texto fica | Tarefa 12 |
-| P7 | Menu EN/ES traz "Trabalhe Conosco" em português | Comunicação | "Careers" / "Trabaje con nosotros" | Tarefa 7 |
+| P5 | Formulário: e-mail de destino, texto LGPD (Clarice) e prazo de retenção | Alupar + jurídico | Respondido em 16/09/2026, nas três partes. **Destino**: `comunicacao@alupar.com.br`, segredo `CONTATO_DESTINO` já gravado em produção. O domínio de envio verificado no Resend é `alupar.com.br`, a raiz, na região `sa-east-1` — e não o subdomínio `msg.` que este plano previa; DKIM e caminho de retorno (`send.alupar.com.br`) publicados e conferidos. Falta só gravar `CONTATO_REMETENTE` como `Alupar <comunicacao@alupar.com.br>`; até lá o remetente segue na caixa de areia da Resend e o envio para fora falha. **Texto de consentimento já trocado**, nos três idiomas, num branch separado. **Prazo de guarda: 30 dias**, valendo nos dois lugares onde a mensagem persiste — a caixa da Comunicação e o histórico do Resend (ver `docs/decisoes.md`). | Tarefa 10 |
+| P6 | 51 páginas que dependem de serviços da MZ (#43) | Comunicação | Vão como estão; o player/API da MZ some com o contrato e o texto fica. A resposta 7 da Alupar — as divulgações de resultados apontando ao portal de RI — chega depois e não bloqueia a virada | Tarefa 12 |
+| P7 | Menu EN/ES traz "Trabalhe Conosco" em português | Comunicação | Respondido em 16/09/2026: "Careers" e "Trabaje con nosotros" — confirma o padrão já no ar | Tarefa 7 |
 | P8 | Vídeo da home: incorporado já no carregamento pesa ~1 MB de YouTube | — | Capa local; o player só carrega no clique | Tarefa 8 |
-| P9 | Medição e cookies: o site atual carrega o GA4 `G-HH1N2K084G` (propriedade compartilhada com o RI) e o banner do CookieScript; o novo não tem nenhum dos dois. Saber também de quem é a conta do CookieScript | Marketing + jurídico | Cloudflare Web Analytics, sem cookie e sem banner. O GA4 volta, com banner de consentimento, se a Alupar pedir — sem isso, os relatórios dela perdem o institucional na data da virada | Tarefa 12 |
+| P9 | Medição e cookies: o site atual carrega o GA4 `G-HH1N2K084G` (propriedade compartilhada com o RI) e o banner do CookieScript; o novo não tem nenhum dos dois. Saber também de quem é a conta do CookieScript | Marketing + jurídico | Respondido em 16/09/2026: não existe histórico de GA4 — "até a minha chegada isso não existia". A medição começa agora, pelo Cloudflare Web Analytics, sem cookie e sem banner | Tarefa 12 |
 
 ## Mapa de arquivos
 
@@ -417,6 +417,12 @@ gh pr merge 49 --squash --delete-branch \
 ```
 
 ### Tarefa 4: continuidade — todo endereço vivo resolve
+
+**A regra 1 do `destino()` abaixo foi superada pela D16 em 16/09/2026**: uma
+notícia sem corpo não vai mais para "a listagem do idioma" — a listagem saiu
+do ar, e o destino passou a ser `https://ri.alupar.com.br/noticias/`, direto.
+`scripts/lib/continuidade.mjs` já reflete isto; o trecho abaixo é o registro
+de como a função nasceu.
 
 Medido em 10/09/2026 contra o build do #49: **254 dos 666 endereços que
 respondem 200 hoje deixariam de responder** — 188 páginas de anexo do
@@ -1668,6 +1674,11 @@ git push -u origin feat/home && gh pr create --fill --base main
 
 ### Tarefa 9: listagem de notícias e arquivo paginado
 
+**Superada pela D16 em 16/09/2026**: tudo o que esta tarefa criou —
+`/noticias/`, o arquivo paginado e os componentes abaixo — foi removido na
+Task 4 de `docs/superpowers/plans/2026-09-16-respostas-da-alupar.md`. Fica
+como registro de como a listagem foi construída, não como estado atual.
+
 `/noticias/` existe hoje como página do acervo com 33 palavras de casca. Passa
 a ser a listagem gerada (N2), e nasce o arquivo paginado (N3) — que mantém as
 notícias alcançáveis por link, não só por 301.
@@ -2183,12 +2194,15 @@ for s in TURNSTILE_SECRET RESEND_API_KEY CONTATO_DESTINO CONTATO_REMETENTE; do
 done
 ```
 
-  **Valores provisórios em uso desde 14/09**, até a Alupar responder a P5:
-  remetente `onboarding@resend.dev`, o endereço de sandbox da Resend, que
-  dispensa domínio verificado; destino, uma caixa da ness. Ao responderem,
-  trocam-se os dois — e o remetente só sai do sandbox quando
-  `msg.alupar.com.br` estiver verificado, que é o que libera enviar para
-  qualquer destinatário.
+  **Valores provisórios em uso desde 14/09**, até `msg.alupar.com.br` estar
+  verificado no Resend e o segredo `CONTATO_DESTINO` estar gravado no
+  ambiente de produção do Pages: remetente `onboarding@resend.dev`, o
+  endereço de sandbox da Resend, que dispensa domínio verificado; destino,
+  uma caixa da ness. A Alupar respondeu a P5 em 16/09/2026 — o destino
+  decidido é `comunicacao@alupar.com.br` —, mas isso sozinho não troca os
+  valores: o remetente só sai do sandbox quando `msg.alupar.com.br` estiver
+  verificado, que é o que libera enviar para qualquer destinatário, e só
+  então o segredo `CONTATO_DESTINO` é reescrito com o endereço definitivo.
 
   O segredo do Turnstile foi girado pela API no mesmo dia, com o antigo
   invalidado na hora. A chave pública não muda ao girar, então o site não
@@ -2379,10 +2393,10 @@ voltar atrás é trocar um registro de DNS.
 - [x] Mídia no R2 (11/09/2026): bucket `alupar-arquivos`, domínio `arquivos.alupar.com.br` ativo. Em 13/09 entraram os 8 originais resgatados no PR #66: 128 objetos. Desde 14/09 **o CI confere isto a cada merge na main**, contra `acervo/r2.json`, e abre issue se reprovar — não é mais item de véspera. Quem publicar mídia nova commita o manifesto junto
 - [x] Turnstile (11/09/2026): widget com `alupar.com.br` e `sitealupar.pages.dev` nos hostnames — o `alupar.com.br` já cobre o `www`
 - [ ] Marketing aprovou cabeçalho, rodapé e home **no preview** (portão M2); Comunicação aprovou cada texto marcado `// novo` — `grep -n "// novo\|provisório" src/i18n/textos.ts` dá a lista
-- [ ] **Linha de base do GA4 extraída** (páginas mais vistas, origem de tráfego, últimos 12 meses). Depois da virada ela não se recupera
+- ~~Linha de base de acessos do GA4, para comparar antes e depois~~ — **cai em 16/09/2026**: a Alupar confirmou que não existe histórico ("até a minha chegada isso não existia"). Não há linha de base a levantar, e esperar por uma seguraria a virada por um dado que ninguém tem. A medição do site novo começa na virada, pelo Cloudflare Web Analytics.
 - [ ] Acervo sem novidade desde a extração: `curl -sS https://www.alupar.com.br/noticia-sitemap.xml | grep -c "<loc>"` → 225 (conferido em 13/09: 225). Repetir na véspera; se mudou, rodar a esteira do `acervo/README.md` antes
 - [ ] `node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev` aprovado (13/09: 276 endereços, todos em 200; repetir na véspera)
-- [ ] Interlocutor do RI (A2) avisado da data: o RI divide a máquina da MZ com o institucional, e nada muda para `ri.alupar.com.br`
+- [ ] Interlocutor do RI (A2) avisado da data: desde a D16, o institucional manda os endereços de notícia desativados para `ri.alupar.com.br/noticias/` — **não é mais "nada muda" para o RI**, é dependência. 186 dos nossos endereços só continuam em 200 enquanto aquele portal servir `/noticias/`. Não marcar a data sem os dois itens de confirmação na véspera, abaixo
 
 **Na véspera:**
 
@@ -2390,6 +2404,20 @@ voltar atrás é trocar um registro de DNS.
 - [ ] Rules → Redirect Rules → criar as duas regras de `?lang=` exatamente como em `infra/redirect-rules.md` (depois da regra do apex). Ficam inertes enquanto `www` não tem proxy. Pela API, **acrescentar** (`POST …/rulesets/{id}/rules`); um `PUT` no entrypoint da fase substitui a lista e apaga a regra do apex
 - [x] SSL/TLS → Edge Certificates → HSTS → **desligar o HSTS da zona** — feito em 11/09/2026, adiantado da véspera; conferido: apex e `arquivos` sem `Strict-Transport-Security`, `ri` inalterado, `nosniff` mantido. Antes estava ligado com `max-age=0; includeSubDomains; preload`. Com proxy no `www`, esse cabeçalho de zona cobre o `Strict-Transport-Security` do `_headers`, e o `includeSubDomains` na zona é justamente o que não pode existir por causa do `ri.alupar.com.br`. O HSTS do site fica só no `_headers`, por host
 - [ ] Opcional: SSL/TLS → Edge Certificates → Minimum TLS → 1.2 (hoje 1.0). Vale só para os hosts com proxy (apex, `www` e `arquivos`); o `ri` está sem proxy e não muda
+- [ ] Confirmar com quem administra o certificado que o curinga `*.alupar.com.br` será renovado antes de **21/10/2026** — é o vencimento medido hoje (16/09) em `www.alupar.com.br` e em `ri.alupar.com.br`, o mesmo certificado nos dois hosts (ver nota abaixo)
+- [ ] Confirmar com o time de RI que `/noticias/` em `ri.alupar.com.br` não vai mudar de lugar — é o destino dos 186 endereços de notícia redirecionados pela D16; se sumir ou mover, esses endereços passam a quebrar
+
+Nota sobre a sentinela diária (`.github/workflows/sentinela.yml`, julgamento em
+`scripts/lib/sentinela.mjs`): `www.alupar.com.br` e `ri.alupar.com.br` servem
+hoje (16/09) o mesmo certificado — fingerprint SHA-256 idêntico,
+`CN=*.alupar.com.br`, GoDaddy G2, vencendo `Oct 21 13:06:28 2026`, a uns 35
+dias. `ALERTA_DIAS` do sentinela é 30, então a partir de ~21/09/2026 o job
+diário passa a reprovar todo dia até o certificado ser renovado — **é
+esperado**, não é regressão, e não é para abaixar `ALERTA_DIAS` para calar o
+alarme (isso seria afrouxar uma verificação, e o vencimento é o prazo duro do
+projeto). A solução é a renovação do certificado ou a migração do domínio
+para a Cloudflare — o que acontecer primeiro na virada. Como o certificado é
+o mesmo nos dois hosts, o RI cai no mesmo instante que a origem.
 
 **No dia:**
 
@@ -2479,7 +2507,7 @@ Fora deste plano, na ordem em que entram depois da virada. Cada uma ganha seu
 próprio plano quando chegar a vez.
 
 1. **Sanity com banner e notícia**, conta em nome da Alupar (D11, Z2), webhook de build. É aqui que se cumpre "a Comunicação publica sem chamado a fornecedor"
-2. **Notícias de 03/2023 até hoje** — pelo feed do RI (D5) ou por carga manual (Marco 0.3). Com elas, a listagem volta ao corte puro de D9
+2. ~~**Notícias de 03/2023 até hoje** — pelo feed do RI (D5) ou por carga manual (Marco 0.3). Com elas, a listagem volta ao corte puro de D9~~ — sem objeto desde a D16 (16/09/2026): a área de notícias foi desativada
 3. **Faixa institucional completa**, quando a Alupar enviar km de linhas e MW instalados
 4. **Carrossel** (H1) e recorte de banner por breakpoint, quando houver dois ou mais banners
 5. **Paridade EN/ES**: as 44 revisões de `docs/revisao-de-conteudo.md` e as 25 tabelas sem `<th>`

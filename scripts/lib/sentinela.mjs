@@ -30,6 +30,7 @@ const DIA = 86_400_000;
 /**
  * @param {object} e
  * @param {string} e.host
+ * @param {string} [e.caminho]   caminho a pedir; '/' por padrão
  * @param {string} e.codigo      código HTTP, ou 'erro' quando o curl falhou
  * @param {number} e.saidaCurl   exit code do curl
  * @param {string} e.fim         data de `openssl x509 -enddate`, ou '' se não veio
@@ -37,7 +38,7 @@ const DIA = 86_400_000;
  * @param {boolean} [e.virada]   o domínio já aponta para o site novo
  * @returns {{ok: boolean, estado: string, dias: number|null, mensagem: string}}
  */
-export function avaliar({ host, codigo, saidaCurl, fim, agora = new Date(), virada = false }) {
+export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = new Date(), virada = false }) {
   const vencimento = fim ? new Date(fim) : null;
   const dias =
     vencimento && !Number.isNaN(vencimento.getTime())
@@ -67,7 +68,11 @@ export function avaliar({ host, codigo, saidaCurl, fim, agora = new Date(), vira
 
   const prazo = dias === null ? 'sem certificado legível' : `certificado vence em ${dias} dias (${fim})`;
   const nota = estado === 'cadeia-incompleta' && toleraCadeia ? ' · conhecido, sai na virada' : '';
-  const mensagem = `${ok ? 'ok  ' : 'FALHA'} ${host} → HTTP ${codigo} · ${estado} · ${prazo}${nota}`;
+  /* O caminho entra no relato porque há host cuja saúde se mede numa página,
+     não na raiz: o destino dos 301 de notícia (D16) é /noticias/ do portal de
+     RI, e a raiz dele pode estar de pé com aquela página fora do ar. */
+  const alvo = caminho === '/' ? host : `${host}${caminho}`;
+  const mensagem = `${ok ? 'ok  ' : 'FALHA'} ${alvo} → HTTP ${codigo} · ${estado} · ${prazo}${nota}`;
 
   return { ok, estado, dias, mensagem };
 }

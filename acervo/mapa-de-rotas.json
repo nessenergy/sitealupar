@@ -1,16 +1,15 @@
 {
-  "geradoEm": "2026-09-09T03:38:23.161Z",
-  "total": 376,
+  "geradoEm": "2026-09-16T14:57:10.795Z",
+  "total": 163,
   "porIdioma": {
-    "en": 153,
-    "es": 75,
-    "pt": 148
+    "en": 55,
+    "es": 55,
+    "pt": 53
   },
   "porTipo": {
     "faq": 101,
     "group": 23,
-    "noticia": 210,
-    "pagina": 32,
+    "pagina": 29,
     "politica-de-privacidade": 3,
     "video": 7
   },
@@ -25,9 +24,599 @@
   ],
   "descartados": [
     {
+      "rota": "/en/noticia/1q14-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/1q15-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/1q17-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/1q20-earnings-release-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/1q21-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/2011-fitch-ratings/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/2q14-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/2q15-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/2q16-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/2q17-earnings-release-2-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/3q14-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/3q15-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/3q16-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/4q13-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/4q14-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/4q16-earnings-release/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/agoe-edital-de-convocacao-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-and-furnas-will-build-ten-wind-farms-in-ceara/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-launched-power-transmission-system-in-mt/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-launched-power-transmission-system-in-mt-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-vence-leilao-do-lote-d-da-aneel/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-will-invest-in-power-generation-in-colombia/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/alupar-wins-lot-d-in-transmission-auction/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/authorization-for-the-reinforcement-of-installations/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/commercial-operation-of-authorized-enhancement-of-erte/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-1t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-3t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-do-2t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/divulgacao-de-resultados-do-3t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/ebte-opening/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/fitch-rating-affirms-the-rating-of-alupar/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/foz-do-rio-claro-hpp-2nd-turbines-startup/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/foz-do-rio-claro-hpp-launched-in-goias/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/groundbreaking-for-uhe-ferreira-gomes-is-celebrated/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-6th-debenture-issuance/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-finalized-eate/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-la-virgen/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-agua-limpa/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-aracati-complex-acquisition/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-market-maker/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-payment-of-interim-dividends/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-pch-verde-8/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/material-fact-sale-of-shares-sinop/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/modification-of-shp-morro-azul-environmental-license/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-funcef/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-change-of-independent-auditor/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-investor-relations-officer-election/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-market-maker/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/notice-to-the-market-tne/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/projetos-devem-atingir-730-megawatts/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/projetos-devem-atingir-730-megawatts-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/sao-jose-hpp-2nd-turbines-startup/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/signed-the-concession-for-the-installation-of-ferreira-gomes-hpp/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/uhe-sao-jose-e-inaugurada-em-rs-portuguese-only/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticia/upgrading-of-corporate-rating/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/en/noticias/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/noticias/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
       "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/ → /en/politica-de-privacidade/condicoes-de-uso/"
+    },
+    {
+      "rota": "/es/noticia/1q20-earnings-release-solo-ingles-y-portugues/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/1t21-earnings-release-solo-ingles-y-portugues/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/3q17-earnings-release-solo-ingles-y-portugues/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-1t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-3t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticia/divulgacao-de-resultados-do-2t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/noticias/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/noticias/* → https://ri.alupar.com.br/noticias/"
     },
     {
       "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
@@ -55,6 +644,476 @@
       "porque": "página de categoria gerada pelo WordPress"
     },
     {
+      "rota": "/noticia/agoe-edital-de-convocacao/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/agoe-edital-de-convocacao-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-conquista-lote-d-no-leilao-da-aneel/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-e-furnas-vao-construir-dez-parques-eolicos-no-ceara/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-inaugura-sistema-de-transmissao-de-energia-no-mt/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-lanca-novos-sites-institucional-e-de-relacoes-com-investidores/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-vai-investir-em-energia-eletrica-na-colombia/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-vence-leilao-para-construcao-de-715-km-de-linha-de-transmissao-no-norte-do-pais/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/alupar-vence-lote-d-em-leilao-de-transmissao/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/assinada-a-concessao-para-implantacao-da-uhe-de-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/autorizacao-para-implantacao-de-reforco-de-instalacoes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-auditor-independente/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-alteracao-dri/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aprovacao-pelo-cade-do-ato-de-concentracao-no-08700-0094632014-65/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-funcef/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-gic-private-limited/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-contratacao-de-formador-de-mercado/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-etvg-autorizacao-para-implantar-reforcos-em-instalacoes-de-transmissao/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-ferreira-gomes-desvio-do-rio-araguari/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-da-uhe-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug2-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-pedido-de-analise-previa-de-oferta-publica/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-reapresentacao-da-proposta-da-administracao-para-a-agoe/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-tme-autorizacao-para-implantar-reforcos-em-instalacao-de-transmissao/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/comunicado-ao-mercado-tne/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-1t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-2t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-3t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-3t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-3t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-3t21/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t18/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t19/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-4t20/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t14/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t15/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-1t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t14/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t15/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t16/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-2t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t14/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t15/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t16/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-3t17/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t13/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t14/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/divulgacao-de-resultados-do-4t16/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/elevacao-de-rating-corporativo/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/entrada-em-operacao-comercial-de-reforco-autorizado-da-erte/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/entrada-em-operacao-da-tme/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-6a-emissao-de-debentures/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-ampliacao-de-participacao-em-transmissoras/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-complexo-aracati/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-de-participacoes-societarias-no-complexo-aracati/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-aquisicao-la-virgen/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-concretizacao-de-aquisicao-eate/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-distribuicao-de-dividendos-intermediarios/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-formador-de-mercado/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-pch-agua-limpa/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-pch-verde-8/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fato-relevante-venda-de-acoes-sinop/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fitch-eleva-ratings-da-alupar/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fitch-rating-afirma-o-rating-da-alupar/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/fitch-ratings-2011/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/inauguracao-da-ebte/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/lancada-pedra-fundamental-da-uhe-ferreira-gomes/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/licenca-ambiental-previa-da-pch-agua-limpa/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/modificacao-da-licenca-ambiental-da-pch-morro-azul/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/moodys-atribui-ratings-ba2aa3-br-para-as-debentures-da-alupar/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/notice-to-the-market-change-in-the-annual-calendar-of-corporate-events/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/uhe-foz-do-rio-claro-e-inaugurada-em-goias/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/uhe-foz-do-rio-claro-entrada-em-operacao-2a-turbina/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/uhe-sao-jose-e-inaugurada-em-rs/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/noticia/uhe-sao-jose-entrada-em-operacao-2a-turbina/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticia/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
       "rota": "/alupar-e-a-covid-19/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /alupar-e-a-covid-19/* → /sustentabilidade/"
@@ -63,6 +1122,11 @@
       "rota": "/faq-new/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /faq-new/ → /"
+    },
+    {
+      "rota": "/noticias/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /noticias/* → https://ri.alupar.com.br/noticias/"
     },
     {
       "rota": "/pesquisa-e-desenvolvimento/",
@@ -460,879 +1524,6 @@
       "palavras": 903
     },
     {
-      "rota": "/en/noticia/1q14-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "1q14-earnings-release",
-      "titulo": "1Q14 Earnings Release",
-      "data": "2014-05-09",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/1q15-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "1q15-earnings-release",
-      "titulo": "1Q15 Earnings Release",
-      "data": "2015-05-15",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/1q17-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "1q17-earnings-release",
-      "titulo": "1Q17 Earnings Release",
-      "data": "2017-05-15",
-      "palavras": 42
-    },
-    {
-      "rota": "/en/noticia/1q20-earnings-release-2/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "1q20-earnings-release-2",
-      "titulo": "1Q20 Earnings Release",
-      "data": "2020-06-01",
-      "palavras": 62
-    },
-    {
-      "rota": "/en/noticia/1q21-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "1q21-earnings-release",
-      "titulo": "1Q21 Earnings Release",
-      "data": "2021-05-10",
-      "palavras": 13
-    },
-    {
-      "rota": "/en/noticia/2011-fitch-ratings/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "2011-fitch-ratings",
-      "titulo": "2011 Fitch Ratings",
-      "data": "2011-04-05",
-      "palavras": 64
-    },
-    {
-      "rota": "/en/noticia/2q14-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "2q14-earnings-release",
-      "titulo": "2Q14 Earnings Release",
-      "data": "2014-08-07",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/2q15-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "2q15-earnings-release",
-      "titulo": "2Q15 Earnings Release",
-      "data": "2015-08-12",
-      "palavras": 40
-    },
-    {
-      "rota": "/en/noticia/2q16-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "2q16-earnings-release",
-      "titulo": "2Q16 Earnings Release",
-      "data": "2016-08-11",
-      "palavras": 40
-    },
-    {
-      "rota": "/en/noticia/2q17-earnings-release-2-2/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "2q17-earnings-release-2-2",
-      "titulo": "2Q17 Earnings Release",
-      "data": "2017-08-14",
-      "palavras": 42
-    },
-    {
-      "rota": "/en/noticia/3q14-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "3q14-earnings-release",
-      "titulo": "3Q14 Earnings Release",
-      "data": "2014-11-11",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/3q15-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "3q15-earnings-release",
-      "titulo": "3Q15 Earnings Release",
-      "data": "2015-11-12",
-      "palavras": 40
-    },
-    {
-      "rota": "/en/noticia/3q16-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "3q16-earnings-release",
-      "titulo": "3Q16 Earnings Release",
-      "data": "2016-11-11",
-      "palavras": 42
-    },
-    {
-      "rota": "/en/noticia/4q13-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "4q13-earnings-release",
-      "titulo": "4Q13 Earnings Release",
-      "data": "2014-02-27",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/4q14-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "4q14-earnings-release",
-      "titulo": "4Q14 Earnings Release",
-      "data": "2015-03-05",
-      "palavras": 43
-    },
-    {
-      "rota": "/en/noticia/4q16-earnings-release/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "4q16-earnings-release",
-      "titulo": "4Q16 Earnings Release",
-      "data": "2017-03-10",
-      "palavras": 42
-    },
-    {
-      "rota": "/en/noticia/agoe-edital-de-convocacao-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "agoe-edital-de-convocacao-portuguese-only",
-      "titulo": "AGO/E – Edital de Convocação (Portuguese Only)",
-      "data": "2015-03-16",
-      "palavras": 207
-    },
-    {
-      "rota": "/en/noticia/alupar-and-furnas-will-build-ten-wind-farms-in-ceara/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-and-furnas-will-build-ten-wind-farms-in-ceara",
-      "titulo": "Alupar and Furnas will build ten wind farms in Ceará",
-      "data": "2011-12-20",
-      "palavras": 626
-    },
-    {
-      "rota": "/en/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-announce-the-new-institutional-and-investor-relations-website",
-      "titulo": "Alupar announce the new Institutional and Investor Relations website",
-      "data": "2015-05-29",
-      "palavras": 112
-    },
-    {
-      "rota": "/en/noticia/alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only",
-      "titulo": "Alupar conquista lote D no leilão da Aneel (Portuguese Only)",
-      "data": "2009-11-27",
-      "palavras": 140
-    },
-    {
-      "rota": "/en/noticia/alupar-launched-power-transmission-system-in-mt/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-launched-power-transmission-system-in-mt",
-      "titulo": "Alupar launched power transmission system in MT",
-      "data": "2011-11-23",
-      "palavras": 77
-    },
-    {
-      "rota": "/en/noticia/alupar-launched-power-transmission-system-in-mt-2/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-launched-power-transmission-system-in-mt-2",
-      "titulo": "Alupar launched power transmission system in MT",
-      "data": "2011-12-16",
-      "palavras": 162
-    },
-    {
-      "rota": "/en/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only",
-      "titulo": "Alupar vence leilão da Aneel para construir subestação em MT (Portuguese Only)",
-      "data": "2010-06-11",
-      "palavras": 168
-    },
-    {
-      "rota": "/en/noticia/alupar-vence-leilao-do-lote-d-da-aneel/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-vence-leilao-do-lote-d-da-aneel",
-      "titulo": "Alupar vence leilão do lote D da Aneel",
-      "data": "2008-06-27",
-      "palavras": 237
-    },
-    {
-      "rota": "/en/noticia/alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only",
-      "titulo": "Alupar vence leilão do lote D da Aneel (Portuguese Only)",
-      "data": "2008-06-27",
-      "palavras": 237
-    },
-    {
-      "rota": "/en/noticia/alupar-will-invest-in-power-generation-in-colombia/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-will-invest-in-power-generation-in-colombia",
-      "titulo": "Alupar will invest in power generation in Colombia",
-      "data": "2011-10-14",
-      "palavras": 165
-    },
-    {
-      "rota": "/en/noticia/alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil",
-      "titulo": "Alupar wins auction to build a 715 km transmission line in the North of Brazil",
-      "data": "2011-09-02",
-      "palavras": 178
-    },
-    {
-      "rota": "/en/noticia/alupar-wins-lot-d-in-transmission-auction/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "alupar-wins-lot-d-in-transmission-auction",
-      "titulo": "Alupar wins Lot D in transmission auction",
-      "data": "2011-12-16",
-      "palavras": 229
-    },
-    {
-      "rota": "/en/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "annual-and-extraordinary-shareholders-meeting-call-notice",
-      "titulo": "Annual and Extraordinary Shareholders Meeting – Call Notice",
-      "data": "2014-03-31",
-      "palavras": 83
-    },
-    {
-      "rota": "/en/noticia/authorization-for-the-reinforcement-of-installations/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "authorization-for-the-reinforcement-of-installations",
-      "titulo": "Authorization for the reinforcement of installations",
-      "data": "2013-05-09",
-      "palavras": 106
-    },
-    {
-      "rota": "/en/noticia/commercial-operation-of-authorized-enhancement-of-erte/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "commercial-operation-of-authorized-enhancement-of-erte",
-      "titulo": "Commercial Operation of Authorized Enhancement of ERTE",
-      "data": "2012-06-25",
-      "palavras": 71
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-1t18/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t18",
-      "titulo": "1Q18 Earnings Release",
-      "data": "2018-05-10",
-      "palavras": 111
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-1t19/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t19",
-      "titulo": "1Q19 Earnings Release",
-      "data": "2019-05-15",
-      "palavras": 7
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-1t20/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t20",
-      "titulo": "1Q20 Earnings Release",
-      "data": "2020-06-01",
-      "palavras": 62
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-2t18/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t18",
-      "titulo": "2Q18 Earnings Release",
-      "data": "2018-08-13",
-      "palavras": 111
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-2t19/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t19",
-      "titulo": "2Q19 Earnings Release",
-      "data": "2019-08-13",
-      "palavras": 16
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-2t20/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t20",
-      "titulo": "2Q20 Earnings Release",
-      "data": "2020-08-12",
-      "palavras": 89
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-2t21/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t21",
-      "titulo": "2Q21 Earnings Release",
-      "data": "2021-08-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-3t18/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t18",
-      "titulo": "3Q18 Earnings Release",
-      "data": "2018-11-08",
-      "palavras": 111
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-3t19/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t19",
-      "titulo": "3Q19 Earnings Release",
-      "data": "2019-11-13",
-      "palavras": 16
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-3t20/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t20",
-      "titulo": "3Q20 Earnings Release",
-      "data": "2020-11-11",
-      "palavras": 13
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-3t21/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t21",
-      "titulo": "3Q21 Earnings Release",
-      "data": "2021-11-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-4t17/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t17",
-      "titulo": "4Q17 Earnings Release",
-      "data": "2018-03-08",
-      "palavras": 111
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-4t18/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t18",
-      "titulo": "4Q18 Earnings Release",
-      "data": "2019-03-29",
-      "palavras": 111
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-4t19/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t19",
-      "titulo": "4Q19 Earnings Release",
-      "data": "2020-03-11",
-      "palavras": 16
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-4t20/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t20",
-      "titulo": "4Q20 Earnings Release",
-      "data": "2021-03-22",
-      "palavras": 13
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-do-2t17/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t17",
-      "titulo": "2Q17 Earnings Release",
-      "data": "2017-08-14",
-      "palavras": 42
-    },
-    {
-      "rota": "/en/noticia/divulgacao-de-resultados-do-3t17/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-3t17",
-      "titulo": "3Q17 Earnings Release",
-      "data": "2017-11-09",
-      "palavras": 115
-    },
-    {
-      "rota": "/en/noticia/ebte-opening/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "ebte-opening",
-      "titulo": "EBTE Opening",
-      "data": "2011-06-13",
-      "palavras": 154
-    },
-    {
-      "rota": "/en/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "fitch-eleva-ratings-da-alupar-portuguese-only",
-      "titulo": "Fitch Eleva Ratings da Alupar (Portuguese Only)",
-      "data": "2010-04-09",
-      "palavras": 69
-    },
-    {
-      "rota": "/en/noticia/fitch-rating-affirms-the-rating-of-alupar/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "fitch-rating-affirms-the-rating-of-alupar",
-      "titulo": "Fitch rating affirms the rating of Alupar",
-      "data": "2009-03-02",
-      "palavras": 66
-    },
-    {
-      "rota": "/en/noticia/foz-do-rio-claro-hpp-2nd-turbines-startup/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "foz-do-rio-claro-hpp-2nd-turbines-startup",
-      "titulo": "Foz do Rio Claro HPP – 2nd turbine’s startup",
-      "data": "2010-03-12",
-      "palavras": 106
-    },
-    {
-      "rota": "/en/noticia/foz-do-rio-claro-hpp-launched-in-goias/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "foz-do-rio-claro-hpp-launched-in-goias",
-      "titulo": "Foz do Rio Claro HPP launched in Goiás",
-      "data": "2010-10-20",
-      "palavras": 97
-    },
-    {
-      "rota": "/en/noticia/groundbreaking-for-uhe-ferreira-gomes-is-celebrated/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "groundbreaking-for-uhe-ferreira-gomes-is-celebrated",
-      "titulo": "Groundbreaking for UHE Ferreira Gomes is celebrated",
-      "data": "2010-10-05",
-      "palavras": 154
-    },
-    {
-      "rota": "/en/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only",
-      "titulo": "Licença Ambiental Prévia da PCH Água Limpa (Portuguese Only)",
-      "data": "2010-02-08",
-      "palavras": 147
-    },
-    {
-      "rota": "/en/noticia/material-fact-6th-debenture-issuance/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-6th-debenture-issuance",
-      "titulo": "Material Fact – 6th Debenture Issuance",
-      "data": "2015-04-02",
-      "palavras": 280
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-finalized-eate/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-finalized-eate",
-      "titulo": "Material Fact – Acquisition Finalized – EATE",
-      "data": "2013-10-17",
-      "palavras": 173
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares",
-      "titulo": "Material Fact – Acquisition of Empresa Catarinense de Transmissão de Energia Common Shares",
-      "data": "2015-01-26",
-      "palavras": 201
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-la-virgen/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-la-virgen",
-      "titulo": "Material Fact – Acquisition of La Virgen",
-      "data": "2014-03-07",
-      "palavras": 289
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares",
-      "titulo": "Material Fact – Acquisition of Queluz and Lavrinhas Preferred Shares",
-      "data": "2013-10-28",
-      "palavras": 266
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary",
-      "titulo": "Material Fact – Acquisition of share in transmission companies by direct subsidiary",
-      "data": "2013-08-08",
-      "palavras": 346
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares",
-      "titulo": "Material Fact – Acquisition of SHPPs Queluz and Lavrinhas Preferred Shares",
-      "data": "2013-10-01",
-      "palavras": 363
-    },
-    {
-      "rota": "/en/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex",
-      "titulo": "Material Fact – Acquisition of the capital stock of each of the companies of the Aracati Complex",
-      "data": "2015-03-02",
-      "palavras": 270
-    },
-    {
-      "rota": "/en/noticia/material-fact-agua-limpa/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-agua-limpa",
-      "titulo": "Material Fact – Água Limpa",
-      "data": "2013-12-13",
-      "palavras": 140
-    },
-    {
-      "rota": "/en/noticia/material-fact-aracati-complex-acquisition/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-aracati-complex-acquisition",
-      "titulo": "Material Fact – Aracati Complex Acquisition",
-      "data": "2014-10-10",
-      "palavras": 258
-    },
-    {
-      "rota": "/en/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-change-in-police-for-disclosure-of-material-act-or-fact",
-      "titulo": "Material Fact – Change in Police for Disclosure of Material Act or Fact",
-      "data": "2014-05-05",
-      "palavras": 255
-    },
-    {
-      "rota": "/en/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014",
-      "titulo": "Material Fact – Concession of the Lot C of ANEEL Auction No. 001/2014",
-      "data": "2014-05-09",
-      "palavras": 189
-    },
-    {
-      "rota": "/en/noticia/material-fact-market-maker/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-market-maker",
-      "titulo": "Material Fact – Market Maker",
-      "data": "2015-05-14",
-      "palavras": 338
-    },
-    {
-      "rota": "/en/noticia/material-fact-payment-of-interim-dividends/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-payment-of-interim-dividends",
-      "titulo": "Material Fact – Payment of Interim Dividends",
-      "data": "2014-09-15",
-      "palavras": 186
-    },
-    {
-      "rota": "/en/noticia/material-fact-pch-verde-8/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-pch-verde-8",
-      "titulo": "Material Fact – PCH Verde 8",
-      "data": "2013-09-04",
-      "palavras": 81
-    },
-    {
-      "rota": "/en/noticia/material-fact-sale-of-shares-sinop/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "material-fact-sale-of-shares-sinop",
-      "titulo": "Material Fact – Sale of shares – SINOP",
-      "data": "2014-12-11",
-      "palavras": 127
-    },
-    {
-      "rota": "/en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "minutes-of-the-annual-and-extraordinary-shareholders-meeting",
-      "titulo": "Minutes of the Annual and Extraordinary Shareholders´ Meeting",
-      "data": "2014-04-16",
-      "palavras": 1336
-    },
-    {
-      "rota": "/en/noticia/modification-of-shp-morro-azul-environmental-license/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "modification-of-shp-morro-azul-environmental-license",
-      "titulo": "Modification of SHP Morro Azul Environmental License",
-      "data": "2013-05-09",
-      "palavras": 75
-    },
-    {
-      "rota": "/en/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "moodys-assigns-ba2aa3-br-to-alupars-debentures",
-      "titulo": "Moody´s assigns Ba2/Aa3.br to Alupar´s Debentures",
-      "data": "2009-11-23",
-      "palavras": 51
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-funcef/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-acquisition-of-interest-funcef",
-      "titulo": "Notice to the Market – Acquisition of Interest FUNCEF",
-      "data": "2014-04-17",
-      "palavras": 281
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-acquisition-of-interest-gic-private-limited",
-      "titulo": "Notice to the Market – Acquisition of Interest GIC Private Limited",
-      "data": "2014-03-10",
-      "palavras": 279
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014",
-      "titulo": "Notice to the Market – Annual Permitted Revenue (RAP) – Cycle of 2014",
-      "data": "2014-07-01",
-      "palavras": 187
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65",
-      "titulo": "Notice to the Market – Approval by CADE of the Act of Concentration No 08700.009463/2014-65",
-      "data": "2014-11-28",
-      "palavras": 188
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-change-of-independent-auditor/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-change-of-independent-auditor",
-      "titulo": "Notice to the market – Change of Independent Auditor",
-      "data": "2014-04-17",
-      "palavras": 195
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes",
-      "titulo": "Notice to the Market – Commercial Operation of the UG3 Ferreira Gomes",
-      "data": "2015-04-30",
-      "palavras": 177
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units",
-      "titulo": "Notice to the Market – ETVG – Reinforcement works at the transmission units.",
-      "data": "2014-11-07",
-      "palavras": 168
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river",
-      "titulo": "Notice to the Market – Ferreira Gomes – Diversion of the Araguari River",
-      "data": "2013-11-04",
-      "palavras": 114
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance",
-      "titulo": "Notice to the Market – HPP Ferreira Gomes begins operations in advance",
-      "data": "2014-11-04",
-      "palavras": 170
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-investor-relations-officer-election/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-investor-relations-officer-election",
-      "titulo": "Notice to the Market – Investor Relations Officer Election",
-      "data": "2011-07-11",
-      "palavras": 104
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-market-maker/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-market-maker",
-      "titulo": "Notice to the Market – Market Maker",
-      "data": "2013-12-06",
-      "palavras": 348
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering",
-      "titulo": "Notice to the Market – Request for the previous analysis of the registration of public offering",
-      "data": "2014-02-12",
-      "palavras": 309
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting",
-      "titulo": "Notice to the Market – Restatement of Management Proposal referring to the Annual and Extraordinary Shareholders’ Meeting",
-      "data": "2014-03-27",
-      "palavras": 209
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-tme-reinforcement-works-at-the-transmission-units",
-      "titulo": "Notice to the Market – TME reinforcement works at the transmission units.",
-      "data": "2015-06-02",
-      "palavras": 155
-    },
-    {
-      "rota": "/en/noticia/notice-to-the-market-tne/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-tne",
-      "titulo": "Notice to the Market – TNE",
-      "data": "2013-12-18",
-      "palavras": 220
-    },
-    {
-      "rota": "/en/noticia/projetos-devem-atingir-730-megawatts/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "projetos-devem-atingir-730-megawatts",
-      "titulo": "Projetos devem atingir 730 megawatts",
-      "data": "2008-07-07",
-      "palavras": 141
-    },
-    {
-      "rota": "/en/noticia/projetos-devem-atingir-730-megawatts-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "projetos-devem-atingir-730-megawatts-portuguese-only",
-      "titulo": "Projetos devem atingir 730 megawatts (Portuguese Only)",
-      "data": "2008-07-07",
-      "palavras": 141
-    },
-    {
-      "rota": "/en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "registro-de-companhia-aberta-e-concedido-a-alupar",
-      "titulo": "Registro de companhia aberta é concedido à Alupar",
-      "data": "2008-06-18",
-      "palavras": 40
-    },
-    {
-      "rota": "/en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only",
-      "titulo": "Registro de companhia aberta é concedido à Alupar (Portuguese Only)",
-      "data": "2008-06-18",
-      "palavras": 40
-    },
-    {
-      "rota": "/en/noticia/sao-jose-hpp-2nd-turbines-startup/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "sao-jose-hpp-2nd-turbines-startup",
-      "titulo": "São José HPP – 2nd turbine’s startup",
-      "data": "2011-06-07",
-      "palavras": 95
-    },
-    {
-      "rota": "/en/noticia/signed-the-concession-for-the-installation-of-ferreira-gomes-hpp/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "signed-the-concession-for-the-installation-of-ferreira-gomes-hpp",
-      "titulo": "Signed the concession for the installation of Ferreira Gomes HPP",
-      "data": "2010-11-12",
-      "palavras": 151
-    },
-    {
-      "rota": "/en/noticia/uhe-sao-jose-e-inaugurada-em-rs-portuguese-only/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "uhe-sao-jose-e-inaugurada-em-rs-portuguese-only",
-      "titulo": "UHE São José é inaugurada em RS (Portuguese Only)",
-      "data": "2011-03-29",
-      "palavras": 95
-    },
-    {
-      "rota": "/en/noticia/upgrading-of-corporate-rating/",
-      "idioma": "en",
-      "tipo": "noticia",
-      "slug": "upgrading-of-corporate-rating",
-      "titulo": "Upgrading of Corporate Rating",
-      "data": "2013-03-28",
-      "palavras": 95
-    },
-    {
       "rota": "/en/a-companhia/",
       "idioma": "en",
       "tipo": "pagina",
@@ -1385,15 +1576,6 @@
       "titulo": "Companies",
       "data": null,
       "palavras": 3615
-    },
-    {
-      "rota": "/en/noticias/",
-      "idioma": "en",
-      "tipo": "pagina",
-      "slug": "noticias",
-      "titulo": "News",
-      "data": null,
-      "palavras": 27
     },
     {
       "rota": "/en/pesquisa-e-desenvolvimento/",
@@ -1837,177 +2019,6 @@
       "palavras": 836
     },
     {
-      "rota": "/es/noticia/1q20-earnings-release-solo-ingles-y-portugues/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "1q20-earnings-release-solo-ingles-y-portugues",
-      "titulo": "1Q20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2020-06-01",
-      "palavras": 62
-    },
-    {
-      "rota": "/es/noticia/1t21-earnings-release-solo-ingles-y-portugues/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "1t21-earnings-release-solo-ingles-y-portugues",
-      "titulo": "1T21 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2021-05-10",
-      "palavras": 13
-    },
-    {
-      "rota": "/es/noticia/3q17-earnings-release-solo-ingles-y-portugues/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "3q17-earnings-release-solo-ingles-y-portugues",
-      "titulo": "3Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2017-11-09",
-      "palavras": 39
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-1t18/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t18",
-      "titulo": "1Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-05-10",
-      "palavras": 111
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-1t19/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t19",
-      "titulo": "1Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-05-15",
-      "palavras": 7
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-1t20/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t20",
-      "titulo": "1T20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2020-06-01",
-      "palavras": 62
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-2t18/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t18",
-      "titulo": "2Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-08-13",
-      "palavras": 111
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-2t19/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t19",
-      "titulo": "2Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-08-13",
-      "palavras": 16
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-2t20/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t20",
-      "titulo": "2T20 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2020-08-12",
-      "palavras": 89
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-2t21/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t21",
-      "titulo": "2T21 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2021-08-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-3t18/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t18",
-      "titulo": "3Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-11-08",
-      "palavras": 111
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-3t19/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t19",
-      "titulo": "3Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-11-13",
-      "palavras": 16
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-3t20/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t20",
-      "titulo": "3T20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2020-11-11",
-      "palavras": 13
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-3t21/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t21",
-      "titulo": "3T21 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2021-11-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-4t17/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t17",
-      "titulo": "4Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2018-03-08",
-      "palavras": 111
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-4t18/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t18",
-      "titulo": "4Q18 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2019-03-29",
-      "palavras": 111
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-4t19/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t19",
-      "titulo": "4Q19 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2020-03-11",
-      "palavras": 16
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-4t20/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t20",
-      "titulo": "4T20 Earnings Release (Sólo Inglés y Portugués)-",
-      "data": "2021-03-22",
-      "palavras": 13
-    },
-    {
-      "rota": "/es/noticia/divulgacao-de-resultados-do-2t17/",
-      "idioma": "es",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t17",
-      "titulo": "2Q17 Earnings Release (Sólo Inglés y Portugués)",
-      "data": "2017-08-14",
-      "palavras": 42
-    },
-    {
       "rota": "/es/a-companhia/",
       "idioma": "es",
       "tipo": "pagina",
@@ -2060,15 +2071,6 @@
       "titulo": "Empresas",
       "data": null,
       "palavras": 3947
-    },
-    {
-      "rota": "/es/noticias/",
-      "idioma": "es",
-      "tipo": "pagina",
-      "slug": "noticias",
-      "titulo": "Las Noticias",
-      "data": null,
-      "palavras": 51
     },
     {
       "rota": "/es/pesquisa-e-desenvolvimento/",
@@ -2494,852 +2496,6 @@
       "palavras": 975
     },
     {
-      "rota": "/noticia/agoe-edital-de-convocacao/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "agoe-edital-de-convocacao",
-      "titulo": "AGO/E – Edital de Convocação",
-      "data": "2014-03-31",
-      "palavras": 93
-    },
-    {
-      "rota": "/noticia/agoe-edital-de-convocacao-2/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "agoe-edital-de-convocacao-2",
-      "titulo": "AGO/E – Edital de Convocação",
-      "data": "2015-03-16",
-      "palavras": 203
-    },
-    {
-      "rota": "/noticia/alupar-conquista-lote-d-no-leilao-da-aneel/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-conquista-lote-d-no-leilao-da-aneel",
-      "titulo": "Alupar conquista lote D no leilão da Aneel",
-      "data": "2009-11-27",
-      "palavras": 136
-    },
-    {
-      "rota": "/noticia/alupar-e-furnas-vao-construir-dez-parques-eolicos-no-ceara/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-e-furnas-vao-construir-dez-parques-eolicos-no-ceara",
-      "titulo": "Alupar e Furnas vão construir dez parques eólicos no Ceará",
-      "data": "2011-12-20",
-      "palavras": 640
-    },
-    {
-      "rota": "/noticia/alupar-inaugura-sistema-de-transmissao-de-energia-no-mt/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-inaugura-sistema-de-transmissao-de-energia-no-mt",
-      "titulo": "Alupar inaugura sistema de transmissão de energia no MT",
-      "data": "2011-12-16",
-      "palavras": 161
-    },
-    {
-      "rota": "/noticia/alupar-lanca-novos-sites-institucional-e-de-relacoes-com-investidores/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-lanca-novos-sites-institucional-e-de-relacoes-com-investidores",
-      "titulo": "Alupar lança novos sites Institucional e de Relações com Investidores",
-      "data": "2015-05-29",
-      "palavras": 117
-    },
-    {
-      "rota": "/noticia/alupar-vai-investir-em-energia-eletrica-na-colombia/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-vai-investir-em-energia-eletrica-na-colombia",
-      "titulo": "Alupar vai investir em energia elétrica na Colômbia",
-      "data": "2011-10-14",
-      "palavras": 181
-    },
-    {
-      "rota": "/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt",
-      "titulo": "Alupar vence leilão da Aneel para construir subestação em MT",
-      "data": "2010-06-11",
-      "palavras": 164
-    },
-    {
-      "rota": "/noticia/alupar-vence-leilao-para-construcao-de-715-km-de-linha-de-transmissao-no-norte-do-pais/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-vence-leilao-para-construcao-de-715-km-de-linha-de-transmissao-no-norte-do-pais",
-      "titulo": "Alupar vence leilão para construção de 715 Km de linha de transmissão no Norte do País",
-      "data": "2011-09-02",
-      "palavras": 208
-    },
-    {
-      "rota": "/noticia/alupar-vence-lote-d-em-leilao-de-transmissao/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "alupar-vence-lote-d-em-leilao-de-transmissao",
-      "titulo": "Alupar vence Lote D em leilão de transmissão",
-      "data": "2011-12-16",
-      "palavras": 227
-    },
-    {
-      "rota": "/noticia/assinada-a-concessao-para-implantacao-da-uhe-de-ferreira-gomes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "assinada-a-concessao-para-implantacao-da-uhe-de-ferreira-gomes",
-      "titulo": "Assinada a concessão para implantação da UHE de Ferreira Gomes",
-      "data": "2010-11-12",
-      "palavras": 139
-    },
-    {
-      "rota": "/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "ata-da-assembleia-geral-ordinaria-e-extraordinaria",
-      "titulo": "Ata da Assembleia Geral Ordinária e Extraordinária",
-      "data": "2014-04-16",
-      "palavras": 1402
-    },
-    {
-      "rota": "/noticia/autorizacao-para-implantacao-de-reforco-de-instalacoes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "autorizacao-para-implantacao-de-reforco-de-instalacoes",
-      "titulo": "Autorização para implantação de reforço de instalações",
-      "data": "2013-05-09",
-      "palavras": 78
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-auditor-independente/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-alteracao-de-auditor-independente",
-      "titulo": "Comunicado ao Mercado – Alteração de Auditor Independente",
-      "data": "2014-04-17",
-      "palavras": 196
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos",
-      "titulo": "Comunicado ao Mercado – Alteração de Calendário de Eventos Corporativos",
-      "data": "2015-03-16",
-      "palavras": 125
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-alteracao-dri/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-alteracao-dri",
-      "titulo": "Comunicado ao Mercado – Alteração DRI",
-      "data": "2011-07-11",
-      "palavras": 114
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-aprovacao-pelo-cade-do-ato-de-concentracao-no-08700-0094632014-65/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-aprovacao-pelo-cade-do-ato-de-concentracao-no-08700-0094632014-65",
-      "titulo": "Comunicado ao Mercado – Aprovação pelo CADE do Ato de Concentração nº 08700.009463/2014-65",
-      "data": "2014-11-28",
-      "palavras": 179
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-funcef/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-aquisicao-participacao-funcef",
-      "titulo": "Comunicado ao Mercado – Aquisição participação FUNCEF",
-      "data": "2014-04-17",
-      "palavras": 270
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-gic-private-limited/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-aquisicao-participacao-gic-private-limited",
-      "titulo": "Comunicado ao Mercado – Aquisição participação GIC Private Limited",
-      "data": "2014-03-10",
-      "palavras": 268
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-contratacao-de-formador-de-mercado/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-contratacao-de-formador-de-mercado",
-      "titulo": "Comunicado ao Mercado – Contratação de Formador de Mercado",
-      "data": "2013-12-06",
-      "palavras": 372
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-etvg-autorizacao-para-implantar-reforcos-em-instalacoes-de-transmissao/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-etvg-autorizacao-para-implantar-reforcos-em-instalacoes-de-transmissao",
-      "titulo": "Comunicado ao Mercado – ETVG – Autorização para implantar reforços em instalações de transmissão.",
-      "data": "2014-11-07",
-      "palavras": 187
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-ferreira-gomes-desvio-do-rio-araguari/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-ferreira-gomes-desvio-do-rio-araguari",
-      "titulo": "Comunicado ao Mercado – Ferreira Gomes – Desvio do Rio Araguari",
-      "data": "2013-11-04",
-      "palavras": 113
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-da-uhe-ferreira-gomes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-operacao-comercial-da-uhe-ferreira-gomes",
-      "titulo": "Comunicado ao Mercado – Operação Comercial da UHE Ferreira Gomes",
-      "data": "2014-11-04",
-      "palavras": 178
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug2-ferreira-gomes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-operacao-comercial-ug2-ferreira-gomes",
-      "titulo": "Comunicado ao Mercado – Operação Comercial UG2 Ferreira Gomes",
-      "data": "2014-12-17",
-      "palavras": 197
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes",
-      "titulo": "Comunicado ao Mercado – Operação Comercial UG3 Ferreira Gomes",
-      "data": "2015-04-30",
-      "palavras": 185
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-pedido-de-analise-previa-de-oferta-publica/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-pedido-de-analise-previa-de-oferta-publica",
-      "titulo": "Comunicado ao Mercado – Pedido de análise prévia de oferta pública",
-      "data": "2014-02-12",
-      "palavras": 312
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015",
-      "titulo": "Comunicado ao Mercado – Reajuste da Receita Anual Permitida do Ciclo 2014/2015",
-      "data": "2014-07-01",
-      "palavras": 195
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-reapresentacao-da-proposta-da-administracao-para-a-agoe/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-reapresentacao-da-proposta-da-administracao-para-a-agoe",
-      "titulo": "Comunicado ao Mercado – Reapresentação da Proposta da Administração para a AGOE",
-      "data": "2014-03-27",
-      "palavras": 207
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-tme-autorizacao-para-implantar-reforcos-em-instalacao-de-transmissao/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-tme-autorizacao-para-implantar-reforcos-em-instalacao-de-transmissao",
-      "titulo": "Comunicado ao Mercado – TME autorização para implantar reforços em instalação de transmissão.",
-      "data": "2015-06-02",
-      "palavras": 171
-    },
-    {
-      "rota": "/noticia/comunicado-ao-mercado-tne/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "comunicado-ao-mercado-tne",
-      "titulo": "Comunicado ao Mercado – TNE",
-      "data": "2013-12-18",
-      "palavras": 244
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-1t18/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t18",
-      "titulo": "Divulgação de Resultados 1T18",
-      "data": "2018-05-10",
-      "palavras": 119
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-1t19/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t19",
-      "titulo": "Divulgação de Resultados 1T19",
-      "data": "2019-05-15",
-      "palavras": 16
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-1t20/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t20",
-      "titulo": "Divulgação de Resultados 1T20",
-      "data": "2020-06-01",
-      "palavras": 61
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-1t21/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-1t21",
-      "titulo": "Divulgação de Resultados 1T21",
-      "data": "2021-05-10",
-      "palavras": 13
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-2t18/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t18",
-      "titulo": "Divulgação de Resultados 2T18",
-      "data": "2018-08-13",
-      "palavras": 119
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-2t19/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t19",
-      "titulo": "Divulgação de Resultados 2T19",
-      "data": "2019-08-13",
-      "palavras": 27
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-2t20/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t20",
-      "titulo": "Divulgação de Resultados 2T20",
-      "data": "2020-08-12",
-      "palavras": 93
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-2t21/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-2t21",
-      "titulo": "Divulgação de Resultados 2T21",
-      "data": "2021-08-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-3t18/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t18",
-      "titulo": "Divulgação de Resultados 3T18",
-      "data": "2018-11-08",
-      "palavras": 119
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-3t19/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t19",
-      "titulo": "Divulgação de Resultados 3T19",
-      "data": "2019-11-13",
-      "palavras": 27
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-3t20/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t20",
-      "titulo": "Divulgação de Resultados 3T20",
-      "data": "2020-11-11",
-      "palavras": 13
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-3t21/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-3t21",
-      "titulo": "Divulgação de Resultados 3T21",
-      "data": "2021-11-09",
-      "palavras": 13
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-4t17/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t17",
-      "titulo": "Divulgação de Resultados 4T17",
-      "data": "2018-03-08",
-      "palavras": 119
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-4t18/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t18",
-      "titulo": "Divulgação de Resultados 4T18",
-      "data": "2019-03-29",
-      "palavras": 119
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-4t19/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t19",
-      "titulo": "Divulgação de Resultados 4T19",
-      "data": "2020-03-11",
-      "palavras": 26
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-4t20/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-4t20",
-      "titulo": "Divulgação de Resultados 4T20",
-      "data": "2021-03-22",
-      "palavras": 13
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-1t14/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-1t14",
-      "titulo": "Divulgação de Resultados do 1T14",
-      "data": "2014-05-09",
-      "palavras": 51
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-1t15/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-1t15",
-      "titulo": "Divulgação de Resultados do 1T15",
-      "data": "2015-05-15",
-      "palavras": 51
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-1t17/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-1t17",
-      "titulo": "Divulgação de Resultados do 1T17",
-      "data": "2017-05-15",
-      "palavras": 45
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-2t14/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t14",
-      "titulo": "Divulgação de Resultados do 2T14",
-      "data": "2014-08-07",
-      "palavras": 51
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-2t15/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t15",
-      "titulo": "Divulgação de Resultados do 2T15",
-      "data": "2015-08-12",
-      "palavras": 46
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-2t16/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t16",
-      "titulo": "Divulgação de Resultados do 2T16",
-      "data": "2016-08-11",
-      "palavras": 46
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-2t17/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-2t17",
-      "titulo": "Divulgação de Resultados do 2T17",
-      "data": "2017-08-14",
-      "palavras": 45
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-3t14/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-3t14",
-      "titulo": "Divulgação de Resultados do 3T14",
-      "data": "2014-11-11",
-      "palavras": 51
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-3t15/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-3t15",
-      "titulo": "Divulgação de Resultados do 3T15",
-      "data": "2015-11-12",
-      "palavras": 46
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-3t16/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-3t16",
-      "titulo": "Divulgação de Resultados do 3T16",
-      "data": "2016-11-11",
-      "palavras": 46
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-3t17/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-3t17",
-      "titulo": "Divulgação de Resultados do 3T17",
-      "data": "2017-11-09",
-      "palavras": 123
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-4t13/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-4t13",
-      "titulo": "Divulgação de Resultados do 4T13",
-      "data": "2014-02-27",
-      "palavras": 52
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-4t14/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-4t14",
-      "titulo": "Divulgação de Resultados do 4T14",
-      "data": "2015-03-05",
-      "palavras": 51
-    },
-    {
-      "rota": "/noticia/divulgacao-de-resultados-do-4t16/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "divulgacao-de-resultados-do-4t16",
-      "titulo": "Divulgação de Resultados do 4T16",
-      "data": "2017-03-10",
-      "palavras": 46
-    },
-    {
-      "rota": "/noticia/elevacao-de-rating-corporativo/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "elevacao-de-rating-corporativo",
-      "titulo": "Elevação de Rating Corporativo",
-      "data": "2013-03-28",
-      "palavras": 135
-    },
-    {
-      "rota": "/noticia/entrada-em-operacao-comercial-de-reforco-autorizado-da-erte/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "entrada-em-operacao-comercial-de-reforco-autorizado-da-erte",
-      "titulo": "Entrada em Operação Comercial de Reforço Autorizado da ERTE",
-      "data": "2012-06-25",
-      "palavras": 72
-    },
-    {
-      "rota": "/noticia/entrada-em-operacao-da-tme/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "entrada-em-operacao-da-tme",
-      "titulo": "Entrada em operação da TME",
-      "data": "2011-11-23",
-      "palavras": 85
-    },
-    {
-      "rota": "/noticia/fato-relevante-6a-emissao-de-debentures/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-6a-emissao-de-debentures",
-      "titulo": "Fato Relevante – 6ª Emissão de Debêntures",
-      "data": "2015-04-02",
-      "palavras": 303
-    },
-    {
-      "rota": "/noticia/fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014",
-      "titulo": "Fato Relevante – Adjudicação do lote C do leilão ANEEL 001-2014",
-      "data": "2014-05-09",
-      "palavras": 212
-    },
-    {
-      "rota": "/noticia/fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante",
-      "titulo": "Fato Relevante – Alteração da Política de Divulgação de Ato ou Fato Relevante",
-      "data": "2014-05-05",
-      "palavras": 279
-    },
-    {
-      "rota": "/noticia/fato-relevante-ampliacao-de-participacao-em-transmissoras/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-ampliacao-de-participacao-em-transmissoras",
-      "titulo": "Fato Relevante – Ampliação de participação em transmissoras",
-      "data": "2013-08-08",
-      "palavras": 373
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-complexo-aracati/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-complexo-aracati",
-      "titulo": "Fato Relevante – Aquisição Complexo Aracati",
-      "data": "2014-10-10",
-      "palavras": 254
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia",
-      "titulo": "Fato Relevante – Aquisição de ações ordinárias Empresa Catarinense de Transmissão de Energia",
-      "data": "2015-01-26",
-      "palavras": 217
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz",
-      "titulo": "Fato Relevante – Aquisição de Ações Preferenciais Lavrinhas e Queluz",
-      "data": "2013-10-28",
-      "palavras": 294
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2",
-      "titulo": "Fato Relevante – Aquisição de ações preferenciais Lavrinhas e Queluz",
-      "data": "2014-09-26",
-      "palavras": 396
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas",
-      "titulo": "Fato Relevante – Aquisição de Ações Preferenciais PCHs Queluz e Lavrinhas",
-      "data": "2013-10-01",
-      "palavras": 407
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-de-participacoes-societarias-no-complexo-aracati/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-de-participacoes-societarias-no-complexo-aracati",
-      "titulo": "Fato Relevante – Aquisição de participações societárias no Complexo Aracati",
-      "data": "2015-03-02",
-      "palavras": 290
-    },
-    {
-      "rota": "/noticia/fato-relevante-aquisicao-la-virgen/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-aquisicao-la-virgen",
-      "titulo": "Fato Relevante – Aquisição La Virgen",
-      "data": "2014-03-07",
-      "palavras": 292
-    },
-    {
-      "rota": "/noticia/fato-relevante-concretizacao-de-aquisicao-eate/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-concretizacao-de-aquisicao-eate",
-      "titulo": "Fato Relevante – Concretização de Aquisição – EATE",
-      "data": "2013-10-17",
-      "palavras": 209
-    },
-    {
-      "rota": "/noticia/fato-relevante-distribuicao-de-dividendos-intermediarios/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-distribuicao-de-dividendos-intermediarios",
-      "titulo": "Fato Relevante – Distribuição de Dividendos Intermediários",
-      "data": "2014-09-15",
-      "palavras": 227
-    },
-    {
-      "rota": "/noticia/fato-relevante-formador-de-mercado/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-formador-de-mercado",
-      "titulo": "Fato Relevante – Formador de Mercado",
-      "data": "2015-05-14",
-      "palavras": 406
-    },
-    {
-      "rota": "/noticia/fato-relevante-pch-agua-limpa/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-pch-agua-limpa",
-      "titulo": "Fato Relevante – PCH Água Limpa",
-      "data": "2013-12-13",
-      "palavras": 145
-    },
-    {
-      "rota": "/noticia/fato-relevante-pch-verde-8/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-pch-verde-8",
-      "titulo": "Fato Relevante – PCH Verde 8",
-      "data": "2013-09-04",
-      "palavras": 79
-    },
-    {
-      "rota": "/noticia/fato-relevante-venda-de-acoes-sinop/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fato-relevante-venda-de-acoes-sinop",
-      "titulo": "Fato Relevante – Venda de ações SINOP",
-      "data": "2014-12-11",
-      "palavras": 129
-    },
-    {
-      "rota": "/noticia/fitch-eleva-ratings-da-alupar/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fitch-eleva-ratings-da-alupar",
-      "titulo": "Fitch Eleva Ratings da Alupar",
-      "data": "2010-04-09",
-      "palavras": 65
-    },
-    {
-      "rota": "/noticia/fitch-rating-afirma-o-rating-da-alupar/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fitch-rating-afirma-o-rating-da-alupar",
-      "titulo": "Fitch Rating afirma o rating da Alupar",
-      "data": "2009-03-02",
-      "palavras": 67
-    },
-    {
-      "rota": "/noticia/fitch-ratings-2011/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "fitch-ratings-2011",
-      "titulo": "Fitch Ratings 2011",
-      "data": "2011-04-05",
-      "palavras": 85
-    },
-    {
-      "rota": "/noticia/inauguracao-da-ebte/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "inauguracao-da-ebte",
-      "titulo": "Inauguração da EBTE",
-      "data": "2011-06-13",
-      "palavras": 183
-    },
-    {
-      "rota": "/noticia/lancada-pedra-fundamental-da-uhe-ferreira-gomes/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "lancada-pedra-fundamental-da-uhe-ferreira-gomes",
-      "titulo": "Lançada pedra fundamental da UHE Ferreira Gomes",
-      "data": "2010-10-05",
-      "palavras": 153
-    },
-    {
-      "rota": "/noticia/licenca-ambiental-previa-da-pch-agua-limpa/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "licenca-ambiental-previa-da-pch-agua-limpa",
-      "titulo": "Licença Ambiental Prévia da PCH Água Limpa",
-      "data": "2010-02-08",
-      "palavras": 143
-    },
-    {
-      "rota": "/noticia/material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares",
-      "titulo": "Material Fact – Acquisition of Lavrinhas and Queluz Preferred Shares",
-      "data": "2014-09-26",
-      "palavras": 377
-    },
-    {
-      "rota": "/noticia/modificacao-da-licenca-ambiental-da-pch-morro-azul/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "modificacao-da-licenca-ambiental-da-pch-morro-azul",
-      "titulo": "Modificação da Licença Ambiental da PCH Morro Azul",
-      "data": "2013-05-09",
-      "palavras": 88
-    },
-    {
-      "rota": "/noticia/moodys-atribui-ratings-ba2aa3-br-para-as-debentures-da-alupar/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "moodys-atribui-ratings-ba2aa3-br-para-as-debentures-da-alupar",
-      "titulo": "Moody´s atribui ratings Ba2/Aa3.br para as Debêntures da Alupar",
-      "data": "2009-11-23",
-      "palavras": 54
-    },
-    {
-      "rota": "/noticia/notice-to-the-market-change-in-the-annual-calendar-of-corporate-events/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "notice-to-the-market-change-in-the-annual-calendar-of-corporate-events",
-      "titulo": "Notice to the Market – Change in the Annual Calendar of Corporate Events",
-      "data": "2015-03-16",
-      "palavras": 108
-    },
-    {
-      "rota": "/noticia/uhe-foz-do-rio-claro-e-inaugurada-em-goias/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "uhe-foz-do-rio-claro-e-inaugurada-em-goias",
-      "titulo": "UHE Foz do Rio Claro é inaugurada em Goiás",
-      "data": "2010-10-20",
-      "palavras": 103
-    },
-    {
-      "rota": "/noticia/uhe-foz-do-rio-claro-entrada-em-operacao-2a-turbina/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "uhe-foz-do-rio-claro-entrada-em-operacao-2a-turbina",
-      "titulo": "UHE Foz do Rio Claro – Entrada em operação 2ª turbina",
-      "data": "2010-03-12",
-      "palavras": 108
-    },
-    {
-      "rota": "/noticia/uhe-sao-jose-e-inaugurada-em-rs/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "uhe-sao-jose-e-inaugurada-em-rs",
-      "titulo": "UHE São José é inaugurada em RS",
-      "data": "2011-03-29",
-      "palavras": 91
-    },
-    {
-      "rota": "/noticia/uhe-sao-jose-entrada-em-operacao-2a-turbina/",
-      "idioma": "pt",
-      "tipo": "noticia",
-      "slug": "uhe-sao-jose-entrada-em-operacao-2a-turbina",
-      "titulo": "UHE São José – Entrada em operação 2ª turbina",
-      "data": "2011-06-07",
-      "palavras": 97
-    },
-    {
       "rota": "/a-companhia/",
       "idioma": "pt",
       "tipo": "pagina",
@@ -3401,15 +2557,6 @@
       "titulo": "Programa de Pesquisa, Desenvolvimento e Inovação Regulado",
       "data": null,
       "palavras": 103
-    },
-    {
-      "rota": "/noticias/",
-      "idioma": "pt",
-      "tipo": "pagina",
-      "slug": "noticias",
-      "titulo": "Notícias",
-      "data": null,
-      "palavras": 33
     },
     {
       "rota": "/politica-de-privacidade/",

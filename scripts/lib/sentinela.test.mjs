@@ -84,3 +84,42 @@ test('a mensagem diz o host, o estado e os dias', () => {
   assert.match(m, /alupar\.com\.br/);
   assert.match(m, /81 dias/);
 });
+
+test('o caminho aparece na mensagem, para o host que é vigiado numa página', () => {
+  const r = avaliar({
+    host: 'ri.alupar.com.br',
+    caminho: '/noticias/',
+    codigo: '200',
+    saidaCurl: 0,
+    fim: 'Dec 31 23:59:59 2026 GMT',
+    agora: new Date('2026-09-16T12:00:00Z'),
+  });
+  assert.equal(r.ok, true);
+  assert.match(r.mensagem, /ri\.alupar\.com\.br\/noticias\//);
+});
+
+test('sem caminho, a mensagem continua a do host — nada muda para quem já chamava', () => {
+  const r = avaliar({
+    host: 'alupar.com.br',
+    codigo: '200',
+    saidaCurl: 0,
+    fim: 'Dec 31 23:59:59 2026 GMT',
+    agora: new Date('2026-09-16T12:00:00Z'),
+  });
+  // Três espaços é o formato que já existia (2 de 'ok  ' + 1 do template);
+  // este teste existe para provar que o parâmetro `caminho` não mexeu nisso.
+  assert.match(r.mensagem, /ok {3}alupar\.com\.br → HTTP 200/);
+});
+
+test('a página do RI fora do ar reprova o dia', () => {
+  const r = avaliar({
+    host: 'ri.alupar.com.br',
+    caminho: '/noticias/',
+    codigo: '404',
+    saidaCurl: 0,
+    fim: 'Dec 31 23:59:59 2026 GMT',
+    agora: new Date('2026-09-16T12:00:00Z'),
+  });
+  assert.equal(r.ok, false);
+  assert.equal(r.estado, 'sem-resposta');
+});
