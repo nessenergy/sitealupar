@@ -126,6 +126,17 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     <meta property="og:locale" content={OG_LOCALE[idioma]} />
     <meta name="twitter:card" content="summary_large_image" />
 
+    {/* No celular o menu nasce recolhido por CSS (Cabecalho.astro), porque
+        esperar o site.js para recolhê-lo fazia a página inteira subir quando o
+        script chegava (CLS de 0,37 numa rede lenta). O botão que o abre só
+        aparece com JavaScript; sem ele o visitante ficaria sem menu. Este
+        bloco devolve o menu aberto a quem não roda script. Fica aqui porque
+        `<style>` dentro de `<noscript>` só é válido no <head>, e o CSP já
+        permite estilo embutido. O id ganha do seletor de tipo do componente. */}
+    <noscript>
+      <style is:inline>@media (max-width: 767px) { #menu-principal { display: block; } }</style>
+    </noscript>
+
     <!-- JSON-LD no HTML servido, não injetado por JavaScript como hoje. -->
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',

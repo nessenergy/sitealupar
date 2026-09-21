@@ -124,8 +124,21 @@ const atual = Astro.url.pathname;
     .logo:focus-visible { outline-offset: -3px; }
     nav { width: 100%; padding-inline: 15px; }
     nav a { border-bottom: 1px solid var(--cinza-borda); }
-    /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
-    nav[data-recolhivel] { display: none; }
+    /* O menu nasce recolhido, pelo CSS, sem esperar o JavaScript. Antes o
+       recolhimento dependia do atributo `data-recolhivel`, que o site.js (com
+       `defer`) só põe depois de rodar: até lá o menu inteiro ficava aberto, com
+       ~357 px, e quando o script chegava a página inteira subia. Era o CLS de
+       0,37 do celular, e dependia do tempo — numa rede lenta o script chega
+       tarde, e o deslocamento aparece.
+
+       A regra do menu aberto vem depois e tem mais peso (classe + atributo +
+       irmão contra só o elemento), sem id de propósito: um `#menu-principal`
+       aqui ganharia dela e o botão pararia de abrir o menu.
+
+       Sem JavaScript o botão continua `hidden` e o menu ficaria inalcançável:
+       quem devolve o menu a esse visitante é o `<noscript><style>` do <head>
+       (layouts/Base.astro). */
+    nav { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
   }
   @media (min-width: 768px) {
