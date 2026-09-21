@@ -6,7 +6,7 @@ import { ehCasca } from './src/lib/casca.mjs';
 
 // Páginas-casca (anexos do WordPress) respondem 200, mas não entram no sitemap.
 const cascas = new Set(
-  JSON.parse(readFileSync('./acervo/mapa-de-rotas.json', 'utf8')).rotas.filter(ehCasca).map((r) => r.rota),
+  JSON.parse(readFileSync(new URL('./acervo/mapa-de-rotas.json', import.meta.url), 'utf8')).rotas.filter(ehCasca).map((r) => r.rota),
 );
 
 export default defineConfig({
