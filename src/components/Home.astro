@@ -1,48 +1,31 @@
 ---
 /**
- * A home, uma vez, nos três idiomas. A ordem é a do site atual: rotativo,
- * faixa institucional (D10) e as três caixas — notícias, vídeo, sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
+ * institucional (D10) e a caixa de sustentabilidade.
  *
- * Rotativo com um banner só: a regra 0.2 do Marco 0 tira o que é anterior a
- * 2024 e sobra um por idioma. Carrossel volta a ser requisito (H1) com dois.
+ * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
+ * vídeo no lugar dele, como no pdi.alupar.com.br. Das três caixas de baixo
+ * sobrou uma: a do vídeo saiu porque a peça subiu para o topo e apareceria
+ * duas vezes, e a de notícias saiu com a área inteira (D16).
  *
  * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
  * orçamento inteiro da página — só carrega no clique (public/js/site.js).
- * Sem JS, o link leva ao vídeo no YouTube.
+ * Sem JS, o link leva ao vídeo no YouTube. Sem autoplay: vídeo que começa
+ * sozinho é conteúdo em movimento e cairia na WCAG 2.2.2, que exige controle
+ * de pausa visível, contra um portão de acessibilidade que pede nota cheia.
  */
-import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import { noticiasDe } from '../lib/acervo';
-import { textos, prefixo, lang, CODIGO, type Idioma } from '../i18n/textos';
-import { telas } from '../lib/banners';
-import bannerPt from '../assets/banners/sustentabilidade-2025-pt.png';
-/* As cinco peças que a regra 0.2 tirou do ar, resgatadas da infraestrutura do
-   fornecedor. Estão aqui para o Marketing decidir olhando — a decisão deles é
-   que diz se ficam. */
-import telaTorre from '../assets/banners/tela-torre-2017.jpg';
-import telaEolica from '../assets/banners/tela-eolica-2017.jpg';
-import telaHidreletrica from '../assets/banners/tela-hidreletrica-2017.jpg';
-import voluntariado from '../assets/banners/voluntariado-pandemia-2021.jpg';
-import seloFeex from '../assets/banners/selo-feex-2021.jpg';
-import bannerEn from '../assets/banners/sustentabilidade-2025-en.png';
-import bannerEs from '../assets/banners/energia-que-impulsa-la-vida.jpg';
-import capaVideo from '../assets/video-institucional.jpg';
+import { textos, prefixo, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
 const pre = prefixo[idioma];
-/* Uma lista por idioma, na mesma ordem dos textos em `textos.ts`. Acrescentar
-   uma peça aqui e o texto dela lá liga o rotativo; com uma só, a home serve o
-   banner estático de hoje, sem script e sem controles. */
-const IMAGENS = {
-  /* A ordem é a da home atual: sustentabilidade, torre, eólica, selo, hidrelétrica, voluntariado. */
-  'pt-br': [bannerPt, telaTorre, telaEolica, seloFeex, telaHidreletrica, voluntariado],
-  en: [bannerEn],
-  es: [bannerEs],
-};
-const rotativo = telas(IMAGENS[idioma], t.banner, idioma);
-const gira = rotativo.length > 1;
+/* O rotativo saiu do topo em 16/09/2026 e com ele saíram `telas()`, as imagens
+   de banner e o par `rotativo`/`gira`. As peças continuam versionadas em
+   `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
+   e em `public/js/site.js`: se a decisão voltar atrás, nada precisa ser
+   reescrito, basta o topo voltar a montar as telas. */
 const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
 
 // Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
@@ -54,8 +37,6 @@ const indicadores = [
   { valor: 'AAA', rotulo: t.indicadores.rating },
 ];
 
-const formato = new Intl.DateTimeFormat(lang[idioma], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
-const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 ---
 <Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
   <main id="conteudo">
@@ -63,54 +44,40 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
          ao leitor de tela. Aqui é texto real, oculto visualmente. -->
     <h1 class="sr-only">Alupar</h1>
 
-    {/* Com uma tela isto rende exatamente o que rendia antes: um banner, nenhum
-        controle, nenhum atributo de rotativo e nenhum script. O `data-rotativo`
-        só aparece com duas ou mais, e é ele que liga o comportamento em
-        public/js/site.js — sem ele, o script não registra nada. */}
-    <section aria-label={t.destaques} class="destaques" data-rotativo={gira ? '' : undefined}
-      aria-roledescription={gira ? 'carrossel' : undefined}>
-      {rotativo.map((tela, i) => {
-        const Destaque = tela.href ? 'a' : 'div';
-        return (
-          <Destaque href={tela.href ?? undefined} class="banner" data-tela={gira ? String(i) : undefined}
-            hidden={gira && i > 0}
-            aria-roledescription={gira ? 'tela' : undefined}
-            aria-label={gira ? `${i + 1} de ${rotativo.length}` : undefined}>
-            {/* 1350w no lugar de 1280w: o banner é full-bleed (sem .container), e o
-                preset desktop do Lighthouse mede a caixa em 1335 px — o degrau de
-                1280w força o navegador a saltar para 1920w. Com a foto do banner ES
-                (energia-que-impulsa-la-vida.jpg), isso mediu 38 121 B de
-                sobra-de-pixel e reprovou "uses-responsive-images" (score 0, exigido
-                ≥0,9). Ajuste de build, invisível — não muda nada que se veja. */}
-            <Picture src={tela.imagem} alt={tela.alt} formats={['avif', 'webp']}
-              widths={[640, 1350, 1920]} sizes="100vw"
-              loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
-            {tela.legenda && <span class="legenda"><strong>{tela.legenda}</strong></span>}
-          </Destaque>
-        );
-      })}
+    {/* Vídeo no lugar do rotativo, a pedido da Alupar em 16/09/2026. É o mesmo
+        institucional que a home já trazia numa caixa mais abaixo — essa caixa
+        sai junto, senão a mesma peça apareceria duas vezes na mesma página.
 
-      {/* Controles só existem quando há o que controlar. Botões de verdade, para
-          que teclado e leitor de tela os alcancem sem nada de especial. A pausa
-          é exigência da WCAG 2.2.2 para conteúdo que se move sozinho. */}
-      {gira && (
-        <div class="controles">
-          {/* Pontinhos como na origem: centralizados na base da faixa, o ativo em
-              verde. Lá são <div> do plugin, que teclado nenhum alcança; aqui são
-              botões de verdade, com o rótulo dizendo a posição. */}
-          {rotativo.map((_, i) => (
-            <button type="button" data-ponto={String(i)} aria-label={`${t.rotativo.tela} ${i + 1}`}
-              aria-current={i === 0 ? 'true' : undefined} />
-          ))}
-          {/* A origem não tem pausa. Esta é a única adição, e tem motivo medido:
-              a WCAG 2.2.2 exige parar conteúdo que se move sozinho. Os dois
-              rótulos viajam na marcação porque o script alterna entre eles —
-              traduzir dentro do JS tiraria o texto do i18n. */}
-          <button type="button" data-rot="pausar" aria-pressed="false" class="pausa"
-            aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
-        </div>
-      )}
+        A carga é a que a decisão P8 já fixou: a capa é local e o player do
+        YouTube (~1 MB) só entra no clique. Pôr o iframe no carregamento faria
+        dele o LCP da home, que hoje é de 356 ms.
+
+        Sem autoplay, de propósito. Vídeo que começa sozinho é conteúdo em
+        movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
+        o portão de acessibilidade deste projeto exige nota cheia.
+
+        16:9 sem recorte, com a altura amarrada a 70% da tela. Largura total
+        pura, como o pdi.alupar.com.br faz, passava de uma tela inteira e
+        empurrava o resto da home para baixo da dobra. */}
+    <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
+      <iframe class="video video-topo" data-video-topo title={t.videoInstitucional}
+        src="https://www.youtube-nocookie.com/embed/oqjwsKfpYZ4?autoplay=1&mute=1&loop=1&playlist=oqjwsKfpYZ4&controls=0&playsinline=1&rel=0&enablejsapi=1"
+        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      {/* Exigência da WCAG 2.2.2: conteúdo que se move sozinho por mais de
+          cinco segundos precisa de um jeito de parar. Os controles do YouTube
+          estão desligados (`controls=0`) porque o recorte da faixa cortaria a
+          barra deles pela metade; este botão fala com o player pela API de
+          postMessage e fica sempre à vista. */}
+      <button type="button" class="pausar-video" data-pausar-video aria-pressed="false"
+        aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
     </section>
+    {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
+        dentro dela seria recortado junto com o vídeo. */}
+    <div class="container pos-video">
+      <a class="mais" href={`${pre}/videos/`}>
+        <span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}
+      </a>
+    </div>
 
     <section class="faixa" aria-label={t.emNumeros}>
       <div class="container">
@@ -126,28 +93,13 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
     </section>
 
     <div class="container caixas">
-      <section class="caixa" aria-labelledby="h-noticias">
-        <h2 id="h-noticias">{t.noticias}</h2>
-        <ul class="noticias">
-          {noticias.map((n) => (
-            <li>
-              <time datetime={n.data}>{formato.format(new Date(`${n.data}T00:00:00Z`))}</time>
-              <a href={n.rota}>{n.titulo}</a>
-            </li>
-          ))}
-        </ul>
-        <a class="mais" href={`${pre}/noticias/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisNoticias}</a>
-      </section>
+      {/* A caixa de notícias saiu em 16/09/2026, com a área inteira (D16). A
+          remoção completa — páginas, listagens e os 301 — está no #91; aqui só
+          o bloco da home, para esta alternativa poder ser vista inteira. */}
 
-      <section class="caixa" aria-labelledby="h-video">
-        <h2 id="h-video">{t.videoInstitucional}</h2>
-        <a class="video" href="https://www.youtube.com/watch?v=oqjwsKfpYZ4" data-video="oqjwsKfpYZ4" data-titulo={t.videoInstitucional}>
-          <Picture src={capaVideo} alt="" formats={['avif', 'webp']} widths={[360, 720]} sizes="(min-width: 768px) 360px, 100vw" />
-          <span class="sr-only">{t.assistirVideo}</span>
-        </a>
-        <a class="mais" href={`${pre}/videos/`}><span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}</a>
-      </section>
-
+      {/* A caixa do vídeo institucional saiu daqui em 16/09/2026: a mesma peça
+          subiu para o topo, no lugar do rotativo. O atalho para a listagem de
+          vídeos, que morava nesta caixa, passa a viver no rodapé do topo. */}
       <section class="caixa" aria-labelledby="h-sustentabilidade">
         <h2 id="h-sustentabilidade">{t.sustentabilidade}</h2>
         <ul class="eixos">
@@ -168,61 +120,63 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 </Base>
 
 <style>
-  /* #home > .banner .item do tema (css/fullwidth/skin.css): faixa de 447 px em
-     qualquer largura, com a imagem recortada para preencher (object-fit: cover).
-     Sem a altura fixa, a proporção do arquivo manda: o banner PT media ~213 px
-     em 1280 e ~65 px em 390 — uma tira, com a arte perdida no meio do cinza. */
-  .banner { position: relative; display: block; height: 447px; }
-  /* `display: block` de classe pesa mais que o `display: none` que o navegador
-     dá a [hidden], então sem esta linha as telas escondidas apareciam todas,
-     empilhadas abaixo da caixa do banner. O atributo é como o JS troca de tela
-     e como a primeira pintura já nasce certa — ele precisa vencer. */
-  .banner[hidden] { display: none; }
-  /* A seção reserva a mesma altura da tela: trocar de tela não pode empurrar a
-     página, e o CLS que o CI cobra é 0,1. Com uma tela só isto não muda nada,
-     porque a altura já era a do banner. */
-  .destaques[data-rotativo] { position: relative; height: 447px; }
-  /* Barra dos pontinhos: centralizada na base da faixa, como no tema. */
-  .controles {
-    position: absolute; left: 0; right: 0; bottom: 10px;
-    display: flex; justify-content: center; align-items: center; gap: 6px;
+  /* O topo deixa de ser a faixa de 447 px do tema (#home > .banner .item em
+     css/fullwidth/skin.css): quem manda na altura passa a ser a tela do
+     visitante, não o tema. `aspect-ratio` reserva essa altura antes de a capa
+     chegar, então o CLS que o CI cobra em 0,1 continua zero. */
+  /* A altura acompanha a largura e para nos 447 px do tema: 34vw chega lá por
+     volta de 1315 px e o `clamp` segura o teto acima disso. Num telefone de
+     390 px a faixa fica com 220 px, que é o piso — sem isso, 447 px fixos
+     mostrariam uma tira estreitíssima do quadro. */
+  .destaque-video {
+    position: relative; overflow: hidden;
+    height: clamp(260px, 40vw, 560px);
+    background: var(--cinza-fundo);
   }
-  /* O ponto visível tem 12 px, mas o alvo de toque é de 24 px (WCAG 2.5.8): o
-     botão fica transparente e o círculo é desenhado por ::before, centrado. */
-  .controles button[data-ponto] {
-    width: 24px; height: 24px; padding: 0; border: 0; background: none;
-    cursor: pointer; display: grid; place-items: center;
+  /* O box azul do logotipo passa a descer 40 px sobre o vídeo. O box é float
+     dentro de um `flow-root` (Cabecalho.astro), então a margem negativa encolhe
+     a altura que o cabeçalho reserva para ele e o box sobra para fora, sobre o
+     que vier abaixo — sem tirá-lo do fluxo nem mexer no fundo branco do menu,
+     que continua terminando onde terminava. A faixa do vídeo ganhou os mesmos
+     40 px (447 → 487) para o que fica à vista não encolher.
+
+     `:global` porque o alvo é do Cabecalho, e o cabeçalho é de todas as
+     páginas — mas o CSS deste componente só é carregado onde ele é usado, que
+     são as três homes. Numa interna nada muda.
+
+     Só a partir de 768 px: abaixo disso o cabeçalho do tema é uma faixa azul
+     de ponta a ponta e não há box para sobrepor. */
+  @media (min-width: 768px) {
+    :global(.logo) { margin-bottom: -40px; }
   }
-  .controles button[data-ponto]::before {
-    content: ''; width: 12px; height: 12px; border-radius: 50%;
-    background: rgba(255, 255, 255, .75); box-shadow: 0 0 0 1px rgba(0, 0, 0, .18);
+  /* O botão de pausa: canto inferior direito, 44 px de área de toque (WCAG
+     2.5.8), sobre o vídeo. Contraste garantido pelo fundo escuro translúcido. */
+  .pausar-video {
+    position: absolute; right: 16px; bottom: 16px; z-index: 1;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255, 255, 255, .85); border-radius: 50%;
+    background: rgba(0, 0, 0, .55); color: var(--branco); font-size: 15px; line-height: 1;
+    cursor: pointer;
   }
-  .controles button[data-ponto][aria-current]::before { background: var(--verde); }
-  .controles .pausa {
-    width: 24px; height: 24px; margin-left: 10px; padding: 0;
-    border: 0; border-radius: 50%; background: rgba(0, 0, 0, .4);
-    color: #fff; font-size: 9px; line-height: 1; cursor: pointer;
+  .pausar-video:hover { background: rgba(0, 0, 0, .75); }
+  /* O player entra no mesmo retângulo da capa, também preenchendo: 16:9
+     centrado, com o mínimo necessário para cobrir a faixa, e o que sobra é
+     recortado pelo `overflow` da seção. É o mesmo enquadramento da capa, então
+     o clique não muda nada de lugar e o CLS continua zero.
+     O preço: a barra de controles do YouTube fica parcialmente fora do corte.
+     Quem quiser controle usa a tela cheia do próprio player. */
+  .destaque-video :global(iframe.video) {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    min-width: 100%; min-height: 100%; aspect-ratio: 16 / 9; border: 0;
+    /* O player não recebe mouse. Sem isso o YouTube mostra os controles de
+       playlist no meio da tela — anterior, pausa e próxima, grandes — porque o
+       laço é feito com `playlist=`, e `controls=0` não os desliga. Aqui o vídeo
+       é peça de fundo: quem controla é o nosso botão, que fala com o player
+       por postMessage e não depende de clique dentro do iframe. */
+    pointer-events: none;
   }
-  .controles button:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
-  .banner :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
-  /* .content do tema (skin.css): caixa branca translúcida no alto à esquerda,
-     texto azul em peso normal e um fio verde de 4 px na base, a 45% da largura.
-     A partir de 1200 px a caixa começa no meio da tela e o texto vai a 38 px. */
-  .legenda {
-    position: absolute; top: 0; left: 0; padding: 20px 30px;
-    background: rgba(255, 255, 255, .6);
-    color: var(--azul); font-size: 18px; font-weight: 400;
-  }
-  /* O tema zera o negrito (`strong { font-weight: normal }` do style.css), e a
-     legenda dele é justamente um <strong>: peso normal, tamanho da caixa. */
-  .legenda strong { font-weight: inherit; font-size: inherit; }
-  .legenda::after {
-    content: ''; position: absolute; right: 0; bottom: 0;
-    width: 45%; height: 4px; background: var(--verde);
-  }
-  @media (min-width: 1200px) {
-    .legenda { left: 50%; max-width: 628px; font-size: 38px; }
-  }
+  /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
+  .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
   .faixa ul {
@@ -237,7 +191,9 @@ const noticias = noticiasDe(CODIGO[idioma]).slice(0, 6);
 
   /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
   .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  @media (min-width: 768px) { .caixas { grid-template-columns: repeat(3, 1fr); } }
+  /* Eram três caixas. O vídeo subiu para o topo e as notícias saíram (D16),
+     então sobrou uma. Sem media query de colunas: uma caixa só ocupa a linha,
+     e uma grade de três com dois buracos seria pior que nenhuma grade. */
   .caixa {
     display: flex; flex-direction: column; background: var(--branco);
     padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
