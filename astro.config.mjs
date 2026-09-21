@@ -20,7 +20,10 @@ export default defineConfig({
 
   // A CSP (public/_headers) só aceita `script-src 'self'`: sem isto o Astro
   // embute no HTML o script de componente que for pequeno, e o navegador o bloqueia.
-  vite: { build: { assetsInlineLimit: 0 } },
+  // Só `.js`: com um número (0) o Astro deixaria de embutir também o CSS pequeno
+  // (`style-src` aceita 'unsafe-inline') e passaria a servi-lo em arquivo, +1 requisição por página.
+  // `undefined` mantém a regra padrão (4 KB) para o resto.
+  vite: { build: { assetsInlineLimit: (arquivo) => (arquivo.endsWith('.js') ? false : undefined) } },
 
   image: {
     // AVIF/WebP e srcset saem do build, não da disciplina de quem publica.

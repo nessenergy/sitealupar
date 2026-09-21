@@ -121,3 +121,24 @@ export function recursos(html) {
   })(parse(html));
   return saida;
 }
+
+/* Blocos de dados: o navegador não os executa e a CSP não os bloqueia. */
+const DADOS = new Set(['application/ld+json', 'application/json', 'importmap', 'speculationrules']);
+
+/**
+ * Corpo de cada `<script>` executável embutido no HTML (sem `src`, com texto,
+ * e que não seja bloco de dados). Com `script-src 'self'` e sem
+ * `'unsafe-inline'`, o navegador bloqueia todos eles.
+ */
+export function scriptsEmbutidos(html) {
+  const saida = [];
+  (function andar(no) {
+    if (no.nodeName === 'script') {
+      const attrs = Object.fromEntries(no.attrs.map((a) => [a.name, a.value]));
+      const texto = (no.childNodes ?? []).map((c) => c.value ?? '').join('');
+      if (!('src' in attrs) && !DADOS.has((attrs.type ?? '').trim().toLowerCase()) && texto.trim()) saida.push(texto);
+    }
+    for (const filho of no.childNodes ?? []) andar(filho);
+  })(parse(html));
+  return saida;
+}

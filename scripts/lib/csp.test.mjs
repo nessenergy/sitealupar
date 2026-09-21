@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { lerCsp, diretivas, fontesPara, permitido, candidatos, recursos } from './csp.mjs';
+import { lerCsp, diretivas, fontesPara, permitido, candidatos, recursos, scriptsEmbutidos } from './csp.mjs';
 
 const HEADERS = `# comentário
 /*
@@ -101,3 +101,37 @@ test('recursos do HTML mapeados para a diretiva de cada um', () => {
     { diretiva: 'form-action', url: '/api/contato' },
   ]);
 });
+
+test('script embutido clássico é apontado', () =>
+  assert.deepEqual(scriptsEmbutidos('<html><body><script>alert(1)</script></body></html>'), ['alert(1)']));
+
+test('script embutido type="module" é apontado', () =>
+  assert.deepEqual(scriptsEmbutidos('<script type="module">import "./a.js"</script>'), ['import "./a.js"']));
+
+test('script com src não é embutido', () =>
+  assert.deepEqual(scriptsEmbutidos('<script src="/js/site.js" defer></script><script type="module" src="/_astro/a.js"></script>'), []));
+
+test('blocos de dados (ld+json, json, importmap, speculationrules) não são executados nem bloqueados', () =>
+  assert.deepEqual(
+    scriptsEmbutidos([
+      '<script type="application/ld+json">{"@type":"Organization"}</script>',
+      '<script type="application/json">{}</script>',
+      '<script type="importmap">{"imports":{}}</script>',
+      '<script type="speculationrules">{}</script>',
+    ].join('')),
+    [],
+  ));
+
+test('script embutido vazio não conta', () =>
+  assert.deepEqual(scriptsEmbutidos('<script></script><script>  \n</script>'), []));
+
+test('página com um de cada: só os dois executáveis embutidos', () =>
+  assert.deepEqual(
+    scriptsEmbutidos(`<head>
+      <script src="/js/site.js" defer></script>
+      <script type="application/ld+json">{}</script>
+      <script type="importmap">{}</script>
+      <script>window.a = 1</script>
+    </head><body><script type="module">window.b = 2</script></body>`),
+    ['window.a = 1', 'window.b = 2'],
+  ));
