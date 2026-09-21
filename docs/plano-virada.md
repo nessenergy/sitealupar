@@ -2506,7 +2506,7 @@ node scripts/fechar-continuidade.mjs --verificar
 Fora deste plano, na ordem em que entram depois da virada. Cada uma ganha seu
 próprio plano quando chegar a vez.
 
-1. **Sanity com banner e notícia**, conta em nome da Alupar (D11, Z2), webhook de build. É aqui que se cumpre "a Comunicação publica sem chamado a fornecedor"
+1. **Sanity com banner e notícia**, conta em nome da Alupar (D11, Z2), webhook de build. É aqui que se cumpre "a Comunicação publica sem chamado a fornecedor" — *Nota de 21/09/2026: sem objeto enquanto a D11 estiver em revisão. Banner e notícia deixaram de existir (#94, D16)*
 2. ~~**Notícias de 03/2023 até hoje** — pelo feed do RI (D5) ou por carga manual (Marco 0.3). Com elas, a listagem volta ao corte puro de D9~~ — sem objeto desde a D16 (16/09/2026): a área de notícias foi desativada
 3. **Faixa institucional completa**, quando a Alupar enviar km de linhas e MW instalados
 4. **Carrossel** (H1) e recorte de banner por breakpoint, quando houver dois ou mais banners

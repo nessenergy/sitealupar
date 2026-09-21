@@ -8,7 +8,9 @@ Arquivo canônico de contexto deste repositório. Vale para qualquer agente;
 
 Replataforma do site institucional da Alupar (`alupar.com.br`), hoje um
 WordPress hospedado pela MZ Group. Sai um site estático em Astro publicado no
-Cloudflare Pages, com CMS Sanity. **Restauro fiel:** a linguagem visual atual é
+Cloudflare Pages. **Não há CMS:** o conteúdo vive em arquivos versionados neste
+repositório, e o Sanity previsto na D11 nunca foi implantado (ver
+`docs/decisoes.md`). **Restauro fiel:** a linguagem visual atual é
 preservada; muda o que resolve um problema medido. 500 h em 6–7 semanas.
 
 Contrato com a Alupar é da **ness.**; execução é da **Bekaa**, empresa parceira.
@@ -29,7 +31,9 @@ Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
    cabeçalhos que se propagam por subdomínio.
 3. **Nenhuma URL do acervo pode responder 404.** São 20 páginas e 99 notícias
    indexadas desde 2017. O corte editorial de notícias é um campo, não uma
-   exclusão. Toda remoção vira 301 em `public/_redirects`.
+   exclusão. Toda remoção vira 301 em `public/_redirects`. Desde a D16
+   (16/09/2026) a área de notícias inteira saiu do ar: as notícias respondem
+   por 301 para a listagem do portal de RI, e continuam sem nenhum 404.
 4. **Número não se inventa.** Onde faltar dado da Alupar — km de linhas, MW
    instalados, valor de contrato — o lugar fica marcado como pendente. Um valor
    plausível é pior que um espaço vazio, porque ninguém o corrige depois.
@@ -63,7 +67,7 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 | Caminho | O que é |
 |---|---|
 | `docs/prd.md` | O que o site precisa ser e por quê. Começa aqui |
-| `docs/decisoes.md` | As doze decisões e seus motivos |
+| `docs/decisoes.md` | As decisões e seus motivos |
 | `docs/marco-0-runbook.md` | Sete ações emergenciais, com verificação |
 | `docs/equipe.md` | Dimensionamento, alocação e lacunas |
 | `src/styles/tokens.css` | Tokens de marca, com as correções documentadas |
@@ -78,7 +82,7 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 | `restauro-fiel` | Qualquer decisão visual, e todo pedido de "melhoria" |
 | `marca-alupar` | Cor, tipografia, logotipo, aprovação de marca |
 | `cloudflare-alupar` | Borda, DNS, cabeçalhos, redirecionamentos, deploy |
-| `sanity-alupar` | Modelo de conteúdo, i18n, migração do acervo |
+| `sanity-alupar` | Só se a D11 for retomada. Descreve um CMS que **não existe** neste repositório |
 | `a11y-gate` | Marcação, formulário, contraste, foco, leitor de tela |
 
 ## O fornecedor atual não colabora

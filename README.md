@@ -14,8 +14,9 @@ O portal de RI (`ri.alupar.com.br`) **não faz parte deste projeto**.
 |---|---|
 | Site | Astro, saída estática |
 | Estilo | CSS com custom properties — os tokens de marca são as variáveis |
-| Conteúdo | Sanity (Studio em `cms.alupar.com.br`) |
-| Notícias | Feed do portal de RI |
+| Conteúdo | Arquivos versionados no próprio repositório (`acervo/`, `src/i18n/textos.ts`). **Não há CMS** — ver D11 em `docs/decisoes.md` |
+| Documentos e mídia pesada | Cloudflare R2, servido em `arquivos.alupar.com.br` |
+| Notícias | Área desativada (D16); os endereços antigos redirecionam para a listagem do portal de RI |
 | Hospedagem | Cloudflare Pages |
 | Borda | Proxy Cloudflare, Redirect Rules, cabeçalhos em `public/_headers` |
 | Formulário | Cloudflare Worker + Turnstile |

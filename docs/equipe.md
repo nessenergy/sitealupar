@@ -19,7 +19,7 @@ só nem justifica seis em tempo integral.
 | Pessoa | Papel no projeto | Horas | Carga em 7 semanas | Pacotes |
 |---|---|---:|---:|---|
 | **Lucas** | Dev — front-end e infraestrutura | 204 | 73% | Front-end (112), Infra e observabilidade (40), Faixa institucional (16), Formulário técnico (16), QA de regressão (20) |
-| **Sofia** | Modelagem de conteúdo e dados estruturados | 80 | 29% | CMS e migração do acervo (56), SEO técnico (24) |
+| **Sofia** | Modelagem de conteúdo e dados estruturados | 80 | 29% | CMS e migração do acervo (56), SEO técnico (24). *Nota de 21/09/2026: o CMS não foi implantado; a migração do acervo foi para arquivos versionados* |
 | **Marcela** | Coordenação e governança | 52 | 19% | Coordenação (32), homologação e evidências (20) |
 | **Camila** | Estratégia e interface com a Alupar | 32 | 11% | Descoberta e arquitetura de informação (32) |
 | **Juliana** | Conteúdo em português | 28 | 10% | Revisão e redação PT (28) |
@@ -36,7 +36,8 @@ só nem justifica seis em tempo integral.
   um lado, Astro e CSS do outro.
 - **Sofia** cuida de grafo de conhecimento, e é disso que se trata modelar cinco
   tipos no Sanity, migrar 99 notícias com metadados coerentes e estruturar o
-  JSON-LD. É a pessoa certa para a parte que normalmente vira improviso.
+  JSON-LD. É a pessoa certa para a parte que normalmente vira improviso. *Nota de 21/09/2026: o Sanity não foi
+  implantado, e das 99 notícias nenhuma foi migrada — a área foi desativada (D16).*
 - **Marcela** assume a coordenação e as evidências de homologação; **Gabi** entra
   como escalonamento executivo, não como alocação horária.
 - **Camila** é quem tem interface com o cliente, e a Descoberta é justamente
@@ -184,7 +185,7 @@ retorno:
 | `restauro-fiel` | ✅ **Escrita** — a regra do D2 aplicada template a template: a pergunta que autoriza uma mudança, o que pode e não pode mudar, e a conferência lado a lado contra o site atual e o portal de RI. Dona: Helena |
 | `marca-alupar` | ✅ **Escrita** — MIV 2018, tokens, as duas correções documentadas (`#00A0E3` e o verde de texto), versões do logotipo e o que exige aprovação do Marketing |
 | `cloudflare-alupar` | ✅ **Escrita** — Convenções de `_headers` e `_redirects`, Redirect Rules, e as armadilhas — HSTS com `includeSubDomains` atinge o portal de RI, que é de outra equipe |
-| `sanity-alupar` | ✅ **Escrita** — Modelo de conteúdo, i18n por documento, migração com preservação de URL, webhook de build |
+| `sanity-alupar` | ✅ **Escrita** — Modelo de conteúdo, i18n por documento, migração com preservação de URL, webhook de build. *Nota de 21/09/2026: desenho sem implantação* |
 | `a11y-gate` | ✅ **Escrita** — O checklist WCAG que o CI cobra, com o que a ferramenta automática não pega |
 
 As cinco estão no repositório, junto com o `AGENTS.md` que dá o contexto geral.

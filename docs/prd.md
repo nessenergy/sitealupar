@@ -142,7 +142,7 @@ publicados pelo próprio RI. Os outros dois — **km de linhas de transmissão**
 
 | # | Requisito |
 |---|---|
-| E1 | As 42 fichas passam a ser registros no CMS, não HTML mantido à mão |
+| E1 | As 42 fichas passam a ser registros no CMS, não HTML mantido à mão — *Nota de 21/09/2026: não cumprido; não há CMS (D11 em revisão). As fichas saem do acervo versionado* |
 | E2 | Texto alternativo obrigatório por validação — hoje 30 das 42 imagens têm `alt=""` |
 
 ### Notícias
@@ -224,7 +224,8 @@ Aqui ficam apenas as restrições que limitam o desenho do produto:
 - **O Marketing aprova qualquer uso da marca** — é o que o manual determina.
   Isso é portão do M2, não revisão no fim
 - **A conta do Sanity fica em nome da Alupar**, não da agência. É o que torna a
-  saída de qualquer fornecedor futuro indolor
+  saída de qualquer fornecedor futuro indolor. *Nota de 21/09/2026: vale se a D11 for
+  retomada; o Sanity não foi implantado*
 - **O feed de notícias depende da equipe do RI.** É a única dependência externa
   no caminho crítico
 

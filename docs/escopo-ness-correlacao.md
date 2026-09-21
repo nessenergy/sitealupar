@@ -30,6 +30,9 @@ ambiente novo tem de devolver autonomia à Comunicação.
 
 ### 2.1 A plataforma — WordPress (§ 2, § 9) contra Astro + Sanity + Cloudflare (D1–D4)
 
+> Nota de 21/09/2026: o Sanity citado aqui não foi implantado. A plataforma entregue é Astro
+> estático no Cloudflare Pages, com o conteúdo em arquivos versionados (D11 em revisão).
+
 Esta é a decisão que governa todas as outras. Este repositório inteiro — o scaffold, os
 tokens, as cinco skills, o portão de qualidade no CI — pressupõe saída estática.
 

@@ -71,7 +71,8 @@ node scripts/extrair-acervo.mjs --midia --saida acervo-completo
 
 **Rodar isso hoje, e guardar fora deste repositório** — 247 MB não pertencem ao
 git. O destino natural é o *asset store* do Sanity, mas a cópia bruta deve
-existir antes disso.
+existir antes disso. *Nota de 21/09/2026: o destino acabou sendo o Cloudflare R2, em
+`arquivos.alupar.com.br` — o Sanity não foi implantado.*
 
 Os quatro maiores são EIA/RIMA de PCH, somando 138 MB. São documentos de
 licenciamento ambiental: verificar com a Alupar se ainda precisam estar

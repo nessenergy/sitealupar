@@ -49,7 +49,7 @@ Eram seis; A1 saiu porque a ness. administra o domínio.
 | # | O quê | Por quê |
 |---|---|---|
 | Z1 | Executar o Marco 0 esta semana | R$ 1.920–2.880. Corrige um problema que está no ar agora |
-| Z2 | Criar a conta do Sanity **em nome da Alupar** | É o que torna a saída de qualquer fornecedor futuro indolor |
+| Z2 | Criar a conta do Sanity **em nome da Alupar** | É o que torna a saída de qualquer fornecedor futuro indolor. *Nota de 21/09/2026: não criada; o Sanity não foi implantado e a D11 está em revisão* |
 | ~~Z3~~ | ~~Acesso de administrador à zona Cloudflare~~ | **Já temos.** A ness. administra a zona |
 
 ---
