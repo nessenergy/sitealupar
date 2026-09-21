@@ -129,10 +129,14 @@ const padrao = alternativas.length > 1 ? alternativas.find((a) => a.idioma === '
     {/* No celular o menu nasce recolhido por CSS (Cabecalho.astro), porque
         esperar o site.js para recolhê-lo fazia a página inteira subir quando o
         script chegava (CLS de 0,37 numa rede lenta). O botão que o abre só
-        aparece com JavaScript; sem ele o visitante ficaria sem menu. Este
-        bloco devolve o menu aberto a quem não roda script. Fica aqui porque
-        `<style>` dentro de `<noscript>` só é válido no <head>, e o CSP já
-        permite estilo embutido. O id ganha do seletor de tipo do componente. */}
+        aparece quando o site.js roda. Este bloco cobre UM caso: JavaScript
+        desligado, em que o menu volta a ficar aberto. NÃO cobre JavaScript
+        ligado com o site.js atrasado ou falho — nesse caso não há menu até ele
+        rodar, custo aceito e registrado na D23 (com o caminho de melhoria
+        via `:target`). Fica aqui porque `<style>` dentro de `<noscript>` só é
+        válido no <head>, e o CSP já permite estilo embutido. Depende do id
+        `menu-principal` do Cabecalho.astro, e o id ganha do seletor do
+        componente. */}
     <noscript>
       <style is:inline>@media (max-width: 767px) { #menu-principal { display: block; } }</style>
     </noscript>

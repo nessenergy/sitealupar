@@ -55,6 +55,9 @@ const atual = Astro.url.pathname;
       <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
+    {/* O id é usado por `aria-controls` acima e pelo `<noscript><style>` de
+        layouts/Base.astro, que devolve o menu a quem roda sem JavaScript.
+        Renomear aqui sem mudar lá deixa esse visitante sem menu no celular. */}
     <nav id="menu-principal" aria-label={t.menu.rotulo}>
       <ul>
         {t.menu.itens.map((m) => (
@@ -126,19 +129,28 @@ const atual = Astro.url.pathname;
     nav a { border-bottom: 1px solid var(--cinza-borda); }
     /* O menu nasce recolhido, pelo CSS, sem esperar o JavaScript. Antes o
        recolhimento dependia do atributo `data-recolhivel`, que o site.js (com
-       `defer`) só põe depois de rodar: até lá o menu inteiro ficava aberto, com
-       ~357 px, e quando o script chegava a página inteira subia. Era o CLS de
-       0,37 do celular, e dependia do tempo — numa rede lenta o script chega
+       `defer`) só punha depois de rodar: até lá o menu inteiro ficava aberto,
+       com ~357 px, e quando o script chegava a página inteira subia. Era o CLS
+       de 0,37 do celular, e dependia do tempo — numa rede lenta o script chega
        tarde, e o deslocamento aparece.
 
-       A regra do menu aberto vem depois e tem mais peso (classe + atributo +
-       irmão contra só o elemento), sem id de propósito: um `#menu-principal`
-       aqui ganharia dela e o botão pararia de abrir o menu.
+       O que isto cobre, e o que não cobre:
+       - JavaScript rodando: menu recolhido desde a primeira pintura; o botão
+         (que o site.js revela) abre e fecha.
+       - JavaScript desligado: o `<noscript><style>` do <head> (layouts/
+         Base.astro) mantém o menu aberto.
+       - JavaScript ligado, mas o site.js ainda não rodou (rede lenta) ou não
+         roda (pedido bloqueado, erro no script): sem menu e sem controle
+         focável até ele rodar. Custo aceito (D23): a janela é de 1 a 3 s em
+         4G lento, o script é do mesmo domínio, e um botão visível só por CSS
+         seria um controle morto, pior para leitor de tela. Se um dia
+         incomodar: `<a href="#menu-principal">` sempre visível, com
+         `nav:target { display: block }`, e o site.js assume por cima.
 
-       Sem JavaScript o botão continua `hidden` e o menu ficaria inalcançável:
-       quem devolve o menu a esse visitante é o `<noscript><style>` do <head>
-       (layouts/Base.astro). */
-    nav { display: none; }
+       A regra do menu aberto vem depois e tem mais peso (classe + atributo +
+       irmão contra classe + irmão), sem id de propósito: um `#menu-principal`
+       aqui ganharia dela e o botão pararia de abrir o menu. */
+    .alternar + nav { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
   }
   @media (min-width: 768px) {
