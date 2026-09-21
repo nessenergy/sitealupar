@@ -8,19 +8,23 @@
  * sobrou uma: a do vídeo saiu porque a peça subiu para o topo e apareceria
  * duas vezes, e a de notícias saiu com a área inteira (D16).
  *
- * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
- * orçamento inteiro da página — só carrega no clique (public/js/site.js).
- * Sem JS, o link leva ao vídeo no YouTube. Sem autoplay: vídeo que começa
- * sozinho é conteúdo em movimento e cairia na WCAG 2.2.2, que exige controle
- * de pausa visível, contra um portão de acessibilidade que pede nota cheia.
+ * O vídeo toca sozinho e mudo (pedido da Alupar, D18), com a capa local por
+ * baixo: é ela o LCP da página, e é ela que fica onde o YouTube não carrega.
+ * Quem pede menos movimento (prefers-reduced-motion) ou economia de dados
+ * (Save-Data) não recebe o player: a capa fica, com o botão de reproduzir.
+ * Sem JS, a capa e um link para o vídeo no YouTube. O botão de pausa é o
+ * controle que a WCAG 2.2.2 exige para conteúdo em movimento.
  */
+import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import capa from '../assets/video-institucional.jpg';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
 const pre = prefixo[idioma];
+const VIDEO = 'oqjwsKfpYZ4';
 /* O rotativo saiu do topo em 16/09/2026 e com ele saíram `telas()`, as imagens
    de banner e o par `rotativo`/`gira`. As peças continuam versionadas em
    `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
@@ -46,30 +50,21 @@ const indicadores = [
 
     {/* Vídeo no lugar do rotativo, a pedido da Alupar em 16/09/2026. É o mesmo
         institucional que a home já trazia numa caixa mais abaixo — essa caixa
-        sai junto, senão a mesma peça apareceria duas vezes na mesma página.
+        saiu junto, senão a mesma peça apareceria duas vezes na mesma página.
 
-        A carga é a que a decisão P8 já fixou: a capa é local e o player do
-        YouTube (~1 MB) só entra no clique. Pôr o iframe no carregamento faria
-        dele o LCP da home, que hoje é de 356 ms.
-
-        Sem autoplay, de propósito. Vídeo que começa sozinho é conteúdo em
-        movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
-        o portão de acessibilidade deste projeto exige nota cheia.
-
-        16:9 sem recorte, com a altura amarrada a 70% da tela. Largura total
-        pura, como o pdi.alupar.com.br faz, passava de uma tela inteira e
-        empurrava o resto da home para baixo da dobra. */}
-    <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
-      <iframe class="video video-topo" data-video-topo title={t.videoInstitucional}
-        src="https://www.youtube-nocookie.com/embed/oqjwsKfpYZ4?autoplay=1&mute=1&loop=1&playlist=oqjwsKfpYZ4&controls=0&playsinline=1&rel=0&enablejsapi=1"
-        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      {/* Exigência da WCAG 2.2.2: conteúdo que se move sozinho por mais de
-          cinco segundos precisa de um jeito de parar. Os controles do YouTube
-          estão desligados (`controls=0`) porque o recorte da faixa cortaria a
-          barra deles pela metade; este botão fala com o player pela API de
-          postMessage e fica sempre à vista. */}
-      <button type="button" class="pausar-video" data-pausar-video aria-pressed="false"
-        aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
+        16:9 sem recorte, com a altura amarrada à largura (ver o CSS). A capa é
+        a mesma imagem que o `iframe` cobre depois, no mesmo enquadramento —
+        quando o player chega, nada muda de lugar. O iframe não está aqui: quem
+        o cria é public/js/site.js, e só para quem não pediu economia. */}
+    <section class="destaques destaque-video" aria-label={t.videoInstitucional}
+      data-video-topo={VIDEO} data-titulo={t.videoInstitucional}>
+      <Picture src={capa} alt="" formats={['avif', 'webp']} widths={[640, 1280]}
+        sizes="100vw" quality={60} loading="eager" fetchpriority="high" class="capa" />
+      <button type="button" class="pausar-video" data-pausar-video hidden
+        aria-label={t.videoTopo.pausar} data-pausar={t.videoTopo.pausar} data-retomar={t.videoTopo.retomar}>❚❚</button>
+      <noscript>
+        <a class="assistir" href={`https://www.youtube.com/watch?v=${VIDEO}`}>{t.assistirVideo}</a>
+      </noscript>
     </section>
     {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
         dentro dela seria recortado junto com o vídeo. */}
@@ -120,14 +115,11 @@ const indicadores = [
 </Base>
 
 <style>
-  /* O topo deixa de ser a faixa de 447 px do tema (#home > .banner .item em
-     css/fullwidth/skin.css): quem manda na altura passa a ser a tela do
-     visitante, não o tema. `aspect-ratio` reserva essa altura antes de a capa
-     chegar, então o CLS que o CI cobra em 0,1 continua zero. */
-  /* A altura acompanha a largura e para nos 447 px do tema: 34vw chega lá por
-     volta de 1315 px e o `clamp` segura o teto acima disso. Num telefone de
-     390 px a faixa fica com 220 px, que é o piso — sem isso, 447 px fixos
-     mostrariam uma tira estreitíssima do quadro. */
+  /* A altura da faixa acompanha a largura da tela (40vw) entre 260 e 560 px:
+     quem manda é a tela do visitante, não os 447 px fixos do tema. Como a
+     altura é declarada, o espaço já está reservado antes de a capa chegar e o
+     CLS que o CI cobra em 0,1 continua zero. Num telefone de 390 px a faixa
+     fica no piso de 260 px, senão mostraria uma tira estreita do quadro. */
   .destaque-video {
     position: relative; overflow: hidden;
     height: clamp(260px, 40vw, 560px);
@@ -162,12 +154,13 @@ const indicadores = [
   /* O player entra no mesmo retângulo da capa, também preenchendo: 16:9
      centrado, com o mínimo necessário para cobrir a faixa, e o que sobra é
      recortado pelo `overflow` da seção. É o mesmo enquadramento da capa, então
-     o clique não muda nada de lugar e o CLS continua zero.
-     O preço: a barra de controles do YouTube fica parcialmente fora do corte.
-     Quem quiser controle usa a tela cheia do próprio player. */
+     a chegada do player não muda nada de lugar e o CLS continua zero. */
   .destaque-video :global(iframe.video) {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     min-width: 100%; min-height: 100%; aspect-ratio: 16 / 9; border: 0;
+    /* Invisível até responder (site.js): a página de erro de um YouTube bloqueado
+       não pode cobrir a capa. */
+    opacity: 0;
     /* O player não recebe mouse. Sem isso o YouTube mostra os controles de
        playlist no meio da tela — anterior, pausa e próxima, grandes — porque o
        laço é feito com `playlist=`, e `controls=0` não os desliga. Aqui o vídeo
@@ -175,8 +168,23 @@ const indicadores = [
        por postMessage e não depende de clique dentro do iframe. */
     pointer-events: none;
   }
+  .destaque-video :global(iframe.video.pronto) { opacity: 1; }
+  /* A capa preenche a faixa, com o mesmo recorte do player por cima. */
+  .destaque-video :global(img.capa) {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  /* Só existe sem JS: o único caminho até o vídeo. */
+  .assistir {
+    position: absolute; right: 16px; bottom: 16px; z-index: 1;
+    padding: 10px 16px; background: rgba(0, 0, 0, .7); color: var(--branco);
+    font-size: 14px; text-decoration: none;
+  }
+  .assistir:hover, .assistir:focus-visible { background: rgba(0, 0, 0, .9); }
   /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
   .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
+  /* O -20px do .mais compensa o recheio da caixa branca; aqui o recheio é o do
+     container, menor, e a margem negativa empurrava 5 px para fora da tela. */
+  .pos-video .mais { margin-right: 0; }
 
   .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
   .faixa ul {
@@ -207,31 +215,8 @@ const indicadores = [
     text-transform: uppercase; margin: 20px 0;
   }
 
-  /* No tema a lista da caixa é um <ul> comum, sem folha que a redefina: vem o
-     marcador de disco do navegador. A data está num <strong> com o negrito
-     zerado pelo style.css, e o título é link azul sem sublinhado — sublinhado
-     só no hover e no foco, como em todo link do tema. Numa lista de links
-     (não de texto corrido), a ausência de sublinhado não fere a WCAG 1.4.1. */
-  .noticias { list-style: disc; margin: 0; padding-left: 20px; flex: 1; }
-  .noticias li { margin-bottom: 10px; }
-  .noticias time { display: block; font-weight: 400; }
-  .noticias a { color: var(--azul); text-decoration: none; }
-  .noticias a:hover, .noticias a:focus-visible { text-decoration: underline; }
-
-  /* o iframe é criado pelo site.js no clique e não recebe o atributo de
-     escopo do Astro — por isso :global dentro de .caixa. */
-  /* .embed-responsive-4by3 do tema: a caixa do vídeo é 4:3 e só isso — não
-     estica. Com `flex: 1` ela crescia até o pé da caixa e virava um retrato de
-     ~310 × 400 px em 1280, contra os ~320 × 240 px do site atual. É a margem
-     automática do link "veja mais" que passa a empurrá-lo para a base. */
+  /* O link "saiba mais" ancora na base da caixa. */
   .caixa .mais { margin-top: auto; }
-  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; }
-  .caixa :global(.video) :global(img) { width: 100%; height: 100%; object-fit: cover; }
-  .caixa :global(.video)::after {
-    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
-    font-size: 3rem; color: var(--branco);
-  }
-  .caixa :global(iframe.video) { width: 100%; height: auto; border: 0; }
 
   .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
   .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
