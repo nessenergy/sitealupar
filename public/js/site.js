@@ -126,6 +126,10 @@ if (rotativo) {
 // (Teto conhecido: se o YouTube mudar o protocolo, o player fica invisível e a
 // capa segue valendo; o `pauseVideo` abaixo depende do mesmo protocolo.)
 //
+// Sem laço: quando o vídeo termina o iframe sai, como na desistência acima. É
+// o teto do peso da página — com `loop=1` o navegador baixava sem parar (8,4 MB
+// numa leitura longa). `terminou` espelha src/lib/video-topo.ts.
+//
 // O botão é o controle de pausa que a WCAG 2.2.2 exige para conteúdo em
 // movimento por mais de cinco segundos. Os controles nativos estão desligados
 // (`controls=0`) porque o recorte da faixa cortaria a barra deles. O estado
@@ -140,6 +144,14 @@ if (faixaVideo && botaoVideo) {
   let player = null;
   let tocando = !economiza;
 
+  const terminou = (data) => {
+    if (typeof data !== 'string') return false;
+    try {
+      const m = JSON.parse(data);
+      if (m?.event === 'onStateChange') return m.info === 0;
+      return m?.event === 'infoDelivery' && m.info?.playerState === 0;
+    } catch { return false; }
+  };
   const rotular = () => {
     botaoVideo.setAttribute('aria-label', tocando ? botaoVideo.dataset.pausar : botaoVideo.dataset.retomar);
     botaoVideo.textContent = tocando ? '❚❚' : '▶';
@@ -152,21 +164,29 @@ if (faixaVideo && botaoVideo) {
     p.title = titulo;
     p.allow = 'autoplay; encrypted-media; picture-in-picture';
     p.allowFullscreen = true;
-    p.src = `${YT}/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&enablejsapi=1`;
+    p.src = `${YT}/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&enablejsapi=1`;
     botaoVideo.before(p);
 
+    let pronto = false;
     const tentar = setInterval(() => p.contentWindow.postMessage('{"event":"listening","id":1,"channel":"widget"}', YT), 400);
-    const limpar = () => { clearInterval(tentar); clearTimeout(desistir); removeEventListener('message', ouvir); };
-    const desistir = setTimeout(() => {
-      limpar();
+    const encerrar = () => {
+      clearInterval(tentar);
+      clearTimeout(desistir);
+      removeEventListener('message', ouvir);
       p.remove();
       if (player === p) { player = null; tocando = false; rotular(); }
-    }, 8000);
+    };
+    const desistir = setTimeout(encerrar, 8000);
     const ouvir = (e) => {
       if (e.source !== p.contentWindow) return;
-      limpar();
-      p.classList.add('pronto');
-      if (!tocando) comando('pauseVideo'); // pausou antes de o player responder
+      if (!pronto) {
+        pronto = true;
+        clearInterval(tentar);
+        clearTimeout(desistir);
+        p.classList.add('pronto');
+        if (!tocando) comando('pauseVideo'); // pausou antes de o player responder
+      }
+      if (terminou(e.data)) encerrar();
     };
     addEventListener('message', ouvir);
   };
