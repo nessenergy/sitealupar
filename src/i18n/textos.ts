@@ -84,6 +84,9 @@ interface Textos {
     obrigatorios: string; nome: string; email: string; empresa: string; telefone: string;
     assunto: string; mensagem: string; consentimento: string; enviar: string;
     obrigado: string; naoEnviado: string; semJavascript: string;
+    /* Mensagem de cada campo, no navegador. */
+    erros: { nome: string; email: string; assunto: string; mensagem: string; consentimento: string; verificacao: string };
+    resumo: string; enviando: string; falhaEnvio: string;
   };
   naoEncontrada: { titulo: string; texto: string; voltar: string };
 }
@@ -159,6 +162,17 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Mensagem enviada. Obrigado pelo contato.', // novo
       naoEnviado: 'Não foi possível enviar a mensagem. Confira os campos e tente de novo.', // novo
       semJavascript: 'Com o JavaScript desativado, a verificação antispam não carrega e a mensagem não pode ser enviada por este formulário. Use o telefone ou o e-mail no início desta página.', // novo
+      erros: {
+        nome: 'Informe seu nome.',
+        email: 'Informe um e-mail válido, como nome@empresa.com.br.',
+        assunto: 'Informe o assunto.',
+        mensagem: 'A mensagem passa de 5.000 caracteres; resuma um pouco.',
+        consentimento: 'Marque a caixa para aceitar a Política de Privacidade.',
+        verificacao: 'Aguarde a verificação antispam terminar e envie de novo.',
+      },
+      resumo: 'Corrija os campos indicados e envie de novo.',
+      enviando: 'Enviando…',
+      falhaEnvio: 'Não foi possível enviar agora. Sua mensagem continua no formulário: tente de novo em instantes ou use o telefone ou o e-mail no início desta página.',
     },
     naoEncontrada: { titulo: 'Página não encontrada', texto: 'O endereço que você procurou não existe ou mudou de lugar.', voltar: 'Ir para a página inicial' }, // novo
   },
@@ -228,6 +242,17 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Message sent. Thank you for getting in touch.',
       naoEnviado: 'The message could not be sent. Please check the fields and try again.',
       semJavascript: 'With JavaScript disabled, the anti-spam check does not load and this form cannot send your message. Please use the phone number or the e-mail address at the top of this page.', // novo
+      erros: {
+        nome: 'Enter your name.',
+        email: 'Enter a valid email address, such as name@company.com.',
+        assunto: 'Enter the subject.',
+        mensagem: 'The message is over 5,000 characters; please shorten it.',
+        consentimento: 'Tick the box to accept the Privacy Policy.',
+        verificacao: 'Wait for the anti-spam check to finish and send again.',
+      },
+      resumo: 'Fix the fields below and send again.',
+      enviando: 'Sending…',
+      falhaEnvio: 'We could not send your message right now. It is still in the form: try again shortly, or use the phone or email at the top of this page.',
     },
     naoEncontrada: { titulo: 'Page not found', texto: 'The address you are looking for does not exist or has moved.', voltar: 'Go to the home page' }, // novo
   },
@@ -291,6 +316,17 @@ export const textos: Record<Idioma, Textos> = {
       obrigado: 'Mensaje enviado. Gracias por contactarnos.',
       naoEnviado: 'No fue posible enviar el mensaje. Revise los campos e intente de nuevo.',
       semJavascript: 'Con JavaScript desactivado, la verificación antispam no carga y este formulario no puede enviar su mensaje. Use el teléfono o el correo electrónico al inicio de esta página.', // novo
+      erros: {
+        nome: 'Escriba su nombre.',
+        email: 'Escriba un correo electrónico válido, como nombre@empresa.com.',
+        assunto: 'Escriba el asunto.',
+        mensagem: 'El mensaje supera los 5.000 caracteres; acórtelo un poco.',
+        consentimento: 'Marque la casilla para aceptar la Política de Privacidad.',
+        verificacao: 'Espere a que termine la verificación antispam y vuelva a enviar.',
+      },
+      resumo: 'Corrija los campos indicados y envíe de nuevo.',
+      enviando: 'Enviando…',
+      falhaEnvio: 'No fue posible enviar su mensaje ahora. Sigue en el formulario: inténtelo de nuevo en unos instantes, o use el teléfono o el correo electrónico al inicio de esta página.',
     },
     naoEncontrada: { titulo: 'Página no encontrada', texto: 'La dirección que busca no existe o cambió de lugar.', voltar: 'Ir a la página de inicio' }, // novo
   },
