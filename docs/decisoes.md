@@ -17,7 +17,7 @@ Visual de 2018.
 | D8 | Identidade | **MIV 2018** | Fixa paleta, tipografia, versões, campo de proteção e proibições |
 | D9 | Corte das notícias | **24 meses na listagem** | Arquivo indexável mantém as 183 URLs vivas; corte é editorial, não técnico. Superada pela D16 em 16/09/2026: não há mais listagem |
 | D10 | Faixa institucional | **Entra** (+16 h) | Única adição de estrutura: a home não diz em lugar nenhum o que a Alupar é |
-| D11 | CMS | **Sanity** | Editor maduro, i18n nativo, conta em nome da Alupar. O site estático sobrevive à queda do CMS |
+| D11 | CMS | **Sanity** — *nunca implantado; em revisão* | Editor maduro, i18n nativo, conta em nome da Alupar. O site estático sobrevive à queda do CMS. **Estado em 21/09/2026:** adiado para a manutenção em 10/09/2026, só para banner e notícia; os dois deixaram de existir com o vídeo no topo (#94) e a D16. Não há conta, schema nem integração, e o conteúdo vive em arquivos versionados. Páginas institucionais e jurídicas nunca estiveram no escopo do CMS |
 | D12 | Tipografia | **Manual ganha fonte de web** | Segoe UI não se licencia para web; Open Sans passa a ser oficial para tela, Segoe UI segue no impresso |
 | D13 | Plataforma, em definitivo | **Astro estático — confirmado** | O escopo preliminar da ness. previa WordPress. A API REST do site atual está bloqueada, então a recuperação é por crawling para qualquer destino: a migração custa o mesmo nos dois caminhos, e só o custo de operação difere |
 | D14 | Idiomas na URL | **Prefixo `/en/` e `/es/`** | O `?lang=` produz duplicata indexável e não é expressável no `_redirects` do Pages. Prefixo de caminho é a forma nativa de i18n do Astro |
@@ -94,6 +94,7 @@ fronteira. Nenhuma ação deste projeto incide sobre ele.
 ## Pendências operacionais
 
 - Dois valores da faixa institucional (km de linhas, MW instalados) — Alupar, até o M2.
+- **Revisar a D11 com a Alupar.** O motivo do CMS era a Comunicação publicar notícia e trocar banner sozinha; as duas coisas deixaram de existir. O que sobrou muda raramente e cabe no banco de manutenção. Pesa na decisão o compromisso de "autonomia de publicação" escrito na proposta comercial (`apresentacao/proposta.html`).
 - ~~Acesso ao feed de notícias do RI~~ — sem objeto desde a D16.
 - Formulário de contato (P5) — a Alupar decidiu o destino em 16/09/2026,
   `comunicacao@alupar.com.br`, mas a troca **ainda não está em vigor**: falta

@@ -1,9 +1,22 @@
 ---
 name: sanity-alupar
-description: Modelo de conteúdo, internacionalização e migração do acervo no Sanity para o sitealupar — cinco tipos, tradução por documento, e as regras de preservação de URL do acervo de 99 notícias. Use ao modelar ou alterar tipo de conteúdo, escrever consulta GROQ, migrar conteúdo, configurar idioma ou webhook de publicação. Trigger em Sanity, GROQ, schema, tipo de conteúdo, migração, notícia, banner, i18n, tradução, webhook, Studio.
+description: PROJETO DE CMS NÃO IMPLANTADO. O sitealupar não tem Sanity — o conteúdo vive em arquivos versionados. Esta skill descreve o desenho de 2026 (cinco tipos, tradução por documento, migração de 99 notícias) e só vale se a D11 for retomada. Use apenas ao planejar essa retomada; nunca para afirmar onde o conteúdo está hoje. Trigger em Sanity, GROQ, Studio, CMS.
 ---
 
 # Sanity — sitealupar
+
+> **Estado em 21/09/2026: nada disto existe.** Não há conta, schema, Studio nem
+> integração no código; `cms.alupar.com.br` não tem sequer registro de DNS. O
+> conteúdo do site vem de `acervo/conteudo-pronto.jsonl` e de
+> `src/i18n/textos.ts`, e os documentos pesados ficam no R2.
+>
+> A trajetória: em 10/09/2026 o Sanity saiu do caminho crítico e foi adiado para
+> a manutenção, só para **banner e notícia** (`docs/plano-virada.md`). Os dois
+> deixaram de existir depois — o topo da home virou vídeo (#94) e a área de
+> notícias foi desativada (D16). Páginas institucionais e jurídicas nunca
+> estiveram no escopo do CMS. A D11 está em revisão com a Alupar.
+>
+> O que segue é o desenho original, mantido como referência para a retomada.
 
 A conta fica **em nome da Alupar**, não da agência. É o que torna a saída de
 qualquer fornecedor futuro indolor — inclusive a nossa. Studio em
