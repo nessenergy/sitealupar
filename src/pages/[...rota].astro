@@ -10,6 +10,7 @@ import Base from '../layouts/Base.astro';
 import Trilha from '../components/Trilha.astro';
 import { itens, IDIOMA_ASTRO, SUBSTITUIDAS } from '../lib/acervo';
 import { textos } from '../i18n/textos';
+import { ehCasca } from '../lib/casca.mjs';
 
 export function getStaticPaths() {
   return itens().filter((i) => !SUBSTITUIDAS.has(i.rota)).map((i) => ({
@@ -36,7 +37,7 @@ const dataLegivel = dataVisivel
   ? new Intl.DateTimeFormat(idioma, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(dataVisivel)
   : null;
 ---
-<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma}>
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={ehCasca(item)}>
   <main id="conteudo" class="container pagina">
     <article>
       <Trilha idioma={idioma} titulo={item.titulo} />

@@ -1,6 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { readFileSync } from 'node:fs';
+import { ehCasca } from './src/lib/casca.mjs';
+
+// Páginas-casca (anexos do WordPress) respondem 200, mas não entram no sitemap.
+const cascas = new Set(
+  JSON.parse(readFileSync('./acervo/mapa-de-rotas.json', 'utf8')).rotas.filter(ehCasca).map((r) => r.rota),
+);
 
 export default defineConfig({
   site: 'https://www.alupar.com.br',
@@ -14,8 +21,10 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
 
-  // As páginas de aviso do formulário (obrigado / não enviado) não entram no sitemap.
-  integrations: [sitemap({ filter: (pagina) => !/\/contato\/(obrigado|nao-enviado)\/$/.test(pagina) })],
+  // As páginas de aviso do formulário (obrigado / não enviado) e as páginas-casca não entram no sitemap.
+  integrations: [sitemap({
+    filter: (pagina) => !/\/contato\/(obrigado|nao-enviado)\/$/.test(pagina) && !cascas.has(new URL(pagina).pathname),
+  })],
   build: { format: 'directory' },
 
   // A CSP (public/_headers) só aceita `script-src 'self'`: sem isto o Astro
