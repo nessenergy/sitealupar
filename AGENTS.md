@@ -88,7 +88,7 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 ## O fornecedor atual não colabora
 
 A MZ Group está sendo substituída e não entrega o conteúdo. A gestão de DNS é
-da Alupar/ness — o domínio é nosso, a origem é dela. Consequências práticas em
+da Alupar e da ness. — o domínio é nosso, a origem é dela. Consequências práticas em
 [`docs/fornecedor-e-acervo.md`](docs/fornecedor-e-acervo.md); em resumo:
 
 - Nada que dependa de editar o WordPress atual vai acontecer. O caminho curto
