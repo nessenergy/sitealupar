@@ -73,6 +73,8 @@ interface Textos {
   /* Rótulos dos controles do rotativo. Só aparecem na página quando há duas
      telas ou mais — com uma, o banner é estático e não há o que controlar. */
   rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
+  /* Botão do vídeo do topo da home: pausa quando toca, reproduz quando parado. */
+  videoTopo: { pausar: string; retomar: string };
   eixos: { titulo: string; texto: string }[];
   sustentabilidadeHref: string;
   verMaisVideos: string;
@@ -132,6 +134,7 @@ export const textos: Record<Idioma, Textos> = {
       topo: 'Voltar ao topo', // novo
     },
     rotativo: { anterior: 'Tela anterior', proxima: 'Próxima tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
+    videoTopo: { pausar: 'Pausar vídeo', retomar: 'Reproduzir vídeo' },
     banner: [
       {
         legenda: '#SUSTENTABILIDADE',
@@ -200,6 +203,7 @@ export const textos: Record<Idioma, Textos> = {
       topo: 'Back to top', // novo
     },
     rotativo: { anterior: 'Previous slide', proxima: 'Next slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
+    videoTopo: { pausar: 'Pause video', retomar: 'Play video' },
     banner: [
       {
         legenda: '#SUSTAINABILITY',
@@ -268,6 +272,7 @@ export const textos: Record<Idioma, Textos> = {
       topo: 'Volver arriba', // novo
     },
     rotativo: { anterior: 'Pantalla anterior', proxima: 'Pantalla siguiente', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
+    videoTopo: { pausar: 'Pausar vídeo', retomar: 'Reproducir vídeo' },
     banner: [{ legenda: 'Energía que impulsa la vida', alt: 'Energía que impulsa la vida', href: null }], // decisão P1
     eixos: [
       { titulo: 'Medio Ambiente', texto: 'Reposición y recuperación de vegetación forestal nativa' },
