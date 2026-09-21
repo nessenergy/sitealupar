@@ -91,7 +91,9 @@ const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x000000000000000000
   form { display: grid; gap: var(--e3); margin-top: var(--e5); }
   @media (min-width: 768px) { form { grid-template-columns: 1fr 1fr; } .largo, .consentimento, #obrigatorios, #estado, #erro-consentimento, #erro-verificacao, .cf-turnstile, noscript, button { grid-column: 1 / -1; } }
   .erro { margin: 0; font-size: .875rem; color: var(--erro); }
-  input[aria-invalid='true'], textarea[aria-invalid='true'] { border-color: var(--erro); border-width: 2px; }
+  /* Mais específico que `input:not([type='checkbox'])` mais abaixo, que senão vence por vir depois.
+     O anel de 1 px dá a borda de 2 px sem mexer no layout. */
+  input:not([type='checkbox'])[aria-invalid='true'], textarea[aria-invalid='true'] { border-color: var(--erro); box-shadow: 0 0 0 1px var(--erro); }
   #estado { border-left-color: var(--erro); }
   #estado:focus { outline-offset: 2px; }
   /* A altura do widget fica reservada antes de ele existir: carregado só na
