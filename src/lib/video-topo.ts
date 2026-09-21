@@ -1,7 +1,8 @@
 /**
  * O vídeo do topo da home não faz laço: ao terminar, o player sai e a capa
- * fica, com o botão de reproduzir. Sem isso o navegador baixa o vídeo para
- * sempre (8,4 MB medidos numa leitura longa, contra o teto de 3 MB da D18).
+ * fica, com o botão de reproduzir. Com `loop=1` o navegador baixava outra
+ * passada do vídeo a cada volta (medido a 390 px: 10,1 MB até 120 s, 20,0 MB
+ * até 260 s e ainda subindo; a crítica registrou 8,4 MB numa leitura longa).
  *
  * O YouTube avisa o fim pela API de postMessage: `onStateChange` traz o estado
  * em `info`; `infoDelivery` traz em `info.playerState`. Estado 0 é "encerrado".

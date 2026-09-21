@@ -127,8 +127,10 @@ if (rotativo) {
 // capa segue valendo; o `pauseVideo` abaixo depende do mesmo protocolo.)
 //
 // Sem laço: quando o vídeo termina o iframe sai, como na desistência acima. É
-// o teto do peso da página — com `loop=1` o navegador baixava sem parar (8,4 MB
-// numa leitura longa). `terminou` espelha src/lib/video-topo.ts.
+// o teto do peso da página — com `loop=1` o navegador baixava outra passada a
+// cada volta (medido a 390 px: 10,1 MB até 120 s, 20,0 MB até 260 s, ainda
+// subindo). `terminou` espelha src/lib/video-topo.ts, e o teste dele confere
+// que as duas cópias respondem igual.
 //
 // O botão é o controle de pausa que a WCAG 2.2.2 exige para conteúdo em
 // movimento por mais de cinco segundos. Os controles nativos estão desligados
