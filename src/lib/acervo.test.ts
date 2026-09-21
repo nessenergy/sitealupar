@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sanfona, documentosDaMz, itens, idsNosTitulos } from './acervo.ts';
+import { sanfona, documentosDaMz, itens, idsNosTitulos, semH2Vazio } from './acervo.ts';
 
 const WRAP = `<div class="arconix-faq-wrap">
   <div class="arconix-faq-title faq-closed">Garantias</div>
@@ -168,4 +168,8 @@ test('os quatro links de ação da Área de atuação são o botão do tema', ()
     const c = itens().find((i) => i.rota === `${pre}/area-de-atuacao/`)?.corpo ?? '';
     assert.equal((c.match(/<a class="btn btn-azul"/g) ?? []).length, 4, `${pre}/area-de-atuacao/`);
   }
+});
+
+test('h2 vazio sai: o leitor de tela anunciaria um título sem texto', () => {
+  assert.equal(semH2Vazio('<p>a</p><h2></h2><h2> </h2><h2>Título</h2><p>b</p>'), '<p>a</p><h2>Título</h2><p>b</p>');
 });

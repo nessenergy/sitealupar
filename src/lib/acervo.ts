@@ -119,6 +119,13 @@ function textoDe(n: No): string {
 }
 
 /*
+ * `<h2></h2>` sem texto: sobra de conteúdo do WordPress (o /en/empresas/ traz
+ * um). O leitor de tela anuncia "título, nível 2" e nada depois, e o axe
+ * reprova (empty-heading). Sem texto não há o que preservar.
+ */
+export const semH2Vazio = (corpo: string): string => corpo.replace(/<h2>\s*<\/h2>\s*/g, '');
+
+/*
  * Âncora nos títulos de seção: `<h2>Geradoras</h2>` vira `<h2 id="geradoras">`,
  * para que outra página aponte direto para a seção (Área de atuação →
  * Empresas#geradoras). Só `<h2>` sem atributo; texto repetido fica só na
@@ -336,7 +343,7 @@ export function itens(): Item[] {
         arquivosNoR2(
           videosSobDemanda(
             carregarImagens(
-              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(achado.corpo))), idioma), idioma), imagens as Manifesto),
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(semH2Vazio(achado.corpo)))), idioma), idioma), imagens as Manifesto),
             ),
           ),
         ),

@@ -100,6 +100,13 @@ const dataLegivel = dataVisivel
      inteiras no corpo do acervo (txt-show, list-show, text-justify, btn-azul,
      panel-body), então o valor de cada regra é o do style.css do tema. */
   .corpo { line-height: 26px; }
+  /* Nome de arquivo vira título e texto de link ("Politica_de_Seguranca_do_
+     Trabalho_e_Saude_Ocupacional-12-08-2020"): sem espaço, é uma palavra de 60
+     caracteres que não cabe em 390 px e empurra a página até +354 px. `break-word`
+     não bastou: o `article` é dimensionado pelo tamanho mínimo do conteúdo, que
+     ele não reduz; `anywhere` reduz. Fica só no título e nos links, onde o
+     problema está, para não mexer no tamanho mínimo de tabelas e colunas. */
+  .cabecalho h1, .corpo :global(a) { overflow-wrap: anywhere; }
 
   /* .txt-show h2/h3/h4: grandes e em peso normal. O h3 é verde pelo mesmo
      seletor solto que pinta o título das caixas da home. */
@@ -130,6 +137,19 @@ const dataLegivel = dataVisivel
   .corpo :global(ul), .corpo :global(ol) { margin: 0 0 var(--e3); padding-left: var(--e4); }
   .corpo :global(li) { margin-bottom: var(--e1); }
   .corpo :global(img) { max-width: 100%; height: auto; }
+  /* O WordPress grava a largura do arquivo no `<video width="1280">`, e só a
+     imagem tinha teto: 12 tipos de página-casca de vídeo (53 medições) saíam
+     da tela — +930 px a 390 px e +105 px a 1280 px. `height: auto` mantém a
+     proporção do vídeo (o navegador a tira de width/height). O iframe só ganha
+     o teto de largura: a altura dele é do embed. */
+  .corpo :global(video) { max-width: 100%; height: auto; }
+  .corpo :global(iframe), .corpo :global(embed), .corpo :global(object) { max-width: 100%; }
+
+  /* O banner de âncoras de Empresas (`.img-empresas`) perdeu a imagem na
+     migração e sobrou o vão: `<p>&nbsp;</p>` e um `.hotspots` de espaços,
+     ~100 px de nada logo abaixo do título — e, em EN, um link `hotspots-esq`
+     focável sem nada visível. Nenhum dos dois faz nada por quem enxerga. */
+  .corpo :global(.img-empresas) { display: none; }
 
   /* O tema zera o negrito do conteúdo (`strong { font-weight: normal }`): os
      rótulos da FAQ, os nomes das empresas e a abertura da ata saem em peso
@@ -143,6 +163,13 @@ const dataLegivel = dataVisivel
 
   /* Alinhamentos que o conteúdo declara e ninguém estilizava. */
   .corpo :global(.text-justify) { text-align: justify; }
+  /* Justificado em coluna de 350 px, o espaço entre palavras médio vai de 3,4
+     para 8,4 px na Política de Privacidade (9,2 px em Empresas, 93 parágrafos),
+     com picos de 48 px: rios brancos no meio do texto. No desktop a média é de
+     5,5 px e o desenho do tema se mantém. */
+  @media (max-width: 767px) {
+    .corpo :global(.text-justify) { text-align: left; }
+  }
   .corpo :global(.text-center), .corpo :global(.aligncenter) { text-align: center; }
   .corpo :global(.alignright) { text-align: right; }
 
