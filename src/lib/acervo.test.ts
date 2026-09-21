@@ -130,3 +130,20 @@ test('h2 sem id ganha âncora pelo texto; repetido, vazio ou já com id fica com
     '<h2 id="geradoras">Geradoras</h2><h2 id="comercializacao">Comercialização</h2><h2>Geradoras</h2><h2></h2><h2 id="x">Y</h2>',
   );
 });
+
+test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007, mapa antes de Missão, Visão e Valores', () => {
+  for (const pre of ['', '/en', '/es']) {
+    const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
+    assert.match(c, /2007/, `${pre}/a-companhia/ sem a abertura`);
+    assert.match(c, /mapa-ativos[\s\S]*<h2/, `${pre}/a-companhia/ com o mapa fora do lugar`);
+    /* Sem `text-justify`: o português não usa, e o texto justificado é ruim de ler em coluna estreita. */
+    assert.doesNotMatch(c, /text-justify/, `${pre}/a-companhia/`);
+  }
+});
+
+test('a imagem de Missão, Visão e Valores do português e do inglês traz o texto por extenso para o leitor de tela', () => {
+  for (const [pre, palavra] of [['', 'Planejamento'], ['/en', 'Planning']] as const) {
+    const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
+    assert.ok(c.slice(c.indexOf('class="sr-only"')).includes(palavra), `${pre}/a-companhia/`);
+  }
+});
