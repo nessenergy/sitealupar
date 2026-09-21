@@ -1,6 +1,6 @@
 ---
 /**
- * Rodapé do tema: fundo #231F20, caixa alta 11px, links sem sublinhado
+ * Rodapé do tema: fundo #231F20, caixa alta 12px, links sem sublinhado
  * separados por "|". Sai o "Powered by MZ". Os códigos de conduta passam a
  * vir do R2 — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
  *
@@ -33,16 +33,23 @@ const externos = [
 
 <style>
   .rodape { background: var(--rodape-fundo); padding-top: 10px; text-align: center; }
+  /* O círculo continua com 23 px; a área de toque é de 44 px (WCAG 2.5.8 pede 24,
+     e 44 é o tamanho de um dedo). As margens negativas devolvem os 21 px que a
+     área a mais tomaria, para o rodapé não crescer. */
   .topo {
-    display: inline-grid; place-items: center; width: 23px; height: 23px;
-    border: 2px solid var(--rodape-texto); border-radius: 50%;
+    position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px;
+    margin-block: -10px -11px;
     color: var(--rodape-texto); text-decoration: none; line-height: 1;
+  }
+  .topo::before {
+    content: ''; position: absolute; inset: 0; margin: auto; width: 23px; height: 23px;
+    box-sizing: border-box; border: 2px solid var(--rodape-texto); border-radius: 50%;
   }
   ul {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3px;
     list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
     border-bottom: 1px solid #2E2A2B;
-    font-size: 11px; text-transform: uppercase; color: var(--rodape-texto);
+    font-size: 12px; text-transform: uppercase; color: var(--rodape-texto);
   }
   /* .list-inline > li do bootstrap: 5 px de cada lado; o espaço entre os li
      inline-block dá os outros 3 px — ~13 px entre o texto e o "|". O "|" vai
@@ -56,6 +63,13 @@ const externos = [
   /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
   a:hover, a:focus { color: var(--rodape-texto); text-decoration: underline; }
   @media (max-width: 767px) {
-    li:first-child { margin-bottom: 10px; }
+    /* 17 px de linha no © (12 px × 1,43 do tema dariam 17,1; eram 15,7 com 11 px):
+       o rodapé mantém a altura, 132,6 contra 133,2 px. */
+    li:first-child { margin-bottom: 10px; line-height: 17px; }
+    /* Com 12 px, a segunda linha ("Código de conduta de terceiros | Canal de
+       denúncias", 379 px) deixava de caber nos 360 px da lista a 390 px de
+       largura e o rodapé ganhava uma terceira linha. A lista avança 12 px sobre
+       o preenchimento do container em cada lado (384 px): mesma quebra de antes. */
+    ul { margin-inline: -12px; }
   }
 </style>
