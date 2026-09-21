@@ -25,6 +25,11 @@
 
 **A Alupar confirma que quer o Cloudflare Web Analytics, e não o GA4.** A resposta 4 fala em "controle do Google Analytics". O padrão P9 é outro produto, sem cookie. Se a escolha for o GA4, **este plano não se aplica**: o #61 se fecha sem merge e o trabalho passa a ser GA4 com banner de consentimento, que precisa de spec própria. Registrar a resposta, com data e nome de quem respondeu, antes da Task 1.
 
+> **Resolvida em 21/09/2026: Cloudflare Web Analytics.** Decisão tomada pela
+> ness. na condução do projeto, seguindo o padrão P9. A resposta 4 da Alupar
+> citou o Google Analytics; se ela pedir o GA4 depois, o caminho é o descrito
+> acima — o Web Analytics sai e o GA4 entra com banner de consentimento.
+
 ## Arquivos
 
 | Arquivo | Papel | Tarefa |
