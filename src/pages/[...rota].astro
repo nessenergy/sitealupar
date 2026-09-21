@@ -117,6 +117,15 @@ const dataLegivel = dataVisivel
     color: var(--verde-texto);
   }
   .corpo :global(h4) { margin: var(--e5) 0 var(--e2); font-size: 20px; font-weight: 400; color: var(--cinza); }
+  /* O h1 da página é de 26 px até 992 px (48 px depois). Com o h2 fixo em 32 px
+     e o h3 em 26 px, o subtítulo ficava maior que o título no celular e no
+     tablet — "Transmissão de energia: a espinha dorsal do negócio" em três
+     linhas, acima de "Área de atuação". Abaixo de 992 px a escada desce junto:
+     26 → 24 → 22 → 20. */
+  @media (max-width: 991px) {
+    .corpo :global(h2) { font-size: 24px; }
+    .corpo :global(h3) { font-size: 22px; }
+  }
   .corpo :global(p) { margin: 0 0 var(--e3); }
   .corpo :global(ul), .corpo :global(ol) { margin: 0 0 var(--e3); padding-left: var(--e4); }
   .corpo :global(li) { margin-bottom: var(--e1); }
@@ -141,6 +150,38 @@ const dataLegivel = dataVisivel
      mapas. A classe do WordPress sobreviveu: é ela que volta a centralizar —
      numa imagem, `text-align` no próprio elemento não centraliza nada. */
   .corpo :global(img.aligncenter) { display: block; margin-inline: auto; }
+
+  /* Mapa de ativos (Área de atuação e A Companhia). A legenda saiu da imagem:
+     desenhada nela, o texto caía a ~6 px no celular e só existia em português.
+     Agora é lista de verdade, nos três idiomas, e o mapa não muda.
+
+     Com o mapa em 580 px ou mais, a legenda volta ao canto vazio da imagem
+     (Patagônia à esquerda, o resto do quadrante em branco), que é onde ela
+     estava desenhada. Abaixo disso não há espaço ao lado sem pisar na
+     Argentina, então desce para baixo do mapa, em grade. Container query, não
+     media query: quem manda é a largura do mapa, não a da tela. */
+  .corpo :global(.mapa) { position: relative; max-width: 600px; margin: var(--e4) auto; container-type: inline-size; }
+  .corpo :global(.mapa > img) { display: block; width: 100%; height: auto; }
+  .corpo :global(.list-show .legenda) {
+    list-style: none; margin: var(--e3) 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--e2) var(--e4);
+  }
+  .corpo :global(.list-show .legenda li) {
+    display: flex; align-items: center; gap: 10px; margin: 0; padding: 0;
+    font-size: 13px; font-weight: 700; line-height: 1.3; color: var(--azul);
+  }
+  .corpo :global(.list-show .legenda li::before) { content: none; }
+  .corpo :global(.legenda img) { flex: none; width: 28px; height: 28px; }
+  /* Linha e ponto da legenda: os dois símbolos que não são ícone colorido. */
+  .corpo :global(.legenda .ic) { flex: none; display: grid; place-items: center; width: 28px; height: 28px; }
+  .corpo :global(.legenda .lt::before) { content: ''; width: 28px; height: 2px; background: var(--azul); }
+  .corpo :global(.legenda .se::before) { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--azul); }
+  @container (min-width: 580px) {
+    .corpo :global(.list-show .legenda) {
+      position: absolute; left: 52%; top: 62%; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+  }
 
   /* .list-show do tema: marcador verde desenhado, no lugar do disco do
      navegador, com 17 px de recuo. */

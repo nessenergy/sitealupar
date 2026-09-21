@@ -147,3 +147,25 @@ test('a imagem de Missão, Visão e Valores do português e do inglês traz o te
     assert.ok(c.slice(c.indexOf('class="sr-only"')).includes(palavra), `${pre}/a-companhia/`);
   }
 });
+
+test('o mapa de ativos traz a legenda em HTML, traduzida, na Área de atuação e em A Companhia', () => {
+  const subestacao = { '': 'Subestação', '/en': 'Substation', '/es': 'Subestación' } as const;
+  for (const pre of ['', '/en', '/es'] as const) {
+    for (const rota of ['area-de-atuacao', 'a-companhia']) {
+      const c = itens().find((i) => i.rota === `${pre}/${rota}/`)?.corpo ?? '';
+      const onde = `${pre}/${rota}/`;
+      assert.match(c, /<figure class="mapa">/, onde);
+      assert.match(c, /<ul class="legenda"/, onde);
+      assert.ok(c.includes(subestacao[pre]), `${onde}: legenda sem "${subestacao[pre]}"`);
+      /* A legenda deixou de estar desenhada na imagem: o texto alternativo descreve o mapa, não a legenda. */
+      assert.doesNotMatch(c, /Legenda:|Legend \(|Leyenda \(/, onde);
+    }
+  }
+});
+
+test('os quatro links de ação da Área de atuação são o botão do tema', () => {
+  for (const pre of ['', '/en', '/es']) {
+    const c = itens().find((i) => i.rota === `${pre}/area-de-atuacao/`)?.corpo ?? '';
+    assert.equal((c.match(/<a class="btn btn-azul"/g) ?? []).length, 4, `${pre}/area-de-atuacao/`);
+  }
+});
