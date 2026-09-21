@@ -45,6 +45,10 @@ const externos = [
     content: ''; position: absolute; inset: 0; margin: auto; width: 23px; height: 23px;
     box-sizing: border-box; border: 2px solid var(--rodape-texto); border-radius: 50%;
   }
+  /* O anel de foco global segue o raio do elemento, e o .topo é quadrado (44 px):
+     o anel vai para o círculo de 23 px, que é o que o teclado enxerga. */
+  .topo:focus-visible { outline: none; }
+  .topo:focus-visible::before { outline: 3px solid var(--azul); outline-offset: 2px; }
   ul {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3px;
     list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
