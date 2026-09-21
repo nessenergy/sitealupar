@@ -268,7 +268,7 @@ export const textos: Record<Idioma, Textos> = {
     emNumeros: 'Alupar en números',
     videoInstitucional: 'Video institucional',
     videos: 'Videos',
-    videosAnteriores: 'Vídeos anteriores',
+    videosAnteriores: 'Videos anteriores',
     sustentabilidade: 'Sostenibilidad',
     indicadores: {
       linhas: 'km de líneas de transmisión',
