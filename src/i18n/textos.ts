@@ -47,6 +47,7 @@ interface Textos {
   emNumeros: string;
   videoInstitucional: string;
   videos: string;
+  videosAnteriores: string;
   sustentabilidade: string;
   indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
   idioma: string;
@@ -101,6 +102,7 @@ export const textos: Record<Idioma, Textos> = {
     emNumeros: 'A Alupar em números',
     videoInstitucional: 'Vídeo institucional',
     videos: 'Vídeos',
+    videosAnteriores: 'Vídeos anteriores',
     sustentabilidade: 'Sustentabilidade',
     indicadores: {
       linhas: 'km de linhas de transmissão',
@@ -185,6 +187,7 @@ export const textos: Record<Idioma, Textos> = {
     emNumeros: 'Alupar in numbers',
     videoInstitucional: 'Institutional video',
     videos: 'Videos',
+    videosAnteriores: 'Previous videos',
     sustentabilidade: 'Sustainability',
     indicadores: {
       linhas: 'km of transmission lines',
@@ -265,6 +268,7 @@ export const textos: Record<Idioma, Textos> = {
     emNumeros: 'Alupar en números',
     videoInstitucional: 'Video institucional',
     videos: 'Videos',
+    videosAnteriores: 'Vídeos anteriores',
     sustentabilidade: 'Sostenibilidad',
     indicadores: {
       linhas: 'km de líneas de transmisión',

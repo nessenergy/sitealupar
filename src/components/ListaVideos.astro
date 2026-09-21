@@ -2,23 +2,40 @@
 /**
  * `/videos/` responde 200 no site atual e é o destino do "Veja mais vídeos"
  * da home — sem esta página, viraria 404 na virada (regra 3).
+ *
+ * O vídeo institucional de 2026 abre a lista: é o mesmo da home, com o mesmo
+ * cuidado (capa local; o player do YouTube só no clique, por
+ * public/js/site.js; sem JS, o link leva ao YouTube). Depois vêm os arquivos
+ * de 2017, sem título repetido.
  */
+import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Trilha from './Trilha.astro';
+import capa from '../assets/video-institucional.jpg';
 import { itens } from '../lib/acervo';
+import { semTituloRepetido } from '../lib/videos';
 import { textos, CODIGO, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
 const t = textos[idioma];
-const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[idioma]);
+const VIDEO = 'oqjwsKfpYZ4';
+const videos = semTituloRepetido(itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[idioma]));
 ---
 <Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
   <main id="conteudo" class="container pagina">
     <div class="caixa">
       <Trilha idioma={idioma} titulo={t.videos} />
       <h1>{t.videos}</h1>
-      <ul class="lista">{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
+      <a class="destaque" href={`https://www.youtube.com/watch?v=${VIDEO}`} data-video={VIDEO} data-titulo={t.videoInstitucional}>
+        <Picture src={capa} alt={t.assistirVideo} formats={['avif', 'webp']} widths={[480, 720]} sizes="(max-width: 767px) 100vw, 720px" quality={60} loading="eager" />
+      </a>
+      {videos.length > 0 && (
+        <>
+          <h2>{t.videosAnteriores}</h2>
+          <ul class="lista">{videos.map((v) => <li><a href={v.rota}>{v.titulo}</a></li>)}</ul>
+        </>
+      )}
     </div>
   </main>
 </Base>
@@ -34,4 +51,14 @@ const videos = itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[i
     font-size: 1.5em; color: var(--verde);
   }
   .lista a { color: var(--azul); }
+  /* Capa do vídeo de 2026: 16:9, com o triângulo de reproduzir por cima. O
+     iframe que o site.js põe no lugar no clique tem a mesma proporção. */
+  .destaque { position: relative; display: block; max-width: 720px; margin-bottom: var(--e5); }
+  .destaque :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .destaque::after {
+    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
+    font-size: 3rem; color: var(--branco); text-shadow: 0 0 12px rgba(0, 0, 0, .6);
+  }
+  .caixa :global(iframe.video) { display: block; width: 100%; max-width: 720px; aspect-ratio: 16 / 9; height: auto; border: 0; margin-bottom: var(--e5); }
+  h2 { margin: 0 0 var(--e3); font-size: 1.5rem; font-weight: 400; color: var(--azul); }
 </style>
