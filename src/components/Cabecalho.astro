@@ -55,9 +55,11 @@ const atual = Astro.url.pathname;
       <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
-    {/* O id é usado por `aria-controls` acima e pelo `<noscript><style>` de
-        layouts/Base.astro, que devolve o menu a quem roda sem JavaScript.
-        Renomear aqui sem mudar lá deixa esse visitante sem menu no celular. */}
+    {/* O id é usado por `aria-controls` acima, pelo `<noscript><style>` de
+        layouts/Base.astro, que devolve o menu a quem roda sem JavaScript, e por
+        public/js/site.js (`getElementById('menu-principal')`), que liga o botão.
+        Renomear aqui sem mudar nos três deixa o botão sem revelar o menu ou o
+        visitante sem menu no celular. */}
     <nav id="menu-principal" aria-label={t.menu.rotulo}>
       <ul>
         {t.menu.itens.map((m) => (
