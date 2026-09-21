@@ -67,7 +67,7 @@ for (const [chave, n] of [...externos].sort()) console.log(`  ${String(n).padSta
 if (embutidos.length) {
   console.error(`\nreprovado: ${embutidos.length} ${embutidos.length === 1 ? 'script embutido' : 'scripts embutidos'} no HTML; a CSP (script-src sem 'unsafe-inline') bloqueia todos`);
   for (const e of embutidos) console.error(`  ${e.pagina}: ${e.inicio}`);
-  console.error('\ncorrige com: manter `vite.build.assetsInlineLimit: 0` em astro.config.mjs (sem isso o Astro embute script pequeno de componente), ou tirar o script embutido da página (`is:inline` também é embutido e bloqueado)');
+  console.error('\ncorrige com: manter em astro.config.mjs o `vite.build.assetsInlineLimit` que recusa embutir `.js` (sem isso o Astro embute script pequeno de componente), ou tirar o script embutido da página (`is:inline` também é embutido e bloqueado)');
 }
 if (bloqueios.size) {
   console.error(`\nreprovado: ${bloqueios.size} ${bloqueios.size === 1 ? 'origem bloqueada' : 'origens bloqueadas'} pela CSP de public/_headers`);
