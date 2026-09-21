@@ -24,6 +24,7 @@ Visual de 2018.
 | D15 | Modelo comercial | **Entrada de R$ 12.500 e mensalidade de R$ 1.500, por 12 meses renováveis por 12** | A Alupar já paga R$ 1.500/mês à MZ, só pelo institucional. A mensalidade substitui essa linha; a implantação é paga na entrada, e não diluída num contrato longo |
 | D16 | Área de notícias | **Desativada; 301 para o portal de RI** | A Alupar decidiu em 16/09/2026: "as notícias estão antigas… desativar mesmo". Fecha a D5 pelo caminho mais simples — em vez de importar um feed, o site deixa de ter a área e manda os 186 endereços vivos para quem já os mantém. Nenhum 404 (regra 3) |
 | D17 | Dono do conteúdo, com nome | **Fabiana Carneiro Pinho** | A D6 nomeou a área; faltava a pessoa. Foi a ausência de dono que deixou o site parar em 2023, e área não assina nada — pessoa assina |
+| D18 | Orçamento de peso da home | **600 KB → 3 MB**, para o vídeo do topo tocar sozinho | A Alupar pediu o institucional no lugar do rotativo, tocando ao abrir. Medido: com o player carregado o peso vai a 2,39 MB — 1,19 MB de vídeo e ~850 KB do JS do YouTube. O limite antigo reprovava por quatro vezes. **Não é afrouxar um portão para fazer passar** (regra 5): é o preço declarado de um pedido da cliente, decidido por ela em 16/09/2026 depois de ver o número. A alternativa aberta continua sendo hospedar um laço curto em MP4, que dispensa o JS do YouTube e devolveria a maior parte do orçamento — falta o arquivo de vídeo |
 
 ## Por que a plataforma deixou de ser pergunta (D13)
 
