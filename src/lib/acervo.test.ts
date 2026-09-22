@@ -118,9 +118,11 @@ test('Área de atuação e A Companhia saem do texto revisado, com os números d
     assert.match(area, /href="https:\/\/alup\.io\/"/);
     assert.match(area, /\/midia\/sites\/alupar\/2026\/09\/mapa-ativos-\d+\.webp/);
     assert.doesNotMatch(area, /\b(35|29) (empresas|electricity|empresas transmisoras)/);
+    /* A Companhia recebeu texto novo em 22/09/2026: é narrativa, sem número de
+       operação. Os números continuam na Área de atuação — aqui, o que se
+       verifica é que nenhum dos antigos sobreviveu. */
     const companhia = corpo(`${pre}/a-companhia/`);
-    assert.match(companhia, /45/, `${pre}/a-companhia/`);
-    assert.doesNotMatch(companhia, /8[.,]805|7\.964|798[,.]|821,5/);
+    assert.doesNotMatch(companhia, /8[.,]805|7\.964|798[,.]|821,5|10 mil km|10,000 km/, `${pre}/a-companhia/`);
   }
 });
 
@@ -141,10 +143,15 @@ test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007, map
   }
 });
 
-test('a imagem de Missão, Visão e Valores do português e do inglês traz o texto por extenso para o leitor de tela', () => {
-  for (const [pre, palavra] of [['', 'Planejamento'], ['/en', 'Planning']] as const) {
+/* A arte MISSAO-VALORES trazia a missão antiga desenhada na imagem e saiu com o
+   texto de 22/09/2026, que traz missão e visão novas. Os sete valores seguem,
+   em texto — como já estavam em espanhol, que nunca teve a arte. */
+test('missão, visão e valores são texto de verdade nos três idiomas, não imagem', () => {
+  for (const [pre, palavra] of [['', 'Planejamento'], ['/en', 'Planning'], ['/es', 'Planificación']] as const) {
     const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
-    assert.ok(c.slice(c.indexOf('class="sr-only"')).includes(palavra), `${pre}/a-companhia/`);
+    assert.match(c, /<h3[^>]*>/, `${pre}/a-companhia/ sem os subtítulos de missão, visão e valores`);
+    assert.ok(c.includes(palavra), `${pre}/a-companhia/ sem os valores em texto`);
+    assert.doesNotMatch(c, /MISSAO-VALORES|sr-only/, `${pre}/a-companhia/`);
   }
 });
 
