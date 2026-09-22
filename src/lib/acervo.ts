@@ -303,6 +303,94 @@ export function sanfona(corpo: string): string {
   return serialize(arvore as never);
 }
 
+const semEspaco = (n: No) => !(n.nodeName === '#text' && !(n.value ?? '').trim());
+
+/*
+ * Só a página Empresas: o nome de cada transmissora e geradora é o primeiro
+ * filho de um `<p>` ou `<div>`, em `<strong>` (às vezes `<strong><em>…</em>`,
+ * às vezes embrulhado num `<span>` de colagem do Word) — e nunca foi título
+ * de verdade. 41 `<strong>` na página, nenhum `<h3>` (medido em 22/09/2026),
+ * enquanto "As Transmissoras Alupar", na mesma página, já é `<h3>`.
+ *
+ * O nome vira `<h3>`; o resto do parágrafo (imagem, texto) continua onde
+ * estava. Um `<br>` logo depois do nome só existia para separá-lo do texto —
+ * o `<h3>` já separa visualmente, então ele sai, junto com texto em branco
+ * que sobrar bem no início do que ficou.
+ */
+export function titulosDeEmpresa(corpo: string): string {
+  const arvore = parseFragment(corpo) as unknown as No;
+  const todos = achatar(arvore);
+  const pai = (n: No) => todos.find((p) => p.childNodes?.includes(n));
+
+  for (const bloco of todos.filter((n) => n.nodeName === 'p' || n.nodeName === 'div')) {
+    const filhos = bloco.childNodes ?? [];
+    const i = filhos.findIndex(semEspaco);
+    if (i < 0) continue;
+
+    let strong = filhos[i];
+    let alvo = strong;
+    if (strong.nodeName === 'span') {
+      const netos = (strong.childNodes ?? []).filter(semEspaco);
+      if (netos.length === 1 && netos[0].nodeName === 'strong') { alvo = strong; strong = netos[0]; }
+    }
+    if (strong.nodeName !== 'strong') continue;
+
+    const nome = textoDe(strong);
+    if (!nome) continue;
+
+    renomear(strong, 'h3');
+    strong.attrs = [];
+    strong.childNodes = [{ nodeName: '#text', value: nome, parentNode: strong }];
+
+    filhos.splice(filhos.indexOf(alvo), 1);
+    while (filhos.length && (filhos[0].nodeName === 'br' || !semEspaco(filhos[0]))) filhos.shift();
+    if (filhos.length && filhos[0].nodeName === '#text') filhos[0].value = (filhos[0].value ?? '').replace(/^\s+/, '');
+
+    const avo = pai(bloco);
+    if (!avo?.childNodes) continue;
+    const posicao = avo.childNodes.indexOf(bloco);
+    if (filhos.length === 0) avo.childNodes.splice(posicao, 1, strong);
+    else avo.childNodes.splice(posicao, 0, strong);
+  }
+
+  return serialize(arvore as never);
+}
+
+/*
+ * Só a página Empresas: os mapas de cada transmissora vêm `alignnone` do
+ * WordPress — sem centralização — e só o primeiro (ETEM) veio `aligncenter`.
+ * 29 de 30 mapas fora do centro (medido em 22/09/2026). A regra que já existe
+ * para `.corpo img.aligncenter` (`src/pages/[...rota].astro`) resolve sozinha
+ * a partir daqui; só falta trocar a classe.
+ */
+export const centralizarMapas = (corpo: string): string =>
+  corpo.replace(/(<img\b[^>]*\bclass="[^"]*)\balignnone\b([^"]*")/g, '$1aligncenter$2');
+
+/*
+ * Só a página Empresas, só em português: os quatro links do RIMA e do EIA (3
+ * partes) da PCH Antônio Dias apontam para `ri.alupar.com.br`, que hoje
+ * devolve dois redirecionamentos e cai na home do RI — o arquivo não existe
+ * mais lá (medido em 22/09/2026, dois 302 e nenhum PDF).
+ *
+ * RI não é nosso: o destino é escolha e conserto de quem opera aquele site,
+ * não nosso. Aqui só sai o link que não leva a lugar nenhum; o parágrafo da
+ * PCH Antônio Dias continua.
+ */
+const LINKS_QUEBRADOS_EMPRESAS = [
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_rima_RAZ00_menor.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt01.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt02.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt03.pdf',
+];
+
+export function semLinksQuebrados(corpo: string): string {
+  let saida = corpo;
+  for (const url of LINKS_QUEBRADOS_EMPRESAS) {
+    saida = saida.replace(new RegExp(`<p><a href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}">[^<]*</a></p>\\n?`), '');
+  }
+  return saida;
+}
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -332,10 +420,22 @@ export function itens(): Item[] {
     }
   }
 
+  /* Página Empresas nos três idiomas: único lugar do site com o padrão de
+     nome de empresa em <strong> e mapas alignnone (ver titulosDeEmpresa e
+     centralizarMapas). Os links quebrados do RI são só em português. */
+  const EMPRESAS = new Set(['/empresas/', '/en/empresas/', '/es/empresas/']);
+
   cache = mapa.rotas.map((r) => {
     const achado = corpos.get(r.rota);
     if (!achado) throw new Error(`rota sem corpo no acervo: ${r.rota}`);
     const idioma = r.idioma as Item['idioma'];
+
+    let corpo = semH2Vazio(achado.corpo);
+    if (EMPRESAS.has(r.rota)) {
+      corpo = titulosDeEmpresa(centralizarMapas(corpo));
+      if (r.rota === '/empresas/') corpo = semLinksQuebrados(corpo);
+    }
+
     return {
       ...r,
       idioma,
@@ -343,7 +443,7 @@ export function itens(): Item[] {
         arquivosNoR2(
           videosSobDemanda(
             carregarImagens(
-              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(semH2Vazio(achado.corpo)))), idioma), idioma), imagens as Manifesto),
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(corpo))), idioma), idioma), imagens as Manifesto),
             ),
           ),
         ),

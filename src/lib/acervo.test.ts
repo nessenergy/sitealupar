@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sanfona, documentosDaMz, itens, idsNosTitulos, semH2Vazio } from './acervo.ts';
+import { sanfona, documentosDaMz, itens, idsNosTitulos, semH2Vazio, titulosDeEmpresa, centralizarMapas, semLinksQuebrados } from './acervo.ts';
 
 const WRAP = `<div class="arconix-faq-wrap">
   <div class="arconix-faq-title faq-closed">Garantias</div>
@@ -172,4 +172,83 @@ test('os quatro links de ação da Área de atuação são o botão do tema', ()
 
 test('h2 vazio sai: o leitor de tela anunciaria um título sem texto', () => {
   assert.equal(semH2Vazio('<p>a</p><h2></h2><h2> </h2><h2>Título</h2><p>b</p>'), '<p>a</p><h2>Título</h2><p>b</p>');
+});
+
+/*
+ * A página Empresas (só ela): o nome de cada transmissora/geradora é o
+ * primeiro filho de um <p> ou <div>, em <strong>, e nunca foi título de
+ * verdade — 41 <strong>, nenhum <h3> (medido em 22/09/2026).
+ */
+test('nome de empresa com texto no mesmo parágrafo: vira <h3>, o <br> que só separava sai', () => {
+  const entrada = '<p class="text-justify"><strong>ETEM</strong><br>\nA ETEM atua...</p>';
+  assert.equal(titulosDeEmpresa(entrada), '<h3>ETEM</h3><p class="text-justify">A ETEM atua...</p>');
+});
+
+test('nome de empresa sozinho no parágrafo: o parágrafo inteiro vira <h3>', () => {
+  assert.equal(titulosDeEmpresa('<p><strong>TPE</strong></p>'), '<h3>TPE</h3>');
+});
+
+test('nome de empresa num <div> sozinho: o <div> vira <h3>, o <div> seguinte não muda', () => {
+  const entrada = '<div><strong>TCE</strong></div><div>Em 22 de novembro...</div>';
+  assert.equal(titulosDeEmpresa(entrada), '<h3>TCE</h3><div>Em 22 de novembro...</div>');
+});
+
+test('nome em <strong><em>…</em></strong> seguido de imagem: o <h3> sai só com o texto, a imagem fica', () => {
+  const entrada = '<p><strong><em>UHE São José</em>&nbsp;</strong> <img src="x.png"></p>';
+  assert.equal(titulosDeEmpresa(entrada), '<h3>UHE São José</h3><p><img src="x.png"></p>');
+});
+
+test('parágrafo sem <strong> na frente não muda', () => {
+  const entrada = '<p class="text-justify">Texto comum, sem nome de empresa no início.</p>';
+  assert.equal(titulosDeEmpresa(entrada), entrada);
+});
+
+test('<strong> que não é o primeiro filho não vira título', () => {
+  const entrada = '<p>Prefácio <strong>ETEM</strong> resto.</p>';
+  assert.equal(titulosDeEmpresa(entrada), entrada);
+});
+
+test('mapa com classe alignnone (WordPress) centraliza: vira aligncenter, o resto do atributo não muda', () => {
+  const entrada = '<img fetchpriority="high" decoding="async" class="alignnone wp-image-1040 size-full" alt="" src="x.png">';
+  const saida = '<img fetchpriority="high" decoding="async" class="aligncenter wp-image-1040 size-full" alt="" src="x.png">';
+  assert.equal(centralizarMapas(entrada), saida);
+});
+
+test('centralizarMapas só troca a palavra alignnone, preservando as outras classes e a ordem', () => {
+  assert.equal(
+    centralizarMapas('<img class="alignnone wp-image-9 size-full" src="x.png">'),
+    '<img class="aligncenter wp-image-9 size-full" src="x.png">',
+  );
+});
+
+test('imagem já aligncenter, ou sem classe de alinhamento, não muda', () => {
+  assert.equal(centralizarMapas('<img class="aligncenter wp-image-1" src="a.png">'), '<img class="aligncenter wp-image-1" src="a.png">');
+  assert.equal(centralizarMapas('<img src="a.png">'), '<img src="a.png">');
+});
+
+test('links da PCH Antônio Dias para o RI (RIMA e EIA partes 1 a 3) saem: quebrados, o RI redireciona para a home dele', () => {
+  const entrada = [
+    '<p>Texto antes.</p>',
+    '<p><a href="https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_rima_RAZ00_menor.pdf">RIMA</a></p>',
+    '<p><a href="https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt01.pdf">EIA (Parte 1)</a></p>',
+    '<p><a href="https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt02.pdf">EIA (Parte 2)</a></p>',
+    '<p><a href="https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt03.pdf">EIA (Parte 3)</a></p>',
+    '<p>Texto depois.</p>',
+  ].join('\n');
+  assert.equal(semLinksQuebrados(entrada), '<p>Texto antes.</p>\n<p>Texto depois.</p>');
+});
+
+test('semLinksQuebrados não mexe em nenhum outro link', () => {
+  const entrada = '<p><a href="https://ri.alupar.com.br/outra-coisa.pdf">Outro</a></p>';
+  assert.equal(semLinksQuebrados(entrada), entrada);
+});
+
+test('a página Empresas de verdade, nos três idiomas: nomes de empresa viram h3, mapas centralizados, sem <strong> sobrando, sem os links quebrados do RI', () => {
+  for (const pre of ['', '/en', '/es']) {
+    const empresas = itens().find((i) => i.rota === `${pre}/empresas/`)?.corpo ?? '';
+    assert.ok(/<h3>/.test(empresas), `${pre}/empresas/ sem h3`);
+    assert.doesNotMatch(empresas, /<strong>[A-ZÀ-Ú]/, `${pre}/empresas/ ainda tem <strong> de nome de empresa`);
+    assert.doesNotMatch(empresas, /class="alignnone/, `${pre}/empresas/ ainda tem mapa alignnone`);
+    assert.doesNotMatch(empresas, /ant_dias/, `${pre}/empresas/ ainda tem os links quebrados`);
+  }
 });
