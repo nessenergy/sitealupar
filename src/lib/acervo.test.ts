@@ -198,6 +198,13 @@ test('nome em <strong><em>…</em></strong> seguido de imagem: o <h3> sai só co
   assert.equal(titulosDeEmpresa(entrada), '<h3>UHE São José</h3><p><img src="x.png"></p>');
 });
 
+/* ETB (pt) e ETB/EDTE (en, es) vêm em <b>, não em <strong> — a única exceção
+   do acervo (medido em 22/09/2026: ETB ficava para trás, sem virar título). */
+test('nome de empresa em <b>, não <strong>, também vira <h3> — é o caso do ETB', () => {
+  const entrada = '<div><b>ETB</b></div><div>É uma SPE composta...</div>';
+  assert.equal(titulosDeEmpresa(entrada), '<h3>ETB</h3><div>É uma SPE composta...</div>');
+});
+
 test('parágrafo sem <strong> na frente não muda', () => {
   const entrada = '<p class="text-justify">Texto comum, sem nome de empresa no início.</p>';
   assert.equal(titulosDeEmpresa(entrada), entrada);
@@ -248,6 +255,7 @@ test('a página Empresas de verdade, nos três idiomas: nomes de empresa viram h
     const empresas = itens().find((i) => i.rota === `${pre}/empresas/`)?.corpo ?? '';
     assert.ok(/<h3>/.test(empresas), `${pre}/empresas/ sem h3`);
     assert.doesNotMatch(empresas, /<strong>[A-ZÀ-Ú]/, `${pre}/empresas/ ainda tem <strong> de nome de empresa`);
+    assert.doesNotMatch(empresas, /<b>[A-ZÀ-Ú]/, `${pre}/empresas/ ainda tem <b> de nome de empresa (caso ETB)`);
     assert.doesNotMatch(empresas, /class="alignnone/, `${pre}/empresas/ ainda tem mapa alignnone`);
     assert.doesNotMatch(empresas, /ant_dias/, `${pre}/empresas/ ainda tem os links quebrados`);
   }
