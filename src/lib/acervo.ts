@@ -307,16 +307,21 @@ const semEspaco = (n: No) => !(n.nodeName === '#text' && !(n.value ?? '').trim()
 
 /*
  * Só a página Empresas: o nome de cada transmissora e geradora é o primeiro
- * filho de um `<p>` ou `<div>`, em `<strong>` (às vezes `<strong><em>…</em>`,
- * às vezes embrulhado num `<span>` de colagem do Word) — e nunca foi título
- * de verdade. 41 `<strong>` na página, nenhum `<h3>` (medido em 22/09/2026),
- * enquanto "As Transmissoras Alupar", na mesma página, já é `<h3>`.
+ * filho de um `<p>` ou `<div>`, em `<strong>` ou `<b>` (às vezes
+ * `<strong><em>…</em>`, às vezes embrulhado num `<span>` de colagem do Word)
+ * — e nunca foi título de verdade. 41 `<strong>` mais o `<b>` do ETB (e do
+ * EDTE em EN/ES) na página, nenhum `<h3>` (medido em 22/09/2026), enquanto
+ * "As Transmissoras Alupar", na mesma página, já é `<h3>`. `<b>` e `<strong>`
+ * chegam do mesmo lugar — negrito no editor do WordPress — só um deles virou
+ * a tag semântica; aqui os dois valem o mesmo.
  *
  * O nome vira `<h3>`; o resto do parágrafo (imagem, texto) continua onde
  * estava. Um `<br>` logo depois do nome só existia para separá-lo do texto —
  * o `<h3>` já separa visualmente, então ele sai, junto com texto em branco
  * que sobrar bem no início do que ficou.
  */
+const NEGRITO = new Set(['strong', 'b']);
+
 export function titulosDeEmpresa(corpo: string): string {
   const arvore = parseFragment(corpo) as unknown as No;
   const todos = achatar(arvore);
@@ -331,9 +336,9 @@ export function titulosDeEmpresa(corpo: string): string {
     let alvo = strong;
     if (strong.nodeName === 'span') {
       const netos = (strong.childNodes ?? []).filter(semEspaco);
-      if (netos.length === 1 && netos[0].nodeName === 'strong') { alvo = strong; strong = netos[0]; }
+      if (netos.length === 1 && NEGRITO.has(netos[0].nodeName)) { alvo = strong; strong = netos[0]; }
     }
-    if (strong.nodeName !== 'strong') continue;
+    if (!NEGRITO.has(strong.nodeName)) continue;
 
     const nome = textoDe(strong);
     if (!nome) continue;
