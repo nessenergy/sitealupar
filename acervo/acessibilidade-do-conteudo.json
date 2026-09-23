@@ -1,24 +1,16 @@
 {
-  "geradoEm": "2026-09-09T03:39:45.244Z",
+  "geradoEm": "2026-09-23T23:31:31.350Z",
   "itensAnalisados": 387,
   "itensComAchado": 163,
-  "itensPublicadosComAchado": 155,
+  "itensPublicadosComAchado": 18,
   "resumo": [
     {
       "id": "nova-aba-sem-aviso",
       "criterio": "WCAG 3.2.5",
       "quem": "front-end",
       "porque": "target=\"_blank\" sem aviso no texto: a nova aba surpreende quem não vê a tela",
-      "ocorrencias": 160,
-      "itens": 134
-    },
-    {
-      "id": "tabela-sem-cabecalho",
-      "criterio": "WCAG 1.3.1",
-      "quem": "front-end",
-      "porque": "tabela sem <th>: o leitor de tela lê os números sem dizer de que coluna são",
-      "ocorrencias": 25,
-      "itens": 25
+      "ocorrencias": 16,
+      "itens": 16
     },
     {
       "id": "link-sem-texto",
@@ -33,6 +25,14 @@
       "criterio": "WCAG 1.1.1",
       "quem": "Comunicação",
       "porque": "imagem sem atributo alt: o leitor de tela anuncia o nome do arquivo",
+      "ocorrencias": 0,
+      "itens": 0
+    },
+    {
+      "id": "tabela-sem-cabecalho",
+      "criterio": "WCAG 1.3.1",
+      "quem": "front-end",
+      "porque": "tabela sem <th>: o leitor de tela lê os números sem dizer de que coluna são",
       "ocorrencias": 0,
       "itens": 0
     },
@@ -126,7 +126,7 @@
     },
     {
       "rota": "/en/noticia/1q14-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q14 Earnings Release",
@@ -136,7 +136,7 @@
     },
     {
       "rota": "/en/noticia/1q15-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q15 Earnings Release",
@@ -146,7 +146,7 @@
     },
     {
       "rota": "/en/noticia/1q17-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q17 Earnings Release",
@@ -156,7 +156,7 @@
     },
     {
       "rota": "/en/noticia/1q20-earnings-release-2/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q20 Earnings Release",
@@ -166,7 +166,7 @@
     },
     {
       "rota": "/en/noticia/2q14-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q14 Earnings Release",
@@ -176,7 +176,7 @@
     },
     {
       "rota": "/en/noticia/2q15-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q15 Earnings Release",
@@ -186,7 +186,7 @@
     },
     {
       "rota": "/en/noticia/2q16-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q16 Earnings Release",
@@ -196,7 +196,7 @@
     },
     {
       "rota": "/en/noticia/2q17-earnings-release-2-2/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q17 Earnings Release",
@@ -206,7 +206,7 @@
     },
     {
       "rota": "/en/noticia/3q14-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "3Q14 Earnings Release",
@@ -216,7 +216,7 @@
     },
     {
       "rota": "/en/noticia/3q15-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "3Q15 Earnings Release",
@@ -226,7 +226,7 @@
     },
     {
       "rota": "/en/noticia/3q16-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "3Q16 Earnings Release",
@@ -236,7 +236,7 @@
     },
     {
       "rota": "/en/noticia/4q13-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "4Q13 Earnings Release",
@@ -246,7 +246,7 @@
     },
     {
       "rota": "/en/noticia/4q14-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "4Q14 Earnings Release",
@@ -256,7 +256,7 @@
     },
     {
       "rota": "/en/noticia/4q16-earnings-release/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "4Q16 Earnings Release",
@@ -266,7 +266,7 @@
     },
     {
       "rota": "/en/noticia/agoe-edital-de-convocacao-portuguese-only/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "AGO/E – Edital de Convocação (Portuguese Only)",
@@ -276,7 +276,7 @@
     },
     {
       "rota": "/en/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Alupar announce the new Institutional and Investor Relations website",
@@ -286,7 +286,7 @@
     },
     {
       "rota": "/en/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Annual and Extraordinary Shareholders Meeting – Call Notice",
@@ -296,7 +296,7 @@
     },
     {
       "rota": "/en/noticia/authorization-for-the-reinforcement-of-installations/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Authorization for the reinforcement of installations",
@@ -306,7 +306,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-1t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q18 Earnings Release",
@@ -316,7 +316,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-1t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "1Q20 Earnings Release",
@@ -326,7 +326,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-2t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q18 Earnings Release",
@@ -336,7 +336,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-2t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q20 Earnings Release",
@@ -346,7 +346,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-3t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "3Q18 Earnings Release",
@@ -356,7 +356,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-4t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "4Q17 Earnings Release",
@@ -366,7 +366,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-4t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "4Q18 Earnings Release",
@@ -376,7 +376,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-do-2t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "2Q17 Earnings Release",
@@ -386,7 +386,7 @@
     },
     {
       "rota": "/en/noticia/divulgacao-de-resultados-do-3t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "3Q17 Earnings Release",
@@ -397,7 +397,7 @@
     },
     {
       "rota": "/en/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Fitch Eleva Ratings da Alupar (Portuguese Only)",
@@ -407,7 +407,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-6th-debenture-issuance/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – 6th Debenture Issuance",
@@ -417,7 +417,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-finalized-eate/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition Finalized – EATE",
@@ -427,7 +427,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of Empresa Catarinense de Transmissão de Energia Common Shares",
@@ -437,7 +437,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-la-virgen/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of La Virgen",
@@ -447,7 +447,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of Queluz and Lavrinhas Preferred Shares",
@@ -457,7 +457,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of share in transmission companies by direct subsidiary",
@@ -467,7 +467,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of SHPPs Queluz and Lavrinhas Preferred Shares",
@@ -477,7 +477,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of the capital stock of each of the companies of the Aracati Complex",
@@ -487,7 +487,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-agua-limpa/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Água Limpa",
@@ -497,7 +497,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-aracati-complex-acquisition/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Aracati Complex Acquisition",
@@ -507,7 +507,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Change in Police for Disclosure of Material Act or Fact",
@@ -517,7 +517,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Concession of the Lot C of ANEEL Auction No. 001/2014",
@@ -527,7 +527,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-market-maker/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Market Maker",
@@ -537,7 +537,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-payment-of-interim-dividends/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Payment of Interim Dividends",
@@ -547,7 +547,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-pch-verde-8/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – PCH Verde 8",
@@ -557,7 +557,7 @@
     },
     {
       "rota": "/en/noticia/material-fact-sale-of-shares-sinop/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Material Fact – Sale of shares – SINOP",
@@ -567,7 +567,7 @@
     },
     {
       "rota": "/en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Minutes of the Annual and Extraordinary Shareholders´ Meeting",
@@ -577,7 +577,7 @@
     },
     {
       "rota": "/en/noticia/modification-of-shp-morro-azul-environmental-license/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Modification of SHP Morro Azul Environmental License",
@@ -587,7 +587,7 @@
     },
     {
       "rota": "/en/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Moody´s assigns Ba2/Aa3.br to Alupar´s Debentures",
@@ -597,7 +597,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-funcef/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Acquisition of Interest FUNCEF",
@@ -607,7 +607,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Acquisition of Interest GIC Private Limited",
@@ -617,7 +617,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Annual Permitted Revenue (RAP) – Cycle of 2014",
@@ -627,7 +627,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Approval by CADE of the Act of Concentration No 08700.009463/2014-65",
@@ -637,7 +637,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-change-of-independent-auditor/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the market – Change of Independent Auditor",
@@ -647,7 +647,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Commercial Operation of the UG3 Ferreira Gomes",
@@ -657,7 +657,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – ETVG – Reinforcement works at the transmission units.",
@@ -667,7 +667,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Ferreira Gomes – Diversion of the Araguari River",
@@ -677,7 +677,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – HPP Ferreira Gomes begins operations in advance",
@@ -687,7 +687,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-market-maker/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Market Maker",
@@ -697,7 +697,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Request for the previous analysis of the registration of public offering",
@@ -707,7 +707,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Restatement of Management Proposal referring to the Annual and Extraordinary Shareholders’ Meeting",
@@ -717,7 +717,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – TME reinforcement works at the transmission units.",
@@ -727,7 +727,7 @@
     },
     {
       "rota": "/en/noticia/notice-to-the-market-tne/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Notice to the Market – TNE",
@@ -737,7 +737,7 @@
     },
     {
       "rota": "/en/noticia/upgrading-of-corporate-rating/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "en",
       "tipo": "noticia",
       "titulo": "Upgrading of Corporate Rating",
@@ -837,7 +837,7 @@
     },
     {
       "rota": "/es/noticia/1q20-earnings-release-solo-ingles-y-portugues/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "1Q20 Earnings Release (Sólo Inglés y Portugués)-",
@@ -847,7 +847,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-1t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "1Q18 Earnings Release (Sólo Inglés y Portugués)",
@@ -857,7 +857,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-1t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "1T20 Earnings Release (Sólo Inglés y Portugués)-",
@@ -867,7 +867,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-2t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "2Q18 Earnings Release (Sólo Inglés y Portugués)",
@@ -877,7 +877,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-2t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "2T20 Earnings Release (Sólo Inglés y Portugués)",
@@ -887,7 +887,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-3t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "3Q18 Earnings Release (Sólo Inglés y Portugués)",
@@ -897,7 +897,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-4t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "4Q17 Earnings Release (Sólo Inglés y Portugués)",
@@ -907,7 +907,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-4t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "4Q18 Earnings Release (Sólo Inglés y Portugués)",
@@ -917,7 +917,7 @@
     },
     {
       "rota": "/es/noticia/divulgacao-de-resultados-do-2t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "noticia",
       "titulo": "2Q17 Earnings Release (Sólo Inglés y Portugués)",
@@ -957,7 +957,7 @@
     },
     {
       "rota": "/es/sustentabilidade-2/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "es",
       "tipo": "pagina",
       "titulo": "Sostenibilidad",
@@ -1023,7 +1023,7 @@
     },
     {
       "rota": "/noticia/agoe-edital-de-convocacao/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "AGO/E – Edital de Convocação",
@@ -1033,7 +1033,7 @@
     },
     {
       "rota": "/noticia/agoe-edital-de-convocacao-2/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "AGO/E – Edital de Convocação",
@@ -1043,7 +1043,7 @@
     },
     {
       "rota": "/noticia/alupar-lanca-novos-sites-institucional-e-de-relacoes-com-investidores/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Alupar lança novos sites Institucional e de Relações com Investidores",
@@ -1053,7 +1053,7 @@
     },
     {
       "rota": "/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Ata da Assembleia Geral Ordinária e Extraordinária",
@@ -1063,7 +1063,7 @@
     },
     {
       "rota": "/noticia/autorizacao-para-implantacao-de-reforco-de-instalacoes/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Autorização para implantação de reforço de instalações",
@@ -1073,7 +1073,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-alteracao-de-auditor-independente/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Alteração de Auditor Independente",
@@ -1083,7 +1083,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-alteracao-de-calendario-de-eventos-corporativos/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Alteração de Calendário de Eventos Corporativos",
@@ -1093,7 +1093,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-aprovacao-pelo-cade-do-ato-de-concentracao-no-08700-0094632014-65/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Aprovação pelo CADE do Ato de Concentração nº 08700.009463/2014-65",
@@ -1103,7 +1103,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-funcef/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Aquisição participação FUNCEF",
@@ -1113,7 +1113,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-aquisicao-participacao-gic-private-limited/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Aquisição participação GIC Private Limited",
@@ -1123,7 +1123,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-contratacao-de-formador-de-mercado/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Contratação de Formador de Mercado",
@@ -1133,7 +1133,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-etvg-autorizacao-para-implantar-reforcos-em-instalacoes-de-transmissao/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – ETVG – Autorização para implantar reforços em instalações de transmissão.",
@@ -1143,7 +1143,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-ferreira-gomes-desvio-do-rio-araguari/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Ferreira Gomes – Desvio do Rio Araguari",
@@ -1153,7 +1153,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-da-uhe-ferreira-gomes/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Operação Comercial da UHE Ferreira Gomes",
@@ -1163,7 +1163,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug2-ferreira-gomes/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Operação Comercial UG2 Ferreira Gomes",
@@ -1173,7 +1173,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-operacao-comercial-ug3-ferreira-gomes/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Operação Comercial UG3 Ferreira Gomes",
@@ -1183,7 +1183,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-pedido-de-analise-previa-de-oferta-publica/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Pedido de análise prévia de oferta pública",
@@ -1193,7 +1193,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-reajuste-da-receita-anual-permitida-do-ciclo-20142015/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Reajuste da Receita Anual Permitida do Ciclo 2014/2015",
@@ -1203,7 +1203,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-reapresentacao-da-proposta-da-administracao-para-a-agoe/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – Reapresentação da Proposta da Administração para a AGOE",
@@ -1213,7 +1213,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-tme-autorizacao-para-implantar-reforcos-em-instalacao-de-transmissao/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – TME autorização para implantar reforços em instalação de transmissão.",
@@ -1223,7 +1223,7 @@
     },
     {
       "rota": "/noticia/comunicado-ao-mercado-tne/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Comunicado ao Mercado – TNE",
@@ -1233,7 +1233,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-1t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 1T18",
@@ -1244,7 +1244,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-1t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 1T20",
@@ -1254,7 +1254,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-2t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 2T18",
@@ -1265,7 +1265,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-2t20/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 2T20",
@@ -1275,7 +1275,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-3t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 3T18",
@@ -1286,7 +1286,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-4t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 4T17",
@@ -1297,7 +1297,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-4t18/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados 4T18",
@@ -1307,7 +1307,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-1t14/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 1T14",
@@ -1317,7 +1317,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-1t15/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 1T15",
@@ -1327,7 +1327,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-1t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 1T17",
@@ -1337,7 +1337,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-2t14/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 2T14",
@@ -1347,7 +1347,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-2t15/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 2T15",
@@ -1357,7 +1357,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-2t16/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 2T16",
@@ -1367,7 +1367,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-2t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 2T17",
@@ -1377,7 +1377,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-3t14/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 3T14",
@@ -1387,7 +1387,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-3t15/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 3T15",
@@ -1397,7 +1397,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-3t16/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 3T16",
@@ -1407,7 +1407,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-3t17/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 3T17",
@@ -1418,7 +1418,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-4t13/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 4T13",
@@ -1428,7 +1428,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-4t14/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 4T14",
@@ -1438,7 +1438,7 @@
     },
     {
       "rota": "/noticia/divulgacao-de-resultados-do-4t16/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Divulgação de Resultados do 4T16",
@@ -1448,7 +1448,7 @@
     },
     {
       "rota": "/noticia/elevacao-de-rating-corporativo/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Elevação de Rating Corporativo",
@@ -1458,7 +1458,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-6a-emissao-de-debentures/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – 6ª Emissão de Debêntures",
@@ -1468,7 +1468,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-adjudicacao-do-lote-c-do-leilao-aneel-001-2014/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Adjudicação do lote C do leilão ANEEL 001-2014",
@@ -1478,7 +1478,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-alteracao-da-politica-de-divulgacao-de-ato-ou-fato-relevante/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Alteração da Política de Divulgação de Ato ou Fato Relevante",
@@ -1488,7 +1488,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-ampliacao-de-participacao-em-transmissoras/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Ampliação de participação em transmissoras",
@@ -1498,7 +1498,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-complexo-aracati/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição Complexo Aracati",
@@ -1508,7 +1508,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-de-acoes-ordinarias-empresa-catarinense-de-transmissao-de-energia/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição de ações ordinárias Empresa Catarinense de Transmissão de Energia",
@@ -1518,7 +1518,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição de Ações Preferenciais Lavrinhas e Queluz",
@@ -1528,7 +1528,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-lavrinhas-e-queluz-2/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição de ações preferenciais Lavrinhas e Queluz",
@@ -1538,7 +1538,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-de-acoes-preferenciais-pchs-queluz-e-lavrinhas/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição de Ações Preferenciais PCHs Queluz e Lavrinhas",
@@ -1548,7 +1548,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-de-participacoes-societarias-no-complexo-aracati/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição de participações societárias no Complexo Aracati",
@@ -1558,7 +1558,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-aquisicao-la-virgen/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Aquisição La Virgen",
@@ -1568,7 +1568,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-concretizacao-de-aquisicao-eate/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Concretização de Aquisição – EATE",
@@ -1578,7 +1578,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-distribuicao-de-dividendos-intermediarios/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Distribuição de Dividendos Intermediários",
@@ -1588,7 +1588,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-formador-de-mercado/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Formador de Mercado",
@@ -1598,7 +1598,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-pch-agua-limpa/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – PCH Água Limpa",
@@ -1608,7 +1608,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-pch-verde-8/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – PCH Verde 8",
@@ -1618,7 +1618,7 @@
     },
     {
       "rota": "/noticia/fato-relevante-venda-de-acoes-sinop/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fato Relevante – Venda de ações SINOP",
@@ -1628,7 +1628,7 @@
     },
     {
       "rota": "/noticia/fitch-eleva-ratings-da-alupar/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Fitch Eleva Ratings da Alupar",
@@ -1638,7 +1638,7 @@
     },
     {
       "rota": "/noticia/material-fact-acquisition-of-lavrinhas-and-queluz-preferred-shares/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Material Fact – Acquisition of Lavrinhas and Queluz Preferred Shares",
@@ -1648,7 +1648,7 @@
     },
     {
       "rota": "/noticia/modificacao-da-licenca-ambiental-da-pch-morro-azul/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Modificação da Licença Ambiental da PCH Morro Azul",
@@ -1658,7 +1658,7 @@
     },
     {
       "rota": "/noticia/moodys-atribui-ratings-ba2aa3-br-para-as-debentures-da-alupar/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Moody´s atribui ratings Ba2/Aa3.br para as Debêntures da Alupar",
@@ -1668,7 +1668,7 @@
     },
     {
       "rota": "/noticia/notice-to-the-market-change-in-the-annual-calendar-of-corporate-events/",
-      "publicada": true,
+      "publicada": false,
       "idioma": "pt",
       "tipo": "noticia",
       "titulo": "Notice to the Market – Change in the Annual Calendar of Corporate Events",
