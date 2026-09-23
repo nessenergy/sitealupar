@@ -133,11 +133,13 @@ test('h2 sem id ganha âncora pelo texto; repetido, vazio ou já com id fica com
   );
 });
 
-test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007, mapa antes de Missão, Visão e Valores', () => {
+test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007 e, depois do texto, missão e visão', () => {
   for (const pre of ['', '/en', '/es']) {
     const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
     assert.match(c, /2007/, `${pre}/a-companhia/ sem a abertura`);
-    assert.match(c, /mapa-ativos[\s\S]*<h2/, `${pre}/a-companhia/ com o mapa fora do lugar`);
+    /* O mapa de ativos saiu em 23/09/2026, a pedido da Alupar: ele continua na
+       Área de atuação, que é a página que fala dos ativos. */
+    assert.doesNotMatch(c, /mapa-ativos|class="mapa"/, `${pre}/a-companhia/ com o mapa de volta`);
     /* Sem `text-justify`: o português não usa, e o texto justificado é ruim de ler em coluna estreita. */
     assert.doesNotMatch(c, /text-justify/, `${pre}/a-companhia/`);
   }
@@ -160,10 +162,10 @@ test('missão e visão são texto de verdade nos três idiomas, e os valores nã
   }
 });
 
-test('o mapa de ativos traz a legenda em HTML, traduzida, na Área de atuação e em A Companhia', () => {
+test('o mapa de ativos traz a legenda em HTML, traduzida, na Área de atuação', () => {
   const subestacao = { '': 'Subestação', '/en': 'Substation', '/es': 'Subestación' } as const;
   for (const pre of ['', '/en', '/es'] as const) {
-    for (const rota of ['area-de-atuacao', 'a-companhia']) {
+    for (const rota of ['area-de-atuacao']) {
       const c = itens().find((i) => i.rota === `${pre}/${rota}/`)?.corpo ?? '';
       const onde = `${pre}/${rota}/`;
       assert.match(c, /<figure class="mapa">/, onde);
