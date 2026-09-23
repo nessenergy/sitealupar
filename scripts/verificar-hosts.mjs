@@ -1,5 +1,6 @@
 /**
- * Sentinela: cada host responde e tem certificado longe do vencimento.
+ * Sentinela: cada host responde no caminho que importa e tem certificado
+ * longe do vencimento.
  *
  * Roda todo dia pelo `.github/workflows/sentinela.yml`. O julgamento de cada
  * host é de scripts/lib/sentinela.mjs, que é testado; aqui só se fala com a
@@ -11,20 +12,28 @@
 import { spawnSync } from 'node:child_process';
 import { devNull } from 'node:os';
 import { avaliar } from './lib/sentinela.mjs';
+import { LISTAGEM_DO_RI } from './lib/continuidade.mjs';
 
+/* [host, caminho]. O caminho importa em um caso: o portal de RI é o destino
+   dos 301 de notícia (D16) e é mantido por outra equipe — a raiz dele pode
+   responder com /noticias/ fora do ar, e aí 186 endereços nossos viram 404.
+   O endereço vem de continuidade.mjs para que vigiar e redirecionar não
+   possam divergir. */
+const DESTINO_DAS_NOTICIAS = new URL(LISTAGEM_DO_RI);
 const HOSTS = [
-  'alupar.com.br',
-  'www.alupar.com.br',
-  'alupar.us6.quickconnect.to', // galeria de fotos no NAS (D4)
+  ['alupar.com.br', '/'],
+  ['www.alupar.com.br', '/'],
+  ['alupar.us6.quickconnect.to', '/'], // galeria de fotos no NAS (D4)
+  [DESTINO_DAS_NOTICIAS.host, DESTINO_DAS_NOTICIAS.pathname],
 ];
 const ESPERA = 20;
 
 /** Código HTTP e exit code do curl. */
-function pedir(host) {
+function pedir(host, caminho) {
   const r = spawnSync(
     'curl',
     // devNull, e não '/dev/null': quem roda isto à mão está no Windows.
-    ['-sS', '-o', devNull, '-w', '%{http_code}', '--max-time', String(ESPERA), `https://${host}/`],
+    ['-sS', '-o', devNull, '-w', '%{http_code}', '--max-time', String(ESPERA), `https://${host}${caminho}`],
     { encoding: 'utf8' },
   );
   return { codigo: r.status === 0 ? r.stdout.trim() : 'erro', saidaCurl: r.status ?? 1 };
@@ -48,9 +57,9 @@ function vencimento(host) {
 const virada = process.env.VIRADA === 'sim';
 let falhou = false;
 
-for (const host of HOSTS) {
-  const { codigo, saidaCurl } = pedir(host);
-  const r = avaliar({ host, codigo, saidaCurl, fim: vencimento(host), virada });
+for (const [host, caminho] of HOSTS) {
+  const { codigo, saidaCurl } = pedir(host, caminho);
+  const r = avaliar({ host, caminho, codigo, saidaCurl, fim: vencimento(host), virada });
   console.log(r.mensagem);
   if (!r.ok) falhou = true;
 }

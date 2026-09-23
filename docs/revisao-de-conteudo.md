@@ -96,3 +96,21 @@ colunas, ou porque em 2017 era assim que se alinhava conteúdo?**
   em vez de rolar para o lado.
 
 O acervo tem o HTML de cada uma em `acervo/conteudo.jsonl`, campo `corpo`.
+
+## Validação pela Comunicação (resposta 3, 16/09/2026)
+
+A Alupar pediu "link para validação pela equipe de comunicação". O endereço é
+`https://sitealupar.pages.dev` — o mesmo que o CI publica a cada merge na
+`main`, nos três idiomas.
+
+Dois avisos para quem abrir o link:
+
+- **O formulário de contato não envia no preview.** Os segredos de envio estão
+  só no ambiente de produção do Pages; o de preview tem apenas o token de
+  saúde. Quem quiser testar o envio faz isso em produção.
+- **Um ponto para a Comunicação decidir, no espanhol.** A página de contato da
+  origem serve a frase de consentimento **em inglês** para quem escolhe
+  espanhol. A Alupar pediu "exatamente como está no site hoje"; o site novo
+  traz "Leí y acepto la Política de privacidad", em espanhol, por entender que
+  copiar a frase em inglês seria reproduzir um defeito. Se a Comunicação
+  preferir a redação literal da origem, é uma linha em `src/i18n/textos.ts`.

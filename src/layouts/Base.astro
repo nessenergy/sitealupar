@@ -1,10 +1,9 @@
 ---
 import { Picture } from 'astro:assets';
 import '../styles/tokens.css';
-import { IDIOMAS, HOME, CODIGO, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
+import { IDIOMAS, HOME, lang as codigoLang, prefixo, textos, type Idioma } from '../i18n/textos';
 import mapa from '../../acervo/mapa-de-rotas.json';
 import { ROTAS_PROPRIAS } from '../lib/rotas-proprias.mjs';
-import { paginasDoArquivo } from '../lib/acervo';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
 import faixaInterna from '../assets/tema/bg-interna-01.jpg';
@@ -47,15 +46,14 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
  */
 const semPrefixo = Astro.url.pathname.replace(/^\/(en|es)(?=\/|$)/, '') || '/';
 
-/* O que existe: o mapa de rotas, as três homes, as páginas que src/pages/
-   gera por conta própria (vídeos, avisos do contato) e as páginas numeradas
-   do arquivo de notícias. Sem as duas últimas, o seletor mandava para a home
-   páginas que têm irmã no outro idioma. A 404 fica fora de propósito. */
+/* O que existe: o mapa de rotas, as três homes e as páginas que src/pages/
+   gera por conta própria (vídeos, avisos do contato). Sem a última, o
+   seletor mandava para a home páginas que têm irmã no outro idioma. A 404
+   fica fora de propósito. */
 const existe = new Set<string>([
   ...mapa.rotas.map((r) => r.rota),
   ...Object.values(HOME),
   ...ROTAS_PROPRIAS,
-  ...IDIOMAS.flatMap((i) => paginasDoArquivo(CODIGO[i])),
 ]);
 const comBarra = (p: string) => (p.endsWith('/') ? p : `${p}/`);
 
@@ -133,6 +131,21 @@ const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     <meta property="og:site_name" content={textos[idioma].titulo} />
     <meta property="og:locale" content={OG_LOCALE[idioma]} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {/* No celular o menu nasce recolhido por CSS (Cabecalho.astro), porque
+        esperar o site.js para recolhê-lo fazia a página inteira subir quando o
+        script chegava (CLS de 0,37 numa rede lenta). O botão que o abre só
+        aparece quando o site.js roda. Este bloco cobre UM caso: JavaScript
+        desligado, em que o menu volta a ficar aberto. NÃO cobre JavaScript
+        ligado com o site.js atrasado ou falho — nesse caso não há menu até ele
+        rodar, custo aceito e registrado na D23 (com o caminho de melhoria
+        via `:target`). Fica aqui porque `<style>` dentro de `<noscript>` só é
+        válido no <head>, e o CSP já permite estilo embutido. Depende do id
+        `menu-principal` do Cabecalho.astro, e o id ganha do seletor do
+        componente. */}
+    <noscript>
+      <style is:inline>@media (max-width: 767px) { #menu-principal { display: block; } }</style>
+    </noscript>
 
     <!-- JSON-LD no HTML servido, não injetado por JavaScript como hoje. -->
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -4,11 +4,19 @@
 # Duplicatas e restos de edição, hoje indexáveis
 /trabalhe-conosco-2/                              /   301
 /faq-new/                                          /   301
-/sustentabilidade-2/                               /sustentabilidade/   301
+/sustentabilidade-2/                               https://rs.alupar.com.br/   301
 /politica-de-privacidade/condicoes-de-uso-pagina-antiga/  /politica-de-privacidade/condicoes-de-uso/   301
 
-# Consolidação de P&D (duas páginas para o mesmo assunto)
-/pesquisa-e-desenvolvimento/                       /inovacao-pesquisa-e-desenvolvimento/   301
+# Sustentabilidade e P&D passaram a viver em portais próprios da Alupar
+# (pedido de 23/09/2026): o menu aponta para eles, e as páginas internas, que
+# repetiriam o assunto com conteúdo mais velho, redirecionam para lá. As duas
+# linhas de consolidação acima já apontam direto para o destino final — 301
+# encadeado custa um salto a mais e envelhece pior.
+/sustentabilidade/                                 https://rs.alupar.com.br/   301
+/en/sustentabilidade-2/                            https://rs.alupar.com.br/   301
+/es/sustentabilidade-2/                            https://rs.alupar.com.br/   301
+/pesquisa-e-desenvolvimento/                       https://pdi.alupar.com.br/   301
+/inovacao-pesquisa-e-desenvolvimento/              https://pdi.alupar.com.br/   301
 
 # Trabalhe Conosco vai direto para o Gupy, como já faz o menu
 /trabalhe-conosco/                                 https://alupar.gupy.io/   301
@@ -25,21 +33,21 @@
 
 /companies/                                        /empresas/   301
 /contact/                                          /contato/   301
-/news/                                             /noticias/   301
+/news/                                             https://ri.alupar.com.br/noticias/   301
 /geracao/                                          /faq/geracao/   301
 /video/                                            /faq/videos-dos-projetos-sociais-apoiados-pela-alupar/   301
 /sustainability/                                   /en/faq/sustainability/   301
 /index.php                                         /   301
 # /rss/ ia para /feed/, que o build não gera: vai para a listagem de notícias.
-/rss/                                              /noticias/   301
+/rss/                                              https://ri.alupar.com.br/noticias/   301
 /sitemap.xml                                       /sitemap-index.xml   301
 /wp-sitemap.xml                                    /sitemap-index.xml   301
 
-# A origem manda /sustentabilidade/ para /faq/sustentabilidade-2/. No site novo
-# a página canônica passa a ser /sustentabilidade/, e é /sustentabilidade-2/
-# que redireciona — a linha correspondente está acima. Isso **exige** que a
-# página exista com esse caminho; se ela não for criada, o redirecionamento
-# acima aponta para um 404. Criada no REMAPA de gerar-mapa-de-rotas.mjs.
+# A origem manda /sustentabilidade/ para /faq/sustentabilidade-2/, e até
+# 23/09/2026 a página canônica do assunto era /sustentabilidade/, criada pelo
+# REMAPA de gerar-mapa-de-rotas.mjs. Com o portal rs.alupar.com.br no menu, ela
+# deixou de ser gerada: os três caminhos do assunto vão para o portal, e o
+# REMAPA perdeu o efeito — quem redireciona não vira página.
 
 # ── Permalinks traduzidos que só existem como LINK, nunca como página ──
 # O conteúdo aponta para /privacy-policy e /politica-de-privacidad — os slugs
@@ -70,7 +78,7 @@
 /ir/                                               https://ri.alupar.com.br/   301
 
 # ─── continuidade: gerado por scripts/fechar-continuidade.mjs ───
-# 251 endereços vivos sem página no site novo, medidos contra o build.
+# 234 endereços vivos sem página no site novo, medidos contra o build.
 # Anexo e casca vazia → ancestral que resolve; notícia → listagem; vídeo → /videos/.
 /2017/08/24/hello-world/  /  301
 /a-companhia/img-a-companhia/  /a-companhia/  301
@@ -203,11 +211,6 @@
 /en/group/segmento-de-negocio/  /en/  301
 /en/group/sostenibilidad/  /en/  301
 /en/group/sustentabilidade/  /en/  301
-/en/noticia/2q22-earnings-release/  /en/noticias/  301
-/en/noticia/divulgacao-de-resultados-1t22/  /en/noticias/  301
-/en/noticia/divulgacao-de-resultados-3t22/  /en/noticias/  301
-/en/noticia/divulgacao-de-resultados-4t21/  /en/noticias/  301
-/en/noticia/divulgacao-de-resultados-4t22/  /en/noticias/  301
 /en/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/  /en/pesquisa-e-desenvolvimento/  301
 /en/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/  /en/pesquisa-e-desenvolvimento/  301
 /en/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/  /en/pesquisa-e-desenvolvimento/  301
@@ -281,11 +284,6 @@
 /es/group/research-and-evelopment/  /es/  301
 /es/group/sustainability/  /es/  301
 /es/group/sustentabilidade/  /es/  301
-/es/noticia/divulgacao-de-resultados-1t22/  /es/noticias/  301
-/es/noticia/divulgacao-de-resultados-2t22/  /es/noticias/  301
-/es/noticia/divulgacao-de-resultados-3t22/  /es/noticias/  301
-/es/noticia/divulgacao-de-resultados-4t21/  /es/noticias/  301
-/es/noticia/divulgacao-de-resultados-4t22/  /es/noticias/  301
 /es/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/  /es/pesquisa-e-desenvolvimento/  301
 /es/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/  /es/pesquisa-e-desenvolvimento/  301
 /es/pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/  /es/pesquisa-e-desenvolvimento/  301
@@ -310,13 +308,6 @@
 /group/segmento-de-negocio/  /  301
 /group/sostenibilidad/  /  301
 /group/sustainability/  /  301
-/noticia/divulgacao-de-resultados-1t22/  /noticias/  301
-/noticia/divulgacao-de-resultados-2t22/  /noticias/  301
-/noticia/divulgacao-de-resultados-3t22/  /noticias/  301
-/noticia/divulgacao-de-resultados-4t21/  /noticias/  301
-/noticia/divulgacao-de-resultados-4t22/  /noticias/  301
-/noticia/divulgacao-de-resultados-do-2t17/alupar_release-2t17/  /noticias/  301
-/noticia/divulgacao-de-resultados-do-2t17/itr-alupar-30062017-cvm/  /noticias/  301
 /pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_eng-768x579-2/  /  301
 /pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d_esp-768x579-2/  /  301
 /pesquisa-e-desenvolvimento/img-investimento-programa-p-e-d-768x685/  /  301
@@ -326,11 +317,11 @@
 # ─── continuidade: fim ───
 
 # ─── gerado por scripts/gerar-redirecionamentos.mjs ───
-# 125 permalinks traduzidos pelo WPML. O slug é próprio — o
+# 41 permalinks traduzidos pelo WPML. O slug é próprio — o
 # caminho não existe em português — então o destino é a versão com prefixo de
 # idioma. Sem estas linhas, todo link externo para uma tradução morre na virada.
 
-# EN — 100 endereços
+# EN — 20 endereços
 /faq/concluded-research-and-development-projects/  /en/faq/concluded-research-and-development-projects/  301
 /faq/confidentiality-of-users-information/  /en/faq/confidentiality-of-users-information/  301
 /faq/copyright-and-intellectual-property/  /en/faq/copyright-and-intellectual-property/  301
@@ -351,88 +342,8 @@
 /faq/shpps/  /en/faq/shpps/  301
 /faq/sustainability/  /en/faq/sustainability/  301
 /faq/wind-farms/  /en/faq/wind-farms/  301
-/noticia/1q14-earnings-release/  /en/noticia/1q14-earnings-release/  301
-/noticia/1q15-earnings-release/  /en/noticia/1q15-earnings-release/  301
-/noticia/1q17-earnings-release/  /en/noticia/1q17-earnings-release/  301
-/noticia/1q20-earnings-release-2/  /en/noticia/1q20-earnings-release-2/  301
-/noticia/1q21-earnings-release/  /en/noticia/1q21-earnings-release/  301
-/noticia/2011-fitch-ratings/  /en/noticia/2011-fitch-ratings/  301
-/noticia/2q14-earnings-release/  /en/noticia/2q14-earnings-release/  301
-/noticia/2q15-earnings-release/  /en/noticia/2q15-earnings-release/  301
-/noticia/2q16-earnings-release/  /en/noticia/2q16-earnings-release/  301
-/noticia/2q17-earnings-release-2-2/  /en/noticia/2q17-earnings-release-2-2/  301
-/noticia/3q14-earnings-release/  /en/noticia/3q14-earnings-release/  301
-/noticia/3q15-earnings-release/  /en/noticia/3q15-earnings-release/  301
-/noticia/3q16-earnings-release/  /en/noticia/3q16-earnings-release/  301
-/noticia/4q13-earnings-release/  /en/noticia/4q13-earnings-release/  301
-/noticia/4q14-earnings-release/  /en/noticia/4q14-earnings-release/  301
-/noticia/4q16-earnings-release/  /en/noticia/4q16-earnings-release/  301
-/noticia/agoe-edital-de-convocacao-portuguese-only/  /en/noticia/agoe-edital-de-convocacao-portuguese-only/  301
-/noticia/alupar-and-furnas-will-build-ten-wind-farms-in-ceara/  /en/noticia/alupar-and-furnas-will-build-ten-wind-farms-in-ceara/  301
-/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/  /en/noticia/alupar-announce-the-new-institutional-and-investor-relations-website/  301
-/noticia/alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only/  /en/noticia/alupar-conquista-lote-d-no-leilao-da-aneel-portuguese-only/  301
-/noticia/alupar-launched-power-transmission-system-in-mt-2/  /en/noticia/alupar-launched-power-transmission-system-in-mt-2/  301
-/noticia/alupar-launched-power-transmission-system-in-mt/  /en/noticia/alupar-launched-power-transmission-system-in-mt/  301
-/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only/  /en/noticia/alupar-vence-leilao-da-aneel-para-construir-subestacao-em-mt-portuguese-only/  301
-/noticia/alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only/  /en/noticia/alupar-vence-leilao-do-lote-d-da-aneel-portuguese-only/  301
-/noticia/alupar-vence-leilao-do-lote-d-da-aneel/  /en/noticia/alupar-vence-leilao-do-lote-d-da-aneel/  301
-/noticia/alupar-will-invest-in-power-generation-in-colombia/  /en/noticia/alupar-will-invest-in-power-generation-in-colombia/  301
-/noticia/alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil/  /en/noticia/alupar-wins-auction-to-build-a-715-km-transmission-line-in-the-north-of-brazil/  301
-/noticia/alupar-wins-lot-d-in-transmission-auction/  /en/noticia/alupar-wins-lot-d-in-transmission-auction/  301
-/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/  /en/noticia/annual-and-extraordinary-shareholders-meeting-call-notice/  301
-/noticia/authorization-for-the-reinforcement-of-installations/  /en/noticia/authorization-for-the-reinforcement-of-installations/  301
-/noticia/commercial-operation-of-authorized-enhancement-of-erte/  /en/noticia/commercial-operation-of-authorized-enhancement-of-erte/  301
-/noticia/ebte-opening/  /en/noticia/ebte-opening/  301
-/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/  /en/noticia/fitch-eleva-ratings-da-alupar-portuguese-only/  301
-/noticia/fitch-rating-affirms-the-rating-of-alupar/  /en/noticia/fitch-rating-affirms-the-rating-of-alupar/  301
-/noticia/foz-do-rio-claro-hpp-2nd-turbines-startup/  /en/noticia/foz-do-rio-claro-hpp-2nd-turbines-startup/  301
-/noticia/foz-do-rio-claro-hpp-launched-in-goias/  /en/noticia/foz-do-rio-claro-hpp-launched-in-goias/  301
-/noticia/groundbreaking-for-uhe-ferreira-gomes-is-celebrated/  /en/noticia/groundbreaking-for-uhe-ferreira-gomes-is-celebrated/  301
-/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/  /en/noticia/licenca-ambiental-previa-da-pch-agua-limpa-portuguese-only/  301
-/noticia/material-fact-6th-debenture-issuance/  /en/noticia/material-fact-6th-debenture-issuance/  301
-/noticia/material-fact-acquisition-finalized-eate/  /en/noticia/material-fact-acquisition-finalized-eate/  301
-/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/  /en/noticia/material-fact-acquisition-of-empresa-catarinense-de-transmissao-de-energia-common-shares/  301
-/noticia/material-fact-acquisition-of-la-virgen/  /en/noticia/material-fact-acquisition-of-la-virgen/  301
-/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/  /en/noticia/material-fact-acquisition-of-queluz-and-lavrinhas-preferred-shares/  301
-/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/  /en/noticia/material-fact-acquisition-of-share-in-transmission-companies-by-direct-subsidiary/  301
-/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/  /en/noticia/material-fact-acquisition-of-shpps-queluz-and-lavrinhas-preferred-shares/  301
-/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/  /en/noticia/material-fact-acquisition-of-the-capital-stock-of-each-of-the-companies-of-the-aracati-complex/  301
-/noticia/material-fact-agua-limpa/  /en/noticia/material-fact-agua-limpa/  301
-/noticia/material-fact-aracati-complex-acquisition/  /en/noticia/material-fact-aracati-complex-acquisition/  301
-/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/  /en/noticia/material-fact-change-in-police-for-disclosure-of-material-act-or-fact/  301
-/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/  /en/noticia/material-fact-concession-of-the-lot-c-of-aneel-auction-no-0012014/  301
-/noticia/material-fact-market-maker/  /en/noticia/material-fact-market-maker/  301
-/noticia/material-fact-payment-of-interim-dividends/  /en/noticia/material-fact-payment-of-interim-dividends/  301
-/noticia/material-fact-pch-verde-8/  /en/noticia/material-fact-pch-verde-8/  301
-/noticia/material-fact-sale-of-shares-sinop/  /en/noticia/material-fact-sale-of-shares-sinop/  301
-/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/  /en/noticia/minutes-of-the-annual-and-extraordinary-shareholders-meeting/  301
-/noticia/modification-of-shp-morro-azul-environmental-license/  /en/noticia/modification-of-shp-morro-azul-environmental-license/  301
-/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/  /en/noticia/moodys-assigns-ba2aa3-br-to-alupars-debentures/  301
-/noticia/notice-to-the-market-acquisition-of-interest-funcef/  /en/noticia/notice-to-the-market-acquisition-of-interest-funcef/  301
-/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/  /en/noticia/notice-to-the-market-acquisition-of-interest-gic-private-limited/  301
-/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/  /en/noticia/notice-to-the-market-annual-permitted-revenue-rap-cycle-of-2014/  301
-/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/  /en/noticia/notice-to-the-market-approval-by-cade-of-the-act-of-concentration-no-08700-0094632014-65/  301
-/noticia/notice-to-the-market-change-of-independent-auditor/  /en/noticia/notice-to-the-market-change-of-independent-auditor/  301
-/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/  /en/noticia/notice-to-the-market-commercial-operation-of-the-ug3-ferreira-gomes/  301
-/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/  /en/noticia/notice-to-the-market-etvg-reinforcement-works-at-the-transmission-units/  301
-/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/  /en/noticia/notice-to-the-market-ferreira-gomes-diversion-of-the-araguari-river/  301
-/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/  /en/noticia/notice-to-the-market-hpp-ferreira-gomes-begins-operations-in-advance/  301
-/noticia/notice-to-the-market-investor-relations-officer-election/  /en/noticia/notice-to-the-market-investor-relations-officer-election/  301
-/noticia/notice-to-the-market-market-maker/  /en/noticia/notice-to-the-market-market-maker/  301
-/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/  /en/noticia/notice-to-the-market-request-for-the-previous-analysis-of-the-registration-of-public-offering/  301
-/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/  /en/noticia/notice-to-the-market-restatement-of-management-proposal-referring-to-the-annual-and-extraordinary-shareholders-meeting/  301
-/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/  /en/noticia/notice-to-the-market-tme-reinforcement-works-at-the-transmission-units/  301
-/noticia/notice-to-the-market-tne/  /en/noticia/notice-to-the-market-tne/  301
-/noticia/projetos-devem-atingir-730-megawatts-portuguese-only/  /en/noticia/projetos-devem-atingir-730-megawatts-portuguese-only/  301
-/noticia/projetos-devem-atingir-730-megawatts/  /en/noticia/projetos-devem-atingir-730-megawatts/  301
-/noticia/registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only/  /en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar-portuguese-only/  301
-/noticia/registro-de-companhia-aberta-e-concedido-a-alupar/  /en/noticia/registro-de-companhia-aberta-e-concedido-a-alupar/  301
-/noticia/sao-jose-hpp-2nd-turbines-startup/  /en/noticia/sao-jose-hpp-2nd-turbines-startup/  301
-/noticia/signed-the-concession-for-the-installation-of-ferreira-gomes-hpp/  /en/noticia/signed-the-concession-for-the-installation-of-ferreira-gomes-hpp/  301
-/noticia/uhe-sao-jose-e-inaugurada-em-rs-portuguese-only/  /en/noticia/uhe-sao-jose-e-inaugurada-em-rs-portuguese-only/  301
-/noticia/upgrading-of-corporate-rating/  /en/noticia/upgrading-of-corporate-rating/  301
 
-# ES — 23 endereços
+# ES — 20 endereços
 /faq/bonos-verdes/  /es/faq/bonos-verdes/  301
 /faq/concluded-research-and-development-projects-2/  /es/faq/concluded-research-and-development-projects-2/  301
 /faq/confidencialidad-de-las-informaciones-de-los-usuarios/  /es/faq/confidencialidad-de-las-informaciones-de-los-usuarios/  301
@@ -453,21 +364,43 @@
 /faq/responsabilidad-ambiental/  /es/faq/responsabilidad-ambiental/  301
 /faq/sostenibilidad/  /es/faq/sostenibilidad/  301
 /faq/uhes-2/  /es/faq/uhes-2/  301
-/noticia/1q20-earnings-release-solo-ingles-y-portugues/  /es/noticia/1q20-earnings-release-solo-ingles-y-portugues/  301
-/noticia/1t21-earnings-release-solo-ingles-y-portugues/  /es/noticia/1t21-earnings-release-solo-ingles-y-portugues/  301
-/noticia/3q17-earnings-release-solo-ingles-y-portugues/  /es/noticia/3q17-earnings-release-solo-ingles-y-portugues/  301
 
-# ── 2 traduções sem corpo no acervo ──
+# ── 1 traduções sem corpo no acervo ──
 # Respondem 200 hoje, mas não viram página: são banner ou anexo. O destino
 # é a home do idioma, para não deixar 404 (regra 3). Quando houver índice
 # de seção, é para lá que devem apontar.
 /banner_rotativo/sustainability/  /en/  301
-/noticia/2q22-earnings-release/  /en/  301
 
 # ─── dinâmicas: sempre por último — limite do Pages (100 dinâmicas; a primeira dinâmica desliga as estáticas) ───
 
-# Acervo de 2021 arquivado
-/alupar-e-a-covid-19/*                             /sustentabilidade/   301
+# Acervo de 2021 arquivado. Ia para /sustentabilidade/, que desde 23/09/2026
+# redireciona para o portal — 301 para 301 é um salto a mais e um elo a menos
+# para quebrar.
+/alupar-e-a-covid-19/*                             https://rs.alupar.com.br/   301
 
 # Mídia do WordPress antigo: mesma chave, agora no R2 (infra/arquivos.md).
 /wp-content/uploads/*                              https://arquivos.alupar.com.br/:splat   301
+
+# Área de notícias desativada a pedido da Alupar em 16/09/2026: "as notícias
+# estão antigas… desativar mesmo". O feed sempre foi para vir do RI (D5), e é
+# para lá que vão os 186 endereços vivos — 210 páginas e as seis listagens.
+# Curinga, e não uma regra por endereço: é o que faz o gerador de mapa
+# descartá-las em bloco (`coberto-por-301`), e cabe em 9 das 100 dinâmicas.
+#
+# As três últimas linhas existem por medição, não por precaução. No preview de
+# 16/09/2026, `/noticias` SEM barra final devolveu 404 mesmo com `/noticias/*`
+# logo acima: o Pages só normaliza para a versão com barra quando o diretório
+# existe no build, e este deixou de existir. O caminho exato resolve isso, e é
+# a forma que o nosso casador (scripts/lib/redirects.mjs) e o do Pages
+# entendem do mesmo jeito — `/noticia*`, de prefixo, só o do Pages entende.
+# Não há linha para `/noticia` sem barra: nunca foi endereço de página, ao
+# contrário de `/noticias`, que era a listagem e aparece em link de fora.
+/noticia/*                                         https://ri.alupar.com.br/noticias/   301
+/en/noticia/*                                      https://ri.alupar.com.br/noticias/   301
+/es/noticia/*                                      https://ri.alupar.com.br/noticias/   301
+/noticias/*                                        https://ri.alupar.com.br/noticias/   301
+/en/noticias/*                                     https://ri.alupar.com.br/noticias/   301
+/es/noticias/*                                     https://ri.alupar.com.br/noticias/   301
+/noticias                                          https://ri.alupar.com.br/noticias/   301
+/en/noticias                                       https://ri.alupar.com.br/noticias/   301
+/es/noticias                                       https://ri.alupar.com.br/noticias/   301

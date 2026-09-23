@@ -1,6 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { readFileSync } from 'node:fs';
+import { ehCasca } from './src/lib/casca.mjs';
+
+// Páginas-casca (anexos do WordPress) respondem 200, mas não entram no sitemap.
+const cascas = new Set(
+  JSON.parse(readFileSync(new URL('./acervo/mapa-de-rotas.json', import.meta.url), 'utf8')).rotas.filter(ehCasca).map((r) => r.rota),
+);
 
 export default defineConfig({
   site: 'https://www.alupar.com.br',
@@ -14,9 +21,18 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
 
-  // As páginas de aviso do formulário (obrigado / não enviado) não entram no sitemap.
-  integrations: [sitemap({ filter: (pagina) => !/\/contato\/(obrigado|nao-enviado)\/$/.test(pagina) })],
+  // As páginas de aviso do formulário (obrigado / não enviado) e as páginas-casca não entram no sitemap.
+  integrations: [sitemap({
+    filter: (pagina) => !/\/contato\/(obrigado|nao-enviado)\/$/.test(pagina) && !cascas.has(new URL(pagina).pathname),
+  })],
   build: { format: 'directory' },
+
+  // A CSP (public/_headers) só aceita `script-src 'self'`: sem isto o Astro
+  // embute no HTML o script de componente que for pequeno, e o navegador o bloqueia.
+  // Só `.js`: com um número (0) o Astro deixaria de embutir também o CSS pequeno
+  // (`style-src` aceita 'unsafe-inline') e passaria a servi-lo em arquivo, +1 requisição por página.
+  // `undefined` mantém a regra padrão (4 KB) para o resto.
+  vite: { build: { assetsInlineLimit: (arquivo) => (arquivo.endsWith('.js') ? false : undefined) } },
 
   image: {
     // AVIF/WebP e srcset saem do build, não da disciplina de quem publica.

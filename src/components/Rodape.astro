@@ -1,17 +1,42 @@
 ---
 /**
- * Rodapé do tema: fundo #231F20, caixa alta 11px, links sem sublinhado
- * separados por "|". Sai o "Powered by MZ". Os códigos de conduta passam a
- * vir do R2 — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ * Rodapé do tema, com o fundo e a marca pedidos pela Alupar em 23/09/2026:
+ * #10328F no lugar do #231F20, a marca negativa à esquerda e os links à
+ * direita, empilhados abaixo de 768 px. Caixa alta e links sem sublinhado
+ * separados por "|", como no tema. O texto é de 12 px por causa da D21; o tema
+ * tinha 11 px. Sai o "Powered by MZ". Os códigos de conduta passam a vir do R2
+ * — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ *
+ * A marca é a arte que a Alupar enviou (300×97, branco e verde sobre
+ * transparente). Ela aparece a 150 px, e por isso passa pelo pipeline de imagem
+ * do Astro em vez de ir direta: servir os 300 px do arquivo para exibir 150
+ * reprova `uses-responsive-images` no portão do CI, em toda página. Com
+ * `densities`, quem tem tela comum baixa a de 150 e quem tem tela densa baixa a
+ * de 300 — o arquivo original continua sendo o teto, nada é ampliado.
+ * `alt=""`: ela repete a marca do cabeçalho, que já tem texto alternativo — um
+ * alt aqui faria o leitor de tela anunciar "Alupar" duas vezes na mesma página.
  *
  * O círculo de "voltar ao topo" usa --rodape-texto e não o #535252 do tema:
  * 2,2:1 sobre o fundo reprova o 3:1 de componente de interface (WCAG 1.4.11).
  */
+import { Image } from 'astro:assets';
+import marca from '../assets/logo-alupar-rodape.png';
 import { textos, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
 const t = textos[Astro.props.idioma];
 const r = t.rodape;
+/* As três redes do rodapé de rs.alupar.com.br, na mesma ordem e com os mesmos
+   destinos — a Alupar mantém as contas, nós só apontamos para elas. As marcas
+   são os ícones Font Awesome Free (CC BY 4.0, fontawesome.com/license/free),
+   que é o que aquele rodapé serve: em linha, sem fonte de ícone e sem
+   requisição a mais. O `viewBox` de cada uma é o do arquivo original — trocá-lo
+   deformaria o desenho. */
+const redes = [
+  { nome: 'Facebook',  href: 'https://www.facebook.com/alupar/?locale=pt_BR', viewBox: '0 0 512 512', d: 'M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z' },
+  { nome: 'Instagram', href: 'https://www.instagram.com/alupar', viewBox: '0 0 448 512', d: 'M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z' },
+  { nome: 'LinkedIn',  href: 'https://www.linkedin.com/company/alupar/', viewBox: '0 0 448 512', d: 'M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z' },
+];
 const externos = [
   { rotulo: r.conduta, href: r.condutaHref },
   { rotulo: r.terceiros, href: 'https://arquivos.alupar.com.br/documentos/codigo-de-conduta-de-terceiros.pdf' },
@@ -21,41 +46,121 @@ const externos = [
 <footer class="rodape">
   <div class="container">
     <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
-    <ul>
-      <li>© {new Date().getFullYear()} ALUPAR - {r.direitos} ::</li>
-      <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
-      {externos.map((e) => (
-        <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
-      ))}
-    </ul>
+    <div class="faixa">
+      <div class="identidade">
+        <Image class="marca" src={marca} alt="" width={150} densities={[1, 2]} />
+        <ul class="redes" aria-label={r.redes}>
+          {redes.map((rede) => (
+            <li>
+              <a href={rede.href} target="_blank" rel="noopener noreferrer">
+                <svg viewBox={rede.viewBox} width="20" height="20" aria-hidden="true" focusable="false"><path d={rede.d} fill="currentColor" /></svg>
+                <span class="sr-only">{rede.nome} ({t.novaAba})</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="textos">
+        <ul class="links">
+          <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
+          {externos.map((e) => (
+            <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
+          ))}
+        </ul>
+        <p class="direitos">© {new Date().getFullYear()} ALUPAR - {r.direitos}</p>
+      </div>
+    </div>
   </div>
 </footer>
 
 <style>
   .rodape { background: var(--rodape-fundo); padding-top: 10px; text-align: center; }
+  /* O círculo continua com 23 px; a área de toque é de 44 px (WCAG 2.5.8 pede 24,
+     e 44 é o tamanho de um dedo). As margens negativas devolvem os 21 px que a
+     área a mais tomaria, para o rodapé não crescer. */
   .topo {
-    display: inline-grid; place-items: center; width: 23px; height: 23px;
-    border: 2px solid var(--rodape-texto); border-radius: 50%;
+    position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px;
+    margin-block: -10px -11px;
     color: var(--rodape-texto); text-decoration: none; line-height: 1;
   }
-  ul {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3px;
-    list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
-    border-bottom: 1px solid #2E2A2B;
-    font-size: 11px; text-transform: uppercase; color: var(--rodape-texto);
+  .topo::before {
+    content: ''; position: absolute; inset: 0; margin: auto; width: 23px; height: 23px;
+    box-sizing: border-box; border: 2px solid var(--rodape-texto); border-radius: 50%;
+  }
+  /* O anel de foco global segue o raio do elemento, e o .topo é quadrado (44 px):
+     o anel vai para o círculo de 23 px, que é o que o teclado enxerga. */
+  .topo:focus-visible { outline: none; }
+  .topo:focus-visible::before { outline: 3px solid var(--azul); outline-offset: 2px; }
+  /* Marca à esquerda, textos à direita; abaixo de 768 px os dois empilham e
+     voltam ao centro, que é como o rodapé do tema sempre foi. */
+  .faixa {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--e3); margin-top: 8px; padding-bottom: 8px;
+  }
+  /* Bloco de identidade: a marca e, sob ela, as redes. O rodapé tinha uma
+     linha à esquerda e duas à direita; com as redes aqui, os dois lados se
+     equilibram e o texto não divide espaço com ícone. */
+  .identidade { display: grid; justify-items: start; gap: 6px; }
+  /* 150 px é metade do arquivo: a arte tem 300 px e reduzir é o único caminho
+     que não borra. `height: auto` mantém a proporção dos 300×97. */
+  .marca { display: block; width: 150px; height: auto; }
+  /* O glifo tem 20 px e o alvo, 44 — a WCAG 2.5.8 pede 24, e 44 é o tamanho de
+     um dedo, que é o mesmo critério do "voltar ao topo" logo acima. As margens
+     negativas tiram do desenho o espaço que o alvo a mais ocuparia, para o
+     bloco continuar alinhado à marca e o rodapé não crescer. */
+  .redes { display: flex; gap: 2px; list-style: none; margin: 0 0 0 -12px; padding: 0; }
+  .redes a {
+    display: grid; place-items: center; width: 44px; height: 44px;
+    position: relative; color: var(--rodape-texto);
+  }
+  /* O realce é um círculo translúcido atrás do ícone, não uma troca de cor: o
+     verde de marca daria 2,87:1 sobre o #10328F e reprovaria o 3:1 que a WCAG
+     1.4.11 exige de componente. O branco segue em 11,2:1, e quem enxerga vê o
+     alvo crescer sob o ponteiro. */
+  .redes a::before {
+    content: ''; position: absolute; width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0); transition: background 150ms ease;
+  }
+  .redes a:hover::before, .redes a:focus-visible::before { background: rgba(255, 255, 255, .15); }
+  @media (prefers-reduced-motion: reduce) { .redes a::before { transition: none; } }
+  /* O anel de foco global segue o raio do elemento, e o alvo é quadrado: o anel
+     vai para o círculo, que é o que o teclado enxerga — mesma regra do topo. */
+  .redes a:focus-visible { outline: none; }
+  .redes a:focus-visible::before { outline: 3px solid var(--branco); outline-offset: 2px; }
+  .redes svg { display: block; position: relative; }
+  .textos { text-align: right; }
+  /* `.links` e não `ul`: a lista de redes é outra `ul` no mesmo rodapé, e o
+     separador "|" escapava para debaixo dos ícones. */
+  .links {
+    display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 3px;
+    list-style: none; margin: 0; padding: 0;
+    font-size: 12px; text-transform: uppercase; color: var(--rodape-texto);
   }
   /* .list-inline > li do bootstrap: 5 px de cada lado; o espaço entre os li
      inline-block dá os outros 3 px — ~13 px entre o texto e o "|". O "|" vai
      com o item da esquerda, para não abrir a linha de baixo na quebra. */
-  li { padding-inline: 5px; }
-  li:not(:first-child, :last-child)::after { content: '|' / ''; margin-left: 13px; }
+  .links li { padding-inline: 5px; }
+  .links li:not(:last-child)::after { content: '|' / ''; margin-left: 13px; }
   /* Linha de 24 px nos links, não os ~16 px do tema: quando a lista quebra,
      com 16 px entre as linhas o espaço livre em volta de cada link mede
      15,8 px e reprova target-size (WCAG 2.5.8 pede 24 px). */
-  a { display: inline-block; line-height: 24px; color: var(--rodape-texto); text-decoration: none; }
+  .links a { display: inline-block; line-height: 24px; color: var(--rodape-texto); text-decoration: none; }
   /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
-  a:hover, a:focus { color: var(--rodape-texto); text-decoration: underline; }
+  .links a:hover, .links a:focus { color: var(--rodape-texto); text-decoration: underline; }
+  .direitos {
+    margin: 2px 0 0; font-size: 12px; line-height: 17px;
+    text-transform: uppercase; color: var(--rodape-texto);
+  }
   @media (max-width: 767px) {
-    li:first-child { margin-bottom: 10px; }
+    .faixa { flex-direction: column; justify-content: center; gap: var(--e2); }
+    .identidade { justify-items: center; }
+    .redes { margin-left: 0; }
+    .textos { text-align: center; }
+    .links { justify-content: center; }
+    /* Com 12 px, a segunda linha ("Código de conduta de terceiros | Canal de
+       denúncias", 379 px) não cabe nos 360 px da lista a 390 px de largura e o
+       rodapé ganharia uma terceira linha. A lista avança 12 px sobre o
+       preenchimento do container em cada lado (384 px): mesma quebra de antes. */
+    .links { margin-inline: -12px; }
   }
 </style>

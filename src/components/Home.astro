@@ -1,21 +1,34 @@
 ---
 /**
- * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
- * institucional (D10) e a caixa de sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional no topo e os selos de
+ * reconhecimento embaixo.
+ *
+ * Em 23/09/2026 a Alupar pediu a home enxuta: saíram a faixa dos quatro
+ * indicadores (que era a seção "A Alupar em números"), o atalho "Veja mais
+ * vídeos" e o `container caixas` inteiro, com a caixa de Sustentabilidade
+ * dentro dela — o assunto passou a viver em rs.alupar.com.br, que entrou no
+ * menu. No lugar entraram os três selos.
  *
  * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
  * vídeo no lugar dele, como no pdi.alupar.com.br. Das três caixas de baixo
  * sobrou uma: a do vídeo saiu porque a peça subiu para o topo e apareceria
  * duas vezes, e a de notícias saiu com a área inteira (D16).
  *
- * Vídeo sob demanda (H4): a capa é local e o player do YouTube — ~1 MB, o
- * orçamento inteiro da página — só carrega no clique (public/js/site.js).
- * Sem JS, o link leva ao vídeo no YouTube. Sem autoplay: vídeo que começa
- * sozinho é conteúdo em movimento e cairia na WCAG 2.2.2, que exige controle
- * de pausa visível, contra um portão de acessibilidade que pede nota cheia.
+ * O vídeo toca sozinho e mudo (pedido da Alupar, D18), com a capa local por
+ * baixo: é ela o LCP da página, e é ela que fica onde o YouTube não carrega.
+ * Quem pede menos movimento (prefers-reduced-motion) ou economia de dados
+ * (Save-Data) não recebe o player: a capa fica, com o botão de reproduzir.
+ * Sem JS, a capa e um link para o vídeo no YouTube. O botão de pausa é o
+ * controle que a WCAG 2.2.2 exige para conteúdo em movimento.
  */
+import { Image, Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import capa from '../assets/video-institucional.jpg';
+import ghg from '../assets/selos/ghg-protocol.png';
+import lugares from '../assets/selos/lugares-incriveis.png';
+import trofeu from '../assets/selos/trofeu-transparencia.png';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
+import { VIDEO_INSTITUCIONAL } from '../lib/videos';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
@@ -26,15 +39,15 @@ const pre = prefixo[idioma];
    `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
    e em `public/js/site.js`: se a decisão voltar atrás, nada precisa ser
    reescrito, basta o topo voltar a montar as telas. */
-const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
-
-// Os dois valores nulos são pendências da Alupar. A regra 4 do AGENTS.md: um
-// número plausível é pior que um espaço vazio, porque ninguém o corrige depois.
-const indicadores = [
-  { valor: null,  rotulo: t.indicadores.linhas },
-  { valor: '4',   rotulo: t.indicadores.paises },
-  { valor: null,  rotulo: t.indicadores.capacidade },
-  { valor: 'AAA', rotulo: t.indicadores.rating },
+/* Os três selos que a Alupar enviou em 23/09/2026. O alt é o nome do prêmio,
+   igual nos três idiomas: são nomes próprios de programas brasileiros, e é o
+   que a arte diz. As artes vieram em tela de 640×720 com a peça na metade de
+   cima e o resto em branco — estão recortadas na margem do conteúdo, senão os
+   três apareceriam flutuando no alto de três retângulos vazios. */
+const selos = [
+  { arte: ghg,     alt: 'Programa GHG Protocol' },
+  { arte: lugares, alt: 'Prêmio Lugares Incríveis' },
+  { arte: trofeu,  alt: 'Troféu Transparência 2026' },
 ];
 
 ---
@@ -46,108 +59,49 @@ const indicadores = [
 
     {/* Vídeo no lugar do rotativo, a pedido da Alupar em 16/09/2026. É o mesmo
         institucional que a home já trazia numa caixa mais abaixo — essa caixa
-        sai junto, senão a mesma peça apareceria duas vezes na mesma página.
+        saiu junto, senão a mesma peça apareceria duas vezes na mesma página.
 
-        A carga é a que a decisão P8 já fixou: a capa é local e o player do
-        YouTube (~1 MB) só entra no clique. Pôr o iframe no carregamento faria
-        dele o LCP da home, que hoje é de 356 ms.
-
-        Sem autoplay, de propósito. Vídeo que começa sozinho é conteúdo em
-        movimento e cai na WCAG 2.2.2, que exige controle de pausa visível — e
-        o portão de acessibilidade deste projeto exige nota cheia.
-
-        16:9 sem recorte, com a altura amarrada a 70% da tela. Largura total
-        pura, como o pdi.alupar.com.br faz, passava de uma tela inteira e
-        empurrava o resto da home para baixo da dobra. */}
-    <section class="destaques destaque-video" aria-label={t.videoInstitucional}>
-      <iframe class="video video-topo" data-video-topo title={t.videoInstitucional}
-        src="https://www.youtube-nocookie.com/embed/oqjwsKfpYZ4?autoplay=1&mute=1&loop=1&playlist=oqjwsKfpYZ4&controls=0&playsinline=1&rel=0&enablejsapi=1"
-        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      {/* Exigência da WCAG 2.2.2: conteúdo que se move sozinho por mais de
-          cinco segundos precisa de um jeito de parar. Os controles do YouTube
-          estão desligados (`controls=0`) porque o recorte da faixa cortaria a
-          barra deles pela metade; este botão fala com o player pela API de
-          postMessage e fica sempre à vista. */}
-      <button type="button" class="pausar-video" data-pausar-video aria-pressed="false"
-        aria-label={t.rotativo.pausar} data-pausar={t.rotativo.pausar} data-retomar={t.rotativo.retomar}>❚❚</button>
+        16:9 sem recorte, com a altura amarrada à largura (ver o CSS). A capa é
+        a mesma imagem que o `iframe` cobre depois, no mesmo enquadramento —
+        quando o player chega, nada muda de lugar. O iframe não está aqui: quem
+        o cria é public/js/site.js, e só para quem não pediu economia. */}
+    <section class="destaques destaque-video" aria-label={t.videoInstitucional}
+      data-video-topo={VIDEO_INSTITUCIONAL} data-titulo={t.videoInstitucional}>
+      <Picture src={capa} alt="" formats={['avif', 'webp']} widths={[640, 1280]}
+        sizes="100vw" quality={60} loading="eager" fetchpriority="high" class="capa" />
+      <button type="button" class="pausar-video" data-pausar-video hidden
+        aria-label={t.videoTopo.pausar} data-pausar={t.videoTopo.pausar} data-retomar={t.videoTopo.retomar}>❚❚</button>
+      <noscript>
+        <a class="assistir" href={`https://www.youtube.com/watch?v=${VIDEO_INSTITUCIONAL}`}>{t.assistirVideo}</a>
+      </noscript>
     </section>
-    {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
-        dentro dela seria recortado junto com o vídeo. */}
-    <div class="container pos-video">
-      <a class="mais" href={`${pre}/videos/`}>
-        <span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}
-      </a>
-    </div>
-
-    <section class="faixa" aria-label={t.emNumeros}>
+    {/* Reconhecimentos. Não havia área de selos no site; esta é a primeira, e
+        fica logo abaixo do vídeo, em faixa branca sobre o cinza da página —
+        as artes têm fundo branco, e sobre o #ECECEC apareceriam como três
+        retângulos. Sem título à vista, como no pedido: quem usa leitor de tela
+        chega pelo rótulo da seção. */}
+    <section class="selos" aria-label={t.reconhecimentos}>
       <div class="container">
         <ul>
-          {indicadores.map((i) => (
-            <li>
-              <span class="valor" data-pendente={i.valor === null}>{i.valor ?? '—'}</span>
-              <span class="rotulo">{i.rotulo}</span>
-            </li>
+          {selos.map((s) => (
+            <li><Image src={s.arte} alt={s.alt} height={320} densities={[1]} /></li>
           ))}
         </ul>
       </div>
     </section>
-
-    <div class="container caixas">
-      {/* A caixa de notícias saiu em 16/09/2026, com a área inteira (D16). A
-          remoção completa — páginas, listagens e os 301 — está no #91; aqui só
-          o bloco da home, para esta alternativa poder ser vista inteira. */}
-
-      {/* A caixa do vídeo institucional saiu daqui em 16/09/2026: a mesma peça
-          subiu para o topo, no lugar do rotativo. O atalho para a listagem de
-          vídeos, que morava nesta caixa, passa a viver no rodapé do topo. */}
-      <section class="caixa" aria-labelledby="h-sustentabilidade">
-        <h2 id="h-sustentabilidade">{t.sustentabilidade}</h2>
-        <ul class="eixos">
-          {t.eixos.map((e, n) => (
-            <li>
-              <img src={ICONES[n]} alt="" width="29" height="38" />
-              <div>
-                <h3><a href={t.sustentabilidadeHref}>{e.titulo}</a></h3>
-                <p>{e.texto}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <a class="mais" href={t.sustentabilidadeHref}><span class="circulo" aria-hidden="true">+</span> {t.saibaMais}</a>
-      </section>
-    </div>
   </main>
 </Base>
 
 <style>
-  /* O topo deixa de ser a faixa de 447 px do tema (#home > .banner .item em
-     css/fullwidth/skin.css): quem manda na altura passa a ser a tela do
-     visitante, não o tema. `aspect-ratio` reserva essa altura antes de a capa
-     chegar, então o CLS que o CI cobra em 0,1 continua zero. */
-  /* A altura acompanha a largura e para nos 447 px do tema: 34vw chega lá por
-     volta de 1315 px e o `clamp` segura o teto acima disso. Num telefone de
-     390 px a faixa fica com 220 px, que é o piso — sem isso, 447 px fixos
-     mostrariam uma tira estreitíssima do quadro. */
+  /* A altura da faixa acompanha a largura da tela (40vw) entre 260 e 560 px:
+     quem manda é a tela do visitante, não os 447 px fixos do tema. Como a
+     altura é declarada, o espaço já está reservado antes de a capa chegar e o
+     CLS que o CI cobra em 0,1 continua zero. Num telefone de 390 px a faixa
+     fica no piso de 260 px, senão mostraria uma tira estreita do quadro. */
   .destaque-video {
     position: relative; overflow: hidden;
     height: clamp(260px, 40vw, 560px);
     background: var(--cinza-fundo);
-  }
-  /* O box azul do logotipo passa a descer 40 px sobre o vídeo. O box é float
-     dentro de um `flow-root` (Cabecalho.astro), então a margem negativa encolhe
-     a altura que o cabeçalho reserva para ele e o box sobra para fora, sobre o
-     que vier abaixo — sem tirá-lo do fluxo nem mexer no fundo branco do menu,
-     que continua terminando onde terminava. A faixa do vídeo ganhou os mesmos
-     40 px (447 → 487) para o que fica à vista não encolher.
-
-     `:global` porque o alvo é do Cabecalho, e o cabeçalho é de todas as
-     páginas — mas o CSS deste componente só é carregado onde ele é usado, que
-     são as três homes. Numa interna nada muda.
-
-     Só a partir de 768 px: abaixo disso o cabeçalho do tema é uma faixa azul
-     de ponta a ponta e não há box para sobrepor. */
-  @media (min-width: 768px) {
-    :global(.logo) { margin-bottom: -40px; }
   }
   /* O botão de pausa: canto inferior direito, 44 px de área de toque (WCAG
      2.5.8), sobre o vídeo. Contraste garantido pelo fundo escuro translúcido. */
@@ -162,12 +116,13 @@ const indicadores = [
   /* O player entra no mesmo retângulo da capa, também preenchendo: 16:9
      centrado, com o mínimo necessário para cobrir a faixa, e o que sobra é
      recortado pelo `overflow` da seção. É o mesmo enquadramento da capa, então
-     o clique não muda nada de lugar e o CLS continua zero.
-     O preço: a barra de controles do YouTube fica parcialmente fora do corte.
-     Quem quiser controle usa a tela cheia do próprio player. */
+     a chegada do player não muda nada de lugar e o CLS continua zero. */
   .destaque-video :global(iframe.video) {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     min-width: 100%; min-height: 100%; aspect-ratio: 16 / 9; border: 0;
+    /* Invisível até responder (site.js): a página de erro de um YouTube bloqueado
+       não pode cobrir a capa. */
+    opacity: 0;
     /* O player não recebe mouse. Sem isso o YouTube mostra os controles de
        playlist no meio da tela — anterior, pausa e próxima, grandes — porque o
        laço é feito com `playlist=`, e `controls=0` não os desliga. Aqui o vídeo
@@ -175,85 +130,37 @@ const indicadores = [
        por postMessage e não depende de clique dentro do iframe. */
     pointer-events: none;
   }
-  /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
-  .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
-
-  .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
-  .faixa ul {
+  .destaque-video :global(iframe.video.pronto) { opacity: 1; }
+  /* A capa preenche a faixa, com o mesmo recorte do player por cima. */
+  .destaque-video :global(img.capa) {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  /* Só existe sem JS: o único caminho até o vídeo. */
+  .assistir {
+    position: absolute; right: 16px; bottom: 16px; z-index: 1;
+    padding: 10px 16px; background: rgba(0, 0, 0, .7); color: var(--branco);
+    font-size: 14px; text-decoration: none;
+  }
+  .assistir:hover, .assistir:focus-visible { background: rgba(0, 0, 0, .9); }
+  /* Faixa branca com os três selos, alinhados pela altura: as artes têm
+     proporções diferentes (0,83, 1,00 e 1,17), então casar a altura é o que
+     mantém as três com o mesmo peso sem esticar nenhuma. `auto-fit` com piso
+     de 200 px quebra sozinho — três em linha no desktop, duas e uma no tablet,
+     uma embaixo da outra no celular — e o `justify-items` centra a última
+     linha incompleta. */
+  /* A home é curta: numa tela alta sobrava uma tira do cinza da página entre a
+     faixa branca e o rodapé. `main` já cresce (Base.astro), e aqui a faixa
+     cresce com ele — os selos ficam centrados no que sobrar, em vez de
+     empurrados para cima de uma tira vazia. */
+  main { display: flex; flex-direction: column; }
+  .selos { flex: 1; display: grid; align-content: center; background: var(--branco); }
+  .selos ul {
     list-style: none; margin: 0; padding: var(--e5) 0;
     display: grid; gap: var(--e4);
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center; align-items: center;
   }
-  .faixa li { display: flex; flex-direction: column; gap: var(--e1); }
-  .valor { font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--verde-texto); }
-  .valor[data-pendente='true'] { color: var(--cinza); }
-  .rotulo { font-size: .875rem; color: var(--preto); }
-
-  /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
-  .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  /* Eram três caixas. O vídeo subiu para o topo e as notícias saíram (D16),
-     então sobrou uma. Sem media query de colunas: uma caixa só ocupa a linha,
-     e uma grade de três com dois buracos seria pior que nenhuma grade. */
-  .caixa {
-    display: flex; flex-direction: column; background: var(--branco);
-    padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
-  }
-  /* O título das caixas é verde e de peso normal no site atual: o tema pede
-     azul em .box-home h3, mas um seletor solto mais abaixo no mesmo style.css
-     (`.page-id-2810 h1, h3 { color: #079541 !important }`) alcança todos os h3
-     da página, e `h1..h6 { font-weight: normal }` tira o negrito.
-     O verde de texto é --verde-texto (4,51:1); o de marca dá 3,90:1. */
-  .caixa h2 {
-    color: var(--verde-texto); font-size: 20px; font-weight: 400;
-    text-transform: uppercase; margin: 20px 0;
-  }
-
-  /* No tema a lista da caixa é um <ul> comum, sem folha que a redefina: vem o
-     marcador de disco do navegador. A data está num <strong> com o negrito
-     zerado pelo style.css, e o título é link azul sem sublinhado — sublinhado
-     só no hover e no foco, como em todo link do tema. Numa lista de links
-     (não de texto corrido), a ausência de sublinhado não fere a WCAG 1.4.1. */
-  .noticias { list-style: disc; margin: 0; padding-left: 20px; flex: 1; }
-  .noticias li { margin-bottom: 10px; }
-  .noticias time { display: block; font-weight: 400; }
-  .noticias a { color: var(--azul); text-decoration: none; }
-  .noticias a:hover, .noticias a:focus-visible { text-decoration: underline; }
-
-  /* o iframe é criado pelo site.js no clique e não recebe o atributo de
-     escopo do Astro — por isso :global dentro de .caixa. */
-  /* .embed-responsive-4by3 do tema: a caixa do vídeo é 4:3 e só isso — não
-     estica. Com `flex: 1` ela crescia até o pé da caixa e virava um retrato de
-     ~310 × 400 px em 1280, contra os ~320 × 240 px do site atual. É a margem
-     automática do link "veja mais" que passa a empurrá-lo para a base. */
-  .caixa .mais { margin-top: auto; }
-  .caixa :global(.video) { position: relative; display: block; aspect-ratio: 4 / 3; }
-  .caixa :global(.video) :global(img) { width: 100%; height: 100%; object-fit: cover; }
-  .caixa :global(.video)::after {
-    content: '▶' / ''; position: absolute; inset: 0; display: grid; place-items: center;
-    font-size: 3rem; color: var(--branco);
-  }
-  .caixa :global(iframe.video) { width: 100%; height: auto; border: 0; }
-
-  .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
-  .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
-  .eixos li:last-child { border-bottom: none; }
-  /* .list-sustentabilidade .media do tema: o título de cada eixo é um
-     h5.media-heading — 14 px, peso normal (o tema zera o negrito de h1 a h6),
-     5 px embaixo — e o link é cinza-escuro sem sublinhado, com sublinhado no
-     hover e no foco. Estava em negrito e sublinhado. */
-  .eixos h3 { font-size: 14px; font-weight: 400; margin: 0 0 5px; }
-  .eixos h3 a { color: var(--preto); text-decoration: none; }
-  .eixos h3 a:hover, .eixos h3 a:focus-visible { text-decoration: underline; }
-  .eixos p { margin: 0; line-height: 24px; }
-
-  /* a.btn-link-mais do tema: caixa alta 12px, sublinhado verde de 4px */
-  .mais {
-    align-self: flex-end; margin: 9px -20px 0 0; padding: 0 5px 12px;
-    position: relative; color: var(--preto); font-size: 12px; text-transform: uppercase; text-decoration: none;
-  }
-  .mais::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 4px solid var(--verde); }
-  .circulo {
-    display: inline-block; width: 15px; height: 15px; margin-right: 3px;
-    border: 1px solid #5F5D5E; border-radius: 50%; line-height: 12px; text-align: center;
-  }
+  .selos li { margin: 0; }
+  .selos img { display: block; width: auto; height: 160px; }
+  @media (max-width: 767px) { .selos img { height: 140px; } }
 </style>

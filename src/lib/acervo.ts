@@ -11,7 +11,7 @@
  * quem escreve o conteúdo, e `acervo/acessibilidade-do-conteudo.json` diz
  * exatamente quais são e quantas.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { parseFragment, serialize } from 'parse5';
 /* `with { type: 'json' }` não é enfeite: sem o atributo, `node --test` recusa
    o módulo e as transformações daqui ficariam sem teste. O Astro lê igual. */
@@ -116,6 +116,29 @@ function textoDe(n: No): string {
     for (const c of x.childNodes ?? []) anda(c);
   })(n);
   return partes.join(' ').replace(/\s+/g, ' ').trim();
+}
+
+/*
+ * `<h2></h2>` sem texto: sobra de conteúdo do WordPress (o /en/empresas/ traz
+ * um). O leitor de tela anuncia "título, nível 2" e nada depois, e o axe
+ * reprova (empty-heading). Sem texto não há o que preservar.
+ */
+export const semH2Vazio = (corpo: string): string => corpo.replace(/<h2>\s*<\/h2>\s*/g, '');
+
+/*
+ * Âncora nos títulos de seção: `<h2>Geradoras</h2>` vira `<h2 id="geradoras">`,
+ * para que outra página aponte direto para a seção (Área de atuação →
+ * Empresas#geradoras). Só `<h2>` sem atributo; texto repetido fica só na
+ * primeira ocorrência, porque id duplicado quebra o destino.
+ */
+export function idsNosTitulos(corpo: string): string {
+  const usados = new Set<string>();
+  return corpo.replace(/<h2>([^<]+)<\/h2>/g, (inteiro, texto: string) => {
+    const id = texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (!id || usados.has(id)) return inteiro;
+    usados.add(id);
+    return `<h2 id="${id}">${texto}</h2>`;
+  });
 }
 
 function ancorasInternas(corpo: string): string {
@@ -280,6 +303,99 @@ export function sanfona(corpo: string): string {
   return serialize(arvore as never);
 }
 
+const semEspaco = (n: No) => !(n.nodeName === '#text' && !(n.value ?? '').trim());
+
+/*
+ * Só a página Empresas: o nome de cada transmissora e geradora é o primeiro
+ * filho de um `<p>` ou `<div>`, em `<strong>` ou `<b>` (às vezes
+ * `<strong><em>…</em>`, às vezes embrulhado num `<span>` de colagem do Word)
+ * — e nunca foi título de verdade. 41 `<strong>` mais o `<b>` do ETB (e do
+ * EDTE em EN/ES) na página, nenhum `<h3>` (medido em 22/09/2026), enquanto
+ * "As Transmissoras Alupar", na mesma página, já é `<h3>`. `<b>` e `<strong>`
+ * chegam do mesmo lugar — negrito no editor do WordPress — só um deles virou
+ * a tag semântica; aqui os dois valem o mesmo.
+ *
+ * O nome vira `<h3>`; o resto do parágrafo (imagem, texto) continua onde
+ * estava. Um `<br>` logo depois do nome só existia para separá-lo do texto —
+ * o `<h3>` já separa visualmente, então ele sai, junto com texto em branco
+ * que sobrar bem no início do que ficou.
+ */
+const NEGRITO = new Set(['strong', 'b']);
+
+export function titulosDeEmpresa(corpo: string): string {
+  const arvore = parseFragment(corpo) as unknown as No;
+  const todos = achatar(arvore);
+  const pai = (n: No) => todos.find((p) => p.childNodes?.includes(n));
+
+  for (const bloco of todos.filter((n) => n.nodeName === 'p' || n.nodeName === 'div')) {
+    const filhos = bloco.childNodes ?? [];
+    const i = filhos.findIndex(semEspaco);
+    if (i < 0) continue;
+
+    let strong = filhos[i];
+    let alvo = strong;
+    if (strong.nodeName === 'span') {
+      const netos = (strong.childNodes ?? []).filter(semEspaco);
+      if (netos.length === 1 && NEGRITO.has(netos[0].nodeName)) { alvo = strong; strong = netos[0]; }
+    }
+    if (!NEGRITO.has(strong.nodeName)) continue;
+
+    const nome = textoDe(strong);
+    if (!nome) continue;
+
+    renomear(strong, 'h3');
+    strong.attrs = [];
+    strong.childNodes = [{ nodeName: '#text', value: nome, parentNode: strong }];
+
+    filhos.splice(filhos.indexOf(alvo), 1);
+    while (filhos.length && (filhos[0].nodeName === 'br' || !semEspaco(filhos[0]))) filhos.shift();
+    if (filhos.length && filhos[0].nodeName === '#text') filhos[0].value = (filhos[0].value ?? '').replace(/^\s+/, '');
+
+    const avo = pai(bloco);
+    if (!avo?.childNodes) continue;
+    const posicao = avo.childNodes.indexOf(bloco);
+    if (filhos.length === 0) avo.childNodes.splice(posicao, 1, strong);
+    else avo.childNodes.splice(posicao, 0, strong);
+  }
+
+  return serialize(arvore as never);
+}
+
+/*
+ * Só a página Empresas: os mapas de cada transmissora vêm `alignnone` do
+ * WordPress — sem centralização — e só o primeiro (ETEM) veio `aligncenter`.
+ * 29 de 30 mapas fora do centro (medido em 22/09/2026). A regra que já existe
+ * para `.corpo img.aligncenter` (`src/pages/[...rota].astro`) resolve sozinha
+ * a partir daqui; só falta trocar a classe.
+ */
+export const centralizarMapas = (corpo: string): string =>
+  corpo.replace(/(<img\b[^>]*\bclass="[^"]*)\balignnone\b([^"]*")/g, '$1aligncenter$2');
+
+/*
+ * Só a página Empresas, só em português: os quatro links do RIMA e do EIA (3
+ * partes) da PCH Antônio Dias apontam para `ri.alupar.com.br`, que hoje
+ * devolve dois redirecionamentos e cai na home do RI — o arquivo não existe
+ * mais lá (medido em 22/09/2026, dois 302 e nenhum PDF).
+ *
+ * RI não é nosso: o destino é escolha e conserto de quem opera aquele site,
+ * não nosso. Aqui só sai o link que não leva a lugar nenhum; o parágrafo da
+ * PCH Antônio Dias continua.
+ */
+const LINKS_QUEBRADOS_EMPRESAS = [
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_rima_RAZ00_menor.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt01.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt02.pdf',
+  'https://ri.alupar.com.br/wp-content/uploads/sites/4/2018/12/alp_pch_ant_dias_eia_RAZ00_pt03.pdf',
+];
+
+export function semLinksQuebrados(corpo: string): string {
+  let saida = corpo;
+  for (const url of LINKS_QUEBRADOS_EMPRESAS) {
+    saida = saida.replace(new RegExp(`<p><a href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}">[^<]*</a></p>\\n?`), '');
+  }
+  return saida;
+}
+
 let cache: Item[] | null = null;
 
 export function itens(): Item[] {
@@ -298,10 +414,33 @@ export function itens(): Item[] {
     if (origem) corpos.set(r.para, origem);
   }
 
+  /* Texto que a Alupar revisou depois da migração: `acervo/revisado/<idioma>/<rota>.html`
+     vence o corpo migrado. Passa pelas mesmas transformações abaixo que o resto
+     do acervo (aviso de nova aba, imagem responsiva…). */
+  for (const idioma of ['pt', 'en', 'es'] as const) {
+    const dir = `acervo/revisado/${idioma}`;
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((n) => n.endsWith('.html'))) {
+      corpos.set(`${PREFIXO[idioma]}/${f.slice(0, -5)}/`, { corpo: readFileSync(`${dir}/${f}`, 'utf8'), idioma });
+    }
+  }
+
+  /* Página Empresas nos três idiomas: único lugar do site com o padrão de
+     nome de empresa em <strong> e mapas alignnone (ver titulosDeEmpresa e
+     centralizarMapas). Os links quebrados do RI são só em português. */
+  const EMPRESAS = new Set(['/empresas/', '/en/empresas/', '/es/empresas/']);
+
   cache = mapa.rotas.map((r) => {
     const achado = corpos.get(r.rota);
     if (!achado) throw new Error(`rota sem corpo no acervo: ${r.rota}`);
     const idioma = r.idioma as Item['idioma'];
+
+    let corpo = semH2Vazio(achado.corpo);
+    if (EMPRESAS.has(r.rota)) {
+      corpo = titulosDeEmpresa(centralizarMapas(corpo));
+      if (r.rota === '/empresas/') corpo = semLinksQuebrados(corpo);
+    }
+
     return {
       ...r,
       idioma,
@@ -309,7 +448,7 @@ export function itens(): Item[] {
         arquivosNoR2(
           videosSobDemanda(
             carregarImagens(
-              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(achado.corpo)), idioma), idioma), imagens as Manifesto),
+              responsivas(tabelaRolavel(avisarNovaAba(sanfona(ancorasInternas(idsNosTitulos(corpo))), idioma), idioma), imagens as Manifesto),
             ),
           ),
         ),
@@ -321,34 +460,12 @@ export function itens(): Item[] {
   return cache;
 }
 
-/** Notícias de um idioma, da mais recente para a mais antiga. */
-export function noticiasDe(idioma: Item['idioma']): Item[] {
-  return itens()
-    .filter((i) => i.tipo === 'noticia' && i.idioma === idioma && i.data)
-    .sort((a, b) => (b.data ?? '').localeCompare(a.data ?? ''));
-}
-
-/** Notícias por página no arquivo paginado (N3). */
-export const POR_PAGINA = 20;
-
-/**
- * Caminhos do arquivo de notícias de um idioma: `/noticias/arquivo/`,
- * `/noticias/arquivo/2/`… — a mesma conta do `paginate()` do Astro, que gera
- * a primeira página mesmo sem notícia nenhuma.
- */
-export function paginasDoArquivo(idioma: Item['idioma']): string[] {
-  const total = Math.max(1, Math.ceil(noticiasDe(idioma).length / POR_PAGINA));
-  const base = `${PREFIXO[idioma]}/noticias/arquivo/`;
-  return Array.from({ length: total }, (_, n) => (n === 0 ? base : `${base}${n + 1}/`));
-}
-
 /**
  * Rotas do acervo que ganham página própria em `src/pages/` e por isso não
  * são geradas por `[...rota].astro` — senão as duas disputariam o caminho.
  * O mapa de rotas continua listando-as: o endereço existe, só muda quem o gera.
  */
 export const SUBSTITUIDAS = new Set([
-  '/noticias/', '/en/noticias/', '/es/noticias/',
   '/contato/', '/en/contato/', '/es/contato/',
 ]);
 

@@ -9,10 +9,15 @@
  *   branco dá 4,85:1
  * - hover e página atual em --verde-texto: #079541 entrega 3,90:1
  * - logotipo é <img> com alt; o <h1> da home é outro elemento
- * - o logotipo servido é o NEGATIVO (branco), não a versão principal: o box
- *   é #004F9D sólido e a versão principal é azul do mesmo tom — medi os dois
- *   PNG do tema e não há um pixel claro neles. O tema atual sempre pareou o
- *   box com img/logo-alupar.png, que é branco + verde sobre transparente.
+ * - desde 23/09/2026 a arte é a placa que a Alupar enviou
+ *   (alupar_logo_branco_verde_fundo_azul.png): ela já traz o box azul
+ *   desenhado, num #003594 chapado. O box em CSS do tema saiu com ela — era
+ *   bg-logo.png, um degradê #004F9D → #296db6 de 293×200 — porque duas caixas
+ *   azuis de tons diferentes, uma dentro da outra, é o que se via ao empilhar
+ *   as duas. A placa é raster de 220×112: esse é o teto de nitidez, e por isso
+ *   ela nunca é ampliada, só reduzida.
+ * - no celular a faixa azul continua, agora chapada no mesmo #003594 da placa:
+ *   é sobre ela que o rótulo "Menu" e as três barras, brancos, são legíveis.
  * - idiomas em sigla (decisão P4) e sem busca (decisão P3)
  * - links PT/EN/ES com área clicável mínima de 24×24 px: o texto de 10px
  *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
@@ -52,9 +57,14 @@ const atual = Astro.url.pathname;
   </div>
   <div class="container principal">
     <a class="logo" href={HOME[idioma]}>
-      <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
+      <img src="/logo-alupar-caixa.png" alt={t.logo} width="220" height="112" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
+    {/* O id é usado por `aria-controls` acima, pelo `<noscript><style>` de
+        layouts/Base.astro, que devolve o menu a quem roda sem JavaScript, e por
+        public/js/site.js (`getElementById('menu-principal')`), que liga o botão.
+        Renomear aqui sem mudar nos três deixa o botão sem revelar o menu ou o
+        visitante sem menu no celular. */}
     <nav id="menu-principal" aria-label={t.menu.rotulo}>
       <ul>
         {t.menu.itens.map((m) => (
@@ -67,16 +77,27 @@ const atual = Astro.url.pathname;
 </header>
 
 <style>
-  /* Valores do style.css e do bootstrap.css do tema, medidos em 11/09/2026 */
+  /* Valores do style.css e do bootstrap.css do tema, medidos em 11/09/2026
+     (exceto o piso de texto da D21: 12 px na barra, 11 px no rótulo Menu) */
 
   /* A grade (`.container` do bootstrap: 15 px de cada lado e largura fixa de
      750, 970 e 1170 px a partir de 768, 992 e 1200 px) está em tokens.css, e
      vale para o corpo da página também — em 1280 o cabeçalho e a caixa branca
      começam os dois em x 70. Aqui não se repete nada dela. */
 
+  /* Cabeçalho fixo (pedido de 23/09/2026): a marca e o menu ficam à vista
+     durante a rolagem. `sticky` e não `fixed` porque o cabeçalho continua no
+     fluxo — com `fixed` o conteúdo subiria por baixo dele e seria preciso
+     devolver a altura no `main`, à mão, em cada largura.
+
+     z-index 10: acima do botão de pausa do vídeo (1) e abaixo do "pular para o
+     conteúdo" (100), que precisa aparecer por cima de tudo quando recebe foco.
+     `isolation` para o empilhamento não depender do que as páginas criarem. */
+  .cabecalho-site { position: sticky; top: 0; z-index: 10; isolation: isolate; }
+
   .barra { background: var(--cinza); }
   .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
-  .barra a { color: var(--branco); font-size: 10px; text-transform: uppercase; text-decoration: none; }
+  .barra a { color: var(--branco); font-size: 12px; text-transform: uppercase; text-decoration: none; }
   .idiomas { display: flex; gap: var(--e2); list-style: none; margin: 0; padding: 0; }
   .idiomas a {
     display: inline-flex; align-items: center; justify-content: center;
@@ -84,8 +105,10 @@ const atual = Astro.url.pathname;
   }
   .idiomas a[aria-current] { font-weight: 700; text-decoration: underline; }
 
-  /* img/logo-alupar-mobile.png do tema: 112 px até 991 px de largura. */
-  .logo img { display: block; width: 112px; height: auto; }
+  /* A placa desce de 220 px (tamanho do arquivo) para 150 no celular: a marca
+     dentro dela mede 66% da largura, então 150 px de placa dão 99 px de marca,
+     perto dos 112 px do tema. Ampliar a placa deixaria a marca borrada. */
+  .logo img { display: block; width: 150px; height: auto; }
 
   nav ul { list-style: none; margin: 0; padding: 0; }
   nav a {
@@ -107,12 +130,14 @@ const atual = Astro.url.pathname;
        30 px da esquerda; botão a 20 px do topo e 15 px da direita. */
     .principal {
       display: flex; flex-wrap: wrap; align-items: flex-start; padding-inline: 0;
-      background: url('/img/tema/bg-logo-mobile.png') no-repeat center top;
+      background: #003594;
     }
-    .logo { display: block; height: 83px; padding: 20px 0 0 30px; }
+    /* A altura da faixa vem da placa (76 px a 150 de largura) mais o recheio:
+       82 px, contra os 83 px do bg-logo-mobile.png que ela substitui. */
+    .logo { display: block; padding: 6px 0 0 15px; }
     .alternar {
       margin: 20px 15px 0 auto; padding: 0; border: 0; background: none; min-width: 24px;
-      font: inherit; font-size: 8px; line-height: 11px; text-transform: uppercase; color: var(--branco);
+      font: inherit; font-size: 11px; line-height: 14px; text-transform: uppercase; color: var(--branco);
     }
     /* As três barras do .navbar-toggle: 24 × 5 px, 4 px entre elas. */
     .alternar::before {
@@ -124,9 +149,39 @@ const atual = Astro.url.pathname;
     .logo:focus-visible { outline-offset: -3px; }
     nav { width: 100%; padding-inline: 15px; }
     nav a { border-bottom: 1px solid var(--cinza-borda); }
-    /* Com JS (site.js), o menu recolhe atrás do botão. Sem JS, fica aberto. */
-    nav[data-recolhivel] { display: none; }
+    /* O menu nasce recolhido, pelo CSS, sem esperar o JavaScript. Antes o
+       recolhimento dependia do atributo `data-recolhivel`, que o site.js (com
+       `defer`) só punha depois de rodar: até lá o menu inteiro ficava aberto,
+       com ~357 px, e quando o script chegava a página inteira subia. Era o CLS
+       de 0,37 do celular, e dependia do tempo — numa rede lenta o script chega
+       tarde, e o deslocamento aparece.
+
+       O que isto cobre, e o que não cobre:
+       - JavaScript rodando: menu recolhido desde a primeira pintura; o botão
+         (que o site.js revela) abre e fecha.
+       - JavaScript desligado: o `<noscript><style>` do <head> (layouts/
+         Base.astro) mantém o menu aberto.
+       - JavaScript ligado, mas o site.js ainda não rodou (rede lenta) ou não
+         roda (pedido bloqueado, erro no script): sem menu e sem controle
+         focável até ele rodar. Custo aceito (D23): a janela é de 1 a 3 s em
+         4G lento, o script é do mesmo domínio, e um botão visível só por CSS
+         seria um controle morto, pior para leitor de tela. Se um dia
+         incomodar: `<a href="#menu-principal">` sempre visível, com
+         `nav:target { display: block }`, e o site.js assume por cima.
+
+       A regra do menu aberto vem depois e tem mais peso (classe + atributo +
+       irmão contra classe + irmão), sem id de propósito: um `#menu-principal`
+       aqui ganharia dela e o botão pararia de abrir o menu. */
+    .alternar + nav { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
+    /* Com o cabeçalho rolando junto, um menu mais alto que a tela ainda era
+       alcançável: bastava rolar a página. Fixo, ele não é — os últimos itens
+       ficariam abaixo da borda, sem como chegar neles. Oito itens a 50 px
+       pedem 400 px, e a tela de 640 px do telefone mediano tem 530 livres
+       abaixo do cabeçalho; num de 480 px, não tem. Daí o teto com rolagem. */
+    .alternar[aria-expanded='true'] + nav {
+      max-height: calc(100dvh - 110px); overflow-y: auto;
+    }
   }
   @media (min-width: 768px) {
     /* A faixa do menu é BRANCA no tema, de ponta a ponta — medido na captura
@@ -152,13 +207,34 @@ const atual = Astro.url.pathname;
        aparece no foco do teclado — elementFromPoint devolve `a.logo` no
        centro dele; com 1, o link fica por cima. Não há mais nada empilhado
        aqui, então 1 e 999 são indistinguíveis no resto. */
+    /* A placa começava colada no topo da página (`margin-top: -33px` subia-a
+       sobre a barra cinza, como fazia o box de 200 px do tema). Agora ela
+       nasce 8 px abaixo da barra — o respiro que a Alupar pediu em 23/09/2026,
+       para as duas não se tocarem —, e é o `margin-bottom`
+       negativo que devolve o avanço do tema: a faixa branca do menu continua
+       com a altura do menu, e a placa passa dela para baixo — 32 px sobre o
+       vídeo na home, sobre a faixa de foto nas internas. Com o cabeçalho fixo,
+       esse avanço acompanha a rolagem: é a placa sobre o conteúdo, de
+       propósito. */
     .logo {
-      float: left; position: relative; z-index: 1; margin-top: -33px;
-      display: grid; place-items: center; width: 150px; height: 130px;
-      background: url('/img/tema/bg-logo.png') no-repeat center;
+      float: left; position: relative; z-index: 1;
+      display: block; margin-top: 8px;
     }
+    /* 150 px é a largura que o box do tema tinha aqui: entre 768 e 991 o menu
+       divide a linha com a placa, e com o item de Sustentabilidade ele passou a
+       precisar dela de volta. */
+    .logo img { width: 150px; }
     nav { float: right; margin-top: 10px; }
     nav ul { display: flex; flex-wrap: wrap; }
+    /* Entre 768 e 991 o menu tem uma linha só, e com o item de Sustentabilidade
+       (23/09/2026) ele passou a não caber nela: "Contato" caía sozinho embaixo.
+       12 px é o piso de texto da D21, e sozinho já devolve os ~50 px que
+       faltavam: medida a linha inteira depois da mudança, ela ocupa 700 dos
+       750 px da grade, com o recheio de 5 px de cada lado. Acima de 992 px nada
+       muda: lá o menu cabe com folga em 13 px. */
+    @media (max-width: 991px) {
+      nav a { padding-inline: 5px; font-size: 12px; }
+    }
     /* O botão só existe no celular; no desktop o menu fica sempre à vista,
        como no tema. */
     .alternar { display: none; }
@@ -166,8 +242,8 @@ const atual = Astro.url.pathname;
     .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
-    .logo { width: 293px; height: 200px; }
-    .logo img { width: 175px; }
+    .logo { margin-bottom: -40px; }
+    .logo img { width: 220px; }
     nav { margin-top: 30px; }
     nav a { padding-inline: 7px; }
   }

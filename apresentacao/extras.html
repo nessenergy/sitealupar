@@ -1,0 +1,245 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Extras do site institucional — o que mudou fora do combinado</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+  /* Design System da Alupar (derivado do MIV 2018 e do site em produção):
+     tokens, regras de cor e componentes aplicados a um documento impresso.
+     Regras que pesam aqui:
+     - no máximo duas cores de fundo por peça: branco e azul-050;
+     - verde é acento, nunca área: só a barra da marca e o filete de cartão;
+     - só cores da paleta, com as semânticas do Badge do sistema;
+     - Open Sans hospedada, a mesma do site (sem Google Fonts);
+     - caixa alta só em microtítulo e etiqueta, com abertura de 0,08em.
+     A Montserrat vem do Google só para a assinatura "ness.", que o manual de
+     marca da ness. manda compor nela; não é fonte do documento. */
+  @font-face{font-family:"Open Sans";src:url("../public/fonts/open-sans-latin.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+
+  :root{
+    /* primárias e neutras (tokens/colors.css) */
+    --alupar-azul:#004F9D; --alupar-verde:#079541; --verde-texto:#06893C;
+    --alupar-preto:#373435; --cinza-800:#4B4C4E; --cinza-600:#6F7273;
+    --cinza-borda:#D2D2D2; --cinza-500:#8A8D8F;
+    --azul-800:#003E7D; --azul-100:#E3EDF7; --azul-050:#F2F7FC;
+    --branco:#FFFFFF;
+    /* espaçamento (e1..e7) e tipografia */
+    --e1:4px; --e2:8px; --e3:16px; --e4:24px; --e5:32px; --e6:48px;
+    --raio-sm:2px; --raio-md:3px; --barra-marca:4px;
+    --tracking-caps:.08em; --tracking-titulo:-.01em;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:var(--branco)}
+  body{color:var(--alupar-preto);font-family:"Open Sans","Segoe UI",Arial,Helvetica,sans-serif;font-size:10.5pt;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:180mm;margin:0 auto;padding:0}
+  a{color:var(--verde-texto)}
+  /* marca ness.: caixa baixa, Montserrat 500, ponto sempre #00ADE8 */
+  .ness-brand{font-family:"Montserrat",Arial,sans-serif;font-weight:500;font-style:normal;letter-spacing:-0.01em;color:#000;white-space:nowrap}
+  .ness-brand .dot{color:#00ADE8}
+
+  /* Capa: a barra da marca abre o documento, curta, como no papel timbrado
+     do sistema — não um fio de ponta a ponta. */
+  header.top{border-bottom:1px solid var(--cinza-borda);padding:14pt 0 12pt;margin-bottom:var(--e4)}
+  header.top .wrap::before{content:"";display:block;width:96px;height:6px;background:var(--alupar-verde);margin-bottom:12pt}
+  .eyebrow{font-size:8pt;font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--cinza-600);margin:0 0 6pt}
+  h1{font-size:26pt;font-weight:700;line-height:1.2;letter-spacing:var(--tracking-titulo);margin:0 0 8pt;color:var(--alupar-azul)}
+  .dek{font-size:12pt;line-height:1.5;color:var(--cinza-800);margin:0 0 12pt;max-width:64ch}
+  .meta{display:flex;flex-wrap:wrap;gap:4pt 18pt;font-size:9pt;color:var(--cinza-600);border-top:1px solid var(--cinza-borda);padding-top:9pt}
+  .meta b{color:var(--cinza-800);font-weight:600}
+
+  section{margin:0 0 20pt}
+  section:last-of-type{margin-bottom:0}
+  /* Microtítulo de seção: caixa alta com abertura, e a barra da marca curta
+     embaixo — o sistema usa a barra para "abrir seções". */
+  h2{font-size:9pt;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--cinza-600);margin:0 0 12pt;break-after:avoid}
+  h2::after{content:"";display:block;width:32px;height:var(--barra-marca);background:var(--alupar-verde);margin-top:5pt}
+  h3{font-size:12pt;font-weight:700;line-height:1.3;letter-spacing:var(--tracking-titulo);margin:0 0 5pt;color:var(--alupar-azul);break-after:avoid}
+  p{margin:0 0 8pt;max-width:72ch}
+  ul{margin:0 0 8pt;padding-left:16pt;max-width:72ch}
+  li{margin-bottom:4pt}
+
+  /* Bloco de destaque: a segunda (e última) cor de fundo do documento. */
+  .preview{background:var(--azul-050);border:1px solid var(--azul-100);border-radius:var(--raio-md);padding:10pt 14pt;margin:0 0 18pt;break-inside:avoid}
+  .preview p{margin:0;color:var(--cinza-800)}
+  .preview .url{font-size:13pt;font-weight:700;color:var(--alupar-azul);display:block;margin:3pt 0 5pt;letter-spacing:var(--tracking-titulo)}
+
+  /* Card "outline" do sistema: fundo branco, borda de 1px, sem sombra.
+     "Aprovar" leva o filete verde no topo (Card accent) — distingue sem
+     acrescentar cor de fundo. */
+  .item{position:relative;background:var(--branco);border:1px solid var(--cinza-borda);border-radius:var(--raio-md);padding:12pt 14pt;margin-bottom:9pt;break-inside:avoid;overflow:hidden}
+  .item.aprovar{padding-top:calc(12pt + var(--barra-marca))}
+  .item.aprovar::before{content:"";position:absolute;inset:0 0 auto 0;height:var(--barra-marca);background:var(--alupar-verde)}
+  .item p{margin:0 0 5pt;font-size:10pt;color:var(--cinza-800)}
+  .item p:last-child{margin-bottom:0}
+  .item .oque{color:var(--alupar-preto);font-weight:600}
+  .item .nota{font-size:9pt;color:var(--cinza-600);border-top:1px solid var(--cinza-borda);padding-top:5pt;margin-top:7pt}
+  .item .nota b{color:var(--cinza-800);font-weight:600}
+  .cab{display:flex;justify-content:space-between;align-items:baseline;gap:10pt;margin-bottom:5pt}
+
+  /* Badge do sistema: caixa alta permitida porque é microtítulo.
+     "Aprovar" = tom solid (azul), pede ação; "Ciência" = tom brand. */
+  .tag{display:inline-block;font-size:7.5pt;padding:2px 8px;border-radius:var(--raio-sm);font-weight:600;white-space:nowrap;letter-spacing:var(--tracking-caps);text-transform:uppercase;line-height:1.5}
+  .tag.aprova{background:var(--alupar-azul);color:var(--branco)}
+  .tag.sabe{background:var(--azul-100);color:var(--azul-800)}
+
+  table{border-collapse:collapse;width:100%;font-size:9.5pt;border:1px solid var(--cinza-borda);break-inside:avoid;margin-bottom:8pt}
+  th,td{text-align:left;padding:6pt 8pt;border-bottom:1px solid var(--cinza-borda);vertical-align:top}
+  th{font-size:7.5pt;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--cinza-600);background:var(--azul-050);white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  tr{break-inside:avoid}
+  td.quem{white-space:nowrap;color:var(--cinza-800)}
+
+  .destaque{background:var(--azul-050);border:1px solid var(--azul-100);border-radius:var(--raio-md);padding:10pt 14pt;margin:14pt 0 0;break-inside:avoid}
+  .destaque p{margin:0;color:var(--cinza-800)}
+
+  #s-assinatura{break-before:page}
+  .assinatura{margin-top:22pt;display:flex;gap:24pt;flex-wrap:wrap}
+  .assinatura div{flex:1 1 60mm;border-top:1px solid var(--cinza-500);padding-top:6pt;font-size:9pt;color:var(--cinza-600)}
+
+  @page { size: A4; margin: 16mm 15mm 18mm; }
+  @page :first { margin-top: 12mm; }
+  @media screen{ body{padding:24px} }
+</style>
+</head><body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Site institucional · alupar.com.br</p>
+    <h1>Extras: o que mudou fora do combinado</h1>
+    <p class="dek">Tudo neste documento foi feito sem custo adicional e não estava no escopo original. Nada aqui é cobrança. É o registro do que mudou, por que mudou e o que cada mudança traz junto — para que ninguém seja surpreendido depois.</p>
+    <div class="meta">
+      <span><b>Para:</b> Fabiana Carneiro Pinho — Comunicação Alupar</span>
+      <span><b>De:</b> <span class="ness-brand">ness<span class="dot">.</span></span></span>
+      <span><b>Data:</b> 21 de setembro de 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="s-porque">
+  <h2>Por que este documento existe</h2>
+  <p>Ao longo da implantação vocês pediram mudanças que não estavam no escopo original, e nós encontramos coisas que valia corrigir. Nenhuma delas gerou custo. Mas várias trazem uma consequência que só aparece depois, e é dessas que este documento trata.</p>
+  <p>Cada item abaixo tem uma etiqueta. <b>Aprovar</b> significa que precisamos de um sim de vocês antes de ir ao ar. <b>Ciência</b> significa que já está feito e vocês precisam saber, porque muda algo que vocês vão perceber no dia a dia.</p>
+  <div class="preview">
+    <p>Tudo isto pode ser visto funcionando, antes de qualquer decisão, no endereço de homologação:</p>
+    <span class="url">sitealupar.pages.dev</span>
+    <p>O site que está no ar hoje para o público continua intocado enquanto vocês avaliam.</p>
+  </div>
+</section>
+
+<section id="s-topo">
+  <h2>A home</h2>
+
+  <div class="item aprovar">
+    <div class="cab"><h3>O vídeo institucional passa a ocupar o topo</h3><span class="tag aprova">Aprovar</span></div>
+    <p class="oque">Pedido de vocês. O rotativo de banners sai e o vídeo institucional entra no lugar dele, preenchendo a faixa inteira.</p>
+    <p>Três coisas saem junto, e é bom que sejam decididas de propósito e não por acidente:</p>
+    <ul>
+      <li>O <b>rotativo deixa de existir</b>. Com ele some a discussão sobre quais peças exibir e sobre as tarjas em inglês e espanhol, que estava com vocês.</li>
+      <li>A <b>caixa de vídeo que ficava embaixo sai</b>, porque era o mesmo vídeo. Mantê-la faria a mesma peça aparecer duas vezes na mesma página.</li>
+      <li>Com a caixa de notícias também removida, a home fica com <b>uma única caixa</b>, a de sustentabilidade.</li>
+    </ul>
+    <p class="nota"><b>Se preferirem voltar atrás:</b> o rotativo continua inteiro no código, guardado. Voltar é uma decisão, não um retrabalho.</p>
+  </div>
+
+  <div class="item aprovar">
+    <div class="cab"><h3>O vídeo começa a tocar sozinho, sem som</h3><span class="tag aprova">Aprovar</span></div>
+    <p class="oque">Pedido de vocês. O vídeo entra tocando, mudo, em laço.</p>
+    <p>Isso tem duas consequências técnicas que vocês precisam conhecer antes de aprovar.</p>
+    <ul>
+      <li><b>A página fica cerca de 25 vezes mais pesada.</b> De 96 KB para 2,4 MB. Desses, 1,2 MB é o vídeo e 850 KB é o programa do YouTube que toca o vídeo. Numa conexão de celular ruim, a home demora mais a ficar pronta.</li>
+      <li><b>Os controles do YouTube foram desligados.</b> A faixa recorta o vídeo em cima e embaixo para preenchê-la sem distorcer, e esse recorte cortaria a barra de controles pela metade. No lugar dela pusemos um botão de pausa próprio, no canto inferior direito.</li>
+    </ul>
+    <p class="nota"><b>Por que o botão de pausa não é opcional:</b> a norma de acessibilidade exige um jeito visível de parar qualquer coisa que se mexa sozinha por mais de cinco segundos. Sem ele, o site deixaria de cumprir a norma que ele cumpre hoje integralmente.</p>
+  </div>
+
+  <div class="item ciencia">
+    <div class="cab"><h3>Existe uma alternativa mais leve, se o peso incomodar</h3><span class="tag sabe">Ciência</span></div>
+    <p class="oque">Hospedar um trecho curto do vídeo aqui, em vez de usar o YouTube.</p>
+    <p>Os 850 KB do programa do YouTube desapareceriam. Um laço de dez a quinze segundos, mudo, cabe numa fração do peso atual. O vídeo completo continuaria disponível na página de vídeos.</p>
+    <p class="nota"><b>O que falta:</b> o arquivo de vídeo. Não temos o original, só a versão publicada no YouTube. Se vocês tiverem o arquivo, fazemos a troca sem custo.</p>
+  </div>
+</section>
+
+<section id="s-noticias">
+  <h2>As notícias</h2>
+
+  <div class="item ciencia">
+    <div class="cab"><h3>186 endereços passam a apontar para o portal de RI</h3><span class="tag sabe">Ciência</span></div>
+    <p class="oque">Decisão de vocês: desativar a área de notícias. Feito.</p>
+    <p>As 210 páginas de notícia e as listagens saíram do ar. Nenhum endereço antigo quebrou: todos redirecionam para a listagem de notícias do portal de RI. Conferimos um por um, e também conferimos o contrário — que nenhum endereço que não fosse notícia foi levado junto.</p>
+    <p><b>O que isso cria:</b> uma dependência de um portal que não é nosso nem de vocês, e sim de outra equipe. Se aquele endereço mudar de lugar ou sair do ar, os 186 links passam a falhar de uma vez.</p>
+    <p class="nota"><b>Como reduzimos o risco, sem custo:</b> nossa verificação diária passou a incluir aquela página do portal de RI. Se ela mudar, sabemos no mesmo dia. Além disso, incluímos na lista de véspera da virada uma conversa com a equipe do RI para confirmar que o endereço não vai mudar.</p>
+  </div>
+</section>
+
+<section id="s-formulario">
+  <h2>O formulário de contato</h2>
+
+  <div class="item aprovar">
+    <div class="cab"><h3>O consentimento em espanhol foi escrito em espanhol</h3><span class="tag aprova">Aprovar</span></div>
+    <p class="oque">Vocês pediram para manter exatamente como está no site atual. Em português e inglês, mantivemos palavra por palavra.</p>
+    <p>Em espanhol não deu para manter, e é melhor explicar por quê: <b>o site atual serve a frase em inglês para quem escolhe espanhol</b>. É um defeito antigo, não uma escolha. Copiá-lo seria repetir o defeito num site novo.</p>
+    <p>Então escrevemos a frase em espanhol. É a única divergência em relação ao pedido de vocês, e está aqui para ser aprovada ou recusada.</p>
+    <p class="nota"><b>Se preferirem a cópia literal:</b> voltamos ao inglês numa linha. Basta dizer.</p>
+  </div>
+
+  <div class="item aprovar">
+    <div class="cab"><h3>Os 30 dias de guarda precisam ser configurados em dois lugares</h3><span class="tag aprova">Aprovar</span></div>
+    <p class="oque">Vocês definiram 30 dias. Registramos.</p>
+    <p>O formulário não guarda nada por conta própria: não existe banco de dados no caminho. A mensagem vai do navegador direto para o e-mail. Mas ela fica gravada em <b>dois</b> lugares, e o prazo só é verdadeiro se valer nos dois:</p>
+    <ul>
+      <li>A caixa <b>comunicacao@alupar.com.br</b>, no ambiente de e-mail da Alupar.</li>
+      <li>O <b>histórico de mensagens enviadas</b> do serviço de envio, que guarda corpo e destinatário.</li>
+    </ul>
+    <p class="nota"><b>Estado hoje:</b> nenhum dos dois expurga sozinho, e nenhum foi configurado ainda. Registro não é implementação. Quem opera cada um é diferente, e por isso isto precisa de um dono.</p>
+  </div>
+
+  <div class="item aprovar">
+    <div class="cab"><h3>Remetente e destinatário são o mesmo endereço</h3><span class="tag aprova">Aprovar</span></div>
+    <p class="oque">Desde 16/09/2026 o formulário envia de comunicacao@alupar.com.br para comunicacao@alupar.com.br.</p>
+    <p>O domínio alupar.com.br foi verificado no serviço de envio, com as assinaturas publicadas. A resposta de cada mensagem vai direto para quem preencheu o formulário, não para a própria Comunicação.</p>
+    <p>O ponto a aprovar: uma mensagem que chega dizendo vir do próprio domínio, por um serviço externo, às vezes é tratada pelo e-mail corporativo como tentativa de falsificação. A assinatura digital deve evitar isso, mas se as mensagens começarem a cair no spam, a causa é essa. A solução é um remetente diferente, como contato@alupar.com.br, mantendo o destino.</p>
+    <p class="nota"><b>Pedido:</b> que a Comunicação envie uma mensagem de teste pelo formulário e confirme que ela chegou na caixa de entrada, não no spam.</p>
+  </div>
+</section>
+
+<section id="s-lgpd">
+  <h2>Privacidade e medição</h2>
+
+  <div class="item ciencia">
+    <div class="cab"><h3>O site novo não tem banner de cookies porque não usa cookies</h3><span class="tag sabe">Ciência</span></div>
+    <p class="oque">O site atual carrega o Google Analytics e por isso precisa do banner. O site novo não carrega nada disso e não grava cookie nenhum.</p>
+    <p>Sem cookie não há consentimento a pedir. Um banner que pede permissão para nada só ensina o visitante a clicar em "aceitar" sem ler.</p>
+    <p class="nota"><b>Quando isso muda:</b> vocês informaram que vão começar a usar o Google Analytics. No dia em que ele entrar, voltam os cookies e o banner deixa de ser dispensável — passa a ser obrigação. As duas decisões, medir e consentir, precisam ser tomadas juntas.</p>
+  </div>
+
+  <div class="item ciencia">
+    <div class="cab"><h3>Monitoramento diário, incluído</h3><span class="tag sabe">Ciência</span></div>
+    <p class="oque">Não estava no escopo. Está no ar e não tem custo.</p>
+    <p>Todo dia, automaticamente, verificamos se os endereços respondem, se os certificados estão longe do vencimento e se o caminho de envio do formulário continua funcionando. O incidente que deu origem a este projeto, um certificado vencido sem ninguém perceber, deixa de ser possível.</p>
+  </div>
+</section>
+
+<section id="s-assinatura">
+  <h2>O que precisamos de vocês</h2>
+  <table>
+    <tr><th>Item</th><th>Decisão</th><th class="quem">Quem</th></tr>
+    <tr><td>Vídeo no topo, no lugar do rotativo</td><td>Aprovar ou manter o rotativo</td><td class="quem">Comunicação</td></tr>
+    <tr><td>Vídeo tocando sozinho, com a página mais pesada</td><td>Aprovar ou manter o clique para tocar</td><td class="quem">Comunicação</td></tr>
+    <tr><td>Consentimento em espanhol, em espanhol</td><td>Aprovar ou voltar à cópia literal</td><td class="quem">Comunicação</td></tr>
+    <tr><td>Mensagem de teste pelo formulário</td><td>Enviar e confirmar que chegou fora do spam</td><td class="quem">Comunicação</td></tr>
+    <tr><td>Guarda de 30 dias nos dois lugares</td><td>Nomear quem configura cada um</td><td class="quem">Comunicação e TI</td></tr>
+    <tr><td>Arquivo do vídeo institucional</td><td>Enviar, se houver</td><td class="quem">Comunicação</td></tr>
+  </table>
+
+  <div class="destaque">
+    <p>Nada neste documento altera prazo ou valor. Se a resposta a qualquer item for "não", voltamos ao estado anterior sem custo e sem retrabalho — tudo o que foi substituído continua guardado.</p>
+  </div>
+
+  <div class="assinatura">
+    <div>Alupar — Comunicação<br>Nome e data</div>
+    <div><span class="ness-brand">ness<span class="dot">.</span></span><br>Nome e data</div>
+  </div>
+</section>
+
+</div>
+</body></html>

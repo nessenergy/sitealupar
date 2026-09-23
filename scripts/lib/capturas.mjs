@@ -8,14 +8,13 @@ export const NOVO = process.env.NOVO ?? 'https://sitealupar.pages.dev';
 export const LARGURAS = [390, 768, 1280];
 
 /* [nome, caminho no site atual, caminho no site novo] — um de cada modelo de
-   página que o Marketing vai ver. O site atual põe o idioma em ?lang=. */
+   página que o Marketing vai ver. O site atual põe o idioma em ?lang=.
+   'noticias' e 'noticia' saíram com a área de notícias em 16/09/2026. */
 export const PAGINAS = [
   ['home', '/', '/'],
   ['home-en', '/?lang=en', '/en/'],
   ['home-es', '/?lang=es', '/es/'],
   ['empresas', '/empresas/', '/empresas/'],
-  ['noticias', '/noticias/', '/noticias/'],
-  ['noticia', '/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/', '/noticia/ata-da-assembleia-geral-ordinaria-e-extraordinaria/'],
   ['pesquisa', '/group/pesquisa-e-desenvolvimento/', '/group/pesquisa-e-desenvolvimento/'],
   ['faq', '/faq/projetos-de-pd-em-andamento/', '/faq/projetos-de-pd-em-andamento/'],
   ['condicoes-de-uso', '/politica-de-privacidade/condicoes-de-uso/', '/politica-de-privacidade/condicoes-de-uso/'],

@@ -12,12 +12,14 @@
  * Turnstile pelo api.js da Cloudflare — nenhum dos dois está no HTML. Por
  * isso o `frame-src` precisa manter https://www.youtube-nocookie.com e
  * https://challenges.cloudflare.com mesmo que esta conferência passe sem eles.
+ * Já o `<script>` embutido no próprio HTML É visto: a CSP não tem
+ * `'unsafe-inline'` em `script-src`, então qualquer um reprova o gate.
  *
  *   npm run build && node scripts/verificar-csp.mjs
  */
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { lerCsp, diretivas, fontesPara, permitido, recursos } from './lib/csp.mjs';
+import { lerCsp, diretivas, fontesPara, permitido, recursos, scriptsEmbutidos } from './lib/csp.mjs';
 
 const DIST = 'dist';
 const ORIGEM = 'https://www.alupar.com.br';
@@ -37,10 +39,13 @@ const paginas = readdirSync(DIST, { recursive: true })
 let total = 0;
 const externos = new Map(); // "diretiva host" → vezes, só para o relatório
 const bloqueios = new Map(); // "diretiva host" → { diretiva, host, pagina, vezes }
+const embutidos = []; // { pagina, inicio } de cada script executável embutido no HTML
 
 for (const f of paginas) {
   const pagina = `/${f.replace(/index\.html$/, '')}`;
-  for (const { diretiva, url } of recursos(readFileSync(join(DIST, f), 'utf8'))) {
+  const html = readFileSync(join(DIST, f), 'utf8');
+  for (const texto of scriptsEmbutidos(html)) embutidos.push({ pagina, inicio: texto.trim().slice(0, 80) });
+  for (const { diretiva, url } of recursos(html)) {
     if (!URL.canParse(url, `${ORIGEM}${pagina}`)) continue; // o navegador também não carrega
     const u = new URL(url, `${ORIGEM}${pagina}`);
     const host = u.protocol === 'data:' ? 'data:' : u.host;
@@ -59,12 +64,17 @@ for (const f of paginas) {
 console.log(`páginas: ${paginas.length} · recursos conferidos: ${total}`);
 for (const [chave, n] of [...externos].sort()) console.log(`  ${String(n).padStart(5)}× ${chave}`);
 
+if (embutidos.length) {
+  console.error(`\nreprovado: ${embutidos.length} ${embutidos.length === 1 ? 'script embutido' : 'scripts embutidos'} no HTML; a CSP (script-src sem 'unsafe-inline') bloqueia todos`);
+  for (const e of embutidos) console.error(`  ${e.pagina}: ${e.inicio}`);
+  console.error('\ncorrige com: manter em astro.config.mjs o `vite.build.assetsInlineLimit` que recusa embutir `.js` (sem isso o Astro embute script pequeno de componente), ou tirar o script embutido da página (`is:inline` também é embutido e bloqueado)');
+}
 if (bloqueios.size) {
   console.error(`\nreprovado: ${bloqueios.size} ${bloqueios.size === 1 ? 'origem bloqueada' : 'origens bloqueadas'} pela CSP de public/_headers`);
   for (const b of bloqueios.values()) {
     console.error(`  ${b.diretiva}: ${b.host} — ${b.vezes}×, por exemplo em ${b.pagina}`);
   }
   console.error('\ncorrige com: incluir a origem na diretiva certa em public/_headers, ou tirar o recurso do conteúdo');
-  process.exit(1);
 }
+if (embutidos.length || bloqueios.size) process.exit(1);
 console.log('\naprovado: todo recurso do build é permitido pela CSP.');

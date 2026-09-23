@@ -83,11 +83,15 @@ home.
 
 ## 0.3 — Notícias paradas há três anos e meio
 
+**Superado pela D16 em 16/09/2026**: a área de notícias foi desativada, e não
+há mais feed a combinar nem publicação a fazer. Os endereços vivos redirecionam
+para `https://ri.alupar.com.br/noticias/`.
+
 Última notícia do institucional: **02/03/2023**. No mesmo instante o portal de
 RI exibe **06/08/2026**. Por D5, a fonte passa a ser a base do RI.
 
-**Ação.** Combinar o acesso ao feed do RI e publicar 03/2023 → 09/2026. Sem o
-acesso a tempo, carga manual provisória.
+**Ação.** ~~Combinar o acesso ao feed do RI e publicar 03/2023 → 09/2026. Sem o
+acesso a tempo, carga manual provisória.~~
 
 **Verificação.**
 
