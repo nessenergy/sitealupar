@@ -29,6 +29,11 @@ const PROJETO = 'sitealupar';
    Está escrito aqui, e não lido do estado, de propósito — na hora de voltar o
    estado já é o novo, e é justamente o antigo que se precisa saber. */
 const ORIGEM_MZ = 'sites-clients-03.mziq.com';
+/* Para onde o `www` passa a apontar. Pelo painel a Cloudflare oferece trocar o
+   registro sozinha; pela API não — ela acrescenta o domínio ao projeto e o deixa
+   "pending" enquanto o CNAME apontar para outro lugar. A troca do registro é a
+   virada de fato, e é este script que a faz. */
+const DESTINO_PAGES = `${PROJETO}.pages.dev`;
 
 /* As duas regras que o `_redirects` do Pages não alcança: ele não casa query
    string, e o site atual expressa idioma em `?lang=`. Detalhe e motivo em
@@ -84,7 +89,9 @@ async function estado() {
   console.log(`${HOST}   ${www.type} → ${www.content} · proxy ${www.proxied ? 'ligado' : 'desligado'} · TTL ${www.ttl === 1 ? 'automático' : `${www.ttl} s`}`);
   console.log(`regras    ${(regras.rules ?? []).map((r) => r.description).join(' | ') || '(nenhuma)'}`);
   console.log(`Pages     ${dominios.length ? dominios.map((d) => `${d.name} (${d.status})`).join(', ') : '(sem domínio próprio)'}`);
-  const virado = www.content.includes('pages.dev') || dominios.some((d) => d.name === HOST);
+  /* Quem decide é o registro de DNS, não a presença do domínio no projeto: com
+     o domínio acrescentado e o CNAME ainda na MZ, o site no ar é o antigo. */
+  const virado = www.content === DESTINO_PAGES;
   console.log(`\n${virado ? 'O www aponta para o site novo.' : 'O www ainda é servido pela MZ.'}`);
 }
 
@@ -117,18 +124,33 @@ async function preparo() {
 }
 
 async function virar() {
-  const conta = await umaConta();
+  const [zona, conta] = [await umaZona(), await umaConta()];
+
   const dominios = await dominiosDoPages(conta);
   if (dominios.some((d) => d.name === HOST)) {
-    console.log(`${HOST} já está no projeto ${PROJETO}.`);
-    return;
+    console.log(`Pages     ${HOST} já está no projeto ${PROJETO}`);
+  } else {
+    const d = await api(`/accounts/${conta.id}/pages/projects/${PROJETO}/domains`, {
+      method: 'POST',
+      body: JSON.stringify({ name: HOST }),
+    });
+    console.log(`Pages     ${HOST} acrescentado — estado: ${d.status}`);
   }
-  const d = await api(`/accounts/${conta.id}/pages/projects/${PROJETO}/domains`, {
-    method: 'POST',
-    body: JSON.stringify({ name: HOST }),
-  });
-  console.log(`${HOST} acrescentado ao Pages — estado: ${d.status}`);
-  console.log('\nA Cloudflare troca o CNAME e emite o certificado; pode levar alguns minutos.');
+
+  /* A virada. Com proxy ligado: é ele que põe o TLS e os cabeçalhos da borda na
+     frente do Pages, e é o que a regra do apex e as de `?lang=` esperam. */
+  const www = await registroWww(zona);
+  if (www.content === DESTINO_PAGES && www.proxied) {
+    console.log(`DNS       ${HOST} já aponta para ${DESTINO_PAGES}`);
+  } else {
+    console.log(`DNS       ${HOST}: ${www.content} → ${DESTINO_PAGES}, com proxy`);
+    await api(`/zones/${zona.id}/dns_records/${www.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ type: 'CNAME', name: HOST, content: DESTINO_PAGES, proxied: true, ttl: 60 }),
+    });
+  }
+
+  console.log('\nO certificado da borda pode levar alguns minutos para ficar pronto.');
   console.log('Confira com: node scripts/virada.mjs estado  e  node scripts/verificar-no-ar.mjs');
   console.log('Se reprovar e a correção não sair em 30 min: node scripts/virada.mjs voltar --confirmar');
 }
