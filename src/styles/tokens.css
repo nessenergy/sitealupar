@@ -67,8 +67,8 @@
   --erro:            #A61B1B;   /* 7,8:1 sobre branco; o âmbar do alerta do Design System (#B57A00) não passa dos 4,5:1 em texto pequeno */
 
   /* Rodapé do tema atual — não estão no MIV, estão no site */
-  --rodape-fundo:    #2F008E;   /* pedido da Alupar, 23/09/2026 — era #231F20 */
-  --rodape-texto:    #FFFFFF;   /* 13,9:1 sobre o fundo; o cinza do tema dava 6,5:1 */
+  --rodape-fundo:    #10328F;   /* pedido da Alupar, 23/09/2026 — era #231F20 */
+  --rodape-texto:    #FFFFFF;   /* 11,2:1 sobre o fundo; o cinza do tema dava 5,3:1 */
 
   /* Fundo da página no tema atual (`body` do style.css). O conteúdo não fica
      direto sobre ele: mora em caixas brancas com sombra (.box-home), na home e
