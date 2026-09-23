@@ -21,11 +21,10 @@ conhece a terminologia da Alupar.
 
 ## 2. Arquivos que faltam
 
-1. **Missão, Visão e Valores em espanhol.** Em português e em inglês a página usa
-   a imagem com os sete valores e as frases ("Planejamento: se quer cortar a
-   árvore em 5 min, gaste 30 afiando o machado"). Em espanhol não existe a
-   imagem, então hoje a página traz o mesmo conteúdo em texto. Se a Alupar tiver
-   a arte em espanhol (`MISSAO-VALORES_SITE_ES`), trocamos.
+1. ~~**Missão, Visão e Valores em espanhol.**~~ **Sem objeto desde 23/09/2026:**
+   a arte saiu dos três idiomas com o texto final de A Companhia — ela trazia a
+   missão antiga desenhada —, e os valores saíram da página a pedido da Alupar.
+   A página fica com missão e visão em texto, nos três idiomas.
 2. **Mapa de ativos em inglês e em espanhol.** O arquivo que recebemos tem os
    nomes dos países em português (COLÔMBIA, PERU, CHILE) desenhados na imagem. A
    legenda já está traduzida no site. Na versão em inglês, muda COLÔMBIA para
@@ -45,9 +44,10 @@ conhece a terminologia da Alupar.
 
 ## 3. Para confirmar
 
-1. **Capacidade instalada.** O texto diz "quase 800 MW" e a faixa da página
-   inicial mostra "~800". O número anterior do site era 798,5 MW. Se a Alupar
-   tem o número exato de hoje, colocamos.
+1. **Capacidade instalada.** O texto da Área de atuação diz "quase 800 MW" e o
+   número anterior do site era 798,5 MW. Se a Alupar tem o número exato de hoje,
+   colocamos. (A faixa da página inicial, que repetia o "~800", saiu da home em
+   23/09/2026 a pedido da Alupar — o número agora vive só na Área de atuação.)
 2. **Assessoria de imprensa.** A página de Contato ainda traz a Original 123
    Comunicações (Rafael Kimati). Continua valendo?
 3. **Lista de Vídeos.** A página passa a abrir com o vídeo de 2026 e mantém os
