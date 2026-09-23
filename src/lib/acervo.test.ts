@@ -133,32 +133,39 @@ test('h2 sem id ganha âncora pelo texto; repetido, vazio ou já com id fica com
   );
 });
 
-test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007, mapa antes de Missão, Visão e Valores', () => {
+test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007 e, depois do texto, missão e visão', () => {
   for (const pre of ['', '/en', '/es']) {
     const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
     assert.match(c, /2007/, `${pre}/a-companhia/ sem a abertura`);
-    assert.match(c, /mapa-ativos[\s\S]*<h2/, `${pre}/a-companhia/ com o mapa fora do lugar`);
+    /* O mapa de ativos saiu em 23/09/2026, a pedido da Alupar: ele continua na
+       Área de atuação, que é a página que fala dos ativos. */
+    assert.doesNotMatch(c, /mapa-ativos|class="mapa"/, `${pre}/a-companhia/ com o mapa de volta`);
     /* Sem `text-justify`: o português não usa, e o texto justificado é ruim de ler em coluna estreita. */
     assert.doesNotMatch(c, /text-justify/, `${pre}/a-companhia/`);
   }
 });
 
 /* A arte MISSAO-VALORES trazia a missão antiga desenhada na imagem e saiu com o
-   texto de 22/09/2026, que traz missão e visão novas. Os sete valores seguem,
-   em texto — como já estavam em espanhol, que nunca teve a arte. */
-test('missão, visão e valores são texto de verdade nos três idiomas, não imagem', () => {
-  for (const [pre, palavra] of [['', 'Planejamento'], ['/en', 'Planning'], ['/es', 'Planificación']] as const) {
+   texto de 22/09/2026, que traz missão e visão novas. Os sete valores saíram a
+   pedido da Alupar em 23/09/2026: a página fica com missão e visão, em texto. */
+test('missão e visão são texto de verdade nos três idiomas, e os valores não voltaram', () => {
+  for (const [pre, missao, visao] of [
+    ['', 'Missão', 'Visão'], ['/en', 'Mission', 'Vision'], ['/es', 'Misión', 'Visión'],
+  ] as const) {
     const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
-    assert.match(c, /<h3[^>]*>/, `${pre}/a-companhia/ sem os subtítulos de missão, visão e valores`);
-    assert.ok(c.includes(palavra), `${pre}/a-companhia/ sem os valores em texto`);
-    assert.doesNotMatch(c, /MISSAO-VALORES|sr-only/, `${pre}/a-companhia/`);
+    for (const titulo of [missao, visao]) {
+      assert.match(c, new RegExp(`<h3[^>]*>${titulo}</h3>`), `${pre}/a-companhia/ sem o subtítulo ${titulo}`);
+    }
+    /* Nem a arte antiga, nem o bloco de leitor de tela que existia por causa
+       dela, nem os valores por qualquer caminho. */
+    assert.doesNotMatch(c, /MISSAO-VALORES|sr-only|Planejamento|Planning|Planificación/, `${pre}/a-companhia/`);
   }
 });
 
-test('o mapa de ativos traz a legenda em HTML, traduzida, na Área de atuação e em A Companhia', () => {
+test('o mapa de ativos traz a legenda em HTML, traduzida, na Área de atuação', () => {
   const subestacao = { '': 'Subestação', '/en': 'Substation', '/es': 'Subestación' } as const;
   for (const pre of ['', '/en', '/es'] as const) {
-    for (const rota of ['area-de-atuacao', 'a-companhia']) {
+    for (const rota of ['area-de-atuacao']) {
       const c = itens().find((i) => i.rota === `${pre}/${rota}/`)?.corpo ?? '';
       const onde = `${pre}/${rota}/`;
       assert.match(c, /<figure class="mapa">/, onde);
