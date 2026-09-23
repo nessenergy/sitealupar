@@ -1,13 +1,26 @@
 ---
 /**
- * Rodapé do tema: fundo #231F20, caixa alta, links sem sublinhado
- * separados por "|". O texto é de 12 px por causa da D21; o tema tinha 11 px.
- * Sai o "Powered by MZ". Os códigos de conduta passam a vir do R2 — hoje
- * moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ * Rodapé do tema, com o fundo e a marca pedidos pela Alupar em 23/09/2026:
+ * #2F008E no lugar do #231F20, a marca negativa à esquerda e os links à
+ * direita, empilhados abaixo de 768 px. Caixa alta e links sem sublinhado
+ * separados por "|", como no tema. O texto é de 12 px por causa da D21; o tema
+ * tinha 11 px. Sai o "Powered by MZ". Os códigos de conduta passam a vir do R2
+ * — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
+ *
+ * A marca é a arte que a Alupar enviou (300×97, branco e verde sobre
+ * transparente). Ela aparece a 150 px, e por isso passa pelo pipeline de imagem
+ * do Astro em vez de ir direta: servir os 300 px do arquivo para exibir 150
+ * reprova `uses-responsive-images` no portão do CI, em toda página. Com
+ * `densities`, quem tem tela comum baixa a de 150 e quem tem tela densa baixa a
+ * de 300 — o arquivo original continua sendo o teto, nada é ampliado.
+ * `alt=""`: ela repete a marca do cabeçalho, que já tem texto alternativo — um
+ * alt aqui faria o leitor de tela anunciar "Alupar" duas vezes na mesma página.
  *
  * O círculo de "voltar ao topo" usa --rodape-texto e não o #535252 do tema:
  * 2,2:1 sobre o fundo reprova o 3:1 de componente de interface (WCAG 1.4.11).
  */
+import { Image } from 'astro:assets';
+import marca from '../assets/logo-alupar-rodape.png';
 import { textos, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
@@ -22,13 +35,18 @@ const externos = [
 <footer class="rodape">
   <div class="container">
     <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
-    <ul>
-      <li>© {new Date().getFullYear()} ALUPAR - {r.direitos} ::</li>
-      <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
-      {externos.map((e) => (
-        <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
-      ))}
-    </ul>
+    <div class="faixa">
+      <Image class="marca" src={marca} alt="" width={150} densities={[1, 2]} />
+      <div class="textos">
+        <ul>
+          <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
+          {externos.map((e) => (
+            <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
+          ))}
+        </ul>
+        <p class="direitos">© {new Date().getFullYear()} ALUPAR - {r.direitos}</p>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -50,31 +68,44 @@ const externos = [
      o anel vai para o círculo de 23 px, que é o que o teclado enxerga. */
   .topo:focus-visible { outline: none; }
   .topo:focus-visible::before { outline: 3px solid var(--azul); outline-offset: 2px; }
+  /* Marca à esquerda, textos à direita; abaixo de 768 px os dois empilham e
+     voltam ao centro, que é como o rodapé do tema sempre foi. */
+  .faixa {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--e3); margin-top: 8px; padding-bottom: 8px;
+  }
+  /* 150 px é metade do arquivo: a arte tem 300 px e reduzir é o único caminho
+     que não borra. `height: auto` mantém a proporção dos 300×97. */
+  .marca { display: block; width: 150px; height: auto; }
+  .textos { text-align: right; }
   ul {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3px;
-    list-style: none; margin: 8px 0 5px; padding: 0 0 8px;
-    border-bottom: 1px solid #2E2A2B;
+    display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 3px;
+    list-style: none; margin: 0; padding: 0;
     font-size: 12px; text-transform: uppercase; color: var(--rodape-texto);
   }
   /* .list-inline > li do bootstrap: 5 px de cada lado; o espaço entre os li
      inline-block dá os outros 3 px — ~13 px entre o texto e o "|". O "|" vai
      com o item da esquerda, para não abrir a linha de baixo na quebra. */
   li { padding-inline: 5px; }
-  li:not(:first-child, :last-child)::after { content: '|' / ''; margin-left: 13px; }
+  li:not(:last-child)::after { content: '|' / ''; margin-left: 13px; }
   /* Linha de 24 px nos links, não os ~16 px do tema: quando a lista quebra,
      com 16 px entre as linhas o espaço livre em volta de cada link mede
      15,8 px e reprova target-size (WCAG 2.5.8 pede 24 px). */
   a { display: inline-block; line-height: 24px; color: var(--rodape-texto); text-decoration: none; }
   /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
   a:hover, a:focus { color: var(--rodape-texto); text-decoration: underline; }
+  .direitos {
+    margin: 2px 0 0; font-size: 12px; line-height: 17px;
+    text-transform: uppercase; color: var(--rodape-texto);
+  }
   @media (max-width: 767px) {
-    /* 17 px de linha no © (12 px × 1,43 do tema dariam 17,1; eram 15,7 com 11 px):
-       o rodapé mantém a altura, 132,6 contra 133,2 px. */
-    li:first-child { margin-bottom: 10px; line-height: 17px; }
+    .faixa { flex-direction: column; justify-content: center; gap: var(--e2); }
+    .textos { text-align: center; }
+    ul { justify-content: center; }
     /* Com 12 px, a segunda linha ("Código de conduta de terceiros | Canal de
-       denúncias", 379 px) deixava de caber nos 360 px da lista a 390 px de
-       largura e o rodapé ganhava uma terceira linha. A lista avança 12 px sobre
-       o preenchimento do container em cada lado (384 px): mesma quebra de antes. */
+       denúncias", 379 px) não cabe nos 360 px da lista a 390 px de largura e o
+       rodapé ganharia uma terceira linha. A lista avança 12 px sobre o
+       preenchimento do container em cada lado (384 px): mesma quebra de antes. */
     ul { margin-inline: -12px; }
   }
 </style>
