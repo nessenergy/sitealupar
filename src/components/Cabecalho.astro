@@ -9,10 +9,15 @@
  *   branco dá 4,85:1
  * - hover e página atual em --verde-texto: #079541 entrega 3,90:1
  * - logotipo é <img> com alt; o <h1> da home é outro elemento
- * - o logotipo servido é o NEGATIVO (branco), não a versão principal: o box
- *   é #004F9D sólido e a versão principal é azul do mesmo tom — medi os dois
- *   PNG do tema e não há um pixel claro neles. O tema atual sempre pareou o
- *   box com img/logo-alupar.png, que é branco + verde sobre transparente.
+ * - desde 23/09/2026 a arte é a placa que a Alupar enviou
+ *   (alupar_logo_branco_verde_fundo_azul.png): ela já traz o box azul
+ *   desenhado, num #003594 chapado. O box em CSS do tema saiu com ela — era
+ *   bg-logo.png, um degradê #004F9D → #296db6 de 293×200 — porque duas caixas
+ *   azuis de tons diferentes, uma dentro da outra, é o que se via ao empilhar
+ *   as duas. A placa é raster de 220×112: esse é o teto de nitidez, e por isso
+ *   ela nunca é ampliada, só reduzida.
+ * - no celular a faixa azul continua, agora chapada no mesmo #003594 da placa:
+ *   é sobre ela que o rótulo "Menu" e as três barras, brancos, são legíveis.
  * - idiomas em sigla (decisão P4) e sem busca (decisão P3)
  * - links PT/EN/ES com área clicável mínima de 24×24 px: o texto de 10px
  *   sozinho media ~14×14 px e reprovava target-size (WCAG 2.5.8, AA da
@@ -52,7 +57,7 @@ const atual = Astro.url.pathname;
   </div>
   <div class="container principal">
     <a class="logo" href={HOME[idioma]}>
-      <img src="/logo-alupar-negativo.svg" alt={t.logo} width="175" height="57" />
+      <img src="/logo-alupar-caixa.png" alt={t.logo} width="220" height="112" />
     </a>
     <button class="alternar" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{t.menu.rotulo}</button>
     {/* O id é usado por `aria-controls` acima, pelo `<noscript><style>` de
@@ -90,8 +95,10 @@ const atual = Astro.url.pathname;
   }
   .idiomas a[aria-current] { font-weight: 700; text-decoration: underline; }
 
-  /* img/logo-alupar-mobile.png do tema: 112 px até 991 px de largura. */
-  .logo img { display: block; width: 112px; height: auto; }
+  /* A placa desce de 220 px (tamanho do arquivo) para 150 no celular: a marca
+     dentro dela mede 66% da largura, então 150 px de placa dão 99 px de marca,
+     perto dos 112 px do tema. Ampliar a placa deixaria a marca borrada. */
+  .logo img { display: block; width: 150px; height: auto; }
 
   nav ul { list-style: none; margin: 0; padding: 0; }
   nav a {
@@ -113,9 +120,11 @@ const atual = Astro.url.pathname;
        30 px da esquerda; botão a 20 px do topo e 15 px da direita. */
     .principal {
       display: flex; flex-wrap: wrap; align-items: flex-start; padding-inline: 0;
-      background: url('/img/tema/bg-logo-mobile.png') no-repeat center top;
+      background: #003594;
     }
-    .logo { display: block; height: 83px; padding: 20px 0 0 30px; }
+    /* A altura da faixa vem da placa (76 px a 150 de largura) mais o recheio:
+       82 px, contra os 83 px do bg-logo-mobile.png que ela substitui. */
+    .logo { display: block; padding: 6px 0 0 15px; }
     .alternar {
       margin: 20px 15px 0 auto; padding: 0; border: 0; background: none; min-width: 24px;
       font: inherit; font-size: 11px; line-height: 14px; text-transform: uppercase; color: var(--branco);
@@ -182,11 +191,23 @@ const atual = Astro.url.pathname;
        aqui, então 1 e 999 são indistinguíveis no resto. */
     .logo {
       float: left; position: relative; z-index: 1; margin-top: -33px;
-      display: grid; place-items: center; width: 150px; height: 130px;
-      background: url('/img/tema/bg-logo.png') no-repeat center;
+      display: block;
     }
+    /* 150 px é a largura que o box do tema tinha aqui: entre 768 e 991 o menu
+       divide a linha com a placa, e com o item de Sustentabilidade ele passou a
+       precisar dela de volta. */
+    .logo img { width: 150px; }
     nav { float: right; margin-top: 10px; }
     nav ul { display: flex; flex-wrap: wrap; }
+    /* Entre 768 e 991 o menu tem uma linha só, e com o item de Sustentabilidade
+       (23/09/2026) ele passou a não caber nela: "Contato" caía sozinho embaixo.
+       12 px é o piso de texto da D21, e sozinho já devolve os ~50 px que
+       faltavam: medida a linha inteira depois da mudança, ela ocupa 700 dos
+       750 px da grade, com o recheio de 5 px de cada lado. Acima de 992 px nada
+       muda: lá o menu cabe com folga em 13 px. */
+    @media (max-width: 991px) {
+      nav a { padding-inline: 5px; font-size: 12px; }
+    }
     /* O botão só existe no celular; no desktop o menu fica sempre à vista,
        como no tema. */
     .alternar { display: none; }
@@ -194,8 +215,7 @@ const atual = Astro.url.pathname;
     .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
-    .logo { width: 293px; height: 200px; }
-    .logo img { width: 175px; }
+    .logo img { width: 220px; }
     nav { margin-top: 30px; }
     nav a { padding-inline: 7px; }
   }

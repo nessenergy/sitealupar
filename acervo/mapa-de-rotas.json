@@ -1,20 +1,25 @@
 {
-  "geradoEm": "2026-09-16T14:57:10.795Z",
-  "total": 163,
+  "geradoEm": "2026-09-23T13:56:16.330Z",
+  "total": 159,
   "porIdioma": {
-    "en": 55,
-    "es": 55,
-    "pt": 53
+    "en": 54,
+    "es": 54,
+    "pt": 51
   },
   "porTipo": {
     "faq": 101,
     "group": 23,
-    "pagina": 29,
+    "pagina": 25,
     "politica-de-privacidade": 3,
     "video": 7
   },
   "colisoes": [],
-  "destinosQuebrados": [],
+  "destinosQuebrados": [
+    {
+      "origem": "/alupar-e-a-covid-19/*",
+      "destino": "/sustentabilidade/"
+    }
+  ],
   "remapados": [
     {
       "de": "/sustentabilidade-2/",
@@ -514,6 +519,11 @@
       "porque": "aposentado: /en/noticias/* → https://ri.alupar.com.br/noticias/"
     },
     {
+      "rota": "/en/sustentabilidade-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /en/sustentabilidade-2/ → https://rs.alupar.com.br/"
+    },
+    {
       "rota": "/en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /en/politica-de-privacidade/condicoes-de-uso-pagina-antiga/ → /en/politica-de-privacidade/condicoes-de-uso/"
@@ -617,6 +627,11 @@
       "rota": "/es/noticias/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /es/noticias/* → https://ri.alupar.com.br/noticias/"
+    },
+    {
+      "rota": "/es/sustentabilidade-2/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /es/sustentabilidade-2/ → https://rs.alupar.com.br/"
     },
     {
       "rota": "/es/politica-de-privacidade/condicoes-de-uso-pagina-antiga/",
@@ -1124,6 +1139,11 @@
       "porque": "aposentado: /faq-new/ → /"
     },
     {
+      "rota": "/inovacao-pesquisa-e-desenvolvimento/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /inovacao-pesquisa-e-desenvolvimento/ → https://pdi.alupar.com.br/"
+    },
+    {
       "rota": "/noticias/",
       "motivo": "coberto-por-301",
       "porque": "aposentado: /noticias/* → https://ri.alupar.com.br/noticias/"
@@ -1131,7 +1151,12 @@
     {
       "rota": "/pesquisa-e-desenvolvimento/",
       "motivo": "coberto-por-301",
-      "porque": "aposentado: /pesquisa-e-desenvolvimento/ → /inovacao-pesquisa-e-desenvolvimento/"
+      "porque": "aposentado: /pesquisa-e-desenvolvimento/ → https://pdi.alupar.com.br/"
+    },
+    {
+      "rota": "/sustentabilidade/",
+      "motivo": "coberto-por-301",
+      "porque": "aposentado: /sustentabilidade/ → https://rs.alupar.com.br/"
     },
     {
       "rota": "/trabalhe-conosco/",
@@ -1594,15 +1619,6 @@
       "titulo": "Privacy Policy",
       "data": null,
       "palavras": 645
-    },
-    {
-      "rota": "/en/sustentabilidade-2/",
-      "idioma": "en",
-      "tipo": "pagina",
-      "slug": "sustentabilidade-2",
-      "titulo": "Sustainability",
-      "data": null,
-      "palavras": 1244
     },
     {
       "rota": "/en/trabalhe-conosco/",
@@ -2091,15 +2107,6 @@
       "palavras": 458
     },
     {
-      "rota": "/es/sustentabilidade-2/",
-      "idioma": "es",
-      "tipo": "pagina",
-      "slug": "sustentabilidade-2",
-      "titulo": "Sostenibilidad",
-      "data": null,
-      "palavras": 1274
-    },
-    {
       "rota": "/es/trabalhe-conosco/",
       "idioma": "es",
       "tipo": "pagina",
@@ -2550,15 +2557,6 @@
       "palavras": 3996
     },
     {
-      "rota": "/inovacao-pesquisa-e-desenvolvimento/",
-      "idioma": "pt",
-      "tipo": "pagina",
-      "slug": "inovacao-pesquisa-e-desenvolvimento",
-      "titulo": "Programa de Pesquisa, Desenvolvimento e Inovação Regulado",
-      "data": null,
-      "palavras": 103
-    },
-    {
       "rota": "/politica-de-privacidade/",
       "idioma": "pt",
       "tipo": "pagina",
@@ -2566,15 +2564,6 @@
       "titulo": "Política de Privacidade",
       "data": null,
       "palavras": 438
-    },
-    {
-      "rota": "/sustentabilidade/",
-      "idioma": "pt",
-      "tipo": "pagina",
-      "slug": "sustentabilidade-2",
-      "titulo": "Sustentabilidade",
-      "data": null,
-      "palavras": 1315
     },
     {
       "rota": "/politica-de-privacidade/condicoes-de-uso/",

@@ -1,7 +1,13 @@
 ---
 /**
- * A home, uma vez, nos três idiomas: vídeo institucional no topo, faixa
- * institucional (D10) e a caixa de sustentabilidade.
+ * A home, uma vez, nos três idiomas: vídeo institucional no topo e os selos de
+ * reconhecimento embaixo.
+ *
+ * Em 23/09/2026 a Alupar pediu a home enxuta: saíram a faixa dos quatro
+ * indicadores (que era a seção "A Alupar em números"), o atalho "Veja mais
+ * vídeos" e o `container caixas` inteiro, com a caixa de Sustentabilidade
+ * dentro dela — o assunto passou a viver em rs.alupar.com.br, que entrou no
+ * menu. No lugar entraram os três selos.
  *
  * O topo era o rotativo do site atual até 16/09/2026, quando a Alupar pediu o
  * vídeo no lugar dele, como no pdi.alupar.com.br. Das três caixas de baixo
@@ -15,9 +21,12 @@
  * Sem JS, a capa e um link para o vídeo no YouTube. O botão de pausa é o
  * controle que a WCAG 2.2.2 exige para conteúdo em movimento.
  */
-import { Picture } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import capa from '../assets/video-institucional.jpg';
+import ghg from '../assets/selos/ghg-protocol.png';
+import lugares from '../assets/selos/lugares-incriveis.png';
+import trofeu from '../assets/selos/trofeu-transparencia.png';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
 import { VIDEO_INSTITUCIONAL } from '../lib/videos';
 
@@ -30,15 +39,15 @@ const pre = prefixo[idioma];
    `src/assets/banners/` e a máquina do carrossel continua em `src/lib/banners.ts`
    e em `public/js/site.js`: se a decisão voltar atrás, nada precisa ser
    reescrito, basta o topo voltar a montar as telas. */
-const ICONES = ['meio-ambiente', 'agua', 'fauna-e-flora'].map((n) => `/img/tema/icone-${n}.png`);
-
-// km e MW: texto da Área de atuação revisado pela Alupar em 21/09/2026 ("mais
-// de 10 mil km", "quase 800 MW") — a mesma fonte das duas páginas (D19).
-const indicadores = [
-  { valor: idioma === 'en' ? '10,000+' : '+10 mil', rotulo: t.indicadores.linhas },
-  { valor: '4',    rotulo: t.indicadores.paises },
-  { valor: '~800', rotulo: t.indicadores.capacidade },
-  { valor: 'AAA', rotulo: t.indicadores.rating },
+/* Os três selos que a Alupar enviou em 23/09/2026. O alt é o nome do prêmio,
+   igual nos três idiomas: são nomes próprios de programas brasileiros, e é o
+   que a arte diz. As artes vieram em tela de 640×720 com a peça na metade de
+   cima e o resto em branco — estão recortadas na margem do conteúdo, senão os
+   três apareceriam flutuando no alto de três retângulos vazios. */
+const selos = [
+  { arte: ghg,     alt: 'Programa GHG Protocol' },
+  { arte: lugares, alt: 'Prêmio Lugares Incríveis' },
+  { arte: trofeu,  alt: 'Troféu Transparência 2026' },
 ];
 
 ---
@@ -66,51 +75,20 @@ const indicadores = [
         <a class="assistir" href={`https://www.youtube.com/watch?v=${VIDEO_INSTITUCIONAL}`}>{t.assistirVideo}</a>
       </noscript>
     </section>
-    {/* O atalho para a listagem morava na caixa que saiu. Fica fora da faixa:
-        dentro dela seria recortado junto com o vídeo. */}
-    <div class="container pos-video">
-      <a class="mais" href={`${pre}/videos/`}>
-        <span class="circulo" aria-hidden="true">+</span> {t.verMaisVideos}
-      </a>
-    </div>
-
-    <section class="faixa" aria-label={t.emNumeros}>
+    {/* Reconhecimentos. Não havia área de selos no site; esta é a primeira, e
+        fica logo abaixo do vídeo, em faixa branca sobre o cinza da página —
+        as artes têm fundo branco, e sobre o #ECECEC apareceriam como três
+        retângulos. Sem título à vista, como no pedido: quem usa leitor de tela
+        chega pelo rótulo da seção. */}
+    <section class="selos" aria-label={t.reconhecimentos}>
       <div class="container">
         <ul>
-          {indicadores.map((i) => (
-            <li>
-              <span class="valor">{i.valor}</span>
-              <span class="rotulo">{i.rotulo}</span>
-            </li>
+          {selos.map((s) => (
+            <li><Image src={s.arte} alt={s.alt} height={320} densities={[1]} /></li>
           ))}
         </ul>
       </div>
     </section>
-
-    <div class="container caixas">
-      {/* A caixa de notícias saiu em 16/09/2026, com a área inteira (D16). A
-          remoção completa — páginas, listagens e os 301 — está no #91; aqui só
-          o bloco da home, para esta alternativa poder ser vista inteira. */}
-
-      {/* A caixa do vídeo institucional saiu daqui em 16/09/2026: a mesma peça
-          subiu para o topo, no lugar do rotativo. O atalho para a listagem de
-          vídeos, que morava nesta caixa, passa a viver no rodapé do topo. */}
-      <section class="caixa" aria-labelledby="h-sustentabilidade">
-        <h2 id="h-sustentabilidade">{t.sustentabilidade}</h2>
-        <ul class="eixos">
-          {t.eixos.map((e, n) => (
-            <li>
-              <img src={ICONES[n]} alt="" width="29" height="38" />
-              <div>
-                <h3><a href={t.sustentabilidadeHref}>{e.titulo}</a></h3>
-                <p>{e.texto}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <a class="mais" href={t.sustentabilidadeHref}><span class="circulo" aria-hidden="true">+</span> {t.saibaMais}</a>
-      </section>
-    </div>
   </main>
 </Base>
 
@@ -124,22 +102,6 @@ const indicadores = [
     position: relative; overflow: hidden;
     height: clamp(260px, 40vw, 560px);
     background: var(--cinza-fundo);
-  }
-  /* O box azul do logotipo passa a descer 40 px sobre o vídeo. O box é float
-     dentro de um `flow-root` (Cabecalho.astro), então a margem negativa encolhe
-     a altura que o cabeçalho reserva para ele e o box sobra para fora, sobre o
-     que vier abaixo — sem tirá-lo do fluxo nem mexer no fundo branco do menu,
-     que continua terminando onde terminava. A faixa do vídeo ganhou os mesmos
-     40 px (447 → 487) para o que fica à vista não encolher.
-
-     `:global` porque o alvo é do Cabecalho, e o cabeçalho é de todas as
-     páginas — mas o CSS deste componente só é carregado onde ele é usado, que
-     são as três homes. Numa interna nada muda.
-
-     Só a partir de 768 px: abaixo disso o cabeçalho do tema é uma faixa azul
-     de ponta a ponta e não há box para sobrepor. */
-  @media (min-width: 768px) {
-    :global(.logo) { margin-bottom: -40px; }
   }
   /* O botão de pausa: canto inferior direito, 44 px de área de toque (WCAG
      2.5.8), sobre o vídeo. Contraste garantido pelo fundo escuro translúcido. */
@@ -180,64 +142,25 @@ const indicadores = [
     font-size: 14px; text-decoration: none;
   }
   .assistir:hover, .assistir:focus-visible { background: rgba(0, 0, 0, .9); }
-  /* O atalho para /videos/ sai da faixa e ganha a margem do corpo da página. */
-  .pos-video { padding-block: var(--e3) 0; display: flex; justify-content: flex-end; }
-  /* O -20px do .mais compensa o recheio da caixa branca; aqui o recheio é o do
-     container, menor, e a margem negativa empurrava 5 px para fora da tela. */
-  .pos-video .mais { margin-right: 0; }
-
-  .faixa { border-block: 1px solid var(--cinza-borda); background: var(--cinza-fundo); }
-  .faixa ul {
+  /* Faixa branca com os três selos, alinhados pela altura: as artes têm
+     proporções diferentes (0,83, 1,00 e 1,17), então casar a altura é o que
+     mantém as três com o mesmo peso sem esticar nenhuma. `auto-fit` com piso
+     de 200 px quebra sozinho — três em linha no desktop, duas e uma no tablet,
+     uma embaixo da outra no celular — e o `justify-items` centra a última
+     linha incompleta. */
+  /* A home é curta: numa tela alta sobrava uma tira do cinza da página entre a
+     faixa branca e o rodapé. `main` já cresce (Base.astro), e aqui a faixa
+     cresce com ele — os selos ficam centrados no que sobrar, em vez de
+     empurrados para cima de uma tira vazia. */
+  main { display: flex; flex-direction: column; }
+  .selos { flex: 1; display: grid; align-content: center; background: var(--branco); }
+  .selos ul {
     list-style: none; margin: 0; padding: var(--e5) 0;
     display: grid; gap: var(--e4);
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center; align-items: center;
   }
-  .faixa li { display: flex; flex-direction: column; gap: var(--e1); }
-  .valor { font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--verde-texto); }
-  .rotulo { font-size: .875rem; color: var(--preto); }
-
-  /* .box-home do tema: branca, sombra 3px 3px 5px, título azul 20px */
-  .caixas { display: grid; gap: 30px; padding-block: var(--e5) 50px; }
-  /* Eram três caixas. O vídeo subiu para o topo e as notícias saíram (D16),
-     então sobrou uma. Sem media query de colunas: uma caixa só ocupa a linha,
-     e uma grade de três com dois buracos seria pior que nenhuma grade. */
-  .caixa {
-    display: flex; flex-direction: column; background: var(--branco);
-    padding: 1px 20px 8px; box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
-  }
-  /* O título das caixas é verde e de peso normal no site atual: o tema pede
-     azul em .box-home h3, mas um seletor solto mais abaixo no mesmo style.css
-     (`.page-id-2810 h1, h3 { color: #079541 !important }`) alcança todos os h3
-     da página, e `h1..h6 { font-weight: normal }` tira o negrito.
-     O verde de texto é --verde-texto (4,51:1); o de marca dá 3,90:1. */
-  .caixa h2 {
-    color: var(--verde-texto); font-size: 20px; font-weight: 400;
-    text-transform: uppercase; margin: 20px 0;
-  }
-
-  /* O link "saiba mais" ancora na base da caixa. */
-  .caixa .mais { margin-top: auto; }
-
-  .eixos { list-style: none; margin: 0; padding: 0; flex: 1; }
-  .eixos li { display: flex; gap: 20px; padding-block: var(--e3); border-bottom: 1px solid #EFEEEF; }
-  .eixos li:last-child { border-bottom: none; }
-  /* .list-sustentabilidade .media do tema: o título de cada eixo é um
-     h5.media-heading — 14 px, peso normal (o tema zera o negrito de h1 a h6),
-     5 px embaixo — e o link é cinza-escuro sem sublinhado, com sublinhado no
-     hover e no foco. Estava em negrito e sublinhado. */
-  .eixos h3 { font-size: 14px; font-weight: 400; margin: 0 0 5px; }
-  .eixos h3 a { color: var(--preto); text-decoration: none; }
-  .eixos h3 a:hover, .eixos h3 a:focus-visible { text-decoration: underline; }
-  .eixos p { margin: 0; line-height: 24px; }
-
-  /* a.btn-link-mais do tema: caixa alta 12px, sublinhado verde de 4px */
-  .mais {
-    align-self: flex-end; margin: 9px -20px 0 0; padding: 0 5px 12px;
-    position: relative; color: var(--preto); font-size: 12px; text-transform: uppercase; text-decoration: none;
-  }
-  .mais::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; border-bottom: 4px solid var(--verde); }
-  .circulo {
-    display: inline-block; width: 15px; height: 15px; margin-right: 3px;
-    border: 1px solid #5F5D5E; border-radius: 50%; line-height: 12px; text-align: center;
-  }
+  .selos li { margin: 0; }
+  .selos img { display: block; width: auto; height: 160px; }
+  @media (max-width: 767px) { .selos img { height: 140px; } }
 </style>
