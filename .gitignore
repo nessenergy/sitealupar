@@ -32,3 +32,6 @@ capturas/
 # cache do `wrangler pages dev`, usado para conferir o build local antes do
 # deploy — é gerado, não versionado
 .wrangler/
+
+# Configuração pessoal do Claude Code: permissões desta máquina, não do projeto
+.claude/settings.local.json
