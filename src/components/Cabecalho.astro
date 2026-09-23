@@ -85,6 +85,16 @@ const atual = Astro.url.pathname;
      vale para o corpo da página também — em 1280 o cabeçalho e a caixa branca
      começam os dois em x 70. Aqui não se repete nada dela. */
 
+  /* Cabeçalho fixo (pedido de 23/09/2026): a marca e o menu ficam à vista
+     durante a rolagem. `sticky` e não `fixed` porque o cabeçalho continua no
+     fluxo — com `fixed` o conteúdo subiria por baixo dele e seria preciso
+     devolver a altura no `main`, à mão, em cada largura.
+
+     z-index 10: acima do botão de pausa do vídeo (1) e abaixo do "pular para o
+     conteúdo" (100), que precisa aparecer por cima de tudo quando recebe foco.
+     `isolation` para o empilhamento não depender do que as páginas criarem. */
+  .cabecalho-site { position: sticky; top: 0; z-index: 10; isolation: isolate; }
+
   .barra { background: var(--cinza); }
   .barra-itens { display: flex; justify-content: flex-end; align-items: center; gap: var(--e3); min-height: 33px; }
   .barra a { color: var(--branco); font-size: 12px; text-transform: uppercase; text-decoration: none; }
@@ -164,6 +174,14 @@ const atual = Astro.url.pathname;
        aqui ganharia dela e o botão pararia de abrir o menu. */
     .alternar + nav { display: none; }
     .alternar[aria-expanded='true'] + nav { display: block; }
+    /* Com o cabeçalho rolando junto, um menu mais alto que a tela ainda era
+       alcançável: bastava rolar a página. Fixo, ele não é — os últimos itens
+       ficariam abaixo da borda, sem como chegar neles. Oito itens a 50 px
+       pedem 400 px, e a tela de 640 px do telefone mediano tem 530 livres
+       abaixo do cabeçalho; num de 480 px, não tem. Daí o teto com rolagem. */
+    .alternar[aria-expanded='true'] + nav {
+      max-height: calc(100dvh - 110px); overflow-y: auto;
+    }
   }
   @media (min-width: 768px) {
     /* A faixa do menu é BRANCA no tema, de ponta a ponta — medido na captura
@@ -189,8 +207,16 @@ const atual = Astro.url.pathname;
        aparece no foco do teclado — elementFromPoint devolve `a.logo` no
        centro dele; com 1, o link fica por cima. Não há mais nada empilhado
        aqui, então 1 e 999 são indistinguíveis no resto. */
+    /* A placa começava colada no topo da página (`margin-top: -33px` subia-a
+       sobre a barra cinza, como fazia o box de 200 px do tema). Agora ela
+       nasce abaixo da barra, que fica inteira à vista, e é o `margin-bottom`
+       negativo que devolve o avanço do tema: a faixa branca do menu continua
+       com a altura do menu, e a placa passa dela para baixo — 32 px sobre o
+       vídeo na home, sobre a faixa de foto nas internas. Com o cabeçalho fixo,
+       esse avanço acompanha a rolagem: é a placa sobre o conteúdo, de
+       propósito. */
     .logo {
-      float: left; position: relative; z-index: 1; margin-top: -33px;
+      float: left; position: relative; z-index: 1;
       display: block;
     }
     /* 150 px é a largura que o box do tema tinha aqui: entre 768 e 991 o menu
@@ -215,6 +241,7 @@ const atual = Astro.url.pathname;
     .ri-menu { display: none; }
   }
   @media (min-width: 992px) {
+    .logo { margin-bottom: -40px; }
     .logo img { width: 220px; }
     nav { margin-top: 30px; }
     nav a { padding-inline: 7px; }
