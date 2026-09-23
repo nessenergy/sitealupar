@@ -63,6 +63,8 @@ interface Textos {
   rodape: {
     direitos: string; privacidade: string; privacidadeHref: string;
     conduta: string; condutaHref: string; terceiros: string; denuncias: string; topo: string;
+    /** `aria-label` da lista de redes sociais do rodapé. */
+    redes: string;
   };
   /* Lista, não peça única: a home é um rotativo desde sempre. Hoje sobra um
      por idioma porque a regra 0.2 do Marco 0 tira o que é anterior a 2024 —
@@ -126,6 +128,7 @@ export const textos: Record<Idioma, Textos> = {
       conduta: 'Código de Conduta', condutaHref: 'https://arquivos.alupar.com.br/documentos/codigo-de-conduta.pdf',
       terceiros: 'Código de Conduta de Terceiros', denuncias: 'Canal de Denúncias',
       topo: 'Voltar ao topo', // novo
+      redes: 'Redes sociais da Alupar', // novo
     },
     rotativo: { anterior: 'Tela anterior', proxima: 'Próxima tela', pausar: 'Pausar o rotativo', retomar: 'Retomar o rotativo' }, // novo
     videoTopo: { pausar: 'Pausar vídeo', retomar: 'Reproduzir vídeo' },
@@ -193,6 +196,7 @@ export const textos: Record<Idioma, Textos> = {
       conduta: 'Code of Ethics', condutaHref: 'https://arquivos.alupar.com.br/documentos/code-of-ethics.pdf',
       terceiros: 'Third Parties Code of Conduct', denuncias: 'Reporting Channel',
       topo: 'Back to top', // novo
+      redes: 'Alupar on social media', // novo
     },
     rotativo: { anterior: 'Previous slide', proxima: 'Next slide', pausar: 'Pause the carousel', retomar: 'Resume the carousel' }, // novo
     videoTopo: { pausar: 'Pause video', retomar: 'Play video' },
@@ -260,6 +264,7 @@ export const textos: Record<Idioma, Textos> = {
       conduta: 'Código de conducta', condutaHref: 'https://arquivos.alupar.com.br/documentos/code-of-ethics.pdf',
       terceiros: 'Código de Conducta de Terceros', denuncias: 'Canal de Denuncias',
       topo: 'Volver arriba', // novo
+      redes: 'Redes sociales de Alupar', // novo
     },
     rotativo: { anterior: 'Pantalla anterior', proxima: 'Pantalla siguiente', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
     videoTopo: { pausar: 'Pausar vídeo', retomar: 'Reproducir vídeo' },
