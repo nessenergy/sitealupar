@@ -45,7 +45,6 @@ const externos = [
 ---
 <footer class="rodape">
   <div class="container">
-    <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
     <div class="faixa">
       <div class="identidade">
         <Image class="marca" src={marca} alt="" width={150} densities={[1, 2]} />
@@ -60,54 +59,43 @@ const externos = [
           ))}
         </ul>
       </div>
-      <div class="textos">
-        <ul class="links">
-          <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
-          {externos.map((e) => (
-            <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
-          ))}
-        </ul>
-        <p class="direitos">© {new Date().getFullYear()} ALUPAR - {r.direitos}</p>
-      </div>
+      <ul class="links">
+        <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
+        {externos.map((e) => (
+          <li><a href={e.href} target="_blank" rel="noopener noreferrer">{e.rotulo}<span class="sr-only"> ({t.novaAba})</span></a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="base">
+      <p class="direitos">© {new Date().getFullYear()} ALUPAR - {r.direitos}</p>
+      <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
     </div>
   </div>
 </footer>
 
 <style>
-  .rodape { background: var(--rodape-fundo); padding-top: 10px; text-align: center; }
-  /* O círculo continua com 23 px; a área de toque é de 44 px (WCAG 2.5.8 pede 24,
-     e 44 é o tamanho de um dedo). As margens negativas devolvem os 21 px que a
-     área a mais tomaria, para o rodapé não crescer. */
-  .topo {
-    position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px;
-    margin-block: -10px -11px;
-    color: var(--rodape-texto); text-decoration: none; line-height: 1;
-  }
-  .topo::before {
-    content: ''; position: absolute; inset: 0; margin: auto; width: 23px; height: 23px;
-    box-sizing: border-box; border: 2px solid var(--rodape-texto); border-radius: 50%;
-  }
-  /* O anel de foco global segue o raio do elemento, e o .topo é quadrado (44 px):
-     o anel vai para o círculo de 23 px, que é o que o teclado enxerga. */
-  .topo:focus-visible { outline: none; }
-  .topo:focus-visible::before { outline: 3px solid var(--azul); outline-offset: 2px; }
-  /* Marca à esquerda, textos à direita; abaixo de 768 px os dois empilham e
-     voltam ao centro, que é como o rodapé do tema sempre foi. */
+  /* Ritmo em múltiplos de 8, e duas fileiras separadas por um fio.
+     Antes era uma faixa só, com a marca colada à esquerda e os links à direita:
+     a 1280 px sobravam 272 px de vazio no meio, 36 px de ar morto embaixo e
+     nenhum em cima, e o "voltar ao topo" flutuava centrado — um terceiro eixo
+     de alinhamento numa faixa que já tinha dois. O fio ocupa o vazio como
+     estrutura, o © vai para onde a leitura começa e o círculo ganha lugar no
+     fim da fileira de baixo. */
+  .rodape { background: var(--rodape-fundo); padding-block: 32px 24px; }
+
+  /* Fileira de cima: identidade à esquerda, links à direita. */
   .faixa {
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-    gap: var(--e3); margin-top: 8px; padding-bottom: 8px;
+    gap: 24px;
   }
-  /* Bloco de identidade: a marca e, sob ela, as redes. O rodapé tinha uma
-     linha à esquerda e duas à direita; com as redes aqui, os dois lados se
-     equilibram e o texto não divide espaço com ícone. */
-  .identidade { display: grid; justify-items: start; gap: 6px; }
+  .identidade { display: grid; justify-items: start; gap: 12px; }
   /* 150 px é metade do arquivo: a arte tem 300 px e reduzir é o único caminho
      que não borra. `height: auto` mantém a proporção dos 300×97. */
   .marca { display: block; width: 150px; height: auto; }
   /* O glifo tem 20 px e o alvo, 44 — a WCAG 2.5.8 pede 24, e 44 é o tamanho de
-     um dedo, que é o mesmo critério do "voltar ao topo" logo acima. As margens
-     negativas tiram do desenho o espaço que o alvo a mais ocuparia, para o
-     bloco continuar alinhado à marca e o rodapé não crescer. */
+     um dedo, que é o mesmo critério do "voltar ao topo". A margem negativa tira
+     do desenho o espaço que o alvo a mais ocuparia, para o primeiro ícone
+     alinhar com a borda esquerda da marca. */
   .redes { display: flex; gap: 2px; list-style: none; margin: 0 0 0 -12px; padding: 0; }
   .redes a {
     display: grid; place-items: center; width: 44px; height: 44px;
@@ -115,20 +103,17 @@ const externos = [
   }
   /* O realce é um círculo translúcido atrás do ícone, não uma troca de cor: o
      verde de marca daria 2,87:1 sobre o #10328F e reprovaria o 3:1 que a WCAG
-     1.4.11 exige de componente. O branco segue em 11,2:1, e quem enxerga vê o
-     alvo crescer sob o ponteiro. */
+     1.4.11 exige de componente. O branco segue em 11,2:1. */
   .redes a::before {
     content: ''; position: absolute; width: 34px; height: 34px; border-radius: 50%;
     background: rgba(255, 255, 255, 0); transition: background 150ms ease;
   }
   .redes a:hover::before, .redes a:focus-visible::before { background: rgba(255, 255, 255, .15); }
   @media (prefers-reduced-motion: reduce) { .redes a::before { transition: none; } }
-  /* O anel de foco global segue o raio do elemento, e o alvo é quadrado: o anel
-     vai para o círculo, que é o que o teclado enxerga — mesma regra do topo. */
   .redes a:focus-visible { outline: none; }
   .redes a:focus-visible::before { outline: 3px solid var(--branco); outline-offset: 2px; }
   .redes svg { display: block; position: relative; }
-  .textos { text-align: right; }
+
   /* `.links` e não `ul`: a lista de redes é outra `ul` no mesmo rodapé, e o
      separador "|" escapava para debaixo dos ícones. */
   .links {
@@ -147,20 +132,47 @@ const externos = [
   .links a { display: inline-block; line-height: 24px; color: var(--rodape-texto); text-decoration: none; }
   /* a:hover e a:focus do style.css: sublinhado, na mesma cor */
   .links a:hover, .links a:focus { color: var(--rodape-texto); text-decoration: underline; }
+
+  /* Fileira de baixo, depois do fio: direitos à esquerda, topo à direita. */
+  .base {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 8px 24px; margin-top: 20px; padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, .18);
+  }
   .direitos {
-    margin: 2px 0 0; font-size: 12px; line-height: 17px;
+    margin: 0; font-size: 12px; line-height: 17px;
     text-transform: uppercase; color: var(--rodape-texto);
   }
+  /* O círculo continua com 23 px; a área de toque é de 44 px (WCAG 2.5.8 pede
+     24, e 44 é o tamanho de um dedo). As margens negativas devolvem ao desenho
+     o espaço que a área a mais tomaria, para a fileira não crescer. */
+  .topo {
+    position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px;
+    margin-block: -14px; margin-right: -10px;
+    color: var(--rodape-texto); text-decoration: none; line-height: 1;
+  }
+  .topo::before {
+    content: ''; position: absolute; inset: 0; margin: auto; width: 23px; height: 23px;
+    box-sizing: border-box; border: 2px solid var(--rodape-texto); border-radius: 50%;
+  }
+  /* O anel de foco global segue o raio do elemento, e o .topo é quadrado (44 px):
+     o anel vai para o círculo de 23 px, que é o que o teclado enxerga. */
+  .topo:focus-visible { outline: none; }
+  .topo:focus-visible::before { outline: 3px solid var(--branco); outline-offset: 2px; }
+
   @media (max-width: 767px) {
-    .faixa { flex-direction: column; justify-content: center; gap: var(--e2); }
+    .rodape { padding-block: 28px 20px; }
+    /* No celular tudo centra, que é como o rodapé do tema sempre foi. */
+    .faixa { flex-direction: column; justify-content: center; gap: 16px; }
     .identidade { justify-items: center; }
     .redes { margin-left: 0; }
-    .textos { text-align: center; }
     .links { justify-content: center; }
     /* Com 12 px, a segunda linha ("Código de conduta de terceiros | Canal de
        denúncias", 379 px) não cabe nos 360 px da lista a 390 px de largura e o
        rodapé ganharia uma terceira linha. A lista avança 12 px sobre o
        preenchimento do container em cada lado (384 px): mesma quebra de antes. */
     .links { margin-inline: -12px; }
+    .base { flex-direction: column; justify-content: center; text-align: center; gap: 4px; }
+    .topo { margin-right: 0; margin-block: -10px; }
   }
 </style>
