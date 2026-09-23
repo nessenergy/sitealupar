@@ -209,7 +209,8 @@ const atual = Astro.url.pathname;
        aqui, então 1 e 999 são indistinguíveis no resto. */
     /* A placa começava colada no topo da página (`margin-top: -33px` subia-a
        sobre a barra cinza, como fazia o box de 200 px do tema). Agora ela
-       nasce abaixo da barra, que fica inteira à vista, e é o `margin-bottom`
+       nasce 8 px abaixo da barra — o respiro que a Alupar pediu em 23/09/2026,
+       para as duas não se tocarem —, e é o `margin-bottom`
        negativo que devolve o avanço do tema: a faixa branca do menu continua
        com a altura do menu, e a placa passa dela para baixo — 32 px sobre o
        vídeo na home, sobre a faixa de foto nas internas. Com o cabeçalho fixo,
@@ -217,7 +218,7 @@ const atual = Astro.url.pathname;
        propósito. */
     .logo {
       float: left; position: relative; z-index: 1;
-      display: block;
+      display: block; margin-top: 8px;
     }
     /* 150 px é a largura que o box do tema tinha aqui: entre 768 e 991 o menu
        divide a linha com a placa, e com o item de Sustentabilidade ele passou a
