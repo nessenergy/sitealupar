@@ -8,13 +8,19 @@
  * — hoje moram em api.mziq.com e sumiriam com o contrato (Tarefa 5).
  *
  * A marca é a arte que a Alupar enviou (300×97, branco e verde sobre
- * transparente), servida como está e reduzida por CSS com `height: auto`.
+ * transparente). Ela aparece a 150 px, e por isso passa pelo pipeline de imagem
+ * do Astro em vez de ir direta: servir os 300 px do arquivo para exibir 150
+ * reprova `uses-responsive-images` no portão do CI, em toda página. Com
+ * `densities`, quem tem tela comum baixa a de 150 e quem tem tela densa baixa a
+ * de 300 — o arquivo original continua sendo o teto, nada é ampliado.
  * `alt=""`: ela repete a marca do cabeçalho, que já tem texto alternativo — um
  * alt aqui faria o leitor de tela anunciar "Alupar" duas vezes na mesma página.
  *
  * O círculo de "voltar ao topo" usa --rodape-texto e não o #535252 do tema:
  * 2,2:1 sobre o fundo reprova o 3:1 de componente de interface (WCAG 1.4.11).
  */
+import { Image } from 'astro:assets';
+import marca from '../assets/logo-alupar-rodape.png';
 import { textos, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
@@ -30,7 +36,7 @@ const externos = [
   <div class="container">
     <a class="topo" href="#topo"><span aria-hidden="true">︿</span><span class="sr-only">{r.topo}</span></a>
     <div class="faixa">
-      <img class="marca" src="/logo-alupar-rodape.png" alt="" width="300" height="97" />
+      <Image class="marca" src={marca} alt="" width={150} densities={[1, 2]} />
       <div class="textos">
         <ul>
           <li><a href={r.privacidadeHref}>{r.privacidade}</a></li>
@@ -69,7 +75,7 @@ const externos = [
     gap: var(--e3); margin-top: 8px; padding-bottom: 8px;
   }
   /* 150 px é metade do arquivo: a arte tem 300 px e reduzir é o único caminho
-     que não borra. `height: auto` mantém os 97 px de altura em proporção. */
+     que não borra. `height: auto` mantém a proporção dos 300×97. */
   .marca { display: block; width: 150px; height: auto; }
   .textos { text-align: right; }
   ul {
