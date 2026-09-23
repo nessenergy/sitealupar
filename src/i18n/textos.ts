@@ -44,12 +44,11 @@ interface Textos {
   descricao: string;
   pularParaConteudo: string;
   destaques: string;
-  emNumeros: string;
   videoInstitucional: string;
   videos: string;
   videosAnteriores: string;
-  sustentabilidade: string;
-  indicadores: { paises: string; rating: string; linhas: string; capacidade: string };
+  /** `aria-label` da faixa de selos da home: ela não tem título à vista. */
+  reconhecimentos: string;
   idioma: string;
   /** Rótulo da trilha ("Você está em:"), texto solto — não é o nome de degrau nenhum. */
   trilha: string;
@@ -76,10 +75,6 @@ interface Textos {
   rotativo: { anterior: string; proxima: string; pausar: string; retomar: string };
   /* Botão do vídeo do topo da home: pausa quando toca, reproduz quando parado. */
   videoTopo: { pausar: string; retomar: string };
-  eixos: { titulo: string; texto: string }[];
-  sustentabilidadeHref: string;
-  verMaisVideos: string;
-  saibaMais: string;
   assistirVideo: string;
   formulario: {
     obrigatorios: string; nome: string; email: string; empresa: string; telefone: string;
@@ -99,17 +94,10 @@ export const textos: Record<Idioma, Textos> = {
       'A Alupar atua em transmissão e geração de energia no Brasil, na Colômbia, no Peru e no Chile.',
     pularParaConteudo: 'Pular para o conteúdo',
     destaques: 'Destaques',
-    emNumeros: 'A Alupar em números',
     videoInstitucional: 'Vídeo institucional',
     videos: 'Vídeos',
     videosAnteriores: 'Vídeos anteriores',
-    sustentabilidade: 'Sustentabilidade',
-    indicadores: {
-      linhas: 'km de linhas de transmissão',
-      paises: 'países: Brasil, Colômbia, Peru e Chile',
-      capacidade: 'MW de capacidade instalada',
-      rating: 'rating em escala nacional, Fitch',
-    },
+    reconhecimentos: 'Reconhecimentos',
     idioma: 'Idioma',
     trilha: 'Você está em:',
     trilhaNav: 'Trilha de navegação', // novo
@@ -124,7 +112,8 @@ export const textos: Record<Idioma, Textos> = {
         { rotulo: 'A Companhia', href: '/a-companhia/' },
         { rotulo: 'Área de atuação', href: '/area-de-atuacao/' },
         { rotulo: 'Empresas', href: '/empresas/' },
-        { rotulo: 'Inovação e P&D', href: '/inovacao-pesquisa-e-desenvolvimento/' },
+        { rotulo: 'Sustentabilidade', href: 'https://rs.alupar.com.br/' }, // portal próprio, pedido de 23/09/2026
+        { rotulo: 'Inovação e P&D', href: 'https://pdi.alupar.com.br/' }, // era a página interna; portal próprio desde 23/09/2026
         { rotulo: 'Trabalhe Conosco', href: 'https://alupar.gupy.io/' },
         { rotulo: 'Contato', href: '/contato/' },
       ],
@@ -147,14 +136,6 @@ export const textos: Record<Idioma, Textos> = {
         href: 'https://arquivos.alupar.com.br/documentos/relatorio-de-sustentabilidade-2025.pdf',
       },
     ],
-    eixos: [
-      { titulo: 'Meio Ambiente', texto: 'Reposição e recuperação de vegetação florestal nativa' },
-      { titulo: 'Água', texto: 'Manutenção da qualidade da água dos corpos hídricos' },
-      { titulo: 'Fauna e Flora', texto: 'Manutenção da biodiversidade' },
-    ],
-    sustentabilidadeHref: '/sustentabilidade/',
-    verMaisVideos: 'Veja mais vídeos',
-    saibaMais: 'Saiba mais do programa',
     assistirVideo: 'Assistir ao vídeo institucional no YouTube', // novo
     formulario: {
       obrigatorios: '* Campos obrigatórios', // novo
@@ -184,17 +165,10 @@ export const textos: Record<Idioma, Textos> = {
       'Alupar operates in power transmission and generation in Brazil, Colombia, Peru and Chile.',
     pularParaConteudo: 'Skip to content',
     destaques: 'Highlights',
-    emNumeros: 'Alupar in numbers',
     videoInstitucional: 'Institutional video',
     videos: 'Videos',
     videosAnteriores: 'Previous videos',
-    sustentabilidade: 'Sustainability',
-    indicadores: {
-      linhas: 'km of transmission lines',
-      paises: 'countries: Brazil, Colombia, Peru and Chile',
-      capacidade: 'MW of installed capacity',
-      rating: 'national scale rating, Fitch',
-    },
+    reconhecimentos: 'Recognitions',
     idioma: 'Language',
     trilha: 'You are here:', // novo — o site atual imprime o rótulo em português (P7)
     trilhaNav: 'Breadcrumb', // novo
@@ -206,6 +180,7 @@ export const textos: Record<Idioma, Textos> = {
         { rotulo: 'Company', href: '/en/a-companhia/' },
         { rotulo: 'Business Segment', href: '/en/area-de-atuacao/' },
         { rotulo: 'Companies', href: '/en/empresas/' },
+        { rotulo: 'Sustainability', href: 'https://rs.alupar.com.br/' }, // portal próprio (em português), pedido de 23/09/2026
         { rotulo: 'Careers', href: 'https://alupar.gupy.io/' }, // novo — decisão P7
         { rotulo: 'Contact Us', href: '/en/contato/' },
       ],
@@ -228,14 +203,6 @@ export const textos: Record<Idioma, Textos> = {
         href: 'https://arquivos.alupar.com.br/documentos/sustainability-report-2025.pdf',
       },
     ],
-    eixos: [
-      { titulo: 'Environment', texto: 'Replacement and recovery of native forests' },
-      { titulo: 'Water', texto: 'Maintenance of the quality of the water bodies' },
-      { titulo: 'Fauna and Flora', texto: 'Maintenance of biodiversity' },
-    ],
-    sustentabilidadeHref: '/en/sustentabilidade-2/',
-    verMaisVideos: 'See more videos',
-    saibaMais: 'Learn more about the program',
     assistirVideo: 'Watch the institutional video on YouTube', // novo
     formulario: {
       obrigatorios: '* Required fields',
@@ -265,17 +232,10 @@ export const textos: Record<Idioma, Textos> = {
       'Alupar actúa en transmisión y generación de energía en Brasil, Colombia, Perú y Chile.',
     pularParaConteudo: 'Saltar al contenido',
     destaques: 'Destacados',
-    emNumeros: 'Alupar en números',
     videoInstitucional: 'Video institucional',
     videos: 'Videos',
     videosAnteriores: 'Videos anteriores',
-    sustentabilidade: 'Sostenibilidad',
-    indicadores: {
-      linhas: 'km de líneas de transmisión',
-      paises: 'países: Brasil, Colombia, Perú y Chile',
-      capacidade: 'MW de capacidad instalada',
-      rating: 'calificación en escala nacional, Fitch',
-    },
+    reconhecimentos: 'Reconocimientos',
     idioma: 'Idioma',
     trilha: 'Usted está en:', // novo — o site atual imprime o rótulo em português (P7)
     trilhaNav: 'Ruta de navegación', // novo
@@ -287,6 +247,7 @@ export const textos: Record<Idioma, Textos> = {
         { rotulo: 'Compañía', href: '/es/a-companhia/' },
         { rotulo: 'Segmento de Negocio', href: '/es/area-de-atuacao/' },
         { rotulo: 'Empresas', href: '/es/empresas/' },
+        { rotulo: 'Sostenibilidad', href: 'https://rs.alupar.com.br/' }, // portal propio (en portugués), pedido de 23/09/2026
         { rotulo: 'Trabaje con nosotros', href: 'https://alupar.gupy.io/' }, // novo — decisão P7
         { rotulo: 'Contacto', href: '/es/contato/' },
       ],
@@ -303,14 +264,6 @@ export const textos: Record<Idioma, Textos> = {
     rotativo: { anterior: 'Pantalla anterior', proxima: 'Pantalla siguiente', pausar: 'Pausar el carrusel', retomar: 'Reanudar el carrusel' }, // novo
     videoTopo: { pausar: 'Pausar vídeo', retomar: 'Reproducir vídeo' },
     banner: [{ legenda: 'Energía que impulsa la vida', alt: 'Energía que impulsa la vida', href: null }], // decisão P1
-    eixos: [
-      { titulo: 'Medio Ambiente', texto: 'Reposición y recuperación de vegetación forestal nativa' },
-      { titulo: 'Agua', texto: 'Mantenimiento de la calidad del agua de los cuerpos hídricos' },
-      { titulo: 'Fauna y Flora', texto: 'Mantenimiento de la biodiversidad' },
-    ],
-    sustentabilidadeHref: '/es/sustentabilidade-2/',
-    verMaisVideos: 'Más vídeos',
-    saibaMais: 'Más información del programa',
     assistirVideo: 'Ver el video institucional en YouTube', // novo
     formulario: {
       obrigatorios: '* Campos obligatorios',

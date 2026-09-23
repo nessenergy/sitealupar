@@ -4,11 +4,19 @@
 # Duplicatas e restos de edição, hoje indexáveis
 /trabalhe-conosco-2/                              /   301
 /faq-new/                                          /   301
-/sustentabilidade-2/                               /sustentabilidade/   301
+/sustentabilidade-2/                               https://rs.alupar.com.br/   301
 /politica-de-privacidade/condicoes-de-uso-pagina-antiga/  /politica-de-privacidade/condicoes-de-uso/   301
 
-# Consolidação de P&D (duas páginas para o mesmo assunto)
-/pesquisa-e-desenvolvimento/                       /inovacao-pesquisa-e-desenvolvimento/   301
+# Sustentabilidade e P&D passaram a viver em portais próprios da Alupar
+# (pedido de 23/09/2026): o menu aponta para eles, e as páginas internas, que
+# repetiriam o assunto com conteúdo mais velho, redirecionam para lá. As duas
+# linhas de consolidação acima já apontam direto para o destino final — 301
+# encadeado custa um salto a mais e envelhece pior.
+/sustentabilidade/                                 https://rs.alupar.com.br/   301
+/en/sustentabilidade-2/                            https://rs.alupar.com.br/   301
+/es/sustentabilidade-2/                            https://rs.alupar.com.br/   301
+/pesquisa-e-desenvolvimento/                       https://pdi.alupar.com.br/   301
+/inovacao-pesquisa-e-desenvolvimento/              https://pdi.alupar.com.br/   301
 
 # Trabalhe Conosco vai direto para o Gupy, como já faz o menu
 /trabalhe-conosco/                                 https://alupar.gupy.io/   301
@@ -35,11 +43,11 @@
 /sitemap.xml                                       /sitemap-index.xml   301
 /wp-sitemap.xml                                    /sitemap-index.xml   301
 
-# A origem manda /sustentabilidade/ para /faq/sustentabilidade-2/. No site novo
-# a página canônica passa a ser /sustentabilidade/, e é /sustentabilidade-2/
-# que redireciona — a linha correspondente está acima. Isso **exige** que a
-# página exista com esse caminho; se ela não for criada, o redirecionamento
-# acima aponta para um 404. Criada no REMAPA de gerar-mapa-de-rotas.mjs.
+# A origem manda /sustentabilidade/ para /faq/sustentabilidade-2/, e até
+# 23/09/2026 a página canônica do assunto era /sustentabilidade/, criada pelo
+# REMAPA de gerar-mapa-de-rotas.mjs. Com o portal rs.alupar.com.br no menu, ela
+# deixou de ser gerada: os três caminhos do assunto vão para o portal, e o
+# REMAPA perdeu o efeito — quem redireciona não vira página.
 
 # ── Permalinks traduzidos que só existem como LINK, nunca como página ──
 # O conteúdo aponta para /privacy-policy e /politica-de-privacidad — os slugs
@@ -365,8 +373,10 @@
 
 # ─── dinâmicas: sempre por último — limite do Pages (100 dinâmicas; a primeira dinâmica desliga as estáticas) ───
 
-# Acervo de 2021 arquivado
-/alupar-e-a-covid-19/*                             /sustentabilidade/   301
+# Acervo de 2021 arquivado. Ia para /sustentabilidade/, que desde 23/09/2026
+# redireciona para o portal — 301 para 301 é um salto a mais e um elo a menos
+# para quebrar.
+/alupar-e-a-covid-19/*                             https://rs.alupar.com.br/   301
 
 # Mídia do WordPress antigo: mesma chave, agora no R2 (infra/arquivos.md).
 /wp-content/uploads/*                              https://arquivos.alupar.com.br/:splat   301
