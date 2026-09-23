@@ -144,14 +144,19 @@ test('A Companhia tem a mesma estrutura nos três idiomas: abertura de 2007, map
 });
 
 /* A arte MISSAO-VALORES trazia a missão antiga desenhada na imagem e saiu com o
-   texto de 22/09/2026, que traz missão e visão novas. Os sete valores seguem,
-   em texto — como já estavam em espanhol, que nunca teve a arte. */
-test('missão, visão e valores são texto de verdade nos três idiomas, não imagem', () => {
-  for (const [pre, palavra] of [['', 'Planejamento'], ['/en', 'Planning'], ['/es', 'Planificación']] as const) {
+   texto de 22/09/2026, que traz missão e visão novas. Os sete valores saíram a
+   pedido da Alupar em 23/09/2026: a página fica com missão e visão, em texto. */
+test('missão e visão são texto de verdade nos três idiomas, e os valores não voltaram', () => {
+  for (const [pre, missao, visao] of [
+    ['', 'Missão', 'Visão'], ['/en', 'Mission', 'Vision'], ['/es', 'Misión', 'Visión'],
+  ] as const) {
     const c = itens().find((i) => i.rota === `${pre}/a-companhia/`)?.corpo ?? '';
-    assert.match(c, /<h3[^>]*>/, `${pre}/a-companhia/ sem os subtítulos de missão, visão e valores`);
-    assert.ok(c.includes(palavra), `${pre}/a-companhia/ sem os valores em texto`);
-    assert.doesNotMatch(c, /MISSAO-VALORES|sr-only/, `${pre}/a-companhia/`);
+    for (const titulo of [missao, visao]) {
+      assert.match(c, new RegExp(`<h3[^>]*>${titulo}</h3>`), `${pre}/a-companhia/ sem o subtítulo ${titulo}`);
+    }
+    /* Nem a arte antiga, nem o bloco de leitor de tela que existia por causa
+       dela, nem os valores por qualquer caminho. */
+    assert.doesNotMatch(c, /MISSAO-VALORES|sr-only|Planejamento|Planning|Planificación/, `${pre}/a-companhia/`);
   }
 });
 
