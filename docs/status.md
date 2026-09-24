@@ -27,6 +27,9 @@ acervo. Nenhum limite foi afrouxado para fazer PR passar.
 | 23/09 | A Companhia sem os valores e sem o mapa | pedido da Alupar |
 | 23/09 | Rodapé em #10328F, com a marca à esquerda e texto branco | D26 |
 
+O balanço da entrega contra a proposta — e o que foi entregue além dela — está em
+[`relatorio-de-entrega.md`](relatorio-de-entrega.md).
+
 ## O que falta para a virada
 
 **Depende da Alupar** — sem isso a troca não acontece, e nada aqui custa hora
