@@ -25,8 +25,11 @@ test('o robots declara um agente e libera o site', () => {
   assert.match(robots, /^Allow: \/$/m);
 });
 
-test('os content signals são usados, não apenas explicados', () => {
-  assert.match(robots, /^Content-Signal: search=yes, ai-input=yes, ai-train=no$/m);
+/* A linha `Content-Signal:` saiu em 24/09: o Lighthouse a reporta como erro de
+   sintaxe, e o portão de SEO do CI reprovava em toda página. O preâmbulo de
+   reserva de direitos fica; a diretiva, não. */
+test('o robots não traz diretiva que o validador reporte como erro', () => {
+  assert.doesNotMatch(robots, /^Content-Signal:/m);
 });
 
 test('o preâmbulo de reserva de direitos continua no arquivo', () => {

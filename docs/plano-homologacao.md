@@ -1,5 +1,9 @@
 # Plano de homologação — conferência visual, P9 pronta e limpeza
 
+> **Registro histórico.** A homologação foi concluída em 12/09/2026 e a
+> virada aconteceu em 23/09. Mantido como registro do que foi conferido e de
+> como; as divergências deliberadas seguem valendo como decisão.
+
 **Objetivo:** chegar à aprovação do Marketing com o site novo conferido lado a
 lado contra o atual, deixar a P9 pronta para entrar no dia em que for decidida
 e limpar o que sobrou da implantação.

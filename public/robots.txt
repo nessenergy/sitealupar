@@ -23,8 +23,15 @@
 # RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT
 # AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.
 
+# Nota sobre content signals: o preâmbulo acima é mantido porque é reserva de
+# direitos sob a diretiva europeia, mas a linha `Content-Signal:` em si não
+# entra aqui. Ela é diretiva não padronizada, e o Lighthouse a reporta como
+# erro de sintaxe — o que reprovaria o portão de SEO do CI em toda página. A
+# posição da Alupar sobre uso do acervo por IA, quando definida, volta por um
+# caminho que não quebre o arquivo (cabeçalho de resposta ou a funcionalidade
+# da própria zona), e não afrouxando o limite.
+
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 Sitemap: https://www.alupar.com.br/sitemap-index.xml

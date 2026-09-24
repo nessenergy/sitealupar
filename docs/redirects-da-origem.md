@@ -1,5 +1,10 @@
 # O que a origem redireciona hoje
 
+> **Registro histórico.** As regras descritas aqui viviam no WordPress do
+> fornecedor e **morreram com a virada de 23/09/2026** — inclusive a que
+> sequestrava `/en/`, conferida em 200 no minuto seguinte à troca. Mantido
+> como registro de como foram levantadas.
+
 Levantado em 04/09/2026 por `scripts/descobrir-redirects.mjs`, e guardado em
 `acervo/redirects-origem.json`.
 

@@ -1,5 +1,13 @@
 # Plano de virada — o institucional no ar em três semanas
 
+> **Registro histórico.** Este plano foi executado: a virada aconteceu em
+> 23/09/2026, às 20h20 (D27), e o site está no ar. O que se lê abaixo é o
+> roteiro como ele foi escrito, mantido para quem precisar saber por que cada
+> passo existiu — não é lista de tarefas pendentes. Os passos operacionais
+> viraram comando em `scripts/virada.mjs`, inclusive o retorno. Estado atual
+> em [`status.md`](status.md); o que foi entregue, em
+> [`relatorio-de-entrega.md`](relatorio-de-entrega.md).
+
 **Objetivo:** pôr `www.alupar.com.br` no ar pelo Cloudflare Pages em ~3 semanas,
 com o acervo que já está no repositório, sem esperar pelo CMS.
 
