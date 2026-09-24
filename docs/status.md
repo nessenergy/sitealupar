@@ -22,7 +22,7 @@ acervo. Nenhum limite foi afrouxado para fazer PR passar.
 
 Em 24/09/2026: **Astro 7.3.5**, **sharp 0.35.4**, `@astrojs/sitemap` 3.7.4, piso de Node 22.12.0 em `engines`
 (`.nvmrc` em `22`, que o `setup-node` resolve para o último 22.x). `npm audit` em **0** — eram 15, uma crítica.
-A prova de que o upgrade não mexeu no site está em `scripts/comparar-builds.mjs` e na D30.
+A prova de que o upgrade não mexeu no site está em `scripts/comparar-builds.mjs` e na D31.
 
 
 ## O que mudou em setembro, e por quê

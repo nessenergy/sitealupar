@@ -56,9 +56,16 @@ jobs:
           [ "$codigo" = "200" ] || { echo "::error::o envio do formulário está comprometido (HTTP $codigo)"; exit 1; }
 
       # Depois da virada (variável VIRADA=sim): a continuidade inteira, todo dia.
+      #
+      # Contra a origem, e não contra o www: desde a virada a borda aplica
+      # desafio gerenciado a cliente automatizado de datacenter, e os 666
+      # endereços voltariam 403 sem que nada estivesse errado (24/09/2026).
+      # A origem serve exatamente o mesmo build — o que se perde é a medição
+      # da borda, não a do conteúdo. Some assim que a regra de Skip existir
+      # (infra/borda-desafia-a-sonda.md).
       - name: Todo endereço vivo do acervo termina em 200
         if: vars.VIRADA == 'sim'
-        run: node scripts/verificar-no-ar.mjs
+        run: node scripts/verificar-no-ar.mjs https://sitealupar.pages.dev
 
       # `job.status` aqui já reflete a falha dos passos acima. O passo não
       # engole a falha: o job segue vermelho e o e-mail continua saindo.

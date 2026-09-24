@@ -10,7 +10,6 @@
  *   VIRADA=sim node scripts/verificar-hosts.mjs # depois da virada: sem tolerância
  */
 import { spawnSync } from 'node:child_process';
-import { devNull } from 'node:os';
 import { avaliar } from './lib/sentinela.mjs';
 import { listagemDoRi } from './lib/continuidade.mjs';
 
@@ -30,15 +29,29 @@ const HOSTS = [
 ];
 const ESPERA = 20;
 
-/** Código HTTP e exit code do curl. */
-function pedir(host, caminho) {
-  const r = spawnSync(
-    'curl',
-    // devNull, e não '/dev/null': quem roda isto à mão está no Windows.
-    ['-sS', '-o', devNull, '-w', '%{http_code}', '--max-time', String(ESPERA), `https://${host}${caminho}`],
-    { encoding: 'utf8' },
-  );
-  return { codigo: r.status === 0 ? r.stdout.trim() : 'erro', saidaCurl: r.status ?? 1 };
+/*
+ * A sonda pede com `fetch`, não com `curl`.
+ *
+ * Não é preferência: em 24/09/2026 os dois levaram 403 da borda, e o cabeçalho
+ * `cf-mitigated` — que é o que distingue desafio de queda — só é legível aqui
+ * sem reprocessar texto de `curl -D`. O certificado continua vindo do
+ * `openssl`, que é quem enxerga o que foi servido.
+ */
+async function pedir(host, caminho) {
+  try {
+    // 'manual': o apex responde 301 para o www, e seguir apagaria o que se mede.
+    const r = await fetch(`https://${host}${caminho}`, {
+      redirect: 'manual',
+      signal: AbortSignal.timeout(ESPERA * 1000),
+    });
+    await r.body?.cancel();
+    return { codigo: String(r.status), saidaCurl: 0, desafiado: r.headers.has('cf-mitigated') };
+  } catch (e) {
+    /* O nome do erro entra no lugar do código: foi a falta desse detalhe que
+       fez o 403 de hoje parecer queda do site. */
+    const causa = e?.cause?.code ?? e?.code ?? e?.name ?? 'erro';
+    return { codigo: `erro:${causa}`, saidaCurl: 1, desafiado: false };
+  }
 }
 
 /** Data de validade do certificado servido, ou '' se não deu para ler. */
@@ -60,8 +73,8 @@ const virada = process.env.VIRADA === 'sim';
 let falhou = false;
 
 for (const [host, caminho] of HOSTS) {
-  const { codigo, saidaCurl } = pedir(host, caminho);
-  const r = avaliar({ host, caminho, codigo, saidaCurl, fim: vencimento(host), virada });
+  const { codigo, saidaCurl, desafiado } = await pedir(host, caminho);
+  const r = avaliar({ host, caminho, codigo, saidaCurl, desafiado, fim: vencimento(host), virada });
   console.log(r.mensagem);
   if (!r.ok) falhou = true;
 }
