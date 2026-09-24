@@ -4,11 +4,16 @@ Onde o site novo está, o que falta para a virada e quem destrava cada coisa.
 Uma página; o porquê de cada decisão fica em [`decisoes.md`](decisoes.md) e o
 roteiro da troca, em [`plano-virada.md`](plano-virada.md).
 
-## No ar, para conferência
+## No ar
 
-**https://sitealupar.pages.dev/** — 172 páginas em três idiomas, geradas do
-acervo versionado. `www.alupar.com.br` continua no WordPress da MZ: a virada
-ainda não aconteceu.
+**https://www.alupar.com.br/** — o site novo desde **23/09/2026, 20h20** (D27).
+172 páginas em três idiomas, geradas do acervo versionado, servidas pelo
+Cloudflare Pages. O preview segue em https://sitealupar.pages.dev/ .
+
+Conferido na virada: 666 endereços do acervo pedidos ao `www`, todos em 200;
+`/en/` sem o sequestro do WordPress; `?lang=` redirecionando; apex indo para
+`www`; e `ri.alupar.com.br` intocado. O retorno é um comando —
+`node scripts/virada.mjs voltar --confirmar` — enquanto a MZ não for desligada.
 
 O CI reprova o merge por peso, acessibilidade, SEO, link quebrado e 404 do
 acervo. Nenhum limite foi afrouxado para fazer PR passar.
@@ -26,6 +31,8 @@ acervo. Nenhum limite foi afrouxado para fazer PR passar.
 | 23/09 | Cabeçalho fixo na rolagem, com a placa avançando sobre o conteúdo | pedido da Alupar |
 | 23/09 | A Companhia sem os valores e sem o mapa | pedido da Alupar |
 | 23/09 | Rodapé em #10328F, com a marca à esquerda e texto branco | D26 |
+| 23/09 | Redes sociais no rodapé, como no rs.alupar.com.br | pedido da Alupar |
+| 23/09 | **Virada: `www.alupar.com.br` passa a ser o site novo** | D27 |
 
 O balanço da entrega contra a proposta — e o que foi entregue além dela — está em
 [`relatorio-de-entrega.md`](relatorio-de-entrega.md).
@@ -35,9 +42,10 @@ O balanço da entrega contra a proposta — e o que foi entregue além dela — 
 **Depende da Alupar** — sem isso a troca não acontece, e nada aqui custa hora
 de projeto:
 
-1. **Certificado `*.alupar.com.br` vence em 21/10/2026** e continua necessário
-   enquanto `www` e `ri` forem servidos pela MZ. Sem dono definido. É o alarme
-   diário do sentinela hoje (issue #99, raiz na #8).
+1. **Certificado `*.alupar.com.br` vence em 21/10/2026.** Desde a virada o
+   `www` tem certificado da Cloudflare; o curinga passa a servir **só ao RI**,
+   e continua sem dono definido. É o alarme diário do sentinela (issue #99,
+   raiz na #8).
 2. **Validação dos textos em inglês e espanhol** de A Companhia e Área de
    atuação, traduzidos pela ness. ([`pedido-a-alupar-2026-09-21.md`](pedido-a-alupar-2026-09-21.md)).
 3. **Arquivos que faltam:** mapa de ativos em EN e ES (os nomes de país estão
