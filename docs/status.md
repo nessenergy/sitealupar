@@ -43,13 +43,15 @@ O balanço da entrega contra a proposta — e o que foi entregue além dela — 
 **Depende da Alupar** — sem isso a troca não acontece, e nada aqui custa hora
 de projeto:
 
-1. ~~**Certificado `*.alupar.com.br`**~~ — **fora do nosso radar desde
-   24/09/2026.** Com a virada, o `www` passou a ter certificado da Cloudflare e
-   o curinga serve só ao portal de RI, que é de outra equipe (regra 2). O
-   sentinela deixou de reprovar por ele: alarme que este repositório não pode
-   atender é alarme que se aprende a ignorar. O que continua medido todo dia é
-   a **disponibilidade** daquele host — 186 endereços nossos dependem do
-   `/noticias/` dele (D16).
+1. ~~**Certificado `*.alupar.com.br` vence em 21/10/2026**~~ — **sem objeto,
+   e o texto anterior estava errado.** Medido em 24/09/2026: o `www` passou a
+   ter certificado da Cloudflare (vence 22/12/2026, renovação automática) e
+   `ri.alupar.com.br` serve certificado válido até **03/04/2027**. O curinga
+   que vencia em 21/10 era o que a MZ servia no `www` — ele não cobre o portal
+   de RI, ao contrário do que este documento e o relatório de entrega
+   afirmaram. Não há prazo de certificado pendente neste projeto. O que
+   continua medido todo dia é a **disponibilidade** do portal de RI: 186
+   endereços nossos dependem das listagens dele (D16).
 2. **Validação dos textos em inglês e espanhol** de A Companhia e Área de
    atuação, traduzidos pela ness. ([`pedido-a-alupar-2026-09-21.md`](pedido-a-alupar-2026-09-21.md)).
 3. **Arquivos que faltam:** mapa de ativos em EN e ES (os nomes de país estão
