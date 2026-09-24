@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ALERTA_DIAS, ORIGEM_SEM_CADEIA, avaliar } from './sentinela.mjs';
+import { ALERTA_DIAS, ORIGEM_SEM_CADEIA, CERTIFICADO_DE_TERCEIRO, avaliar } from './sentinela.mjs';
 
 const AGORA = new Date('2026-09-14T12:00:00Z');
 const LONGE = 'Dec  4 20:16:27 2026 GMT'; // 81 dias
@@ -120,6 +120,27 @@ test('a página do RI fora do ar reprova o dia', () => {
     fim: 'Dec 31 23:59:59 2026 GMT',
     agora: new Date('2026-09-16T12:00:00Z'),
   });
+  assert.equal(r.ok, false);
+  assert.equal(r.estado, 'sem-resposta');
+});
+
+/*
+ * Depois da virada, o certificado curinga serve só ao portal de RI, que é de
+ * outra equipe: não há o que fazer com o alarme além de repassá-lo. O que
+ * continua sendo nosso é a **disponibilidade** daquele host — 186 endereços
+ * nossos dependem do /noticias/ dele (D16) —, e isso o sentinela segue medindo.
+ */
+test('certificado de host de terceiro perto de vencer não reprova: não é nosso', () => {
+  const host = [...CERTIFICADO_DE_TERCEIRO][0];
+  const r = avaliar({ ...base, host, fim: PERTO });
+  assert.equal(r.ok, true);
+  assert.equal(r.estado, 'certificado-de-terceiro');
+  assert.equal(r.dias, 23);
+});
+
+test('mas host de terceiro fora do ar continua reprovando: a continuidade é nossa', () => {
+  const host = [...CERTIFICADO_DE_TERCEIRO][0];
+  const r = avaliar({ ...base, host, codigo: '503', fim: PERTO });
   assert.equal(r.ok, false);
   assert.equal(r.estado, 'sem-resposta');
 });
