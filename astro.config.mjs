@@ -32,7 +32,19 @@ export default defineConfig({
   // Só `.js`: com um número (0) o Astro deixaria de embutir também o CSS pequeno
   // (`style-src` aceita 'unsafe-inline') e passaria a servi-lo em arquivo, +1 requisição por página.
   // `undefined` mantém a regra padrão (4 KB) para o resto.
-  vite: { build: { assetsInlineLimit: (arquivo) => (arquivo.endsWith('.js') ? false : undefined) } },
+  vite: {
+    build: {
+      assetsInlineLimit: (arquivo) => (arquivo.endsWith('.js') ? false : undefined),
+
+      // Sem isto, o minificador do Astro 7 reescreve `@media (min-width: 768px)`
+      // como `@media (width >= 768px)` — sintaxe de intervalo que Safari abaixo
+      // de 16.4, Chrome abaixo de 104 e Firefox abaixo de 102 simplesmente
+      // ignoram. Medido no upgrade: 205 das 377 consultas do build mudariam de
+      // forma, ou seja, mais da metade do layout responsivo deixaria de valer
+      // nesses navegadores, em silêncio. O alvo fica logo abaixo dessas versões.
+      cssTarget: ['chrome100', 'safari15.4', 'firefox100', 'edge100'],
+    },
+  },
 
   image: {
     // AVIF/WebP e srcset saem do build, não da disciplina de quem publica.
