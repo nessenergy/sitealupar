@@ -18,6 +18,13 @@ Conferido na virada: 666 endereços do acervo pedidos ao `www`, todos em 200;
 O CI reprova o merge por peso, acessibilidade, SEO, link quebrado e 404 do
 acervo. Nenhum limite foi afrouxado para fazer PR passar.
 
+## Dependências
+
+Em 24/09/2026: **Astro 7.3.5**, **sharp 0.35.4**, `@astrojs/sitemap` 3.7.4, piso de Node 22.12.0 em `engines`
+(`.nvmrc` em `22`, que o `setup-node` resolve para o último 22.x). `npm audit` em **0** — eram 15, uma crítica.
+A prova de que o upgrade não mexeu no site está em `scripts/comparar-builds.mjs` e na D30.
+
+
 ## O que mudou em setembro, e por quê
 
 | Quando | O que | Decisão |
