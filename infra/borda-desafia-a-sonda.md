@@ -44,9 +44,13 @@ Não há exceção. Duas escolhas, e as duas são de quem responde pelo site:
 - **Desligar.** Devolve a medição da borda, e tira uma camada de proteção
   contra bot que hoje está ativa.
 - **Deixar ligado.** O monitoramento continua medindo o conteúdo pela origem
-  (`sitealupar.pages.dev`), que serve o mesmo build. O que fica sem vigia é a
-  **borda**: uma troca de DNS, uma regra errada ou um projeto Pages trocado no
-  `www` passariam despercebidos até alguém abrir o site no navegador.
+  (`sitealupar.pages.dev`), que serve o mesmo build — mas só **276 dos 666**
+  endereços do acervo (medido na execução 36015708183). Os outros 390 são os
+  `?lang=` da continuidade do WPML (D14): vivem em regra de redirecionamento
+  da Cloudflare e só existem atrás do `www`. Além deles, fica sem vigia a
+  **borda** em si: uma troca de DNS, uma regra errada ou um projeto Pages
+  trocado no `www` passariam despercebidos até alguém abrir o site no
+  navegador.
 
 ## A pergunta que vale mais que o monitoramento
 
