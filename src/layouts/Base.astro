@@ -7,7 +7,7 @@ import { ROTAS_PROPRIAS } from '../lib/rotas-proprias.mjs';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
 import faixaInterna from '../assets/tema/bg-interna-01.jpg';
-import { organizacao, siteWeb, trilhaLd, grafo } from '../lib/seo';
+import { organizacao, siteWeb, paginaWeb, trilhaLd, grafo } from '../lib/seo';
 
 interface Props {
   titulo: string;
@@ -18,8 +18,10 @@ interface Props {
   noindex?: boolean;
   /** Degraus da trilha, quando a página tem uma. Viram BreadcrumbList. */
   degraus?: { rota?: string; titulo: string }[];
+  /** Partes extras do grafo — hoje o VideoObject da home. */
+  extras?: { '@type': string }[];
 }
-const { titulo, descricao, idioma = 'pt-br', interna = true, noindex = false, degraus = [] } = Astro.props;
+const { titulo, descricao, idioma = 'pt-br', interna = true, noindex = false, degraus = [], extras = [] } = Astro.props;
 
 /* `og:locale` pede locale cheio, com região — `en` sozinho não é valor válido.
    O site atual declara `pt_BR`; as outras duas seguem a mesma forma. */
@@ -155,7 +157,9 @@ const beacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN;
     <script type="application/ld+json" set:html={JSON.stringify(grafo(
       organizacao(Astro.site!.origin),
       siteWeb(Astro.site!.origin, idioma),
+      paginaWeb({ origem: Astro.site!.origin, url, titulo, descricao, idioma }),
       trilhaLd(degraus, Astro.site!.origin),
+      ...extras,
     ))} />
   </head>
   <body>

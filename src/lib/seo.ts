@@ -55,3 +55,40 @@ export function trilhaLd(passos: { rota?: string; titulo: string }[], origem: st
 export function grafo(...partes: (Parte | null)[]): Record<string, unknown> {
   return { '@context': 'https://schema.org', '@graph': partes.filter(Boolean) };
 }
+
+/**
+ * O nó da página. Existe para o BreadcrumbList ter a que se referir e para o
+ * idioma da página ficar declarado também no grafo, não só no `<html lang>`.
+ */
+export function paginaWeb(
+  { origem, url, titulo, descricao, idioma }:
+  { origem: string; url: string; titulo: string; descricao: string; idioma: Idioma },
+): Parte {
+  return {
+    '@type': 'WebPage',
+    url,
+    name: titulo,
+    description: descricao,
+    inLanguage: lang[idioma],
+    isPartOf: { '@type': 'WebSite', url: `${origem}/` },
+  };
+}
+
+/**
+ * O institucional da home. O `embedUrl` usa o domínio sem cookies, que é o que
+ * o site carrega e o que a CSP permite; a miniatura é a do próprio YouTube, e
+ * não a nossa capa local, porque é ela que o buscador consegue casar com o
+ * vídeo.
+ */
+export function video(
+  { id, nome, descricao, origem }: { id: string; nome: string; descricao: string; origem: string },
+): Parte {
+  return {
+    '@type': 'VideoObject',
+    name: nome,
+    description: descricao,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${id}`,
+    thumbnailUrl: `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+    publisher: { '@type': 'Organization', name: 'Alupar', url: origem },
+  };
+}

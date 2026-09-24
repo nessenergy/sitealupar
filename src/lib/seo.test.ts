@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { organizacao, siteWeb, trilhaLd, grafo } from './seo.ts';
+import { organizacao, siteWeb, trilhaLd, grafo, paginaWeb, video } from './seo.ts';
 
 const ORIGEM = 'https://www.alupar.com.br';
 
@@ -45,4 +45,25 @@ test('o grafo junta as partes e descarta o que for nulo', () => {
   assert.equal(g['@context'], 'https://schema.org');
   const partes = g['@graph'] as Record<string, unknown>[];
   assert.deepEqual(partes.map((p) => p['@type']), ['Organization', 'WebSite']);
+});
+
+test('a página web declara url, idioma e o site a que pertence', () => {
+  const p = paginaWeb({
+    origem: ORIGEM, url: `${ORIGEM}/a-companhia/`,
+    titulo: 'A Companhia — Alupar', descricao: 'Texto da descrição', idioma: 'pt-br',
+  });
+  assert.equal(p['@type'], 'WebPage');
+  assert.equal(p.url, `${ORIGEM}/a-companhia/`);
+  assert.equal(p.inLanguage, 'pt-BR');
+  assert.equal(p.name, 'A Companhia — Alupar');
+  assert.equal(p.description, 'Texto da descrição');
+  assert.deepEqual(p.isPartOf, { '@type': 'WebSite', url: `${ORIGEM}/` });
+});
+
+test('o vídeo aponta a página de reprodução e a miniatura do YouTube', () => {
+  const v = video({ id: 'oqjwsKfpYZ4', nome: 'Vídeo institucional', descricao: 'Alupar', origem: ORIGEM });
+  assert.equal(v['@type'], 'VideoObject');
+  assert.equal(v.embedUrl, 'https://www.youtube-nocookie.com/embed/oqjwsKfpYZ4');
+  assert.equal(v.thumbnailUrl, 'https://i.ytimg.com/vi/oqjwsKfpYZ4/maxresdefault.jpg');
+  assert.equal(v.name, 'Vídeo institucional');
 });
