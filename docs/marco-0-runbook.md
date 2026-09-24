@@ -1,5 +1,12 @@
 # Marco 0 — runbook
 
+> **Registro histórico.** Das sete ações emergenciais, seis estão resolvidas
+> ou perderam objeto com a virada de 23/09/2026. A sétima — dono do
+> certificado curinga — **perdeu objeto em 24/09**: medido, o `www` tem
+> certificado da Cloudflare até 22/12/2026 e o portal de RI serve um válido
+> até 03/04/2027; o curinga que vencia em 21/10 era o da MZ no `www` e nunca
+> cobriu aquele host.
+
 Sete ações, 16–24 h de esforço, executáveis em 48–72 h. **Independem da
 replataforma** e não devem esperar por ela. Cada ação traz o comando de
 verificação: a ação só está feita quando o comando responde o esperado.

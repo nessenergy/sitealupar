@@ -173,7 +173,14 @@ endereços vivos redirecionam para o portal de RI. N1 a N3 não se aplicam mais.
 Aplicados pelo CI (`lighthouserc.json`), não pela disciplina de quem publica.
 Um PR que os viole não entra.
 
-| Dimensão | Critério | Estado atual |
+> **Estado em 24/09/2026.** A coluna "Estado atual" desta tabela é a medição de
+> **01/09/2026**, antes da reconstrução — está mantida porque é a linha de base
+> que justifica cada critério. O estado de hoje, medido em produção, está em
+> [`relatorio-de-entrega.md`](relatorio-de-entrega.md): todos os critérios
+> técnicos são cumpridos e vigiados a cada merge; o único não entregue nesta
+> fase é a autonomia de publicação (CMS), pelo motivo registrado na D11.
+
+| Dimensão | Critério | Estado em 01/09/2026 |
 |---|---|---|
 | Peso da home | ≤ 600 KB transferidos, imagens ≤ 400 KB | 2,19 MB |
 | Performance | LCP < 2,5 s · CLS < 0,1 · Lighthouse ≥ 90 | não medido em navegador |

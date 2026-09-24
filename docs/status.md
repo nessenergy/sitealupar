@@ -59,7 +59,7 @@ de projeto:
 
 - Retirar a área de vídeos (3 listagens, 7 fichas do acervo e os 301) — pedido
   de 23/09, ainda não executado.
-- Apagar a regra da origem que sequestra `/en/` antes do go-live (issue #38).
+- ~~Apagar a regra da origem que sequestra `/en/`~~ — morreu com a virada: `/en/` responde 200 sem redirecionamento desde 23/09 (issue #38 fechada).
 - Fechar as 70 pendências de mídia da MZ (issue #43): os documentos já estão no
   R2, o resto não.
 - QA, homologação e go-live (issue #22).
