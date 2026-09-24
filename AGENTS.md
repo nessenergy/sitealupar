@@ -6,12 +6,14 @@ Arquivo canônico de contexto deste repositório. Vale para qualquer agente;
 
 ## O projeto em cinco linhas
 
-Replataforma do site institucional da Alupar (`alupar.com.br`), hoje um
-WordPress hospedado pela MZ Group. Sai um site estático em Astro publicado no
-Cloudflare Pages. **Não há CMS:** o conteúdo vive em arquivos versionados neste
-repositório, e o Sanity previsto na D11 nunca foi implantado (ver
-`docs/decisoes.md`). **Restauro fiel:** a linguagem visual atual é
-preservada; muda o que resolve um problema medido. 500 h em 6–7 semanas.
+Site institucional da Alupar (`www.alupar.com.br`), **no ar em Astro estático
+pelo Cloudflare Pages desde 23/09/2026, 20h20** (D27) — antes era um WordPress
+hospedado pela MZ Group. O projeto saiu da reconstrução e entrou em manutenção:
+o que se faz aqui agora vai direto para o ar. **Não há CMS:** o conteúdo vive em
+arquivos versionados neste repositório, e o Sanity previsto na D11 nunca foi
+implantado (ver `docs/decisoes.md`). **Restauro fiel:** a linguagem visual é
+preservada; muda o que resolve um problema medido — ou o que a Alupar pede, e aí
+vira decisão registrada.
 
 Contrato com a Alupar é da **ness.**; execução é da **Bekaa**, empresa parceira.
 
@@ -33,7 +35,9 @@ Base factual: diagnóstico de 01/09/2026 e Manual de Identidade Visual de 2018.
    indexadas desde 2017. O corte editorial de notícias é um campo, não uma
    exclusão. Toda remoção vira 301 em `public/_redirects`. Desde a D16
    (16/09/2026) a área de notícias inteira saiu do ar: as notícias respondem
-   por 301 para a listagem do portal de RI, e continuam sem nenhum 404.
+   por 301 para a listagem do portal de RI **no idioma de cada uma** (24/09), e
+   continuam sem nenhum 404. Desde a virada isso é medido todo dia, e não só no
+   merge: o sentinela repete a verificação do acervo inteiro.
 4. **Número não se inventa.** Onde faltar dado da Alupar — km de linhas, MW
    instalados, valor de contrato — o lugar fica marcado como pendente. Um valor
    plausível é pior que um espaço vazio, porque ninguém o corrige depois.
@@ -69,6 +73,8 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 | `docs/prd.md` | O que o site precisa ser e por quê. Começa aqui |
 | `docs/status.md` | Onde o projeto está hoje e o que falta para a virada |
 | `docs/relatorio-de-entrega.md` | O que foi entregue contra a proposta, e o que foi além dela |
+| `docs/plano-virada.md` | **Registro histórico:** o roteiro da virada, executado em 23/09 |
+| `docs/plano-homologacao.md` | **Registro histórico:** a homologação, concluída em 12/09 |
 | `docs/decisoes.md` | As decisões e seus motivos |
 | `docs/marco-0-runbook.md` | Sete ações emergenciais, com verificação |
 | `docs/equipe.md` | Dimensionamento, alocação e lacunas |
