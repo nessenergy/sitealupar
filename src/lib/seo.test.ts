@@ -67,3 +67,12 @@ test('o vídeo aponta a página de reprodução e a miniatura do YouTube', () =>
   assert.equal(v.thumbnailUrl, 'https://i.ytimg.com/vi/oqjwsKfpYZ4/maxresdefault.jpg');
   assert.equal(v.name, 'Vídeo institucional');
 });
+
+test('a organização publica os números como QuantitativeValue, com data de observação', () => {
+  const props = organizacao(ORIGEM).additionalProperty as Record<string, unknown>[];
+  assert.equal(props.length, 4);
+  const linhas = props.find((p) => p.name === 'Linhas de transmissão');
+  assert.equal(linhas?.['@type'], 'PropertyValue');
+  assert.deepEqual(linhas?.value, { '@type': 'QuantitativeValue', value: 10000, unitText: 'km' });
+  assert.equal(linhas?.observationDate, '2026-09-21');
+});

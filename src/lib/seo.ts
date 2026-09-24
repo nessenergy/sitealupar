@@ -9,6 +9,7 @@
  * descrevem a mesma página, que é o que elas fazem.
  */
 import { lang, prefixo, type Idioma } from '../i18n/textos.ts';
+import { NUMEROS, OBSERVADO_EM } from './numeros.ts';
 
 /** Objeto JSON-LD já pronto para serialização. */
 export type Parte = Record<string, unknown> & { '@type': string };
@@ -19,6 +20,14 @@ export function organizacao(origem: string): Parte {
     name: 'Alupar',
     url: origem,
     logo: `${origem}/logo-alupar.svg`,
+    /* Os números do texto institucional, legíveis por máquina e com data de
+       observação — em prosa eles não são citáveis sem risco de envelhecer. */
+    additionalProperty: NUMEROS.map((n) => ({
+      '@type': 'PropertyValue',
+      name: n.rotulo,
+      value: { '@type': 'QuantitativeValue', value: n.valor, unitText: n.unidade },
+      observationDate: OBSERVADO_EM,
+    })),
   };
 }
 
