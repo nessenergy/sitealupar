@@ -53,6 +53,9 @@ jobs:
       - name: Mapa de rotas fecha com o mapa de 301
         run: node scripts/gerar-mapa-de-rotas.mjs --verificar
 
+      - name: llms.txt corresponde ao mapa de rotas
+        run: node scripts/gerar-llms.mjs --verificar
+
       - run: npm run build
         env:
           PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}

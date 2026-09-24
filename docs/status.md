@@ -33,6 +33,7 @@ acervo. Nenhum limite foi afrouxado para fazer PR passar.
 | 23/09 | Rodapé em #10328F, com a marca à esquerda e texto branco | D26 |
 | 23/09 | Redes sociais no rodapé, como no rs.alupar.com.br | pedido da Alupar |
 | 23/09 | **Virada: `www.alupar.com.br` passa a ser o site novo** | D27 |
+| 24/09 | SEO técnico e GEO: robots.txt, JSON-LD em grafo, llms.txt e números com data | D28 |
 
 O balanço da entrega contra a proposta — e o que foi entregue além dela — está em
 [`relatorio-de-entrega.md`](relatorio-de-entrega.md).

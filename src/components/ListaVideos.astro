@@ -14,6 +14,7 @@ import Trilha from './Trilha.astro';
 import capa from '../assets/video-institucional.jpg';
 import { itens } from '../lib/acervo';
 import { semTituloRepetido, VIDEO_INSTITUCIONAL } from '../lib/videos';
+import { degraus } from '../lib/trilha.ts';
 import { textos, CODIGO, type Idioma } from '../i18n/textos';
 
 interface Props { idioma: Idioma }
@@ -21,7 +22,8 @@ const { idioma } = Astro.props;
 const t = textos[idioma];
 const videos = semTituloRepetido(itens().filter((i) => i.tipo === 'video' && i.idioma === CODIGO[idioma]));
 ---
-<Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}>
+<Base titulo={`${t.videos} — Alupar`} descricao={t.descricao} idioma={idioma}
+  degraus={degraus(Astro.url.pathname, idioma, t.videos)}>
   <main id="conteudo" class="container pagina">
     <div class="caixa">
       <Trilha idioma={idioma} titulo={t.videos} />

@@ -11,6 +11,7 @@ import Trilha from '../components/Trilha.astro';
 import { itens, IDIOMA_ASTRO, SUBSTITUIDAS } from '../lib/acervo';
 import { textos } from '../i18n/textos';
 import { ehCasca } from '../lib/casca.mjs';
+import { degraus } from '../lib/trilha.ts';
 
 export function getStaticPaths() {
   return itens().filter((i) => !SUBSTITUIDAS.has(i.rota)).map((i) => ({
@@ -24,6 +25,9 @@ export function getStaticPaths() {
 const { item } = Astro.props;
 const idioma = IDIOMA_ASTRO[item.idioma];
 const t = textos[idioma];
+/* Os mesmos degraus que a Trilha desenha, para o BreadcrumbList do layout — de
+   uma fonte só, senão a tela e o schema divergem no primeiro título que mudar. */
+const passos = degraus(Astro.url.pathname, idioma, item.titulo);
 
 /* Data só aparece onde significa alguma coisa. Numa página institucional a
    data de publicação do WordPress é ruído: diz quando alguém salvou o registro,
@@ -37,7 +41,7 @@ const dataLegivel = dataVisivel
   ? new Intl.DateTimeFormat(idioma, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(dataVisivel)
   : null;
 ---
-<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={ehCasca(item)}>
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={ehCasca(item)} degraus={passos}>
   <main id="conteudo" class="container pagina">
     <article>
       <Trilha idioma={idioma} titulo={item.titulo} />

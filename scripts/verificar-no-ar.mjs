@@ -77,7 +77,23 @@ await Promise.all(Array.from({ length: 8 }, async () => {
   }
 }));
 
-console.log(`${urls.length} endereços pedidos a ${base}`);
+/* Os dois arquivos da raiz que a borda pode sobrepor. O robots.txt do projeto
+   só existe porque a Cloudflare servia o dela, e essa funcionalidade pode ser
+   religada na zona a qualquer momento: sem esta conferência, o repositório
+   ficaria verde para sempre com o buscador sem o ponteiro do sitemap e o
+   llms.txt em 404 — que é exatamente o estado que este trabalho corrigiu. */
+for (const [caminho, exige] of [['/robots.txt', 'Sitemap:'], ['/llms.txt', '# Alupar']]) {
+  try {
+    const r = await fetch(`${base}${caminho}`, { redirect: 'follow' });
+    const corpo = r.ok ? await r.text() : '';
+    if (!r.ok) falhas.push(`${r.status} ${base}${caminho}`);
+    else if (!corpo.includes(exige)) falhas.push(`servido sem "${exige}": ${base}${caminho} — a borda está sobrepondo o arquivo do projeto`);
+  } catch (e) {
+    falhas.push(`${e.cause?.code ?? e.message} ${base}${caminho}`);
+  }
+}
+
+console.log(`${urls.length} endereços pedidos a ${base}, mais /robots.txt e /llms.txt`);
 if (externos) {
   console.log(`${externos} terminam fora de ${baseHost} (RI, D16) — informativo, não reprova; vigiado todo dia por scripts/verificar-hosts.mjs`);
 }

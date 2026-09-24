@@ -10,6 +10,7 @@
 import Base from '../layouts/Base.astro';
 import Trilha from './Trilha.astro';
 import { itens, semFormulario } from '../lib/acervo';
+import { degraus } from '../lib/trilha.ts';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
 import { ACAO_CONTATO } from '../lib/contato';
 
@@ -23,7 +24,8 @@ if (!item) throw new Error(`acervo sem ${pre}/contato/`);
 // `||`, não `??`: variável de repositório ausente chega ao build como string vazia.
 const CHAVE = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
 ---
-<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={Boolean(aviso)}>
+<Base titulo={`${item.titulo} — Alupar`} descricao={t.descricao} idioma={idioma} noindex={Boolean(aviso)}
+  degraus={degraus(Astro.url.pathname, idioma, item.titulo)}>
   <main id="conteudo" class="container pagina">
     <div class="caixa">
     <Trilha idioma={idioma} titulo={item.titulo} />

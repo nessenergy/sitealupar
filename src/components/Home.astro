@@ -28,7 +28,8 @@ import ghg from '../assets/selos/ghg-protocol.png';
 import lugares from '../assets/selos/lugares-incriveis.png';
 import trofeu from '../assets/selos/trofeu-transparencia.png';
 import { textos, prefixo, type Idioma } from '../i18n/textos';
-import { VIDEO_INSTITUCIONAL } from '../lib/videos';
+import { VIDEO_INSTITUCIONAL, VIDEO_PUBLICADO_EM } from '../lib/videos';
+import { video } from '../lib/seo';
 
 interface Props { idioma: Idioma }
 const { idioma } = Astro.props;
@@ -51,7 +52,8 @@ const selos = [
 ];
 
 ---
-<Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}>
+<Base titulo={t.titulo} descricao={t.descricao} idioma={idioma} interna={false}
+  extras={[video({ id: VIDEO_INSTITUCIONAL, nome: t.videoInstitucional, descricao: t.descricao, origem: Astro.site!.origin, publicadoEm: VIDEO_PUBLICADO_EM })]}>
   <main id="conteudo">
     <!-- O h1 do site atual é o logotipo com `font: 0/0 a`: nenhum texto chega
          ao leitor de tela. Aqui é texto real, oculto visualmente. -->
