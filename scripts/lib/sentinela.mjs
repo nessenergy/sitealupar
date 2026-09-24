@@ -13,6 +13,21 @@
 export const ALERTA_DIAS = 30;
 
 /**
+ * Hosts cujo certificado não é nosso para renovar nem para cobrar.
+ *
+ * Até a virada, `www` e `ri` compartilhavam o curinga `*.alupar.com.br`, e o
+ * vencimento era risco do projeto: o nosso site caía junto. Desde 23/09/2026 o
+ * `www` tem certificado da Cloudflare e o curinga serve **só ao portal de RI**,
+ * que é de outra equipe (regra 2 do AGENTS.md). Manter o alarme aqui seria
+ * reprovar todo dia por algo que este repositório não pode corrigir — e alarme
+ * que ninguém pode atender é alarme que se aprende a ignorar.
+ *
+ * O que continua sendo nosso é a **disponibilidade** daquele host: 186
+ * endereços nossos terminam no /noticias/ dele (D16). Essa parte não muda.
+ */
+export const CERTIFICADO_DE_TERCEIRO = new Set(['ri.alupar.com.br']);
+
+/**
  * A origem servida pela MZ manda o certificado folha duas vezes e nunca o
  * intermediário da GoDaddy. Cliente estrito reprova com "unable to get local
  * issuer certificate" (curl 60); navegador e curl com o repositório do
@@ -61,13 +76,23 @@ export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = n
    * existe para dar, e perdê-lo por causa de um defeito conhecido da origem
    * seria trocar um ruído por um silêncio pior.
    */
-  if (dias !== null && dias < ALERTA_DIAS) estado = 'certificado-vencendo';
+  if (dias !== null && dias < ALERTA_DIAS) {
+    /* No host de terceiro o certificado é informativo, mas não pode apagar a
+       falta de resposta: o que é nosso naquele host é a disponibilidade, e ela
+       reprova com ou sem certificado perto de vencer. */
+    if (!CERTIFICADO_DE_TERCEIRO.has(host)) estado = 'certificado-vencendo';
+    else if (respondeu) estado = 'certificado-de-terceiro';
+  }
 
   const ok =
-    estado === 'ok' || (estado === 'cadeia-incompleta' && toleraCadeia);
+    estado === 'ok'
+    || estado === 'certificado-de-terceiro'
+    || (estado === 'cadeia-incompleta' && toleraCadeia);
 
   const prazo = dias === null ? 'sem certificado legível' : `certificado vence em ${dias} dias (${fim})`;
-  const nota = estado === 'cadeia-incompleta' && toleraCadeia ? ' · conhecido, sai na virada' : '';
+  const nota = estado === 'cadeia-incompleta' && toleraCadeia ? ' · conhecido, sai na virada'
+    : estado === 'certificado-de-terceiro' ? ' · certificado de outra equipe, informativo'
+    : '';
   /* O caminho entra no relato porque há host cuja saúde se mede numa página,
      não na raiz: o destino dos 301 de notícia (D16) é /noticias/ do portal de
      RI, e a raiz dele pode estar de pé com aquela página fora do ar. */

@@ -290,7 +290,7 @@ escritos:
 
 | Risco | Prazo | Dono |
 |---|---|---|
-| Certificado curinga `*.alupar.com.br` vence, e passa a servir só ao portal de RI | **21/10/2026** | Alupar / RI |
+| ~~Certificado curinga~~ — **sem objeto**: medido em 24/09, o `www` tem certificado da Cloudflare até 22/12/2026 e o portal de RI serve um válido até 03/04/2027. O curinga que vencia em 21/10 era o da MZ no `www`, e não cobre o RI | — | — |
 | Textos em inglês e espanhol sem validação da Comunicação | antes de divulgar | Comunicação |
 | 70 pendências de mídia do fornecedor anterior | antes do desligamento | ness. |
 | Entrega do formulário não provada | imediato | Comunicação |

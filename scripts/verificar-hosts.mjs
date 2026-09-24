@@ -12,19 +12,21 @@
 import { spawnSync } from 'node:child_process';
 import { devNull } from 'node:os';
 import { avaliar } from './lib/sentinela.mjs';
-import { LISTAGEM_DO_RI } from './lib/continuidade.mjs';
+import { listagemDoRi } from './lib/continuidade.mjs';
 
 /* [host, caminho]. O caminho importa em um caso: o portal de RI é o destino
    dos 301 de notícia (D16) e é mantido por outra equipe — a raiz dele pode
    responder com /noticias/ fora do ar, e aí 186 endereços nossos viram 404.
    O endereço vem de continuidade.mjs para que vigiar e redirecionar não
    possam divergir. */
-const DESTINO_DAS_NOTICIAS = new URL(LISTAGEM_DO_RI);
+/* Os dois destinos reais dos 301 de notícia, um por idioma (o espanhol cai no
+   português). Vigiar só um deixaria o outro quebrar em silêncio. */
+const DESTINOS_DAS_NOTICIAS = ['pt', 'en'].map((i) => new URL(listagemDoRi(i)));
 const HOSTS = [
   ['alupar.com.br', '/'],
   ['www.alupar.com.br', '/'],
   ['alupar.us6.quickconnect.to', '/'], // galeria de fotos no NAS (D4)
-  [DESTINO_DAS_NOTICIAS.host, DESTINO_DAS_NOTICIAS.pathname],
+  ...DESTINOS_DAS_NOTICIAS.map((u) => [u.host, u.pathname]),
 ];
 const ESPERA = 20;
 

@@ -33,13 +33,13 @@
 
 /companies/                                        /empresas/   301
 /contact/                                          /contato/   301
-/news/                                             https://ri.alupar.com.br/noticias/   301
+/news/                                             https://ri.alupar.com.br/pt/noticias/   301
 /geracao/                                          /faq/geracao/   301
 /video/                                            /faq/videos-dos-projetos-sociais-apoiados-pela-alupar/   301
 /sustainability/                                   /en/faq/sustainability/   301
 /index.php                                         /   301
 # /rss/ ia para /feed/, que o build não gera: vai para a listagem de notícias.
-/rss/                                              https://ri.alupar.com.br/noticias/   301
+/rss/                                              https://ri.alupar.com.br/pt/noticias/   301
 /sitemap.xml                                       /sitemap-index.xml   301
 /wp-sitemap.xml                                    /sitemap-index.xml   301
 
@@ -395,12 +395,12 @@
 # entendem do mesmo jeito — `/noticia*`, de prefixo, só o do Pages entende.
 # Não há linha para `/noticia` sem barra: nunca foi endereço de página, ao
 # contrário de `/noticias`, que era a listagem e aparece em link de fora.
-/noticia/*                                         https://ri.alupar.com.br/noticias/   301
-/en/noticia/*                                      https://ri.alupar.com.br/noticias/   301
-/es/noticia/*                                      https://ri.alupar.com.br/noticias/   301
-/noticias/*                                        https://ri.alupar.com.br/noticias/   301
-/en/noticias/*                                     https://ri.alupar.com.br/noticias/   301
-/es/noticias/*                                     https://ri.alupar.com.br/noticias/   301
-/noticias                                          https://ri.alupar.com.br/noticias/   301
-/en/noticias                                       https://ri.alupar.com.br/noticias/   301
-/es/noticias                                       https://ri.alupar.com.br/noticias/   301
+/noticia/*                                         https://ri.alupar.com.br/pt/noticias/   301
+/en/noticia/*                                      https://ri.alupar.com.br/en/noticias/   301
+/es/noticia/*                                      https://ri.alupar.com.br/pt/noticias/   301
+/noticias/*                                        https://ri.alupar.com.br/pt/noticias/   301
+/en/noticias/*                                     https://ri.alupar.com.br/en/noticias/   301
+/es/noticias/*                                     https://ri.alupar.com.br/pt/noticias/   301
+/noticias                                          https://ri.alupar.com.br/pt/noticias/   301
+/en/noticias                                       https://ri.alupar.com.br/en/noticias/   301
+/es/noticias                                       https://ri.alupar.com.br/pt/noticias/   301
