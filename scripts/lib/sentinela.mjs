@@ -51,9 +51,10 @@ const DIA = 86_400_000;
  * @param {string} e.fim         data de `openssl x509 -enddate`, ou '' se não veio
  * @param {Date}   [e.agora]
  * @param {boolean} [e.virada]   o domínio já aponta para o site novo
+ * @param {boolean} [e.desafiado] a borda respondeu com desafio (`cf-mitigated`)
  * @returns {{ok: boolean, estado: string, dias: number|null, mensagem: string}}
  */
-export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = new Date(), virada = false }) {
+export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = new Date(), virada = false, desafiado = false }) {
   const vencimento = fim ? new Date(fim) : null;
   const dias =
     vencimento && !Number.isNaN(vencimento.getTime())
@@ -65,9 +66,20 @@ export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = n
   // Só o host conhecido, e só enquanto o servidor for do fornecedor que sai.
   const toleraCadeia = cadeiaIncompleta && host === ORIGEM_SEM_CADEIA && !virada;
 
+  /*
+   * Desde a virada, a Cloudflare aplica desafio gerenciado a cliente
+   * automatizado vindo de datacenter: o runner recebe 403 com
+   * `cf-mitigated: challenge`, e o navegador entra normalmente. Isso não é o
+   * site fora do ar — em 24/09/2026 custou um alarme vermelho enquanto a home
+   * respondia certo de outra rede. O que a sonda perde é a medição do conteúdo
+   * daquele host; quem a cobre é a varredura do acervo contra a origem, que
+   * serve o mesmo build (.github/workflows/sentinela.yml). Sai de cena se a
+   * zona ganhar a regra de Skip descrita em infra/borda-desafia-a-sonda.md.
+   */
   let estado;
   if (dias === null) estado = 'sem-certificado';
   else if (cadeiaIncompleta) estado = 'cadeia-incompleta';
+  else if (desafiado) estado = 'borda-desafiou';
   else if (!respondeu) estado = 'sem-resposta';
   else estado = 'ok';
 
@@ -86,11 +98,13 @@ export function avaliar({ host, caminho = '/', codigo, saidaCurl, fim, agora = n
 
   const ok =
     estado === 'ok'
+    || estado === 'borda-desafiou'
     || estado === 'certificado-de-terceiro'
     || (estado === 'cadeia-incompleta' && toleraCadeia);
 
   const prazo = dias === null ? 'sem certificado legível' : `certificado vence em ${dias} dias (${fim})`;
-  const nota = estado === 'cadeia-incompleta' && toleraCadeia ? ' · conhecido, sai na virada'
+  const nota = estado === 'borda-desafiou' ? ' · a borda desafiou a sonda, o conteúdo é medido na origem'
+    : estado === 'cadeia-incompleta' && toleraCadeia ? ' · conhecido, sai na virada'
     : estado === 'certificado-de-terceiro' ? ' · certificado de outra equipe, informativo'
     : '';
   /* O caminho entra no relato porque há host cuja saúde se mede numa página,
