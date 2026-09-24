@@ -144,3 +144,29 @@ test('mas host de terceiro fora do ar continua reprovando: a continuidade é nos
   assert.equal(r.ok, false);
   assert.equal(r.estado, 'sem-resposta');
 });
+
+/* A borda desafia a sonda desde a virada: cliente automatizado de datacenter
+   recebe 403 com `cf-mitigated: challenge`, enquanto o navegador entra. Ler
+   isso como queda do site foi o que deixou o alarme vermelho sobre coisa
+   nenhuma em 24/09/2026 — e alarme assim ninguém lê. */
+test('desafio da borda não é queda do site: relata e não reprova', () => {
+  const r = avaliar({ ...base, host: 'www.alupar.com.br', codigo: '403', desafiado: true });
+  assert.equal(r.estado, 'borda-desafiou');
+  assert.equal(r.ok, true);
+  assert.match(r.mensagem, /desafiou a sonda/);
+});
+
+test('403 sem desafio continua reprovando: aí é recusa de verdade', () => {
+  const r = avaliar({ ...base, host: 'www.alupar.com.br', codigo: '403', desafiado: false });
+  assert.equal(r.estado, 'sem-resposta');
+  assert.equal(r.ok, false);
+});
+
+/* O desafio não pode virar guarda-chuva: o que a sonda ainda enxerga daquele
+   host é o certificado, e é o vencimento que este alarme existe para dar.
+   Perdê-lo seria trocar um ruído por um silêncio pior. */
+test('desafio não esconde certificado perto de vencer', () => {
+  const r = avaliar({ ...base, host: 'www.alupar.com.br', codigo: '403', desafiado: true, fim: PERTO });
+  assert.equal(r.estado, 'certificado-vencendo');
+  assert.equal(r.ok, false);
+});
