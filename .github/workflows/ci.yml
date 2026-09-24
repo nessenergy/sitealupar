@@ -19,6 +19,43 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  # O Lighthouse custa ~12 min; o resto do CI, ~40 s. Em 24/09/2026 seis
+  # execuções rodaram o gate inteiro sobre mudanças em `docs/`, que não entram
+  # no build: ~78 min medindo um `dist/` idêntico ao anterior. Este job decide,
+  # em segundos, se vale medir — e a regra tem teste em
+  # `scripts/lib/afeta-o-site.mjs`, porque errar para o lado do "pula" é pior
+  # que o desperdício: a regressão de SEO daquele dia nasceu em `public/`.
+  mudou:
+    runs-on: ubuntu-latest
+    outputs:
+      site: ${{ steps.decidir.outputs.site }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # O diff precisa do histórico dos dois lados da comparação.
+          fetch-depth: 0
+      - id: decidir
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            topo="${{ github.event.pull_request.head.sha }}"
+          else
+            base="${{ github.event.before }}"
+            topo="${{ github.sha }}"
+          fi
+          # Primeiro push de uma branch, força bruta no histórico ou base que
+          # não existe mais: sem diff confiável, mede-se.
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            echo "sem base confiável ($base) — Lighthouse roda"
+            echo "site=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          arquivos=$(git diff --name-only "$base" "$topo")
+          echo "$arquivos"
+          decisao=$(echo "$arquivos" | node scripts/afeta-o-site.mjs)
+          echo "site=$decisao" >> "$GITHUB_OUTPUT"
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -81,7 +118,10 @@ jobs:
   # congelar de novo" é promessa; com isto, é regra executável.
   qualidade:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, mudou]
+    # Pulado quando nada do que é servido mudou. O `build` — testes, links,
+    # CSP, continuidade, mapa de rotas — continua rodando sempre.
+    if: needs.mudou.outputs.site == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -172,7 +212,9 @@ jobs:
   publicar:
     runs-on: ubuntu-latest
     needs: [build, qualidade]
-    if: ${{ !cancelled() && github.event_name == 'push' && needs.build.result == 'success' && needs.qualidade.result == 'success' }}
+    # `!= 'failure'` e não `== 'success'`: numa mudança só de documentação o
+    # `qualidade` é pulado, e exigir sucesso dele impediria a publicação.
+    if: ${{ !cancelled() && github.event_name == 'push' && needs.build.result == 'success' && needs.qualidade.result != 'failure' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

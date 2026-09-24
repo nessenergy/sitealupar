@@ -64,7 +64,11 @@ npm run dev      # http://localhost:4321
 npm run build    # gera dist/ — rode antes de todo PR
 ```
 
-O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
+O CI roda `build` (testes, links, CSP, continuidade, mapa de rotas) em toda
+mudança, e o Lighthouse **só quando o que é servido pode ter mudado** — a
+regra está em `scripts/lib/afeta-o-site.mjs`, com teste. Mudança só em
+`docs/` não paga os 12 minutos do gate; mudança em `src/`, `public/`,
+`acervo/` ou no próprio CI, paga.
 
 ## Onde as coisas estão
 
