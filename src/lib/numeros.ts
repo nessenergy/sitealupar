@@ -11,13 +11,16 @@
  * declarar uma apuração que ninguém confirmou seria inventar. Quando a
  * Comunicação responder, muda-se uma linha.
  *
- * Os valores são exatamente os do texto enviado. Nenhum é arredondado aqui.
+ * **Limite não é valor.** O texto diz "mais de 10 mil km" e "quase 800 MW":
+ * publicar 10000 e 800 como exatos inventa precisão que a fonte não dá, e
+ * inventa para cima. Cada número carrega o tipo de limite que a fonte declara,
+ * e o schema usa `minValue`/`maxValue` no lugar de `value` nesses dois.
  */
 export const OBSERVADO_EM = '2026-09-21';
 
 export const NUMEROS = [
-  { chave: 'sistemas', valor: 45, unidade: 'sistemas de transmissão', rotulo: 'Sistemas de transmissão' },
-  { chave: 'linhas', valor: 10000, unidade: 'km', rotulo: 'Linhas de transmissão' },
-  { chave: 'capacidade', valor: 800, unidade: 'MW', rotulo: 'Capacidade instalada' },
-  { chave: 'paises', valor: 4, unidade: 'países', rotulo: 'Países de atuação' },
+  { chave: 'sistemas', valor: 45, unidade: '', tipo: 'exato', rotulo: 'Sistemas de transmissão' },
+  { chave: 'linhas', valor: 10000, unidade: 'km', tipo: 'minimo', rotulo: 'Linhas de transmissão' },
+  { chave: 'capacidade', valor: 800, unidade: 'MW', tipo: 'maximo', rotulo: 'Capacidade instalada' },
+  { chave: 'paises', valor: 4, unidade: '', tipo: 'exato', rotulo: 'Países de atuação' },
 ] as const;

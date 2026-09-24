@@ -20,13 +20,22 @@ export function organizacao(origem: string): Parte {
     name: 'Alupar',
     url: origem,
     logo: `${origem}/logo-alupar.svg`,
-    /* Os números do texto institucional, legíveis por máquina e com data de
-       observação — em prosa eles não são citáveis sem risco de envelhecer. */
+    /* Os números do texto institucional, legíveis por máquina e com a data de
+       referência — em prosa eles não são citáveis sem risco de envelhecer.
+       `minValue`/`maxValue` onde a fonte dá limite, e não valor exato; a data
+       vai em `description` porque `observationDate` só existe em `Observation`
+       e num `PropertyValue` seria descartada por quem valida. */
     additionalProperty: NUMEROS.map((n) => ({
       '@type': 'PropertyValue',
       name: n.rotulo,
-      value: { '@type': 'QuantitativeValue', value: n.valor, unitText: n.unidade },
-      observationDate: OBSERVADO_EM,
+      value: {
+        '@type': 'QuantitativeValue',
+        ...(n.tipo === 'minimo' ? { minValue: n.valor }
+          : n.tipo === 'maximo' ? { maxValue: n.valor }
+          : { value: n.valor }),
+        ...(n.unidade ? { unitText: n.unidade } : {}),
+      },
+      description: `Posição em ${OBSERVADO_EM.split('-').reverse().join('/')}`,
     })),
   };
 }
@@ -79,7 +88,9 @@ export function paginaWeb(
     name: titulo,
     description: descricao,
     inLanguage: lang[idioma],
-    isPartOf: { '@type': 'WebSite', url: `${origem}/` },
+    /* O site do idioma da própria página: em inglês, /en/ — senão a página
+       declara pertencer a um WebSite que não é o declarado ao lado dela. */
+    isPartOf: { '@type': 'WebSite', url: `${origem}${prefixo[idioma]}/` },
   };
 }
 
@@ -90,12 +101,16 @@ export function paginaWeb(
  * vídeo.
  */
 export function video(
-  { id, nome, descricao, origem }: { id: string; nome: string; descricao: string; origem: string },
+  { id, nome, descricao, origem, publicadoEm }:
+  { id: string; nome: string; descricao: string; origem: string; publicadoEm: string },
 ): Parte {
   return {
     '@type': 'VideoObject',
     name: nome,
     description: descricao,
+    /* Obrigatória para o Google: sem ela a marcação não rende resultado de
+       vídeo nenhum, e o trabalho da marcação se perde. */
+    uploadDate: publicadoEm,
     embedUrl: `https://www.youtube-nocookie.com/embed/${id}`,
     thumbnailUrl: `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
     publisher: { '@type': 'Organization', name: 'Alupar', url: origem },

@@ -68,11 +68,48 @@ test('o vídeo aponta a página de reprodução e a miniatura do YouTube', () =>
   assert.equal(v.name, 'Vídeo institucional');
 });
 
-test('a organização publica os números como QuantitativeValue, com data de observação', () => {
+test('a organização publica os quatro números como PropertyValue', () => {
   const props = organizacao(ORIGEM).additionalProperty as Record<string, unknown>[];
   assert.equal(props.length, 4);
-  const linhas = props.find((p) => p.name === 'Linhas de transmissão');
-  assert.equal(linhas?.['@type'], 'PropertyValue');
-  assert.deepEqual(linhas?.value, { '@type': 'QuantitativeValue', value: 10000, unitText: 'km' });
-  assert.equal(linhas?.observationDate, '2026-09-21');
+  assert.ok(props.every((p) => p['@type'] === 'PropertyValue'));
+});
+
+/* "mais de 10 mil km" é piso, "quase 800 MW" é teto. O vocabulário tem
+   `minValue` e `maxValue` justamente para isso — `value` afirmaria exatidão. */
+test('o piso vira minValue e o teto vira maxValue; nenhum dos dois vira value', () => {
+  const props = organizacao(ORIGEM).additionalProperty as Record<string, unknown>[];
+  const linhas = props.find((p) => p.name === 'Linhas de transmissão')?.value as Record<string, unknown>;
+  assert.deepEqual(linhas, { '@type': 'QuantitativeValue', minValue: 10000, unitText: 'km' });
+  const mw = props.find((p) => p.name === 'Capacidade instalada')?.value as Record<string, unknown>;
+  assert.deepEqual(mw, { '@type': 'QuantitativeValue', maxValue: 800, unitText: 'MW' });
+});
+
+test('contagem exata vira value, sem unitText: sistema e país não são unidade de medida', () => {
+  const props = organizacao(ORIGEM).additionalProperty as Record<string, unknown>[];
+  const sistemas = props.find((p) => p.name === 'Sistemas de transmissão')?.value as Record<string, unknown>;
+  assert.deepEqual(sistemas, { '@type': 'QuantitativeValue', value: 45 });
+});
+
+/* `observationDate` só existe em `Observation`; num `PropertyValue` ele é
+   descartado por quem valida, e a data — que é o ponto — se perde. */
+test('a data de referência viaja em description, que é propriedade válida de PropertyValue', () => {
+  const props = organizacao(ORIGEM).additionalProperty as Record<string, unknown>[];
+  assert.ok(props.every((p) => p.observationDate === undefined));
+  assert.match(String(props[0].description), /21\/09\/2026/);
+});
+
+test('a página em inglês pertence ao site em inglês, não ao português', () => {
+  const p = paginaWeb({
+    origem: ORIGEM, url: `${ORIGEM}/en/a-companhia/`,
+    titulo: 'Company', descricao: 'x', idioma: 'en',
+  });
+  assert.deepEqual(p.isPartOf, { '@type': 'WebSite', url: `${ORIGEM}/en/` });
+});
+
+/* `uploadDate` é obrigatória no VideoObject para o Google; sem ela a marcação
+   não rende resultado de vídeo nenhum. 2025-12-17 é o que o próprio YouTube
+   publica para este vídeo. */
+test('o vídeo declara a data de publicação', () => {
+  const v = video({ id: 'oqjwsKfpYZ4', nome: 'n', descricao: 'd', origem: ORIGEM, publicadoEm: '2025-12-17' });
+  assert.equal(v.uploadDate, '2025-12-17');
 });
