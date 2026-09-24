@@ -68,6 +68,7 @@ O CI roda `build`, Lighthouse CI (`lighthouserc.json`) e verificador de links.
 |---|---|
 | `docs/prd.md` | O que o site precisa ser e por quê. Começa aqui |
 | `docs/status.md` | Onde o projeto está hoje e o que falta para a virada |
+| `docs/relatorio-de-entrega.md` | O que foi entregue contra a proposta, e o que foi além dela |
 | `docs/decisoes.md` | As decisões e seus motivos |
 | `docs/marco-0-runbook.md` | Sete ações emergenciais, com verificação |
 | `docs/equipe.md` | Dimensionamento, alocação e lacunas |
